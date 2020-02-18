@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>自我梳理一下成品仓库存发货</title>
+      <link href="/2020/02/18/%E9%A2%86%E8%B5%AB/%E8%87%AA%E6%88%91%E6%A2%B3%E7%90%86%E4%B8%80%E4%B8%8B%E6%88%90%E5%93%81%E4%BB%93%E5%BA%93%E5%AD%98%E5%8F%91%E8%B4%A7/"/>
+      <url>/2020/02/18/%E9%A2%86%E8%B5%AB/%E8%87%AA%E6%88%91%E6%A2%B3%E7%90%86%E4%B8%80%E4%B8%8B%E6%88%90%E5%93%81%E4%BB%93%E5%BA%93%E5%AD%98%E5%8F%91%E8%B4%A7/</url>
+      
+        <content type="html"><![CDATA[<h2 id="梳理过程"><a href="#梳理过程" class="headerlink" title="梳理过程"></a>梳理过程</h2><p>我就觉得自己是个沙雕，没有原因。</p><p>新增了之后下面我们 来减一下库存然后呢新增下库存的出库记录<br>david说一个一个先进先出发货…….我的妈怎么一个先进先出<br>现在已知的是 产品的箱数也就是发货箱数，通过productAttr的packingNum*这个发货箱数=发货产品数<br>好，那么现在从t_stock_product当中取出该产品 按道理，其实应该上送他取自的是成品库存当中的哪个产品的，不然我不好搞呗<br>现在请注意是从成品仓库存当中进行发货，我这个傻逼我在做什么。。。。本来就是从成品仓库存当中取货出来，我还在想去哪里获得这个产品id????卧槽<br>我要疯了</p><p>好通过看原型图，我明白了，成品仓库存发货</p><ol><li>首先，因为是成品仓库存发货，我可以直接拿到t_stock_product主键</li><li>现在前端上送了发货单bean参数上来了，那么我的妈，现在是每一个t_stock_product记录都可以进行发货，那么里面的那个产品的选择意思是可以选择其他的产品还是说只能是该库存产品嘞。我觉得，管他嘞，就，按照不同的处理，反正他要给我上送，我觉得这个地方额，我等会问下david</li><li>前端上送该t_stock_product当中也就是这个产品的box_num发货箱数，然后我在后台嘞就可以得到他的发货产品数，t_product_attr.packing_num*box_num=quantity</li><li>好得到这个发货箱数以及发货的产品数量之后，那么这个t_stock_product对应的需要减去一下box_num箱数，嗯，还有就是产品数量，完美，就是不知道对不对</li><li>好现在t_stock_product处理并更新了，然后我们要处理下，先进先出的这样一个逻辑，那么就是t_stock_box_number,就是这个产品的库存有多少数量那么，他在t_stock_box_number当中就有多少数量，那么我们现在要做的就是额，stock_no为当前该库存id的并且status!=1,然后order by id asc，升序排列下，就这样。更新t_stock_box_number当中的数量为前端发货的产品数量，也就是，box_num*packing_num=quantity,也就是quantity这个数量。ok，又被我知道了。</li><li>好接近尾声，我们来处理下出入库记录。也就是t_out_put_repo_recored，状态肯定是出库啦，然后吧稍等我看下原型图。这个出库箱数也就是box_num,入库箱数为空，入库产品数量为空，结余箱数，额也就是原来的t_stock_product当中的box_num减去前端上送的这个box_num，这里要做下数据有效性处理。以及结余产品数量，也就是原来的t_stock_product当中的quantity减去前端上送的box_num*product_attr.packing_num=quantity这个数，也需要做下数据有效性处理。好啦就这样。</li></ol><p>日常看原型图自闭。香菇。。。<br>今天让何玉洁日常催我更新接口。我实在太懒了，就是吧我已经把闹钟调好就放在那里了，然后吧我，我真是个人才，我起床了，然后关了闹钟把其他的闹钟也给关了，然后吧，我倒头就继续睡去了。我本来壮志满满打算好看虚拟机。一想到这个虚拟机我就脑壳痛。<br>噫吁嚱，危乎难哉！我想好了，每天起床要是还这样就给自己两巴掌。就这样。</p><p>今天发现了两首新歌，还可以；<br>推荐下，骚等莫急我发下163的链接：</p><ul><li><a href="http://music.163.com/song/media/outer/url?id=503426999.mp3" target="_blank" rel="noopener">http://music.163.com/song/media/outer/url?id=503426999.mp3</a></li><li><a href="http://music.163.com/song/media/outer/url?id=1386737147.mp3" target="_blank" rel="noopener">http://music.163.com/song/media/outer/url?id=1386737147.mp3</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 领赫 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 领赫 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>信666工作交接</title>
       <link href="/2020/02/17/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/"/>
       <url>/2020/02/17/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/</url>
@@ -104,11 +129,11 @@
     
     
     <entry>
-      <title>david-prep单新增编辑逻辑</title>
-      <link href="/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/"/>
-      <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
+      <title>原型图-发货</title>
+      <link href="/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/"/>
+      <url>/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
       
-        <content type="html"><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p><blockquote><p>重点提醒：麻烦多看原型图以及数据库表字段设计</p></blockquote><h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p><p>客户操作通知发货，自动生成发货单<br>这个流程的业务逻辑</p><ul><li><p>中台 — 直发提货列表/直发提货详情页/通知发货</p><pre><code>操作：状态：操作待接受报价更新---&gt;接收报价待通知发货---&gt;通知发货取消提货操作在安排提货（等待到货状态）之前存在，之后就不能取消提货了</code></pre></li><li><p>中台 — 我的库存-成品仓库存/批量发货、发货</p></li><li><p>中台 — 我的库存-Prep仓库存/无发货功能<br>（直发提货-&gt;直发库存/Prep提货-&gt;Prep库存/Prep单-&gt;成品库存）</p></li></ul><p>david:</p><blockquote><p>前端发货有两种方式</p></blockquote><ul><li><p>1、直接给你直发提货单ID， 你根据这个ID查询直发提货管理的库存，去库存拿内部子单号发货。</p></li><li><p>2、告诉你成品库存号，已经发货的数量，后台去成品仓库，根据入库的时间先入先出，获取箱子（也就内部子单号）进行发货</p></li><li><p>t_stock_box_number这里里面记录了箱子信息，一个提货单入库一个箱子商品之后，会在这个里面添加一条记录，出库的时候出一个商品，除了减掉t_stock_box_number中的箱子t_stock_prudoct中记录的数量和箱子数也要减掉</p></li><li><p>还是我昨天说的，出库有2种方式。这个t_stock_box_number里面记录了每个提货单最终入库之后生产了哪些箱子，然后对应这发出去就可以了。</p></li></ul>]]></content>
       
       
       <categories>
@@ -129,11 +154,11 @@
     
     
     <entry>
-      <title>原型图-发货</title>
-      <link href="/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/"/>
-      <url>/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
+      <title>david-prep单新增编辑逻辑</title>
+      <link href="/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/"/>
+      <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
       
-        <content type="html"><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p><p>客户操作通知发货，自动生成发货单<br>这个流程的业务逻辑</p><ul><li><p>中台 — 直发提货列表/直发提货详情页/通知发货</p><pre><code>操作：状态：操作待接受报价更新---&gt;接收报价待通知发货---&gt;通知发货取消提货操作在安排提货（等待到货状态）之前存在，之后就不能取消提货了</code></pre></li><li><p>中台 — 我的库存-成品仓库存/批量发货、发货</p></li><li><p>中台 — 我的库存-Prep仓库存/无发货功能<br>（直发提货-&gt;直发库存/Prep提货-&gt;Prep库存/Prep单-&gt;成品库存）</p></li></ul><p>david:</p><blockquote><p>前端发货有两种方式</p></blockquote><ul><li><p>1、直接给你直发提货单ID， 你根据这个ID查询直发提货管理的库存，去库存拿内部子单号发货。</p></li><li><p>2、告诉你成品库存号，已经发货的数量，后台去成品仓库，根据入库的时间先入先出，获取箱子（也就内部子单号）进行发货</p></li><li><p>t_stock_box_number这里里面记录了箱子信息，一个提货单入库一个箱子商品之后，会在这个里面添加一条记录，出库的时候出一个商品，除了减掉t_stock_box_number中的箱子t_stock_prudoct中记录的数量和箱子数也要减掉</p></li><li><p>还是我昨天说的，出库有2种方式。这个t_stock_box_number里面记录了每个提货单最终入库之后生产了哪些箱子，然后对应这发出去就可以了。</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p><blockquote><p>重点提醒：麻烦多看原型图以及数据库表字段设计</p></blockquote><h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>]]></content>
       
       
       <categories>
