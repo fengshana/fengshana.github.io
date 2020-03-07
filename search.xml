@@ -2,8 +2,9 @@
 <search>
   <entry>
     <title>david说的面试题</title>
-    <url>/post/a2b4819.html</url>
-    <content><![CDATA[<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">「ChoiMinki：@David   登录页面得操作  我是在退出登录得时候缓存得路径  为啥重新启动程序会 缓存这个路径呢」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：@ChoiMinki 那个不用存缓存，作为参数拼接到url中」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「ChoiMinki：我是做的缓存处理」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「ChoiMinki：我不知道你怎么写的」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「ChoiMinki：我按照我得思路来的[捂脸]」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：不能写在缓存，假设我给你个链接要调到制定页面，缓存的方式就实现不了」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：但是作为参数就可以」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：想想为什么用我说的，而不能用你的方式@ChoiMinki」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br></pre></td></tr></table></figure>]]></content>
+    <url>/2020/03/07/%E9%A2%86%E8%B5%AB/%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<p>面试题</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">「ChoiMinki：@David   登录页面得操作  我是在退出登录得时候缓存得路径  为啥重新启动程序会 缓存这个路径呢」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：@ChoiMinki 那个不用存缓存，作为参数拼接到url中」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「ChoiMinki：我是做的缓存处理」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「ChoiMinki：我不知道你怎么写的」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「ChoiMinki：我按照我得思路来的[捂脸]」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：不能写在缓存，假设我给你个链接要调到制定页面，缓存的方式就实现不了」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：但是作为参数就可以」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br><span class="line"></span><br><span class="line">「David：想想为什么用我说的，而不能用你的方式@ChoiMinki」</span><br><span class="line">- - - - - - - - - - - - - - -</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>领赫</category>
       </categories>
@@ -13,7 +14,7 @@
   </entry>
   <entry>
     <title>领赫介绍</title>
-    <url>/post/5eb8e61d.html</url>
+    <url>/2020/03/05/%E9%A2%86%E8%B5%AB/%E9%A2%86%E8%B5%ABDESC/</url>
     <content><![CDATA[<h2 id="领赫"><a href="#领赫" class="headerlink" title="领赫"></a>领赫</h2><p>跨境<br>物流公司 example 快递一些货物<br>业务：欧洲国外客户 , 想买中国的一些东西，<br>通过领赫，领赫通过供应商拿到货，<br>并运送到欧洲国外可指定的地方<br>重要规则：主要业务（直发提货流程） 借助系统完成  </p>
 <p>客户想要买东西，发起一个客户提交直发提货，用户用的是中台系统，领赫公司用的是后台管理系统， 点开中台系统，预估价格界面（发起提货-申请一个提货买东西）/直发提货列表 用来发货  </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">直发提货 - 选择要提的东西 - 填写完信息之后生成订单</span><br><span class="line">生成一个订单，领赫公司就可以在后台管理系统当中看到 直发提货菜单</span><br><span class="line">订单状态为等待联系工厂，领赫即需要看哪个工厂可提供，联系厂家， 联系到了之后，将订单状态改为已联系，此时需要做价格评估，报价，（价格可不变&#x2F;也有时候需要评估）</span><br><span class="line">如果价格需要重新评估则中台系统需要中台客户重新确认价格，如果确认则为订单状态为待提货状态</span><br><span class="line">此时领赫公司去提货，当货进来之后即确认到货，订单状态变为待入库，并生成待入库订单，（确认商品和货物对不对的上），确认无误之后则入库存对应商品库存则增加。</span><br><span class="line">入库后告诉用户，用户发起是否可以发货请求，用户发起发货请求，走发货流程</span><br><span class="line">发货单通过邮件发给用户的邮箱，发的内容即为货物信息，涉及支付信息</span><br><span class="line">也有一些不需要支付，走线下弄完了，不需要支付就相当于一个记录功能</span><br><span class="line">用户确认支付，点击按钮进行支付，</span><br><span class="line">付款成功之后，生成渠道订单，发到对应的订单，流程</span><br><span class="line"></span><br><span class="line">prep  prepare 预先准备  提前让物流公司发货</span><br><span class="line">用户提一个提货单，物流公司发货，入库，</span><br><span class="line">入库不一样，有两个库存</span><br><span class="line">设计订单，库存两个需要分开</span><br><span class="line"></span><br><span class="line">询价</span><br><span class="line">后台系统里面菜单 有一个</span><br><span class="line">询价</span><br><span class="line">客户发起商品的 询价请求  公司对这个商品进行价格预估，告诉客户</span><br><span class="line"></span><br><span class="line">价格计算</span><br><span class="line">发起提货的时候</span><br><span class="line">价格模板</span><br><span class="line">费用计算模板 业务难点  计算费用</span><br><span class="line">如何设计模板</span><br><span class="line"></span><br><span class="line">直发货流程以及prepare发货流程</span><br><span class="line">基础数据的增删改查</span><br><span class="line">库存管理，商品管理入库则加商品</span><br><span class="line">客户管理等基础数据，录入这种的</span><br><span class="line">供应商 能够提供商品的一些厂家的基本信息，厂家&#x2F;供应商可能跟用户挂钩</span><br><span class="line"></span><br><span class="line">产品预添加</span><br><span class="line">发起提货的时候选择一些系统当中的数据</span><br><span class="line"></span><br><span class="line">系统先设定模板，询价的时候可能套用模板计算费用</span><br><span class="line"></span><br><span class="line">管理员列表 - 维护登录后台账户的 一些巴拉巴拉..</span><br><span class="line">账单-发邮件出去的-生成支付的一些信息</span><br><span class="line"></span><br><span class="line">技术方面：我们整个后台，现在是5个人，</span><br><span class="line">前端react+阿里框架</span><br><span class="line">后台springboot</span><br><span class="line">数据库mysql</span><br><span class="line"></span><br><span class="line">邮件服务</span><br><span class="line">- 邮件服务用mailgun，订单信息，商品信息</span><br><span class="line">- CDN 用阿里云的oss ，用于文件存储</span><br><span class="line">- 接Paypal的支付接口（接到邮件账单通知里，到时得研究下）</span><br><span class="line">- 快递鸟的快递查询接口</span><br><span class="line">商品图片放到阿里云服务器当中的oss对象存储</span><br><span class="line">上传接口到本地服务器，本地服务器再去传到阿里云的oss的对象存储</span><br><span class="line">oss生成网络链接</span><br><span class="line">paypal支付接入</span><br><span class="line">快递鸟的快递查询</span><br><span class="line"></span><br><span class="line">本地电脑的文件服务器就是一个文件夹</span><br><span class="line">oss对象存储就相当于是，远程电脑上的一个文件夹</span><br><span class="line">也就是服务器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">整个项目，大概一周的时间做完</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">后台登录接口 </span><br><span class="line">接口名称先确定</span><br><span class="line">先把接口名称确定再写接口</span><br><span class="line"></span><br><span class="line">关税 - 查询</span><br><span class="line">swagger2接口访问地址：</span><br><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;swagger-ui.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">后台UI设计：https:&#x2F;&#x2F;next.modao.cc&#x2F;app&#x2F;3a7da83645ba6bea7ac16bb3a3eb9cfb#screen&#x3D;s20cd83f9b8156312231300</span><br><span class="line"></span><br><span class="line">数据库设计规范：</span><br><span class="line">https:&#x2F;&#x2F;choerodon.io&#x2F;zh&#x2F;docs&#x2F;practice-specification-reference&#x2F;database-design-specification&#x2F;</span><br><span class="line"></span><br><span class="line">java开发规范：</span><br><span class="line">https:&#x2F;&#x2F;choerodon.io&#x2F;zh&#x2F;docs&#x2F;practice-specification-reference&#x2F;development&#x2F;developmen-to-micro-services&#x2F;</span><br><span class="line"></span><br><span class="line">团队管理：</span><br><span class="line">https:&#x2F;&#x2F;www.teambition.com&#x2F;project&#x2F;5dd6528d8233030019cdd3a5&#x2F;analytics</span><br><span class="line"></span><br><span class="line">git练习：</span><br><span class="line">https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;59e66364ea6e</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line">http:&#x2F;&#x2F;gitlab.yourshares.cn&#x2F;david&#x2F;lingo&#x2F;tree&#x2F;master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">领赫-原型图</span><br><span class="line">导航菜单栏</span><br><span class="line">总览</span><br><span class="line">询价单</span><br><span class="line">直发提货</span><br><span class="line">Prep提货</span><br><span class="line">入库单</span><br><span class="line">库存管理</span><br><span class="line">发货单</span><br><span class="line">渠道跟进单</span><br><span class="line">卸货清点</span><br><span class="line">客户管理</span><br><span class="line">产品管理</span><br><span class="line">渠道管理</span><br><span class="line">费用计算模板</span><br><span class="line">管理员管理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">这里进行估计的时候会比较麻烦，</span><br><span class="line">后台要根据选择的模板，以及当前货物的重量，提交....等信息，</span><br><span class="line">匹配之前模板设置的规则</span><br><span class="line"></span><br><span class="line">单位上，其实费用类型确定了，单位也就确定了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">后台 - 客户管理</span><br><span class="line">列表 - 查询所有客户信息 - 按日期降序排序</span><br><span class="line">恢复 - 禁用 客户接口</span><br><span class="line">编辑 - 内容和新增客户内容一样</span><br><span class="line">前端带*为必填</span><br><span class="line">个人信息 - 客户ID  后台生成 - 保证在系统中唯一性</span><br><span class="line">负责业务员 - 提供接口 - 后台当中的所有用户 t_user_info - 显示业务员所有信息先</span><br><span class="line">获取渠道和亚马逊站点 - 两种做法 </span><br><span class="line">一种做法是 不要传到前端来，但是前端有后台也有，但是需要统一</span><br><span class="line">这两个数据为基础数据，提前录入进的数据</span><br><span class="line">接口提供这两个信息，可以一个接口给过来</span><br><span class="line">基础数据的查询接口</span><br><span class="line">必须提供一个接口来查询 站点以及亚马逊站点信息 一个接口提供过来</span><br><span class="line">新增，编辑 接口，</span><br><span class="line">区别：编辑的客户编号给后台系统，以及编辑的内容给后台系统</span><br><span class="line"></span><br><span class="line">供应商</span><br><span class="line">国家信息 - 基础信息 - 直接存在前端</span><br><span class="line">数据库保存 国家省市xxx名字</span><br><span class="line">不需要获取国家信息的相关接口，前端写好 - 字段直接填写国家名称</span><br><span class="line">客户联系人 - 新增的时候一次性给后台系统</span><br><span class="line">联系人 maybe为数组 - []</span><br><span class="line">编辑有点区别 - 保存时一次性把数据全给我</span><br><span class="line">联系人 </span><br><span class="line">1. 存在id则update,不存在id则insert</span><br><span class="line">2. 将数据全部删除，重新生成</span><br><span class="line"></span><br><span class="line">产品管理</span><br><span class="line">查询所有产品列表</span><br><span class="line">编辑</span><br><span class="line">删除</span><br><span class="line">中台也有产品管理 - consumer_id</span><br><span class="line">中台只看到自己的产品唯一区别于</span><br><span class="line">只提交一个接口即可，唯一区别在于是否上送consumer_id参数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">单规格 -多规格  </span><br><span class="line">黑色衣服 - 白色衣服 - 衣服属性</span><br><span class="line">衣服多属性- 多规格</span><br><span class="line">衣服单属性 - 单规格</span><br><span class="line"></span><br><span class="line">查询客户接口- 所有后台的客户 提供接口查询所有客户信息- 基础信息</span><br><span class="line">查询客户 - 查询客户的供应商信息 - 供应商跟客户相关 - 添加供应商时需要客户</span><br><span class="line">产品类型 - 前段写死（或者是后台提供产品类型接口以供选择）</span><br><span class="line">是否多规格.....不需要后台提供接口</span><br><span class="line"></span><br><span class="line">产品信息 - 海关编码</span><br><span class="line">海关信息 -海关编码</span><br><span class="line">产品单价 - 海关单价 前段多名称 但是对应的后台数据库当中只有一个字段</span><br><span class="line">应用名称 - 对应产品表的产品名称</span><br><span class="line">t_product</span><br><span class="line">t_product_attr 产品属性表</span><br><span class="line"></span><br><span class="line">产品多规格产品</span><br><span class="line">前段处理不一样</span><br><span class="line">相当于提交数组</span><br><span class="line">产品单规格即提交一个数据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">渠道管理</span><br><span class="line">查询 - 删除接口</span><br><span class="line">系统当中的所有渠道</span><br><span class="line">编辑</span><br><span class="line">点开后 - 系统自动生成渠道代码</span><br><span class="line">t_channel 主表</span><br><span class="line">国家名字  前端提名字给后台</span><br><span class="line">运输方式 -选择 - 查询接口数据在t_transport_type 写死了</span><br><span class="line">steps字段对应表 t_transport_step 表  提前录入  </span><br><span class="line">t_transport_type 的steps 关联外键  t_transport_step</span><br><span class="line">走海运 - 海运步骤</span><br><span class="line">举例  快递- </span><br><span class="line">all_status  一个过程经历的状态  基础数据 为功能服务</span><br><span class="line">编辑渠道页面  -  一次性拿 -</span><br><span class="line"> 运输方式以及相对应的步骤信息传送给前端，两者关联</span><br><span class="line"></span><br><span class="line">步骤当中有许多状态 至于选择哪种状态根据步骤关联</span><br><span class="line">每种状态有触发字段</span><br><span class="line">单-选择渠道- 状态及运输的状态 </span><br><span class="line">渠道管理编辑的信息</span><br><span class="line"></span><br><span class="line">渠道编辑要提供基础数据的查询</span><br><span class="line">渠道的主表就是t_channel</span><br><span class="line">渠道可以没有步骤 t_channel_step当中的记录可以没有</span><br><span class="line">一个步骤可能没有状态，</span><br><span class="line"></span><br><span class="line">应该提供哪些接口出去...</span><br><span class="line">供应商管理相关表：t_suppier，t_supplier_connecter</span><br><span class="line">渠道管理相关表: </span><br><span class="line">t_channel, t_channel_step, t_channel_step_status, t_channel_step_status_trigger, t_transport_step, t_transport_type</span><br><span class="line">产品管理相关表</span><br><span class="line">t_product, t_product_atrr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">管理员和用户角色数据库设计。</span><br><span class="line">MySQL官网保留关键字：https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;5.7&#x2F;en&#x2F;keywords.html</span><br><span class="line">参照原型图【管理员列表】</span><br><span class="line"></span><br><span class="line">管理员列表</span><br><span class="line">账号</span><br><span class="line">名称</span><br><span class="line">角色</span><br><span class="line">编辑管理员</span><br><span class="line">账号</span><br><span class="line">角色</span><br><span class="line">名称</span><br><span class="line">登录密码</span><br><span class="line">重复密码</span><br><span class="line">角色管理</span><br><span class="line">角色名称</span><br><span class="line">编辑角色</span><br><span class="line">角色名称</span><br><span class="line">权限设置</span><br><span class="line">页面权限</span><br><span class="line">操作权限</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">本数据库设计规范是以   MySQL数据库    为基准，</span><br><span class="line">主要分为四个部分，</span><br><span class="line">即 建表规约、索引规约、SQL语句和ORM映射。</span><br><span class="line"></span><br><span class="line">其中，将阐述在建表过程中的要求和约定，</span><br><span class="line">例如   数据库名称、表名称、视图名称  以及  表别名使用  等，</span><br><span class="line">最后还将描述如何在ORM中进行数据库表映射等。</span><br><span class="line"></span><br><span class="line">此规范是   Choerodon  社区在研发和实施的过程中经验的总结，</span><br><span class="line">希望能够给广大读者提供一个参考和借鉴，</span><br><span class="line">俗话说，“百密一疏”，其中如有不正确的地方，烦请不吝指正。</span><br><span class="line"></span><br><span class="line">Note：如若使用Choerodon猪齿鱼微服务开发框架，强烈建议参考使用此规范，</span><br><span class="line">这样可以保持与开发框架数据库设计规范的一致性。</span><br><span class="line"></span><br><span class="line">建表规约</span><br><span class="line">强制要求</span><br><span class="line">1. </span><br><span class="line">表达   是&#x2F;否  概念的字段，必须使用   is_xxx  的方式命名，</span><br><span class="line">数据类型是   unsigned tinyint(1  表示是，0   表示否)。</span><br><span class="line">说明：任何字段如果为非负数，必须是   unsigned。</span><br><span class="line">正例：表达逻辑删除的字段名 is_deleted，1表示删除，0表示未删除。</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">表名、字段名     必须使用   小写字母或数字，</span><br><span class="line">禁止出现数字开头，</span><br><span class="line">禁止两个下划线中间只出现数字。</span><br><span class="line">说明：MySQL在Windows下不区分大小写，但是在Linux下默认是区分大小写。</span><br><span class="line">因此，数据库名、表名、字段名，都不允许出现任何大写字母，避免节外生枝。</span><br><span class="line">正例：hap_admin,rdc_config,level3_name</span><br><span class="line">反例：HapAdmin,rdcConfig,level_3_name  </span><br><span class="line">（数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑）</span><br><span class="line">3.</span><br><span class="line">表名  不使用  复数名词。</span><br><span class="line">说明：表名  应该仅仅表示表里面的    实体内容，不应该表示   实体数量，</span><br><span class="line">对应于DO类名也是单数形式，符合表达习惯。</span><br><span class="line">4. </span><br><span class="line">禁用保留字</span><br><span class="line">如  desc、range、match、delayed等，请参考MySQL官方保留字。</span><br><span class="line">5.</span><br><span class="line">主键索引名为  pk_字段名；</span><br><span class="line">唯一索引名为  uk_字段名；</span><br><span class="line">普通索引名则为  idx_字段名。</span><br><span class="line">说明：pk_  即  primary_key;  uk_ 即  unique_key;  idx  即  index</span><br><span class="line">6.</span><br><span class="line">小数类型为  decimal，禁止使用   float 和  double;</span><br><span class="line">说明：float  和  double在存储的时候，</span><br><span class="line">存在精度损失的问题，很可能在值的比较时，得到不正确的结果。</span><br><span class="line">如果存储的数据范围超过  decimal  的范围，建议将数据拆成整数和小数分开存储。</span><br><span class="line">7. </span><br><span class="line">如果存储的字符串长度几乎相等，使用   char  定长字符串类型。</span><br><span class="line">8.</span><br><span class="line">varchar  是可变长字符串，不预先分配存储空间，长度不要超过5000，</span><br><span class="line">如果存储长度大于此值，定义字段类型为text,独立出来一张表，</span><br><span class="line">用主键来对应，避免影响其他字段索引效率。</span><br><span class="line">说明：该表的命名以  原表名_字段缩写  的格式命名。</span><br><span class="line">9.</span><br><span class="line">表必备字段：</span><br><span class="line">id , </span><br><span class="line">create_date , </span><br><span class="line">last_update_date , </span><br><span class="line">create_by , </span><br><span class="line">last_update_by , </span><br><span class="line">object_version_number。</span><br><span class="line">也可以叫做who字段，就是每个表里必须具备的字段。</span><br><span class="line">这些字段起到类似metadata的作用。</span><br><span class="line">这些字段的作用很大，例如，数据分析的时候，可以使用last_update_date作为数据抽取的时间戳字段。</span><br><span class="line">id 必为  主键，类型为  unsigned bigint、单表时自增、步长为1</span><br><span class="line">create_date 是此条数据的创建时间，数据类型为  datetime 类型</span><br><span class="line">last_update_date 是此条数据的最后更新时间，数据类型为 datetime 类型</span><br><span class="line">create_by 是此条数据的创建人，数据类型为  unsigned bigint类型</span><br><span class="line">last_update_by 是此条数据的最后更新人，数据类型为  unsigned bigint 类型</span><br><span class="line">object_version_number 是此条数据的版本号，如果启用数据库数据版本控制，则会使用到次数据</span><br><span class="line">以下是基于MySQL数据库的创建脚本，可供参考。</span><br><span class="line">column (name:&quot;object_version_number&quot;,   type：&quot;BIGINT UNSIGNED&quot;,  defaultValue:&quot;1&quot;)</span><br><span class="line">column (name:&quot;created_by&quot;,  type:&quot;BIGINT UNSIGNED&quot;, defaultValue:&quot;0&quot;)</span><br><span class="line">column (name:&quot;creation_date&quot;, &quot;type:&quot;DATETIME&quot;, defaultValueConputed:&quot;CURRENT_TIMESTAMP&quot;)</span><br><span class="line">column(name:&quot;last_update_by&quot;,  type:&quot;BIGINT UNSIGNED&quot;,defaultValue:&quot;0&quot;)</span><br><span class="line">column(name:&quot;last_update_date&quot;,type:&quot;DATETIME&quot;,defaultValueConputed:&quot;CURRENT_TIMESTAMP&quot;)</span><br><span class="line">10.</span><br><span class="line">表的命名最好是加上  业务名称_表的作用</span><br><span class="line">正例：kanban_task 、devops_project、website_config</span><br><span class="line"></span><br><span class="line">推荐规约</span><br><span class="line">1. 数据库名称  或者  编码 与  应用名称  或者 编码  尽量一致。</span><br><span class="line">2. 如果 修改字段含义 或者对   字段表示的状态追加时， 需要及时更新字段注释。</span><br><span class="line">3. 字段允许  适当冗余，（所谓冗余是指   在不同的表里面存储相同的字段），</span><br><span class="line">以提高查询性能，但必须考虑数据一致，</span><br><span class="line">冗余字段应遵循：</span><br><span class="line"> 不是频繁修改的字段</span><br><span class="line">不是 varchar 超长字段，更不能是text字段</span><br><span class="line">正例：商品类目名称使用频率高，字段长度短，名称基本一成不变，</span><br><span class="line">可在相关联的表中冗余存储类目名称，避免关联查询。</span><br><span class="line">4. 单表行数超过  500 万行或者单表超过 2 GB，才推荐分库分表。</span><br><span class="line">说明：如果预计三年后的数量根本达不到这个级别，请不要在创建时就分库分表。</span><br><span class="line"></span><br><span class="line">规约参考</span><br><span class="line">合适的字符存储长度，不但节约数据库空间、节约索引存储</span><br><span class="line">更重要的是提升检索速度。</span><br><span class="line">正例：如下表，其中无符号值  可以避免误存 负数，  且扩大了表示范围。</span><br></pre></td></tr></table></figure>
@@ -29,7 +30,7 @@
   </entry>
   <entry>
     <title>信666分润规则</title>
-    <url>/post/9bdae277.html</url>
+    <url>/2020/03/02/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E6%98%8E%E6%98%9F%E5%A7%90%E4%BF%A1666%E5%88%86%E6%B6%A6%E8%A7%84%E5%88%99/</url>
     <content><![CDATA[<h2 id="分润规则-countProfit"><a href="#分润规则-countProfit" class="headerlink" title="分润规则-countProfit"></a>分润规则-countProfit</h2><p>我就不直接贴代码了，说一下流程</p>
 <p>老版本信666分有两端的分润，一端是客户端也就是商户端，另一端就是代理商端。</p>
 <h3 id="客户端的分润模式以及分润规则"><a href="#客户端的分润模式以及分润规则" class="headerlink" title="客户端的分润模式以及分润规则"></a>客户端的分润模式以及分润规则</h3><p>先会进行检查</p>
@@ -43,7 +44,7 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/post/ba23bdb7.html</url>
+    <url>/2020/03/02/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%854/</url>
     <content><![CDATA[<p>今天david和玉洁说我变了。<br>不过我还挺开心的。<br>变得比以前开朗，能开玩笑，不是一味的只会敲代码了。<br>我说这兴许是因为田乐和周聪的缘故。<br>是的。<br>尤其是田乐。<br>他教会我很多东西，做人，做事，如何对待自己。<br>就像哥哥一样。<br>想想还真有点对不住那些对我好的人。</p>
 <blockquote>
 <p>超越别人都是一步步来的，也没有什么一步登天，每次只追上你前面的那个人，慢慢的你就会超越很多人</p>
@@ -62,7 +63,7 @@
   </entry>
   <entry>
     <title>jenkins</title>
-    <url>/post/55c27d12.html</url>
+    <url>/2020/03/01/%E9%A2%86%E8%B5%AB/%E6%B8%A0%E9%81%93%E8%B7%9F%E8%BF%9B%E5%8D%95%E5%8D%B8%E8%B4%A7%E6%B8%85%E5%8D%95/</url>
     <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>/var/log/jenkins/jenkins.log  这个是jenkins日志</p>
 <p>它把磁盘撑爆了，你看下能否修改一下jenkins</p>
 <p>这个系统，里面有2个物理盘， 系统在40G这个盘，/root/data下面挂载了一个200G的盘，数据库存在这个地方。但是jenkins装载系统盘，所以把40G的系统盘撑爆了</p>
@@ -78,7 +79,7 @@
   </entry>
   <entry>
     <title>账单样式</title>
-    <url>/post/d1f6b5be.html</url>
+    <url>/2020/02/26/%E9%A2%86%E8%B5%AB/%E8%B4%A6%E5%8D%95/</url>
     <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>今天突然觉得内心十分惶恐不安。<br>实在是太茫然了。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">		&lt;meta charset&#x3D;&quot;utf-8&quot; &#x2F;&gt;</span><br><span class="line">		&lt;title&gt;&lt;&#x2F;title&gt;</span><br><span class="line">		&lt;style&gt;</span><br><span class="line">			.right&#123;</span><br><span class="line">				text-align: right;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line">			.indent&#123;</span><br><span class="line">				text-indent: 180px;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line">			.widd&#123;</span><br><span class="line">				width: 230px;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line">			.centt&#123;</span><br><span class="line">				text-align: center;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line">			.bolder&#123;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">				font-weight: bolder;</span><br><span class="line">			&#125;</span><br><span class="line">			.ant-btn-red &#123;</span><br><span class="line">			    color: #FFF;</span><br><span class="line">			    background-color: #FF5A44;</span><br><span class="line">			    border-color: #FF5A44;</span><br><span class="line">			    text-shadow: 0 -1px 0 rgba(0,0,0,0.12);</span><br><span class="line">			    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);</span><br><span class="line">			    box-shadow: 0 2px 0 rgba(0,0,0,0.045);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">.ant-btn &#123;</span><br><span class="line">			    line-height: 2.2;</span><br><span class="line">			    position: relative;</span><br><span class="line">			    display: inline-block;</span><br><span class="line">			    font-weight: 400;</span><br><span class="line">			    white-space: nowrap;</span><br><span class="line">			    text-align: center;</span><br><span class="line">			    background-image: none;</span><br><span class="line">			    border: 1px solid transparent;</span><br><span class="line">			    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);</span><br><span class="line">			    box-shadow: 0 2px 0 rgba(0,0,0,0.015);</span><br><span class="line">			    cursor: pointer;</span><br><span class="line">			    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);</span><br><span class="line">			    transition: all .3s cubic-bezier(.645, .045, .355, 1);</span><br><span class="line">			    -webkit-user-select: none;</span><br><span class="line">			    -moz-user-select: none;</span><br><span class="line">			    -ms-user-select: none;</span><br><span class="line">			    user-select: none;</span><br><span class="line">			    -ms-touch-action: manipulation;</span><br><span class="line">			    touch-action: manipulation;</span><br><span class="line">			    height: 32px;</span><br><span class="line">			    padding: 0 15px;</span><br><span class="line">			    font-size: 14px;</span><br><span class="line">			    border-radius: 4px;</span><br><span class="line">			    color: rgba(0,0,0,0.65);</span><br><span class="line">			    background-color: #fff;</span><br><span class="line">			    border-color: #d9d9d9;</span><br><span class="line">			&#125;</span><br><span class="line">			.font&#123;font-size: 10px;&#125;</span><br><span class="line">		&lt;&#x2F;style&gt;</span><br><span class="line">	&lt;&#x2F;head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">		&lt;table width&#x3D;&quot;650px&quot; height&#x3D;&quot;100%&quot; style&#x3D;&quot;background-color: white;margin: auto; font-family:&#39;Microsoft YaHei&#39;;&quot;&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 25px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;4&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;width: 50px;&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr &gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;bolder&quot;&gt;&lt;img width&#x3D;&quot;120px&quot; height&#x3D;&quot;25px&quot; src&#x3D;&quot;http:&#x2F;&#x2F;fba-srm.oss-cn-hongkong.aliyuncs.com&#x2F;202002241734417550微信图片_20200224173432.png&quot;&#x2F;&gt;&lt;&#x2F;td&gt;&lt;!--FBABEE--&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;2&quot; style&#x3D;&quot;text-align: right;font-size: 25px;font-weight: bold;&quot; &gt;INVOICE&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;font&quot;&gt;Shenzhen Linkhub Supply-Chain Management Co.LTD&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;font-weight: bolder;&quot;&gt;Invoince ID&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;&quot;&gt;1904193751&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;font&quot;&gt;Add:302,Building D,New Retail Tech Industrial Zoon&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;font-weight: bolder;&quot;&gt;FBA ID&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;&quot;&gt;XXXXXXX&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;font&quot;&gt;GUshu,Xixiang Street,Bao&#39;An,518000&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;font-weight: bolder;&quot;&gt;Date Issued&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;&quot;&gt;2019&#x2F;05&#x2F;02&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;font&quot;&gt;Guangdong Province,China&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;font-weight: bolder;&quot;&gt;Due Date&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;font-size: 10px;text-align: right;&quot;&gt;2019&#x2F;05&#x2F;02&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 30px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;2&quot; class&#x3D;&quot;bolder&quot;&gt;Bill to&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;bolder&quot;&gt;Ship to&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;2&quot; class&#x3D;&quot;font&quot;&gt;公司名称&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;font&quot;&gt;24300 Nandina Ave,Moreno Valley,CA,&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;2&quot; class&#x3D;&quot;font&quot;&gt;公司地址&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot; class&#x3D;&quot;font&quot;&gt;92551,United States&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 30px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;bolder&quot;&gt;Items Description&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;4&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;bolder&quot;&gt;费用集合一&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;bolder indent&quot; colspan&#x3D;&quot;2&quot;&gt;Rate&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;centt bolder&quot;&gt;Quantity&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;right bolder&quot;&gt;Amount&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;font&quot;&gt;固定费用&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;indent&quot; colspan&#x3D;&quot;2&quot;&gt;1&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;centt&quot;&gt;x 10 &lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;right&quot;&gt;$ 10.00&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;font&quot;&gt;快递取件费用&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;indent&quot; colspan&#x3D;&quot;2&quot;&gt;0&#x2F;kg&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;centt&quot;&gt;x 121kg&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;right&quot;&gt;$ 0.00&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;font&quot;&gt;关税&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;indent&quot; colspan&#x3D;&quot;2&quot;&gt;0&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;centt&quot;&gt;x 1331 &lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;right&quot;&gt;$ 0.00&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;font&quot;&gt;重量变动费用&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;indent&quot; colspan&#x3D;&quot;2&quot;&gt;8&#x2F;kg&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;centt&quot;&gt;x 121kg&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;right&quot;&gt;$ 968.00&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;1&quot; class&#x3D;&quot;bolder&quot;&gt;偏远地区配送附加费&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;4&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;font&quot;&gt;偏远地区配送附加费&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;indent&quot; colspan&#x3D;&quot;2&quot;&gt;90&#x2F;kg&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;centt&quot;&gt;x 121kg&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;right&quot;&gt;$ 10890.00&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;bolder&quot;&gt;Total&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;right bolder&quot;&gt;$ 11868.00&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 30px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;bolder&quot;&gt;Bank Infomation&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;4&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 2px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td style&#x3D;&quot;width: 100px;&quot; class&#x3D;&quot;bolder&quot;&gt;Paypal Account&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;widd&quot;&gt;Palpal@fbabee.com&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;bolder&quot;&gt;Payoneer Account&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;widd&quot;&gt;fsn2915324940@163.com&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;bolder&quot;&gt;T&#x2F;T&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td class&#x3D;&quot;widd&quot;&gt;银行账号信息，暂时明确不了&lt;&#x2F;td&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;3&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">				&lt;tr style&#x3D;&quot;height: 80px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">			&lt;tr style&#x3D;&quot;height: 30px;&quot;&gt;</span><br><span class="line">				&lt;td colspan&#x3D;&quot;5&quot;&gt;</span><br><span class="line">					&lt;div style&#x3D;&quot;margin:0 auto;width:200px;&quot;&gt; </span><br><span class="line">					&lt;a href&#x3D;&quot;https:&#x2F;&#x2F;www.baidu.com&quot; class&#x3D;&quot;ant-btn-red ant-btn&quot; style&#x3D;&quot; text-decoration: none;&quot;&gt;PayPal确认支付&lt;&#x2F;a&gt; </span><br><span class="line">					&lt;&#x2F;div&gt; 					</span><br><span class="line">				&lt;&#x2F;td&gt;</span><br><span class="line">			&lt;&#x2F;tr&gt;</span><br><span class="line">		&lt;&#x2F;table&gt;</span><br><span class="line">	&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -90,7 +91,7 @@
   </entry>
   <entry>
     <title>面试题</title>
-    <url>/post/5205ee75.html</url>
+    <url>/2020/02/26/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<p>自个敲一遍，记一遍，转载的<br><a href="https://blog.csdn.net/fangchao2011/article/details/89203535" target="_blank" rel="noopener">https://blog.csdn.net/fangchao2011/article/details/89203535</a><br><a href="https://blog.csdn.net/sufu1065/article/details/88051083" target="_blank" rel="noopener">https://blog.csdn.net/sufu1065/article/details/88051083</a></p>
 ]]></content>
       <categories>
@@ -102,7 +103,7 @@
   </entry>
   <entry>
     <title>看书</title>
-    <url>/post/30741ae2.html</url>
+    <url>/2020/02/21/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>《大话数据结构》<br>程杰著</p>
 <p>这个是我老师推荐的。之前看了大话设计模式，然后那个时候老师还不推荐我看这本书，我看不懂主要是因为。<br>好了买了书总得做个样子瞧上一两眼吧。</p>
 <p>额，我就记下我觉得有意义的知识点吧，就不全书都照搬下来了。</p>
@@ -134,7 +135,7 @@
   </entry>
   <entry>
     <title>paypal支付流程</title>
-    <url>/post/8078fedf.html</url>
+    <url>/2020/02/20/%E9%A2%86%E8%B5%AB/paypal%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/</url>
     <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><ul>
 <li>浏览器【回车】：<a href="https://www.paypal.com/；就到了：https://www.paypal.com/c2/home界面" target="_blank" rel="noopener">https://www.paypal.com/；就到了：https://www.paypal.com/c2/home界面</a></li>
 <li>点击右上方的【注册】按钮，就到了此界面：<a href="https://www.paypal.com/c2/webapps/mpp/account-selection" target="_blank" rel="noopener">https://www.paypal.com/c2/webapps/mpp/account-selection</a></li>
@@ -168,7 +169,7 @@
   </entry>
   <entry>
     <title>自我梳理一下成品仓库存发货</title>
-    <url>/post/10efa7f3.html</url>
+    <url>/2020/02/18/%E9%A2%86%E8%B5%AB/%E8%87%AA%E6%88%91%E6%A2%B3%E7%90%86%E4%B8%80%E4%B8%8B%E6%88%90%E5%93%81%E4%BB%93%E5%BA%93%E5%AD%98%E5%8F%91%E8%B4%A7/</url>
     <content><![CDATA[<h2 id="梳理过程"><a href="#梳理过程" class="headerlink" title="梳理过程"></a>梳理过程</h2><p>我就觉得自己是个沙雕，没有原因。</p>
 <p>新增了之后下面我们 来减一下库存然后呢新增下库存的出库记录<br>david说一个一个先进先出发货…….我的妈怎么一个先进先出<br>现在已知的是 产品的箱数也就是发货箱数，通过productAttr的packingNum*这个发货箱数=发货产品数<br>好，那么现在从t_stock_product当中取出该产品 按道理，其实应该上送他取自的是成品库存当中的哪个产品的，不然我不好搞呗<br>现在请注意是从成品仓库存当中进行发货，我这个傻逼我在做什么。。。。本来就是从成品仓库存当中取货出来，我还在想去哪里获得这个产品id????卧槽<br>我要疯了</p>
 <p>好通过看原型图，我明白了，成品仓库存发货</p>
@@ -199,7 +200,7 @@
   </entry>
   <entry>
     <title>信666工作交接</title>
-    <url>/post/cf5e729c.html</url>
+    <url>/2020/02/17/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/</url>
     <content><![CDATA[<h2 id="情况"><a href="#情况" class="headerlink" title="情况"></a>情况</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">二进哥：</span><br><span class="line">你们进件有问题，渠道费率不对</span><br><span class="line">这个问题你们不解决还会陆续出现</span><br><span class="line">就是费率的问题</span><br><span class="line">商户是0.65，后面又有个进件是0.75</span><br><span class="line">商户本来是0.65，但是后面用另一张卡在同一个渠道号进件了0.75，渠道就会按照最后一次进件时的费率扣费</span><br><span class="line">商户在系统上是0.65，但是渠道是0.75，已经是扣了0.75额手续费</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -247,7 +248,7 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/post/ba23bdb7.html</url>
+    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%852/</url>
     <content><![CDATA[<p>好像，都被我弄的挺糟糕的。<br>好朋友也是。<br>用于承认自己的错误，直视自己的错误。往后才会发现自己更大的错误。<br>当下自己的错误就是，不敢面对自己的错误。只有自己踏出了这一步，感觉还挺轻松的。<br>那句话，我犹豫了很久，真的挺久的，我不敢发出去。<br>好像发了这句话我就挺没有面子的。不过，我觉得我发了这句话之后，我才觉得释然。<br>承认自己的缺点，不是没有面子，而是能够让你能够警醒，时刻保持谦卑。<br>这何尝不是一种好的成长。<br>天底下，再没我这种人了。<br>自私自利。一点也不为别人考虑。<br>好了，就这样吧，反正是自己做的不对，就能推脱。<br>这样自己才会长大。</p>
 ]]></content>
       <categories>
@@ -259,7 +260,7 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/post/ba23bdb7.html</url>
+    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%853/</url>
     <content><![CDATA[<p>真是<br>恶心</p>
 ]]></content>
       <categories>
@@ -271,7 +272,7 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/post/ba23bdb7.html</url>
+    <url>/2020/02/12/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%85/</url>
     <content><![CDATA[<p>时光让我们相遇，却又让我们各奔东西。<br>我只是觉得，如果再停留，我就永远不会长大。<br>一直活在没有风雨的温室里面。<br>永远独立不了。</p>
 <p>我知道，如果我再不离开。我的结局，我想一下啊，我觉得应该好不了多少。<br>会变成一个废物。<br>嗯，真的，就这样吧。<br>我要是真的想要长大，我就应该拿出勇气来，去面对自己，面对一段没有光的日子。<br>而不是一直畏畏缩缩。<br>这不是我要的。<br>对。我相信自己的选择。<br>兴许也是因为自己的原因。怎么说呢，能力不足，不值得让人相信的缘故吧。<br>可是一直待着的话，自己的心情只会越来越差，水平也会越来越差。<br>我不相信自己的能力就这么点。<br>不赌一把，谁知道自己会输会赢。<br>所以，何不放开了，去放手一搏。<br>好了，就这样吧。</p>
 ]]></content>
@@ -284,7 +285,7 @@
   </entry>
   <entry>
     <title>微信公众号</title>
-    <url>/post/f66864f1.html</url>
+    <url>/2020/02/11/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%B9%B3%E5%8F%B0%E6%B5%8B%E8%AF%95/</url>
     <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>有道： <a href="http://note.youdao.com/noteshare?id=808f14124df9ed7797ac983b8a794f2b" target="_blank" rel="noopener">http://note.youdao.com/noteshare?id=808f14124df9ed7797ac983b8a794f2b</a><br>微信公众平台-测试号<br>沙箱环境登录管理平台：<br>配置信息：<br><a href="https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index" target="_blank" rel="noopener">https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&amp;t=sandbox/index</a><br>appID ： wx7b787880dd748935<br>appsecret :    31a353cb37d7d700b64439b5f514ff95</p>
 <p>该url当中的域名使用的是natapp软件</p>
 <p>电脑-属性-配置natapp.exe的环境变量<br>Win+R调起cmd–输入命令：natapp -authtoken 秘钥<br>参考博客进行配置内网穿透：<a href="https://blog.csdn.net/weixin_39927967/article/details/80552535" target="_blank" rel="noopener">https://blog.csdn.net/weixin_39927967/article/details/80552535</a><br>该url当中除去域名为 springboot当中的接口<br>URL  ：  <a href="http://fainuk.natappfree.cc/apiservice/weChat/get/gzh/openid" target="_blank" rel="noopener">http://fainuk.natappfree.cc/apiservice/weChat/get/gzh/openid</a><br>接口内容具体如下：</p>
@@ -318,8 +319,24 @@
       </tags>
   </entry>
   <entry>
+    <title>david-prep单新增编辑逻辑</title>
+    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
+<blockquote>
+<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
+</blockquote>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
+]]></content>
+      <categories>
+        <category>领赫</category>
+      </categories>
+      <tags>
+        <tag>领赫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>原型图-发货</title>
-    <url>/post/6a53a746.html</url>
+    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
     <content><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p>
 <p>客户操作通知发货，自动生成发货单<br>这个流程的业务逻辑</p>
 <ul>
@@ -357,24 +374,8 @@
       </tags>
   </entry>
   <entry>
-    <title>david-prep单新增编辑逻辑</title>
-    <url>/post/dbf6b750.html</url>
-    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
-<blockquote>
-<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
-</blockquote>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
-]]></content>
-      <categories>
-        <category>领赫</category>
-      </categories>
-      <tags>
-        <tag>领赫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>渠道跟进单以及发货相关理解</title>
-    <url>/post/a3473683.html</url>
+    <url>/2020/02/07/%E9%A2%86%E8%B5%AB/%E6%B8%A0%E9%81%93%E8%B7%9F%E8%BF%9B%E5%8D%95%E5%8F%91%E8%B4%A7%E7%9B%B8%E5%85%B3%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>发货  渠道跟进单 业务<br>生成订单发给客户<br>生成支付连接 发给客户<br>注意<br>我们原来入库的时候 有个地方有问题<br>提货单提货有很多商品<br>比如商品<br>我们从提货单生成入库单 要把每一个箱子都要生成一个单号 内部子单号<br>同一个商品有10箱，生成10个箱子序号，也就是内部子单号，箱子序号<br>入库单–前端这里有问题</p>
 <p>库存虽然显示的是商品，<br>库存有两箱，内部子单号就有两条<br>发货也是一个先入先出的一个规则，客户中台不需要知道这个规则<br>优先入库的先发<br>prep不存在发货<br>直发提货发货的时候以一个提货单为单位发货<br>prep的商品通过prep单转变成成品的时候<br>10箱商品对应了<br>成品仓库发10箱<br>入库单搞错了<br>加了一个表 t_stock_box_number<br>库存有10箱，该表就有10条记录，<br>t_repo_order_product<br>box_number 箱数没什么意义<br>入库单生成提货单的时候，根据箱子数拆成一条一条记录<br>库存<br>发货的时候，发货的过程 用户在直发提货假如说已经入库了，点击发货<br>直发提货对应入库单，入库单是直发货来的<br>直发提货点击入库，根据直发提货根据内部子单号去发货<br>箱子里面有产品<br>成品仓库里面发货<br>选择对应的商品去发货</p>
 <p>直发提货 当中有固定的商品<br>成品仓库里面是选择商品，并且多少个去发，<br>商品prep提货，prep提货商品也会放到库存，prep商品需要加工，加工好了，prep仓库会生成prep单，转变成成品仓库当中的商品</p>
@@ -424,12 +425,12 @@
   </entry>
   <entry>
     <title>插画/插画</title>
-    <url>/post/63df4d60.html</url>
+    <url>/2020/02/04/%E6%8F%92%E7%94%BB/%E6%8F%92%E7%94%BB/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Choosing a Gift</title>
-    <url>/post/2cf7b47a.html</url>
+    <url>/2020/02/01/%E8%8B%B1%E8%AF%AD/lesson2/</url>
     <content><![CDATA[<h2 id="Learn-amp-Talk-I"><a href="#Learn-amp-Talk-I" class="headerlink" title="Learn &amp; Talk I"></a>Learn &amp; Talk I</h2><h3 id="Chapter-1-Shopping"><a href="#Chapter-1-Shopping" class="headerlink" title="Chapter 1 Shopping"></a>Chapter 1 Shopping</h3><h4 id="Lesson-2-Choosing-a-Gift"><a href="#Lesson-2-Choosing-a-Gift" class="headerlink" title="Lesson 2 Choosing a Gift"></a>Lesson 2 Choosing a Gift</h4><blockquote>
 <p>at the bottom of the following pages:T1=teaching instructions;T=teacher;S=student</p>
 </blockquote>
@@ -554,7 +555,7 @@
   </entry>
   <entry>
     <title>旅程/汉服店</title>
-    <url>/post/516afd5d.html</url>
+    <url>/2020/02/01/%E6%97%85%E7%A8%8B/%E6%B1%89%E6%9C%8D%E5%BA%97/</url>
     <content><![CDATA[<h1 id="构想"><a href="#构想" class="headerlink" title="构想"></a>构想</h1><ul>
 <li>前端web端开发，APP端开发，后台开发技术，技术列举<br>   css/html/js/jquery/angularjs/bootstrap/vuejs/react/ios/android/ant design pro/java/mysql/oracle/……</li>
 <li>售后运维，与厂家交互….</li>
@@ -566,7 +567,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间27</title>
-    <url>/post/b571772a.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B427/</url>
     <content><![CDATA[<p>投入产出比</p>
 <p>学姐说过，学理财投资是一件极其必要、性价比极高的事情，不学理财投资，简直是人生第一大浪费。</p>
 <p>可是很多小伙伴会说，我没钱，怎么理财呢</p>
@@ -615,7 +616,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间28</title>
-    <url>/post/25ce6abb.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B428/</url>
     <content><![CDATA[<p>SARS与投资</p>
 <p>大家通过新闻也都知道了，咱们的祖国目前冠状肺炎疫情严重，股市也受到了影响。但我们17年前经历过SARS，两件事有一些共同之处，今天学姐就在这里给大家做些分析。</p>
 <p>我们先来梳理一下当年的SARS。<br>最早的病例，是出现在02年11月的广东顺德。<br>其实在03年2月前，病症都还只是在大陆地区，不曾出国“战斗”。当时大家普遍认为疫情不严重，甚至还举办了中国队和巴西队的友谊赛，现场球迷爆满。<br>但从03年2月后，病情开始蔓延到香港、越南等周围地区和国家，世卫组织在3月发出全球警告。</p>
@@ -638,7 +639,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间29</title>
-    <url>/post/52c95a2d.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B429/</url>
     <content><![CDATA[<p>永远为大家保驾护航</p>
 <p>咱们19年国庆黄金档，三部电影《我和我的祖国》，《攀登者》《中国机长》</p>
 <p>有哪位小伙伴看过这三部电影呀</p>
@@ -742,7 +743,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间30</title>
-    <url>/post/320ed3c8.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B430/</url>
     <content><![CDATA[<p>大家好！我是西柚学姐，今天都要毕业了，那学姐就来讲一些不一样的东西!</p>
 <p>不说经历，也不说干货，因为班班把该讲的都讲了</p>
 <p>我觉得你们应该好好感谢下你们自己，因为是你们给了自己这个机会</p>
@@ -782,7 +783,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间26</title>
-    <url>/post/c27647bc.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B426/</url>
     <content><![CDATA[<p>宝贝们鸭<del>吃过饭了吗？今天我们不整那么严肃，给大家讲两个小故事，逗个乐儿</del>要是从中间听出了什么感悟呢，那说明你一定是个炒鸡聪明的小可爱哦</p>
 <p>第一个故事：【上门开锁换锁】<br>歪歪三年时间一共被锁门外6次<br>第一次被锁外面<br>“喂，开锁师傅吗？我被锁门外面了，开个锁大约多少钱？”<br>“有反锁吗？”<br>“没有反锁。”<br>“100。”<br>单纯的我还以为开锁是很有技术含量的活，所以觉得100也不是太贵，就欣然答应了<br>15分钟后，师傅上门来了，拿了一张小塑料卡片，花了10秒钟，就把门打开了。<br>当时开锁师傅的表情是这样的</p>
 <p>而我呢？</p>
@@ -794,7 +795,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间25</title>
-    <url>/post/5b7f1606.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B425/</url>
     <content><![CDATA[<p>思考题解析–小胖该选择入股哪家公司合适？</p>
 <p>下午学姐在班级群发了一道思考题给大家，都还记得吗</p>
 <p>现在针对这道思考题，详细讲解一下</p>
@@ -839,7 +840,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间04</title>
-    <url>/post/1e4e4412.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B404/</url>
     <content><![CDATA[<p>不做卡奴，班班带你玩转信用卡</p>
 <p>这几天里，班班发现，咱们群里有很多小伙伴都有欠着信用卡的债务，而且还不低，几万的、十几万的、二十几万的都有。</p>
 <p>所以，学姐申请给大家安排了这节课，给大家讲一讲信用卡的使用，教大家如何来玩转信用卡。</p>
@@ -937,7 +938,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间05</title>
-    <url>/post/69497484.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B405/</url>
     <content><![CDATA[<p>极限挑战之》没有伞的孩子更要努力奔跑</p>
 <p>出身决定命运？《极限挑战》6问“人生起跑线”，我们的孩子凭什么实现阶层跃升？</p>
 <p>如果有一个标准能够评判，你觉得自己孩子的人生起跑线与同龄人比较在哪个位置？</p>
@@ -991,7 +992,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间06</title>
-    <url>/post/f040253e.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B406/</url>
     <content><![CDATA[<p>靠基金定投，33岁就退休</p>
 <p>这是一本台湾的书，国内买不到，所以听我讲讲就好了。<br>学姐的私货哟~</p>
 <p>给大家看下作者一家。作者Winne是左边的女生，台湾人；右边是她老公，美国人。</p>
@@ -1061,7 +1062,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间07</title>
-    <url>/post/874715a8.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B407/</url>
     <content><![CDATA[<p>我有长发齐腰，给我一把剪刀</p>
 <pre><code>前几天班班收到以前的一位学员的喜讯，有点感慨，想跟大家唠唠，大家就权当听故事吧~
 这是一位前学员发来的截图，我给打上马赛克，给大家看看
@@ -1115,7 +1116,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间08</title>
-    <url>/post/17f80839.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B408/</url>
     <content><![CDATA[<p>大韭菜小韭菜的故事</p>
 <p>看到大家的输出，班班想到一个关于股票的小故事呦~讲给大家听[呲牙]</p>
 <p>话说大韭菜呢，有5套房，不上班，靠收房租生活</p>
@@ -1165,7 +1166,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间09</title>
-    <url>/post/60ff38af.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B409/</url>
     <content><![CDATA[<p>负债更要理财-桥儿督导</p>
 <p>各位小伙伴，大家好，先做个自我介绍，我叫桥儿，是本期的督导，坐标广西南宁，前一份工作做了5年的广告公司的客服，18年6月换行业，目前的工作是房地产公司品牌经理，我比大家早学习理财投资一年多，所以也是大家的师姐啦。<br>你们班班说咱班里有很多同学都是负债，月光，对于理财怎么起步，比较困惑<del>很不巧，师姐也是这样过来的</del>那今晚就给大家分享下我的经验吧。<br>其实我呢，从小生活在农村。爸妈呢，都是农民，文化水平不高，也没有正式工作，就是从三轮车到开小面包车拉客来养家糊口。上有 4 位老人，下有我姐弟三人， 2个人干活养活 7 口人。压力贼大。<br>4 位老人的赡养。我们三姐弟的教育费用，生活费用等等。家里长年都是入不敷出。我们家开个学，换个面包车，治病，建个新房子，买点家具，都是借借借。从小到大，爸妈为了钱的问题，这吵架就没停过。<br>从小导致了我对钱的极度渴望。渴望足够的财富，能带来家庭的和平。<br>所以我从小就盼望自己快点长大，以为自己有了能力，就能结束这一切。从小到大都瞎想自己学业有成，工作牛逼，升值加薪，遇到高富帅。<br>典型的，小说看多了。现实就是，学习成绩差，混了大专毕业，就出来上班了。<br>刚上班那会，就进入本地一家最好的地产广告公司上班。当时月薪很低，起步工资才 1300 元。<br>勤勤恳恳做了 2 年多，工资也才勉强从 1300 升到了 3000 元（小地方）。勉强还完自己上大学的助学贷款。15 年中离职来到了一家刚起步的小广告公司，15 年到18年，工资才从 4000 元涨到<br>6000 左右。<br>但其实省吃兼用其实还是够的。但是坏就坏在，穷怕了之后，财务观念很扭曲。<br>以前日子苦，很多东西被延迟满足了。一到自己做主财务，就是淘宝在手，天下我有。衣服打折，买一下吧，反正才50嘛，反正才30嘛。于是，最后的结果就是等搬家了一看，好多买来没穿过的。<br>苹果手机?别人都有，我想要呢，刷信用卡买！年假了，别人都去韩国呀，毛里求斯啊，去各地玩呀~朋友圈里看得各种心热。怎么办？ 15年，我想着好不容易的假期，狠了把心，继续刷信用卡，去丽江。<br>更别提为了让我妈感觉我出息啦，经常打肿脸充胖子，给家里也买买买点啥，给她钱呀。<br>这就是理财之前的我，苦日子虽然给了我吃苦耐劳的性格，但是并没有教会我财务管理。再加上缺失补偿心理，财务观念很有问题。一步步走向负债的深渊。<br>（蹲角落反省一下）<br>我天真了，总指望明天的自己为今天买单。殊不知，明天的自己，哪有一夜暴富的本事啊。工作4年，月薪6千，负债6万，每月不够还信用卡最低。<br>这就是17年的真实状态，当时多焦虑啊。身边人家买房买车结婚生子，我只有负债。<br>低学历，家境贫寒，个子不高，真的很自卑。就连遇到好一点的男孩子示好，都觉得自己配不上。<br>每次深夜加班，孑然一身回到家，面对满室清冷，都觉得自己活该。工作与感情，都看不到未来，年纪越大，生活留给自己选择越来越少。那时候很丧，甚至觉得，可能这辈子呢，就这样了。。。</p>
 <p>在17年 8 月底某个深夜加班回来，睡前在关注的几百个公众号里，偶然点开了“剽悍一只猫”，刚好是猫叔在推荐“14 天小白理财训练营”。一看到“小白理财”这个字眼，想到自己的债务问题，就果断报名了~</p>
@@ -1188,7 +1189,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间10</title>
-    <url>/post/38b14a.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B410/</url>
     <content><![CDATA[<p>初次见面，提前祝大家新年好。我是糖葫芦，2019年5月加入的小白营，灵伶班班的首届学生，也是各位的师兄。但我是个不合格的师兄。这话从何说起呢？</p>
 <p>我是个八零后宝爸，在海南一家外企工作，月收入平均18000，之前有十几万的存款。老婆是全职宝妈，但我们没房贷车贷，所以日子过的也还不错。</p>
 <p>刚开始来学习的时候，其实我并不是很相信那些课程，也不怎么相信班班和学姐的话。虽然我自己也知道，钱放在银行虽然会损失一些，但是我更怕因为不懂乱操作，而造成更大的损失。</p>
@@ -1224,7 +1225,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间11</title>
-    <url>/post/773f81dc.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B411/</url>
     <content><![CDATA[<p>孩子拿到压岁钱就花完？聪明爸妈这样管孩子压岁钱<br>                                                                                    爬楼密码：新年压岁钱</p>
 <p>逢年过节，亲戚们总是会给孩子很多压岁钱，怎么处理这笔突如其来的“巨款”确实是让很多爸妈感到头疼的一件事。</p>
 <p>我问过很多有宝宝的朋友，她们会怎么处理孩子的压岁钱。</p>
@@ -1295,7 +1296,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间12</title>
-    <url>/post/ee36d066.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B412/</url>
     <content><![CDATA[<p>股票的正确学习和投资姿势<br>爬楼密码：20200127午<br>【午间茶馆】<br>跟着班班和学姐升级打怪多日，准备了量化思维、富人思维、复利的干粮，跨过了投资陷阱的坑，打败了通胀这个大魔王，学习了各类投资品，终于要开始我们的投资之路。今天为你揭晓股票的正确学习和投资的姿势，跟我来。</p>
 <p>一、股票投资就像维修电器一样，需要讲究科学讲究方法<br>在座的亲朋好友，经过这几天的学习，大家都认识到了股票这两个词。据我所知，大家知道更多的是“炒股”两个字。我会通过今天中午的时间来解释，股票真不用来炒的，也不是用来蒸的，是用来投资的。<br>开始前，我先问大家一个生活中的事情：你们见过一种螺丝刀吗，就是只有一个把柄，然后有很多不同的钻头。</p>
 <p>比如长这样的。<br>修自行车和修电脑时，会找对应的不同的旋头去维修。我想说，股票投资也是这个理。<br>通过之前的课程，你们知道了，投资股票前，需要先分析公司，然后做估值。最后拿这估值对比现在它的现价，如果现价远低于估值，那就买入，因为这时候相当于打折价。<br>那问题来了，分析要怎么分析，估值要怎么估值呢？<br>就像拿不同的旋头去维修不同的电器是一样的原理，我们要拿不同的指标去量化分析和量化估值。<br>不同的行业需要不同的指标，同行业不同的公司也需要不同的指标，同公司在不同的时间也需要不同的指标。<br>所以，股票投资，就像是一门维修电器的技能，拿不同的工具（指标）去维修（量化）不同的电器（公司）。<br>你们需要的是不断的获取新指标的方法。这不难，但是需要不断的学习，我们都知道任何一门技能都是学无止境的。<br>掌握越多的方法，自然风险就越低，收益越高，下面我拿其中一个指标，来举一个例子。</p>
@@ -1313,7 +1314,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间13</title>
-    <url>/post/9931e0f0.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B413/</url>
     <content><![CDATA[<p>种一棵树，成就全新的自己<br>大家中午好，再正式自我介绍一下，我是西柚<del>你们的学姐，在校大学生一枚。一个喜欢美食，热爱旅游的00年小姐姐，坐标江苏。看到我的年龄大家不要惊讶哦</del>毕竟长投最小的学员才9岁，学姐已经嫌弃自己开始的太晚啦~</p>
 <p>如果对我感到好奇，或者因为我年轻对我有质疑，欢迎来撩，我用专业技能捕获你的心~专业之余，也有一颗少女心哦，可盐可甜，来找我谈人生谈理想也是没错的！</p>
 <p>好啦，话不多说，正式开始我的分享~</p>
@@ -1378,7 +1379,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间14</title>
-    <url>/post/7557553.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B414/</url>
     <content><![CDATA[<p>拆读小狗钱钱</p>
 <p>今天学姐收到了好多小狗钱钱的笔记，好开心呀</p>
 <p>晚分享前，我给大家撸顺一下，这本书是关于什么的？为什么要让大家在上课前听这本书热身~</p>
@@ -1405,7 +1406,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间15</title>
-    <url>/post/705245c5.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B415/</url>
     <content><![CDATA[<p>穿衣购物养娃-投资经<br>从大家提交的入营链接里绾绾看到，大部分小伙伴是理财小白，而群数据表示60%的宝贝是女孩子，女生占了大多数，班班这里要为各位小仙女理财意识的觉醒而鼓掌，希望各位小仙女都能够学会理财投资，成为白富美，教出白富美，实现财富自由~<br>当然为数不多的小鲜肉也一样哈，绾绾不会偏心哒~<br>我作为曾经的剁手党，现在的小富婆，永远的美少女，非常理解大家控制不住自己买买买的洪荒之力。<br>来了这里，绾绾就力争帮各位渡劫，因为大家都是要做女神/男神的人嘛，自然是少不了一番形象升级计划。衣服包包口红，每一样都不能少。<br>但是大家真的会买衣服吗？是不是很多时候都是买回来一堆并不必要的东西？<br>曾几何时，我也是这样的，逛一圈豆瓣，被种草一大片，然后愉快的去淘宝买买买，最后衣柜被塞的满满当当的，第二天早上依旧觉得自己今天不知道该穿什么，然后接着去买买买。<br>尤其是到各种购物节，什么618，双11，双12，提前几天就开始加购物车，前一天晚上一到凌晨零点，马上开始付款。每年双十一的几百亿销售额中都有我贡献的一份力量。小伙伴们有没有这种体验呢？<br>后来加入了长投之后，我才发现，原来我一直都陷入一个恶性循环之中，购买时只考虑感情因素，而没有进行量化思维。对，就是之前讲到的量化思维。<br>这是大部分美少女们和美妈们缺少的思维方式，然而这却是理财学习当中的一个难点及重点。<br>买衣服跟投资在不少地方还挺相似的呢。<br>在很多女生心里，投资跟天体物理，宇宙黑洞，薛定谔的猫，泡利不相容原理一样冷艳高贵，不可接近。<br>不过我猜没有一个女生不会买衣服，所以用买衣来解释投资道理，恐怕大家就觉得薛定谔的猫突然变成隔壁咖啡馆的短毛猫了，俏皮可爱萌意十足。<br>感觉理财学习也变得萌萌哒。尤其跟着这么一个萌萌哒班班学理财，更加萌萌哒~<br>下面小伙伴可以掏出小本本记笔记啦！<br>买衣投资经第一条：不要买你不想穿3年的衣服，投资也一样！<br>在最近整理衣橱的过程中，我深深地发现，原来我曾经买过那么多乱七八糟的衣服：含毛量低的要命的大衣，各种所谓的明星同款。<br>当时的我是怎么想的呢，我想的是“嗯，好像还不错，说不定偶尔可以穿穿”。结果买回来之后，经常就是一次也没有穿过。<br>痛定思痛之后，我给自己立下一个规定，买衣服的时候先问自己一个问题：“这件衣服会不会陪我3年甚至更久？” 然后再决定要不要买。<br>因为这个规定，我的衣柜里多了很多经典款的衣服，而不是流行款。对于我这种懒得搭配懒得逛街的人来说，这个问题可以把大部分冲动消费扼杀在摇篮里。<br>然后我开始学习一些搭配，又养成了一个习惯，买衣服之前在脑海里过一下这件衣服和自己已有衣服的可能搭配有几套，低于三种可能性我也是不会买的。<br>比如白衬衣，和黑色阔腿裤搭就有点时尚职场风；和包裙搭，就是女人职场风；和黑色烟管裤搭，就是中性风；搭蕾丝长裙就是复古风。像这样过一遍，就可以知道这件衣服我的利用率到底能有多高啦。<br>所以我逛街时，通常会有这样的自我对话：<br>“当季流行色？”没错是很好看，可是下一季它就不流行了，不符合陪我3年甚至更久的标准，PASS<br>“蕾丝花边？”没错很公主，可是很难搭配，而且一旧就特别难看，不符合陪我3年甚至更久的标准，PASS<br>在这样的选择标准之下，最后我买的都是简单大方并且有品质的经典款式。贵一点也没关系，因为我打算要穿很长的时间。而且贵的衣服质感，版型，各方面的确会更衬托人的气质，有木有！所以贵一点也是值得的~<br>偶尔再搭配一些当季流行元素，每天出门都感觉自己美美哒，自信满满哒。<br>其实投资也一样，面对一个投资标的，想着“好像周围人说还不错，说不定会涨上去哦。”然后买入的，通常都会让你后悔。<br>巴菲特曾经说过，“如果你不愿意持有一只股票十年，请不要考虑拥有它十分钟”。巴菲特大神的意思就是说，不要仅仅是因为“有可能涨上去”就冲动做决定，否则一定会后悔。<br>好像，听说，大概，可能这些词都是投资大忌！<br>另外再说一点，任何投资，无论是投资自己还是投资其他，都要学会将目光放长远。<br>200块的衣服看上去很便宜，但实际只能穿一季，1000块的衣服，乍一看很贵，但却可以穿好几年。<br>从量化的角度我们来算一下。<br>200元的衣服穿一季，每月的实际花费=200元/3=66.67元<br>1000元的衣服穿3年，每月的实际花费=2000元/18=55.56元。（百搭质量好的衣服一年穿两季没问题吧？）<br>通过数字对比，我们就知道，很明显买1000元的衣服更“便宜”。<br>而且，经典款的衣服，肯定不止穿3年！同时，衣橱里也不再是乱糟糟的。最重要的是，比较贵的衣服还更有质感，是不是一举N得，要不要给绾绾点赞呢？<br>这里就又强调量化思维啦，通过数字来比较，而不是通过感觉。<br>投资自己也是这个样子的，碎片化学习看似是免费的，但却会给你带来不系统、松鼠症、信息焦虑等一系列负面效应。<br>更重要的是，免费的碎片化学习因为免费而不承担责任，所以错误很多，很多时候会误导我们~<br>最常见的就是盗版书，对吧？所以很多学习的工具书非常贵，因为我们知道，这种东西宁愿多花钱也不能买有错误的盗版~<br>反之，几千元的培训班看起来好像很“贵”，但是经过系统化的学习之后，所带来的收益，及思维的改变，将使你受益终身。<br>以下是我的肺腑之言：请大家记住，免费的才是最贵的，因为免费的信息会消耗大量的时间，而时间却是最宝贵的。</p>
 <p>买衣投资经第二条：挑你信任的店去买衣服，投资也一样。<br>很多选择困难症都有像我一样的痛苦，面对街上几十家店铺，某宝上几万家店铺，虽耗费了无数的时间和精力去选择，仍然不免有选错的时候。<br>我的解决办法也很简单，只挑我信任的店去买。<br>我有一家常去的小店，专卖日单的衣服，他家的衣服质地都非常好，纯棉纯麻的，穿着非常舒服，价格也很宜人，所以从第一次之后，我就成为了常客。<br>我当然知道这家店卖的肯定不是最好的衣服，也不是性价比最高的衣服，但是就冲着它为我节省了无数的时间和精力这一点上，我就觉得它确实是对我十分有利的。<br>在投资上也是一样的，那些靠提供优质的产品和服务来赚钱的好公司就像我信任的店一样。<br>股票的背后是公司，投资股票重要的是知道公司的价值几何。我们的投资目标就是那些能赚钱的好公司。<br>很多人都是在牛市末期的时候冲进股市的，为什么？因为他们看到别人在赚钱，就觉得自己再不进去就没机会了，于是纷纷冲进去当了接盘侠。<br>他们对于如何分析公司，如何对股票估值一窍不通，那不亏钱才怪呢。听消息跟风投资就和赌博没什么差别了~关于股票的知识开营后的第三节课会讲到。<br>所以，投资的第一步永远是先学习，不懂的不要碰。记住：投资的第一步永远是先学习，不懂的不要碰。投资的第一步永远是先学习，不懂的不要碰。<br>重要的事情说三遍。</p>
 <p>买衣投资经第三条：趁着打折的时候买衣服，投资也一样。<br>每年的淘宝双十一交易额都在刷新纪录，去年，也就是2019年的交易额更是达到了2684亿，大家为什么对双十一如此疯狂呢？因为打折。<br>有句话戏说，不为打折疯狂的女性，简直不能称之为女性，尤其是当你明白其价值所在的品牌服装。虽然这是一句玩笑，但却是不少女性的真实写照~<br>我说的不是那些虽然写着7折，但把原价改成2倍价格的衣服，我是指那些高大上很少打折的品牌服装，每到库存或者换季打折，店内的状况真的只能用“惨烈”两个字来形容。<br>为什么要趁着打折买衣服，如果这件5000的衣服确实就是你要买的，那干嘛不以3000的打折价格买下来呢？省下2000，又是一条鹅腿！<br>投资也一样，难道说投资也可以买打折产品？！嘿嘿，你没看错，答案是当然能。<br>      大家应该都听过巴菲特，股神嘛，但是不知道大家知道不知道价值投资？<br>价值投资就是买入价格低于其内在价值的股票，实际上就是在股票打折的时候买入。<br>但是对于一个投资产品来说，还不像衣服一样有过季的问题，如果明白其内在价值的话，干嘛不趁着打折的时候买入呢？<br>但是买打折有个前提，你得知道商品的内在价值。<br>现在我们都知道了，很多双11的商品都是在之前提价然后再降价的，甚至比平时价格还要高。那么平时不太关注价格的小伙伴，也许稀里糊涂就买下了。这就是不了解内在价值，最终的结果呢？就是吃亏上当啦！<br>买衣服是过几天一看，啊呀，刚买就降价。<br>到了股市中就是，啊呀，刚买就套牢。<br>说完这三条买衣投资经，女生朋友是不是觉得立刻大大松了一口气啊？！原来投资并没有想象的那么神秘厉害，原来买投资产品跟买衣服也有很多相似之处。<br>当然，要再次提醒的是，不要冲动消费，买衣如此，投资也是如此啊！<br>我们再总结一下：其实投资没那么难的，就好像买衣服，只要花些时间和精力学习，人人都可以掌握哦。<br>今天我们讲到了投资必备的两个武器：1了解内在价值。2 培养量化思维。晕晕乎乎的小伙伴不用担心，后面我们还会反复学习哒！<br>好啦，购物的量化讲完啦，我们来讲讲培养孩子的财商问题。<br>还未成家的小伙伴可以提前学习一下，哈哈。<br>大家有没有这样的经历，孩子哭闹就要某样东西，不给就闹呀，实在是伤不起。<br>    所以绾绾要讲讲水湄姐是如何培养孩子财商、教育孩子的。</p>
@@ -1414,7 +1415,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间16</title>
-    <url>/post/e95b147f.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B416/</url>
     <content><![CDATA[<p>荷花定律<br>今晚咱们讲复利，学姐给大家先带来一个小故事~</p>
 <p>大家知道荷花多久可以开满池塘吗？</p>
 <p>其实荷花第一天开放的只是一小部分，到了第二天，它们就会以前一天的两倍速度开放，到了第30天，就开满了整个池塘。</p>
@@ -1433,13 +1434,13 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间17</title>
-    <url>/post/9e5c24e9.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B417/</url>
     <content><![CDATA[<p>大家好，学姐来啦~班班下午留的思考题大家还记得吗？<br>在我们不具备投资经验时，如何避开投资陷阱？<br>回答这个问题之前，学姐先和大家科普一点投资理财的常识，很简单，但十分有用<br>如果能把这个常识牢记心间，不敢说能帮大家赚钱，但一定可以帮大家避免很多坑。<br>这个常识是什么呢？就是接下来要给大家分享的主题了<br>投资的不可能三角<br>什么意思呢？简单来说就是：<br>投资理财的目标当中，收益性、安全性与流动性三者往往不可兼得，最多只能占两个。<br>​​<br>那什么是收益性，安全性，流动性呢？<br>收益性，就是这个投资能带来多少回报，一年5%还是一年50%？<br>安全性，反过来说叫风险性，就是这个投资靠不靠谱，会不会亏损？老板会不会拿钱跑路？<br>流动性，指的是把投资品再变回现金的速度和能力。<br>这里有两个要素：一是时间，时间不能太久。二是价格，价格不能偏离市场价格太多。<br>我们来看投资的不可能三角。<br>1）满足收益性和安全性的资产，不能满足流动性。<br>比如说房子，房产在过去一直是中国老百姓最爱投资的资产，但房子的流动性天然就比较差，再加上现在大量城市推出的各种调控措施，包括最直接的限售，让投资房子的流动性几乎被完全打掉。<br>2）满足安全性和流动性的资产，不能满足收益性。<br>最简单的例子是活期存款，货币基金等。这些产品足够安全，也随时可以转化成现金，但是收益较低。<br>3）满足收益性和流动性的资产，不能满足安全性。<br>最典型的是部分P2P，在没爆雷之前，流动性和收益性都比较好，因此吸引了大量资金进入。然而，它并不能满足安全性，一旦出现危机，就是致命的风险。<br>因此，当你遇到一个投资品，宣传收益高，又安全，还能随时提现，这个时候就要多长一个心眼，十有八九是遇到投资骗局了。<br>如何判断一个投资品种是否靠谱呢，可以从分析资产的三性开始。</p>
 ]]></content>
   </entry>
   <entry>
     <title>理财/午间茶馆/午间18</title>
-    <url>/post/ee33978.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B418/</url>
     <content><![CDATA[<p>西柚的鸡腿小剧场又来喽~</p>
 <p>自从我进入小白营之后，发现了一个很奇怪的现象，我分享给你们听一下哈</p>
 <p>现在的人买个钢铁做的车，上保险，每跑几千公里还去保养，稍有磕碰损伤，心痛无比。<br>可对自已的身体这辆血肉做成的“车”，却从来没想过去维护，只知道踩足油门、风雨无阻的走在路上。</p>
@@ -1457,7 +1458,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间19</title>
-    <url>/post/79e409ee.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B419/</url>
     <content><![CDATA[<p>还记得下午留的题目吗？学姐来给大家解答啦~</p>
 <p>你觉得以下哪种风险小?</p>
 <p>A.稳定的工作</p>
@@ -1515,7 +1516,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间20</title>
-    <url>/post/2b15e289.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B420/</url>
     <content><![CDATA[<p>学姐今天来给大家讲个故事~~<br>故事的名字呀，叫：老和尚与股票<br>从前有一座庙，庙里有一个老和尚(学姐编的)，这个老和尚是个佛法高深的主持。</p>
 <p>庙在山上，山下不远有一个证券公司，两边遥遥相对。</p>
 <p>一天，庙里来了许多炒股的香客，在菩萨面前烧了许多香，苦苦哀求，要菩萨保佑他们脱离苦海。老和尚心善，问是怎么回事。</p>
@@ -1582,7 +1583,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间21</title>
-    <url>/post/5c12d21f.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B421/</url>
     <content><![CDATA[<p>还记得昨天学姐去超市买零食的嘛，</p>
 <p>然后逛超市的时候看到有人买榨菜，我又发现一个股票相关的事儿</p>
 <p>那个榨菜嘛，我也是蛮喜欢吃的，涪陵榨菜，大家吃过吗</p>
@@ -1625,7 +1626,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间22</title>
-    <url>/post/c51b83a5.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B422/</url>
     <content><![CDATA[<p>西柚学姐又来给大家讲故事啦~</p>
 <p>曾看过这样一则报道</p>
 <p>在名校，当保安，宿管，甚至是清洁工，都比同行业同岗位的其他人，更有前途</p>
@@ -1678,7 +1679,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间24</title>
-    <url>/post/2c782690.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B424/</url>
     <content><![CDATA[<p>学姐发现咱们班有很多小阔爱的保险意识还不够强，也有很多小阔爱踩了保险的坑，所以学姐想再给你们说说保险的重要性！</p>
 <p>前段时间，一篇名为《我的女儿，绝不嫁给一个没有保险的家庭》的文章被朋友圈刷屏。不知道大家看过没有</p>
 <p>文章是这么说的，几位刚升级为爸爸的男人在医院里聊天，他们有的生的儿子，有的生的女儿，聊着聊着，就聊到了将来孩子婚娶婚嫁的事情上了</p>
@@ -1728,7 +1729,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间23</title>
-    <url>/post/b21cb333.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B423/</url>
     <content><![CDATA[<p>视频（在班级群查看呦）</p>
 <p>你有了省钱的脑子，就无法培养一个赚钱的脑子了</p>
 <p>这句话什么意思呢？</p>
@@ -1785,7 +1786,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间03</title>
-    <url>/post/802ad1b1.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B403/</url>
     <content><![CDATA[<p>她从打游戏起步，如今开源月入5万</p>
 <p>嘉琳是长投学堂的一位班班，从小就喜欢玩游戏。很多人都说玩物丧志，认为玩游戏没出息。</p>
 <p>但是嘉琳就因为游戏玩得好，2008年成为了腾讯新游皇家记者团记者和腾讯QQ三国官方版主，开始用玩游戏来赚钱。</p>
@@ -1839,7 +1840,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间02</title>
-    <url>/post/f72de127.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B402/</url>
     <content><![CDATA[<p>小伙伴们中午好呀，今天的午间茶馆又开张啦，今天班班带大家整理一下《月光负债如何理财》</p>
 <p>这两天陆续有一些小伙伴，私聊跟我咨询解决负债的问题。<br>可能有些小伙伴，也有一样的疑问，我把思路再做了一次整理，在这里用【月光负债如何理财】这个话题简单的给大家讲一下。</p>
 <p>从原因来看，80%的小伙伴都是因为无财务观念而消费不当造成的负债或者月光。还有一些是因为家里人发生疾病、自己创业失败、投资失败这些缘故造成的负债。</p>
@@ -1884,7 +1885,7 @@
   </entry>
   <entry>
     <title>理财/午间茶馆/午间01</title>
-    <url>/post/6e24b09d.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E5%8D%88%E9%97%B4%E8%8C%B6%E9%A6%86/%E5%8D%88%E9%97%B401/</url>
     <content><![CDATA[<p>死胖子告诉我们的投资哲理<br>爬楼密码：20200115午</p>
 <p>《一个普通人怎样早早赚到100万，每个人都可以》，这篇文章在我初学理财时深深地震撼到了我，所以想拆读给小伙伴听。<br>班班很喜欢这篇文章，因为，死胖子很普通，普通的家世，普通的学校，普通的工作，就像我们每一个人。<br>所以他的经历对于我们来说，借鉴和参考的价值会更大。<br>接下来，我们就一起来看看我们如何一步步走向百万富翁~<br>目标设定</p>
 <p>他给自己定了一个目标，毕业10年内赚到100万。<br>训练营第一课作业就是让大家制定三个小目标，为什么要在第一课作业做这样的设置？<br>其实就跟死胖子当初的想法一样，迈出步子之前，需要知道自己要走向什么地方。我们同样也希望通过第一课作业让大家梳理，自己学习理财的目标究竟是什么，避免大家因盲目赶路而忘记初心！<br>死胖子这里就是个很好的例子，如果不是大学时代就设定了这样一个毕业后10年内赚够100万的目标，可能他就会像大多数人一样混下去，浑浑噩噩，没心没肺。<br>在财务自由的道路上也是如此，看似遥远，但如果你连将目标指向那里的勇气和决心都没有，那就更是无稽之谈。<br>看过小狗钱钱的一定知道，只有你想得到，才会拥有，但是没有一蹴而就的成功，只有一点一滴的靠近。<br>死胖子就是用一个又一个500块来逐步实现他的梦想的。<br>财富自由也是分阶段的，我们就是这么一个阶段一个阶段逐渐去实现的。所以，大家的第一阶段目标，就是打好思维基础，迈出投资第一步。我们训练营后期还会给大家讲开户，并且带领大家进行简单的实操，千万别错过~<br>2、储蓄</p>
@@ -1906,7 +1907,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享04</title>
-    <url>/post/9ad24a76.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB04/</url>
     <content><![CDATA[<p>通货膨胀&amp;投资陷阱<br>                                  爬楼密码：20200113晚</p>
 <p>在开始今晚的分享之前，班班先来总结一下今早晨读的要点，帮大家稍加复习<br>1 通胀每时每刻都在蚕食着我们的财产，这是自然规律，我们没法躲避，只能想办法抵抗，投资就是最好的方式<br>2 不理财最大的风险就是通胀。父母们会告诉我们存钱，但是他们也不知道，钱存在银行里就是以很高的速度在亏损<br>宝贝们觉得投资有风险，其实不投资风险更大<br>通过学习，掌握正确的投资知识和策略，大概率是可以资产增值的，但是什么都不做，只存银行。100%是亏钱的，每年都在亏。<br>是学习理财让你的钱生钱，还是存在银行让你的钱喂通胀。这道选择题应该没有悬念吧？<br>早上的晨读，咱们了解到通胀是上古神兽，啃起我们的小钱钱比较斯文，是一口一口的，但他也不肯停，你看着也没办法<br>但是投资陷阱这个老妖怪，可是吃人不吐骨头的~今天班班就分别来和大家讲讲如何降妖除魔<br>第一部分：通货膨胀<br>1、什么是通货膨胀<br>举个例子，假设整个中国市场上只有100个西瓜，同时市场上流通着1000元人民币，每个西瓜价值10元。第二年央行多印了1000元人民币，等于流通着2000元人民币，但是生产力提高地没有那么快，只生产了150个西瓜，每个西瓜就变成了13元一个。<br>大家从这张图上可以很直观的看到，100元，在不同的年份，可以买到的东西。</p>
 <p>通货膨胀的意思就是流通的货币过多，超过经济运行的需求，导致钱不值钱，钱的购买力下降了，相应地物价就上涨了。<br>知识点：通货膨胀的意思就是货币的增长速度快过商品增长速度。<br>2、为什么会发生通货膨胀？<br>造成通货膨胀的直接原因，是国家财政需求<br>正常来讲，政府本身是不创造财富的，需要靠税收来维持运行的，包括给公务员发工资、医保社保、基础建设、军事、外交等，政府花钱的地方很多，需要很多很多钱。<br>如果税收太高了，老百姓会不高兴，企业也不容易赚钱，经济发展不起来。而太低了，政府又没钱花，或者花钱不痛快。<br>那怎么办？最简单的办法，就是扩大货币发行规模，自己印钱自己花(好像听起来有点机智？)。<br>这种方式其实就是“抢劫”了民间财富。<br>因为社会财富只能是通过生产和交换来创造，不可能通过印钱来增加，多印出来的钱等于是瓜分了部分社会财富。更重要的是，通过这种方式法增加政府收入，又隐蔽又安全，而且简单易行，成本低廉。只要需要，想要多少就有多少。<br>以美国为例，从未发生过恶性通胀，但1800年以来美元已经贬值了95%。今天的1美元，相当于当年的5美分。<br>我们要承认通货膨胀，这是我们没有办法控制的，我们无法逃避，只能直面这个现实。（真的勇士，敢于直面不可抵抗的通胀！）<br>3、通货膨胀的影响<br>    我们先来看什么是CPI<br>    CPI是消费者物价指数(Consumer Price Index)的简称，是选取一篮子消费品和劳务，以他们在消费者支出中的比重为权数来衡量的市场价格变动率，主要反映消费者支付商品和劳务的价格变化情况。<br>    这句话是照着念出来的，读着都累。<br>    翻译成人话就是，用一些商品价格的变动率来反映整体的物价变化情况。</p>
@@ -1969,7 +1970,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享03</title>
-    <url>/post/4b6dfd5.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB03/</url>
     <content><![CDATA[<p>世界第八大奇迹——复利<br>爬楼密码：20200112晚<br>大家晚上好，我们的晚分享就要开始喽，今天我们来说说普通人变成富人的捷径。</p>
 <p>我来问个问题：<br>一张纸厚1毫米，假设它足够大，能够无限次对折，请问，对折多少次之后能够超过珠穆朗玛峰的高度？班班给大家三个选项：<br>A.24次  B.240次  C.2400次</p>
 <p>不用计算哦，凭感觉回答就行<br>大家开始抢答：<br>——————————————<br>班班公布答案啦，答案是A。对折24次就可以超过珠穆朗玛峰的高度了。<br>有木有很震惊鸭？</p>
@@ -1988,7 +1989,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享05</title>
-    <url>/post/edd57ae0.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB05/</url>
     <content><![CDATA[<p>保险，留爱不留债<br>爬楼密码：20200114晚</p>
 <p>今早的晨读大家都看过了吧~灵伶再来唠叨几句：</p>
 <p>保险是我们每个人都需要的，但是非常多的人不重视。</p>
@@ -2193,7 +2194,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享06</title>
-    <url>/post/74dc2b5a.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB06/</url>
     <content><![CDATA[<p>价值投资的基础&amp;选股票就是选对象<br>                                    爬楼密码：20200115晚<br>今天的音频课，大家都听了没？都听懂了吗？</p>
 <p>作为立志要活成女王般女人的灵伶，来跟大家聊聊找对象的事情吧？</p>
 <p>叮当，不要大意哦，知识点让你应接不暇！</p>
@@ -2357,7 +2358,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享07</title>
-    <url>/post/3db1bcc.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB07/</url>
     <content><![CDATA[<p>做自己的阳光<br>                             –灵伶班班的涅槃重生<br>爬楼密码：20200116晚</p>
 <p>各位宝贝，晚上好鸭~接触了这么多天，不知道你们对我有没有一点好奇呢？今天啊，灵伶想给大家讲讲我自己的故事。</p>
 <p>先从我个人简介说起吧，其实你们应该都已经对我很熟悉了吧，灵伶，女，坐标九朝古都，34岁，身上的标签特别多，国企职工/小白营班主任/保险规划师/麻将馆小老板，妥妥的斜杠青年，还是个已经当姥姥的单身阿姨。</p>
@@ -2457,7 +2458,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享08</title>
-    <url>/post/9364065d.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB08/</url>
     <content><![CDATA[<p>MBA大课—幸福人生的资产配置<br>爬楼密码：20200117晚</p>
 <p>在小白训练营的学习过程中，班班发现很多小伙伴只知道把钱放在余额宝或者其他货币基金、银行存款中，不清楚资产配置的概念和价值，也不知道如何合理的安排自己的资产。今天，我们就来看看怎么进行资产配置吧。</p>
 <p>投资的领域很广，品类很多，银行存款，理财产品，信托，P2P，商品期货，基金，股票，房产……</p>
@@ -2621,7 +2622,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享09</title>
-    <url>/post/e46336cb.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB09/</url>
     <content><![CDATA[<p>长投的前世今生</p>
 <p>爬楼密码：20200118晚</p>
 <p>今天周末啦，宝贝们的小白训练营已经上了一小半了哦。很多小伙伴在私下里问我，长投是个什么样的公司？我觉得非常有必要跟大家介绍一下长投了。</p>
@@ -2779,7 +2780,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享10</title>
-    <url>/post/84a4bf2e.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB10/</url>
     <content><![CDATA[<p>股市小韭菜之快速亏掉100万的方法<br> 爬楼密码：20200119晚</p>
 <p>一、股票投资的必要</p>
 <p>今天教大家几个如何快速亏掉100万的方法。估计有小伙伴要在心里犯嘀咕，我是为了赚钱才进股市，你却教我如何亏钱？what？</p>
@@ -2927,7 +2928,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享11</title>
-    <url>/post/f3a38fb8.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB11/</url>
     <content><![CDATA[<p>定投出来的千万富翁<br>爬楼密码：20200120<br>股神巴菲特大家都认识吧？为了照顾不认识巴菲特的同学，班班首先简单介绍一下这位传奇的老头子，先放上一张老头子的靓照，还挺帅的有木有。</p>
 <p>他最大的成就，是在50多年间不断投资收购好公司的股票，让自己公司的股票增值了超过3.7万倍！他的公司，伯克希尔哈撒韦，也成为了股票界的一股清流，每股股价高达约31万美元，折合人民币是213万。一份股票，就足够我们在二三线城市买套房子了。<br>话说巴菲特在17年致股东的一封信里面讲了一个关于赌注的故事：<br>2005年，巴菲特向所有主动股票基金经理下了一个战书，以10年为限，赌没有一个主动基金能够打败标普500指数基金，赌注是50万美金。<br>赌局一开，整个华尔街居然沉默了，没有人敢来应战.<br>直到2008年，普罗蒂杰公司的投资经理泰德·西德斯精选了5只基金，要在未来10年与巴菲特的标普500指数基金一决高下。<br>截止到2017年，9年过去了，巴菲特的标普500指数基金收益为85.4%；而同期泰德.西德斯的五只基金收益率从2.9%到62.8%不等，组合收益率只有22%。</p>
 <p>西德斯在2017年5月5日也主动认输了。他说：“虽然赌局还有八个月，但本质上一切都结束了，我输了。”<br>大家觉得为何巴菲特敢挑起这个赌局呢？下面，我们就来揭开指数基金的神秘面纱。</p>
@@ -3031,7 +3032,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享13</title>
-    <url>/post/1dadee94.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB13/</url>
     <content><![CDATA[<p>课前故事</p>
 <p>从前有一个人，非常信仰上帝。一次发大洪水，他被困在屋顶上，他相信上帝一定会来救他。这时，来了一艘小船，船上的人让他上船，他不去，说：上帝一定会来救我的！小船走了。过了一会儿，又来了一艘大船，他看了看，说：上帝一定会来救我的！水很快就要漫过屋顶了，这时,来了一架直升飞机，垂下绳子来让他上去，他还是没有接受，说：上帝一定会来救我的！最后,这个人被淹死了。</p>
 <p>死后，他到了天堂，见到了上帝。他问上帝：我那么相信你，你为什么没有来救我呢？上帝说：小船，大船和直升飞机都是我派去救你的，可是你不接受啊。就算是上帝也无可奈何。我们现在有这么好的机会摆在面前，希望大家都能抓住它，使自己获得新生。</p>
@@ -3150,7 +3151,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享14</title>
-    <url>/post/83c97b37.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB14/</url>
     <content><![CDATA[<p>职业理财规划应该怎么做<br>爬楼密码：20200123晚</p>
 <p>今晚和大家聊一下职业理财规划应该怎么做，首先要合理规划：先了解需求再寻找合适的产品。<br>我先问个问题：你是否有一系列的生活目标？<br>我先说说我的，我最早是想摆脱糟糕的财务状态，然后有只下金蛋的鹅；发展到现在我想经常旅游，我想看更大的世界，有更多的时间陪伴家人；<br>我希望能给我未来的孩子(如果有的话)比较好的教育环境，让他有很多的选择，可以选择做自己喜欢的事情，而不用操心钱的问题……等等<br>所以大家可以先问问自己是否有这些生活目标，如果没有，那也没必要了解理财，有的吃有的喝就行了。<br>但是我想咱班的同学应该都是和我一样是普通人，是吃五谷杂粮长大，有七情六欲的，对于更好的生活都是非常向往的对吧？<br>那么OK，我们接下来量化一下这些理财目标。<br>从大家来到小白营的第一课我就在给大家讲量化，平时的分享答疑中也有讲到，现在我带大家来操作一下，人生量化。</p>
 <p>一辈子要赚多少才够用呢？<br>先来看张图：</p>
@@ -3192,7 +3193,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享15</title>
-    <url>/post/f4ce4ba1.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB15/</url>
     <content><![CDATA[<p>场内场外基金&amp;开户避坑指南<br>爬楼密码：20200126晚</p>
 <p>通过之前的学习，大家都了解了基金和定投，很多同学都对定投基金感兴趣，进而想用这种方式来养鹅、下金蛋，对吧？<br>磨刀不误砍柴工，我们先来了解一下，我们定投基金的渠道有哪些。<br>一、什么是场内和场外<br>嗯，在讲具体渠道之前，班班给大家普及一下，场内，场外的概念。<br>什么是场，所谓的场，就是证券交易市场，也是我们平时所说的股票交易市场。<br>股市不仅可以交易股票，还可以交易债券，基金，期权等其他有价证券。<br>明白了什么是场，就可以很轻松地理解什么是场内和场外了。<br>我们把通过证券市场（股票市场）进行的交易统称为场内交易。把通过这个渠道之外的进行的交易统称为场外交易。</p>
 <p>二、基金投资的具体渠道<br>接下来再说说基金投资的具体渠道。<br>我们买基金一共有4种渠道<br>1、证券公司，这就是场内渠道<br>2、银行<br>3、基金公司<br>4、第三方代销平台，如天天基金，蚂蚁聚宝，京东金融等<br>请问大家，这里4种渠道，哪个市场内，哪个是场外呢？<br>2、3、4都是场外渠道。</p>
@@ -3217,7 +3218,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享16</title>
-    <url>/post/6dc71a1b.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB16/</url>
     <content><![CDATA[<p>量化思维与碎片化学习的弊端</p>
 <p>爬楼密码：20200127晚</p>
 <p>我们之前讲过投资自己，有的人投资自己投资的是脸蛋，有的人投资是投资的脑袋。其实都可以，要看这一切给你带来多大的满足感，还有这种满足感持续的时间</p>
@@ -3359,17 +3360,17 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享17</title>
-    <url>/post/1ac02a8d.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB17/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>理财/晚分享/晚分享18</title>
-    <url>/post/8a7f371c.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB18/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>理财/晚分享/晚分享12</title>
-    <url>/post/6aaade02.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB12/</url>
     <content><![CDATA[<p>国债逆回购<br>爬楼密码：20200121晚</p>
 <p>本来实操逆回购的课程应该是明天才讲，但是为了让大家能赶上1月22号这一波操作一天赚八天，薅羊毛的好机会，提前到今晚带大家进行实操。已经开过户的小朋友听完可以把你们的手机APP打开，对照演练了哦~~咱们明早收益走起<br>不知大家是否看到过理财金字塔？<br>​​</p>
 <p>图中可知国债逆回购处于金字塔底端，是一种低风险、高流动性的投资品种<br>国债逆回购的知名度虽然不高，其实它特别适合初学投资理财的童鞋来练手，最适合薅羊毛赚点儿零花钱了。<br>比如，在一年的特殊的时间节点，一般都会达到日均20%-30%的收益率。2016年9月29日，上交所1天期国债逆回购利率盘中突破了45%，有没有很逆天的感觉？<br>既然有这等好事，那我们来看一下逆回购是什么鬼。<br>国债逆回购，其实说白了就是借钱给别人，是一种短期贷款。个人把自己的资金借出去，获得固定的利息收益；借款人（一般都是大企业）用自己的国债（或达到一定评级的债券）作为抵押获得这笔借款，到期后还本付息。</p>
@@ -3405,7 +3406,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享02</title>
-    <url>/post/73b1ef43.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB02/</url>
     <content><![CDATA[<p>教你认清资产和负债<br>爬楼密码：20200111晚</p>
 <p>正式分享前，我想问一下大家，大家觉得理财和投资是同一件事吗？觉得是的打1，不是的打2。</p>
 <p>很多人把投资和理财误以为是一件事，其实不是，投资只是理财的一部分，理财是一个很广泛的概念，选1的童鞋请来找班班领板子。</p>
@@ -3534,7 +3535,7 @@
   </entry>
   <entry>
     <title>理财/晚分享/晚分享01</title>
-    <url>/post/eab8bef9.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%9A%E5%88%86%E4%BA%AB/%E6%99%9A%E5%88%86%E4%BA%AB01/</url>
     <content><![CDATA[<p>班会：训练营通关秘籍<br>爬楼密码：20200110晚</p>
 <p>一个人一生能积累多少钱，不是取决于他能够赚多少钱，而是取决于他如何投资理财，人找钱不如钱找钱，要知道让钱为你工作，而不是你为钱工作。——来自沃伦·巴菲特</p>
 <p>理财就是理生活，欢迎同学们的到来，请大家思考下你来训练营学习的目的是什么呢？</p>
@@ -3572,7 +3573,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读04</title>
-    <url>/post/7ae1feb6.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB04/</url>
     <content><![CDATA[<p>一则故事让你轻松了解保险的实质</p>
 <p>首先大家要先明白，保险可以根据它的实质简单粗暴的划分为两大类：消费型保险和返还型保险。<br>大家要牢记这两个类型，这样无论别人给你推荐各种杂七杂八的险，你都能清爽的理清，从而分析是否合适！<br>在准备保险专题时一直在想着，找哪些素材可以简单明了的让大家透彻理解保险知识，嗯哼<del>终于被我找到了，不信自己看正文吧</del>！<br>正文：<br>100个学徒工来到一家五星级大酒店学习厨艺，他们要勤勤恳恳学习十年才能出师。学徒们的薪水不高，一年只有几百块，但是五星级酒店的餐具都非常名贵，一个盘子要1000块钱。如果哪个学徒不小心打坏了一个盘子，那么他不仅要倾家荡产来赔偿这1000元钱，还可能会被开除，不能再继续学习和工作。因此学徒们都非常小心谨慎，但还是每年都有人打碎盘子。<br>这一年，酒店来了个聪明的财务，他提出了一个方案：如果每个学徒每年愿意交一点点钱，把这些钱集中起来，那么无论谁打碎了盘子，就用这钱来赔偿盘子，而且学徒们都不再受到处罚。大家都觉得这个方案很好，都愿意花一点点钱买个心安。那么需要交多少钱呢？聪明财务就问大家：“你们一年之内大约会打碎几个盘子？”大家想了想答到：“大约四个吧”（预定死亡率）。那么假定一年内需要赔偿四个盘子的话，就需要每个人交40元钱。聪明的财务又建议大家聘请一名经纪人来帮助大家管理这些钱财。按照当时的市场情况，雇佣一名经纪大概一年需要600元，为经纪人租个办公室要400元（预定费用）。这1000元的费用分摊到每个学徒身上是10元，这样算下来每个学徒一年只交40（保障成本）+10（费用）=50元，就可以打碎盘子不被开除了。（短期消费险诞生了）<br>可是这一年大半年过去了，竟然还没有人打碎盘子，这时候，一个平时做事最谨慎小心的人想了，我是最不可能打碎盘子的，这一年损失50块钱，十年也是500块啊！不行，我得找财务去谈谈。小心人跟财务这么一说，财务说：那简单，你不想交就不交呗，反正出了事风险自己承担。小心人想想又觉得不踏实：万一我打碎了盘子还是赔不起的，有没有两全其美的办法啊？聪明财务脑子一转，既然他想要拿回本金，我就要多收他一些钱，用这些多收到的钱去投资，用投资的收益把他的本金赚回来。那么现在的市场收益率大概是12.4%（预定利率，现在保监委规定预定利率不得大于2.5%）。通过计算10年后要想拿回本金，现在就收取 40（赔盘子）+10（费用）+50（为回本投资）=100元。于是聪明的财务说：我也相信你不会打碎盘子的，但是万一的事情谁也不敢担保，要不你看这样吧，你每年交100块押金（两全险），如果打碎了盘子这押金就没收了，如果十年都没打碎，到时候1000块钱我原样还你。小心人自己一算，几年内打碎了盘子，本来要赔1000的，现在如果十年中途打碎只要赔几百，如果十年都没打碎盘子，自己一分钱都没损失，确实两全其美！“但是咱们得有一个约定”财务又说，“你既然按100交押金了，这十年都得交，中途也不能再把押金取回，否则要算你违约。”小心人想想自己总归不亏，就一口承诺：“没问题！”<br>（两全保险诞生）</p>
 <p>这一年小心人果然没有打碎盘子，看见其他工友大都损失了50块钱，他不禁得意起来，把自己的方案告诉几个好朋友。很快一传十十传百，大家都觉得自己没那么倒霉就是那个会打碎盘子的人，于是纷纷要求交押金。财务也很乐意，于是第二年一下子收了10000元押金。财务留下4000元准备赔盘子的钱，1000元费用，剩下5000元就去投资，这一年市场非常的好，投资回报率升高到了15%（利差益，预定利率12.4%），而且这一年学徒们打碎的盘子也只打碎了3个（死差益），雇佣的经纪也只花了500（费差益）。到了年底，还赚了不只一个盘子的钱。<br>听说了这个事情，小心人又不平起来，他找到财务说，原来你用我们的钱去赚了那么多钱，却不分给我们，太不公平了。财务想了想说：我赚钱是靠自己的脑力体力，也有我的功劳。要不这样吧，你再多交点，每年150元（分红险），十年后我不仅还你1500，还每年把盈利的70%分给你，如何？小心人一听，觉得这样更划算，于是自己马上交了150，回去还鼓动别的工友也多交一点。</p>
@@ -3586,7 +3587,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读05</title>
-    <url>/post/de6ce20.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB05/</url>
     <content><![CDATA[<p>一个普通人怎样靠股票赚到100万？每个人都可以做到！<br>不一样的第一桶金</p>
 <pre><code>一直很想好好写写我的这位密友，特别是听说他当年在财务上的目标现在已经实现，更勾起已经快被我埋藏起来的回忆，也激发起一点感慨。
 当我们偶尔听到某人突然间有了很多的钱时候，免不了把钱和运气联系在一起，可真的能走进一个人的生活去观察时，其实会发现有些人的有些机遇，确实不仅仅只是一种偶然，即便天上真的掉馅饼，也需要站在正确的地方拥有正确的容器才能接到。</code></pre><p>死胖子<br>    主人公是飞泥的同学与好友。我一般叫他“死胖子”，可死胖子其实一点也不胖。他老喜欢管别人叫成死胖子，哪怕被他这么叫的人其实也一点都不胖。事情有时就是那么奇怪，一个喜欢管别人叫死胖子的人最后他自己成了最多被叫成死胖子的人。于是乎不知从什么时候开始的，死胖子成了他在我们损友圈里的昵称。<br>    毕业5到6年，应该是朋友和同学圈里的一些人中龙凤，逐步逐步开始展露头角的阶段。 朋友圈里，“谁谁谁很牛逼，干了什么什么事情赚了多少多少钱”这样的事情总是会传的很快，飞泥的朋友里有毕业前就靠写软件卖软件成了百万富翁的；有毕业后创业据说已经通过了A轮B轮拿到了几千万投资的；还有进了阿里之类明星企业，拿着高收入并且还拿到不少股权的。大家谈到这些人的这些近况时，总不免会带着复杂的情绪，有羡慕，有嫉妒，也有失落，主要是偶尔会感慨自己相比之简直虚度光阴的日子，虽然感慨之后依然会把这些小情绪抛到脑后继续自己的生活。<br>    如果这样的人就在身边，更容易让人心生羡慕。人不会对遥远的明星代言一个广告就收入千万觉得不爽；也不太会嫉妒王思聪这样的超级富二代的奢靡生活；但却特别容易嫉妒当年和自己同一起跑线的傻逼同桌如今过得比自己更好。<br>    可是死胖子，和上面说到的那些人，至少在外人看来真是一点关系也没有的。他一个普通的会计本科毕业生，学校不差但也谈不上顶尖，父母是普通的工薪阶层，家里有自住的一套房子，就业时父母没有什么可靠的关系，所以毕业后自己回家投简历找了家普通企业，做着一份普通的财务工作，拿着普通的工资，在普通的时间谈恋爱然后结婚。如果不是像我这样的好友，很难想象还会有谁，会在这样一个身边的普通得无法再普通的角色上挖掘出什么能值得一聊的话题。<br>    不过正因为死胖子的普通，更让我觉得应该写点什么，毕竟在我身边，这些的普通人才是绝对的多数。可能没有那么过人天赋，可能没办法每天都保持“打鸡血”的亢奋工作状态，可能没有遇上事业奇遇的普通人中的一员。<br>目标：100万<br>    真的好基友之间其实很少谈什么理想的，因为实在太假了，更多时候的话题就是聊聊诸如上一盘DOTA做辅助为什么不买眼、某个家伙最近追到了一个超漂亮的妹子之类的话题。但真的好友，即便从来没有相互聊过假大空的理想，也是能在漫长的相处中，对互相心中的那点念想，知根知底。<br>    据我知道，死胖子的心里一直有个目标：毕业后10年内赚够100万。我其实一直想问为什么是10年不是5年不是3年？为什么是100万不是50万不是200万？为什么会有这么具体的目标？不过相比这些问题，我更多的感觉是，别说在那个学生时代，即便是工作的几年后，也少有人去规划自己的财务，并且把财务的目标当成人生的阶段性目标去落实。<br>    死胖子本人其实从来都没和别人说过他有这样的目标，连几个最好的朋友也没有说过，如果不是当年偶尔间意识到然后问及，连我他都从来没主动说过。后来知道，不喜欢说还是因为他也觉得到处和别人提这样的目标是很LOW的事情，而且这也不是他的理想，只是想做到的一件事，没必要拿出来。<br>炒股和攒钱炒股<br>    回忆起来，之所以能和死胖子成为好友，和我们大学时都炒股有很大关系。我自然不用多说，当年高考报会计专业就是因为被老巴影响，冲着财务分析，冲着能读懂企业的语言来的。要知道大学期间就开了股票账户的学生是不多的，连隔壁金融专业的也几乎没有，更别说我们会计专业。而死胖子几乎就是整个系除了我以外，能找到的唯一炒股的人。自然，兴趣点一致，话也就很投机。<br>    不过说死胖子也炒股其实是不准确的，因为我对股票自小热爱以及提前就有知识的积累，而死胖子在我看来当年在股票方面的投资水平是不那么好的。说水平没我好，主要是觉得在专业术语和各种投资投机理论上他懂得没我多，他平时也不像我，会花大把的时间在研究股票，研究各种技术和理论上。<br>    但他在其他方面却影响我很大，后来我才非常汗颜地意识到其实他在“赚钱”方面的智慧真的远超过我。<br>    这个影响主要是对储蓄以及储蓄与理财的理解。<br>    大一时候有一次我和他去图书馆借书，他指了指《富爸爸》系列，说：“这本书你看过吗？蛮不错的，我就打算一定要33岁前赚够100万”。这是我第一次发现身边有这么个和我似乎臭味相投的人存在，应该也是我第一次模糊地感觉到死胖子有这么个100万的阶段目标，而他后来看过的很多书，说过的很多话，做的很多事，都很大程度上影响到了我的想法。<br>    实际上他在学校就开始那么做了，死胖子家住在相对富裕的南方，每个月有1500的生活费，而这个数字虽然不多，但在我们那所北方的学校里，算是生活水平中上，完全够花的。所以他有那个物质条件去养他的一个怪癖，每个月限定自己只花1000，并以此为乐，每月剩下那500，攒一学期是2000多，然后每学期都会买上一只股票，至于具体买什么股，他经常问我意见，我也特别愿意和他讨论我对个股的看法，毕竟炒股真的是一件特别孤单寂寞的事情，身边能有这么个还能听得懂你话的人，自然特别愿意分享。<br>    用我现在的目光看，死胖子与其说是在炒股，不如说是把股票账户当成了他的储蓄罐，用定投的方式在储蓄。<br>    后来随着关系越来越好，我越发觉得死胖子是个你越相处越了解，越觉得这家伙有思想而且有意思的人。<br>    死胖子很擅长攒钱，而且一直给人一种以此为乐的感觉，重要的是他的攒钱过程并没有给人抠门或者丢脸的感觉，如果不是我经常被他问到买什么股，从而知道他的这个小怪癖，外人估计是很难看出的。他遇到好事也会请兄弟们吃饭，平时的生活条件也都和大家相似，伙食不差也吃零食也买水果。不过他似乎就是能在生活中，不经意间找到些高性价比的东西，并擅长量入为出。<br>    说到“攒钱”的话题，很多人脑子里第一反应就是“葛朗台”那样的形象，但事实其实不是。适当而非过分的勤俭，是不会严重影响生活品质的，但稍不留神的超前消费或者浪费却容易埋下财务拮据的隐患。而我们生活中周围的大部分人，根本不像自己想象中那么在意自己。<br>    大学里男生之间不玩游戏的基本属于异类，所以电脑应该是大学生必备品了。当时打游(xue)戏(xi)用的电脑，就能看出这死胖子和我们这群普通男生的差距。 记得我当时是问爸妈要的钱，买了台4000多的笔记本，而寝室的大多数同学也都是买的新电脑。而他，是在大四学长离校前的跳蚤市场公告板上，花了整整四天时间淘了个品相性能颇为不错的机器，人家还送他一把椅子，毕竟急于离校不在乎几个小钱的土豪学长大有人在。更让人可恨的是他那台800的二手货，用完3年以后，还被他400给卖了。而买完电脑后的那段日子，他为此乐了好几天，还总用他那独显机子开着高品质画质的游戏炫耀自己淘到的这个超大便宜货。<br>    电脑的事情只是一个个例，类似的事情在他身上应该有不少，而死胖子在生活中的这种追求折扣，追求性价比和实用主义的思维习惯，其实也在后来的投资中帮到他很多。<br>    在遇到死胖子以前，我很少意识到“存钱”这个事情，因为从小我习惯了花多少管爸妈要多少的花钱方式。我家里条件比死胖子还要略好些，一般情况下大学都是花完钱直接管家里要，而不是像他那样每月有定额的方式。后来意识到这样的办法确实不好，虽然不至于养成花钱大手大脚，生活虚荣攀比的坏习惯，但真的不清楚自己的钱都花到了哪里，也养不成存钱的习惯。毕竟每个月多花200和少花200，都是非常容易的事情，就像一个胖子和一个瘦子，可能也就是每天多吃了一口与少吃一口在日积月累下形成的差距。<br>次贷危机<br>    不存钱的人有时候确实会对存钱的人有一种奇怪的隔阂和一种难以理解。我当时就很难理解这死胖子每月从生活费里扣500下来，整整一学期也才2000，一学年好像也就5000不到的样子，他还特别乐此不疲，到底图什么，又有多大用呢？<br>    那个时候自己年轻气盛，刚学炒股的人很多都是朝着年化20%以上的收益目标去的，特别是早早拜入“价投神教”的我，自然也拜托不了这种“美好的憧憬”。当时总抱着一个现在看来是“幻想”的想法：如果自己年化20%以上，靠着入学前那爹妈赞助的2万启动资金，毕业后就能变5万的样子。而对当时的我来说，5万绝对也算一个能炫耀一下的数字。<br>    后来的事情是次贷危机一直在发酵，上证指数从6000跌倒3000，又跌倒1600的过程里，自己的股票账户亏损了70%不止，老爹当年给了2万，08年时候又厚着脸皮问要了5千抄底，最低时我记得只剩8000市值，这是市场给我打的第一个巴掌。但人总是选择性记忆的，后来我就彻底把刚入市时2万4年要变5万的幻想给忘记了，但还是全然不顾现实打脸，觉得自己能遇到百年一遇的经济危机是一种超大的幸运，觉得自己吸取教训后未来依然能有20%的投资能力。<br>    因为死胖子的股票和我的是高度相似的，照理说亏损的幅度也该是相似的，但看到他当时还算不错的心态，我开始第一次模糊意识到即便只有每月500的收入流，在这种时候也会给心态带来很大的影响，并且后来这成了在这段经历里最大的收获。<br>    很多人的脑子里，比如我，对投资，特别是炒股的理解还处在如果每年都赚20%，那4年一翻倍，8年4倍，12年8倍。但事实呢？可能8年的时间里，只有2个月是最重要的，单单这两个月就贡献了8年中的绝大部分的收益，只是我们根本不知道这两个月会什么时候出现，更多时候市场或者在下跌，或者在盘整。在这样的市场中，每半年的能有的那2000，每年的那5000，就比一开始有的那2万更重要。<br>    死胖子后来和我说，对于像他这种单纯需要存钱的人（财富积累初期），当时只是把股市当成一个“储蓄罐”。 如果不是把股市当成发家致富的工具，那么定投股市的方式是真的非常合格，甚至可以说在绝大多数“储蓄容器”中最优秀的，股市长期下跌或者盘整的过程中，定投者并不会损失太多，但也不会失去那8年涨2个月的暴富机会，而这种机会是存银行买理财所没有的。<br>    很多年后的2015年，死胖子就是靠着这样的想法，在坚持积累了若干年之后，抓住了他等待很久的一次财务上的跨越。</p>
@@ -3595,7 +3596,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读06</title>
-    <url>/post/94ef9f9a.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB06/</url>
     <content><![CDATA[<p>在花钱上拎得清的姑娘，能少奋斗10年</p>
 <p>这两天，在墨尔本大学读研的小女友，为了七月份回国，提前请假，购置机票。<br>我问这个败家小妞，如此折腾为哪般？<br>她说好不容易才争取到全球青年大会名额有限的门票，所以七月份要专程去北京一趟，这是她每年成长的坐标和仪式。<br>我心里迅速拨动着小算盘，她的日均学费×请假一周+墨尔本至北京的往返机票+在京期间的住宿费+大会门票费……小两万算是保守估计了。<br>我倒是对她的“破费”零意外，她历来是一个为了升级自己而不择手段的主：<br>大学期间就开始创业挣钱，有个她佩服许久的行业牛人，在广州有个分享讲座，她二话不说拎包即走；<br>去年她为自己创业项目的活动，预付了6k的场地订金，但后来创业活动与全球青年大会时间冲突，冲着现场能批量听到苹果公司、阿里巴巴、埃森哲、百度等国内外著名企业的高管来分享行业观点和人生经验，6k打水漂就打吧；<br>她朋友圈里，有她和舞蹈课、插花课上师生的合影，有参加“无人车论坛”、“面部表情网”等论坛的PPT，有次我看到她在三里屯听TEDx的现场照，我问她门票多少，她记不清是680还是880，说是反正掏这种钱基本没过脑。<br>她说，在20岁出头的日子里，不对自己头脑投资，那就是对未来投降。<br>钱花了可以再赚，就算晚餐少吃一半，她还是坚信视野的开阔、心智的成熟、朋友的结交、生活的体验更紧急重要。<br>85后的我对这个95后的小女友敬意渐生，她早就不需要家里提供经济外援，那么年轻就去接触拔尖的大咖，去洞察行业的趋势。<br>看着她身上闪耀着的新知和洞见，我真切体悟到视野付费的重要性。<br>视野决定了你到底是时代的弄潮儿，还是只是被时代玩弄了。<br>我看好她这样的姑娘，对大脑进行着一次次的“扩大再生产”，肯定能少奋斗10年。<br>有时候不得不感慨世界真奇妙，小女友回国参加的全球青年大会的幕后大boss，是我以前采访过的又忙又美的开挂张萌。<br>我得知此事后，微信跟萌姐说，我有个在国外留学的朋友专程回国要来参加她主办的全球青年大会，萌姐听后夸此女有前途。<br>萌姐有感而发，谈起自己的消费观，她有2点原则惊艳到我：<br>常规积累的速度配不上自我期待时，花钱加载自己的快速学习力。<br>她几年前花了十几万巨资，报名参加北大光华管理学院的一个历史班。<br>说是因为自己是理工女，文史哲不扎实，不想让教育体系割裂自己的知识结构。于是找了集结了以北大史学老师为主的全国历史名家的课程，每月上课4整天，高密度、高强度地预习、学习、复习，她说那段时间都能听见自己骨节野蛮生长的声音。<br>去年又花了接近20万的学费，学习基金管理的最最先进理念，满世界考察一圈后，报名了大有来头的深圳国际公益研究院学习两年，有时还得去深圳上课。<br>每年确立一个以人为师计划，把牛人的优点都长在自己身上。<br>她给自己定下的小目标：认识50位各个领域的牛人，请他们吃饭，向他们请教。<br>她跟我说，如果去APEC或达沃斯这类大会，约起来很容易，有时候大咖行程紧迫，吃饭喝茶就比较难约。<br>像是之前她和吴伯凡老师约了几个月都不凑巧，直到博鳌亚洲论坛上遇到，那天各自开会忙完到晚上11点，俩人在酒店大堂谈了40多分钟。<br> 她有次在外地出差，得知基辛格来北京开会，可以约着一起吃饭，她马上买了最近的机票回京赴约。<br>我算是服了，这年头，千万别惹一个一手减少皮肤纹路，一手增加大脑回路的女人，也别惹一个在看脸的时代，争做最强大脑的女人，根本就惹不起。<br>​​<br>一个人的愿望会深刻地影响着TA的消费观。<br>拿我来说，我毕业那年，希望在我打拼的城市，有本写着自己名字的房产证。<br>所以那时我的消费观核心就是：压缩那些行为必要，但形式不必要的支出。<br>比如：<br>我知道健身必要，但健身房的花销可以省，换成去公园快走或拉伸也挺好嘛<br>我知道英语必要，但学英语的途径可以选，能够选英语角而不选培训机构嘛<br>我知道获取新知识必要，但我不必非要培训或上课，自学能力能够应付的嘛</p>
 <p>我几年下来攒下十几万，发现一线城市的房价根本不是我的工资能承受的，于是我综合发展前景、宜居指数、生活成本等因素，索性换了一个二线沿海城市，买房，安居，乐业。<br>在生活压力被极大稀释后，我的消费观水到渠成地升级了。<br>我不再为了日用品单价更低，大老远地去超市购物，可以多花点钱在便利店里买到“便利”；我开始付费成为视频网站的会员，跳过90秒的广告，有更多更新的优质视频可供选择。<br> “一切节省，归根到底都归结为时间的节省；一切经济，最后都归结为时间经济”，不得不佩服马克思爷爷的远光灯眼。<br>我固定去理发的工作室，就算每次结账时发现又涨了那么多，但我下次肯定还乐意去。<br>一是我享受那位理发师带给我的美好氛围，他从来不推荐产品，而是抿一口红酒，然后安静专注地帮我剪发<br>二是我觉得被那位坚持跑马拉松的理发师剪过的头发，每根发丝仿佛都沾上了一些坚持的气息<br>为了与有人格魅力的人来个邂逅，就算多付点钱，我也甘之如饴，乐在其中。<br>我现在每个月都会买很多新上的原价书，对于新鲜出炉的优质音频付费收听，我在分享经济中完成着输入输出的新陈代谢。<br>当然，任何渠道的内容都会有误，像是美学大师蒋勋，知识脱口秀主持人罗胖，他们有些观点未必正确，但我也没觉得亏，毕竟引发好奇和触发思辨，对我来说更加重要。<br>我没去细算以前那种高性价比的消费让错过或滞后了什么，但我现在觉得：当我消费升级后，生产升级了，人生也升级了。<br>只说消费升级就能人生升级的都是大忽悠，我一定要强调生产升级的重要性！<br>有次某个发展很顺的年轻才女上台演讲，答疑环节，台下有个听众问她如何看待“消费决定论”，比如你买了奢侈品=自己是奢侈品，你会花钱=你会赚钱……<br>才女果断指出，如果缺少中间的“产出”环节，等式不成立：你买了奢侈品，产出了“奢侈品”，你才是真正的“奢侈品”；你花钱见的世面，走的弯路，学的技能，悟的智慧，这些产出才会变成你赚钱的能力。<br>在花钱上拎得清轻重缓急，舍得为未来和格局付费，舍得为产出和成长掏钱的姑娘们，已经少奋斗10年了。</p>
@@ -3603,7 +3604,7 @@
   </entry>
   <entry>
     <title>人生是场长跑，你是同学中的哪一个？</title>
-    <url>/post/2a90ecdd.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB07/</url>
     <content><![CDATA[<p>人生是场长跑，你是同学中的哪一个？<br>小熊老师<br>这次春节，见了几个高中同学，也参加了一次同学会。首先大家知道同学会的主要目的吗？高中同学会，一般目的有三个：<br>1、男同学炫耀自己多么多么的成功。<br>2、女同学炫耀自己还没老，或者孩子多么多么成功。<br>3、续前缘打旧炮。<br>第三点估计大家比较迷惑，举个例子。A男高中的时候崇拜校花B，但是A男长的比较挫，又不参与任何学校活动等等，也不敢和女生说话的。所以那时候B当然看不上A，A也只能yy。<br>但是现在这么多年过去了，A突然功成名就了，B却嫁了一个俗夫，这时候B就觉得A也不错了。A么,顺便放下心头的一块大石。<br>今天我们不讲第二第三点了，呵呵，有兴趣的你们可以自己讨论。我们只讲第一点。要知道，高中时候，大家的世界观人生观基本上已经形成了，但是高中时候成绩好的，过了20年来看，未必是事业上最成功的。<br>我这里举四个人的例子：</p>
 <ol>
 <li><p>A男，我最好的朋友，大学毕业就进入设计院，作为他们系最好的学生被某建筑设计院看中。他当年没考上研究生竟然也是他的运气，因为和他同届考上研究生的人毕业后成为他的下属的下属。37岁当上设计院院长，成为该设计院最年轻院长。现在呢？现在他每天的工作就是劝手下人辞职，去年他们设计院有150人，现在只有60人了。据他估计，等到他把这些人全部砍掉之后，领导就要砍掉他了。他还有12年的房贷要还，基本上没有积蓄。</p>
@@ -3646,7 +3647,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读08</title>
-    <url>/post/7357b29d.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB08/</url>
     <content><![CDATA[<p>你的圈子，就是你的未来</p>
 <p>前两天在上海，五原路一家颇有调调的别墅里，和钱皓见了面，聊关于新媒体未来垂直内容的商业模式，互联网金融和跨境金融的未来。</p>
 <p>钱皓是微博和公众号大 V，自带光环和流量，之前在IDG，对行业的inshight和判断，前瞻且独特。</p>
@@ -3701,7 +3702,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读09</title>
-    <url>/post/450820b.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB09/</url>
     <content><![CDATA[<p>最好的教养，是父母永不放弃自我成长</p>
 <p>01<br>我们为什么对教育这么焦虑？<br>    大多数的家长，对孩子、对教育，缺乏一个持久而深入的理解。猛然意识到，赶紧管一下，看到孩子不如意的地方，就开始忧虑孩子十年后的高考，十五年后的婚姻，以及二十年后的事业……<br>而这个忧虑本身，就会毁掉孩子的未来。<br>    家长之所以忧虑，是因为一直在间歇性地关注孩子，孩子有问题，就关注多一些，没有明显的问题，便关注得少。对孩子的教育，缺乏一个宏观的掌控，对于该做什么，不该做什么，做得够不够，自己心里也没底。因此，对孩子未来的发展走向，就缺少了一份确信。不确信，就会慌张。<br>    那么，为什么许多父母没有确信与笃定呢？<br>    许多家长，结束了读书生涯，有了工作，有了家庭，有了孩子，达到了一种表面上的“圆满”，便放弃了自我探索。生活遵循“最安逸原则”，看上去悠然自在，轻松洒脱，生活稳定，令人羡慕。其实，很多人生议题并没有完成，而是搁置在那里。<br>    打个比方，这很像“成长的断崖”。很多妈妈自认为选择了一条安逸的路，结果却被动地陷入烦恼的泥沼。到头来，付出的不是更少，而是更多。</p>
 <p>02<br>“四十岁死，八十岁埋”？<br>    我有很多年长我十岁左右的朋友，常常在一起聊天，也会说到她们同龄人的状态。发现四十岁左右年龄的人，特别容易往两个方向走，要么越来越丰富，越来越有魅力；要么视野越来越窄，与外在世界非常疏离。一位犀利的女作家甚至用“四十岁死，八十岁埋”来描述这种状态，读来让人倍感凄凉。<br>    当然，选择最安逸的生活状态，也不是错误。不过，人生的议题并不会因为我们的回避而远离。派克在他的《少有人走的路》中写道：<br>    我们对现实的观念就像是一张地图，凭借这张地图，我们同人生的地形、地貌不断妥协和谈判。地图准确无误，我们就能确定自己的位置，知道要到什么地方，怎样到达那里；地图漏洞百出，我们就会迷失方向。<br>    有的人过了青春期，就放弃了绘制地图。大多数人过了中年，就自认为地图完美无缺，世界观没有任何瑕疵。甚至自以为神圣不可侵犯，对于新的信息和资讯，他们也没有多少兴趣，似已疲惫不堪。只有极少数幸运者能继续努力，他们不停地探索、扩大和更新自己对于世界的认识，直到生命终结。<br>    我们的人生地图，至少要通过三组关系来定位，分别是与自己的关系，与他人的关系，与世界的关系。如果我们不想再绘制“人生地图”，那么，也有很多逃避的办法。最简单的办法，就是退缩，并保持现状。<br>    许多人不接纳自己，常常会自我否定和自我攻击，却放弃了内在探索，而选择忍耐和逃避。面对人际关系中存在的障碍，不是去化解，而是把人际关系简化，有的索性只剩下亲人关系。在家人面前，就算任性为之，也会获得包容。对世界的看法，则保持不变，不再对世界产生好奇。<br>    许多妈妈埋头于柴米油盐的生活，最大限度回避了这三组关系。派克的另一句话，说得言简意赅：规避问题和逃避痛苦的趋向，是人类心理疾病的根源。</p>
@@ -3711,7 +3712,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读10</title>
-    <url>/post/64970bee.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB10/</url>
     <content><![CDATA[<p>定投6年，以亏损收场，她到底做错了什么？</p>
 <p>今天听了一个惨烈的故事。</p>
 <p>我的同学球仔，从2010年开始定投某只基金，每个月8号投300块钱，坚持了整整六年，2016年全部赎回，以净亏损200多收场。</p>
@@ -3745,7 +3746,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读11</title>
-    <url>/post/13903b78.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB11/</url>
     <content><![CDATA[<p>你的死工资，正在拖垮你<br>最近各大平台都在讨论，房价疯狂上涨，30岁以下的年轻人究竟还有什么机会？看到这样的话题，我也会很焦虑，资本寒冬，工资涨幅小，物价和房价却疯了一样往上飞，完全不顾及我们的感受。<br>焦虑的同时，也不得不承认，在资源聚集的北上广深，总有一批既得利益者。他们有部分因为生对了年代，正好在谈婚论嫁的时候咬牙买了房；但必然有那么一批人，他们在本身职业之外，不断打磨自己的核心技能，有整合资源的能力。<br>工资只是它们的生活费而已，聪明并且那么拼命的他们，理应拥有更多的机会。<br>今天这篇文章想告诉你，无论你是否拿着死工资，都有随时离开体制的能力。<br>在北京，和国有银行的一朋友吃饭，他和我年龄差不多，毕业后一直在银行，规规矩矩，也算是做到了中层，年薪税后30万人民币，买了四环的小房子，谨慎的花钱过日子。<br>他说他很焦虑。他说北京机会很多，好些朋友做了公司，前几年邀请他入伙一起干，但是他觉得好不容易有这么一份稳定的收入，不敢放弃。<br>他看过当年觉得不如他的人现在赚了好多钱，也看到那些所谓的精英们，一直苦逼的挣扎在融B轮的路上。<br>他觉得在北京这座有最活跃的创意，最多的资本，最密集人才的土地，但自己好像是这座城市的局外人，旁观者。这座城市的热闹，和自己没什么关系。<br>而他这份薪水，越来越觉得鸡肋，吃不饱饿不死，就像每天的生活一样没劲。<br>看似奇怪，但细想又合情合理。工资收入，这个大多数人传统的收入模式，在这一轮互联网经济的浪潮中，正在变得越来越尴尬。<br>以前要稳定  现在要可能性<br>因为传统工资的模式，已经越来越不适合当今的新商业，尤其是互联网商业。<br>工资的增长模式是线性的，而互联网商业的增长模式是指数的。<br>工资收入模式的前提是，一个人是相对静态和稳定的，工资收入的增长是随着这个人专业度和经验丰富成正比的，是随着时间的线性增长关系。所以工资存在合理性的一般前提是，这个公司是稳定的架构。<br>你现在做一个公司，很少会做个公司十年规划，做个三年规划就不错了。因为现代商业一方面公司寿命越来越短，我先声明，这不一定是坏事。另一方面，一家公司的迭代速度非常快。<br>互联网最大的作用，在于产生了人与人更低成本的链接，更高沟通的效率，更高频的合作交易。<br>一句话总结，就是增大了个体的链接力和影响力，和未来不可预测的想象空间。是有可能呈现爆炸式指数增长的。<br>所以工资模式其实是并不太适合互联网商业，以为太慢了，太没有想象力了，股权模式其实更适合。<br>而另一方面，中国已经进入了一个资本回报率增速高于劳动回报率增速的时代。<br>一线城市，你会发现，如果你仅仅靠工资收入，一般都是买不起房子，因为工资的涨幅一般跟不上房价涨幅；<br>所以我身边好多人都有30岁危机，工作了五六年，收入好像增长了，但是和房价，物价和自己不断增长的物质精神消费欲望比起来，反而觉得更不满足了。<br>而幸福的人，更多是前几年拥抱了资产泡沫的人，因为M2的指数来看，资产的增长一般都会超过工资的增长幅度。<br>不像美国，这十年的物价指数基本没怎么涨，房价也没有升太多。所以，十年前的10万美元年薪，和现在的10万美元年薪，日子过得差不多。<br>所以，线性增长的工资，其实开低了你在这个时代可能拥有的更好加钱。<br>承认吧，你的工资收入走不向财务自由<br>另外，我注意到，在有些行业，工资收入，不仅有鸡肋，甚至可能是陷阱。<br>因为高收入，有两个特点，第一是高风险。第二是稀缺性。<br>工资收入所对应的应该是低风险，因为工资意味着旱涝保收，但现实是，现在这个时代一个人因为不敢冒险，反而职场风险指数越来越高。<br>因为当身边都是翻起的海浪，一艘平静的船，说这艘船稳定，就是个笑话；你能做的，就是不断调整船的姿势，和海浪同频共振，所谓动态平衡。<br>如果一个人领的是工资，但是所处的行业，让你越来越动荡，变得更容易被替代。那这个工资收入，不仅不是保障，而是职场陷阱了。<br>举个例子，我一好朋友，四线城市，和我年龄也差不多，政府机关领导一把手的秘书，绝对是当地有头有脸的人物，有不错仕途，但他说他很焦虑。<br>他说他和上海这种一线城市的朋友聊天的时候，虽然大家都很羡慕他现在貌似人生赢家的日子，但是，他说，<br>“我有时候会听不太懂他们讲的一些互联网的东西，我觉得自己的知识结构很闭塞，感觉自己落后这个时代了，有种out的感觉，”<br>“这种感觉，不想就会麻木，想起就会觉得恐怖。”<br>因为公务员这种看似稳定的饭碗，好像这几年也开始变得越来越不稳定了，而且体制内的很多制约，导致他很难开发自己的另一种人生可能。<br>他说我每次回家，就特别想和我聊天，觉得我能够带给他外面的世界的样子。<br>所以，互联网带给我们这一代人前所未有的机遇，和前所未有的挑战。我们都有出人头地的机会，也有一不留神被淘汰的可能。<br>当人工智能都开始淘汰华尔街的交易员了，未来有哪个人是安全呢？<br>带给我们的启示是，我们在挑选一份工作，和规划自己职场路径的时候，工资考量的比例，或许越来越不重要。<br>或许我们应该多想想如何让自己变得不可替代，变得稀缺，变得有话语权。<br>或许我们应该多想想如何抓入周期越来越短的机遇，抓住一次人生的资产泡沫，哪怕只有一次，完成原始财富的积累。<br>就像还在体制内的人，要时刻保持离开体制的能力；<br>就像还在领工资的人，要时刻警惕，你的价值，可能一直被工资低估了。<br>中产阶级确实在崛起，中产阶级也同样焦虑，至少，你不能跟着船一起沉。<br>我北京两个商业合作伙伴，一个去年从交通部大院里出来，做自媒体人了，做的还不错，一年几百万收入；另一个伙伴两个月前也从体制内出来，跟着一个牛逼的互联网人做项目，收入还不稳定，但至少比以前开心。<br>当个人和组织的关系变得不再高度依附，当一个人就可以活成一家公司完成和世界的最短连接；<br>而工资，作为个人和组织中间的交易载体，在这个互联网时代，显得越来越不合时宜，因为——雇佣制会退出舞台，合伙制会成为主流。<br>死工资正在拖垮我们，只有工资收入的你们，是该好好反省了。</p>
 <p>算一算一辈子需要花多少钱</p>
 <p>月光族们肯定对自己的毛病深恶痛绝（引以为豪的麻烦别看），也肯定看过不少消灭月光族的10个技巧之类的问题。但是，解决月光的最大问题还是动力问题，因为买东西的享受是立即可以体验到的，而没有钱的痛苦是未来的事。这种只顾眼前欢愉，不论未来受苦的享乐主义心态，就是月光族生存的肥沃土壤。<br>如果能确切地感受到，未来缺钱的痛苦，也许就能彻底改变月光族的状态。<br>让我们来找个主人公吧，就让我们叫她小M吧，嗯，那谁，就是你，我可是为了你写的。<br>小M年方25，工作了3年，现在月薪税前6000元，税后大概是4500元左右。她在广告公司工作。广告公司那种地方，你知道的，身边光鲜亮丽的都是美女帅哥，所以小M也不得不每个月买点衣服啊，买点鞋子啊，买点配饰啊，再加点房租啊，外出吃饭什么的，月光是客气的，有时候拆东墙补西墙也是难免的。<br>现在先让我们来看看小M同学一生能赚多少钱。不过我们假设她一生无波折，既没有在路上撞到高帅富，也没有中500万的彩票。当然，也不曾因父母欠债被迫要还2000万的高利贷，也没有因为创业，突然变成了下一个中国首富。我们假设她既没有太好的运气，也没有太坏的运气，一切都是比较平稳，线性发展的。<br>小M今年25岁，退休年龄是60岁，所以还有35年可以工作。假设她的工资是线性增长的，每年可以长10%的工资。她现在的年收入是54000，存款为0。别看只有10%的增长，由于是每年增长的（你们公司每年给你涨工资吗？），到了60岁那年，小M的税后年薪，已经到达了152万左右。<br>用一个简单的excel表格，可以算出，小M从25岁到60岁，总共可以赚到1615万元。啊，简直是一笔巨款啊！！！<br>好了，现在让我们来算算小M同学一生要花多少钱呢？上海市民的平均寿命是81岁，女性会更高一些，为了计算简便，就算是80岁吧。<br>（先声明一下，为了计算简单，都取平均数，例如小M现在房租1000元，但是随着她收入提高，她会租2000元的房子，所以大概平均是1500，而且这些都是推测的数字，你可以根据你自己的情况来算）<br>1、房租：假设她现在租房每个月要花1500元，但是30岁的时候，她结婚买房了，所以25岁到30岁，房租的支出是9万元<br>2、吃饭：每月吃饭的支出，大约是600元（不包括朋友聚餐），这样从25岁到80岁，吃饭的总共支出是39.6万元。<br>3、朋友聚餐：外出吃饭其实还蛮贵的，假设也是每个月600元，这样，外出就餐的支出，也是39.6万元。<br>4、买车：假设小M一生中拥有3辆车，每辆车开个10年，那已经很厉害了吧。从30岁到60岁开车，60岁以后也不用开车了。刚开始的时候买个10万左右的，然后换了辆20万的，然后换个40万的，总共的车价是70万，跟先生一起负担，所以小M需负担35万。<br>5、车辆维护费：开车要加油，要停车费，要买保险，要洗车和保养。平均每个月1500元是没少的，这30年，车辆维护费总共要花54万。小M负担27万。<br>6、从25岁到30岁，以及60岁到80岁，这段时间里，小M没有车，所以要计算交通费，每个月交通费200元吧。 交通费是6万元（这可不能跟老公分担啊）<br>7、衣服鞋子包包：年轻的时候，衣服鞋子上花钱肯定比较多，年纪大了，可能比较少。不过平均下来，每个月花1000也不算太多，这样的话，从25岁到80岁，是66万。<br>8、终于到了30岁，小M找到了心目中的白马王子，她幻想要举行一场浪漫的婚礼，到马尔代夫去拍婚纱照。酒席+婚纱照+婚纱+婚庆公司+喜糖+借车，大概30万吧，小M要负担15万。<br>9、婚后很甜蜜，所以小M跟老公决定每年出门旅行一次，2年在国内，每次平均一个人花2500元，每3年去一次国外，平均一个人花1.5万，那么从30岁到80岁，外出旅行的花费大概是33万。周末呢，两个人会去看场电影，看个话剧什么的。平均每个月每人花费400元，等于24万。加起来是47万。<br>10、还有，小M和先生的父母也都老了，从小M40岁开始，每个月要给父母1500元的生活费，到60岁。这笔支出是36万<br>算到现在还花得不算多吧，别着急，大头开始来了<br>11、买房：到了30岁，小M结婚了，房子需要多少钱呢？少算一点，现在100平米，比较郊区的房子，大概是400万吧。假设小M没有足够的钱付首付（她月光麽），贷款10年的话，实际大概要用掉600万。如果是贷20年的话，实际要用掉800万。假设小M找的先生条件跟她差不多，所以我会把费用除以2，因此小M实际要负担400万的房款。<br>到了45岁的时候，因为孩子也长大了，这时候小M打算要换套大一点的房子，大概是150平米。假设还是之前的房价，那么就是要多付400万，小M要负担200万，所以总共是600万元。<br>12、装修：两次房子的装修，连家具和电器什么的，总共用了100万。<br>13、医疗：小M一生总算没有生太重的病，不过年纪大了，一些病痛 是不可避免的。加上生孩子也需要住院。所以总共支出100万应该不算太离谱的。<br>14、小M在31岁的时候生了一个宝宝，从宝宝出生到大学毕业，总共需要的教育费用大概60万（还不能上太多才艺班），小孩的服装和食物支出，每月算600元，到22岁成人，大概16万。还有小孩子也会生病，也要买玩具，每年过生日还要庆祝一下，总共算100万吧。<br>我写得有点累了，算到现在，大概用了1230万元。不过其实还有很多没有算的，例如人情往来啊，父母的养老送终啊，小孩子的出国费用啊等等等等。<br>看上去一辈子赚1615万元，才花了1230万元，还是挺不错的吧。且慢，你忘记了通货膨胀这件事，也就是说，你的1615 ，在你后来花的时候，实际上是没有1615万元的，那实际是多少呢？<br>还记得你的工资是每年涨10%的吧？现在国内的通胀大约是6% （我没告诉你这是名义通胀，实际通胀要高得多），也就是说，按照实际购买力的话，你的钱每年只增长了4%。 现在我们再来算算你一生可以赚多少钱。<br>把你每年的工作增长系数改为每年增长4%的话，你一辈子赚到的钱，实际购买力只有420万元，而你需要花费1230万元！！！<br>月光族，醒醒吧！！！就算你工资持续增长，就算你只过小康的水平，你一辈子的钱也是不够花的！<br>ps：有些人觉得我的设定不合理，例如觉得房子太贵了。<br>房子就算买200万，也改变不了最后的结论啊。大家当然可以根据自己的情况来设定。另外，有人说没有算物价通胀，实际上，工资折价成“实际购买力”，已经把通胀因素考虑进去了。</p>
@@ -3753,14 +3754,14 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读12</title>
-    <url>/post/8a996ac2.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB12/</url>
     <content><![CDATA[<p>深圳两房一车，面临失业，中年财务危机引发家庭悲剧</p>
 <p>中产，你要的太多，其实没那么坚强<br>对子女近乎偏激的爱、过高的期待，不仅影响了年轻一代看待自身婚姻和家庭的方式，也加剧了父母辈对待子女的成长、求学、离家、结婚、生子的焦虑。虽然看起来，中产阶级的生活什么都不缺，却在面对日常生活的起起伏伏时，脆弱得不堪一击。虽然依靠自己的打拼，赢得了这一代生活的逆转，却难以将信心延续到下一代。只敢认认真真地生活，靠消耗健康和精力卖命工作，却不敢独自面对自己的内心。表面上优雅风光，其实早已心力交瘁。<br>观察君整理一份目前网上热传的一份帖子，我们一起来探讨一下中产阶级的这种焦虑症究竟从何而来？身负重任的他们，又如何和自身的困境共处呢？<br>我那么努力有两套房却不得不离职，到底哪里出了问题<br>我2001年本科毕业，工作两年后上的研究生，然后到深圳某知名通信公司，到现在将近十年。老婆和我都是农村出身，家里没钱支持，2010年辛辛苦苦攒点钱在坂田买了套二手房，当时大概是120万，每个月房贷6000元。2011年生了个儿子。<br>2016年政策放开，响应国家号召，又生个女儿，因为我要经常出差，还在国外研究所待过两年，家里父母孩子没人照顾，老婆不得不辞职照顾家里。<br>2015年底深圳房价大涨，手里正好有小几十万余款，考虑孩子以后要上学，大家也认为房价有国家托着，只会涨不会跌，又在关内买了套五六十平米学位房，总价300多万。首付不够，第一套房找人抵押弄了70万，凑在一起付了首付，贷款260万，月供17000。70万的抵押贷一个月也要七八千。<br>全家就我一个人在挣钱，拿到手的工资钱两万多，不包括奖金和分红，因为两套房贷加上抵押贷就三万了，奖金就用来补贴家用，日子过得紧巴巴。但想到自己深圳有两套房，心里也会安慰很多。一般分红大部分用来购买股票了，现在持有十,几万股票。<br>前段时间公司要安排出国，当时考虑家庭条件去不了，后来HR就找我谈话希望主动离职，看现在的样子不离也很难，公司总有理由让你离职，不行打个C就末尾淘汰了。<br>与其闹来闹去的离职，不如舒舒服服的好聚好散，而且至今也没发现谁闹着就不被离职的。其实我绩效还不错的，也得过多次A，因为我深知，农村出来的孩子，不努力就更没出路，我能走到今天，是公司给我们创造的机会。<br>最近也在网上投过简历，我们这三十大几年纪，一般出去做不了高管，企业也不要，面试机会也很少，少数小公司面试过，基本月薪也是税前不到两万，税后房贷都不够，有的还看不上我。<br>我们在大公司，自我感觉水平不错，视野开阔，但和人家一交流，明显有很大不同，人家小公司我们这年龄的，即使不是高管，基本产品从前到后啥都懂，软硬件，结构啥都能做，我们则只能做自己擅长一段，真正让我们做出产品需要很多配置协助，小公司也养不起我们这样复杂的玩法。<br>目前看只能把学位房卖掉了，但眼下比较麻烦的事情，现在深圳二手房交易十分低迷，学位房也不好卖，急着卖的话350万可能只能卖300万，还了贷款杂七杂八的刚好没有了。<br>最后就十几万股票离职可以换几十万，离职补偿已经在前年兑现了。这几十万只能凑活偿还一套房的抵押贷款。就算把学位房300万卖掉，幸运地找个税前两万税后一万多的工作，剩下6000的房贷，加上两个孩子上学，养家，完全入不敷出，何况税前两万的工作也不好找。现在每天下班回家，看到孩子和老婆都觉得愧疚，夜晚也辗转难眠。<br>今天这个局面也不怪公司，十年来在公司获得的收益已经超出社会平均水平很多，企业成本压力同样很大。我们农村出身，能在深圳生儿育女有房有家已经不错，当然还有个标志307。<br>这么多年来，我时时鞭策自己，从来不敢懈怠，能加班就加班，能早去就早去，领导一点不满，就紧张好多天，生怕丢了工作，可到头来还是不得不离职，入不敷出。那是哪里出了问题呢？是我不努力么，是企业给我的待遇不好么，还是房价带来太高生活成本？<br>他错在哪里？<br>家庭财务出问题的万能答案：买了负担不起的东西，上了输不起的赌桌。<br>二胎和让老婆辞职回家，都是这个家庭负担不起的奢侈品，然而他毫不犹豫地做了。<br>学区房更是一场输不起的赌局。如果首付的70万元全部是自己的积蓄，没有使用必然利率高期限短的贷款，这个家庭可能还有机会勉力维持。你看看个人房贷那点利息，除了买房没有其他机会享受这么低成本的资金。<br>根据他的描述，这70万高利率贷款会成为压垮这个家庭的稻草。想等房地产回暖也等不起了，急着出售学区房就必须在当前低迷的二手房市场中压低价格，他自己也知道“还了贷款杂七杂八的刚好没有了”。<br>中产阶层的财富焦虑：如果不买房，还能买什么？<br>中产阶级对财富增值对此也充满疑问。他们的可投资资产也许只有几万，或者10多万乃至上百万元。他们可能已经拥有一套仍在还贷的房产，或许还在为首付奋斗，他们身在北上广或者二线、三线城市，但困惑似乎是一样的：房子还能买吗？如果不买房子，手里的钱——不管是多是少，又该如何跑赢通胀，获得增值？<br>一种难言的焦虑感在不同市场、不同人群中蔓延。尤其是中产阶层，他（她）好像“病了”，得了财富焦虑症。<br>有钱却不富有:<br>中国中产阶级焦虑的根源到底是什么?<br>一个城市的白领，被人称作中产阶级，每天享受着让别人羡慕的生活，但是却时刻在担心。担心我今天所从事的工作，明天会不会被辞掉？今天身体很健康，明天会不会因为一场大病而致贫?今天的职位明天还有多少上升空间？今天疲于奔命，明天老人谁来赡养？一次大规模裁员，一场可能存在的降薪，股票的波动，税率的调整，甚至是住房公积金的调整，都能让我从睡梦中惊醒。<br>这就是中国中产阶级的生活，他们仿佛拥有着让人艳羡的生活，有着房子，车子，他们可能收入不少，但是大部分人都会在说钱不够用，这就是中国中产阶级的现状。<br>二、中国中产阶级焦虑的根源到底是什么？<br>中国的中产阶级表面上生活风光，工资不低，储蓄不错，但是如果仔细问他们，未来的潜在支出并不低，子女的教育，医疗的准备，养老金的储备，子女的结婚，个人职业生涯的培训，以及可能存在的大宗开支（如购车，房屋置换）等等。<br>这每一笔开支都不会低，有人测算过如果要在一般水平满足中产阶级未来的这些开支的话，那么一个过的压力不大的中产阶级家庭，在还完房贷、车贷等一系列贷款之后，必须要有现金存款在550-650万之间，而这个标准对于当今中国的中产阶级而言恐怕并不轻松。<br>但是，这些都是一些表象，那么问题的根源是什么呢？中国是世界上最大的发展中国家，我们的国家刚刚发展起来，对于我们而言所谓的公共社会福利尚未建立，在中国除了最基础的低保以外，大部分的日常支出都是需要家庭来自己承担的。<br>因此，刚刚富裕起来的中国人，经常会看到这样的现象，往往因为一场大病，或者其他什么意外就会轻易的返贫。而除了医疗之外，子女教育，子女结婚，养老储备也往往耗费了大量的金钱，这让中国的中产阶级们陷入了这样的一个情况，就是表面上生活不错，收入不低，但是翻来覆去依然为钱发愁，每天拼命工作，努力加班的原因是不敢停下，因为表面赚的不少，实际上存下的有限，满怀生活的梦想，其实却是社会的脆弱群体。<br>不敢去做风险类的投资，因为担心一旦市场出现风险波动，就会直接影响孩子的教育经费，可能的疾病储备。更不敢因为加班为了情怀而辞职，因为一旦收入不稳定房贷、车贷都会成为一分钱难倒英雄汉的陷阱。于是乎中国中产阶级仿佛走在平衡木上，过着独木桥，每天为了家庭，为了工作尽心尽力，却没法给自己降低一丝一毫的担忧，因为大部分中产阶级都只能用”别无选择“这四个字来形容自己。<br>对于中国而言，一个稳定的中产阶级群体是中国能否启动消费，稳定社会的关键，但是中国需要的不是现在这样的夹心阶层，而是在完善了社会保障之后，真正可以有钱有闲，享受生活，敢于消费的一群人，他们才是中国发展的脊梁与支柱。<br>二、背负高房贷，中年失业，这个深圳男子的财务悲剧为何引发热议？<br>对于主人公的境遇，有人同情“人到中年的不易”、有人感慨“高房价下人如蝼蚁”，也有人不乏居高临下的姿态，“弱肉强食的中国社会不相信眼泪。”<br>对于这件事，X博士是这么想的：<br>1.<br>主人公被炒后，立马陷入财务危机。从技术层面上看，他犯的致命错误，就是买了第二套学区房，还是借款凑成的首付。这第二套学区房直接带来的是每个月25000的利息（银行月供17000+抵押贷七八千）。被炒使得资金流完全截断，这多出来的25000利息立马成“无法承受之重”。学区房本来是一场输不起的赌局，可是他贸然入局了。<br>2.<br>从基本面来看，他输给了变化多端的市场和政策。由于国家迅速出手的房地产调控，和瞬间冷却的市场，他的二套房现在要是着急于出售的话，要比入手时低个好几十万。<br>可以想象，要是二套房能按溢价10%的价格卖出，他现在绝不会那么被动。一年前，接盘侠数不胜数，转卖可轻松获利数十万，可惜政策变了，市场变了。<br>3.<br>从个人层面看，他输给了自己。在大型通信公司，每年月收入大概五十万（工资+奖金+分红），十年的工龄，至少位居中层；然而，一旦到市场上另谋职位，却意外发现自己不被市场需要了，年薪五十万所要求的人才，完全不是他这一种。他才恍然大悟，过去十年是安安稳稳的十年，也是“温水煮青蛙”似的十年。<br>事实上，假如主人公有意识储备一些业内资源，那么离职后再一些中型甚至创业公司获得好职位的机会是很大的。所以说，一定要持续学习，要给自己留后路，在日常工作之外，时不时自问：“假如我现在离开了，我能做什么养活自己？”<br>4.<br>买二套房、生二孩，都是对财务要求极高的决策。谨慎评估自身财务状况后，才能做好决策。但主人公显然没意识到：他的现金流很紧凑，容不得有闪失。退一万步讲，他没有被炒，万一老父亲生了一场病得动手术，从天而降的区区几万元额外开支，就会让他够呛。<br>在财务评估上，宁可悲观，也不可过度乐观。<br>5.<br>主人公如此忧心忡忡，还有一个原因，就是他是家里唯一的经济来源。妻子当家庭主妇，他一旦失业，柴米油盐就没着落。<br>在高生活成本的城市，对中产之家来说，最好还是夫妻双方都有收入，就像小别离里面方圆和童文洁一样，就算方圆一度被医院辞退，做到企业中层管理的童文洁还可以独当一面，一家子不至于慌忙失措。<br>6.<br>高房价是中产头上一把刀。2016年深圳平均月工资是8141元，而现在深圳楼市均价少说要四五万，这座城市已经是全球房价收入比最高的城市，深圳的工薪阶层房价负担最重。<br>主人公在大型企业已有十年经验，被炒后要在市场上找到月薪两万以上的工作非常困难，形成对比的是，他仅一套五六十平方米的房子月供就得17000万。对工薪阶层来说，深圳的房价简直到了不人道的地步。<br>7.<br>我们身处在一个风险时代。作者今天的困境，可谓三重风险的叠加“个人能力风险+企业风险+国家政策风险+”，你的个人竞争力可能会被市场淘汰、收益下滑的企业可能要炒掉你、国家楼市政策可能要变，这些风险始终存在，但经常被麻木的惯性给忽略了，主人公显然忽略了种种风险。<br>风险时代，最安全的做法，就是做好最坏的打算。<br>8.<br>最后，X博士想提醒的是，在大机构工作，按部就班是常规，工作随便晃几下，几年就过去了。<br>像主人公那样埋头工作，很容易对外部世界的巨变视而不见，缺乏思考的结果，必定是陷入习以为常的路径依赖，直到有一天，你被狂风抛如一个陌生的世界，没有准备的你，顿然发现麻烦大了。</p>
 ]]></content>
   </entry>
   <entry>
     <title>理财/晨读/晨读13</title>
-    <url>/post/fd9e5a54.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB13/</url>
     <content><![CDATA[<p>你是不是也经常说“等有时间再做”？</p>
 <p>科科是写美食专栏的旅行达人，我们在一次旅途中相识，一见如故。之前我看过她的专栏，美食加旅行的标签，很容易让人觉得她活得特别悠闲。<br>深圳再见，我才知道她在一家著名的科技企业做策划总监，每天工作10小时以上。<br>“旅行与美食的时间从哪里来？”我问。<br> “挤。”她答得很干脆。<br>出于好奇，我打听她的作息表。她的午餐基本是在外面解决。<br>跟我们每天晚上搭配好第二天出门的衣服一样，她每天晚上用半个小时研究城中的餐厅资讯，决定第二天午餐吃什么。吃完饭又花十分钟做简单的测评记录。<br>小长假只要不加班，她都会去还没被开发或者过度开发的地方旅行。<br>至于出国旅行，属于年度豪华计划，她通常把年假与春节拼在一起。用大半年时间做攻略，每一间酒店，每一餐饭都不浪费，攻略细致到标注日出日落时间。<br>科科的旅行攻略做得好、线路新奇，去一个地方回来，可以写出好多篇文章。以至大家误解，以为她每天都在吃喝玩乐。<br>“就是因为工作太忙，才对吃喝玩乐保持极大的好奇心，愿意深研，十天的旅行，做300天的前戏。”<br>科科说，人对幸福的敏锐度，来源于饥渴感。她很享受现在的状态，因为很忙，才加倍努力地珍惜每一次美食与旅行的机会。<br>她形容自己与旅行、美食的关系是，“穷小子一年一次高潮，每一次都费尽心思。”<br>很多人喜欢将无法取悦自己、陪伴家人、做喜欢的事情，归因于没时间，但在现实生活中，我看到的那些懂生活、爱自己、耐心陪伴家人的人，反倒都是像科科这样的大忙人。<br>忙中偷出的闲，我们才愿意珍惜、经营，让它产生加倍的幸福感。如果单纯只有闲，时间流逝，想做的事情很容易今天推明天，明天推后天。<br>在读者分享会上，我总被问到一个问题，你那么忙，哪有时间陪伴家人、过有趣的生活？<br>我的答案也是忙中偷闲，并且想办法让空闲的时间，像烟花一样，照亮平淡乏味的生活。<br>因为陪孩子的时间不多，每一次陪伴，我都要求自己全心全意走进孩子的生活，与他们说天真烂漫的话，做幼稚可爱的事。<br>我身边有朋友，在事业上升期，为了陪伴孩子，全职回家了。但很快，我发现她根本没做到像辞职之前说的那样，陪孩子去旅行，给孩子读绘本，跟孩子一起画画、弹钢琴。<br>我去她家，经常发现她在追剧或者躺在床上玩手机，孩子一个人看动画片或者玩玩具。<br>我没有责怪这位朋友，相反，特别理解。<br>这就是人性。<br>当你有很多时间的时候，根本不可能再精打细算地珍惜你的时间；当你觉得随时都可以陪伴孩子与家人的时候，也不会挖空心思去想如何提高陪伴质量。<br>所以，如果有一件事，你很想去做，千万不要说“等我闲了再做”。这是无限拖延的借口。<br>在资讯如此发达的今天，任何一件事，你想做，就可以立刻开始。<br>忙中偷闲去做喜欢的事，不仅逼你学会管理时间，它带来的成就感，还能让你变得更加强大、自信。<br>不仅仅是休闲玩乐，忙中偷闲也能成大事。<br>日本作家村上春树的第一部获奖小说《且听风吟》就是忙中偷闲的结果。<br>我喜欢村上春树，不仅喜欢他的作品，更欣赏他的生活态度。<br>他大学没毕业就跟太太一起创业，借钱开了爵士乐酒吧。<br>好不容易还清这家店的欠款，房东却要收回店面。他们不得不搬到一个更大的地方，重起炉灶，又背了一身债。<br>开店期间，村上春树忙中偷闲地完成了早稻田大学的学位。一般人四年拿到的学位，他花了七年。<br>他形容自己开店那几年：除了天亮前的几个小时，几乎没有可以自由支配的时间。<br>然而，当想要写小说的时候，他当天下午就去买了笔和纸，每天深夜关店以后，写一会儿。不到5万字的中篇小说，村上春树写了半年。<br>在村上春树自传体散文集《我的职业是小说家》里，他写到：“不管工作多么繁忙，生活多么艰辛，读书和听音乐对我来说始终是极大的喜悦。唯独这份喜悦任谁都夺不走。”<br>每个人都是奇怪的。在悠闲中很容易将自己放纵为一事无成，甚至连快乐都没有了——不是真的不快乐，而是快乐来得太容易，对它的感觉就会迟钝。<br>反倒是那些忙中偷闲成就的事情，我们会永远记得，并且深深感到珍惜与自豪。<br>“等有时间再做”的真正含义是，闲得无聊再去做。<br>只有不重要的事情，才应该被摆在这样的位置。那些你喜欢的事、对你重要的事，无论多忙都可以抽时间去做。<br>时间最严苛无情，人生几十年，每分每秒都摆在那里，时间一到，Game over，连乔布斯这样的大神都逃不过；<br>时间又最宽容多情，有人的一生波澜壮阔、海阔天空，一辈子抵几辈子过，而有人，永远在没时间、没机会、没心情中任时光流逝。<br>如果你总以没时间为借口，时间就是你的敌人，如果你肯挤一挤，时间就是你的朋友。</p>
 <p>最怕你不甘平庸，却又不去行动</p>
@@ -3769,7 +3770,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读14</title>
-    <url>/post/63facff7.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB14/</url>
     <content><![CDATA[<p>130个真实故事：理财，让我失去了很多……</p>
 <p>你好，我是帽帽。</p>
 <p>前两天，看到一条很有意思的段子：</p>
@@ -3840,7 +3841,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读15</title>
-    <url>/post/14fdff61.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB15/</url>
     <content><![CDATA[<p>用这些方法去学习，真的爽爆了！</p>
 <p>我们热爱学习，也希望自己能够学得有效果，学得有收获，学得效率更高。学习当然追求效果，说“我就是喜欢学习，效果怎样无所谓”是一种很傻逼的行为。<br>其实，只要掌握6个技巧，你的学习效率和效果就会马上得到明显的提升！<br>下面，我们正式开始。首先来看看学习的常见问题和误区：<br>问题：<br>      1、知道学习重要，但就是抗拒学习<br>2、已经不抗拒学习，但很难定下心来学习<br>3、能定下心来学习，但坚持不下去<br>4、能坚持下去，但效果不明显</p>
 <p>误区：<br>1、时间越长越好</p>
@@ -3863,7 +3864,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读16</title>
-    <url>/post/8df4aedb.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB16/</url>
     <content><![CDATA[<p>你的学习只是拖延的一部分<br>胭脂王（菠萝）</p>
 <p>这是我在小密圈发的第一篇干货文章，探讨一个好玩的问题：你学习的目的是什么？</p>
 <p>1.<br>有一个朋友的朋友，她司法考试扑街了2次，每次都差了20-30分。问了原因，说太忙了，没时间复习。<br>今年是她第三次复习冲击司法考试了。<br>很有意思的是，她现在依旧很忙，做着繁重的工作，不懂得拒绝，把很多朋友的事情揽在身上。</p>
@@ -3906,13 +3907,13 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读17</title>
-    <url>/post/faf39e4d.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB17/</url>
     <content><![CDATA[<p>一、投资中最后悔的事<br>80%的亏损都是心理问题造成的（恐慌或者贪婪）<br>心理上的错误很难改正，而投资方法和策略是可以改进的。<br>二、投资的目的<br>大部分人的回答是：我想赚钱。<br>那我们寻找的就是股市赚钱的方法，或者说长期能够赚钱的方法。<br>据统计，中国最近10年的股市，其中80%的涨幅是在90天内完成的；<br>也就是说，2500个交易日，当中只有90天对我们是有意义的。欧美股市也是如此。所以，股市有趣的地方就在这里，为了不错过这90天，你剩下的2400天也需要呆在市场内。<br>这就是华尔街的俗语：闪电下来的时候，你必须要在场.<br>但是即便你在市场内，并不代表你一定要在剩下的2400天内都要买卖。事实上，你在这2400天内，操作的越少，你的收益反而越好。最好就是2400天你不操作。<br>但是又回到了老问题，我们不能确定是哪90天？<br>其实长投教的是什么？<br>是价值投资吗？<br>是量化投资吗？<br>都对！<br>但其实教的是让我们在剩下的2400天内如何少动。<br>通过价值判断，通过估值，通过量化来压制我们闲不住的手。<br>三、投资心理误区<br>1、 旅鼠效应：一开始盲从于A往东边搬家，走一段时间又盲从B往海里跳；每年的春运比“旅鼠”还蠢！ 只有每次决策的时候都独立思考才能避免“旅鼠效应”<br>2、 逆向合理化：有些人接受不了深度套牢，把买入的股票当成支持中国经济的发展，来说服自己持有。就是典型的逆向合理化。还有一种就是买入的股票涨了，就认为很爽，跌了就认为这家公司很烂。只有做投资记录，把每次操作的原因写下来，避免自己事后逆向合理化。<br>3、 可得性偏差: 只从自己和身边人看到的事情做决策。短期记忆效应：人类对短期内发生过的极端情况是高估的，而对没有发生过的极端情况是低估的。避免的方法：强迫自己去寻找更多的反面样本。<br>4、 选择性失明：看到的都是支持自己买入和卖出的信息，而忽略相反的信息。避免的方法：找人来PK 挑刺。<br>5、 归因论：很多人喜欢找到原因，把股市暴跌归结于中国平安增发或者谢国忠的文章，就是典型的归因论。避免的方法：承认自己的无知，找不到原因是很正常的，说明这是在能力圈之外，果断放弃。<br>6、 归他因：把亏钱的原因归结于证监会，大股东欺骗等等，赚钱归结于自己英明神武。。。。做好了都是自己的原因，做亏了都是其他人的问题。索罗斯说他一生的财富都是来自“承认错误”。解决方法：遇到了亏损，不要找其他问题，从自己身上找问题。<br>7、 追求完美：进阶课毕业还没投资股市的，就是追求完美的表现。拿5%的资产出来试水，这样的实际经验是谁能教会的，只有自己亲身经历之后才会领悟。投资这门课如果满分是100分，巴菲特只有90分，卡拉曼80分，中国价值基金经理20分，我们只需要有10分就能战胜0分的韭菜。 互联网永远是beat版，没有东西是完美的。<br>8、 轻易放弃：给未来的自己写一段话，当自己想放弃的时候，拿出来看看。再决定是否要放弃。投资是一场长跑，能坚持跑到终点才算胜利。每次牛市都是无数股神，但是往往下一次这些股神就不见了。</p>
 ]]></content>
   </entry>
   <entry>
     <title>理财/晨读/晨读18</title>
-    <url>/post/6a4c83dc.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB18/</url>
     <content><![CDATA[<p>愿你出走半生，归来多赚点钱 </p>
 <p>明天就是端午假期了，Kyle去参加一个朋友的聚会，因为大家假期都回不了家，就聊到给家用的事。</p>
 <p>好几个比Kyle小的朋友都说，刚工作几年，每个月挣的钱都不够自己用，还没能交家用给父母。问到H，他说自己十几岁中专毕业后，为了供家用，打过不下十份工。说起年轻时的那些经历，H还是有些感慨。</p>
@@ -3957,7 +3958,7 @@
   </entry>
   <entry>
     <title>理财/晨读/晨读03</title>
-    <url>/post/e4856b15.html</url>
+    <url>/2020/01/31/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB03/</url>
     <content><![CDATA[<p>首先大家要先明白，保险可以根据它的实质简单粗暴的划分为两大类：消费型保险和返还型保险。<br>大家要牢记这两个类型，这样无论别人给你推荐各种杂七杂八的险，你都能清爽的理清，从而分析是否合适！<br>在准备保险专题时一直在想着，找哪些素材可以简单明了的让大家透彻理解保险知识，嗯哼<del>终于被我找到了，不信自己看正文吧</del>！<br>正文：<br>100个学徒工来到一家五星级大酒店学习厨艺，他们要勤勤恳恳学习十年才能出师。学徒们的薪水不高，一年只有几百块，但是五星级酒店的餐具都非常名贵，一个盘子要1000块钱。如果哪个学徒不小心打坏了一个盘子，那么他不仅要倾家荡产来赔偿这1000元钱，还可能会被开除，不能再继续学习和工作。因此学徒们都非常小心谨慎，但还是每年都有人打碎盘子。<br>这一年，酒店来了个聪明的财务，他提出了一个方案：如果每个学徒每年愿意交一点点钱，把这些钱集中起来，那么无论谁打碎了盘子，就用这钱来赔偿盘子，而且学徒们都不再受到处罚。大家都觉得这个方案很好，都愿意花一点点钱买个心安。那么需要交多少钱呢？聪明财务就问大家：“你们一年之内大约会打碎几个盘子？”大家想了想答到：“大约四个吧”（预定死亡率）。那么假定一年内需要赔偿四个盘子的话，就需要每个人交40元钱。聪明的财务又建议大家聘请一名经纪人来帮助大家管理这些钱财。按照当时的市场情况，雇佣一名经纪大概一年需要600元，为经纪人租个办公室要400元（预定费用）。这1000元的费用分摊到每个学徒身上是10元，这样算下来每个学徒一年只交40（保障成本）+10（费用）=50元，就可以打碎盘子不被开除了。（短期消费险诞生了）<br>可是这一年大半年过去了，竟然还没有人打碎盘子，这时候，一个平时做事最谨慎小心的人想了，我是最不可能打碎盘子的，这一年损失50块钱，十年也是500块啊！不行，我得找财务去谈谈。小心人跟财务这么一说，财务说：那简单，你不想交就不交呗，反正出了事风险自己承担。小心人想想又觉得不踏实：万一我打碎了盘子还是赔不起的，有没有两全其美的办法啊？聪明财务脑子一转，既然他想要拿回本金，我就要多收他一些钱，用这些多收到的钱去投资，用投资的收益把他的本金赚回来。那么现在的市场收益率大概是12.4%（预定利率，现在保监委规定预定利率不得大于2.5%）。通过计算10年后要想拿回本金，现在就收取 40（赔盘子）+10（费用）+50（为回本投资）=100元。于是聪明的财务说：我也相信你不会打碎盘子的，但是万一的事情谁也不敢担保，要不你看这样吧，你每年交100块押金（两全险），如果打碎了盘子这押金就没收了，如果十年都没打碎，到时候1000块钱我原样还你。小心人自己一算，几年内打碎了盘子，本来要赔1000的，现在如果十年中途打碎只要赔几百，如果十年都没打碎盘子，自己一分钱都没损失，确实两全其美！“但是咱们得有一个约定”财务又说，“你既然按100交押金了，这十年都得交，中途也不能再把押金取回，否则要算你违约。”小心人想想自己总归不亏，就一口承诺：“没问题！”<br>（两全保险诞生）</p>
 <p>这一年小心人果然没有打碎盘子，看见其他工友大都损失了50块钱，他不禁得意起来，把自己的方案告诉几个好朋友。很快一传十十传百，大家都觉得自己没那么倒霉就是那个会打碎盘子的人，于是纷纷要求交押金。财务也很乐意，于是第二年一下子收了10000元押金。财务留下4000元准备赔盘子的钱，1000元费用，剩下5000元就去投资，这一年市场非常的好，投资回报率升高到了15%（利差益，预定利率12.4%），而且这一年学徒们打碎的盘子也只打碎了3个（死差益），雇佣的经纪也只花了500（费差益）。到了年底，还赚了不只一个盘子的钱。<br>听说了这个事情，小心人又不平起来，他找到财务说，原来你用我们的钱去赚了那么多钱，却不分给我们，太不公平了。财务想了想说：我赚钱是靠自己的脑力体力，也有我的功劳。要不这样吧，你再多交点，每年150元（分红险），十年后我不仅还你1500，还每年把盈利的70%分给你，如何？小心人一听，觉得这样更划算，于是自己马上交了150，回去还鼓动别的工友也多交一点。</p>
 <p>这一年恰逢股市大涨，财务赚了很多，到了年终，大家一看自己的帐户，非但没有像去年一样花掉50块，反而还多了几块钱红利。于是财务鼓动大家说，明年行情还会很好，大家不如把自己不急用的钱都给我吧，除了扣除帮大家赔付打碎盘子的保障成本40元钱，以及扣除管理费用10元。其余多给我的钱我帮你们运作，我每个月给你们结算利息，而且是利滚利。“可是我们交了那么多钱，万一要急用咋办呢？”有人问。财务说，那没关系，这部分钱急用的时候你们可以随时取出（万能险）。“那你要投资亏了怎么办？”又有人担心的问道。“放心吧，我给你们承诺每月给大家的利息不会低于0%的。而且年利率一定在2.5%以上”，众人一 盘算，我们哪里懂什么投资运作，财务是个聪明人，交给他放心！于是众人你150，他180的都交了出来。 （万能险）<br>第三年年末，大家帐户上果然又多了若干盈余，有人感觉赚的真不少，但也有人感觉投的钱不少没有赚到心目中所想要得到的钱。他们又找到了聪明的财务，财务说：收益高的项目当然有，但是风险也大，如果你们不怕风险，我可以帮你们投到这些项目中去，这样吧，我帮大家设置几个投资的帐户，其中有风险高的，有风险低的，大家可以根据自己的偏好来选择投资的帐户，选择好了，我来帮你们运作，我每年只按帐户价值的百分之几收大家一点管理费，其余赚多少都归你们，但是万一亏了，请大家也别怪我（投连险）只要存满五年，我连手续费都不扣。大家感觉这样能赚到更多的钱，于是就把所有的钱交给了财务。</p>
@@ -3970,7 +3971,7 @@
   </entry>
   <entry>
     <title>两种思维方式决定了你只能当穷人</title>
-    <url>/post/17a223e9.html</url>
+    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB01/</url>
     <content><![CDATA[<p>今天跟几个朋友在不同的场合下偶然谈到理财投资这方面的话题，几个朋友的反应不尽相同却又大体一致。<br>    燕子是我的闺蜜，偶尔会在微信上跟我哭穷，今天又是如此，我终于按耐不住心中的激动的问她为什么还不理财？她却依然还是那句老话：“我现在连五百块的存款都没有，还理财，至少也得等我月余三千的时候再考虑这方面的问题吧。我现在只想挣钱。”我只能无奈摊手。<br>    其实跟燕子提起理财已经不是第一次，可是她不仅听不进去，甚至还怀疑我是不是在搞传销……我记得之前她说自己是因为工资低所以存不下钱，于是她不断跳槽，即使一年跳槽三次，每次工资都有所上涨，她仍旧月月无结余。<br>    在燕子眼里，理财是一定要建立在有可观的存款基础之上的。<br>    而另一个人物，也是这么想的。<br>    沈二是个帅哥，大学那会儿过得风生水起，甚至半途退学创业，摆脱了学校的禁锢小日子过得有声有色。好景不长，创业遭遇失败后沈二本分地当起了上班族，但是近两年却开始频繁地找人借钱，以此度日。欠我五百块钱一直拖了两个月都没还上，今天实在是捱不下面子给我说月底会还。<br>    我问他为什么现在如此狼狈，他说现在月月负债，领了这个月的工资都不够还上个月的欠款，生活一度陷入恶性循环。<br>    我说那你为什么不理财？他说：“都负债了还有财可理？每个月工资都不够我花。”我说那你不能怪工资少，因为你现在肯定也不记账，也不检讨，更谈不上自我总结自我分析了。你根本不知道到底为什么自己每个月都入不敷出。<br>    在沈二眼里，因为工资低所以常年负债，因为时常负债所以无从理财。<br>但是理财门槛真的有那么高吗？<br>难道一定要先有财才能理，不可以先打理，后生财？<br>我相信像燕子一样人不在少数，和沈二同样处境的人也肯定占比不小。月光族在社会上绝对是一个相当庞大的群体，没有经济来源的学生党也是无财大军。<br>但我认为可怕的不是月光不是穷，真正可怕的是一个人月月月光常常吃土，却从来不自我剖析自我检讨，安于现状的在困窘无奈的漩涡里沉醉，不想改变现状，不愿努力向上，不敢看真正的自己。<br>    有时候我们还真的不能怪工资少，寄希望于用存款改变生活也是愚不可及的。没有哪一家企业长生不老，我们的钱也每天都在经历通货膨胀。<br>如果你现在已经可以做到月有结余，那你只是把钱放在银行和余额宝是肯定不够的，定期利率和余额宝收益率并不能帮你跑赢通货膨胀，你辛苦攒下来的钱还会在日复一日的通货膨胀中经历贬值。<br>    所以你愿意看着自己存款在上涨，购买力却在降低吗？</p>
 <p>如果你现在是月光，那你需要先认清自己现状，再树立一个正确的理财理念，找到合适自己的理财方法和投资方式，努力开源节流，以实现月有结余，再跑赢通货膨胀，从而进一步追求财富自由。<br>    光挣钱只存钱是远远不够的。<br>如果你时常负债，那你更不能破罐子破摔地颓废下去，建议你先学会科学记账，并认真分析你的账本，减少甚至规避掉那些不必要的支出，就是保持正常生活的第一步。<br>负债看消费，盈利靠理财。<br>    理财并不像想象中需要很多钱，100多块就可以开始买基金，几百块就可以买股票。<br>    理财也并没有你想象中的那么高大上，它甚至简单到人人可行。<br>    因为理财就是理生活，没有财更要理财，人人都该学理财。</p>
 <p>2）比贫穷更可怕的 是“穷人思维”</p>
@@ -4093,7 +4094,7 @@
   </entry>
   <entry>
     <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
-    <url>/post/ab2ecb.html</url>
+    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
     <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
 ]]></content>
       <categories>
@@ -4105,7 +4106,7 @@
   </entry>
   <entry>
     <title>教案 LT1 Glossary 单词表</title>
-    <url>/post/c5ea96fe.html</url>
+    <url>/2020/01/30/%E8%8B%B1%E8%AF%AD/%E6%95%99%E6%A1%88LT1Clossary%E5%8D%95%E8%AF%8D%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="GLOSSARY"><a href="#GLOSSARY" class="headerlink" title="GLOSSARY"></a>GLOSSARY</h1><h2 id="Chapter-1-Shopping-购物"><a href="#Chapter-1-Shopping-购物" class="headerlink" title="Chapter 1 Shopping 购物"></a>Chapter 1 Shopping 购物</h2><h3 id="L1-Buying-Clothes-买衣服"><a href="#L1-Buying-Clothes-买衣服" class="headerlink" title="L1 Buying Clothes 买衣服"></a>L1 Buying Clothes 买衣服</h3><table>
 <thead>
 <tr>
@@ -6644,7 +6645,7 @@
   </entry>
   <entry>
     <title>ocp学习</title>
-    <url>/post/3cdb7402.html</url>
+    <url>/2020/01/30/OCP/ocp%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="OCP-OCA认证考试指南全册-Oracle-Database11g-1Z0-051、1Z0-052-和OCP-1Z0-053"><a href="#OCP-OCA认证考试指南全册-Oracle-Database11g-1Z0-051、1Z0-052-和OCP-1Z0-053" class="headerlink" title="OCP/OCA认证考试指南全册 Oracle Database11g(1Z0-051、1Z0-052)和OCP(1Z0-053)"></a>OCP/OCA认证考试指南全册 Oracle Database11g(1Z0-051、1Z0-052)和OCP(1Z0-053)</h1><h2 id="权威、完备的OCA（1Z0-051、1Z0-052）和OCP-1Z0-053-考试指南"><a href="#权威、完备的OCA（1Z0-051、1Z0-052）和OCP-1Z0-053-考试指南" class="headerlink" title="权威、完备的OCA（1Z0-051、1Z0-052）和OCP(1Z0-053)考试指南"></a>权威、完备的OCA（1Z0-051、1Z0-052）和OCP(1Z0-053)考试指南</h2><p>《OCP/OCA认证考试指南全册：Oracle Database 11g(1Z0-051,1Z0-052,1Z0-053)》是为OCA和OCP考试准备的独家权威指南。</p>
 <p>本书的每一章都提供吸引人的练习题、实践问题和本章知识点回顾以强化所学的知识。</p>
 <p>本书既是帮助读者轻松地通过OCA/OCP认证考试的好帮手，也是Oracle从业人员必备的参考书。</p>
@@ -6782,7 +6783,7 @@
   </entry>
   <entry>
     <title>教案 Contents</title>
-    <url>/post/c3dcf215.html</url>
+    <url>/2020/01/30/%E8%8B%B1%E8%AF%AD/%E6%95%99%E6%A1%88/</url>
     <content><![CDATA[<h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><table>
 <thead>
 <tr>
@@ -7407,28 +7408,12 @@
   </entry>
   <entry>
     <title>baidu_verify_oveVSDl85R</title>
-    <url>/post/8189d2bf.html</url>
+    <url>/2020/01/29/baidu_verify_oveVSDl85R/</url>
     <content><![CDATA[oveVSDl85R]]></content>
   </entry>
   <entry>
-    <title>motto</title>
-    <url>/post/163a303.html</url>
-    <content><![CDATA[<center><b>勿忘初心，方得始终。</b></center>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>motto</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微商和电商的区别</title>
-    <url>/post/e0a18ba1.html</url>
+    <url>/2020/01/29/%E7%88%B8%E7%88%B8%E7%9A%84%E6%97%85%E7%A8%8B/%E5%BE%AE%E5%95%86%E5%92%8C%E7%94%B5%E5%95%86%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h1 id="微商和电商的区别"><a href="#微商和电商的区别" class="headerlink" title="微商和电商的区别"></a>微商和电商的区别</h1><blockquote>
 <p>百度链接： <a href="https://jingyan.baidu.com/article/48b37f8dfbd65e1a6464882f.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/48b37f8dfbd65e1a6464882f.html</a></p>
 </blockquote>
@@ -7449,7 +7434,7 @@
   </entry>
   <entry>
     <title>如何开淘宝店</title>
-    <url>/post/1997306.html</url>
+    <url>/2020/01/29/%E7%88%B8%E7%88%B8%E7%9A%84%E6%97%85%E7%A8%8B/%E5%A6%82%E4%BD%95%E5%BC%80%E6%B7%98%E5%AE%9D%E5%BA%97/</url>
     <content><![CDATA[<p>…..suffocate………</p>
 ]]></content>
       <categories>
@@ -7457,6 +7442,22 @@
       </categories>
       <tags>
         <tag>爸爸的旅程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>motto</title>
+    <url>/2020/01/29/%E5%8B%BF%E5%BF%98%E5%88%9D%E5%BF%83%E6%96%B9%E5%BE%97%E5%A7%8B%E7%BB%88/</url>
+    <content><![CDATA[<center><b>勿忘初心，方得始终。</b></center>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>motto</tag>
       </tags>
   </entry>
 </search>
