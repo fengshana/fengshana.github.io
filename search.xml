@@ -10,6 +10,7 @@
       </categories>
       <tags>
         <tag>领赫</tag>
+        <tag>前端面试题</tag>
       </tags>
   </entry>
   <entry>
@@ -29,20 +30,6 @@
       </tags>
   </entry>
   <entry>
-    <title>信666分润规则</title>
-    <url>/2020/03/02/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E6%98%8E%E6%98%9F%E5%A7%90%E4%BF%A1666%E5%88%86%E6%B6%A6%E8%A7%84%E5%88%99/</url>
-    <content><![CDATA[<h2 id="分润规则-countProfit"><a href="#分润规则-countProfit" class="headerlink" title="分润规则-countProfit"></a>分润规则-countProfit</h2><p>我就不直接贴代码了，说一下流程</p>
-<p>老版本信666分有两端的分润，一端是客户端也就是商户端，另一端就是代理商端。</p>
-<h3 id="客户端的分润模式以及分润规则"><a href="#客户端的分润模式以及分润规则" class="headerlink" title="客户端的分润模式以及分润规则"></a>客户端的分润模式以及分润规则</h3><p>先会进行检查</p>
-]]></content>
-      <categories>
-        <category>信666工作交接</category>
-      </categories>
-      <tags>
-        <tag>信666工作交接</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>心情</title>
     <url>/2020/03/02/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%854/</url>
     <content><![CDATA[<p>今天david和玉洁说我变了。<br>不过我还挺开心的。<br>变得比以前开朗，能开玩笑，不是一味的只会敲代码了。<br>我说这兴许是因为田乐和周聪的缘故。<br>是的。<br>尤其是田乐。<br>他教会我很多东西，做人，做事，如何对待自己。<br>就像哥哥一样。<br>想想还真有点对不住那些对我好的人。</p>
@@ -59,6 +46,20 @@
       </categories>
       <tags>
         <tag>心情</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信666分润规则</title>
+    <url>/2020/03/02/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E6%98%8E%E6%98%9F%E5%A7%90%E4%BF%A1666%E5%88%86%E6%B6%A6%E8%A7%84%E5%88%99/</url>
+    <content><![CDATA[<h2 id="分润规则-countProfit"><a href="#分润规则-countProfit" class="headerlink" title="分润规则-countProfit"></a>分润规则-countProfit</h2><p>我就不直接贴代码了，说一下流程</p>
+<p>老版本信666分有两端的分润，一端是客户端也就是商户端，另一端就是代理商端。</p>
+<h3 id="客户端的分润模式以及分润规则"><a href="#客户端的分润模式以及分润规则" class="headerlink" title="客户端的分润模式以及分润规则"></a>客户端的分润模式以及分润规则</h3><p>先会进行检查</p>
+]]></content>
+      <categories>
+        <category>信666工作交接</category>
+      </categories>
+      <tags>
+        <tag>信666工作交接</tag>
       </tags>
   </entry>
   <entry>
@@ -319,22 +320,6 @@
       </tags>
   </entry>
   <entry>
-    <title>david-prep单新增编辑逻辑</title>
-    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
-<blockquote>
-<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
-</blockquote>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
-]]></content>
-      <categories>
-        <category>领赫</category>
-      </categories>
-      <tags>
-        <tag>领赫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>原型图-发货</title>
     <url>/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
     <content><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p>
@@ -365,6 +350,22 @@
 <li><p>还是我昨天说的，出库有2种方式。这个t_stock_box_number里面记录了每个提货单最终入库之后生产了哪些箱子，然后对应这发出去就可以了。</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>领赫</category>
+      </categories>
+      <tags>
+        <tag>领赫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>david-prep单新增编辑逻辑</title>
+    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
+<blockquote>
+<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
+</blockquote>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
 ]]></content>
       <categories>
         <category>领赫</category>
@@ -7412,6 +7413,22 @@
     <content><![CDATA[oveVSDl85R]]></content>
   </entry>
   <entry>
+    <title>motto</title>
+    <url>/2020/01/29/%E5%8B%BF%E5%BF%98%E5%88%9D%E5%BF%83%E6%96%B9%E5%BE%97%E5%A7%8B%E7%BB%88/</url>
+    <content><![CDATA[<center><b>勿忘初心，方得始终。</b></center>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>motto</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>微商和电商的区别</title>
     <url>/2020/01/29/%E7%88%B8%E7%88%B8%E7%9A%84%E6%97%85%E7%A8%8B/%E5%BE%AE%E5%95%86%E5%92%8C%E7%94%B5%E5%95%86%E7%9A%84%E5%8C%BA%E5%88%AB/</url>
     <content><![CDATA[<h1 id="微商和电商的区别"><a href="#微商和电商的区别" class="headerlink" title="微商和电商的区别"></a>微商和电商的区别</h1><blockquote>
@@ -7442,22 +7459,6 @@
       </categories>
       <tags>
         <tag>爸爸的旅程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>motto</title>
-    <url>/2020/01/29/%E5%8B%BF%E5%BF%98%E5%88%9D%E5%BF%83%E6%96%B9%E5%BE%97%E5%A7%8B%E7%BB%88/</url>
-    <content><![CDATA[<center><b>勿忘初心，方得始终。</b></center>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>motto</tag>
       </tags>
   </entry>
 </search>
