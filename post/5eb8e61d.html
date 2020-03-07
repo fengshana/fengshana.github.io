@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="领赫," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="领赫跨境物流公司 example 快递一些货物业务：欧洲国外客户 , 想买中国的一些东西，通过领赫，领赫通过供应商拿到货，并运送到欧洲国外可指定的地方重要规则：主要业务（直发提货流程） 借助系统完成   客户想要买东西，发起一个客户提交直发提货，用户用的是中台系统，领赫公司用的是后台管理系统， 点开中台系统，预估价格界面（发起提货-申请一个提货买东西）&#x2F;直发提货列表 用来发货   12345678">
+<meta property="og:type" content="article">
+<meta property="og:title" content="领赫介绍">
+<meta property="og:url" content="https://fengshana.github.io/post/5eb8e61d.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="领赫跨境物流公司 example 快递一些货物业务：欧洲国外客户 , 想买中国的一些东西，通过领赫，领赫通过供应商拿到货，并运送到欧洲国外可指定的地方重要规则：主要业务（直发提货流程） 借助系统完成   客户想要买东西，发起一个客户提交直发提货，用户用的是中台系统，领赫公司用的是后台管理系统， 点开中台系统，预估价格界面（发起提货-申请一个提货买东西）&#x2F;直发提货列表 用来发货   12345678">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA">
+<meta property="article:published_time" content="2020-03-05T12:01:56.000Z">
+<meta property="article:modified_time" content="2020-03-07T00:38:58.921Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="领赫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/post/5eb8e61d.html"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>领赫介绍 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+  <script type="text/javascript" src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+            Photos
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/post/5eb8e61d.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">领赫介绍</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-05T20:01:56+08:00">
+                2020-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%86%E8%B5%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">领赫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  3.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" rel="gallery_ck7gw0cca0037h0umaglq2cc3"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="领赫"><a href="#领赫" class="headerlink" title="领赫"></a>领赫</h2><p>跨境<br>物流公司 example 快递一些货物<br>业务：欧洲国外客户 , 想买中国的一些东西，<br>通过领赫，领赫通过供应商拿到货，<br>并运送到欧洲国外可指定的地方<br>重要规则：主要业务（直发提货流程） 借助系统完成  </p>
+<p>客户想要买东西，发起一个客户提交直发提货，用户用的是中台系统，领赫公司用的是后台管理系统， 点开中台系统，预估价格界面（发起提货-申请一个提货买东西）/直发提货列表 用来发货  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">直发提货 - 选择要提的东西 - 填写完信息之后生成订单</span><br><span class="line">生成一个订单，领赫公司就可以在后台管理系统当中看到 直发提货菜单</span><br><span class="line">订单状态为等待联系工厂，领赫即需要看哪个工厂可提供，联系厂家， 联系到了之后，将订单状态改为已联系，此时需要做价格评估，报价，（价格可不变&#x2F;也有时候需要评估）</span><br><span class="line">如果价格需要重新评估则中台系统需要中台客户重新确认价格，如果确认则为订单状态为待提货状态</span><br><span class="line">此时领赫公司去提货，当货进来之后即确认到货，订单状态变为待入库，并生成待入库订单，（确认商品和货物对不对的上），确认无误之后则入库存对应商品库存则增加。</span><br><span class="line">入库后告诉用户，用户发起是否可以发货请求，用户发起发货请求，走发货流程</span><br><span class="line">发货单通过邮件发给用户的邮箱，发的内容即为货物信息，涉及支付信息</span><br><span class="line">也有一些不需要支付，走线下弄完了，不需要支付就相当于一个记录功能</span><br><span class="line">用户确认支付，点击按钮进行支付，</span><br><span class="line">付款成功之后，生成渠道订单，发到对应的订单，流程</span><br><span class="line"></span><br><span class="line">prep  prepare 预先准备  提前让物流公司发货</span><br><span class="line">用户提一个提货单，物流公司发货，入库，</span><br><span class="line">入库不一样，有两个库存</span><br><span class="line">设计订单，库存两个需要分开</span><br><span class="line"></span><br><span class="line">询价</span><br><span class="line">后台系统里面菜单 有一个</span><br><span class="line">询价</span><br><span class="line">客户发起商品的 询价请求  公司对这个商品进行价格预估，告诉客户</span><br><span class="line"></span><br><span class="line">价格计算</span><br><span class="line">发起提货的时候</span><br><span class="line">价格模板</span><br><span class="line">费用计算模板 业务难点  计算费用</span><br><span class="line">如何设计模板</span><br><span class="line"></span><br><span class="line">直发货流程以及prepare发货流程</span><br><span class="line">基础数据的增删改查</span><br><span class="line">库存管理，商品管理入库则加商品</span><br><span class="line">客户管理等基础数据，录入这种的</span><br><span class="line">供应商 能够提供商品的一些厂家的基本信息，厂家&#x2F;供应商可能跟用户挂钩</span><br><span class="line"></span><br><span class="line">产品预添加</span><br><span class="line">发起提货的时候选择一些系统当中的数据</span><br><span class="line"></span><br><span class="line">系统先设定模板，询价的时候可能套用模板计算费用</span><br><span class="line"></span><br><span class="line">管理员列表 - 维护登录后台账户的 一些巴拉巴拉..</span><br><span class="line">账单-发邮件出去的-生成支付的一些信息</span><br><span class="line"></span><br><span class="line">技术方面：我们整个后台，现在是5个人，</span><br><span class="line">前端react+阿里框架</span><br><span class="line">后台springboot</span><br><span class="line">数据库mysql</span><br><span class="line"></span><br><span class="line">邮件服务</span><br><span class="line">- 邮件服务用mailgun，订单信息，商品信息</span><br><span class="line">- CDN 用阿里云的oss ，用于文件存储</span><br><span class="line">- 接Paypal的支付接口（接到邮件账单通知里，到时得研究下）</span><br><span class="line">- 快递鸟的快递查询接口</span><br><span class="line">商品图片放到阿里云服务器当中的oss对象存储</span><br><span class="line">上传接口到本地服务器，本地服务器再去传到阿里云的oss的对象存储</span><br><span class="line">oss生成网络链接</span><br><span class="line">paypal支付接入</span><br><span class="line">快递鸟的快递查询</span><br><span class="line"></span><br><span class="line">本地电脑的文件服务器就是一个文件夹</span><br><span class="line">oss对象存储就相当于是，远程电脑上的一个文件夹</span><br><span class="line">也就是服务器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">整个项目，大概一周的时间做完</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">后台登录接口 </span><br><span class="line">接口名称先确定</span><br><span class="line">先把接口名称确定再写接口</span><br><span class="line"></span><br><span class="line">关税 - 查询</span><br><span class="line">swagger2接口访问地址：</span><br><span class="line">http:&#x2F;&#x2F;localhost:8080&#x2F;swagger-ui.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">后台UI设计：https:&#x2F;&#x2F;next.modao.cc&#x2F;app&#x2F;3a7da83645ba6bea7ac16bb3a3eb9cfb#screen&#x3D;s20cd83f9b8156312231300</span><br><span class="line"></span><br><span class="line">数据库设计规范：</span><br><span class="line">https:&#x2F;&#x2F;choerodon.io&#x2F;zh&#x2F;docs&#x2F;practice-specification-reference&#x2F;database-design-specification&#x2F;</span><br><span class="line"></span><br><span class="line">java开发规范：</span><br><span class="line">https:&#x2F;&#x2F;choerodon.io&#x2F;zh&#x2F;docs&#x2F;practice-specification-reference&#x2F;development&#x2F;developmen-to-micro-services&#x2F;</span><br><span class="line"></span><br><span class="line">团队管理：</span><br><span class="line">https:&#x2F;&#x2F;www.teambition.com&#x2F;project&#x2F;5dd6528d8233030019cdd3a5&#x2F;analytics</span><br><span class="line"></span><br><span class="line">git练习：</span><br><span class="line">https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;59e66364ea6e</span><br><span class="line"></span><br><span class="line">代码：</span><br><span class="line">http:&#x2F;&#x2F;gitlab.yourshares.cn&#x2F;david&#x2F;lingo&#x2F;tree&#x2F;master</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">领赫-原型图</span><br><span class="line">导航菜单栏</span><br><span class="line">总览</span><br><span class="line">询价单</span><br><span class="line">直发提货</span><br><span class="line">Prep提货</span><br><span class="line">入库单</span><br><span class="line">库存管理</span><br><span class="line">发货单</span><br><span class="line">渠道跟进单</span><br><span class="line">卸货清点</span><br><span class="line">客户管理</span><br><span class="line">产品管理</span><br><span class="line">渠道管理</span><br><span class="line">费用计算模板</span><br><span class="line">管理员管理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">这里进行估计的时候会比较麻烦，</span><br><span class="line">后台要根据选择的模板，以及当前货物的重量，提交....等信息，</span><br><span class="line">匹配之前模板设置的规则</span><br><span class="line"></span><br><span class="line">单位上，其实费用类型确定了，单位也就确定了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">后台 - 客户管理</span><br><span class="line">列表 - 查询所有客户信息 - 按日期降序排序</span><br><span class="line">恢复 - 禁用 客户接口</span><br><span class="line">编辑 - 内容和新增客户内容一样</span><br><span class="line">前端带*为必填</span><br><span class="line">个人信息 - 客户ID  后台生成 - 保证在系统中唯一性</span><br><span class="line">负责业务员 - 提供接口 - 后台当中的所有用户 t_user_info - 显示业务员所有信息先</span><br><span class="line">获取渠道和亚马逊站点 - 两种做法 </span><br><span class="line">一种做法是 不要传到前端来，但是前端有后台也有，但是需要统一</span><br><span class="line">这两个数据为基础数据，提前录入进的数据</span><br><span class="line">接口提供这两个信息，可以一个接口给过来</span><br><span class="line">基础数据的查询接口</span><br><span class="line">必须提供一个接口来查询 站点以及亚马逊站点信息 一个接口提供过来</span><br><span class="line">新增，编辑 接口，</span><br><span class="line">区别：编辑的客户编号给后台系统，以及编辑的内容给后台系统</span><br><span class="line"></span><br><span class="line">供应商</span><br><span class="line">国家信息 - 基础信息 - 直接存在前端</span><br><span class="line">数据库保存 国家省市xxx名字</span><br><span class="line">不需要获取国家信息的相关接口，前端写好 - 字段直接填写国家名称</span><br><span class="line">客户联系人 - 新增的时候一次性给后台系统</span><br><span class="line">联系人 maybe为数组 - []</span><br><span class="line">编辑有点区别 - 保存时一次性把数据全给我</span><br><span class="line">联系人 </span><br><span class="line">1. 存在id则update,不存在id则insert</span><br><span class="line">2. 将数据全部删除，重新生成</span><br><span class="line"></span><br><span class="line">产品管理</span><br><span class="line">查询所有产品列表</span><br><span class="line">编辑</span><br><span class="line">删除</span><br><span class="line">中台也有产品管理 - consumer_id</span><br><span class="line">中台只看到自己的产品唯一区别于</span><br><span class="line">只提交一个接口即可，唯一区别在于是否上送consumer_id参数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">单规格 -多规格  </span><br><span class="line">黑色衣服 - 白色衣服 - 衣服属性</span><br><span class="line">衣服多属性- 多规格</span><br><span class="line">衣服单属性 - 单规格</span><br><span class="line"></span><br><span class="line">查询客户接口- 所有后台的客户 提供接口查询所有客户信息- 基础信息</span><br><span class="line">查询客户 - 查询客户的供应商信息 - 供应商跟客户相关 - 添加供应商时需要客户</span><br><span class="line">产品类型 - 前段写死（或者是后台提供产品类型接口以供选择）</span><br><span class="line">是否多规格.....不需要后台提供接口</span><br><span class="line"></span><br><span class="line">产品信息 - 海关编码</span><br><span class="line">海关信息 -海关编码</span><br><span class="line">产品单价 - 海关单价 前段多名称 但是对应的后台数据库当中只有一个字段</span><br><span class="line">应用名称 - 对应产品表的产品名称</span><br><span class="line">t_product</span><br><span class="line">t_product_attr 产品属性表</span><br><span class="line"></span><br><span class="line">产品多规格产品</span><br><span class="line">前段处理不一样</span><br><span class="line">相当于提交数组</span><br><span class="line">产品单规格即提交一个数据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">渠道管理</span><br><span class="line">查询 - 删除接口</span><br><span class="line">系统当中的所有渠道</span><br><span class="line">编辑</span><br><span class="line">点开后 - 系统自动生成渠道代码</span><br><span class="line">t_channel 主表</span><br><span class="line">国家名字  前端提名字给后台</span><br><span class="line">运输方式 -选择 - 查询接口数据在t_transport_type 写死了</span><br><span class="line">steps字段对应表 t_transport_step 表  提前录入  </span><br><span class="line">t_transport_type 的steps 关联外键  t_transport_step</span><br><span class="line">走海运 - 海运步骤</span><br><span class="line">举例  快递- </span><br><span class="line">all_status  一个过程经历的状态  基础数据 为功能服务</span><br><span class="line">编辑渠道页面  -  一次性拿 -</span><br><span class="line"> 运输方式以及相对应的步骤信息传送给前端，两者关联</span><br><span class="line"></span><br><span class="line">步骤当中有许多状态 至于选择哪种状态根据步骤关联</span><br><span class="line">每种状态有触发字段</span><br><span class="line">单-选择渠道- 状态及运输的状态 </span><br><span class="line">渠道管理编辑的信息</span><br><span class="line"></span><br><span class="line">渠道编辑要提供基础数据的查询</span><br><span class="line">渠道的主表就是t_channel</span><br><span class="line">渠道可以没有步骤 t_channel_step当中的记录可以没有</span><br><span class="line">一个步骤可能没有状态，</span><br><span class="line"></span><br><span class="line">应该提供哪些接口出去...</span><br><span class="line">供应商管理相关表：t_suppier，t_supplier_connecter</span><br><span class="line">渠道管理相关表: </span><br><span class="line">t_channel, t_channel_step, t_channel_step_status, t_channel_step_status_trigger, t_transport_step, t_transport_type</span><br><span class="line">产品管理相关表</span><br><span class="line">t_product, t_product_atrr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">管理员和用户角色数据库设计。</span><br><span class="line">MySQL官网保留关键字：https:&#x2F;&#x2F;dev.mysql.com&#x2F;doc&#x2F;refman&#x2F;5.7&#x2F;en&#x2F;keywords.html</span><br><span class="line">参照原型图【管理员列表】</span><br><span class="line"></span><br><span class="line">管理员列表</span><br><span class="line">账号</span><br><span class="line">名称</span><br><span class="line">角色</span><br><span class="line">编辑管理员</span><br><span class="line">账号</span><br><span class="line">角色</span><br><span class="line">名称</span><br><span class="line">登录密码</span><br><span class="line">重复密码</span><br><span class="line">角色管理</span><br><span class="line">角色名称</span><br><span class="line">编辑角色</span><br><span class="line">角色名称</span><br><span class="line">权限设置</span><br><span class="line">页面权限</span><br><span class="line">操作权限</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">本数据库设计规范是以   MySQL数据库    为基准，</span><br><span class="line">主要分为四个部分，</span><br><span class="line">即 建表规约、索引规约、SQL语句和ORM映射。</span><br><span class="line"></span><br><span class="line">其中，将阐述在建表过程中的要求和约定，</span><br><span class="line">例如   数据库名称、表名称、视图名称  以及  表别名使用  等，</span><br><span class="line">最后还将描述如何在ORM中进行数据库表映射等。</span><br><span class="line"></span><br><span class="line">此规范是   Choerodon  社区在研发和实施的过程中经验的总结，</span><br><span class="line">希望能够给广大读者提供一个参考和借鉴，</span><br><span class="line">俗话说，“百密一疏”，其中如有不正确的地方，烦请不吝指正。</span><br><span class="line"></span><br><span class="line">Note：如若使用Choerodon猪齿鱼微服务开发框架，强烈建议参考使用此规范，</span><br><span class="line">这样可以保持与开发框架数据库设计规范的一致性。</span><br><span class="line"></span><br><span class="line">建表规约</span><br><span class="line">强制要求</span><br><span class="line">1. </span><br><span class="line">表达   是&#x2F;否  概念的字段，必须使用   is_xxx  的方式命名，</span><br><span class="line">数据类型是   unsigned tinyint(1  表示是，0   表示否)。</span><br><span class="line">说明：任何字段如果为非负数，必须是   unsigned。</span><br><span class="line">正例：表达逻辑删除的字段名 is_deleted，1表示删除，0表示未删除。</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">表名、字段名     必须使用   小写字母或数字，</span><br><span class="line">禁止出现数字开头，</span><br><span class="line">禁止两个下划线中间只出现数字。</span><br><span class="line">说明：MySQL在Windows下不区分大小写，但是在Linux下默认是区分大小写。</span><br><span class="line">因此，数据库名、表名、字段名，都不允许出现任何大写字母，避免节外生枝。</span><br><span class="line">正例：hap_admin,rdc_config,level3_name</span><br><span class="line">反例：HapAdmin,rdcConfig,level_3_name  </span><br><span class="line">（数据库字段名的修改代价很大，因为无法进行预发布，所以字段名称需要慎重考虑）</span><br><span class="line">3.</span><br><span class="line">表名  不使用  复数名词。</span><br><span class="line">说明：表名  应该仅仅表示表里面的    实体内容，不应该表示   实体数量，</span><br><span class="line">对应于DO类名也是单数形式，符合表达习惯。</span><br><span class="line">4. </span><br><span class="line">禁用保留字</span><br><span class="line">如  desc、range、match、delayed等，请参考MySQL官方保留字。</span><br><span class="line">5.</span><br><span class="line">主键索引名为  pk_字段名；</span><br><span class="line">唯一索引名为  uk_字段名；</span><br><span class="line">普通索引名则为  idx_字段名。</span><br><span class="line">说明：pk_  即  primary_key;  uk_ 即  unique_key;  idx  即  index</span><br><span class="line">6.</span><br><span class="line">小数类型为  decimal，禁止使用   float 和  double;</span><br><span class="line">说明：float  和  double在存储的时候，</span><br><span class="line">存在精度损失的问题，很可能在值的比较时，得到不正确的结果。</span><br><span class="line">如果存储的数据范围超过  decimal  的范围，建议将数据拆成整数和小数分开存储。</span><br><span class="line">7. </span><br><span class="line">如果存储的字符串长度几乎相等，使用   char  定长字符串类型。</span><br><span class="line">8.</span><br><span class="line">varchar  是可变长字符串，不预先分配存储空间，长度不要超过5000，</span><br><span class="line">如果存储长度大于此值，定义字段类型为text,独立出来一张表，</span><br><span class="line">用主键来对应，避免影响其他字段索引效率。</span><br><span class="line">说明：该表的命名以  原表名_字段缩写  的格式命名。</span><br><span class="line">9.</span><br><span class="line">表必备字段：</span><br><span class="line">id , </span><br><span class="line">create_date , </span><br><span class="line">last_update_date , </span><br><span class="line">create_by , </span><br><span class="line">last_update_by , </span><br><span class="line">object_version_number。</span><br><span class="line">也可以叫做who字段，就是每个表里必须具备的字段。</span><br><span class="line">这些字段起到类似metadata的作用。</span><br><span class="line">这些字段的作用很大，例如，数据分析的时候，可以使用last_update_date作为数据抽取的时间戳字段。</span><br><span class="line">id 必为  主键，类型为  unsigned bigint、单表时自增、步长为1</span><br><span class="line">create_date 是此条数据的创建时间，数据类型为  datetime 类型</span><br><span class="line">last_update_date 是此条数据的最后更新时间，数据类型为 datetime 类型</span><br><span class="line">create_by 是此条数据的创建人，数据类型为  unsigned bigint类型</span><br><span class="line">last_update_by 是此条数据的最后更新人，数据类型为  unsigned bigint 类型</span><br><span class="line">object_version_number 是此条数据的版本号，如果启用数据库数据版本控制，则会使用到次数据</span><br><span class="line">以下是基于MySQL数据库的创建脚本，可供参考。</span><br><span class="line">column (name:&quot;object_version_number&quot;,   type：&quot;BIGINT UNSIGNED&quot;,  defaultValue:&quot;1&quot;)</span><br><span class="line">column (name:&quot;created_by&quot;,  type:&quot;BIGINT UNSIGNED&quot;, defaultValue:&quot;0&quot;)</span><br><span class="line">column (name:&quot;creation_date&quot;, &quot;type:&quot;DATETIME&quot;, defaultValueConputed:&quot;CURRENT_TIMESTAMP&quot;)</span><br><span class="line">column(name:&quot;last_update_by&quot;,  type:&quot;BIGINT UNSIGNED&quot;,defaultValue:&quot;0&quot;)</span><br><span class="line">column(name:&quot;last_update_date&quot;,type:&quot;DATETIME&quot;,defaultValueConputed:&quot;CURRENT_TIMESTAMP&quot;)</span><br><span class="line">10.</span><br><span class="line">表的命名最好是加上  业务名称_表的作用</span><br><span class="line">正例：kanban_task 、devops_project、website_config</span><br><span class="line"></span><br><span class="line">推荐规约</span><br><span class="line">1. 数据库名称  或者  编码 与  应用名称  或者 编码  尽量一致。</span><br><span class="line">2. 如果 修改字段含义 或者对   字段表示的状态追加时， 需要及时更新字段注释。</span><br><span class="line">3. 字段允许  适当冗余，（所谓冗余是指   在不同的表里面存储相同的字段），</span><br><span class="line">以提高查询性能，但必须考虑数据一致，</span><br><span class="line">冗余字段应遵循：</span><br><span class="line"> 不是频繁修改的字段</span><br><span class="line">不是 varchar 超长字段，更不能是text字段</span><br><span class="line">正例：商品类目名称使用频率高，字段长度短，名称基本一成不变，</span><br><span class="line">可在相关联的表中冗余存储类目名称，避免关联查询。</span><br><span class="line">4. 单表行数超过  500 万行或者单表超过 2 GB，才推荐分库分表。</span><br><span class="line">说明：如果预计三年后的数量根本达不到这个级别，请不要在创建时就分库分表。</span><br><span class="line"></span><br><span class="line">规约参考</span><br><span class="line">合适的字符存储长度，不但节约数据库空间、节约索引存储</span><br><span class="line">更重要的是提升检索速度。</span><br><span class="line">正例：如下表，其中无符号值  可以避免误存 负数，  且扩大了表示范围。</span><br></pre></td></tr></table></figure>
+
+
+
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>领赫介绍</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年03月05日 - 20:01:56</p>
+  <p><span>最后更新:</span>2020年03月07日 - 08:38:58</p>
+  <p><span>原始链接:</span><a href="/post/5eb8e61d.html" title="领赫介绍">https://fengshana.github.io/post/5eb8e61d.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/post/5eb8e61d.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag"><i class="fa fa-tag"></i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/9bdae277.html" rel="next" title="信666分润规则">
+                <i class="fa fa-chevron-left"></i> 信666分润规则
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/a2b4819.html" rel="prev" title="david说的面试题">
+                david说的面试题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+  
+  
+
+  
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">94</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://user.qzone.qq.com/2915324940/main" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="fengyue2915324940" target="_blank" title="wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>wechat</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="skype:live:.cid.823b4e929670864a" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-skype"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://github.com/fengshana" title="github" target="_blank">github</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="http://www.daovoice.io/" title="daovoice" target="_blank">daovoice</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://youtube.com/channel/UCtzIJK9eLCWLQF13KpZE-0w" title="YouTube" target="_blank">YouTube</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/3b74c7b81348" title="Jianshu" target="_blank">Jianshu</a>
+					 </span>
+                
+
+                
+				
+				
+			  
+			  
+			  
+			  
+			  
+			  
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#领赫"><span class="nav-number">1.</span> <span class="nav-text">领赫</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>-->
+
+
+
+
+
+
+<!--
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+ -->
+ 
+ 
+ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共238.4k字</span>
+  
+  <span class="post-meta-divider">|</span>
+
+</div>
+
+<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"</span>人</span>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+
+

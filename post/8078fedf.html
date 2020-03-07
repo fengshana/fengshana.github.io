@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="领赫," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记录 浏览器【回车】：https:&#x2F;&#x2F;www.paypal.com&#x2F;；就到了：https:&#x2F;&#x2F;www.paypal.com&#x2F;c2&#x2F;home界面 点击右上方的【注册】按钮，就到了此界面：https:&#x2F;&#x2F;www.paypal.com&#x2F;c2&#x2F;webapps&#x2F;mpp&#x2F;account-selection 选择【个人账户】，然后点击【下一步】 然后呢就还是该界面浏览器地址不变，标题栏（PayPal–安全快捷的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="paypal支付流程">
+<meta property="og:url" content="https://fengshana.github.io/post/8078fedf.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="记录 浏览器【回车】：https:&#x2F;&#x2F;www.paypal.com&#x2F;；就到了：https:&#x2F;&#x2F;www.paypal.com&#x2F;c2&#x2F;home界面 点击右上方的【注册】按钮，就到了此界面：https:&#x2F;&#x2F;www.paypal.com&#x2F;c2&#x2F;webapps&#x2F;mpp&#x2F;account-selection 选择【个人账户】，然后点击【下一步】 然后呢就还是该界面浏览器地址不变，标题栏（PayPal–安全快捷的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r">
+<meta property="article:published_time" content="2020-02-20T04:52:56.000Z">
+<meta property="article:modified_time" content="2020-02-20T09:31:01.170Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="领赫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/post/8078fedf.html"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>paypal支付流程 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+  <script type="text/javascript" src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+            Photos
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/post/8078fedf.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">paypal支付流程</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-20T12:52:56+08:00">
+                2020-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%86%E8%B5%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">领赫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" rel="gallery_ck7gw0cc50034h0uma4n8apgo"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><ul>
+<li>浏览器【回车】：<a href="https://www.paypal.com/；就到了：https://www.paypal.com/c2/home界面" target="_blank" rel="noopener">https://www.paypal.com/；就到了：https://www.paypal.com/c2/home界面</a></li>
+<li>点击右上方的【注册】按钮，就到了此界面：<a href="https://www.paypal.com/c2/webapps/mpp/account-selection" target="_blank" rel="noopener">https://www.paypal.com/c2/webapps/mpp/account-selection</a></li>
+<li>选择【个人账户】，然后点击【下一步】</li>
+<li>然后呢就还是该界面浏览器地址不变，标题栏（PayPal–安全快捷的收付款工具）个人账户，他要你选择一个类似身份选择的一个下拉框【选项有：1、线上购物者 2、个体卖家/自由职业者 3、以上都是 4、我不确定】，好我此处选择的是3以上都是，因为我只是想测试下而已。好此处选择好了点击【下一步】</li>
+<li>然后跳到了这个界面：<a href="https://www.paypal.com/welcome/signup/#/name_address" target="_blank" rel="noopener">https://www.paypal.com/welcome/signup/#/name_address</a> 额就是让你填写下你的基本的个人信息，比如说身份证号码啊，姓甚名谁啊，联系方式啊，家住何方啊，年龄几何啊…. 然后呢把那个[激活One Touch]以及那个[我已阅读并同意PayPal的《用户协议》、《隐私政策》和《合理使用规则》。我有权添加以上输入的联系信息并了解PayPal可以通过电子邮件或邮寄信件与我联系]这两个单选框勾选上，最后点击按钮【同意并创建账户】，OK</li>
+<li>然后我们就来到了此界面：<a href="https://www.paypal.com/welcome/signup/#/intent_selection" target="_blank" rel="noopener">https://www.paypal.com/welcome/signup/#/intent_selection</a> 他提示我们的账户已经创建了。他要我们添加信用卡，可惜啊可惜我没有信用卡，当然啦我是个小测试员也用不着用信用卡的地步啦，所以【开始购物】和【付款】我就都不选择啦，拉到底部，选择【不确定？添加卡以便日后使用】即可啦。点击它即可。</li>
+<li>然后我们就来到了该界面：<a href="https://www.paypal.com/welcome/signup/#/add_card" target="_blank" rel="noopener">https://www.paypal.com/welcome/signup/#/add_card</a> 他还是十分强烈的希望我添加一下信用卡，可是我真的没有信用卡呗。我要是有我肯定为你服务几块钱，我数学不太好啊。当然啦，信用卡你不知道你可以【编辑】下账单地址也是OK的。好啦我们就不去关联这个信用卡啦，点击【我以后再执行此操作】即可。</li>
+<li>我们就来到了已激活界面：<a href="https://www.paypal.com/welcome/signup/#/activation" target="_blank" rel="noopener">https://www.paypal.com/welcome/signup/#/activation</a>  activation这个不就是激活的意思吗？不过已经激活不是用那个actived?<br>activated 这个单词。标题【开始使用PayPal购物。】好啦，我们就不去购物啦，直奔主题而去，点击【前往您的账户】</li>
+<li>到达账户界面：<a href="https://www.paypal.com/myaccount" target="_blank" rel="noopener">https://www.paypal.com/myaccount</a></li>
+<li>此处建议，有钱的没钱的把蓝灯开一下：<a href="https://github.com/getlantern/lantern，因为paypal是国外的网站跨境，额反正就是需要翻墙，不要问再问就是不知道。你可以去站长之家看下这个paypal服务器分布在哪里，反正就是网速特慢，尤其是像我这种住乡下的人。" target="_blank" rel="noopener">https://github.com/getlantern/lantern，因为paypal是国外的网站跨境，额反正就是需要翻墙，不要问再问就是不知道。你可以去站长之家看下这个paypal服务器分布在哪里，反正就是网速特慢，尤其是像我这种住乡下的人。</a></li>
+<li>打开子页面：<a href="https://developer.paypal.com/" target="_blank" rel="noopener">https://developer.paypal.com/</a> 开发者，点击右上角的【Log into Dashboard】登录进入控制台</li>
+<li>登录好了的话，就会进入到 <a href="https://developer.paypal.com/developer/applications" target="_blank" rel="noopener">https://developer.paypal.com/developer/applications</a> 该页面，我已经受不了这垃圾网了。</li>
+<li>每当网好了，我就宛如鸡犬升天了。</li>
+<li>好，到了登录界面：<a href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fdeveloper.paypal.com%2Fdeveloper%2Fapplications" target="_blank" rel="noopener">https://www.paypal.com/signin?returnUri=https%3A%2F%2Fdeveloper.paypal.com%2Fdeveloper%2Fapplications</a></li>
+<li>输入你的账号密码进行登录：<a href="mailto:198866436@qq.com">198866436@qq.com</a>/xxxxxxxxx</li>
+<li>好啦登录成功之后，就又会跳转到：<a href="https://developer.paypal.com/developer/applications" target="_blank" rel="noopener">https://developer.paypal.com/developer/applications</a> 该界面来啦！</li>
+<li>【My Apps &amp; Credentials】这个是标题，就跟支付宝一样，需要建一个属于自己的application</li>
+<li>骚等，莫急慢慢来。sandbox即沙箱环境，live即生产环境，默认为sandbox环境，你要切换也可以的。我选择的是【sandbox】沙箱环境然后点击【Create App】,也就是创建一个application。他有一个默认的default app，我是用自己创建的。然后呢输入您的APP Name以及沙箱的卖家账号输入进去。随便搞一个邮箱即可的。这个邮箱就是用于在沙箱环境充当一个卖家的一个身份，就是别人付款你收钱的这样一个身份，明白了吧。好下面你会发现这个【Sandbox Business Account】没办法填写，而是只能够选择，所以呢我们现在再去返回回去，创建一下沙箱的卖家以及买家的账号，稍等。</li>
+<li>你现在看到左侧有导航栏对吧，BASHBOARD就额你就认为他是控制台的意思好了。然后第二个菜单栏SANDBOX即沙箱，好那么我们就点击【SANDBOX】下面的第一个子菜单【Accounts】账号，点击这个【Accounts】</li>
+<li>今天没时间，之后有时间再来完成这个流程的文档，我今天得先去测试回调流程发货，过几天就要测试了byebye</li>
+</ul>
+<p>今天遇到了一个问题<br>No tracked branch configured for branch developing or the branch doesn’t exist. To make your branch track a remote branch call, for example, git branch –set-upstream-to=origin/developing developing</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">oft Windows [版本 10.0.17763.1039]</span><br><span class="line">(c) 2018 Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">                       git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin</span><br><span class="line">error: the requested upstream branch &#39;origin&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin</span><br><span class="line">error: the requested upstream branch &#39;origin&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin&#x2F;developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push -u</span><br><span class="line">fatal: No configured push destination.</span><br><span class="line">Either specify the URL from the command-line or configure a remote repository using</span><br><span class="line"></span><br><span class="line">    git remote add &lt;name&gt; &lt;url&gt;</span><br><span class="line"></span><br><span class="line">and then push using the remote name</span><br><span class="line"></span><br><span class="line">    git push &lt;name&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hint: If you are planning on basing your work on an upstream</span><br><span class="line">&#39;hint:&#39; 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hint: branch that already exists at the remote, you may need to</span><br><span class="line">&#39;hint:&#39; 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">&#39;hint:&#39; 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint:</span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint:</span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin&#x2F;developing developing</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push -u developing</span><br><span class="line">fatal: The current branch developing has no upstream branch.</span><br><span class="line">To push the current branch and set the remote as upstream, use</span><br><span class="line"></span><br><span class="line">    git push --set-upstream developing developing</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push --set-upstream developing developing</span><br><span class="line">Enter passphrase for key &#39;&#x2F;c&#x2F;Users&#x2F;ASUS&#x2F;.ssh&#x2F;id_rsa&#39;:</span><br><span class="line">Everything up-to-date</span><br><span class="line">Branch &#39;developing&#39; set up to track remote branch &#39;developing&#39; from &#39;developing&#39;.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;^A</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>paypal支付流程</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年02月20日 - 12:52:56</p>
+  <p><span>最后更新:</span>2020年02月20日 - 17:31:01</p>
+  <p><span>原始链接:</span><a href="/post/8078fedf.html" title="paypal支付流程">https://fengshana.github.io/post/8078fedf.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/post/8078fedf.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag"><i class="fa fa-tag"></i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/10efa7f3.html" rel="next" title="自我梳理一下成品仓库存发货">
+                <i class="fa fa-chevron-left"></i> 自我梳理一下成品仓库存发货
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/30741ae2.html" rel="prev" title="看书">
+                看书 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+  
+  
+
+  
+  
+  
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">94</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://user.qzone.qq.com/2915324940/main" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="fengyue2915324940" target="_blank" title="wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>wechat</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="skype:live:.cid.823b4e929670864a" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-skype"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://github.com/fengshana" title="github" target="_blank">github</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="http://www.daovoice.io/" title="daovoice" target="_blank">daovoice</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://youtube.com/channel/UCtzIJK9eLCWLQF13KpZE-0w" title="YouTube" target="_blank">YouTube</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/3b74c7b81348" title="Jianshu" target="_blank">Jianshu</a>
+					 </span>
+                
+
+                
+				
+				
+			  
+			  
+			  
+			  
+			  
+			  
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录"><span class="nav-number">1.</span> <span class="nav-text">记录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>-->
+
+
+
+
+
+
+<!--
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+ -->
+ 
+ 
+ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共238.4k字</span>
+  
+  <span class="post-meta-divider">|</span>
+
+</div>
+
+<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"</span>人</span>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+
+
