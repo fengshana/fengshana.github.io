@@ -249,8 +249,8 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%852/</url>
-    <content><![CDATA[<p>好像，都被我弄的挺糟糕的。<br>好朋友也是。<br>用于承认自己的错误，直视自己的错误。往后才会发现自己更大的错误。<br>当下自己的错误就是，不敢面对自己的错误。只有自己踏出了这一步，感觉还挺轻松的。<br>那句话，我犹豫了很久，真的挺久的，我不敢发出去。<br>好像发了这句话我就挺没有面子的。不过，我觉得我发了这句话之后，我才觉得释然。<br>承认自己的缺点，不是没有面子，而是能够让你能够警醒，时刻保持谦卑。<br>这何尝不是一种好的成长。<br>天底下，再没我这种人了。<br>自私自利。一点也不为别人考虑。<br>好了，就这样吧，反正是自己做的不对，就能推脱。<br>这样自己才会长大。</p>
+    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%853/</url>
+    <content><![CDATA[<p>真是<br>恶心</p>
 ]]></content>
       <categories>
         <category>心情</category>
@@ -261,8 +261,8 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%853/</url>
-    <content><![CDATA[<p>真是<br>恶心</p>
+    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%852/</url>
+    <content><![CDATA[<p>好像，都被我弄的挺糟糕的。<br>好朋友也是。<br>用于承认自己的错误，直视自己的错误。往后才会发现自己更大的错误。<br>当下自己的错误就是，不敢面对自己的错误。只有自己踏出了这一步，感觉还挺轻松的。<br>那句话，我犹豫了很久，真的挺久的，我不敢发出去。<br>好像发了这句话我就挺没有面子的。不过，我觉得我发了这句话之后，我才觉得释然。<br>承认自己的缺点，不是没有面子，而是能够让你能够警醒，时刻保持谦卑。<br>这何尝不是一种好的成长。<br>天底下，再没我这种人了。<br>自私自利。一点也不为别人考虑。<br>好了，就这样吧，反正是自己做的不对，就能推脱。<br>这样自己才会长大。</p>
 ]]></content>
       <categories>
         <category>心情</category>
@@ -320,6 +320,22 @@
       </tags>
   </entry>
   <entry>
+    <title>david-prep单新增编辑逻辑</title>
+    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
+<blockquote>
+<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
+</blockquote>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
+]]></content>
+      <categories>
+        <category>领赫</category>
+      </categories>
+      <tags>
+        <tag>领赫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>原型图-发货</title>
     <url>/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
     <content><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p>
@@ -350,22 +366,6 @@
 <li><p>还是我昨天说的，出库有2种方式。这个t_stock_box_number里面记录了每个提货单最终入库之后生产了哪些箱子，然后对应这发出去就可以了。</p>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>领赫</category>
-      </categories>
-      <tags>
-        <tag>领赫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>david-prep单新增编辑逻辑</title>
-    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
-<blockquote>
-<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
-</blockquote>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
 ]]></content>
       <categories>
         <category>领赫</category>
