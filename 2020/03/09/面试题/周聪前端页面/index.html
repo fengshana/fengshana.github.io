@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端,js,双色球," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="需求内容「来日方长：这是一列的吧」  「来日方长：七列都要有」  「来日方长：七个数字 每个数字有七列」  「来日方长：你想一下那个表格要怎么排版」  「来日方长：你测试数据再改一下」  「来日方长：一个隔两个一个隔三个」  「我：总排最大遗漏数什么意思来着我给忘了」  「我：数字搜索了多少个，然后总排当中就调出这些数字的在7列当中的最大遗漏数是吧」  「我：没有出现最大遗漏数的也就是1都没有的我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端页面双色球">
+<meta property="og:url" content="https://fengshana.github.io/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%91%A8%E8%81%AA%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/index.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="需求内容「来日方长：这是一列的吧」  「来日方长：七列都要有」  「来日方长：七个数字 每个数字有七列」  「来日方长：你想一下那个表格要怎么排版」  「来日方长：你测试数据再改一下」  「来日方长：一个隔两个一个隔三个」  「我：总排最大遗漏数什么意思来着我给忘了」  「我：数字搜索了多少个，然后总排当中就调出这些数字的在7列当中的最大遗漏数是吧」  「我：没有出现最大遗漏数的也就是1都没有的我">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r">
+<meta property="article:published_time" content="2020-03-09T04:52:56.000Z">
+<meta property="article:modified_time" content="2020-03-09T04:41:03.619Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="双色球">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/03/09/面试题/周聪前端页面/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>前端页面双色球 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+  <script type="text/javascript" src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+            Photos
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%91%A8%E8%81%AA%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端页面双色球</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-09T12:52:56+08:00">
+                2020-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  11.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  61
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" rel="gallery_ck7jzccso005ntcum7yh54udq"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="需求内容"><a href="#需求内容" class="headerlink" title="需求内容"></a>需求内容</h2><p>「来日方长：这是一列的吧」</p>
+<hr>
+<p>「来日方长：七列都要有」</p>
+<hr>
+<p>「来日方长：七个数字 每个数字有七列」</p>
+<hr>
+<p>「来日方长：你想一下那个表格要怎么排版」</p>
+<hr>
+<p>「来日方长：你测试数据再改一下」</p>
+<hr>
+<p>「来日方长：一个隔两个一个隔三个」</p>
+<hr>
+<p>「我：总排最大遗漏数什么意思来着我给忘了」</p>
+<hr>
+<p>「我：数字搜索了多少个，然后总排当中就调出这些数字的在7列当中的最大遗漏数是吧」</p>
+<hr>
+<p>「我：没有出现最大遗漏数的也就是1都没有的我用-代替了」</p>
+<hr>
+<p>「来日方长：你这个有点不对吧」</p>
+<hr>
+<p>「来日方长：遗漏数是所有的数据对比 不是当页的」</p>
+<hr>
+<p>「来日方长：但是遗漏数是所有数据对比」</p>
+<hr>
+<p>「来日方长：还有 你这个遗漏数啊 还是不够勒」</p>
+<hr>
+<p>「来日方长：就每一个数字 都有七列的遗漏数」</p>
+<hr>
+<p>「来日方长：遗漏数 是他搜索哪个数字」</p>
+<hr>
+<p>「来日方长：就用哪个数字去做遗漏数对比」</p>
+<hr>
+<p>「来日方长：最多可以七个」</p>
+<hr>
+<p>「来日方长：意思就是每一个数字有七个单排遗漏数」</p>
+<hr>
+<p>「我：那他要是不搜的话，单排 总排都没有是吧」</p>
+<hr>
+<p>「来日方长：记得再加一个时间筛选」</p>
+<hr>
+<p>「来日方长：新增和修改」</p>
+<hr>
+<p>「我：我有个问题，其实数据可以查很多个的」</p>
+<hr>
+<p>「我：就是数字搜索那里，可以搜索不止7个的」</p>
+<hr>
+<p>「我：但是只搜索七个是吧」</p>
+<hr>
+<p>也行，要不你说很多吧不限制「我：单排最大遗漏数说的不是数字吧」</p>
+<hr>
+<p>「我：而是之间的差index吧？」</p>
+<hr>
+<p>「我：我跟你理一理，单排是指的每一列当中单列当中当前查询的该数字的最大差index,而总排是指的是每一列当中的最大index取最大值是不是」</p>
+<hr>
+<p>「来日方长：那个页面是响应式的不」</p>
+<hr>
+<p>大概的一个意思就是，给一个数组给前端，<br>数组当中存在多个类似对象数据  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;&quot;number&quot;:1,&quot;oneColumn&quot;:1,&quot;twoColumn&quot;:1,&quot;threeColumn&quot;:1,&quot;fourColumn&quot;:1,&quot;fiveColumn&quot;:1,,&quot;sixColumn&quot;:1,&quot;sevenColumn&quot;:1,&quot;createTime&quot;:2020-01-01&#125;,</span><br><span class="line">  &#123;&quot;number&quot;:1,&quot;oneColumn&quot;:1,&quot;twoColumn&quot;:1,&quot;threeColumn&quot;:1,&quot;fourColumn&quot;:1,&quot;fiveColumn&quot;:1,,&quot;sixColumn&quot;:1,&quot;sevenColumn&quot;:1,&quot;createTime&quot;:2020-01-01&#125;,</span><br><span class="line">  &#123;&quot;number&quot;:1,&quot;oneColumn&quot;:1,&quot;twoColumn&quot;:1,&quot;threeColumn&quot;:1,&quot;fourColumn&quot;:1,&quot;fiveColumn&quot;:1,,&quot;sixColumn&quot;:1,&quot;sevenColumn&quot;:1,&quot;createTime&quot;:2020-01-01&#125;,</span><br><span class="line">  &#123;&quot;number&quot;:1,&quot;oneColumn&quot;:1,&quot;twoColumn&quot;:1,&quot;threeColumn&quot;:1,&quot;fourColumn&quot;:1,&quot;fiveColumn&quot;:1,,&quot;sixColumn&quot;:1,&quot;sevenColumn&quot;:1,&quot;createTime&quot;:2020-01-01&#125;,</span><br><span class="line">  ...]</span><br></pre></td></tr></table></figure>
+
+<p>然后前端根据这个数据做出表格  </p>
+<blockquote>
+<p>example</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>开奖日期</th>
+<th>第一位数</th>
+<th>第二位数</th>
+<th>第三位数</th>
+<th>第四位数</th>
+<th>第五位数</th>
+<th>第六位数</th>
+<th>第七位数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>遗漏信息</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数字-<br>单排最大遗漏数-<br>总排最大遗漏数</td>
+<td></td>
+<td>第一列最大遗漏数</td>
+<td>第二列最大遗漏数</td>
+<td>第三列最大遗漏数</td>
+<td>第四列最大遗漏数</td>
+<td>第五列最大遗漏数</td>
+<td>第六列最大遗漏数</td>
+<td>第七列最大遗漏数</td>
+</tr>
+</tbody></table>
+<p>数字指的是搜索的数字，做多可以搜索n+，即有一个数字搜索、（开始时间、结束时间）时间筛选的表格，数字搜索为搜索的搜索的数字如果多个通过,逗号隔开，且搜索的数字匹配满足其中字段当中一个即带出该条记录。<br>(“oneColumn”:1,”twoColumn”:1,”threeColumn”:1,<br>“fourColumn”:1,”fiveColumn”:1,”sixColumn”:1,”sevenColumn”:1)<br>单排最大遗漏数指的是，在th:第一列数该列Column当中，进行搜索数字oneColumn:01,即比如说第一列当中第一行数据为01，第一列当中第三行数据为01，那么，第一行第一列的01与第三行第一列的01的遗漏数为1  </p>
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>开奖日期</th>
+<th>第一位数</th>
+<th>第二位数</th>
+<th>第三位数</th>
+<th>第四位数</th>
+<th>第五位数</th>
+<th>第六位数</th>
+<th>第七位数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td>createTime</td>
+<td><span style="color:red">01</span></td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td><span style="color:red">01</span></td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>遗漏信息</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数字-<br>单排最大遗漏数-<br>总排最大遗漏数</td>
+<td></td>
+<td>第一列最大遗漏数</td>
+<td>第二列最大遗漏数</td>
+<td>第三列最大遗漏数</td>
+<td>第四列最大遗漏数</td>
+<td>第五列最大遗漏数</td>
+<td>第六列最大遗漏数</td>
+<td>第七列最大遗漏数</td>
+</tr>
+</tbody></table>
+<p>而最大遗漏数，即比如第一列第一行的数值为01，第一列第二行的数值为01，第一列第三行的数值为01，第一列第五行的数值为01，那么第一列oneColumn，当中搜索01的单排最大遗漏数为3，也就是该列当中第一次出现该数值的index:0，  该列当中最后一次出现该数值的index:4，他们之间的差值4-0-1，也就是该列Column的manIndex-minIndex-1=3，td.index从0开始  </p>
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>开奖日期</th>
+<th>第一位数</th>
+<th>第二位数</th>
+<th>第三位数</th>
+<th>第四位数</th>
+<th>第五位数</th>
+<th>第六位数</th>
+<th>第七位数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td>createTime</td>
+<td><span style="color:red">01</span></td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td><span style="color:red">01</span></td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td><span style="color:red">01</span></td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td><span style="color:red">01</span></td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>遗漏信息</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数字-<br>单排最大遗漏数-<br>总排最大遗漏数</td>
+<td></td>
+<td>第一列最大遗漏数</td>
+<td>第二列最大遗漏数</td>
+<td>第三列最大遗漏数</td>
+<td>第四列最大遗漏数</td>
+<td>第五列最大遗漏数</td>
+<td>第六列最大遗漏数</td>
+<td>第七列最大遗漏数</td>
+</tr>
+</tbody></table>
+<p>好，那么再说下总排最大遗漏数，总排最大遗漏数的意思就是第一列当中第一行出现搜索的数值01，第二列第三行出现搜索的数据01，那么在一、二列当中的总排遗漏数为1，而相对于7列column来说，for example，第一列第三行出现搜索数值01，第二列第五行出现搜索数值01，第三列第六行出现搜索数值01，第四列第九行出现搜索数值01，第五列第五行出现搜索数值01，第六列第二行出现搜索数值01，第七列第一行出现搜索数值01，那么总排最大遗漏数为8  </p>
+<table>
+<thead>
+<tr>
+<th>期数</th>
+<th>开奖日期</th>
+<th>第一位数</th>
+<th>第二位数</th>
+<th>第三位数</th>
+<th>第四位数</th>
+<th>第五位数</th>
+<th>第六位数</th>
+<th>第七位数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td><span style="color:red">01</span></td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td><span style="color:red">01</span></td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td><span style="color:red">01</span></td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td><span style="color:red">01</span></td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td><span style="color:red">01</span></td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td><span style="color:red">01</span></td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td><span style="color:red">01</span></td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>number</td>
+<td>createTime</td>
+<td>oneColumn</td>
+<td>twoColumn</td>
+<td>threeColumn</td>
+<td>fourColumn</td>
+<td>fiveColumn</td>
+<td>sixColumn</td>
+<td>sevenColumn</td>
+</tr>
+<tr>
+<td>遗漏信息</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>数字-<br>单排最大遗漏数-<br>总排最大遗漏数</td>
+<td></td>
+<td>第一列最大遗漏数</td>
+<td>第二列最大遗漏数</td>
+<td>第三列最大遗漏数</td>
+<td>第四列最大遗漏数</td>
+<td>第五列最大遗漏数</td>
+<td>第六列最大遗漏数</td>
+<td>第七列最大遗漏数</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>max.html-demo</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">function Map() &#123;     </span><br><span class="line">    &#x2F;** 存放键的数组(遍历用到) *&#x2F;    </span><br><span class="line">    this.keys &#x3D; new Array();     </span><br><span class="line">    &#x2F;** 存放数据 *&#x2F;    </span><br><span class="line">    this.data &#x3D; new Object();     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 放入一个键值对   </span><br><span class="line">     * @param &#123;String&#125; key   </span><br><span class="line">     * @param &#123;Object&#125; value   </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.put &#x3D; function(key, value) &#123;     </span><br><span class="line">        if(this.data[key] &#x3D;&#x3D; null)&#123;     </span><br><span class="line">            this.keys.push(key);     </span><br><span class="line">        &#125;     </span><br><span class="line">        this.data[key] &#x3D; value;     </span><br><span class="line">    &#125;;     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 获取某键对应的值   </span><br><span class="line">     * @param &#123;String&#125; key   </span><br><span class="line">     * @return &#123;Object&#125; value   </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.get &#x3D; function(key) &#123;     </span><br><span class="line">        return this.data[key];     </span><br><span class="line">    &#125;;     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 删除一个键值对   </span><br><span class="line">     * @param &#123;String&#125; key   </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.remove &#x3D; function(key) &#123;     </span><br><span class="line">        this.keys.remove(key);     </span><br><span class="line">        this.data[key] &#x3D; null;     </span><br><span class="line">    &#125;;     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 遍历Map,执行处理函数   </span><br><span class="line">     *    </span><br><span class="line">     * @param &#123;Function&#125; 回调函数 function(key,value,index)&#123;..&#125;   </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.each &#x3D; function(fn)&#123;     </span><br><span class="line">        if(typeof fn !&#x3D; &#39;function&#39;)&#123;     </span><br><span class="line">            return;     </span><br><span class="line">        &#125;     </span><br><span class="line">        var len &#x3D; this.keys.length;     </span><br><span class="line">        for(var i&#x3D;0;i&lt;len;i++)&#123;     </span><br><span class="line">            var k &#x3D; this.keys[i];     </span><br><span class="line">            fn(k,this.data[k],i);     </span><br><span class="line">        &#125;     </span><br><span class="line">    &#125;;     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 获取键值数组(类似&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;lib.csdn.net&#x2F;base&#x2F;java&quot; class&#x3D;&#39;replace_word&#39; title&#x3D;&quot;Java 知识库&quot; target&#x3D;&#39;_blank&#39; style&#x3D;&#39;color:#df3434; font-weight:bold;&#39;&gt;Java&lt;&#x2F;a&gt;的entrySet())   </span><br><span class="line">     * @return 键值对象&#123;key,value&#125;的数组   </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.entrys &#x3D; function() &#123;     </span><br><span class="line">        var len &#x3D; this.keys.length;     </span><br><span class="line">        var entrys &#x3D; new Array(len);     </span><br><span class="line">        for (var i &#x3D; 0; i &lt; len; i++) &#123;     </span><br><span class="line">            entrys[i] &#x3D; &#123;     </span><br><span class="line">                key : this.keys[i],     </span><br><span class="line">                value : this.data[i]     </span><br><span class="line">            &#125;;     </span><br><span class="line">        &#125;     </span><br><span class="line">        return entrys;     </span><br><span class="line">    &#125;;     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 判断Map是否为空   </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.isEmpty &#x3D; function() &#123;     </span><br><span class="line">        return this.keys.length &#x3D;&#x3D; 0;     </span><br><span class="line">    &#125;;     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 获取键值对数量   </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.size &#x3D; function()&#123;     </span><br><span class="line">        return this.keys.length;     </span><br><span class="line">    &#125;;     </span><br><span class="line"></span><br><span class="line">    &#x2F;**   </span><br><span class="line">     * 重写toString    </span><br><span class="line">     *&#x2F;    </span><br><span class="line">    this.toString &#x3D; function()&#123;     </span><br><span class="line">        var s &#x3D; &quot;&#123;&quot;;     </span><br><span class="line">        for(var i&#x3D;0;i&lt;this.keys.length;i++,s+&#x3D;&#39;,&#39;)&#123;     </span><br><span class="line">            var k &#x3D; this.keys[i];     </span><br><span class="line">            s +&#x3D; k+&quot;&#x3D;&quot;+this.data[k];     </span><br><span class="line">        &#125;   </span><br><span class="line">		s&#x3D;s.substr(0,s.length-1);</span><br><span class="line">        s+&#x3D;&quot;&#125;&quot;;     </span><br><span class="line">        return s;     </span><br><span class="line">    &#125;;     </span><br><span class="line">&#125;     </span><br><span class="line">		&#x2F;**</span><br><span class="line">		var arrays&#x3D;[01,28,19,35,43,08,01,12,32,41];</span><br><span class="line">		console.log(arrays);</span><br><span class="line">		var flag&#x3D;true;</span><br><span class="line">		var map&#x3D;new Map();</span><br><span class="line">		for(var i&#x3D;0;i&lt;arrays.length;i++)&#123; &#x2F;&#x2F;循环10次</span><br><span class="line">			var element&#x3D;arrays[i];&#x2F;&#x2F;数组当中具体的元素</span><br><span class="line">			map.put(element,0);&#x2F;&#x2F;放入的只有9个</span><br><span class="line">			</span><br><span class="line">			for(var n&#x3D;0;n&lt;arrays.length;n++)&#123; &#x2F;&#x2F;循环10次 </span><br><span class="line">				var key&#x3D;arrays[n];</span><br><span class="line">				&#x2F;&#x2F;console.log(&quot;当前遍历的element: &quot;+element+&quot;；所处index: &quot;+i+&quot;  map当中循环的element: &quot;+key+&quot;所处index: &quot;+n)</span><br><span class="line">				if(key!&#x3D;null &amp;&amp; key&#x3D;&#x3D;element)&#123; &#x2F;&#x2F;如果存在有当前循环的数组当中的取值与map当中的键相同的则重新赋值，重新赋值后进行下一次break;</span><br><span class="line">					var y&#x3D;i-n;</span><br><span class="line">					&#x2F;&#x2F;console.log(&quot;key: &quot;+key+&quot; element:&quot;+element+&quot; y: &quot;+y);</span><br><span class="line">					map.put(element,y);&#x2F;&#x2F;此处的y没有减去当前自己的位数,所以当单排最大遗漏数查询的时候还需要-1</span><br><span class="line">					break;</span><br><span class="line">				&#125;else&#123;</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;console.log(map.toString());</span><br><span class="line">		</span><br><span class="line">		var mapArrays&#x3D;map.entrys();</span><br><span class="line">		var maxValue&#x3D;0;</span><br><span class="line">		var maxKey&#x3D;0;</span><br><span class="line">		for(var i&#x3D;0;i&lt;mapArrays.length;i++)&#123;</span><br><span class="line">			var key&#x3D;mapArrays[i].key;</span><br><span class="line">			var value&#x3D;map.get(key);</span><br><span class="line">			&#x2F;&#x2F;console.log(&quot;key: &quot;+key+&quot; value:&quot;+value);</span><br><span class="line">			if(maxValue&lt;value)&#123;</span><br><span class="line">				maxValue&#x3D;value;</span><br><span class="line">				maxKey&#x3D;key;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		console.log(&quot;单排最大遗漏数为 - key:&quot;+maxKey+&quot;  value:&quot;+(maxValue-1));</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		var numbers&#x3D;&quot;hello,world,hello,world,hello,wrold&quot;;</span><br><span class="line">		var nums&#x3D;numbers.split(&quot;,&quot;);</span><br><span class="line">		console.log(&quot;nums: &quot;+nums.length);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		*&#x2F;</span><br><span class="line">		 var tr0&#x3D;detailData.insertRow(arrays.length+1);</span><br><span class="line">		 var td0&#x3D;tr0.insertCell(0);</span><br><span class="line">		 td0.colSpan&#x3D;2;</span><br><span class="line">		 td0.innerHTML&#x3D;&quot;遗漏信息&quot;;</span><br><span class="line">		 td0.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 var td00&#x3D;tr0.insertCell(1);</span><br><span class="line">		 td00.colSpan&#x3D;7;</span><br><span class="line">		 var tr&#x3D;detailData.insertRow(arrays.length+2);</span><br><span class="line">		 var td&#x3D;tr.insertCell(0);</span><br><span class="line">		 td.innerHTML&#x3D;&quot;数字&quot;;</span><br><span class="line">		 td.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 td.colSpan&#x3D;2;</span><br><span class="line">		 var tr2&#x3D;detailData.insertRow(arrays.length+3);</span><br><span class="line">		 var td2&#x3D;tr2.insertCell(0);</span><br><span class="line">		 td2.innerHTML&#x3D;&quot;单排最大遗漏数&quot;;</span><br><span class="line">		 td2.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 td2.colSpan&#x3D;2;</span><br><span class="line">		 var tr3&#x3D;detailData.insertRow(arrays.length+4);</span><br><span class="line">		 var td3&#x3D;tr3.insertCell(0);</span><br><span class="line">		 td3.innerHTML&#x3D;&quot;总排最大遗漏数&quot;;</span><br><span class="line">		 td3.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 td3.colSpan&#x3D;2;</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F;当前7个数组当中都存有对应的数值</span><br><span class="line">		 for(var t&#x3D;0;t&lt;sumArray.length;t++)&#123;</span><br><span class="line">			 &#x2F;&#x2F; var arrays&#x3D;[01,28,19,35,43,08,01,12,32,41];</span><br><span class="line">			 var arrays&#x3D;sumArray[t];&#x2F;&#x2F;单个数组</span><br><span class="line">			 console.log(arrays);</span><br><span class="line">			 var flag&#x3D;true;</span><br><span class="line">			 var map&#x3D;new Map();</span><br><span class="line">			 for(var i&#x3D;0;i&lt;arrays.length;i++)&#123; &#x2F;&#x2F;循环10次</span><br><span class="line">				 var element&#x3D;arrays[i];&#x2F;&#x2F;数组当中具体的元素</span><br><span class="line">				 map.put(element,0);&#x2F;&#x2F;放入的只有9个</span><br><span class="line"></span><br><span class="line">				 for(var n&#x3D;0;n&lt;arrays.length;n++)&#123; &#x2F;&#x2F;循环10次</span><br><span class="line">					 var key&#x3D;arrays[n];</span><br><span class="line">					 &#x2F;&#x2F;console.log(&quot;当前遍历的element: &quot;+element+&quot;；所处index: &quot;+i+&quot;  map当中循环的element: &quot;+key+&quot;所处index: &quot;+n)</span><br><span class="line">					 if(key!&#x3D;null &amp;&amp; key&#x3D;&#x3D;element)&#123; &#x2F;&#x2F;如果存在有当前循环的数组当中的取值与map当中的键相同的则重新赋值，重新赋值后进行下一次break;</span><br><span class="line">						 var y&#x3D;i-n;</span><br><span class="line">						 &#x2F;&#x2F;console.log(&quot;key: &quot;+key+&quot; element:&quot;+element+&quot; y: &quot;+y);</span><br><span class="line">						 map.put(element,y);&#x2F;&#x2F;此处的y没有减去当前自己的位数,所以当单排最大遗漏数查询的时候还需要-1</span><br><span class="line">						 break;</span><br><span class="line">					 &#125;else&#123;</span><br><span class="line">						 continue;</span><br><span class="line">					 &#125;</span><br><span class="line">				 &#125;</span><br><span class="line">			 &#125;</span><br><span class="line">			 &#x2F;&#x2F;console.log(map.toString());</span><br><span class="line">			 var mapArrays&#x3D;map.entrys();</span><br><span class="line">			 var maxValue&#x3D;0;</span><br><span class="line">			 var maxKey&#x3D;0;</span><br><span class="line">			 for(var i&#x3D;0;i&lt;mapArrays.length;i++)&#123;</span><br><span class="line">				 var key&#x3D;mapArrays[i].key;</span><br><span class="line">				 var value&#x3D;map.get(key);</span><br><span class="line">				 &#x2F;&#x2F;console.log(&quot;key: &quot;+key+&quot; value:&quot;+value);</span><br><span class="line">				 if(maxValue&lt;value)&#123;</span><br><span class="line">					 maxValue&#x3D;value;</span><br><span class="line">					 maxKey&#x3D;key;</span><br><span class="line">				 &#125;</span><br><span class="line">			 &#125;</span><br><span class="line">			 console.log(&quot;单排最大遗漏数为 - key:&quot;+maxKey+&quot;  value:&quot;+(maxValue-1));</span><br><span class="line">			 &#x2F;&#x2F;添加元素</span><br><span class="line">			 var td4&#x3D;tr.insertCell(t+1);</span><br><span class="line">			 if(maxKey&lt;&#x3D;0)&#123;</span><br><span class="line">				 td4.innerHTML&#x3D;&quot;-&quot;;</span><br><span class="line">			 &#125;else&#123;</span><br><span class="line">				 td4.innerHTML&#x3D;maxKey;</span><br><span class="line">			 &#125;</span><br><span class="line">			 var td5&#x3D;tr2.insertCell(t+1);</span><br><span class="line">			 if((maxValue-1)&lt;&#x3D;0)&#123;</span><br><span class="line">				 td5.innerHTML&#x3D;&quot;-&quot;;</span><br><span class="line">			 &#125;else&#123;</span><br><span class="line">				 td5.innerHTML&#x3D;(maxValue-1);</span><br><span class="line">			 &#125;</span><br><span class="line">		 &#125;</span><br><span class="line">		</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>complete-demo</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br><span class="line">775</span><br><span class="line">776</span><br><span class="line">777</span><br><span class="line">778</span><br><span class="line">779</span><br><span class="line">780</span><br><span class="line">781</span><br><span class="line">782</span><br><span class="line">783</span><br><span class="line">784</span><br><span class="line">785</span><br><span class="line">786</span><br><span class="line">787</span><br><span class="line">788</span><br><span class="line">789</span><br><span class="line">790</span><br><span class="line">791</span><br><span class="line">792</span><br><span class="line">793</span><br><span class="line">794</span><br><span class="line">795</span><br><span class="line">796</span><br><span class="line">797</span><br><span class="line">798</span><br><span class="line">799</span><br><span class="line">800</span><br><span class="line">801</span><br><span class="line">802</span><br><span class="line">803</span><br><span class="line">804</span><br><span class="line">805</span><br><span class="line">806</span><br><span class="line">807</span><br><span class="line">808</span><br><span class="line">809</span><br><span class="line">810</span><br><span class="line">811</span><br><span class="line">812</span><br><span class="line">813</span><br><span class="line">814</span><br><span class="line">815</span><br><span class="line">816</span><br><span class="line">817</span><br><span class="line">818</span><br><span class="line">819</span><br><span class="line">820</span><br><span class="line">821</span><br><span class="line">822</span><br><span class="line">823</span><br><span class="line">824</span><br><span class="line">825</span><br><span class="line">826</span><br><span class="line">827</span><br><span class="line">828</span><br><span class="line">829</span><br><span class="line">830</span><br><span class="line">831</span><br><span class="line">832</span><br><span class="line">833</span><br><span class="line">834</span><br><span class="line">835</span><br><span class="line">836</span><br><span class="line">837</span><br><span class="line">838</span><br><span class="line">839</span><br><span class="line">840</span><br><span class="line">841</span><br><span class="line">842</span><br><span class="line">843</span><br><span class="line">844</span><br><span class="line">845</span><br><span class="line">846</span><br><span class="line">847</span><br><span class="line">848</span><br><span class="line">849</span><br><span class="line">850</span><br><span class="line">851</span><br><span class="line">852</span><br><span class="line">853</span><br><span class="line">854</span><br><span class="line">855</span><br><span class="line">856</span><br><span class="line">857</span><br><span class="line">858</span><br><span class="line">859</span><br><span class="line">860</span><br><span class="line">861</span><br><span class="line">862</span><br><span class="line">863</span><br><span class="line">864</span><br><span class="line">865</span><br><span class="line">866</span><br><span class="line">867</span><br><span class="line">868</span><br><span class="line">869</span><br><span class="line">870</span><br><span class="line">871</span><br><span class="line">872</span><br><span class="line">873</span><br><span class="line">874</span><br><span class="line">875</span><br><span class="line">876</span><br><span class="line">877</span><br><span class="line">878</span><br><span class="line">879</span><br><span class="line">880</span><br><span class="line">881</span><br><span class="line">882</span><br><span class="line">883</span><br><span class="line">884</span><br><span class="line">885</span><br><span class="line">886</span><br><span class="line">887</span><br><span class="line">888</span><br><span class="line">889</span><br><span class="line">890</span><br><span class="line">891</span><br><span class="line">892</span><br><span class="line">893</span><br><span class="line">894</span><br><span class="line">895</span><br><span class="line">896</span><br><span class="line">897</span><br><span class="line">898</span><br><span class="line">899</span><br><span class="line">900</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page import&#x3D;&quot;com.alibaba.fastjson.JSONObject&quot; %&gt;</span><br><span class="line">&lt;%@ page import&#x3D;&quot;java.util.ArrayList&quot; %&gt;</span><br><span class="line">&lt;%@ page import&#x3D;&quot;java.util.HashMap&quot; %&gt;</span><br><span class="line">&lt;%@ page import&#x3D;&quot;java.util.List&quot; %&gt;</span><br><span class="line">&lt;%@ page import&#x3D;&quot;java.util.Map&quot; %&gt;</span><br><span class="line">&lt;%@ page language&#x3D;&quot;java&quot; contentType&#x3D;&quot;text&#x2F;html; charset&#x3D;UTF-8&quot;</span><br><span class="line">		 pageEncoding&#x3D;&quot;UTF-8&quot;%&gt;</span><br><span class="line">&lt;%@ page trimDirectiveWhitespaces&#x3D;&quot;true&quot;%&gt;</span><br><span class="line">&lt;%@ taglib prefix&#x3D;&quot;c&quot; uri&#x3D;&quot;http:&#x2F;&#x2F;java.sun.com&#x2F;jsp&#x2F;jstl&#x2F;core&quot;%&gt;</span><br><span class="line">&lt;%@ taglib prefix&#x3D;&quot;itcast&quot; uri&#x3D;&quot;http:&#x2F;&#x2F;itcast.cn&#x2F;common&#x2F;&quot;%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	String path &#x3D; request.getContextPath();</span><br><span class="line">	String basePath &#x3D; request.getScheme() + &quot;:&#x2F;&#x2F;&quot; + request.getServerName() + &quot;:&quot; + request.getServerPort()</span><br><span class="line">			+ path + &quot;&#x2F;&quot;;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-transitional.dtd&quot;&gt;</span><br><span class="line">&lt;html xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset&#x3D;&quot;utf-8&quot;&gt;</span><br><span class="line">	&lt;meta http-equiv&#x3D;&quot;X-UA-Compatible&quot; content&#x3D;&quot;IE&#x3D;edge&quot;&gt;</span><br><span class="line">	&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial-scale&#x3D;1&quot;&gt;</span><br><span class="line">	&lt;meta name&#x3D;&quot;description&quot; content&#x3D;&quot;&quot;&gt;</span><br><span class="line">	&lt;meta name&#x3D;&quot;author&quot; content&#x3D;</span><br><span class="line">	&lt;!-- Bootstrap Core CSS --&gt;</span><br><span class="line">	&lt;link href&#x3D;&quot;&#x2F;static&#x2F;css&#x2F;bootstrap.min.css&quot; rel&#x3D;&quot;stylesheet&quot;&gt;</span><br><span class="line">	&lt;link href&#x3D;&quot;&#x2F;static&#x2F;css&#x2F;metisMenu.min.css&quot; rel&#x3D;&quot;stylesheet&quot;&gt;</span><br><span class="line">	&lt;link href&#x3D;&quot;&#x2F;static&#x2F;css&#x2F;dataTables.bootstrap.css&quot; rel&#x3D;&quot;stylesheet&quot;&gt;</span><br><span class="line">	&lt;link href&#x3D;&quot;&#x2F;static&#x2F;css&#x2F;sb-admin-2.css&quot; rel&#x3D;&quot;stylesheet&quot;&gt;</span><br><span class="line">	&lt;link href&#x3D;&quot;&#x2F;static&#x2F;css&#x2F;font-awesome.min.css&quot; rel&#x3D;&quot;stylesheet&quot;</span><br><span class="line">		  type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">	&lt;link href&#x3D;&quot;&#x2F;static&#x2F;css&#x2F;boot-crm.css&quot; rel&#x3D;&quot;stylesheet&quot;</span><br><span class="line">		  type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">	&lt;link href&#x3D;&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;bootstrap-datetimepicker&#x2F;4.17.47&#x2F;css&#x2F;bootstrap-datetimepicker.min.css&quot; rel&#x3D;&quot;stylesheet&quot;&gt;</span><br><span class="line">	&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;oss.maxcdn.com&#x2F;libs&#x2F;html5shiv&#x2F;3.7.0&#x2F;html5shiv.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;oss.maxcdn.com&#x2F;libs&#x2F;respond.js&#x2F;1.4.2&#x2F;respond.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">	&lt;![endif]--&gt;</span><br><span class="line"></span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		.inputText&#123;</span><br><span class="line">			width:200px;</span><br><span class="line">		&#125;</span><br><span class="line">		.alert &#123;</span><br><span class="line">			display: none;</span><br><span class="line">			position: fixed;</span><br><span class="line">			top: 50%;</span><br><span class="line">			left: 50%;</span><br><span class="line">			min-width: 300px;</span><br><span class="line">			max-width: 600px;</span><br><span class="line">			transform: translate(-50%,-50%);</span><br><span class="line">			z-index: 99999;</span><br><span class="line">			text-align: center;</span><br><span class="line">			padding: 15px;</span><br><span class="line">			border-radius: 3px;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.alert-success &#123;</span><br><span class="line">			color: #3c763d;</span><br><span class="line">			background-color: #dff0d8;</span><br><span class="line">			border-color: #d6e9c6;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.alert-info &#123;</span><br><span class="line">			color: #31708f;</span><br><span class="line">			background-color: #d9edf7;</span><br><span class="line">			border-color: #bce8f1;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.alert-warning &#123;</span><br><span class="line">			color: #8a6d3b;</span><br><span class="line">			background-color: #fcf8e3;</span><br><span class="line">			border-color: #faebcc;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		.alert-danger &#123;</span><br><span class="line">			color: #a94442;</span><br><span class="line">			background-color: #f2dede;</span><br><span class="line">			border-color: #ebccd1;</span><br><span class="line">		&#125;</span><br><span class="line">	&lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;!-- 模态框（Modal） --&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;myModal&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;myModalLabel&quot; aria-hidden&#x3D;&quot;true&quot;&gt;</span><br><span class="line">	&lt;div class&#x3D;&quot;modal-dialog&quot;&gt;</span><br><span class="line">		&lt;div class&#x3D;&quot;modal-content&quot;&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;modal-header&quot;&gt;</span><br><span class="line">				&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;&#x2F;button&gt;</span><br><span class="line">				&lt;h4 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;myModalLabel&quot;&gt;编辑&lt;&#x2F;h4&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;modal-body&quot;&gt;</span><br><span class="line">				&lt;div class&#x3D;&quot;panel-body&quot;&gt;</span><br><span class="line">					&lt;div class&#x3D;&quot;form-group&quot;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;编号 &lt;&#x2F;label&gt;&lt;input  class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;id&quot; readonly&#x3D;&quot;readonly&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;期数 &lt;&#x2F;label&gt;&lt;input  class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;numberId&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;开奖日期 &lt;&#x2F;label&gt;</span><br><span class="line">						&lt;div class&#x3D;&#39;input-group date&#39;  style&#x3D;&quot;width: 200px;&quot;  id&#x3D;&#39;datetimepicker3&#39; &gt;</span><br><span class="line">						&lt;input type&#x3D;&#39;text&#39; class&#x3D;&quot;form-control&quot; id&#x3D;&#39;createTime&#39;&#x2F;&gt;</span><br><span class="line">						&lt;span class&#x3D;&quot;input-group-addon&quot;&gt;</span><br><span class="line">                    			&lt;span class&#x3D;&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">               				 &lt;&#x2F;span&gt;</span><br><span class="line">						&lt;&#x2F;div&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第一位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;oneColumn&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第二位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;twoColumn&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第三位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;threeColumn&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第四位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;fourColumn&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第五位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;fiveColumn&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第六位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;sixColumn&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第七位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;sevenColumn&quot; &#x2F;&gt;</span><br><span class="line">					&lt;&#x2F;div&gt;</span><br><span class="line">				&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;modal-footer&quot;&gt;</span><br><span class="line">				&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-default&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;关闭&lt;&#x2F;button&gt;</span><br><span class="line">				&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; onclick&#x3D;&quot;edit()&quot;&gt;提交更改&lt;&#x2F;button&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;&#x2F;div&gt;</span><br><span class="line">	&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;!-- 模态框（Modal） --&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;modal fade&quot; id&#x3D;&quot;myModal2&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot; aria-labelledby&#x3D;&quot;myModalLabel&quot; aria-hidden&#x3D;&quot;true&quot;&gt;</span><br><span class="line">	&lt;div class&#x3D;&quot;modal-dialog&quot;&gt;</span><br><span class="line">		&lt;div class&#x3D;&quot;modal-content&quot;&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;modal-header&quot;&gt;</span><br><span class="line">				&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close&quot; data-dismiss&#x3D;&quot;modal2&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&amp;times;&lt;&#x2F;button&gt;</span><br><span class="line">				&lt;h4 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;myModalLabel2&quot;&gt;新增&lt;&#x2F;h4&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;modal-body&quot;&gt;</span><br><span class="line">				&lt;div class&#x3D;&quot;panel-body&quot;&gt;</span><br><span class="line">					&lt;div class&#x3D;&quot;form-group&quot;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;期数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;numberId2&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;开奖日期 &lt;&#x2F;label&gt;</span><br><span class="line">						&lt;div class&#x3D;&#39;input-group date&#39;  style&#x3D;&quot;width: 200px;&quot;  id&#x3D;&#39;datetimepicker4&#39; &gt;</span><br><span class="line">						&lt;input type&#x3D;&#39;text&#39; class&#x3D;&quot;form-control&quot; id&#x3D;&#39;createTime2&#39; &#x2F;&gt;</span><br><span class="line">						&lt;span class&#x3D;&quot;input-group-addon&quot;&gt;</span><br><span class="line">                    			&lt;span class&#x3D;&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">               				 &lt;&#x2F;span&gt;</span><br><span class="line">						&lt;&#x2F;div&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第一位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;oneColumn2&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第二位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;twoColumn2&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第三位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;threeColumn2&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第四位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;fourColumn2&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第五位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;fiveColumn2&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第六位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;sixColumn2&quot; &#x2F;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;第七位数 &lt;&#x2F;label&gt;&lt;input class&#x3D;&quot;form-control inputText&quot; type&#x3D;&quot;text&quot; id&#x3D;&quot;sevenColumn2&quot; &#x2F;&gt;</span><br><span class="line">					&lt;&#x2F;div&gt;</span><br><span class="line">				&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;modal-footer&quot;&gt;</span><br><span class="line">				&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-default&quot; data-dismiss&#x3D;&quot;modal&quot;&gt;关闭&lt;&#x2F;button&gt;</span><br><span class="line">				&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; onclick&#x3D;&quot;add()&quot;&gt;提交更改&lt;&#x2F;button&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;&#x2F;div&gt;</span><br><span class="line">	&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;alert&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id&#x3D;&quot;wrapper&quot;&gt;</span><br><span class="line">	&lt;div id&#x3D;&quot;page-wrapper&quot; style&#x3D;&quot;height: 100%&quot;&gt;</span><br><span class="line">		&lt;div class&#x3D;&quot;panel panel-default&quot;&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;panel-body&quot;&gt;</span><br><span class="line">					&lt;div class&#x3D;&quot;form-group&quot;&gt;</span><br><span class="line">						&lt;label for&#x3D;&quot;number&quot;&gt;数字搜索 &lt;&#x2F;label&gt;</span><br><span class="line">						&lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;number&quot; value&#x3D;&quot;$&#123;number&#125;&quot; name&#x3D;&quot;number&quot; style&#x3D;&quot;width: 200px;&quot;&#x2F;&gt;</span><br><span class="line">						&lt;input id&#x3D;&quot;page&quot; value&#x3D;&quot;$&#123;page&#125;&quot; name&#x3D;&quot;page&quot; style&#x3D;&quot;display: none;&quot; &#x2F;&gt;</span><br><span class="line">						&lt;input id&#x3D;&quot;pageSize&quot; value&#x3D;&quot;$&#123;pageSize&#125;&quot; name&#x3D;&quot;pageSize&quot;  style&#x3D;&quot;display: none;&quot; &#x2F;&gt;</span><br><span class="line"></span><br><span class="line">						&lt;label&gt;开始日期 &lt;&#x2F;label&gt;</span><br><span class="line">						&lt;div class&#x3D;&#39;input-group date&#39; id&#x3D;&#39;datetimepicker1&#39; style&#x3D;&quot;width: 200px;&quot;&gt;</span><br><span class="line">							&lt;input type&#x3D;&#39;text&#39; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;createTime3&quot;&#x2F;&gt;</span><br><span class="line">							&lt;span class&#x3D;&quot;input-group-addon&quot;&gt;</span><br><span class="line">                    			&lt;span class&#x3D;&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">               				 &lt;&#x2F;span&gt;</span><br><span class="line">						&lt;&#x2F;div&gt;</span><br><span class="line">						&lt;label&gt;结束日期 &lt;&#x2F;label&gt;</span><br><span class="line">						&lt;div class&#x3D;&#39;input-group date&#39; id&#x3D;&#39;datetimepicker2&#39; style&#x3D;&quot;width: 200px;&quot;&gt;</span><br><span class="line">							&lt;input type&#x3D;&#39;text&#39; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;createTime4&quot; &#x2F;&gt;</span><br><span class="line">							&lt;span class&#x3D;&quot;input-group-addon&quot;&gt;</span><br><span class="line">                    			&lt;span class&#x3D;&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;&#x2F;span&gt;</span><br><span class="line">               				 &lt;&#x2F;span&gt;</span><br><span class="line">						&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">						&lt;button onclick&#x3D;&quot;go()&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;查询&lt;&#x2F;button&gt;</span><br><span class="line">						&lt;button style&#x3D;&quot;margin-left:10px&quot; onclick&#x3D;&quot;reset()&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;清空&lt;&#x2F;button&gt;</span><br><span class="line">						&lt;button style&#x3D;&quot;margin-left:10px&quot; class&#x3D;&quot;btn btn-primary&quot; data-toggle&#x3D;&quot;modal&quot; data-target&#x3D;&quot;#myModal2&quot;&gt;新增&lt;&#x2F;button&gt;</span><br><span class="line">					&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;col-lg-12&quot;&gt;</span><br><span class="line">				&lt;div class&#x3D;&quot;panel panel-default&quot;&gt;</span><br><span class="line">					&lt;table class&#x3D;&quot;table table-bordered table-striped&quot; id&#x3D;&quot;detailData&quot; style&#x3D;&quot;text-align: center;&quot;&gt;</span><br><span class="line">					&lt;&#x2F;table&gt;</span><br><span class="line">				&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;div class&#x3D;&quot;row&quot;&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;col-lg-12&quot;&gt;</span><br><span class="line">				&lt;div class&#x3D;&quot;panel panel-default&quot; style&#x3D;&quot;text-align: right&quot;&gt;</span><br><span class="line">					&lt;button class&#x3D;&quot;btn btn-primary&quot; onclick&#x3D;&quot;up()&quot;&gt;上一页&lt;&#x2F;button&gt;</span><br><span class="line">					&lt;button class&#x3D;&quot;btn btn-primary&quot; onclick&#x3D;&quot;down()&quot;&gt;下一页&lt;&#x2F;button&gt;</span><br><span class="line">				&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;&#x2F;div&gt;</span><br><span class="line">	&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;jquery.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;jquery-ui.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;bootstrap.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;metisMenu.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;jquery.dataTables.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;dataTables.bootstrap.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;sb-admin-2.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&#39;&#x2F;static&#x2F;js&#x2F;stopExecutionOnTimeout.js?t&#x3D;1&#39;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;static&#x2F;layui&#x2F;layui.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;Particleground.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;Treatment.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&#x2F;static&#x2F;js&#x2F;jquery.mockjax.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;moment.js&#x2F;2.24.0&#x2F;moment-with-locales.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;bootstrap-datetimepicker&#x2F;4.17.47&#x2F;js&#x2F;bootstrap-datetimepicker.min.js&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">	$(function () &#123;</span><br><span class="line">		$(&#39;#datetimepicker1&#39;).datetimepicker(&#123;</span><br><span class="line">			format: &#39;YYYY-MM-DD&#39;,</span><br><span class="line">			locale: moment.locale(&#39;zh-cn&#39;)</span><br><span class="line">		&#125;);</span><br><span class="line">		$(&#39;#datetimepicker2&#39;).datetimepicker(&#123;</span><br><span class="line">			format: &#39;YYYY-MM-DD&#39;,</span><br><span class="line">			locale: moment.locale(&#39;zh-cn&#39;)</span><br><span class="line">		&#125;);</span><br><span class="line">		$(&#39;#datetimepicker3&#39;).datetimepicker(&#123;</span><br><span class="line">			format: &#39;YYYY-MM-DD&#39;,</span><br><span class="line">			locale: moment.locale(&#39;zh-cn&#39;)</span><br><span class="line">		&#125;);</span><br><span class="line">		$(&#39;#datetimepicker4&#39;).datetimepicker(&#123;</span><br><span class="line">			format: &#39;YYYY-MM-DD&#39;,</span><br><span class="line">			locale: moment.locale(&#39;zh-cn&#39;)</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;);</span><br><span class="line"></span><br><span class="line">	&#x2F;**</span><br><span class="line">	 * 弹出式提示框，默认1.2秒自动消失</span><br><span class="line">	 * @param message 提示信息</span><br><span class="line">	 * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info</span><br><span class="line">	 * @param time 消失时间</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	var prompt &#x3D; function (message, style, time)</span><br><span class="line">	&#123;</span><br><span class="line">		style &#x3D; (style &#x3D;&#x3D;&#x3D; undefined) ? &#39;alert-success&#39; : style;</span><br><span class="line">		time &#x3D; (time &#x3D;&#x3D;&#x3D; undefined) ? 1200 : time;</span><br><span class="line">		$(&#39;&lt;div&gt;&#39;)</span><br><span class="line">				.appendTo(&#39;body&#39;)</span><br><span class="line">				.addClass(&#39;alert &#39; + style)</span><br><span class="line">				.html(message)</span><br><span class="line">				.show()</span><br><span class="line">				.delay(time)</span><br><span class="line">				.fadeOut();</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 成功提示</span><br><span class="line">	var success_prompt &#x3D; function(message, time)</span><br><span class="line">	&#123;</span><br><span class="line">		prompt(message, &#39;alert-success&#39;, time);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 失败提示</span><br><span class="line">	var fail_prompt &#x3D; function(message, time)</span><br><span class="line">	&#123;</span><br><span class="line">		prompt(message, &#39;alert-danger&#39;, time);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 提醒</span><br><span class="line">	var warning_prompt &#x3D; function(message, time)</span><br><span class="line">	&#123;</span><br><span class="line">		prompt(message, &#39;alert-warning&#39;, time);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F; 信息提示</span><br><span class="line">	var info_prompt &#x3D; function(message, time)</span><br><span class="line">	&#123;</span><br><span class="line">		prompt(message, &#39;alert-info&#39;, time);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	function add()&#123;</span><br><span class="line">		console.log(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;add&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">		var numberId2&#x3D;document.getElementById(&quot;numberId2&quot;).value;</span><br><span class="line">		var createTime2&#x3D;document.getElementById(&quot;createTime2&quot;).value;</span><br><span class="line">		var oneColumn2&#x3D;document.getElementById(&quot;oneColumn2&quot;).value;</span><br><span class="line">		var twoColumn2&#x3D;document.getElementById(&quot;twoColumn2&quot;).value;</span><br><span class="line">		var threeColumn2&#x3D;document.getElementById(&quot;threeColumn2&quot;).value;</span><br><span class="line">		var fourColumn2&#x3D;document.getElementById(&quot;fourColumn2&quot;).value;</span><br><span class="line">		var fiveColumn2&#x3D;document.getElementById(&quot;fiveColumn2&quot;).value;</span><br><span class="line">		var sixColumn2&#x3D;document.getElementById(&quot;sixColumn2&quot;).value;</span><br><span class="line">		var sevenColumn2&#x3D;document.getElementById(&quot;sevenColumn2&quot;).value;</span><br><span class="line">		if((numberId2&#x3D;&#x3D;null || numberId2&#x3D;&#x3D;&#39;&#39; || numberId2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(createTime2&#x3D;&#x3D;null || createTime2&#x3D;&#x3D;&#39;&#39; || createTime2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(oneColumn2&#x3D;&#x3D;null || oneColumn2&#x3D;&#x3D;&#39;&#39; || oneColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(twoColumn2&#x3D;&#x3D;null || twoColumn2&#x3D;&#x3D;&#39;&#39; || twoColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(threeColumn2&#x3D;&#x3D;null || threeColumn2&#x3D;&#x3D;&#39;&#39; || threeColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(fourColumn2&#x3D;&#x3D;null || fourColumn2&#x3D;&#x3D;&#39;&#39; || fourColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(fiveColumn2&#x3D;&#x3D;null || fiveColumn2&#x3D;&#x3D;&#39;&#39; || fiveColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(sixColumn2&#x3D;&#x3D;null || sixColumn2&#x3D;&#x3D;&#39;&#39; || sixColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(sevenColumn2&#x3D;&#x3D;null || sevenColumn2&#x3D;&#x3D;&#39;&#39; || sevenColumn2&#x3D;&#x3D;undefined)</span><br><span class="line">		)&#123;</span><br><span class="line">			console.log(&quot;数据不完整,请检查参数并重新填写&quot;);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			&#x2F;&#x2F;发送请求进行新增</span><br><span class="line">			var requestDataBean &#x3D; &#123;</span><br><span class="line">				numberId:numberId2,</span><br><span class="line">				createTime:createTime2,</span><br><span class="line">				oneColumn:oneColumn2,</span><br><span class="line">				twoColumn:twoColumn2,</span><br><span class="line">				threeColumn:threeColumn2,</span><br><span class="line">				fourColumn:fourColumn2,</span><br><span class="line">				fiveColumn:fiveColumn2,</span><br><span class="line">				sixColumn:sixColumn2,</span><br><span class="line">				sevenColumn:sevenColumn2</span><br><span class="line">			&#125;;</span><br><span class="line">			console.log(&quot;add - requestDataBean: &quot;+JSON.stringify(requestDataBean));</span><br><span class="line">			var url&#x3D;&quot;&#x2F;maima&#x2F;addMaiMa&quot;;</span><br><span class="line">			AjaxPost(url, requestDataBean,</span><br><span class="line">					function () &#123;</span><br><span class="line">						&#x2F;&#x2F;ajax加载中</span><br><span class="line">					&#125;,</span><br><span class="line">					function (data) &#123;</span><br><span class="line">						console.log(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;数据获取成功&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">						if(data!&#x3D;null &amp;&amp; data.Code!&#x3D;null &amp;&amp; data.Code&#x3D;&#x3D;200 &amp;&amp; data.Status!&#x3D;null &amp;&amp; data.Status&#x3D;&#x3D;&quot;ok&quot;)&#123;</span><br><span class="line">							success_prompt(data.Msg,2000);</span><br><span class="line">							go();&#x2F;&#x2F;flush</span><br><span class="line">						&#125;else &#123;</span><br><span class="line">							fail_prompt(data.Msg,2000);</span><br><span class="line">							AjaxErro(data);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	function edit()&#123;</span><br><span class="line">		console.log(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;edit&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">		var id&#x3D;document.getElementById(&quot;id&quot;).value;</span><br><span class="line">		var numberId2&#x3D;document.getElementById(&quot;numberId&quot;).value;</span><br><span class="line">		var createTime2&#x3D;document.getElementById(&quot;createTime&quot;).value;</span><br><span class="line">		var oneColumn2&#x3D;document.getElementById(&quot;oneColumn&quot;).value;</span><br><span class="line">		var twoColumn2&#x3D;document.getElementById(&quot;twoColumn&quot;).value;</span><br><span class="line">		var threeColumn2&#x3D;document.getElementById(&quot;threeColumn&quot;).value;</span><br><span class="line">		var fourColumn2&#x3D;document.getElementById(&quot;fourColumn&quot;).value;</span><br><span class="line">		var fiveColumn2&#x3D;document.getElementById(&quot;fiveColumn&quot;).value;</span><br><span class="line">		var sixColumn2&#x3D;document.getElementById(&quot;sixColumn&quot;).value;</span><br><span class="line">		var sevenColumn2&#x3D;document.getElementById(&quot;sevenColumn&quot;).value;</span><br><span class="line">		if((id&#x3D;&#x3D;null || id&#x3D;&#x3D;&#39;&#39; || id&#x3D;&#x3D;undefined)||</span><br><span class="line">				(numberId2&#x3D;&#x3D;null || numberId2&#x3D;&#x3D;&#39;&#39; || numberId2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(createTime2&#x3D;&#x3D;null || createTime2&#x3D;&#x3D;&#39;&#39; || createTime2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(oneColumn2&#x3D;&#x3D;null || oneColumn2&#x3D;&#x3D;&#39;&#39; || oneColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(twoColumn2&#x3D;&#x3D;null || twoColumn2&#x3D;&#x3D;&#39;&#39; || twoColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(threeColumn2&#x3D;&#x3D;null || threeColumn2&#x3D;&#x3D;&#39;&#39; || threeColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(fourColumn2&#x3D;&#x3D;null || fourColumn2&#x3D;&#x3D;&#39;&#39; || fourColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(fiveColumn2&#x3D;&#x3D;null || fiveColumn2&#x3D;&#x3D;&#39;&#39; || fiveColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(sixColumn2&#x3D;&#x3D;null || sixColumn2&#x3D;&#x3D;&#39;&#39; || sixColumn2&#x3D;&#x3D;undefined) ||</span><br><span class="line">				(sevenColumn2&#x3D;&#x3D;null || sevenColumn2&#x3D;&#x3D;&#39;&#39; || sevenColumn2&#x3D;&#x3D;undefined)</span><br><span class="line">		)&#123;</span><br><span class="line">			console.log(&quot;数据不完整,请检查参数并重新填写&quot;);</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			&#x2F;&#x2F;发送请求进行新增</span><br><span class="line">			var requestDataBean &#x3D; &#123;</span><br><span class="line">				id:id,</span><br><span class="line">				numberId:numberId2,</span><br><span class="line">				createTime:createTime2,</span><br><span class="line">				oneColumn:oneColumn2,</span><br><span class="line">				twoColumn:twoColumn2,</span><br><span class="line">				threeColumn:threeColumn2,</span><br><span class="line">				fourColumn:fourColumn2,</span><br><span class="line">				fiveColumn:fiveColumn2,</span><br><span class="line">				sixColumn:sixColumn2,</span><br><span class="line">				sevenColumn:sevenColumn2</span><br><span class="line">			&#125;;</span><br><span class="line">			console.log(&quot;edit - requestDataBean: &quot;+JSON.stringify(requestDataBean));</span><br><span class="line">			var url&#x3D;&quot;&#x2F;maima&#x2F;editMaiMa&quot;;</span><br><span class="line">			AjaxPost(url, requestDataBean,</span><br><span class="line">					function () &#123;</span><br><span class="line">						&#x2F;&#x2F;ajax加载中</span><br><span class="line">					&#125;,</span><br><span class="line">					function (data) &#123;</span><br><span class="line">						console.log(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;数据获取成功&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">						if(data!&#x3D;null &amp;&amp; data.Code!&#x3D;null &amp;&amp; data.Code&#x3D;&#x3D;200 &amp;&amp; data.Status!&#x3D;null &amp;&amp; data.Status&#x3D;&#x3D;&quot;ok&quot;)&#123;</span><br><span class="line">							success_prompt(data.Msg,2000);</span><br><span class="line">							go();&#x2F;&#x2F;flush</span><br><span class="line">						&#125;else &#123;</span><br><span class="line">							fail_prompt(data.Msg,2000);</span><br><span class="line">							AjaxErro(data);</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	function reset()&#123;</span><br><span class="line">		document.getElementById(&quot;number&quot;).value&#x3D;&quot;&quot;;</span><br><span class="line">		document.getElementById(&quot;createTime3&quot;).value&#x3D;&quot;&quot;;</span><br><span class="line">		document.getElementById(&quot;createTime4&quot;).value&#x3D;&quot;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	function show(obj,id)&#123;</span><br><span class="line">		var value0 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(0).text();</span><br><span class="line">		var value1 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(1).text();</span><br><span class="line">		var value2 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(2).text();</span><br><span class="line">		var value3 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(3).text();</span><br><span class="line">		var value4 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(4).text();</span><br><span class="line">		var value5 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(5).text();</span><br><span class="line">		var value6 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(6).text();</span><br><span class="line">		var value7 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(7).text();</span><br><span class="line">		var value8 &#x3D; $(obj).parents(&quot;td&quot;).parents(&quot;tr&quot;).children(&quot;td&quot;).eq(8).text();</span><br><span class="line">		console.log(&quot;value0: &quot;+value0+&quot; value1: &quot;+value1+&quot; value2: &quot;+value2+&quot; value3: &quot;+value3+&quot; value4: &quot;+value4+&quot; value5: &quot;+value5+&quot; value6: &quot;+value6+&quot; value7: &quot;+value7+&quot; value8: &quot;+value8);</span><br><span class="line">		document.getElementById(&quot;id&quot;).value&#x3D;id;</span><br><span class="line">		document.getElementById(&quot;numberId&quot;).value&#x3D;value0;</span><br><span class="line">		document.getElementById(&quot;createTime&quot;).value&#x3D;value1;</span><br><span class="line">		document.getElementById(&quot;oneColumn&quot;).value&#x3D;value2;</span><br><span class="line">		document.getElementById(&quot;twoColumn&quot;).value&#x3D;value3;</span><br><span class="line">		document.getElementById(&quot;threeColumn&quot;).value&#x3D;value4;</span><br><span class="line">		document.getElementById(&quot;fourColumn&quot;).value&#x3D;value5;</span><br><span class="line">		document.getElementById(&quot;fiveColumn&quot;).value&#x3D;value6;</span><br><span class="line">		document.getElementById(&quot;sixColumn&quot;).value&#x3D;value7;</span><br><span class="line">		document.getElementById(&quot;sevenColumn&quot;).value&#x3D;value8;</span><br><span class="line">	&#125;</span><br><span class="line">	function Map() &#123;</span><br><span class="line">		&#x2F;** 存放键的数组(遍历用到) *&#x2F;</span><br><span class="line">		this.keys &#x3D; new Array();</span><br><span class="line">		&#x2F;** 存放数据 *&#x2F;</span><br><span class="line">		this.data &#x3D; new Object();</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 放入一个键值对</span><br><span class="line">		 * @param &#123;String&#125; key</span><br><span class="line">		 * @param &#123;Object&#125; value</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.put &#x3D; function(key, value) &#123;</span><br><span class="line">			if(this.data[key] &#x3D;&#x3D; null)&#123;</span><br><span class="line">				this.keys.push(key);</span><br><span class="line">			&#125;</span><br><span class="line">			this.data[key] &#x3D; value;</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 获取某键对应的值</span><br><span class="line">		 * @param &#123;String&#125; key</span><br><span class="line">		 * @return &#123;Object&#125; value</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.get &#x3D; function(key) &#123;</span><br><span class="line">			return this.data[key];</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 删除一个键值对</span><br><span class="line">		 * @param &#123;String&#125; key</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.remove &#x3D; function(key) &#123;</span><br><span class="line">			this.keys.remove(key);</span><br><span class="line">			this.data[key] &#x3D; null;</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 遍历Map,执行处理函数</span><br><span class="line">		 *</span><br><span class="line">		 * @param &#123;Function&#125; 回调函数 function(key,value,index)&#123;..&#125;</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.each &#x3D; function(fn)&#123;</span><br><span class="line">			if(typeof fn !&#x3D; &#39;function&#39;)&#123;</span><br><span class="line">				return;</span><br><span class="line">			&#125;</span><br><span class="line">			var len &#x3D; this.keys.length;</span><br><span class="line">			for(var i&#x3D;0;i&lt;len;i++)&#123;</span><br><span class="line">				var k &#x3D; this.keys[i];</span><br><span class="line">				fn(k,this.data[k],i);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 获取键值数组(类似&lt;a href&#x3D;&quot;http:&#x2F;&#x2F;lib.csdn.net&#x2F;base&#x2F;java&quot; class&#x3D;&#39;replace_word&#39; title&#x3D;&quot;Java 知识库&quot; target&#x3D;&#39;_blank&#39; style&#x3D;&#39;color:#df3434; font-weight:bold;&#39;&gt;Java&lt;&#x2F;a&gt;的entrySet())</span><br><span class="line">		 * @return 键值对象&#123;key,value&#125;的数组</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.entrys &#x3D; function() &#123;</span><br><span class="line">			var len &#x3D; this.keys.length;</span><br><span class="line">			var entrys &#x3D; new Array(len);</span><br><span class="line">			for (var i &#x3D; 0; i &lt; len; i++) &#123;</span><br><span class="line">				entrys[i] &#x3D; &#123;</span><br><span class="line">					key : this.keys[i],</span><br><span class="line">					value : this.data[i]</span><br><span class="line">				&#125;;</span><br><span class="line">			&#125;</span><br><span class="line">			return entrys;</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 判断Map是否为空</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.isEmpty &#x3D; function() &#123;</span><br><span class="line">			return this.keys.length &#x3D;&#x3D; 0;</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 获取键值对数量</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.size &#x3D; function()&#123;</span><br><span class="line">			return this.keys.length;</span><br><span class="line">		&#125;;</span><br><span class="line"></span><br><span class="line">		&#x2F;**</span><br><span class="line">		 * 重写toString</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		this.toString &#x3D; function()&#123;</span><br><span class="line">			var s &#x3D; &quot;&#123;&quot;;</span><br><span class="line">			for(var i&#x3D;0;i&lt;this.keys.length;i++,s+&#x3D;&#39;,&#39;)&#123;</span><br><span class="line">				var k &#x3D; this.keys[i];</span><br><span class="line">				s +&#x3D; k+&quot;&#x3D;&quot;+this.data[k];</span><br><span class="line">			&#125;</span><br><span class="line">			s&#x3D;s.substr(0,s.length-1);</span><br><span class="line">			s+&#x3D;&quot;&#125;&quot;;</span><br><span class="line">			return s;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;上一页</span><br><span class="line">	function up()&#123;</span><br><span class="line">		var upPage&#x3D;document.getElementById(&quot;page&quot;).value;</span><br><span class="line">		var pageSize&#x3D;document.getElementById(&quot;pageSize&quot;).value;</span><br><span class="line">		var number&#x3D;document.getElementById(&quot;number&quot;).value;</span><br><span class="line">		if(upPage&#x3D;&#x3D;&#39;&#39; || upPage&#x3D;&#x3D;undefined || upPage&#x3D;&#x3D;null || upPage&lt;1)&#123;</span><br><span class="line">			upPage&#x3D;0;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			upPage&#x3D;upPage*1-1;</span><br><span class="line">		&#125;</span><br><span class="line">		if(upPage&lt;0)&#123;</span><br><span class="line">			upPage&#x3D;0;</span><br><span class="line">		&#125;</span><br><span class="line">		var requestDataBean &#x3D; &#123;page:upPage,pageSize:pageSize*1,number:number&#125;;</span><br><span class="line">		console.log(&quot;上一页 - requestDataBean: &quot;+JSON.stringify(requestDataBean));</span><br><span class="line">		getData(requestDataBean);</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;下一页</span><br><span class="line">	function down()&#123;</span><br><span class="line">		var downPage&#x3D;document.getElementById(&quot;page&quot;).value;</span><br><span class="line">		var pageSize&#x3D;document.getElementById(&quot;pageSize&quot;).value;</span><br><span class="line">		var number&#x3D;document.getElementById(&quot;number&quot;).value;</span><br><span class="line">		if(downPage&#x3D;&#x3D;&#39;&#39; || downPage&#x3D;&#x3D;undefined || downPage&#x3D;&#x3D;null)&#123;</span><br><span class="line">			downPage&#x3D;0;</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			downPage&#x3D;downPage*1+1;</span><br><span class="line">		&#125;</span><br><span class="line">		var requestDataBean &#x3D; &#123;page:downPage,pageSize:pageSize*1,number:number&#125;;</span><br><span class="line">		console.log(&quot;下一页 - requestDataBean: &quot;+JSON.stringify(requestDataBean));</span><br><span class="line">		getData(requestDataBean);</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;查询</span><br><span class="line">	function go()&#123;</span><br><span class="line">		var page&#x3D;document.getElementById(&quot;page&quot;).value;</span><br><span class="line">		var pageSize&#x3D;document.getElementById(&quot;pageSize&quot;).value;</span><br><span class="line">		var number&#x3D;document.getElementById(&quot;number&quot;).value;</span><br><span class="line">		var createTime1&#x3D;document.getElementById(&quot;createTime3&quot;).value;</span><br><span class="line">		var createTime2&#x3D;document.getElementById(&quot;createTime4&quot;).value;</span><br><span class="line">		var requestDataBean &#x3D; &#123;page:page*1,pageSize:pageSize*1,number:number,createTime1:createTime1,createTime2:createTime2&#125;;</span><br><span class="line">		console.log(&quot;数据查询 - requestDataBean: &quot;+JSON.stringify(requestDataBean));</span><br><span class="line">		getData(requestDataBean);</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;给detailData表格填充数据</span><br><span class="line">	 function fillDataToTable(arrays,sumArrays)&#123;</span><br><span class="line">		var detailData&#x3D;document.getElementById(&quot;detailData&quot;);</span><br><span class="line">		detailData.innerHTML&#x3D;&quot;&quot;;</span><br><span class="line">		var row&#x3D;detailData.insertRow(0);</span><br><span class="line">		row.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		var cell0&#x3D;row.insertCell(0);</span><br><span class="line">		cell0.innerHTML&#x3D;&quot;期数&quot;;</span><br><span class="line">		var cell1&#x3D;row.insertCell(1);</span><br><span class="line">		cell1.innerHTML&#x3D;&quot;开奖日期&quot;;</span><br><span class="line">		var cell2&#x3D;row.insertCell(2);</span><br><span class="line">		cell2.innerHTML&#x3D;&quot;第一位数&quot;;</span><br><span class="line">		var cell3&#x3D;row.insertCell(3);</span><br><span class="line">		cell3.innerHTML&#x3D;&quot;第二位数&quot;;</span><br><span class="line">		var cell4&#x3D;row.insertCell(4);</span><br><span class="line">		cell4.innerHTML&#x3D;&quot;第三位数&quot;;</span><br><span class="line">		var cell5&#x3D;row.insertCell(5);</span><br><span class="line">		cell5.innerHTML&#x3D;&quot;第四位数&quot;;</span><br><span class="line">		var cell6&#x3D;row.insertCell(6);</span><br><span class="line">		cell6.innerHTML&#x3D;&quot;第五位数&quot;;</span><br><span class="line">		var cell7&#x3D;row.insertCell(7);</span><br><span class="line">		cell7.innerHTML&#x3D;&quot;第六位数&quot;;</span><br><span class="line">		var cell8&#x3D;row.insertCell(8);</span><br><span class="line">		cell8.innerHTML&#x3D;&quot;第七位数&quot;;</span><br><span class="line">		var cell9&#x3D;row.insertCell(9);</span><br><span class="line">		 cell9.innerHTML&#x3D;&quot;操作&quot;;</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F;分页数据插入</span><br><span class="line">		for(var i&#x3D;0;i&lt;arrays.length;i++)&#123;</span><br><span class="line">				var json&#x3D;arrays[i];</span><br><span class="line">				var row2&#x3D;detailData.insertRow(i+1);</span><br><span class="line">				var cell0&#x3D;row2.insertCell(0);</span><br><span class="line">				cell0.innerHTML&#x3D;json.number;</span><br><span class="line">				var cell1&#x3D;row2.insertCell(1);</span><br><span class="line">				cell1.innerHTML&#x3D;json.createTime;</span><br><span class="line">				var cell2&#x3D;row2.insertCell(2);</span><br><span class="line">				cell2.innerHTML&#x3D;json.oneColumn;</span><br><span class="line">				var cell3&#x3D;row2.insertCell(3);</span><br><span class="line">				cell3.innerHTML&#x3D;json.twoColumn;</span><br><span class="line">				var cell4&#x3D;row2.insertCell(4);</span><br><span class="line">				cell4.innerHTML&#x3D;json.threeColumn;</span><br><span class="line">				var cell5&#x3D;row2.insertCell(5);</span><br><span class="line">				cell5.innerHTML&#x3D;json.fourColumn;</span><br><span class="line">				var cell6&#x3D;row2.insertCell(6);</span><br><span class="line">				cell6.innerHTML&#x3D;json.fiveColumn;</span><br><span class="line">				var cell7&#x3D;row2.insertCell(7);</span><br><span class="line">				cell7.innerHTML&#x3D;json.sixColumn;</span><br><span class="line">				var cell8&#x3D;row2.insertCell(8);</span><br><span class="line">				cell8.innerHTML&#x3D;json.sevenColumn;</span><br><span class="line">				var cell9&#x3D;row2.insertCell(9);</span><br><span class="line">				cell9.innerHTML&#x3D;&quot;&lt;button onclick&#x3D;\&quot;show(this,&quot;+json.id+&quot;)\&quot; class&#x3D;\&quot;btn btn-primary\&quot; data-toggle&#x3D;\&quot;modal\&quot; data-target&#x3D;\&quot;#myModal\&quot; &gt;编辑&lt;&#x2F;button&gt;&quot;;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		&#x2F;&#x2F;单排遗漏数计算  总排遗漏数的计算应该简单，即每一排当中的最小值index，与每一排的最大值index取出来放入集合最后遍历出最小index与最大indeax进行相减即可</span><br><span class="line">		 var oneArray&#x3D;[]; var twoArray&#x3D;[]; var threeArray&#x3D;[]; var fourArray&#x3D;[]; var fiveArray&#x3D;[]; var sixArray&#x3D;[]; var sevenArray&#x3D;[];</span><br><span class="line">		 var sumArray&#x3D;[];</span><br><span class="line">		 &#x2F;&#x2F;总数据 算遗漏数</span><br><span class="line">		 for(var i&#x3D;0;i&lt;sumArrays.length;i++)&#123;</span><br><span class="line">			 var json&#x3D;sumArrays[i];</span><br><span class="line">			 oneArray.push(json.oneColumn);</span><br><span class="line">			 twoArray.push(json.twoColumn);</span><br><span class="line">			 threeArray.push(json.threeColumn);</span><br><span class="line">			 fourArray.push(json.fourColumn);</span><br><span class="line">			 fiveArray.push(json.fiveColumn);</span><br><span class="line">			 sixArray.push(json.sixColumn);</span><br><span class="line">			 sevenArray.push(json.sevenColumn);</span><br><span class="line">		 &#125;</span><br><span class="line">		 &#x2F;&#x2F;插入7列数组数据</span><br><span class="line">		 sumArray.push(oneArray);</span><br><span class="line">		 sumArray.push(twoArray);</span><br><span class="line">		 sumArray.push(threeArray);</span><br><span class="line">		 sumArray.push(fourArray);</span><br><span class="line">		 sumArray.push(fiveArray);</span><br><span class="line">		 sumArray.push(sixArray);</span><br><span class="line">		 sumArray.push(sevenArray);</span><br><span class="line"></span><br><span class="line">		 var tr0&#x3D;detailData.insertRow(arrays.length+1);</span><br><span class="line">		 var td0&#x3D;tr0.insertCell(0);</span><br><span class="line">		 td0.colSpan&#x3D;2;</span><br><span class="line">		 td0.innerHTML&#x3D;&quot;遗漏信息&quot;;</span><br><span class="line">		 td0.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 var td00&#x3D;tr0.insertCell(1);</span><br><span class="line">		 td00.colSpan&#x3D;8;</span><br><span class="line"></span><br><span class="line">		 var tr&#x3D;detailData.insertRow(arrays.length+2);</span><br><span class="line">		 var td&#x3D;tr.insertCell(0);</span><br><span class="line">		 td.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 td.innerHTML&#x3D;&quot;数字 | 单排最大遗漏数 | 总排最大遗漏数&quot;;</span><br><span class="line">		 td.colSpan&#x3D;2;</span><br><span class="line"></span><br><span class="line">		 var numbers&#x3D;document.getElementById(&quot;number&quot;).value.trim();</span><br><span class="line">		 console.log(&quot;nums: &quot;+numbers.split(&quot;,&quot;));</span><br><span class="line">		 if(numbers&#x3D;&#x3D;null || numbers&#x3D;&#x3D;&#39;&#39; || numbers&#x3D;&#x3D;undefined)&#123;&#x2F;&#x2F;则遗漏信息、数字、单排最大遗漏数不进行显示</span><br><span class="line">			 var td11&#x3D;tr.insertCell(1);</span><br><span class="line">			 td11.colSpan&#x3D;8;</span><br><span class="line">		 &#125;else&#123;</span><br><span class="line">			 var nums&#x3D;numbers.split(&quot;,&quot;); &#x2F;&#x2F;则遗漏信息、数字、单排最大遗漏数进行显示 循环查询每个数值的单排 总排</span><br><span class="line"></span><br><span class="line">			 for(var h&#x3D;0;h&lt;nums.length;h++)&#123;</span><br><span class="line">			 	 var number&#x3D;nums[h];&#x2F;&#x2F;查询的数值</span><br><span class="line">				 var singleMap&#x3D;new Map();&#x2F;&#x2F;关于该数值的单排遗漏数</span><br><span class="line">				 var minIndexMap&#x3D;new Map();&#x2F;&#x2F;t每一列， 每一个单排当中的最小index</span><br><span class="line">				 var maxIndexMap&#x3D;new Map();&#x2F;&#x2F;t每一列， 每一个单排当中的最大index</span><br><span class="line"></span><br><span class="line">				 for(var t&#x3D;0;t&lt;sumArray.length;t++)&#123; &#x2F;&#x2F;当前7个数组当中都存有对应的数值,循环7次 &#x2F;&#x2F; var arrays&#x3D;[01,28,19,35,43,08,01,12,32,41];</span><br><span class="line">					 var arrays2&#x3D;sumArray[t];&#x2F;&#x2F;单个数组</span><br><span class="line">					 var map&#x3D;new Map();</span><br><span class="line"></span><br><span class="line">					 for(var i&#x3D;0;i&lt;arrays2.length;i++)&#123;</span><br><span class="line">						 var element&#x3D;arrays2[i];&#x2F;&#x2F;数组当中具体的元素</span><br><span class="line">						 map.put(element,0);&#x2F;&#x2F;放入了该列当中所有不重复元素以及其世事变化的位移index+1</span><br><span class="line"></span><br><span class="line">						 for(var n&#x3D;0;n&lt;arrays2.length;n++)&#123;</span><br><span class="line">							 var key&#x3D;arrays2[n];</span><br><span class="line">							 if(key!&#x3D;null &amp;&amp; key&#x3D;&#x3D;element)&#123; &#x2F;&#x2F;如果存在有当前循环的数组当中的取值与map当中的键相同的则重新赋值，重新赋值后进行break;</span><br><span class="line">								 var y&#x3D;i-n;</span><br><span class="line">								 map.put(element,y);&#x2F;&#x2F;此处的y没有减去当前自己的位数,所以当单排最大遗漏数查询的时候还需要-1</span><br><span class="line"></span><br><span class="line">								 &#x2F;&#x2F;每一组的min与max取出来之后的差也应该是该列的最大遗漏数+1，没有减1处理</span><br><span class="line">								 if(element&#x3D;&#x3D;number)&#123; &#x2F;&#x2F;当key不为空以及key与element相同的机会有多次，则每次赋值时进行比较看是否是最小值</span><br><span class="line">									 if(minIndexMap.get(t)&#x3D;&#x3D;null || minIndexMap.get(t)&#x3D;&#x3D;undefined)&#123; &#x2F;&#x2F;取出的数值为空则说明还没有放入过值,则判断number与当前循环的element是否一致，如果一致则放入当前t与该element的位移index  &#x2F;&#x2F;一般没有放过且第一次放的话即判断为最小index,后续无需再次判断了</span><br><span class="line">										 minIndexMap.put(t,i);</span><br><span class="line">									 &#125;else&#123;&#x2F;&#x2F;从minIndexMap当中进行取出该t 如果当前number与当前的element相同，则放入当前element的位移,我觉得这种可能性没有</span><br><span class="line">										if(minIndexMap.get(t)&gt;i)&#123;</span><br><span class="line">											minIndexMap.put(t,i);</span><br><span class="line">										&#125;</span><br><span class="line">									 &#125;</span><br><span class="line">									 if(maxIndexMap.get(t)&#x3D;&#x3D;null || maxIndexMap.get(t)&#x3D;&#x3D;undefined)&#123;&#x2F;&#x2F;取最大值的话可能性就有</span><br><span class="line">										 maxIndexMap.put(t,i);</span><br><span class="line">									 &#125;else&#123;</span><br><span class="line">										 if(maxIndexMap.get(t)&lt;i)&#123;</span><br><span class="line">											 maxIndexMap.put(t,i);</span><br><span class="line">										 &#125;</span><br><span class="line">									 &#125;</span><br><span class="line">								 &#125;</span><br><span class="line">								 break;</span><br><span class="line">							 &#125;else&#123;</span><br><span class="line">								 continue;</span><br><span class="line">							 &#125;</span><br><span class="line">						 &#125;</span><br><span class="line">					 &#125;</span><br><span class="line">					 console.log(&quot;第&quot;+t+&quot;列当中，每一个元素的单排最大遗漏数：&quot;+map.toString());</span><br><span class="line">					 if(map.get(number)!&#x3D;null || map.get(number)!&#x3D;undefined)&#123;</span><br><span class="line">						 &#x2F;&#x2F;取值则为当前该map.get(number)即当前列当中的单排最大遗漏数</span><br><span class="line">						 singleMap.put(t,map.get(number)-1);&#x2F;&#x2F;key t：哪一列， value 当前该数值在当前排t的最大遗漏数  map.get(number)需要减去1</span><br><span class="line">					 &#125;else&#123;</span><br><span class="line">						 &#x2F;&#x2F;当前列取出number如果为空则说明当前列当中不存在有该数值，则替换为0</span><br><span class="line">						 singleMap.put(t,&#39;当前列不存在&#39;+number);</span><br><span class="line">					 &#125;</span><br><span class="line">				 &#125;</span><br><span class="line">				 console.log(&quot;minIndexMap: &quot;+minIndexMap.toString());</span><br><span class="line">				 console.log(&quot;maxIndexMap: &quot;+maxIndexMap.toString());</span><br><span class="line">				 var minIndex;</span><br><span class="line">				 var mapArrays1&#x3D;minIndexMap.entrys();</span><br><span class="line">				 for(var i&#x3D;0;i&lt;mapArrays1.length;i++)&#123; &#x2F;&#x2F;当前列当中的min map数组</span><br><span class="line">				 	var value&#x3D;minIndexMap.get(i);</span><br><span class="line">					 if(minIndex&#x3D;&#x3D;undefined || minIndex&#x3D;&#x3D;null)&#123;</span><br><span class="line">						 minIndex&#x3D;value;</span><br><span class="line">					 &#125;else&#123;</span><br><span class="line">						 if(minIndex&gt;value)&#123;</span><br><span class="line">						 	minIndex&#x3D;value;</span><br><span class="line">						 &#125;</span><br><span class="line">					  &#125;</span><br><span class="line">				 &#125;</span><br><span class="line">				 var maxIndex;</span><br><span class="line">				 var mapArrays2&#x3D;maxIndexMap.entrys();</span><br><span class="line">				 for(var i&#x3D;0;i&lt;mapArrays2.length;i++)&#123; &#x2F;&#x2F;当前列当中的min map数组</span><br><span class="line">					 var value&#x3D;maxIndexMap.get(i);</span><br><span class="line">					 if(maxIndex&#x3D;&#x3D;undefined || maxIndex&#x3D;&#x3D;null)&#123;</span><br><span class="line">						 maxIndex&#x3D;value;</span><br><span class="line">					 &#125;else&#123;</span><br><span class="line">						 if(maxIndex&lt;value)&#123;</span><br><span class="line">						 	maxIndex&#x3D;value;</span><br><span class="line">						 &#125;</span><br><span class="line">					 &#125;</span><br><span class="line">				 &#125;</span><br><span class="line">				 var sumMaxNumber&#x3D;maxIndex-minIndex-1;</span><br><span class="line">				 console.log(&quot;minIndex: &quot;+minIndex+&quot; maxIndex: &quot;+maxIndex+&quot; sumMaxNumber: &quot;+sumMaxNumber);</span><br><span class="line"></span><br><span class="line">				 var mapArrays&#x3D;singleMap.entrys();&#x2F;&#x2F;循环之后获取得到singleMap,即单排数</span><br><span class="line">				 if (h &#x3D;&#x3D; 0) &#123; &#x2F;&#x2F;即第一个数值的时候填入行tr:arrays.length+2</span><br><span class="line">					 td.innerHTML&#x3D;&quot;数字: &quot;+number+&quot; | 单排最大遗漏数 | 总排最大遗漏数: &quot;+sumMaxNumber;</span><br><span class="line">					 for(var r&#x3D;0;r&lt;mapArrays.length;r++) &#123;</span><br><span class="line">						 var td22 &#x3D; tr.insertCell(r+1);&#x2F;&#x2F;当前行处于第一行</span><br><span class="line">						 td22.innerHTML &#x3D; singleMap.get(r);</span><br><span class="line">					 &#125;</span><br><span class="line">					 tr.insertCell(mapArrays.length+1);</span><br><span class="line">				 &#125; else &#123;</span><br><span class="line">					 &#x2F;&#x2F;新增行并插入</span><br><span class="line">					 var newTr&#x3D;detailData.insertRow(arrays.length+2+h);</span><br><span class="line">					 var newTd&#x3D;newTr.insertCell(0);</span><br><span class="line">					 newTd.innerHTML&#x3D;&quot;数字: &quot;+number+&quot; | 单排最大遗漏数 | 总排最大遗漏数: &quot;+sumMaxNumber;</span><br><span class="line">					 newTd.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">					 newTd.colSpan&#x3D;2;</span><br><span class="line">					 for(var r&#x3D;0;r&lt;mapArrays.length;r++) &#123;</span><br><span class="line">						 var td22 &#x3D; newTr.insertCell(r+1);&#x2F;&#x2F;从第二行开始进行新增列</span><br><span class="line">						 td22.innerHTML &#x3D; singleMap.get(r);</span><br><span class="line">					 &#125;</span><br><span class="line">					 newTr.insertCell(mapArrays.length+1);</span><br><span class="line">				 &#125;</span><br><span class="line">				 console.log(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 查询数值：&quot;+number+&quot; END &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">			 &#125;</span><br><span class="line">		 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;获取list接口数据</span><br><span class="line">	function getData(requestDataBean)&#123;</span><br><span class="line">		var url&#x3D;&quot;&#x2F;maima&#x2F;findAllByParams&quot;;</span><br><span class="line">		AjaxPost(url, requestDataBean,</span><br><span class="line">			function () &#123;</span><br><span class="line">				&#x2F;&#x2F;ajax加载中</span><br><span class="line">			&#125;,</span><br><span class="line">			function (data) &#123;</span><br><span class="line">				console.log(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;数据获取成功&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">				&#x2F;&#x2F;ajax返回 &#x2F;&#x2F;认证完成</span><br><span class="line">				if(data!&#x3D;null)&#123;</span><br><span class="line">					var arrays&#x3D;JSON.parse(JSON.stringify(data.list));</span><br><span class="line">					var sumArrays&#x3D;JSON.parse(JSON.stringify(data.list2));</span><br><span class="line">					document.getElementById(&quot;page&quot;).value&#x3D;data.page;</span><br><span class="line">					document.getElementById(&quot;pageSize&quot;).value&#x3D;data.pageSize;</span><br><span class="line">					if (arrays.length!&#x3D;0) &#123;</span><br><span class="line">						&#x2F;&#x2F;前端填充数据操作</span><br><span class="line">						console.log(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 表格填充数据 - fillDataToTable &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;)</span><br><span class="line">						fillDataToTable(arrays,sumArrays);</span><br><span class="line">					&#125; else &#123;</span><br><span class="line">						AjaxErro(data);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;页面加载</span><br><span class="line">	window.onload &#x3D; function()&#123;</span><br><span class="line">		var requestDataBean &#x3D; &#123;page:0,pageSize:10&#125;;</span><br><span class="line">		console.info(&quot;页面加载 - requestDataBean: &quot;+JSON.stringify(requestDataBean));</span><br><span class="line">		getData(requestDataBean);</span><br><span class="line">	&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;%--</span><br><span class="line"></span><br><span class="line"> &#x2F;&#x2F;console.log(map.toString());</span><br><span class="line">					 &#x2F;&#x2F; var mapArrays&#x3D;map.entrys();</span><br><span class="line">					 &#x2F;&#x2F; var maxValue&#x3D;0;</span><br><span class="line">					 &#x2F;&#x2F; var maxKey&#x3D;0;</span><br><span class="line">					 &#x2F;&#x2F; for(var i&#x3D;0;i&lt;mapArrays.length;i++)&#123; &#x2F;&#x2F;当前列当中的map数组</span><br><span class="line">						&#x2F;&#x2F;  var key&#x3D;mapArrays[i].key;</span><br><span class="line">						&#x2F;&#x2F;  var value&#x3D;map.get(key);</span><br><span class="line">						 &#x2F;&#x2F; console.log(&quot;key: &quot;+key+&quot; value:&quot;+value);</span><br><span class="line">					 &#x2F;&#x2F; &#125;</span><br><span class="line">					 &#x2F;&#x2F; console.log(&quot;单排最大遗漏数为 - key:&quot;+maxKey+&quot;  value:&quot;+(maxValue-1));</span><br><span class="line">					 &#x2F;&#x2F;添加元素</span><br><span class="line">					 &#x2F;&#x2F; var td4&#x3D;tr.insertCell(t+1);</span><br><span class="line">					 &#x2F;&#x2F; if(maxKey&lt;&#x3D;0)&#123;</span><br><span class="line">						&#x2F;&#x2F;  td4.innerHTML&#x3D;&quot;-&quot;;</span><br><span class="line">					 &#x2F;&#x2F; &#125;else&#123;</span><br><span class="line">						&#x2F;&#x2F;  td4.innerHTML&#x3D;maxKey;</span><br><span class="line">					 &#x2F;&#x2F; &#125;</span><br><span class="line">					 &#x2F;&#x2F; var td5&#x3D;tr2.insertCell(t+1);</span><br><span class="line">					 &#x2F;&#x2F; if((maxValue-1)&lt;&#x3D;0)&#123;</span><br><span class="line">						&#x2F;&#x2F;  td5.innerHTML&#x3D;&quot;-&quot;;</span><br><span class="line">					 &#x2F;&#x2F; &#125;else&#123;</span><br><span class="line">						&#x2F;&#x2F;  td5.innerHTML&#x3D;(maxValue-1);</span><br><span class="line">					 &#x2F;&#x2F; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var tr&#x3D;detailData.insertRow(arrays.length+2);</span><br><span class="line">		 var td&#x3D;tr.insertCell(0);</span><br><span class="line">		 td.innerHTML&#x3D;&quot;数字&quot;;</span><br><span class="line">		 td.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 td.colSpan&#x3D;2;</span><br><span class="line">		 var tr2&#x3D;detailData.insertRow(arrays.length+3);</span><br><span class="line">		 var td2&#x3D;tr2.insertCell(0);</span><br><span class="line">		 td2.innerHTML&#x3D;&quot;单排最大遗漏数&quot;;</span><br><span class="line">		 td2.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 td2.colSpan&#x3D;2;</span><br><span class="line">		 var tr3&#x3D;detailData.insertRow(arrays.length+4);</span><br><span class="line">		 var td3&#x3D;tr3.insertCell(0);</span><br><span class="line">		 td3.innerHTML&#x3D;&quot;总排最大遗漏数&quot;;</span><br><span class="line">		 td3.style.fontWeight&#x3D;&quot;bolder&quot;;</span><br><span class="line">		 td3.colSpan&#x3D;2;</span><br><span class="line">&#x2F;&#x2F; &#x2F;&#x2F;当前7个数组当中都存有对应的数值</span><br><span class="line">&#x2F;&#x2F; for(var t&#x3D;0;t&lt;sumArray.length;t++)&#123;</span><br><span class="line">&#x2F;&#x2F;  &#x2F;&#x2F; var arrays&#x3D;[01,28,19,35,43,08,01,12,32,41];</span><br><span class="line">&#x2F;&#x2F;  var arrays&#x3D;sumArray[t];&#x2F;&#x2F;单个数组</span><br><span class="line">&#x2F;&#x2F;  console.log(arrays);</span><br><span class="line">&#x2F;&#x2F;  var flag&#x3D;true;</span><br><span class="line">&#x2F;&#x2F;  var map&#x3D;new Map();</span><br><span class="line">&#x2F;&#x2F;  for(var i&#x3D;0;i&lt;arrays.length;i++)&#123; &#x2F;&#x2F;循环10次</span><br><span class="line">&#x2F;&#x2F; 	 var element&#x3D;arrays[i];&#x2F;&#x2F;数组当中具体的元素</span><br><span class="line">&#x2F;&#x2F; 	 map.put(element,0);&#x2F;&#x2F;放入的只有9个</span><br><span class="line">&#x2F;&#x2F;</span><br><span class="line">&#x2F;&#x2F; 	 for(var n&#x3D;0;n&lt;arrays.length;n++)&#123; &#x2F;&#x2F;循环10次</span><br><span class="line">&#x2F;&#x2F; 		 var key&#x3D;arrays[n];</span><br><span class="line">&#x2F;&#x2F; 		 &#x2F;&#x2F;console.log(&quot;当前遍历的element: &quot;+element+&quot;；所处index: &quot;+i+&quot;  map当中循环的element: &quot;+key+&quot;所处index: &quot;+n)</span><br><span class="line">&#x2F;&#x2F; 		 if(key!&#x3D;null &amp;&amp; key&#x3D;&#x3D;element)&#123; &#x2F;&#x2F;如果存在有当前循环的数组当中的取值与map当中的键相同的则重新赋值，重新赋值后进行下一次break;</span><br><span class="line">&#x2F;&#x2F; 			 var y&#x3D;i-n;</span><br><span class="line">&#x2F;&#x2F; 			 &#x2F;&#x2F;console.log(&quot;key: &quot;+key+&quot; element:&quot;+element+&quot; y: &quot;+y);</span><br><span class="line">&#x2F;&#x2F; 			 map.put(element,y);&#x2F;&#x2F;此处的y没有减去当前自己的位数,所以当单排最大遗漏数查询的时候还需要-1</span><br><span class="line">&#x2F;&#x2F; 			 break;</span><br><span class="line">&#x2F;&#x2F; 		 &#125;else&#123;</span><br><span class="line">&#x2F;&#x2F; 			 continue;</span><br><span class="line">&#x2F;&#x2F; 		 &#125;</span><br><span class="line">&#x2F;&#x2F; 	 &#125;</span><br><span class="line">&#x2F;&#x2F;  &#125;</span><br><span class="line">&#x2F;&#x2F;  &#x2F;&#x2F;console.log(map.toString());</span><br><span class="line">&#x2F;&#x2F;  var mapArrays&#x3D;map.entrys();</span><br><span class="line">&#x2F;&#x2F;  var maxValue&#x3D;0;</span><br><span class="line">&#x2F;&#x2F;  var maxKey&#x3D;0;</span><br><span class="line">&#x2F;&#x2F;  for(var i&#x3D;0;i&lt;mapArrays.length;i++)&#123;</span><br><span class="line">&#x2F;&#x2F; 	 var key&#x3D;mapArrays[i].key;</span><br><span class="line">&#x2F;&#x2F; 	 var value&#x3D;map.get(key);</span><br><span class="line">&#x2F;&#x2F; 	 &#x2F;&#x2F;console.log(&quot;key: &quot;+key+&quot; value:&quot;+value);</span><br><span class="line">&#x2F;&#x2F; 	 if(maxValue&lt;value)&#123;</span><br><span class="line">&#x2F;&#x2F; 		 maxValue&#x3D;value;</span><br><span class="line">&#x2F;&#x2F; 		 maxKey&#x3D;key;</span><br><span class="line">&#x2F;&#x2F; 	 &#125;</span><br><span class="line">&#x2F;&#x2F;  &#125;</span><br><span class="line">&#x2F;&#x2F;  console.log(&quot;单排最大遗漏数为 - key:&quot;+maxKey+&quot;  value:&quot;+(maxValue-1));</span><br><span class="line">&#x2F;&#x2F;  &#x2F;&#x2F;添加元素</span><br><span class="line">&#x2F;&#x2F;  var td4&#x3D;tr.insertCell(t+1);</span><br><span class="line">&#x2F;&#x2F;  if(maxKey&lt;&#x3D;0)&#123;</span><br><span class="line">&#x2F;&#x2F; 	 td4.innerHTML&#x3D;&quot;-&quot;;</span><br><span class="line">&#x2F;&#x2F;  &#125;else&#123;</span><br><span class="line">&#x2F;&#x2F; 	 td4.innerHTML&#x3D;maxKey;</span><br><span class="line">&#x2F;&#x2F;  &#125;</span><br><span class="line">&#x2F;&#x2F;  var td5&#x3D;tr2.insertCell(t+1);</span><br><span class="line">&#x2F;&#x2F;  if((maxValue-1)&lt;&#x3D;0)&#123;</span><br><span class="line">&#x2F;&#x2F; 	 td5.innerHTML&#x3D;&quot;-&quot;;</span><br><span class="line">&#x2F;&#x2F;  &#125;else&#123;</span><br><span class="line">&#x2F;&#x2F; 	 td5.innerHTML&#x3D;(maxValue-1);</span><br><span class="line">&#x2F;&#x2F;  &#125;</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line">--%&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>前端页面双色球</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年03月09日 - 12:52:56</p>
+  <p><span>最后更新:</span>2020年03月09日 - 12:41:03</p>
+  <p><span>原始链接:</span><a href="/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%91%A8%E8%81%AA%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/" title="前端页面双色球">https://fengshana.github.io/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%91%A8%E8%81%AA%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%91%A8%E8%81%AA%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag"><i class="fa fa-tag">前端</i></a>
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag">js</i></a>
+          
+            <a href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag"><i class="fa fa-tag">双色球</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/07/%E9%A2%86%E8%B5%AB/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="david说的面试题">
+                <i class="fa fa-chevron-left"></i> david说的面试题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://user.qzone.qq.com/2915324940/main" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="fengyue2915324940" target="_blank" title="wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>wechat</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="skype:live:.cid.823b4e929670864a" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-skype"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://github.com/fengshana" title="github" target="_blank">github</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="http://www.daovoice.io/" title="daovoice" target="_blank">daovoice</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://youtube.com/channel/UCtzIJK9eLCWLQF13KpZE-0w" title="YouTube" target="_blank">YouTube</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/3b74c7b81348" title="Jianshu" target="_blank">Jianshu</a>
+					 </span>
+                
+
+                
+				
+				
+			  
+			  
+			  
+			  
+			  
+			  
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求内容"><span class="nav-number">1.</span> <span class="nav-text">需求内容</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>-->
+
+
+
+
+
+
+<!--
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+ -->
+ 
+ 
+ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共248.5k字</span>
+  
+  <span class="post-meta-divider">|</span>
+
+</div>
+
+<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"</span>人</span>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+
+
