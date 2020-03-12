@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Vuejs,oss,nodejs,CORS,javaScript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="记录虽然说不是第一次接触Vuejs,但是吧之前也只是打过包而已。反正我是有点懵。这个是依赖了ali-oss这个module进行oss文件下载运行，随便找篇百度的帖子搭建一个简单的vuejs工程，然后把我这个方案一的代码放到main.js里面，然后敲命令搭建vuejs工程：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;02b12c600c7bali-oss依赖下载oss文件: https:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OSS">
+<meta property="og:url" content="https://fengshana.github.io/2020/03/12/Vuejs/Vuejs%E6%8E%A5%E8%A7%A6/index.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="记录虽然说不是第一次接触Vuejs,但是吧之前也只是打过包而已。反正我是有点懵。这个是依赖了ali-oss这个module进行oss文件下载运行，随便找篇百度的帖子搭建一个简单的vuejs工程，然后把我这个方案一的代码放到main.js里面，然后敲命令搭建vuejs工程：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;02b12c600c7bali-oss依赖下载oss文件: https:&#x2F;&#x2F;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r">
+<meta property="article:published_time" content="2020-03-12T06:33:50.000Z">
+<meta property="article:modified_time" content="2020-03-12T04:50:54.828Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="Vuejs">
+<meta property="article:tag" content="oss">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="CORS">
+<meta property="article:tag" content="javaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/03/12/Vuejs/Vuejs接触/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>OSS | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+  <script type="text/javascript" src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+            Photos
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/12/Vuejs/Vuejs%E6%8E%A5%E8%A7%A6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OSS</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-12T14:33:50+08:00">
+                2020-03-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oss%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8/" itemprop="url" rel="index">
+                    <span itemprop="name">oss对象存储</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" rel="gallery_ck7o9z9bq000gv8umh0c74b0a"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>虽然说不是第一次接触Vuejs,但是吧之前也只是打过包而已。<br>反正我是有点懵。<br>这个是依赖了ali-oss这个module进行oss文件下载运行，随便找篇百度的帖子搭建一个简单的vuejs工程，然后把我这个方案一的代码放到main.js里面，然后敲命令<br>搭建vuejs工程：<a href="https://www.jianshu.com/p/02b12c600c7b" target="_blank" rel="noopener">https://www.jianshu.com/p/02b12c600c7b</a><br>ali-oss依赖下载oss文件: <a href="https://www.cnblogs.com/zoo-x/articles/11778010.html" target="_blank" rel="noopener">https://www.cnblogs.com/zoo-x/articles/11778010.html</a><br>ali后台参考下并配置下: <a href="https://help.aliyun.com/knowledge_detail/39518.html?spm=a2c4g.11186623.2.25.46edc4516qVyeW" target="_blank" rel="noopener">https://help.aliyun.com/knowledge_detail/39518.html?spm=a2c4g.11186623.2.25.46edc4516qVyeW</a>  </p>
+<p>反正就是多百度，多看阿里的API，要是不行就找售后提工单。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install</span><br><span class="line">cnpm run dev</span><br></pre></td></tr></table></figure>
+
+<p>访问<a href="http://localhost:8080/即可" target="_blank" rel="noopener">http://localhost:8080/即可</a></p>
+<h3 id="方案一"><a href="#方案一" class="headerlink" title="方案一"></a>方案一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; The Vue build version to load with the &#96;import&#96; command</span><br><span class="line">&#x2F;&#x2F; (runtime-only or standalone) has been set in webpack.base.conf with an alias.</span><br><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import App from &#39;.&#x2F;App&#39;</span><br><span class="line">import router from &#39;.&#x2F;router&#39;</span><br><span class="line">import OSS from &#39;ali-oss&#39;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip &#x3D; false</span><br><span class="line"></span><br><span class="line">&#x2F;* eslint-disable no-new *&#x2F;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &#39;#app&#39;,</span><br><span class="line">  router,</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &#39;&lt;App&#x2F;&gt;&#39;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * 配置信息</span><br><span class="line"> *&#x2F;</span><br><span class="line">const region &#x3D; &#39;oss-cn-xxxxxxxxxxxx&#39; &#x2F;&#x2F; 换成自己的region</span><br><span class="line">const accessKeyId &#x3D; &#39;xxxxxxxxxxxxxxxxx&#39; &#x2F;&#x2F; 换成自己的accessKeyId</span><br><span class="line">const accessKeySecret &#x3D; &#39;xxxxxxxxxxxxxxxxxxxxxxxxx&#39; &#x2F;&#x2F; 换成自己的accessKeySecret</span><br><span class="line">const bucket &#x3D; &#39;xxxxxxxxx&#39; &#x2F;&#x2F; 换成自己的bucket名称</span><br><span class="line">&#x2F;&#x2F; import &#123; Message &#125; from &#39;element-ui&#39;;</span><br><span class="line"></span><br><span class="line">let client &#x3D; new OSS(&#123;</span><br><span class="line">  region: region,</span><br><span class="line">  accessKeyId: accessKeyId,</span><br><span class="line">  accessKeySecret: accessKeySecret,</span><br><span class="line">  bucket: bucket</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;**</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;上传是设置文件key , 一般为文件名称&#125; objectKey</span><br><span class="line"> * @param &#123;文件file&#125; file</span><br><span class="line">&#x2F;&#x2F;  上传</span><br><span class="line">const CooOss &#x3D; function (file) &#123;</span><br><span class="line"></span><br><span class="line">  if (this instanceof CooOss) &#123;</span><br><span class="line">    let objectKey &#x3D; file.lastModified + &#39;_&#39; + file.name ;</span><br><span class="line">    return new Promise((resolve,reject) &#x3D;&gt; &#123;</span><br><span class="line">      client.multipartUpload(objectKey, file).then(result &#x3D;&gt; &#123;</span><br><span class="line">        resolve(&#123;</span><br><span class="line">          code: 0,</span><br><span class="line">          objectKey: objectKey,</span><br><span class="line">          url: this.getOssFileUrl(objectKey),</span><br><span class="line">          msg: &#39;ok&#39;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;).catch(err &#x3D;&gt; &#123;</span><br><span class="line">        console.log(&#39;上传出错了&#39;);</span><br><span class="line">        reject(&#123;code : -1 , url : &quot;&quot;, objectKey : &quot;&quot;, msg : &quot;上传出错了&quot;&#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;else&#123;</span><br><span class="line">    return new CooOss(file);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> *&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 下载</span><br><span class="line">const downloadFile &#x3D; function (key) &#123;</span><br><span class="line">  console.log(key)</span><br><span class="line">  let url &#x3D; client.signatureUrl(key)</span><br><span class="line">  let Img &#x3D; new Image()</span><br><span class="line">  let dataURL &#x3D; &#39;&#39;</span><br><span class="line">  let fileName &#x3D; key.substring(key.indexOf(&#39;_&#39;) + 1)</span><br><span class="line">  Img.src &#x3D; url</span><br><span class="line">  Img.setAttribute(&#39;crossOrigin&#39;, &#39;Anonymous&#39;)</span><br><span class="line">  Img.onload &#x3D; function () &#123;</span><br><span class="line">    let canvas &#x3D; document.createElement(&#39;canvas&#39;)</span><br><span class="line">    let width &#x3D; Img.width</span><br><span class="line">    let height &#x3D; Img.height</span><br><span class="line">    canvas.width &#x3D; width</span><br><span class="line">    canvas.height &#x3D; height</span><br><span class="line">    canvas.getContext(&#39;2d&#39;).drawImage(Img, 0, 0, width, height)</span><br><span class="line">    dataURL &#x3D; canvas.toDataURL(&#39;image&#x2F;png&#39;)</span><br><span class="line">    let eleLink &#x3D; document.createElement(&#39;a&#39;)</span><br><span class="line">    eleLink.download &#x3D; fileName</span><br><span class="line">    eleLink.style.display &#x3D; &#39;none&#39;</span><br><span class="line">    eleLink.href &#x3D; dataURL</span><br><span class="line">    document.body.appendChild(eleLink)</span><br><span class="line">    eleLink.click()</span><br><span class="line">    document.body.removeChild(eleLink)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">downloadFile(&#39;201912111621536609会员卡效果图.jpg&#39;)</span><br><span class="line">&#x2F;**</span><br><span class="line"> *</span><br><span class="line"> * @param &#123;上传是设置文件key 一般是文件名&#125; obecjtKey</span><br><span class="line"> CooOss.prototype.getOssFileUrl &#x3D; obecjtKey &#x3D;&gt; &#123;</span><br><span class="line">  if(!obecjtKey) return  new Error(&quot;object key 必须传&quot;);</span><br><span class="line">  return &quot;https:&#x2F;&#x2F;&quot; + bucket + &quot;.&quot; + region + &quot;.aliyuncs.com&#x2F;&quot; + obecjtKey;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  install(Vue)&#123;</span><br><span class="line">    Vue.prototype.Oss &#x3D; &#123;</span><br><span class="line">      uploadFile : CooOss,</span><br><span class="line">      downloadFile : downloadFile</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"> *&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h2><p>我自认为也不叫方案二吧，额，好吧总得给个名分。<br>就是如果要在oss下载文件，但是吧又不通过ali-oss包的话，因为david说他，觉得前端包太大了如果加了ali-oss的话，唉毕竟是老大，不敢反驳，瑟瑟发抖。好吧那就不用ali-oss进行下载oss文件。<br>然后就又换了种方法。<br>用javaScript，额这个网上一大堆啊。我也是百度的。  </p>
+<blockquote>
+<p>参考：  </p>
+</blockquote>
+<p><a href="https://www.cnblogs.com/xtjatswc/p/11345584.html" target="_blank" rel="noopener">https://www.cnblogs.com/xtjatswc/p/11345584.html</a><br><a href="https://blog.csdn.net/qq_34233080/article/details/90635235" target="_blank" rel="noopener">https://blog.csdn.net/qq_34233080/article/details/90635235</a>  </p>
+<p>对了需要在程序当中访问，也就是localhost:8080/这种访问，清下缓存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">售后工程师    2020-03-12 11:36:22</span><br><span class="line">您好，这个跨域的配置是可以的，您客户端情况下浏览器缓存后，不要直接访问这个URL，直接通过程序访问测试下是否正常，避免客户端缓存的情况</span><br></pre></td></tr></table></figure>
+
+<p>差不多了，讲完了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">	&lt;head&gt;</span><br><span class="line">		&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">		&lt;title&gt;&lt;&#x2F;title&gt;</span><br><span class="line">	&lt;&#x2F;head&gt;</span><br><span class="line">	&lt;body&gt;</span><br><span class="line">	&lt;&#x2F;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"> &#x2F;**</span><br><span class="line">     * 获取页面文件名</span><br><span class="line">     * @param url 文件url 8020-8079</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function downloadUrlFile(url) &#123;</span><br><span class="line">	console.log(&quot;downloadFile&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line">      url&#x3D; url.replace(&#x2F;\\&#x2F;g, &#39;&#x2F;&#39;);</span><br><span class="line">      const xhr &#x3D; new XMLHttpRequest();</span><br><span class="line">      xhr.open(&#39;GET&#39;, url, true);</span><br><span class="line">      xhr.responseType &#x3D; &#39;blob&#39;;</span><br><span class="line">      xhr.setRequestHeader(&#39;Authorization&#39;, &#39;Basic a2VybWl0Omtlcm1pdA&#x3D;&#x3D;&#39;);</span><br><span class="line">	  xhr.setRequestHeader(&#39;Access-Control-Allow-Origin&#39;, &#39;http:&#x2F;&#x2F;localhost:8080&#39;);</span><br><span class="line">	  xhr.setRequestHeader(&#39;Access-Control-Allow-Methods&#39;, &#39;GET, POST, HEAD, PUT, DELETE&#39;);</span><br><span class="line">	  xhr.setRequestHeader(&#39;Access-Control-Allow-Headers&#39;, &#39;Content-Type&#39;);</span><br><span class="line">      xhr.onload &#x3D; () &#x3D;&gt; &#123;</span><br><span class="line">        if (xhr.status &#x3D;&#x3D;&#x3D; 200) &#123;</span><br><span class="line">          &#x2F;&#x2F; 获取文件blob数据并保存</span><br><span class="line">          var fileName &#x3D; getFileName(url);</span><br><span class="line">          saveAs(xhr.response, fileName);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line"></span><br><span class="line">      xhr.send();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * URL方式保存文件到本地</span><br><span class="line">     * @param data 文件的blob数据</span><br><span class="line">     * @param name 文件名</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function saveAs(data, name) &#123;</span><br><span class="line">        var urlObject &#x3D; window.URL || window.webkitURL || window;</span><br><span class="line">        var export_blob &#x3D; new Blob([data]);</span><br><span class="line">        var save_link &#x3D; document.createElementNS(&#39;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&#39;, &#39;a&#39;)</span><br><span class="line">        save_link.href &#x3D; urlObject.createObjectURL(export_blob);</span><br><span class="line">        save_link.download &#x3D; name;</span><br><span class="line">        save_link.click();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;**</span><br><span class="line">     * 根据文件url获取文件名</span><br><span class="line">     * @param url 文件url</span><br><span class="line">     *&#x2F;</span><br><span class="line">    function getFileName(url) </span><br><span class="line">    &#123;</span><br><span class="line">        var num &#x3D; url.lastIndexOf(&#39;&#x2F;&#39;)+1</span><br><span class="line">        var fileName &#x3D; url.substring(num)</span><br><span class="line">        &#x2F;&#x2F;把参数和文件名分割开</span><br><span class="line">        fileName &#x3D; decodeURI(fileName.split(&quot;?&quot;)[0]);</span><br><span class="line">        return fileName;</span><br><span class="line">    &#125;</span><br><span class="line">	downloadUrlFile(&quot;http:&#x2F;&#x2F;   [bucket name]   .oss-cn-  [region]   .aliyuncs.com&#x2F;202003031140425717批注 2020-02-20 150155.png&quot;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>OSS</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年03月12日 - 14:33:50</p>
+  <p><span>最后更新:</span>2020年03月12日 - 12:50:54</p>
+  <p><span>原始链接:</span><a href="/2020/03/12/Vuejs/Vuejs%E6%8E%A5%E8%A7%A6/" title="OSS">https://fengshana.github.io/2020/03/12/Vuejs/Vuejs%E6%8E%A5%E8%A7%A6/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/03/12/Vuejs/Vuejs%E6%8E%A5%E8%A7%A6/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/Vuejs/" rel="tag"><i class="fa fa-tag">Vuejs</i></a>
+          
+            <a href="/tags/oss/" rel="tag"><i class="fa fa-tag">oss</i></a>
+          
+            <a href="/tags/nodejs/" rel="tag"><i class="fa fa-tag">nodejs</i></a>
+          
+            <a href="/tags/CORS/" rel="tag"><i class="fa fa-tag">CORS</i></a>
+          
+            <a href="/tags/javaScript/" rel="tag"><i class="fa fa-tag">javaScript</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/springboot%E4%B8%8Etomcat/" rel="next" title="springboot与tomcat">
+                <i class="fa fa-chevron-left"></i> springboot与tomcat
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">97</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://user.qzone.qq.com/2915324940/main" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="fengyue2915324940" target="_blank" title="wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>wechat</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="skype:live:.cid.823b4e929670864a" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-skype"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://github.com/fengshana" title="github" target="_blank">github</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="http://www.daovoice.io/" title="daovoice" target="_blank">daovoice</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://youtube.com/channel/UCtzIJK9eLCWLQF13KpZE-0w" title="YouTube" target="_blank">YouTube</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/3b74c7b81348" title="Jianshu" target="_blank">Jianshu</a>
+					 </span>
+                
+
+                
+				
+				
+			  
+			  
+			  
+			  
+			  
+			  
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录"><span class="nav-number">1.</span> <span class="nav-text">记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案一"><span class="nav-number">1.1.</span> <span class="nav-text">方案一</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二"><span class="nav-number">2.</span> <span class="nav-text">方案二</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>-->
+
+
+
+
+
+
+<!--
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+ -->
+ 
+ 
+ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共247.3k字</span>
+  
+  <span class="post-meta-divider">|</span>
+
+</div>
+
+<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"</span>人</span>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+
+
