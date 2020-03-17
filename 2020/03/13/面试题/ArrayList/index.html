@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/favicon-16x16-next.png?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ArrayList," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="坚强。虽然很想发个表情包出来。我得坚强。我就不信了，磨不死我。我得向阳而生，活的灿烂一点。我可真讨厌做笔记。   1234&#x2F;* * Copyright (c) 1997, 2017, Oracle and&#x2F;or its affiliates. All rights reserved. * ORACLE PROPRIETARY&#x2F;CONFIDENTIAL. Use is">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArrayList源码">
+<meta property="og:url" content="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/index.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="坚强。虽然很想发个表情包出来。我得坚强。我就不信了，磨不死我。我得向阳而生，活的灿烂一点。我可真讨厌做笔记。   1234&#x2F;* * Copyright (c) 1997, 2017, Oracle and&#x2F;or its affiliates. All rights reserved. * ORACLE PROPRIETARY&#x2F;CONFIDENTIAL. Use is">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r">
+<meta property="article:published_time" content="2020-03-13T15:12:56.000Z">
+<meta property="article:modified_time" content="2020-03-17T16:50:17.532Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="ArrayList">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/03/13/面试题/ArrayList/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>ArrayList源码 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+  
+  <script type="text/javascript" src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos/" rel="section">
+            
+            Photos
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ArrayList源码</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-13T23:12:56+08:00">
+                2020-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">面试题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  10.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  56
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" rel="gallery_ck7w4xg9l007dvoum7ga845xt"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p>坚强。<br>虽然很想发个表情包出来。<br>我得坚强。<br>我就不信了，磨不死我。<br>我得向阳而生，活的灿烂一点。<br>我可真讨厌做笔记。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line"> * Copyright (c) 1997, 2017, Oracle and&#x2F;or its affiliates. All rights reserved.</span><br><span class="line"> * ORACLE PROPRIETARY&#x2F;CONFIDENTIAL. Use is subject to license terms.</span><br><span class="line"> *&#x2F;</span><br></pre></td></tr></table></figure>
+<p>Copyright n.版权，著作权 adj.版权的；受版权保护的。vt.保护版权；为…取得版权<br>Oracle n.神谕；语言；神谕处；圣人/ 甲骨文；甲骨文公司；数据库；神谕<br>affiliates 附属公司；联播电台<br>reserved adj.保留的，预定的；缄默的，冷淡的，高冷的；包租的<br>proprietary adj.专卖的，专营的；所有的，所有权的；（行为）像所有者那样的，所有人（似的）n.所有权，所有人<br>confidential adj.机密的；表示信任的；获信任的<br>subject n.主题；科目；[ 语 ]主语；国民；adj.服从的；易患…的；受制于…的；vt.使…隶属；<br>license n.执照，许可证；特许 vt.许可；特许；发许可证给…<br>terms n.地位，关系；[ 法 ]条款；术语；措辞；价钱（term的复数形式）…<br>Oracle and/or its affiliates Oracle和/或其关联公司<br>All rights reserved. 版权所有，保留所有权利。<br>ORACLE PROPRIETARY/CONFIDENTIAL Oracle专有/机密。<br>Use is subject to license terms. 使用受许可条款约束。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package java.util;</span><br><span class="line"></span><br><span class="line">import java.util.function.Consumer;</span><br><span class="line">import java.util.function.Predicate;</span><br><span class="line">import java.util.function.UnaryOperator;</span><br><span class="line">import sun.misc.SharedSecrets;</span><br></pre></td></tr></table></figure>
+<p>Consumer 消费者<br>Predicate  谓词<br>Unary 一元<br>UnaryOperator 非合格算子<br>SharedSecrets 共享的秘密  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Resizable-array implementation of the &lt;tt&gt;List&lt;&#x2F;tt&gt; interface.  Implements</span><br><span class="line"> * all optional list operations, and permits all elements, including</span><br><span class="line"> * &lt;tt&gt;null&lt;&#x2F;tt&gt;.  In addition to implementing the &lt;tt&gt;List&lt;&#x2F;tt&gt; interface,</span><br><span class="line"> * this class provides methods to manipulate the size of the array that is</span><br><span class="line"> * used internally to store the list.  (This class is roughly equivalent to</span><br><span class="line"> * &lt;tt&gt;Vector&lt;&#x2F;tt&gt;, except that it is unsynchronized.)</span><br></pre></td></tr></table></figure>
+<p>Resizable 可调整大小的<br>Implements all optional list operations 实现所有可选的List操作<br>permits 许可证<br>可调整大小的数组实现了接口List。实现了所有可选的List操作，并且许可所有的元素，包括空元素。<br>In addition to 除了<br>manipulate 操作<br>internally 在内部<br>store 贮藏<br>除了实现接口List，该类ArrayList还提供了方法来操作数组的大小的方法，被用在内部来存储的list<br>roughly 粗略地<br>equivalent 等效<br>该类ArrayList粗略地等效于类Vector，除了他不是同步的  </p>
+<blockquote>
+<p>由此可得，注释当中说明ArrayList是不同步的，也就是unsynchronized；而Vector是同步的，也就是synchronized  </p>
+</blockquote>
+<p>由此可得，看点源码还是非常非常非常好的。<br>但是我有个问题，为什么呢，为什么这样说他ArrayList是不同步，而Vector是同步的，有理由吗？<br>我觉得接着往下看可能有答案呗。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*</span><br><span class="line">* &lt;p&gt;The &lt;tt&gt;size&lt;&#x2F;tt&gt;, &lt;tt&gt;isEmpty&lt;&#x2F;tt&gt;, &lt;tt&gt;get&lt;&#x2F;tt&gt;, &lt;tt&gt;set&lt;&#x2F;tt&gt;,</span><br><span class="line">* &lt;tt&gt;iterator&lt;&#x2F;tt&gt;, and &lt;tt&gt;listIterator&lt;&#x2F;tt&gt; operations run in constant</span><br><span class="line">* time.  The &lt;tt&gt;add&lt;&#x2F;tt&gt; operation runs in &lt;i&gt;amortized constant time&lt;&#x2F;i&gt;,</span><br><span class="line">* that is, adding n elements requires O(n) time.  All of the other operations</span><br><span class="line">* run in linear time (roughly speaking).  The constant factor is low compared</span><br><span class="line">* to that for the &lt;tt&gt;LinkedList&lt;&#x2F;tt&gt; implementation.</span><br></pre></td></tr></table></figure>
+<p>constant 常数<br>size()，isEmpty()，get()，set()，iterator()，listIterator()这些操作运行在常数时间，大概意思应该说的是这些方法经常用。<br>amortized 分期偿还，摊销<br>add() 操作在平摊常数时间中，操作即方法之意<br>that is 那是，添加n个元素要求在O(n) 时间内，注意下是O(n)time，而不是0零啊，我第一反应是同时，现在想来不是同时的意思了。<br>添加n个元素需要O(n)时间。<br>O(n)感觉好像在哪里见过嘞，哦哦之前算法书里面讲过好像。<br>也就是说添加n个元素，数据量增大n倍，那么耗时也就增大几倍。<br>in linear time 在线性时间以内<br>（粗略的来说）所有的其他操作运行都在限行时间以内。<br>factor 因素<br>compared 相比<br>low 就没必要翻译了吧<br>常量因素是低于LinkedList的实现，与LinkedList实现相比，常量因子较低  </p>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/f31744e423eb" target="_blank" rel="noopener">https://www.jianshu.com/p/f31744e423eb</a>  </p>
+</blockquote>
+<ul>
+<li>描述算法复杂度时，常用o(1)，o(n)，o(logn)，o(nlogn)表示对应算法的时间复杂度，是算法的时空复杂度的表示。不仅仅用于表示时间复杂度，也用于表示空间复杂度。  </li>
+<li>O后面的括号中有一个函数，指明某个算法的耗时/耗空间与数据增长量之间的关系。其中的n代表输入数据的量  </li>
+<li>比如时间复杂度为O(n)，就代表数据量增大几倍，耗时也增大几倍。比如常见的遍历算法。再比如时间复杂度O(n^2)，就代表数据量增大n倍时，耗时增大n的平方倍，这是比线性更高的时间复杂度。比如冒泡排序，就是典型的O(n^2)的算法，对n个数排序，需要扫描n x n次。  </li>
+<li>再比如O(logn)，当数据增大n倍时，耗时增大logn倍(这里的log是以2为底的，比如，当数据增大256倍时，耗时只增大8倍，是比线性还要低的时间复杂度)。二分查找就是O(logn)的算法，每找一次排除一半的可能，256个数据中查找只要找8次就可以找到目标。  </li>
+<li>O(nlogn)同理，就是n乘以logn，当数据增大256倍时，耗时增大256*8=2048倍。这个复杂度高于线性低于平方。归并排序就是O(nlogn)的时间复杂度。  </li>
+<li>O(1)就是最低的时空复杂度了，也就是耗时/耗空间与输入数据大小无关，无论输入数据增大多少倍，耗时/耗空间都不变。哈希算法就是典型的O(1)时间复杂度，无论数据规模多大，都可以在一次计算后找到目标（不考虑冲突的话）。  </li>
+</ul>
+<p>看来阅读源码，不仅让我知道了我要学算法，我还把冒泡排序这些….东西都给忘了。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* &lt;p&gt;Each &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance has a &lt;i&gt;capacity&lt;&#x2F;i&gt;.  The capacity is</span><br><span class="line">* the size of the array used to store the elements in the list.  It is always</span><br><span class="line">* at least as large as the list size.  As elements are added to an ArrayList,</span><br><span class="line">* its capacity grows automatically.  The details of the growth policy are not</span><br><span class="line">* specified beyond the fact that adding an element has constant amortized</span><br><span class="line">* time cost.</span><br></pre></td></tr></table></figure>
+<p>each 每个，each other互相<br>每个ArrayList实例都有一个capacity,capacity电梯里面有，我看到过，容量，就是能够乘载人数容量的那个<br>这个容量是数组的大小，被用来存储list当中的元素。<br>其总是至少和数组的大小是一样大的。<br>我忘了这个as as啥意思了。<br>as large as 一样大；at least 至少<br>last but not least 最后但是同等重要的，突然想起了这个<br>最为元素是要被添加到一个ArrayList集合当中去的，他的容量增长是自动增长的。<br>automatically 自动，因为auto是自动的意思吧所以联想自动。<br>details 细节； policy 政策；specified 指定的；beyond 除了；fact 事实<br>这个增长政策的细节是没有指定的除了事实上添加一个元素有常数平摊时间消耗上<br>增长策略的细节没有指定，除了添加一个元素有恒定的平摊时间成本。<br>我都不知道我在说些什么鬼。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* &lt;p&gt;An application can increase the capacity of an &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance</span><br><span class="line">* before adding a large number of elements using the &lt;tt&gt;ensureCapacity&lt;&#x2F;tt&gt;</span><br><span class="line">* operation.  This may reduce the amount of incremental reallocation.</span><br></pre></td></tr></table></figure>
+<p>a large number of 大量的<br>increase 增加<br>一个应用程序能够增长其一个ArrayList实例的容量之前添加一个大数量的元素时使用ensureCapacity 确保容量操作<br>在使用ensureCapacity操作添加大量元素之前，应用程序可以增加一个ArrayList实例的容量<br>incremental 增量 ；reallocation 重新分配；allocation 分配<br>这或许可以减少大数量的增量重新分配.<br>amount 数量<br>这可能会减少增量重新分配的数量。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* &lt;p&gt;&lt;strong&gt;Note that this implementation is not synchronized.&lt;&#x2F;strong&gt;</span><br><span class="line">* If multiple threads access an &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance concurrently,</span><br><span class="line">* and at least one of the threads modifies the list structurally, it</span><br><span class="line">* &lt;i&gt;must&lt;&#x2F;i&gt; be synchronized externally.  (A structural modification is</span><br><span class="line">* any operation that adds or deletes one or more elements, or explicitly</span><br><span class="line">* resizes the backing array; merely setting the value of an element is not</span><br><span class="line">* a structural modification.)  This is typically accomplished by</span><br><span class="line">* synchronizing on some object that naturally encapsulates the list.</span><br></pre></td></tr></table></figure>
+<p>Note 请注意<br>请注意这个实现方法并不是同步的。也就是ArrayList非同步。<br>concurrently 同时  ；structurally 构造，externally 外部<br>如果多个线程同时访问同一个ArrayList实例，并且至少某一个线程对这个list集合做了结构性的修改的操作，他必须是外部同步的<br>explicitly 显示地<br>一个构造性修改可以使任意操作比如add添加或者delete删除某一个或者更多的元素，或者显示地重新调整了数组的大小<br>backing array 备份数组 ；modification 修改<br>仅仅是设置一个元素的值是不需要一个构造性的修改的<br>accomplished  完成 ；typically 通常 ；naturally自然；encapsulates封装<br>这是通常完成同步在某些自然封装的list对象上<br>这通常是通过对一些自然封装list的对象进行同步来实现的。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* If no such object exists, the list should be &quot;wrapped&quot; using the</span><br><span class="line">* &#123;@link Collections#synchronizedList Collections.synchronizedList&#125;</span><br><span class="line">* method.  This is best done at creation time, to prevent accidental</span><br><span class="line">* unsynchronized access to the list:&lt;pre&gt;</span><br><span class="line">*   List list &#x3D; Collections.synchronizedList(new ArrayList(...));&lt;&#x2F;pre&gt;</span><br></pre></td></tr></table></figure>
+<p>如果没有这样的对象存在，这个list集合应该是封装的，使用{@link Collections#synchronizedList Collections.synchronizedList}方法，同步集合。<br>prevent 防止；accidental 意外<br>这是最好的做法在创建时间上，来防止意外的不同步来访问list集合  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">* &lt;p&gt;&lt;a name&#x3D;&quot;fail-fast&quot;&gt;</span><br><span class="line">* The iterators returned by this class&#39;s &#123;@link #iterator() iterator&#125; and</span><br><span class="line">* &#123;@link #listIterator(int) listIterator&#125; methods are &lt;em&gt;fail-fast&lt;&#x2F;em&gt;:&lt;&#x2F;a&gt;</span><br><span class="line">* if the list is structurally modified at any time after the iterator is</span><br><span class="line">* created, in any way except through the iterator&#39;s own</span><br><span class="line">* &#123;@link ListIterator#remove() remove&#125; or</span><br><span class="line">* &#123;@link ListIterator#add(Object) add&#125; methods, the iterator will throw a</span><br><span class="line">* &#123;@link ConcurrentModificationException&#125;.  Thus, in the face of</span><br><span class="line">* concurrent modification, the iterator fails quickly and cleanly, rather</span><br><span class="line">* than risking arbitrary, non-deterministic behavior at an undetermined</span><br><span class="line">* time in the future.</span><br></pre></td></tr></table></figure>
+<p>超链接：快速失败<br>这个迭代器通过类的iterator以及listIterator方法返回是快速失败的。<br>如果list是构造性修改在迭代器创建的任何时间之后，在任何方法当中除了迭代器自身<br>如果再迭代器创建后的任何时候对list集合进行了结构上的修改，则可以使用除了迭代器本身之外的方式进行修改  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* &lt;p&gt;Note that the fail-fast behavior of an iterator cannot be guaranteed</span><br><span class="line">* as it is, generally speaking, impossible to make any hard guarantees in the</span><br><span class="line">* presence of unsynchronized concurrent modification.  Fail-fast iterators</span><br><span class="line">* throw &#123;@code ConcurrentModificationException&#125; on a best-effort basis.</span><br><span class="line">* Therefore, it would be wrong to write a program that depended on this</span><br><span class="line">* exception for its correctness:  &lt;i&gt;the fail-fast behavior of iterators</span><br><span class="line">* should be used only to detect bugs.&lt;&#x2F;i&gt;</span><br></pre></td></tr></table></figure>
+<p>guarantees 担保；presence存在 ；impossible 不可能的<br>请注意快速失败 一个迭代器不能够担保作为他自身的行为，通常来说，来制作困难的担保存在在不同步且同时修改是不可能的。<br>在不同步并发修改的情况下，不可能做出任何严格的保证。<br>concurrent 并发<br>快速失败 迭代器应发的 并发修改异常 在一个最好的努力基础上。<br>尽最大努力抛出并发修改异常。<br>因此，他可能会导致错误的去写一个对于这个错误去依赖这个异常的程序<br>detect 检测<br>快速失败 迭代器应该被仅仅使用在检测bug的行为上  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">* &lt;p&gt;This class is a member of the</span><br><span class="line">* &lt;a href&#x3D;&quot;&#123;@docRoot&#125;&#x2F;..&#x2F;technotes&#x2F;guides&#x2F;collections&#x2F;index.html&quot;&gt;</span><br><span class="line">* Java Collections Framework&lt;&#x2F;a&gt;.</span><br><span class="line">*</span><br><span class="line">* @author  Josh Bloch</span><br><span class="line">* @author  Neal Gafter</span><br><span class="line">* @see     Collection</span><br><span class="line">* @see     List</span><br><span class="line">* @see     LinkedList</span><br><span class="line">* @see     Vector</span><br><span class="line">* @since   1.2</span><br><span class="line">*&#x2F;</span><br></pre></td></tr></table></figure>
+<p>java集合框架  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;</span><br><span class="line">        implements List&lt;E&gt;, RandomAccess, Cloneable, java.io.Serializable</span><br><span class="line">&#123;</span><br></pre></td></tr></table></figure>
+<p>ArrayList&lt;&gt; 可以泛型，继承了父类AbstractList 抽象List，实现了接口List，RandomAccess随机访问? 可可隆化，以及序列化这几个接口。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">private static final long serialVersionUID &#x3D; 8683452581122892189L;&#x2F;&#x2F;定义了一个常量 序列化版本uid</span><br><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * Default initial capacity.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static final int DEFAULT_CAPACITY &#x3D; 10;</span><br></pre></td></tr></table></figure>
+<p>默认一个初始化容量。<br>默认的这个容量的值为10，也就是说这个ArrayList里面默认能放10个object  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Shared empty array instance used for empty instances.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static final Object[] EMPTY_ELEMENTDATA &#x3D; &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>分享空的数组实例给空的实例数组  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#x2F;**</span><br><span class="line"> * Shared empty array instance used for default sized empty instances. We</span><br><span class="line"> * distinguish this from EMPTY_ELEMENTDATA to know how much to inflate when</span><br><span class="line"> * first element is added.</span><br><span class="line"> *&#x2F;</span><br><span class="line">private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA &#x3D; &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>distinguish 区分；inflate 膨胀<br>分享空的数组实例使用给默认大小的空的实例。 我们区分这个是来自于一个空元素数组  ，来知道当第一个元素被添加时会膨胀多少<br>我们将其与EMPTY_ELEMENTDATA区分开来，以了解在添加第一个元素时应该膨胀多少  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * The array buffer into which the elements of the ArrayList are stored.</span><br><span class="line"> * The capacity of the ArrayList is the length of this array buffer. Any</span><br><span class="line"> * empty ArrayList with elementData &#x3D;&#x3D; DEFAULTCAPACITY_EMPTY_ELEMENTDATA</span><br><span class="line"> * will be expanded to DEFAULT_CAPACITY when the first element is added.</span><br><span class="line"> *&#x2F;</span><br><span class="line">transient Object[] elementData; &#x2F;&#x2F; non-private to simplify nested class access</span><br></pre></td></tr></table></figure>
+<p>被ArrayList所存储的元素会被缓冲到数组当中去。<br>存储ArrayList元素的数组缓冲区。<br>这个ArrayList的容量是数组缓冲区的长度。<br>任何一个空的ArrayList以及他的数组 等于等于 默认容量空元素数组 将会被扩展到默认容量当第一个元素被添加的时候。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * The size of the ArrayList (the number of elements it contains).</span><br><span class="line"> * @serial</span><br><span class="line"> *&#x2F;</span><br><span class="line">private int size;</span><br></pre></td></tr></table></figure>
+<p>定义这个ArrayList集合的大小，也就是这个集合当中所包含的元素个数  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Constructs an empty list with the specified initial capacity.</span><br><span class="line"> *</span><br><span class="line"> * @param  initialCapacity  the initial capacity of the list</span><br><span class="line"> * @throws IllegalArgumentException if the specified initial capacity</span><br><span class="line"> *         is negative</span><br><span class="line"> *&#x2F;</span><br><span class="line">public ArrayList(int initialCapacity) &#123;</span><br><span class="line">    if (initialCapacity &gt; 0) &#123;</span><br><span class="line">        this.elementData &#x3D; new Object[initialCapacity];</span><br><span class="line">    &#125; else if (initialCapacity &#x3D;&#x3D; 0) &#123;</span><br><span class="line">        this.elementData &#x3D; EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+</span><br><span class="line">                                           initialCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造一个空的list集合以及指定初始化的容量。<br>initalCapacity list集合当中初始化容量大小，当前为构造方法，普通方法为：访问修饰+返回类型+方法名称+方法参数+方法体<br>如果初始化容量大小大于0，则元素数组构建一个Object数组，当中初始容量为初始化容量大小<br>如果初始化容量大小等于0，则元素数组则是一个空数组，即所定义的空数组<br>如果初始化容量大小既不大于0也不是等于0，那就是小于0，为负数了，那么则抛出异常，非法参数异常，非法容量+所需要初始化容量的大小值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Constructs an empty list with an initial capacity of ten.</span><br><span class="line"> *&#x2F;</span><br><span class="line">public ArrayList() &#123;</span><br><span class="line">    this.elementData &#x3D; DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造方法是一个空的list集合，并带有默认的初始化容量为10  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Constructs a list containing the elements of the specified</span><br><span class="line"> * collection, in the order they are returned by the collection&#39;s</span><br><span class="line"> * iterator.</span><br><span class="line"> *</span><br><span class="line"> * @param c the collection whose elements are to be placed into this list</span><br><span class="line"> * @throws NullPointerException if the specified collection is null</span><br><span class="line"> *&#x2F;</span><br><span class="line">public ArrayList(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">    elementData &#x3D; c.toArray();</span><br><span class="line">    if ((size &#x3D; elementData.length) !&#x3D; 0) &#123;</span><br><span class="line">        &#x2F;&#x2F; c.toArray might (incorrectly) not return Object[] (see 6260652)</span><br><span class="line">        if (elementData.getClass() !&#x3D; Object[].class)</span><br><span class="line">            elementData &#x3D; Arrays.copyOf(elementData, size, Object[].class);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; replace with empty array.</span><br><span class="line">        this.elementData &#x3D; EMPTY_ELEMENTDATA;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>构造一个list集合，该list集合包含指定集合当中的元素，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br><span class="line">775</span><br><span class="line">776</span><br><span class="line">777</span><br><span class="line">778</span><br><span class="line">779</span><br><span class="line">780</span><br><span class="line">781</span><br><span class="line">782</span><br><span class="line">783</span><br><span class="line">784</span><br><span class="line">785</span><br><span class="line">786</span><br><span class="line">787</span><br><span class="line">788</span><br><span class="line">789</span><br><span class="line">790</span><br><span class="line">791</span><br><span class="line">792</span><br><span class="line">793</span><br><span class="line">794</span><br><span class="line">795</span><br><span class="line">796</span><br><span class="line">797</span><br><span class="line">798</span><br><span class="line">799</span><br><span class="line">800</span><br><span class="line">801</span><br><span class="line">802</span><br><span class="line">803</span><br><span class="line">804</span><br><span class="line">805</span><br><span class="line">806</span><br><span class="line">807</span><br><span class="line">808</span><br><span class="line">809</span><br><span class="line">810</span><br><span class="line">811</span><br><span class="line">812</span><br><span class="line">813</span><br><span class="line">814</span><br><span class="line">815</span><br><span class="line">816</span><br><span class="line">817</span><br><span class="line">818</span><br><span class="line">819</span><br><span class="line">820</span><br><span class="line">821</span><br><span class="line">822</span><br><span class="line">823</span><br><span class="line">824</span><br><span class="line">825</span><br><span class="line">826</span><br><span class="line">827</span><br><span class="line">828</span><br><span class="line">829</span><br><span class="line">830</span><br><span class="line">831</span><br><span class="line">832</span><br><span class="line">833</span><br><span class="line">834</span><br><span class="line">835</span><br><span class="line">836</span><br><span class="line">837</span><br><span class="line">838</span><br><span class="line">839</span><br><span class="line">840</span><br><span class="line">841</span><br><span class="line">842</span><br><span class="line">843</span><br><span class="line">844</span><br><span class="line">845</span><br><span class="line">846</span><br><span class="line">847</span><br><span class="line">848</span><br><span class="line">849</span><br><span class="line">850</span><br><span class="line">851</span><br><span class="line">852</span><br><span class="line">853</span><br><span class="line">854</span><br><span class="line">855</span><br><span class="line">856</span><br><span class="line">857</span><br><span class="line">858</span><br><span class="line">859</span><br><span class="line">860</span><br><span class="line">861</span><br><span class="line">862</span><br><span class="line">863</span><br><span class="line">864</span><br><span class="line">865</span><br><span class="line">866</span><br><span class="line">867</span><br><span class="line">868</span><br><span class="line">869</span><br><span class="line">870</span><br><span class="line">871</span><br><span class="line">872</span><br><span class="line">873</span><br><span class="line">874</span><br><span class="line">875</span><br><span class="line">876</span><br><span class="line">877</span><br><span class="line">878</span><br><span class="line">879</span><br><span class="line">880</span><br><span class="line">881</span><br><span class="line">882</span><br><span class="line">883</span><br><span class="line">884</span><br><span class="line">885</span><br><span class="line">886</span><br><span class="line">887</span><br><span class="line">888</span><br><span class="line">889</span><br><span class="line">890</span><br><span class="line">891</span><br><span class="line">892</span><br><span class="line">893</span><br><span class="line">894</span><br><span class="line">895</span><br><span class="line">896</span><br><span class="line">897</span><br><span class="line">898</span><br><span class="line">899</span><br><span class="line">900</span><br><span class="line">901</span><br><span class="line">902</span><br><span class="line">903</span><br><span class="line">904</span><br><span class="line">905</span><br><span class="line">906</span><br><span class="line">907</span><br><span class="line">908</span><br><span class="line">909</span><br><span class="line">910</span><br><span class="line">911</span><br><span class="line">912</span><br><span class="line">913</span><br><span class="line">914</span><br><span class="line">915</span><br><span class="line">916</span><br><span class="line">917</span><br><span class="line">918</span><br><span class="line">919</span><br><span class="line">920</span><br><span class="line">921</span><br><span class="line">922</span><br><span class="line">923</span><br><span class="line">924</span><br><span class="line">925</span><br><span class="line">926</span><br><span class="line">927</span><br><span class="line">928</span><br><span class="line">929</span><br><span class="line">930</span><br><span class="line">931</span><br><span class="line">932</span><br><span class="line">933</span><br><span class="line">934</span><br><span class="line">935</span><br><span class="line">936</span><br><span class="line">937</span><br><span class="line">938</span><br><span class="line">939</span><br><span class="line">940</span><br><span class="line">941</span><br><span class="line">942</span><br><span class="line">943</span><br><span class="line">944</span><br><span class="line">945</span><br><span class="line">946</span><br><span class="line">947</span><br><span class="line">948</span><br><span class="line">949</span><br><span class="line">950</span><br><span class="line">951</span><br><span class="line">952</span><br><span class="line">953</span><br><span class="line">954</span><br><span class="line">955</span><br><span class="line">956</span><br><span class="line">957</span><br><span class="line">958</span><br><span class="line">959</span><br><span class="line">960</span><br><span class="line">961</span><br><span class="line">962</span><br><span class="line">963</span><br><span class="line">964</span><br><span class="line">965</span><br><span class="line">966</span><br><span class="line">967</span><br><span class="line">968</span><br><span class="line">969</span><br><span class="line">970</span><br><span class="line">971</span><br><span class="line">972</span><br><span class="line">973</span><br><span class="line">974</span><br><span class="line">975</span><br><span class="line">976</span><br><span class="line">977</span><br><span class="line">978</span><br><span class="line">979</span><br><span class="line">980</span><br><span class="line">981</span><br><span class="line">982</span><br><span class="line">983</span><br><span class="line">984</span><br><span class="line">985</span><br><span class="line">986</span><br><span class="line">987</span><br><span class="line">988</span><br><span class="line">989</span><br><span class="line">990</span><br><span class="line">991</span><br><span class="line">992</span><br><span class="line">993</span><br><span class="line">994</span><br><span class="line">995</span><br><span class="line">996</span><br><span class="line">997</span><br><span class="line">998</span><br><span class="line">999</span><br><span class="line">1000</span><br><span class="line">1001</span><br><span class="line">1002</span><br><span class="line">1003</span><br><span class="line">1004</span><br><span class="line">1005</span><br><span class="line">1006</span><br><span class="line">1007</span><br><span class="line">1008</span><br><span class="line">1009</span><br><span class="line">1010</span><br><span class="line">1011</span><br><span class="line">1012</span><br><span class="line">1013</span><br><span class="line">1014</span><br><span class="line">1015</span><br><span class="line">1016</span><br><span class="line">1017</span><br><span class="line">1018</span><br><span class="line">1019</span><br><span class="line">1020</span><br><span class="line">1021</span><br><span class="line">1022</span><br><span class="line">1023</span><br><span class="line">1024</span><br><span class="line">1025</span><br><span class="line">1026</span><br><span class="line">1027</span><br><span class="line">1028</span><br><span class="line">1029</span><br><span class="line">1030</span><br><span class="line">1031</span><br><span class="line">1032</span><br><span class="line">1033</span><br><span class="line">1034</span><br><span class="line">1035</span><br><span class="line">1036</span><br><span class="line">1037</span><br><span class="line">1038</span><br><span class="line">1039</span><br><span class="line">1040</span><br><span class="line">1041</span><br><span class="line">1042</span><br><span class="line">1043</span><br><span class="line">1044</span><br><span class="line">1045</span><br><span class="line">1046</span><br><span class="line">1047</span><br><span class="line">1048</span><br><span class="line">1049</span><br><span class="line">1050</span><br><span class="line">1051</span><br><span class="line">1052</span><br><span class="line">1053</span><br><span class="line">1054</span><br><span class="line">1055</span><br><span class="line">1056</span><br><span class="line">1057</span><br><span class="line">1058</span><br><span class="line">1059</span><br><span class="line">1060</span><br><span class="line">1061</span><br><span class="line">1062</span><br><span class="line">1063</span><br><span class="line">1064</span><br><span class="line">1065</span><br><span class="line">1066</span><br><span class="line">1067</span><br><span class="line">1068</span><br><span class="line">1069</span><br><span class="line">1070</span><br><span class="line">1071</span><br><span class="line">1072</span><br><span class="line">1073</span><br><span class="line">1074</span><br><span class="line">1075</span><br><span class="line">1076</span><br><span class="line">1077</span><br><span class="line">1078</span><br><span class="line">1079</span><br><span class="line">1080</span><br><span class="line">1081</span><br><span class="line">1082</span><br><span class="line">1083</span><br><span class="line">1084</span><br><span class="line">1085</span><br><span class="line">1086</span><br><span class="line">1087</span><br><span class="line">1088</span><br><span class="line">1089</span><br><span class="line">1090</span><br><span class="line">1091</span><br><span class="line">1092</span><br><span class="line">1093</span><br><span class="line">1094</span><br><span class="line">1095</span><br><span class="line">1096</span><br><span class="line">1097</span><br><span class="line">1098</span><br><span class="line">1099</span><br><span class="line">1100</span><br><span class="line">1101</span><br><span class="line">1102</span><br><span class="line">1103</span><br><span class="line">1104</span><br><span class="line">1105</span><br><span class="line">1106</span><br><span class="line">1107</span><br><span class="line">1108</span><br><span class="line">1109</span><br><span class="line">1110</span><br><span class="line">1111</span><br><span class="line">1112</span><br><span class="line">1113</span><br><span class="line">1114</span><br><span class="line">1115</span><br><span class="line">1116</span><br><span class="line">1117</span><br><span class="line">1118</span><br><span class="line">1119</span><br><span class="line">1120</span><br><span class="line">1121</span><br><span class="line">1122</span><br><span class="line">1123</span><br><span class="line">1124</span><br><span class="line">1125</span><br><span class="line">1126</span><br><span class="line">1127</span><br><span class="line">1128</span><br><span class="line">1129</span><br><span class="line">1130</span><br><span class="line">1131</span><br><span class="line">1132</span><br><span class="line">1133</span><br><span class="line">1134</span><br><span class="line">1135</span><br><span class="line">1136</span><br><span class="line">1137</span><br><span class="line">1138</span><br><span class="line">1139</span><br><span class="line">1140</span><br><span class="line">1141</span><br><span class="line">1142</span><br><span class="line">1143</span><br><span class="line">1144</span><br><span class="line">1145</span><br><span class="line">1146</span><br><span class="line">1147</span><br><span class="line">1148</span><br><span class="line">1149</span><br><span class="line">1150</span><br><span class="line">1151</span><br><span class="line">1152</span><br><span class="line">1153</span><br><span class="line">1154</span><br><span class="line">1155</span><br><span class="line">1156</span><br><span class="line">1157</span><br><span class="line">1158</span><br><span class="line">1159</span><br><span class="line">1160</span><br><span class="line">1161</span><br><span class="line">1162</span><br><span class="line">1163</span><br><span class="line">1164</span><br><span class="line">1165</span><br><span class="line">1166</span><br><span class="line">1167</span><br><span class="line">1168</span><br><span class="line">1169</span><br><span class="line">1170</span><br><span class="line">1171</span><br><span class="line">1172</span><br><span class="line">1173</span><br><span class="line">1174</span><br><span class="line">1175</span><br><span class="line">1176</span><br><span class="line">1177</span><br><span class="line">1178</span><br><span class="line">1179</span><br><span class="line">1180</span><br><span class="line">1181</span><br><span class="line">1182</span><br><span class="line">1183</span><br><span class="line">1184</span><br><span class="line">1185</span><br><span class="line">1186</span><br><span class="line">1187</span><br><span class="line">1188</span><br><span class="line">1189</span><br><span class="line">1190</span><br><span class="line">1191</span><br><span class="line">1192</span><br><span class="line">1193</span><br><span class="line">1194</span><br><span class="line">1195</span><br><span class="line">1196</span><br><span class="line">1197</span><br><span class="line">1198</span><br><span class="line">1199</span><br><span class="line">1200</span><br><span class="line">1201</span><br><span class="line">1202</span><br><span class="line">1203</span><br><span class="line">1204</span><br><span class="line">1205</span><br><span class="line">1206</span><br><span class="line">1207</span><br><span class="line">1208</span><br><span class="line">1209</span><br><span class="line">1210</span><br><span class="line">1211</span><br><span class="line">1212</span><br><span class="line">1213</span><br><span class="line">1214</span><br><span class="line">1215</span><br><span class="line">1216</span><br><span class="line">1217</span><br><span class="line">1218</span><br><span class="line">1219</span><br><span class="line">1220</span><br><span class="line">1221</span><br><span class="line">1222</span><br><span class="line">1223</span><br><span class="line">1224</span><br><span class="line">1225</span><br><span class="line">1226</span><br><span class="line">1227</span><br><span class="line">1228</span><br><span class="line">1229</span><br><span class="line">1230</span><br><span class="line">1231</span><br><span class="line">1232</span><br><span class="line">1233</span><br><span class="line">1234</span><br><span class="line">1235</span><br><span class="line">1236</span><br><span class="line">1237</span><br><span class="line">1238</span><br><span class="line">1239</span><br><span class="line">1240</span><br><span class="line">1241</span><br><span class="line">1242</span><br><span class="line">1243</span><br><span class="line">1244</span><br><span class="line">1245</span><br><span class="line">1246</span><br><span class="line">1247</span><br><span class="line">1248</span><br><span class="line">1249</span><br><span class="line">1250</span><br><span class="line">1251</span><br><span class="line">1252</span><br><span class="line">1253</span><br><span class="line">1254</span><br><span class="line">1255</span><br><span class="line">1256</span><br><span class="line">1257</span><br><span class="line">1258</span><br><span class="line">1259</span><br><span class="line">1260</span><br><span class="line">1261</span><br><span class="line">1262</span><br><span class="line">1263</span><br><span class="line">1264</span><br><span class="line">1265</span><br><span class="line">1266</span><br><span class="line">1267</span><br><span class="line">1268</span><br><span class="line">1269</span><br><span class="line">1270</span><br><span class="line">1271</span><br><span class="line">1272</span><br><span class="line">1273</span><br><span class="line">1274</span><br><span class="line">1275</span><br><span class="line">1276</span><br><span class="line">1277</span><br><span class="line">1278</span><br><span class="line">1279</span><br><span class="line">1280</span><br></pre></td><td class="code"><pre><span class="line">    &#x2F;**</span><br><span class="line">     * Trims the capacity of this &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance to be the</span><br><span class="line">     * list&#39;s current size.  An application can use this operation to minimize</span><br><span class="line">     * the storage of an &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public void trimToSize() &#123;</span><br><span class="line">        modCount++;</span><br><span class="line">        if (size &lt; elementData.length) &#123;</span><br><span class="line">            elementData &#x3D; (size &#x3D;&#x3D; 0)</span><br><span class="line">              ? EMPTY_ELEMENTDATA</span><br><span class="line">              : Arrays.copyOf(elementData, size);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Increases the capacity of this &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance, if</span><br><span class="line">     * necessary, to ensure that it can hold at least the number of elements</span><br><span class="line">     * specified by the minimum capacity argument.</span><br><span class="line">     *</span><br><span class="line">     * @param   minCapacity   the desired minimum capacity</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public void ensureCapacity(int minCapacity) &#123;</span><br><span class="line">        int minExpand &#x3D; (elementData !&#x3D; DEFAULTCAPACITY_EMPTY_ELEMENTDATA)</span><br><span class="line">            &#x2F;&#x2F; any size if not default element table</span><br><span class="line">            ? 0</span><br><span class="line">            &#x2F;&#x2F; larger than default for default empty table. It&#39;s already</span><br><span class="line">            &#x2F;&#x2F; supposed to be at default size.</span><br><span class="line">            : DEFAULT_CAPACITY;</span><br><span class="line"></span><br><span class="line">        if (minCapacity &gt; minExpand) &#123;</span><br><span class="line">            ensureExplicitCapacity(minCapacity);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static int calculateCapacity(Object[] elementData, int minCapacity) &#123;</span><br><span class="line">        if (elementData &#x3D;&#x3D; DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">            return Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">        &#125;</span><br><span class="line">        return minCapacity;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void ensureCapacityInternal(int minCapacity) &#123;</span><br><span class="line">        ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void ensureExplicitCapacity(int minCapacity) &#123;</span><br><span class="line">        modCount++;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; overflow-conscious code</span><br><span class="line">        if (minCapacity - elementData.length &gt; 0)</span><br><span class="line">            grow(minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * The maximum size of array to allocate.</span><br><span class="line">     * Some VMs reserve some header words in an array.</span><br><span class="line">     * Attempts to allocate larger arrays may result in</span><br><span class="line">     * OutOfMemoryError: Requested array size exceeds VM limit</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private static final int MAX_ARRAY_SIZE &#x3D; Integer.MAX_VALUE - 8;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Increases the capacity to ensure that it can hold at least the</span><br><span class="line">     * number of elements specified by the minimum capacity argument.</span><br><span class="line">     *</span><br><span class="line">     * @param minCapacity the desired minimum capacity</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void grow(int minCapacity) &#123;</span><br><span class="line">        &#x2F;&#x2F; overflow-conscious code</span><br><span class="line">        int oldCapacity &#x3D; elementData.length;</span><br><span class="line">        int newCapacity &#x3D; oldCapacity + (oldCapacity &gt;&gt; 1);</span><br><span class="line">        if (newCapacity - minCapacity &lt; 0)</span><br><span class="line">            newCapacity &#x3D; minCapacity;</span><br><span class="line">        if (newCapacity - MAX_ARRAY_SIZE &gt; 0)</span><br><span class="line">            newCapacity &#x3D; hugeCapacity(minCapacity);</span><br><span class="line">        &#x2F;&#x2F; minCapacity is usually close to size, so this is a win:</span><br><span class="line">        elementData &#x3D; Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static int hugeCapacity(int minCapacity) &#123;</span><br><span class="line">        if (minCapacity &lt; 0) &#x2F;&#x2F; overflow</span><br><span class="line">            throw new OutOfMemoryError();</span><br><span class="line">        return (minCapacity &gt; MAX_ARRAY_SIZE) ?</span><br><span class="line">            Integer.MAX_VALUE :</span><br><span class="line">            MAX_ARRAY_SIZE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns the number of elements in this list.</span><br><span class="line">     *</span><br><span class="line">     * @return the number of elements in this list</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public int size() &#123;</span><br><span class="line">        return size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list contains no elements.</span><br><span class="line">     *</span><br><span class="line">     * @return &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list contains no elements</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean isEmpty() &#123;</span><br><span class="line">        return size &#x3D;&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list contains the specified element.</span><br><span class="line">     * More formally, returns &lt;tt&gt;true&lt;&#x2F;tt&gt; if and only if this list contains</span><br><span class="line">     * at least one element &lt;tt&gt;e&lt;&#x2F;tt&gt; such that</span><br><span class="line">     * &lt;tt&gt;(o&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;e&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;o.equals(e))&lt;&#x2F;tt&gt;.</span><br><span class="line">     *</span><br><span class="line">     * @param o element whose presence in this list is to be tested</span><br><span class="line">     * @return &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list contains the specified element</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean contains(Object o) &#123;</span><br><span class="line">        return indexOf(o) &gt;&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns the index of the first occurrence of the specified element</span><br><span class="line">     * in this list, or -1 if this list does not contain the element.</span><br><span class="line">     * More formally, returns the lowest index &lt;tt&gt;i&lt;&#x2F;tt&gt; such that</span><br><span class="line">     * &lt;tt&gt;(o&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;get(i)&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;&#x2F;tt&gt;,</span><br><span class="line">     * or -1 if there is no such index.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public int indexOf(Object o) &#123;</span><br><span class="line">        if (o &#x3D;&#x3D; null) &#123;</span><br><span class="line">            for (int i &#x3D; 0; i &lt; size; i++)</span><br><span class="line">                if (elementData[i]&#x3D;&#x3D;null)</span><br><span class="line">                    return i;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            for (int i &#x3D; 0; i &lt; size; i++)</span><br><span class="line">                if (o.equals(elementData[i]))</span><br><span class="line">                    return i;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns the index of the last occurrence of the specified element</span><br><span class="line">     * in this list, or -1 if this list does not contain the element.</span><br><span class="line">     * More formally, returns the highest index &lt;tt&gt;i&lt;&#x2F;tt&gt; such that</span><br><span class="line">     * &lt;tt&gt;(o&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;get(i)&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;&#x2F;tt&gt;,</span><br><span class="line">     * or -1 if there is no such index.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public int lastIndexOf(Object o) &#123;</span><br><span class="line">        if (o &#x3D;&#x3D; null) &#123;</span><br><span class="line">            for (int i &#x3D; size-1; i &gt;&#x3D; 0; i--)</span><br><span class="line">                if (elementData[i]&#x3D;&#x3D;null)</span><br><span class="line">                    return i;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            for (int i &#x3D; size-1; i &gt;&#x3D; 0; i--)</span><br><span class="line">                if (o.equals(elementData[i]))</span><br><span class="line">                    return i;</span><br><span class="line">        &#125;</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns a shallow copy of this &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance.  (The</span><br><span class="line">     * elements themselves are not copied.)</span><br><span class="line">     *</span><br><span class="line">     * @return a clone of this &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Object clone() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            ArrayList&lt;?&gt; v &#x3D; (ArrayList&lt;?&gt;) super.clone();</span><br><span class="line">            v.elementData &#x3D; Arrays.copyOf(elementData, size);</span><br><span class="line">            v.modCount &#x3D; 0;</span><br><span class="line">            return v;</span><br><span class="line">        &#125; catch (CloneNotSupportedException e) &#123;</span><br><span class="line">            &#x2F;&#x2F; this shouldn&#39;t happen, since we are Cloneable</span><br><span class="line">            throw new InternalError(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns an array containing all of the elements in this list</span><br><span class="line">     * in proper sequence (from first to last element).</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;The returned array will be &quot;safe&quot; in that no references to it are</span><br><span class="line">     * maintained by this list.  (In other words, this method must allocate</span><br><span class="line">     * a new array).  The caller is thus free to modify the returned array.</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;This method acts as bridge between array-based and collection-based</span><br><span class="line">     * APIs.</span><br><span class="line">     *</span><br><span class="line">     * @return an array containing all of the elements in this list in</span><br><span class="line">     *         proper sequence</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Object[] toArray() &#123;</span><br><span class="line">        return Arrays.copyOf(elementData, size);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns an array containing all of the elements in this list in proper</span><br><span class="line">     * sequence (from first to last element); the runtime type of the returned</span><br><span class="line">     * array is that of the specified array.  If the list fits in the</span><br><span class="line">     * specified array, it is returned therein.  Otherwise, a new array is</span><br><span class="line">     * allocated with the runtime type of the specified array and the size of</span><br><span class="line">     * this list.</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;If the list fits in the specified array with room to spare</span><br><span class="line">     * (i.e., the array has more elements than the list), the element in</span><br><span class="line">     * the array immediately following the end of the collection is set to</span><br><span class="line">     * &lt;tt&gt;null&lt;&#x2F;tt&gt;.  (This is useful in determining the length of the</span><br><span class="line">     * list &lt;i&gt;only&lt;&#x2F;i&gt; if the caller knows that the list does not contain</span><br><span class="line">     * any null elements.)</span><br><span class="line">     *</span><br><span class="line">     * @param a the array into which the elements of the list are to</span><br><span class="line">     *          be stored, if it is big enough; otherwise, a new array of the</span><br><span class="line">     *          same runtime type is allocated for this purpose.</span><br><span class="line">     * @return an array containing the elements of the list</span><br><span class="line">     * @throws ArrayStoreException if the runtime type of the specified array</span><br><span class="line">     *         is not a supertype of the runtime type of every element in</span><br><span class="line">     *         this list</span><br><span class="line">     * @throws NullPointerException if the specified array is null</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">    public &lt;T&gt; T[] toArray(T[] a) &#123;</span><br><span class="line">        if (a.length &lt; size)</span><br><span class="line">            &#x2F;&#x2F; Make a new array of a&#39;s runtime type, but my contents:</span><br><span class="line">            return (T[]) Arrays.copyOf(elementData, size, a.getClass());</span><br><span class="line">        System.arraycopy(elementData, 0, a, 0, size);</span><br><span class="line">        if (a.length &gt; size)</span><br><span class="line">            a[size] &#x3D; null;</span><br><span class="line">        return a;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; Positional Access Operations</span><br><span class="line"></span><br><span class="line">    @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">    E elementData(int index) &#123;</span><br><span class="line">        return (E) elementData[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns the element at the specified position in this list.</span><br><span class="line">     *</span><br><span class="line">     * @param  index index of the element to return</span><br><span class="line">     * @return the element at the specified position in this list</span><br><span class="line">     * @throws IndexOutOfBoundsException &#123;@inheritDoc&#125;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public E get(int index) &#123;</span><br><span class="line">        rangeCheck(index);</span><br><span class="line"></span><br><span class="line">        return elementData(index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Replaces the element at the specified position in this list with</span><br><span class="line">     * the specified element.</span><br><span class="line">     *</span><br><span class="line">     * @param index index of the element to replace</span><br><span class="line">     * @param element element to be stored at the specified position</span><br><span class="line">     * @return the element previously at the specified position</span><br><span class="line">     * @throws IndexOutOfBoundsException &#123;@inheritDoc&#125;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public E set(int index, E element) &#123;</span><br><span class="line">        rangeCheck(index);</span><br><span class="line"></span><br><span class="line">        E oldValue &#x3D; elementData(index);</span><br><span class="line">        elementData[index] &#x3D; element;</span><br><span class="line">        return oldValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Appends the specified element to the end of this list.</span><br><span class="line">     *</span><br><span class="line">     * @param e element to be appended to this list</span><br><span class="line">     * @return &lt;tt&gt;true&lt;&#x2F;tt&gt; (as specified by &#123;@link Collection#add&#125;)</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean add(E e) &#123;</span><br><span class="line">        ensureCapacityInternal(size + 1);  &#x2F;&#x2F; Increments modCount!!</span><br><span class="line">        elementData[size++] &#x3D; e;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Inserts the specified element at the specified position in this</span><br><span class="line">     * list. Shifts the element currently at that position (if any) and</span><br><span class="line">     * any subsequent elements to the right (adds one to their indices).</span><br><span class="line">     *</span><br><span class="line">     * @param index index at which the specified element is to be inserted</span><br><span class="line">     * @param element element to be inserted</span><br><span class="line">     * @throws IndexOutOfBoundsException &#123;@inheritDoc&#125;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public void add(int index, E element) &#123;</span><br><span class="line">        rangeCheckForAdd(index);</span><br><span class="line"></span><br><span class="line">        ensureCapacityInternal(size + 1);  &#x2F;&#x2F; Increments modCount!!</span><br><span class="line">        System.arraycopy(elementData, index, elementData, index + 1,</span><br><span class="line">                         size - index);</span><br><span class="line">        elementData[index] &#x3D; element;</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Removes the element at the specified position in this list.</span><br><span class="line">     * Shifts any subsequent elements to the left (subtracts one from their</span><br><span class="line">     * indices).</span><br><span class="line">     *</span><br><span class="line">     * @param index the index of the element to be removed</span><br><span class="line">     * @return the element that was removed from the list</span><br><span class="line">     * @throws IndexOutOfBoundsException &#123;@inheritDoc&#125;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public E remove(int index) &#123;</span><br><span class="line">        rangeCheck(index);</span><br><span class="line"></span><br><span class="line">        modCount++;</span><br><span class="line">        E oldValue &#x3D; elementData(index);</span><br><span class="line"></span><br><span class="line">        int numMoved &#x3D; size - index - 1;</span><br><span class="line">        if (numMoved &gt; 0)</span><br><span class="line">            System.arraycopy(elementData, index+1, elementData, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">        elementData[--size] &#x3D; null; &#x2F;&#x2F; clear to let GC do its work</span><br><span class="line"></span><br><span class="line">        return oldValue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Removes the first occurrence of the specified element from this list,</span><br><span class="line">     * if it is present.  If the list does not contain the element, it is</span><br><span class="line">     * unchanged.  More formally, removes the element with the lowest index</span><br><span class="line">     * &lt;tt&gt;i&lt;&#x2F;tt&gt; such that</span><br><span class="line">     * &lt;tt&gt;(o&#x3D;&#x3D;null&amp;nbsp;?&amp;nbsp;get(i)&#x3D;&#x3D;null&amp;nbsp;:&amp;nbsp;o.equals(get(i)))&lt;&#x2F;tt&gt;</span><br><span class="line">     * (if such an element exists).  Returns &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list</span><br><span class="line">     * contained the specified element (or equivalently, if this list</span><br><span class="line">     * changed as a result of the call).</span><br><span class="line">     *</span><br><span class="line">     * @param o element to be removed from this list, if present</span><br><span class="line">     * @return &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list contained the specified element</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean remove(Object o) &#123;</span><br><span class="line">        if (o &#x3D;&#x3D; null) &#123;</span><br><span class="line">            for (int index &#x3D; 0; index &lt; size; index++)</span><br><span class="line">                if (elementData[index] &#x3D;&#x3D; null) &#123;</span><br><span class="line">                    fastRemove(index);</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            for (int index &#x3D; 0; index &lt; size; index++)</span><br><span class="line">                if (o.equals(elementData[index])) &#123;</span><br><span class="line">                    fastRemove(index);</span><br><span class="line">                    return true;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;*</span><br><span class="line">     * Private remove method that skips bounds checking and does not</span><br><span class="line">     * return the value removed.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void fastRemove(int index) &#123;</span><br><span class="line">        modCount++;</span><br><span class="line">        int numMoved &#x3D; size - index - 1;</span><br><span class="line">        if (numMoved &gt; 0)</span><br><span class="line">            System.arraycopy(elementData, index+1, elementData, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">        elementData[--size] &#x3D; null; &#x2F;&#x2F; clear to let GC do its work</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Removes all of the elements from this list.  The list will</span><br><span class="line">     * be empty after this call returns.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public void clear() &#123;</span><br><span class="line">        modCount++;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; clear to let GC do its work</span><br><span class="line">        for (int i &#x3D; 0; i &lt; size; i++)</span><br><span class="line">            elementData[i] &#x3D; null;</span><br><span class="line"></span><br><span class="line">        size &#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Appends all of the elements in the specified collection to the end of</span><br><span class="line">     * this list, in the order that they are returned by the</span><br><span class="line">     * specified collection&#39;s Iterator.  The behavior of this operation is</span><br><span class="line">     * undefined if the specified collection is modified while the operation</span><br><span class="line">     * is in progress.  (This implies that the behavior of this call is</span><br><span class="line">     * undefined if the specified collection is this list, and this</span><br><span class="line">     * list is nonempty.)</span><br><span class="line">     *</span><br><span class="line">     * @param c collection containing elements to be added to this list</span><br><span class="line">     * @return &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list changed as a result of the call</span><br><span class="line">     * @throws NullPointerException if the specified collection is null</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean addAll(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">        Object[] a &#x3D; c.toArray();</span><br><span class="line">        int numNew &#x3D; a.length;</span><br><span class="line">        ensureCapacityInternal(size + numNew);  &#x2F;&#x2F; Increments modCount</span><br><span class="line">        System.arraycopy(a, 0, elementData, size, numNew);</span><br><span class="line">        size +&#x3D; numNew;</span><br><span class="line">        return numNew !&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Inserts all of the elements in the specified collection into this</span><br><span class="line">     * list, starting at the specified position.  Shifts the element</span><br><span class="line">     * currently at that position (if any) and any subsequent elements to</span><br><span class="line">     * the right (increases their indices).  The new elements will appear</span><br><span class="line">     * in the list in the order that they are returned by the</span><br><span class="line">     * specified collection&#39;s iterator.</span><br><span class="line">     *</span><br><span class="line">     * @param index index at which to insert the first element from the</span><br><span class="line">     *              specified collection</span><br><span class="line">     * @param c collection containing elements to be added to this list</span><br><span class="line">     * @return &lt;tt&gt;true&lt;&#x2F;tt&gt; if this list changed as a result of the call</span><br><span class="line">     * @throws IndexOutOfBoundsException &#123;@inheritDoc&#125;</span><br><span class="line">     * @throws NullPointerException if the specified collection is null</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean addAll(int index, Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">        rangeCheckForAdd(index);</span><br><span class="line"></span><br><span class="line">        Object[] a &#x3D; c.toArray();</span><br><span class="line">        int numNew &#x3D; a.length;</span><br><span class="line">        ensureCapacityInternal(size + numNew);  &#x2F;&#x2F; Increments modCount</span><br><span class="line"></span><br><span class="line">        int numMoved &#x3D; size - index;</span><br><span class="line">        if (numMoved &gt; 0)</span><br><span class="line">            System.arraycopy(elementData, index, elementData, index + numNew,</span><br><span class="line">                             numMoved);</span><br><span class="line"></span><br><span class="line">        System.arraycopy(a, 0, elementData, index, numNew);</span><br><span class="line">        size +&#x3D; numNew;</span><br><span class="line">        return numNew !&#x3D; 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Removes from this list all of the elements whose index is between</span><br><span class="line">     * &#123;@code fromIndex&#125;, inclusive, and &#123;@code toIndex&#125;, exclusive.</span><br><span class="line">     * Shifts any succeeding elements to the left (reduces their index).</span><br><span class="line">     * This call shortens the list by &#123;@code (toIndex - fromIndex)&#125; elements.</span><br><span class="line">     * (If &#123;@code toIndex&#x3D;&#x3D;fromIndex&#125;, this operation has no effect.)</span><br><span class="line">     *</span><br><span class="line">     * @throws IndexOutOfBoundsException if &#123;@code fromIndex&#125; or</span><br><span class="line">     *         &#123;@code toIndex&#125; is out of range</span><br><span class="line">     *         (&#123;@code fromIndex &lt; 0 ||</span><br><span class="line">     *          fromIndex &gt;&#x3D; size() ||</span><br><span class="line">     *          toIndex &gt; size() ||</span><br><span class="line">     *          toIndex &lt; fromIndex&#125;)</span><br><span class="line">     *&#x2F;</span><br><span class="line">    protected void removeRange(int fromIndex, int toIndex) &#123;</span><br><span class="line">        modCount++;</span><br><span class="line">        int numMoved &#x3D; size - toIndex;</span><br><span class="line">        System.arraycopy(elementData, toIndex, elementData, fromIndex,</span><br><span class="line">                         numMoved);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; clear to let GC do its work</span><br><span class="line">        int newSize &#x3D; size - (toIndex-fromIndex);</span><br><span class="line">        for (int i &#x3D; newSize; i &lt; size; i++) &#123;</span><br><span class="line">            elementData[i] &#x3D; null;</span><br><span class="line">        &#125;</span><br><span class="line">        size &#x3D; newSize;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Checks if the given index is in range.  If not, throws an appropriate</span><br><span class="line">     * runtime exception.  This method does *not* check if the index is</span><br><span class="line">     * negative: It is always used immediately prior to an array access,</span><br><span class="line">     * which throws an ArrayIndexOutOfBoundsException if index is negative.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void rangeCheck(int index) &#123;</span><br><span class="line">        if (index &gt;&#x3D; size)</span><br><span class="line">            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * A version of rangeCheck used by add and addAll.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void rangeCheckForAdd(int index) &#123;</span><br><span class="line">        if (index &gt; size || index &lt; 0)</span><br><span class="line">            throw new IndexOutOfBoundsException(outOfBoundsMsg(index));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Constructs an IndexOutOfBoundsException detail message.</span><br><span class="line">     * Of the many possible refactorings of the error handling code,</span><br><span class="line">     * this &quot;outlining&quot; performs best with both server and client VMs.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private String outOfBoundsMsg(int index) &#123;</span><br><span class="line">        return &quot;Index: &quot;+index+&quot;, Size: &quot;+size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Removes from this list all of its elements that are contained in the</span><br><span class="line">     * specified collection.</span><br><span class="line">     *</span><br><span class="line">     * @param c collection containing elements to be removed from this list</span><br><span class="line">     * @return &#123;@code true&#125; if this list changed as a result of the call</span><br><span class="line">     * @throws ClassCastException if the class of an element of this list</span><br><span class="line">     *         is incompatible with the specified collection</span><br><span class="line">     * (&lt;a href&#x3D;&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;&#x2F;a&gt;)</span><br><span class="line">     * @throws NullPointerException if this list contains a null element and the</span><br><span class="line">     *         specified collection does not permit null elements</span><br><span class="line">     * (&lt;a href&#x3D;&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;&#x2F;a&gt;),</span><br><span class="line">     *         or if the specified collection is null</span><br><span class="line">     * @see Collection#contains(Object)</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean removeAll(Collection&lt;?&gt; c) &#123;</span><br><span class="line">        Objects.requireNonNull(c);</span><br><span class="line">        return batchRemove(c, false);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Retains only the elements in this list that are contained in the</span><br><span class="line">     * specified collection.  In other words, removes from this list all</span><br><span class="line">     * of its elements that are not contained in the specified collection.</span><br><span class="line">     *</span><br><span class="line">     * @param c collection containing elements to be retained in this list</span><br><span class="line">     * @return &#123;@code true&#125; if this list changed as a result of the call</span><br><span class="line">     * @throws ClassCastException if the class of an element of this list</span><br><span class="line">     *         is incompatible with the specified collection</span><br><span class="line">     * (&lt;a href&#x3D;&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;&#x2F;a&gt;)</span><br><span class="line">     * @throws NullPointerException if this list contains a null element and the</span><br><span class="line">     *         specified collection does not permit null elements</span><br><span class="line">     * (&lt;a href&#x3D;&quot;Collection.html#optional-restrictions&quot;&gt;optional&lt;&#x2F;a&gt;),</span><br><span class="line">     *         or if the specified collection is null</span><br><span class="line">     * @see Collection#contains(Object)</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public boolean retainAll(Collection&lt;?&gt; c) &#123;</span><br><span class="line">        Objects.requireNonNull(c);</span><br><span class="line">        return batchRemove(c, true);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private boolean batchRemove(Collection&lt;?&gt; c, boolean complement) &#123;</span><br><span class="line">        final Object[] elementData &#x3D; this.elementData;</span><br><span class="line">        int r &#x3D; 0, w &#x3D; 0;</span><br><span class="line">        boolean modified &#x3D; false;</span><br><span class="line">        try &#123;</span><br><span class="line">            for (; r &lt; size; r++)</span><br><span class="line">                if (c.contains(elementData[r]) &#x3D;&#x3D; complement)</span><br><span class="line">                    elementData[w++] &#x3D; elementData[r];</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            &#x2F;&#x2F; Preserve behavioral compatibility with AbstractCollection,</span><br><span class="line">            &#x2F;&#x2F; even if c.contains() throws.</span><br><span class="line">            if (r !&#x3D; size) &#123;</span><br><span class="line">                System.arraycopy(elementData, r,</span><br><span class="line">                                 elementData, w,</span><br><span class="line">                                 size - r);</span><br><span class="line">                w +&#x3D; size - r;</span><br><span class="line">            &#125;</span><br><span class="line">            if (w !&#x3D; size) &#123;</span><br><span class="line">                &#x2F;&#x2F; clear to let GC do its work</span><br><span class="line">                for (int i &#x3D; w; i &lt; size; i++)</span><br><span class="line">                    elementData[i] &#x3D; null;</span><br><span class="line">                modCount +&#x3D; size - w;</span><br><span class="line">                size &#x3D; w;</span><br><span class="line">                modified &#x3D; true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return modified;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Save the state of the &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance to a stream (that</span><br><span class="line">     * is, serialize it).</span><br><span class="line">     *</span><br><span class="line">     * @serialData The length of the array backing the &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt;</span><br><span class="line">     *             instance is emitted (int), followed by all of its elements</span><br><span class="line">     *             (each an &lt;tt&gt;Object&lt;&#x2F;tt&gt;) in the proper order.</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void writeObject(java.io.ObjectOutputStream s)</span><br><span class="line">        throws java.io.IOException&#123;</span><br><span class="line">        &#x2F;&#x2F; Write out element count, and any hidden stuff</span><br><span class="line">        int expectedModCount &#x3D; modCount;</span><br><span class="line">        s.defaultWriteObject();</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; Write out size as capacity for behavioural compatibility with clone()</span><br><span class="line">        s.writeInt(size);</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; Write out all elements in the proper order.</span><br><span class="line">        for (int i&#x3D;0; i&lt;size; i++) &#123;</span><br><span class="line">            s.writeObject(elementData[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        if (modCount !&#x3D; expectedModCount) &#123;</span><br><span class="line">            throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Reconstitute the &lt;tt&gt;ArrayList&lt;&#x2F;tt&gt; instance from a stream (that is,</span><br><span class="line">     * deserialize it).</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private void readObject(java.io.ObjectInputStream s)</span><br><span class="line">        throws java.io.IOException, ClassNotFoundException &#123;</span><br><span class="line">        elementData &#x3D; EMPTY_ELEMENTDATA;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; Read in size, and any hidden stuff</span><br><span class="line">        s.defaultReadObject();</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; Read in capacity</span><br><span class="line">        s.readInt(); &#x2F;&#x2F; ignored</span><br><span class="line"></span><br><span class="line">        if (size &gt; 0) &#123;</span><br><span class="line">            &#x2F;&#x2F; be like clone(), allocate array based upon size not capacity</span><br><span class="line">            int capacity &#x3D; calculateCapacity(elementData, size);</span><br><span class="line">            SharedSecrets.getJavaOISAccess().checkArray(s, Object[].class, capacity);</span><br><span class="line">            ensureCapacityInternal(size);</span><br><span class="line"></span><br><span class="line">            Object[] a &#x3D; elementData;</span><br><span class="line">            &#x2F;&#x2F; Read in all elements in the proper order.</span><br><span class="line">            for (int i&#x3D;0; i&lt;size; i++) &#123;</span><br><span class="line">                a[i] &#x3D; s.readObject();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns a list iterator over the elements in this list (in proper</span><br><span class="line">     * sequence), starting at the specified position in the list.</span><br><span class="line">     * The specified index indicates the first element that would be</span><br><span class="line">     * returned by an initial call to &#123;@link ListIterator#next next&#125;.</span><br><span class="line">     * An initial call to &#123;@link ListIterator#previous previous&#125; would</span><br><span class="line">     * return the element with the specified index minus one.</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;The returned list iterator is &lt;a href&#x3D;&quot;#fail-fast&quot;&gt;&lt;i&gt;fail-fast&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;.</span><br><span class="line">     *</span><br><span class="line">     * @throws IndexOutOfBoundsException &#123;@inheritDoc&#125;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public ListIterator&lt;E&gt; listIterator(int index) &#123;</span><br><span class="line">        if (index &lt; 0 || index &gt; size)</span><br><span class="line">            throw new IndexOutOfBoundsException(&quot;Index: &quot;+index);</span><br><span class="line">        return new ListItr(index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns a list iterator over the elements in this list (in proper</span><br><span class="line">     * sequence).</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;The returned list iterator is &lt;a href&#x3D;&quot;#fail-fast&quot;&gt;&lt;i&gt;fail-fast&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;.</span><br><span class="line">     *</span><br><span class="line">     * @see #listIterator(int)</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public ListIterator&lt;E&gt; listIterator() &#123;</span><br><span class="line">        return new ListItr(0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns an iterator over the elements in this list in proper sequence.</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;The returned iterator is &lt;a href&#x3D;&quot;#fail-fast&quot;&gt;&lt;i&gt;fail-fast&lt;&#x2F;i&gt;&lt;&#x2F;a&gt;.</span><br><span class="line">     *</span><br><span class="line">     * @return an iterator over the elements in this list in proper sequence</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public Iterator&lt;E&gt; iterator() &#123;</span><br><span class="line">        return new Itr();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * An optimized version of AbstractList.Itr</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private class Itr implements Iterator&lt;E&gt; &#123;</span><br><span class="line">        int cursor;       &#x2F;&#x2F; index of next element to return</span><br><span class="line">        int lastRet &#x3D; -1; &#x2F;&#x2F; index of last element returned; -1 if no such</span><br><span class="line">        int expectedModCount &#x3D; modCount;</span><br><span class="line"></span><br><span class="line">        Itr() &#123;&#125;</span><br><span class="line"></span><br><span class="line">        public boolean hasNext() &#123;</span><br><span class="line">            return cursor !&#x3D; size;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">        public E next() &#123;</span><br><span class="line">            checkForComodification();</span><br><span class="line">            int i &#x3D; cursor;</span><br><span class="line">            if (i &gt;&#x3D; size)</span><br><span class="line">                throw new NoSuchElementException();</span><br><span class="line">            Object[] elementData &#x3D; ArrayList.this.elementData;</span><br><span class="line">            if (i &gt;&#x3D; elementData.length)</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">            cursor &#x3D; i + 1;</span><br><span class="line">            return (E) elementData[lastRet &#x3D; i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void remove() &#123;</span><br><span class="line">            if (lastRet &lt; 0)</span><br><span class="line">                throw new IllegalStateException();</span><br><span class="line">            checkForComodification();</span><br><span class="line"></span><br><span class="line">            try &#123;</span><br><span class="line">                ArrayList.this.remove(lastRet);</span><br><span class="line">                cursor &#x3D; lastRet;</span><br><span class="line">                lastRet &#x3D; -1;</span><br><span class="line">                expectedModCount &#x3D; modCount;</span><br><span class="line">            &#125; catch (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">        public void forEachRemaining(Consumer&lt;? super E&gt; consumer) &#123;</span><br><span class="line">            Objects.requireNonNull(consumer);</span><br><span class="line">            final int size &#x3D; ArrayList.this.size;</span><br><span class="line">            int i &#x3D; cursor;</span><br><span class="line">            if (i &gt;&#x3D; size) &#123;</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            final Object[] elementData &#x3D; ArrayList.this.elementData;</span><br><span class="line">            if (i &gt;&#x3D; elementData.length) &#123;</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">            &#125;</span><br><span class="line">            while (i !&#x3D; size &amp;&amp; modCount &#x3D;&#x3D; expectedModCount) &#123;</span><br><span class="line">                consumer.accept((E) elementData[i++]);</span><br><span class="line">            &#125;</span><br><span class="line">            &#x2F;&#x2F; update once at end of iteration to reduce heap write traffic</span><br><span class="line">            cursor &#x3D; i;</span><br><span class="line">            lastRet &#x3D; i - 1;</span><br><span class="line">            checkForComodification();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        final void checkForComodification() &#123;</span><br><span class="line">            if (modCount !&#x3D; expectedModCount)</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * An optimized version of AbstractList.ListItr</span><br><span class="line">     *&#x2F;</span><br><span class="line">    private class ListItr extends Itr implements ListIterator&lt;E&gt; &#123;</span><br><span class="line">        ListItr(int index) &#123;</span><br><span class="line">            super();</span><br><span class="line">            cursor &#x3D; index;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public boolean hasPrevious() &#123;</span><br><span class="line">            return cursor !&#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public int nextIndex() &#123;</span><br><span class="line">            return cursor;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public int previousIndex() &#123;</span><br><span class="line">            return cursor - 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">        public E previous() &#123;</span><br><span class="line">            checkForComodification();</span><br><span class="line">            int i &#x3D; cursor - 1;</span><br><span class="line">            if (i &lt; 0)</span><br><span class="line">                throw new NoSuchElementException();</span><br><span class="line">            Object[] elementData &#x3D; ArrayList.this.elementData;</span><br><span class="line">            if (i &gt;&#x3D; elementData.length)</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">            cursor &#x3D; i;</span><br><span class="line">            return (E) elementData[lastRet &#x3D; i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void set(E e) &#123;</span><br><span class="line">            if (lastRet &lt; 0)</span><br><span class="line">                throw new IllegalStateException();</span><br><span class="line">            checkForComodification();</span><br><span class="line"></span><br><span class="line">            try &#123;</span><br><span class="line">                ArrayList.this.set(lastRet, e);</span><br><span class="line">            &#125; catch (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void add(E e) &#123;</span><br><span class="line">            checkForComodification();</span><br><span class="line"></span><br><span class="line">            try &#123;</span><br><span class="line">                int i &#x3D; cursor;</span><br><span class="line">                ArrayList.this.add(i, e);</span><br><span class="line">                cursor &#x3D; i + 1;</span><br><span class="line">                lastRet &#x3D; -1;</span><br><span class="line">                expectedModCount &#x3D; modCount;</span><br><span class="line">            &#125; catch (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Returns a view of the portion of this list between the specified</span><br><span class="line">     * &#123;@code fromIndex&#125;, inclusive, and &#123;@code toIndex&#125;, exclusive.  (If</span><br><span class="line">     * &#123;@code fromIndex&#125; and &#123;@code toIndex&#125; are equal, the returned list is</span><br><span class="line">     * empty.)  The returned list is backed by this list, so non-structural</span><br><span class="line">     * changes in the returned list are reflected in this list, and vice-versa.</span><br><span class="line">     * The returned list supports all of the optional list operations.</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;This method eliminates the need for explicit range operations (of</span><br><span class="line">     * the sort that commonly exist for arrays).  Any operation that expects</span><br><span class="line">     * a list can be used as a range operation by passing a subList view</span><br><span class="line">     * instead of a whole list.  For example, the following idiom</span><br><span class="line">     * removes a range of elements from a list:</span><br><span class="line">     * &lt;pre&gt;</span><br><span class="line">     *      list.subList(from, to).clear();</span><br><span class="line">     * &lt;&#x2F;pre&gt;</span><br><span class="line">     * Similar idioms may be constructed for &#123;@link #indexOf(Object)&#125; and</span><br><span class="line">     * &#123;@link #lastIndexOf(Object)&#125;, and all of the algorithms in the</span><br><span class="line">     * &#123;@link Collections&#125; class can be applied to a subList.</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;The semantics of the list returned by this method become undefined if</span><br><span class="line">     * the backing list (i.e., this list) is &lt;i&gt;structurally modified&lt;&#x2F;i&gt; in</span><br><span class="line">     * any way other than via the returned list.  (Structural modifications are</span><br><span class="line">     * those that change the size of this list, or otherwise perturb it in such</span><br><span class="line">     * a fashion that iterations in progress may yield incorrect results.)</span><br><span class="line">     *</span><br><span class="line">     * @throws IndexOutOfBoundsException &#123;@inheritDoc&#125;</span><br><span class="line">     * @throws IllegalArgumentException &#123;@inheritDoc&#125;</span><br><span class="line">     *&#x2F;</span><br><span class="line">    public List&lt;E&gt; subList(int fromIndex, int toIndex) &#123;</span><br><span class="line">        subListRangeCheck(fromIndex, toIndex, size);</span><br><span class="line">        return new SubList(this, 0, fromIndex, toIndex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    static void subListRangeCheck(int fromIndex, int toIndex, int size) &#123;</span><br><span class="line">        if (fromIndex &lt; 0)</span><br><span class="line">            throw new IndexOutOfBoundsException(&quot;fromIndex &#x3D; &quot; + fromIndex);</span><br><span class="line">        if (toIndex &gt; size)</span><br><span class="line">            throw new IndexOutOfBoundsException(&quot;toIndex &#x3D; &quot; + toIndex);</span><br><span class="line">        if (fromIndex &gt; toIndex)</span><br><span class="line">            throw new IllegalArgumentException(&quot;fromIndex(&quot; + fromIndex +</span><br><span class="line">                                               &quot;) &gt; toIndex(&quot; + toIndex + &quot;)&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private class SubList extends AbstractList&lt;E&gt; implements RandomAccess &#123;</span><br><span class="line">        private final AbstractList&lt;E&gt; parent;</span><br><span class="line">        private final int parentOffset;</span><br><span class="line">        private final int offset;</span><br><span class="line">        int size;</span><br><span class="line"></span><br><span class="line">        SubList(AbstractList&lt;E&gt; parent,</span><br><span class="line">                int offset, int fromIndex, int toIndex) &#123;</span><br><span class="line">            this.parent &#x3D; parent;</span><br><span class="line">            this.parentOffset &#x3D; fromIndex;</span><br><span class="line">            this.offset &#x3D; offset + fromIndex;</span><br><span class="line">            this.size &#x3D; toIndex - fromIndex;</span><br><span class="line">            this.modCount &#x3D; ArrayList.this.modCount;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public E set(int index, E e) &#123;</span><br><span class="line">            rangeCheck(index);</span><br><span class="line">            checkForComodification();</span><br><span class="line">            E oldValue &#x3D; ArrayList.this.elementData(offset + index);</span><br><span class="line">            ArrayList.this.elementData[offset + index] &#x3D; e;</span><br><span class="line">            return oldValue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public E get(int index) &#123;</span><br><span class="line">            rangeCheck(index);</span><br><span class="line">            checkForComodification();</span><br><span class="line">            return ArrayList.this.elementData(offset + index);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public int size() &#123;</span><br><span class="line">            checkForComodification();</span><br><span class="line">            return this.size;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void add(int index, E e) &#123;</span><br><span class="line">            rangeCheckForAdd(index);</span><br><span class="line">            checkForComodification();</span><br><span class="line">            parent.add(parentOffset + index, e);</span><br><span class="line">            this.modCount &#x3D; parent.modCount;</span><br><span class="line">            this.size++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public E remove(int index) &#123;</span><br><span class="line">            rangeCheck(index);</span><br><span class="line">            checkForComodification();</span><br><span class="line">            E result &#x3D; parent.remove(parentOffset + index);</span><br><span class="line">            this.modCount &#x3D; parent.modCount;</span><br><span class="line">            this.size--;</span><br><span class="line">            return result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        protected void removeRange(int fromIndex, int toIndex) &#123;</span><br><span class="line">            checkForComodification();</span><br><span class="line">            parent.removeRange(parentOffset + fromIndex,</span><br><span class="line">                               parentOffset + toIndex);</span><br><span class="line">            this.modCount &#x3D; parent.modCount;</span><br><span class="line">            this.size -&#x3D; toIndex - fromIndex;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public boolean addAll(Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">            return addAll(this.size, c);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public boolean addAll(int index, Collection&lt;? extends E&gt; c) &#123;</span><br><span class="line">            rangeCheckForAdd(index);</span><br><span class="line">            int cSize &#x3D; c.size();</span><br><span class="line">            if (cSize&#x3D;&#x3D;0)</span><br><span class="line">                return false;</span><br><span class="line"></span><br><span class="line">            checkForComodification();</span><br><span class="line">            parent.addAll(parentOffset + index, c);</span><br><span class="line">            this.modCount &#x3D; parent.modCount;</span><br><span class="line">            this.size +&#x3D; cSize;</span><br><span class="line">            return true;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public Iterator&lt;E&gt; iterator() &#123;</span><br><span class="line">            return listIterator();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public ListIterator&lt;E&gt; listIterator(final int index) &#123;</span><br><span class="line">            checkForComodification();</span><br><span class="line">            rangeCheckForAdd(index);</span><br><span class="line">            final int offset &#x3D; this.offset;</span><br><span class="line"></span><br><span class="line">            return new ListIterator&lt;E&gt;() &#123;</span><br><span class="line">                int cursor &#x3D; index;</span><br><span class="line">                int lastRet &#x3D; -1;</span><br><span class="line">                int expectedModCount &#x3D; ArrayList.this.modCount;</span><br><span class="line"></span><br><span class="line">                public boolean hasNext() &#123;</span><br><span class="line">                    return cursor !&#x3D; SubList.this.size;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">                public E next() &#123;</span><br><span class="line">                    checkForComodification();</span><br><span class="line">                    int i &#x3D; cursor;</span><br><span class="line">                    if (i &gt;&#x3D; SubList.this.size)</span><br><span class="line">                        throw new NoSuchElementException();</span><br><span class="line">                    Object[] elementData &#x3D; ArrayList.this.elementData;</span><br><span class="line">                    if (offset + i &gt;&#x3D; elementData.length)</span><br><span class="line">                        throw new ConcurrentModificationException();</span><br><span class="line">                    cursor &#x3D; i + 1;</span><br><span class="line">                    return (E) elementData[offset + (lastRet &#x3D; i)];</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                public boolean hasPrevious() &#123;</span><br><span class="line">                    return cursor !&#x3D; 0;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">                public E previous() &#123;</span><br><span class="line">                    checkForComodification();</span><br><span class="line">                    int i &#x3D; cursor - 1;</span><br><span class="line">                    if (i &lt; 0)</span><br><span class="line">                        throw new NoSuchElementException();</span><br><span class="line">                    Object[] elementData &#x3D; ArrayList.this.elementData;</span><br><span class="line">                    if (offset + i &gt;&#x3D; elementData.length)</span><br><span class="line">                        throw new ConcurrentModificationException();</span><br><span class="line">                    cursor &#x3D; i;</span><br><span class="line">                    return (E) elementData[offset + (lastRet &#x3D; i)];</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">                public void forEachRemaining(Consumer&lt;? super E&gt; consumer) &#123;</span><br><span class="line">                    Objects.requireNonNull(consumer);</span><br><span class="line">                    final int size &#x3D; SubList.this.size;</span><br><span class="line">                    int i &#x3D; cursor;</span><br><span class="line">                    if (i &gt;&#x3D; size) &#123;</span><br><span class="line">                        return;</span><br><span class="line">                    &#125;</span><br><span class="line">                    final Object[] elementData &#x3D; ArrayList.this.elementData;</span><br><span class="line">                    if (offset + i &gt;&#x3D; elementData.length) &#123;</span><br><span class="line">                        throw new ConcurrentModificationException();</span><br><span class="line">                    &#125;</span><br><span class="line">                    while (i !&#x3D; size &amp;&amp; modCount &#x3D;&#x3D; expectedModCount) &#123;</span><br><span class="line">                        consumer.accept((E) elementData[offset + (i++)]);</span><br><span class="line">                    &#125;</span><br><span class="line">                    &#x2F;&#x2F; update once at end of iteration to reduce heap write traffic</span><br><span class="line">                    lastRet &#x3D; cursor &#x3D; i;</span><br><span class="line">                    checkForComodification();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                public int nextIndex() &#123;</span><br><span class="line">                    return cursor;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                public int previousIndex() &#123;</span><br><span class="line">                    return cursor - 1;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                public void remove() &#123;</span><br><span class="line">                    if (lastRet &lt; 0)</span><br><span class="line">                        throw new IllegalStateException();</span><br><span class="line">                    checkForComodification();</span><br><span class="line"></span><br><span class="line">                    try &#123;</span><br><span class="line">                        SubList.this.remove(lastRet);</span><br><span class="line">                        cursor &#x3D; lastRet;</span><br><span class="line">                        lastRet &#x3D; -1;</span><br><span class="line">                        expectedModCount &#x3D; ArrayList.this.modCount;</span><br><span class="line">                    &#125; catch (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">                        throw new ConcurrentModificationException();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                public void set(E e) &#123;</span><br><span class="line">                    if (lastRet &lt; 0)</span><br><span class="line">                        throw new IllegalStateException();</span><br><span class="line">                    checkForComodification();</span><br><span class="line"></span><br><span class="line">                    try &#123;</span><br><span class="line">                        ArrayList.this.set(offset + lastRet, e);</span><br><span class="line">                    &#125; catch (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">                        throw new ConcurrentModificationException();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                public void add(E e) &#123;</span><br><span class="line">                    checkForComodification();</span><br><span class="line"></span><br><span class="line">                    try &#123;</span><br><span class="line">                        int i &#x3D; cursor;</span><br><span class="line">                        SubList.this.add(i, e);</span><br><span class="line">                        cursor &#x3D; i + 1;</span><br><span class="line">                        lastRet &#x3D; -1;</span><br><span class="line">                        expectedModCount &#x3D; ArrayList.this.modCount;</span><br><span class="line">                    &#125; catch (IndexOutOfBoundsException ex) &#123;</span><br><span class="line">                        throw new ConcurrentModificationException();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                final void checkForComodification() &#123;</span><br><span class="line">                    if (expectedModCount !&#x3D; ArrayList.this.modCount)</span><br><span class="line">                        throw new ConcurrentModificationException();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public List&lt;E&gt; subList(int fromIndex, int toIndex) &#123;</span><br><span class="line">            subListRangeCheck(fromIndex, toIndex, size);</span><br><span class="line">            return new SubList(this, offset, fromIndex, toIndex);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private void rangeCheck(int index) &#123;</span><br><span class="line">            if (index &lt; 0 || index &gt;&#x3D; this.size)</span><br><span class="line">                throw new IndexOutOfBoundsException(outOfBoundsMsg(index));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private void rangeCheckForAdd(int index) &#123;</span><br><span class="line">            if (index &lt; 0 || index &gt; this.size)</span><br><span class="line">                throw new IndexOutOfBoundsException(outOfBoundsMsg(index));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private String outOfBoundsMsg(int index) &#123;</span><br><span class="line">            return &quot;Index: &quot;+index+&quot;, Size: &quot;+this.size;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private void checkForComodification() &#123;</span><br><span class="line">            if (ArrayList.this.modCount !&#x3D; this.modCount)</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public Spliterator&lt;E&gt; spliterator() &#123;</span><br><span class="line">            checkForComodification();</span><br><span class="line">            return new ArrayListSpliterator&lt;E&gt;(ArrayList.this, offset,</span><br><span class="line">                                               offset + this.size, this.modCount);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void forEach(Consumer&lt;? super E&gt; action) &#123;</span><br><span class="line">        Objects.requireNonNull(action);</span><br><span class="line">        final int expectedModCount &#x3D; modCount;</span><br><span class="line">        @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">        final E[] elementData &#x3D; (E[]) this.elementData;</span><br><span class="line">        final int size &#x3D; this.size;</span><br><span class="line">        for (int i&#x3D;0; modCount &#x3D;&#x3D; expectedModCount &amp;&amp; i &lt; size; i++) &#123;</span><br><span class="line">            action.accept(elementData[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        if (modCount !&#x3D; expectedModCount) &#123;</span><br><span class="line">            throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">     * Creates a &lt;em&gt;&lt;a href&#x3D;&quot;Spliterator.html#binding&quot;&gt;late-binding&lt;&#x2F;a&gt;&lt;&#x2F;em&gt;</span><br><span class="line">     * and &lt;em&gt;fail-fast&lt;&#x2F;em&gt; &#123;@link Spliterator&#125; over the elements in this</span><br><span class="line">     * list.</span><br><span class="line">     *</span><br><span class="line">     * &lt;p&gt;The &#123;@code Spliterator&#125; reports &#123;@link Spliterator#SIZED&#125;,</span><br><span class="line">     * &#123;@link Spliterator#SUBSIZED&#125;, and &#123;@link Spliterator#ORDERED&#125;.</span><br><span class="line">     * Overriding implementations should document the reporting of additional</span><br><span class="line">     * characteristic values.</span><br><span class="line">     *</span><br><span class="line">     * @return a &#123;@code Spliterator&#125; over the elements in this list</span><br><span class="line">     * @since 1.8</span><br><span class="line">     *&#x2F;</span><br><span class="line">    @Override</span><br><span class="line">    public Spliterator&lt;E&gt; spliterator() &#123;</span><br><span class="line">        return new ArrayListSpliterator&lt;&gt;(this, 0, -1, 0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;** Index-based split-by-two, lazily initialized Spliterator *&#x2F;</span><br><span class="line">    static final class ArrayListSpliterator&lt;E&gt; implements Spliterator&lt;E&gt; &#123;</span><br><span class="line"></span><br><span class="line">        &#x2F;*</span><br><span class="line">         * If ArrayLists were immutable, or structurally immutable (no</span><br><span class="line">         * adds, removes, etc), we could implement their spliterators</span><br><span class="line">         * with Arrays.spliterator. Instead we detect as much</span><br><span class="line">         * interference during traversal as practical without</span><br><span class="line">         * sacrificing much performance. We rely primarily on</span><br><span class="line">         * modCounts. These are not guaranteed to detect concurrency</span><br><span class="line">         * violations, and are sometimes overly conservative about</span><br><span class="line">         * within-thread interference, but detect enough problems to</span><br><span class="line">         * be worthwhile in practice. To carry this out, we (1) lazily</span><br><span class="line">         * initialize fence and expectedModCount until the latest</span><br><span class="line">         * point that we need to commit to the state we are checking</span><br><span class="line">         * against; thus improving precision.  (This doesn&#39;t apply to</span><br><span class="line">         * SubLists, that create spliterators with current non-lazy</span><br><span class="line">         * values).  (2) We perform only a single</span><br><span class="line">         * ConcurrentModificationException check at the end of forEach</span><br><span class="line">         * (the most performance-sensitive method). When using forEach</span><br><span class="line">         * (as opposed to iterators), we can normally only detect</span><br><span class="line">         * interference after actions, not before. Further</span><br><span class="line">         * CME-triggering checks apply to all other possible</span><br><span class="line">         * violations of assumptions for example null or too-small</span><br><span class="line">         * elementData array given its size(), that could only have</span><br><span class="line">         * occurred due to interference.  This allows the inner loop</span><br><span class="line">         * of forEach to run without any further checks, and</span><br><span class="line">         * simplifies lambda-resolution. While this does entail a</span><br><span class="line">         * number of checks, note that in the common case of</span><br><span class="line">         * list.stream().forEach(a), no checks or other computation</span><br><span class="line">         * occur anywhere other than inside forEach itself.  The other</span><br><span class="line">         * less-often-used methods cannot take advantage of most of</span><br><span class="line">         * these streamlinings.</span><br><span class="line">         *&#x2F;</span><br><span class="line"></span><br><span class="line">        private final ArrayList&lt;E&gt; list;</span><br><span class="line">        private int index; &#x2F;&#x2F; current index, modified on advance&#x2F;split</span><br><span class="line">        private int fence; &#x2F;&#x2F; -1 until used; then one past last index</span><br><span class="line">        private int expectedModCount; &#x2F;&#x2F; initialized when fence set</span><br><span class="line"></span><br><span class="line">        &#x2F;** Create new spliterator covering the given  range *&#x2F;</span><br><span class="line">        ArrayListSpliterator(ArrayList&lt;E&gt; list, int origin, int fence,</span><br><span class="line">                             int expectedModCount) &#123;</span><br><span class="line">            this.list &#x3D; list; &#x2F;&#x2F; OK if null unless traversed</span><br><span class="line">            this.index &#x3D; origin;</span><br><span class="line">            this.fence &#x3D; fence;</span><br><span class="line">            this.expectedModCount &#x3D; expectedModCount;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        private int getFence() &#123; &#x2F;&#x2F; initialize fence to size on first use</span><br><span class="line">            int hi; &#x2F;&#x2F; (a specialized variant appears in method forEach)</span><br><span class="line">            ArrayList&lt;E&gt; lst;</span><br><span class="line">            if ((hi &#x3D; fence) &lt; 0) &#123;</span><br><span class="line">                if ((lst &#x3D; list) &#x3D;&#x3D; null)</span><br><span class="line">                    hi &#x3D; fence &#x3D; 0;</span><br><span class="line">                else &#123;</span><br><span class="line">                    expectedModCount &#x3D; lst.modCount;</span><br><span class="line">                    hi &#x3D; fence &#x3D; lst.size;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return hi;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public ArrayListSpliterator&lt;E&gt; trySplit() &#123;</span><br><span class="line">            int hi &#x3D; getFence(), lo &#x3D; index, mid &#x3D; (lo + hi) &gt;&gt;&gt; 1;</span><br><span class="line">            return (lo &gt;&#x3D; mid) ? null : &#x2F;&#x2F; divide range in half unless too small</span><br><span class="line">                new ArrayListSpliterator&lt;E&gt;(list, lo, index &#x3D; mid,</span><br><span class="line">                                            expectedModCount);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public boolean tryAdvance(Consumer&lt;? super E&gt; action) &#123;</span><br><span class="line">            if (action &#x3D;&#x3D; null)</span><br><span class="line">                throw new NullPointerException();</span><br><span class="line">            int hi &#x3D; getFence(), i &#x3D; index;</span><br><span class="line">            if (i &lt; hi) &#123;</span><br><span class="line">                index &#x3D; i + 1;</span><br><span class="line">                @SuppressWarnings(&quot;unchecked&quot;) E e &#x3D; (E)list.elementData[i];</span><br><span class="line">                action.accept(e);</span><br><span class="line">                if (list.modCount !&#x3D; expectedModCount)</span><br><span class="line">                    throw new ConcurrentModificationException();</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public void forEachRemaining(Consumer&lt;? super E&gt; action) &#123;</span><br><span class="line">            int i, hi, mc; &#x2F;&#x2F; hoist accesses and checks from loop</span><br><span class="line">            ArrayList&lt;E&gt; lst; Object[] a;</span><br><span class="line">            if (action &#x3D;&#x3D; null)</span><br><span class="line">                throw new NullPointerException();</span><br><span class="line">            if ((lst &#x3D; list) !&#x3D; null &amp;&amp; (a &#x3D; lst.elementData) !&#x3D; null) &#123;</span><br><span class="line">                if ((hi &#x3D; fence) &lt; 0) &#123;</span><br><span class="line">                    mc &#x3D; lst.modCount;</span><br><span class="line">                    hi &#x3D; lst.size;</span><br><span class="line">                &#125;</span><br><span class="line">                else</span><br><span class="line">                    mc &#x3D; expectedModCount;</span><br><span class="line">                if ((i &#x3D; index) &gt;&#x3D; 0 &amp;&amp; (index &#x3D; hi) &lt;&#x3D; a.length) &#123;</span><br><span class="line">                    for (; i &lt; hi; ++i) &#123;</span><br><span class="line">                        @SuppressWarnings(&quot;unchecked&quot;) E e &#x3D; (E) a[i];</span><br><span class="line">                        action.accept(e);</span><br><span class="line">                    &#125;</span><br><span class="line">                    if (lst.modCount &#x3D;&#x3D; mc)</span><br><span class="line">                        return;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public long estimateSize() &#123;</span><br><span class="line">            return (long) (getFence() - index);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public int characteristics() &#123;</span><br><span class="line">            return Spliterator.ORDERED | Spliterator.SIZED | Spliterator.SUBSIZED;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public boolean removeIf(Predicate&lt;? super E&gt; filter) &#123;</span><br><span class="line">        Objects.requireNonNull(filter);</span><br><span class="line">        &#x2F;&#x2F; figure out which elements are to be removed</span><br><span class="line">        &#x2F;&#x2F; any exception thrown from the filter predicate at this stage</span><br><span class="line">        &#x2F;&#x2F; will leave the collection unmodified</span><br><span class="line">        int removeCount &#x3D; 0;</span><br><span class="line">        final BitSet removeSet &#x3D; new BitSet(size);</span><br><span class="line">        final int expectedModCount &#x3D; modCount;</span><br><span class="line">        final int size &#x3D; this.size;</span><br><span class="line">        for (int i&#x3D;0; modCount &#x3D;&#x3D; expectedModCount &amp;&amp; i &lt; size; i++) &#123;</span><br><span class="line">            @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">            final E element &#x3D; (E) elementData[i];</span><br><span class="line">            if (filter.test(element)) &#123;</span><br><span class="line">                removeSet.set(i);</span><br><span class="line">                removeCount++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if (modCount !&#x3D; expectedModCount) &#123;</span><br><span class="line">            throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        &#x2F;&#x2F; shift surviving elements left over the spaces left by removed elements</span><br><span class="line">        final boolean anyToRemove &#x3D; removeCount &gt; 0;</span><br><span class="line">        if (anyToRemove) &#123;</span><br><span class="line">            final int newSize &#x3D; size - removeCount;</span><br><span class="line">            for (int i&#x3D;0, j&#x3D;0; (i &lt; size) &amp;&amp; (j &lt; newSize); i++, j++) &#123;</span><br><span class="line">                i &#x3D; removeSet.nextClearBit(i);</span><br><span class="line">                elementData[j] &#x3D; elementData[i];</span><br><span class="line">            &#125;</span><br><span class="line">            for (int k&#x3D;newSize; k &lt; size; k++) &#123;</span><br><span class="line">                elementData[k] &#x3D; null;  &#x2F;&#x2F; Let gc do its work</span><br><span class="line">            &#125;</span><br><span class="line">            this.size &#x3D; newSize;</span><br><span class="line">            if (modCount !&#x3D; expectedModCount) &#123;</span><br><span class="line">                throw new ConcurrentModificationException();</span><br><span class="line">            &#125;</span><br><span class="line">            modCount++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return anyToRemove;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">    public void replaceAll(UnaryOperator&lt;E&gt; operator) &#123;</span><br><span class="line">        Objects.requireNonNull(operator);</span><br><span class="line">        final int expectedModCount &#x3D; modCount;</span><br><span class="line">        final int size &#x3D; this.size;</span><br><span class="line">        for (int i&#x3D;0; modCount &#x3D;&#x3D; expectedModCount &amp;&amp; i &lt; size; i++) &#123;</span><br><span class="line">            elementData[i] &#x3D; operator.apply((E) elementData[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        if (modCount !&#x3D; expectedModCount) &#123;</span><br><span class="line">            throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">        modCount++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">    public void sort(Comparator&lt;? super E&gt; c) &#123;</span><br><span class="line">        final int expectedModCount &#x3D; modCount;</span><br><span class="line">        Arrays.sort((E[]) elementData, 0, size, c);</span><br><span class="line">        if (modCount !&#x3D; expectedModCount) &#123;</span><br><span class="line">            throw new ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">        modCount++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>ArrayList源码</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年03月13日 - 23:12:56</p>
+  <p><span>最后更新:</span>2020年03月18日 - 00:50:17</p>
+  <p><span>原始链接:</span><a href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/" title="ArrayList源码">https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/ArrayList/" rel="tag"><i class="fa fa-tag">ArrayList</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/LinkedList/" rel="next" title="ArrayList源码">
+                <i class="fa fa-chevron-left"></i> ArrayList源码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/HashMap/" rel="prev" title="ArrayList源码">
+                ArrayList源码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">104</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://user.qzone.qq.com/2915324940/main" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="fengyue2915324940" target="_blank" title="wechat">
+                      
+                        <i class="fa fa-fw fa-weixin"></i>wechat</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="skype:live:.cid.823b4e929670864a" target="_blank" title="Skype">
+                      
+                        <i class="fa fa-fw fa-skype"></i>Skype</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://github.com/fengshana" title="github" target="_blank">github</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="http://www.daovoice.io/" title="daovoice" target="_blank">daovoice</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://youtube.com/channel/UCtzIJK9eLCWLQF13KpZE-0w" title="YouTube" target="_blank">YouTube</a>
+					 </span>
+                
+
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/3b74c7b81348" title="Jianshu" target="_blank">Jianshu</a>
+					 </span>
+                
+
+                
+				
+				
+			  
+			  
+			  
+			  
+			  
+			  
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>-->
+
+
+
+
+
+
+<!--
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+ -->
+ 
+ 
+ 
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共287.7k字</span>
+  
+  <span class="post-meta-divider">|</span>
+
+</div>
+
+<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<span class="post-meta-divider">|</span>
+<span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"</span>人</span>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+
+
