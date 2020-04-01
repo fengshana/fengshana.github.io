@@ -1,6 +1,6 @@
 photo ={
     page: 1,
-    offset: 20,
+    offset: 12,
     init: function () {
         var that = this;
        $.getJSON("../Images/output.json", function (data) {
@@ -25,9 +25,9 @@ photo ={
                         '<img src="https://github.com/fengshana/fengshana.github.io/blob/master/images/' + imgNameWithPattern + '?raw=true">' +
                       '</a>' +
                     '</div>' +
-                    // '<div class="TextInCard">' + imgName + '</div>' +
                   '</div>'
         }
+        //添加上一页、下一页
         $(".ImageGrid").append(li);
         $(".ImageGrid").lazyload();
         this.minigrid();
