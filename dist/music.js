@@ -3,6 +3,72 @@ const ap = new APlayer({
     fixed: true,
     autoplay: false,
     audio: [
+      {
+        name: '谷雨 伴奏',
+        artist: '桑葚上的猴子',
+        url: 'http://music.163.com/song/media/outer/url?id=410161058.mp3',
+        cover: 'http://p2.music.126.net/UL_YbIkPg9t6UFpmTRxMPw==/18198016951571087.jpg',
+},
+      {
+        name: 'Illusionary Daytime',
+        artist: 'Shirfine',
+        url: 'http://music.163.com/song/media/outer/url?id=28907016.mp3',
+        cover: 'http://p2.music.126.net/8xNVCemkSNQptEyNw1PHKg==/8914840278033758.jpg',
+},
+      {
+        name: 'One More Chance (幻梦 Piano.Ver)',
+        artist: '十指流玉',
+        url: 'http://music.163.com/song/media/outer/url?id=431794174.mp3',
+        cover: 'http://p2.music.126.net/66t8M-Z_SoPEj6ECgo-ioQ==/17641664068028682.jpg',
+},
+      {
+        name: 'Asphyxia（Piano Ver.）',
+        artist: '逆时针向',
+        url: 'http://music.163.com/song/media/outer/url?id=527957820.mp3',
+        cover: 'http://p1.music.126.net/FRIgNtiwVBjHDIlhgnzGew==/109951163869607960.jpg',
+},
+      {
+        name: '夜、萤火虫和你',
+        artist: 'AniFace',
+        url: 'http://music.163.com/song/media/outer/url?id=509720124.mp3',
+        cover: 'http://p1.music.126.net/VM7ZmBeI1B1eZzh7_z73JA==/109951163036196252.jpg',
+},
+      {
+        name: '月色与雪色之间，你是第三种绝色。',
+        artist: '十指流玉 / 鲤羽Lyka',
+        url: 'http://music.163.com/song/media/outer/url?id=535612106.mp3',
+        cover: 'http://p1.music.126.net/xYzP49uwP-JFR9U2JpdVQw==/109951163322250690.jpg',
+},
+      {
+        name: '写给我第一个喜欢的女孩的歌',
+        artist: '凯瑟喵',
+        url: 'http://music.163.com/song/media/outer/url?id=431551064.mp3',
+        cover: 'http://p2.music.126.net/ynoEqF7SdApYF2irHykgJw==/18247494975017868.jpg',
+},
+      {
+        name: '步戏',
+        artist: '五音Jw',
+        url: 'http://music.163.com/song/media/outer/url?id=470774529.mp3',
+        cover: 'http://p2.music.126.net/Jenn2_O46HOhwC2cENupVA==/109951162896901900.jpg',
+},
+{
+        name: '我的意中人',
+        artist: '叶里',
+        url: 'http://music.163.com/song/media/outer/url?id=1339026629.mp3',
+        cover: 'http://p1.music.126.net/tBVDJDG6Pst6Gj3G3TI8sg==/109951163787950709.jpg',
+},
+{
+        name: '谪仙',
+        artist: '伊格赛听 / 叶里',
+        url: 'http://music.163.com/song/media/outer/url?id=1421256202.mp3',
+        cover: 'http://p2.music.126.net/X-ZQ6wkyaL9cJTiyxmDhuw==/109951164680974796.jpg',
+},
+{
+        name: '天魔策',
+        artist: '西瓜JUN',
+        url: 'http://music.163.com/song/media/outer/url?id=1304033707.mp3',
+        cover: 'http://p2.music.126.net/svothtu7RMQBqscjVSBVRQ==/109951163488793511.jpg',
+},
 	{
         name: '孽海记',
         artist: '黄诗扶',
