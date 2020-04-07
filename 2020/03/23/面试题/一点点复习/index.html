@@ -355,7 +355,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -508,7 +525,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPZU4mXHJZU5LykYnwcsKvH.kCcFYx1FvA9w2dN81ZBgDGiz9pcNkqjnF75LuzA4OOQpV5*MiJA2ADAxAUdu9q.8!/r" rel="gallery_ck8qa68so009mqwum05sadw5i"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPZU4mXHJZU5LykYnwcsKvH.kCcFYx1FvA9w2dN81ZBgDGiz9pcNkqjnF75LuzA4OOQpV5*MiJA2ADAxAUdu9q.8!/r" rel="gallery_ck8qagtd9009ogsum4lo241rw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPZU4mXHJZU5LykYnwcsKvH.kCcFYx1FvA9w2dN81ZBgDGiz9pcNkqjnF75LuzA4OOQpV5*MiJA2ADAxAUdu9q.8!/r" itemprop="contentUrl"/>
               </a>
@@ -1106,7 +1123,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/23/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="面试题">
+              <a href="/2020/03/23/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97/" rel="next" title="面试题">
                 <i class="fa fa-chevron-left"></i> 面试题
               </a>
             
@@ -1116,7 +1133,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/23/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97/" rel="prev" title="面试题">
+              <a href="/2020/03/23/%E9%9D%A2%E8%AF%95%E9%A2%98/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="prev" title="面试题">
                 面试题 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -1551,7 +1568,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

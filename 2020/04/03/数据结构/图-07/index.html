@@ -356,7 +356,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -509,7 +526,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXwS0iSIecJPBzosAlSOYlTU5a4HhmhAFt4czePNN0lcaXfEJcnWnLDT*0OPYm*QLOOOzVfPe*vBv8qXdrUtNhwA!/r" rel="gallery_ck8qa68ih001qqwum08x16k5j"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXwS0iSIecJPBzosAlSOYlTU5a4HhmhAFt4czePNN0lcaXfEJcnWnLDT*0OPYm*QLOOOzVfPe*vBv8qXdrUtNhwA!/r" rel="gallery_ck8qagt0w001tgsumfq2s5kr9"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXwS0iSIecJPBzosAlSOYlTU5a4HhmhAFt4czePNN0lcaXfEJcnWnLDT*0OPYm*QLOOOzVfPe*vBv8qXdrUtNhwA!/r" itemprop="contentUrl"/>
               </a>
@@ -664,8 +681,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/" rel="next" title="查找">
-                <i class="fa fa-chevron-left"></i> 查找
+              <a href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/" rel="next" title="树">
+                <i class="fa fa-chevron-left"></i> 树
               </a>
             
           </div>
@@ -674,8 +691,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/" rel="prev" title="树">
-                树 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/" rel="prev" title="排序">
+                排序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1109,7 +1126,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

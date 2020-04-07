@@ -350,7 +350,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -462,9 +479,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/" itemprop="url">
+            <a class="post-title-link" href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/" itemprop="url">
               
-                <span itemprop="name">排序</span>
+                <span itemprop="name">图</span>
               
             </a>
         
@@ -490,9 +507,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/" itemprop="url">
+            <a class="post-title-link" href="/2020/04/03/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/" itemprop="url">
               
-                <span itemprop="name">图</span>
+                <span itemprop="name">排序</span>
               
             </a>
         
@@ -1009,7 +1026,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

@@ -357,7 +357,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -510,7 +527,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68sp009nqwum0i123a7w"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8qagtd8009ngsum93w8gkjd"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -666,8 +683,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/" rel="next" title="Arrays源码">
-                <i class="fa fa-chevron-left"></i> Arrays源码
+              <a href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/HashMap/" rel="next" title="HashMap源码">
+                <i class="fa fa-chevron-left"></i> HashMap源码
               </a>
             
           </div>
@@ -676,8 +693,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/HashMap/" rel="prev" title="HashMap源码">
-                HashMap源码 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/" rel="prev" title="Arrays源码">
+                Arrays源码 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1086,7 +1103,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

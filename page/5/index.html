@@ -351,7 +351,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -501,7 +518,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTuUBYwW68YkkTKpiGh4zAiTVGNMfs9NDJsTWJ9DM8DgbjHbpRQI2sFuOWxut3RHohavKDonAd4TpdUrhoJUofc!/r" rel="gallery_ck8qa68iu002mqwumh32uenc4"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTuUBYwW68YkkTKpiGh4zAiTVGNMfs9NDJsTWJ9DM8DgbjHbpRQI2sFuOWxut3RHohavKDonAd4TpdUrhoJUofc!/r" rel="gallery_ck8qagt1j0036gsum3lszeg2f"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTuUBYwW68YkkTKpiGh4zAiTVGNMfs9NDJsTWJ9DM8DgbjHbpRQI2sFuOWxut3RHohavKDonAd4TpdUrhoJUofc!/r" itemprop="contentUrl"/>
               </a>
@@ -739,7 +756,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68ue00b6qwumcubv4ek3"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" rel="gallery_ck8qagtf400b7gsum73j4h2dm"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -975,7 +992,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68tc00apqwum3xgl6auq"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" rel="gallery_ck8qagte900aqgsumelf9awah"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -1211,7 +1228,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPdWx6wNwAdl9GlYmrzwiShmmFk5ffUeDKMhmvFU**BCIRY4EJYHiw8WdjY*ysDq0*8BDfinC*Zvsfy7HHsMaDSo!/r" rel="gallery_ck8qa68iw002tqwum2a1jdow2"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPdWx6wNwAdl9GlYmrzwiShmmFk5ffUeDKMhmvFU**BCIRY4EJYHiw8WdjY*ysDq0*8BDfinC*Zvsfy7HHsMaDSo!/r" rel="gallery_ck8qagt1p003ggsumg5yqaacs"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPdWx6wNwAdl9GlYmrzwiShmmFk5ffUeDKMhmvFU**BCIRY4EJYHiw8WdjY*ysDq0*8BDfinC*Zvsfy7HHsMaDSo!/r" itemprop="contentUrl"/>
               </a>
@@ -1448,7 +1465,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68th00avqwumfzr7an1k"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" rel="gallery_ck8qagted00awgsum0zuxbw89"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/GsLxEnkzhOukPKhdnZVcWXe2val5Aj23kVnLEPdHbG0!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -1685,7 +1702,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" rel="gallery_ck8qa68m60072qwum1j66926f"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" rel="gallery_ck8qagt740074gsum6wni5boc"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" itemprop="contentUrl"/>
               </a>
@@ -1924,7 +1941,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTyhKmJ3CvtzstYLpMtCVCkHYUHyxx7Amg*D8hl*MJhmPge0NS5ZxhhB4sa2vs5Qga40cv6XD27KElTUxa.rk1U!/r" rel="gallery_ck8qa68iv002pqwumfkc2g11s"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTyhKmJ3CvtzstYLpMtCVCkHYUHyxx7Amg*D8hl*MJhmPge0NS5ZxhhB4sa2vs5Qga40cv6XD27KElTUxa.rk1U!/r" rel="gallery_ck8qagt1k0039gsum7dj0fvei"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTyhKmJ3CvtzstYLpMtCVCkHYUHyxx7Amg*D8hl*MJhmPge0NS5ZxhhB4sa2vs5Qga40cv6XD27KElTUxa.rk1U!/r" itemprop="contentUrl"/>
               </a>
@@ -2161,7 +2178,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPXNNEGVbPMwagjoO2hIOsQB1Dnt*PORBQUMZjWSp6I9gJpkI74WnHzW7zfEpjH9AD1nBfCj6yfYBJHQE9t8xkmE!/r" rel="gallery_ck8qa68hp000oqwum0yurh90y"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPXNNEGVbPMwagjoO2hIOsQB1Dnt*PORBQUMZjWSp6I9gJpkI74WnHzW7zfEpjH9AD1nBfCj6yfYBJHQE9t8xkmE!/r" rel="gallery_ck8qagt04000lgsum2oyf6eyu"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPXNNEGVbPMwagjoO2hIOsQB1Dnt*PORBQUMZjWSp6I9gJpkI74WnHzW7zfEpjH9AD1nBfCj6yfYBJHQE9t8xkmE!/r" itemprop="contentUrl"/>
               </a>
@@ -2397,7 +2414,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/cPQF7E6wXEyU7flFgyE3u6LPH0d.S9AnWnpE4lYVtOQ!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68i8001eqwum5d336s8t"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/cPQF7E6wXEyU7flFgyE3u6LPH0d.S9AnWnpE4lYVtOQ!/r/dL8AAAAAAAAA" rel="gallery_ck8qagt0n001hgsum8oe0f4kz"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/cPQF7E6wXEyU7flFgyE3u6LPH0d.S9AnWnpE4lYVtOQ!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -2631,7 +2648,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/cPQF7E6wXEyU7flFgyE3u6LPH0d.S9AnWnpE4lYVtOQ!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68i7001aqwum4i9c9tj8"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/cPQF7E6wXEyU7flFgyE3u6LPH0d.S9AnWnpE4lYVtOQ!/r/dL8AAAAAAAAA" rel="gallery_ck8qagt0m001dgsumcgr26qed"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/cPQF7E6wXEyU7flFgyE3u6LPH0d.S9AnWnpE4lYVtOQ!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -3110,7 +3127,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

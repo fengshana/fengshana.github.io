@@ -350,7 +350,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -385,6 +402,43 @@
           <div class="collection-title">
             <h1 class="archive-year" id="archive-year-2020">2020</h1>
           </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB01/" itemprop="url">
+              
+                <span itemprop="name">两种思维方式决定了你只能当穷人</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-01-30T14:33:50+08:00"
+              content="2020-01-30" >
+          01-30
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
+        
+        
+        
+
         
         
 
@@ -472,43 +526,6 @@
             <a class="post-title-link" href="/2020/01/30/%E8%8B%B1%E8%AF%AD/%E6%95%99%E6%A1%88/" itemprop="url">
               
                 <span itemprop="name">教案 Contents</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-30T14:33:50+08:00"
-              content="2020-01-30" >
-          01-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/30/RabbitMQ/RabbitMQ/" itemprop="url">
-              
-                <span itemprop="name">RabbitMQ实战之南笔记</span>
               
             </a>
         
@@ -993,7 +1010,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

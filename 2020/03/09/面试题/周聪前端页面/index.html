@@ -357,7 +357,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -510,7 +527,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" rel="gallery_ck8qa68t500adqwum0tvw2r6p"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" rel="gallery_ck8qagtdn00aegsumbvizhvhw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" itemprop="contentUrl"/>
               </a>
@@ -1589,7 +1606,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

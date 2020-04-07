@@ -351,7 +351,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -501,7 +518,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68uj00bcqwum8v3o5ck5"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8qagtfa00bdgsum03juc944"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -610,7 +627,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fsn">
@@ -629,7 +646,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/" itemprop="url">Arrays源码</a></h1>
+                <a class="post-title-link" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/" itemprop="url">ArrayList源码</a></h1>
         
 
         <div class="post-meta">
@@ -697,7 +714,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  34.4k
+                  9.9k
                 </span>
               
 
@@ -713,7 +730,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  214
+                  53
                 </span>
               
             </div>
@@ -737,7 +754,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" rel="gallery_ck8qa68vk00bhqwum1via1vix"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" rel="gallery_ck8qagtey00b3gsum1pq48pwt"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" itemprop="contentUrl"/>
               </a>
@@ -752,11 +769,12 @@
       
         
           
-          123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798
+          坚强。虽然很想发个表情包出来。我得坚强。我就不信了，磨不死我。我得向阳而生，活的灿烂一点。我可真讨厌做笔记。  
+1234/* * Copyright (c) 1997, 2017, Oracle and/or its affiliates. All rights reserved. * ORACL
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/#more" rel="contents">
+            <a class="btn" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -973,7 +991,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8qa68sp009nqwum0i123a7w"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8qagtd8009ngsum93w8gkjd"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -1209,7 +1227,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" rel="gallery_ck8qa68ho000lqwum7g856aah"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" rel="gallery_ck8qagt06000qgsumc3sg0g1c"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" itemprop="contentUrl"/>
               </a>
@@ -1445,7 +1463,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPQBePPJMdgkRR0rEjcZokZilSyI6FyfwoDXvHQjNnr6VXYT17Yjum2t7qSxxibf2LnRF2PcykRBc7qQ4Z6mpeHk!/r" rel="gallery_ck8qa68j10035qwumcqto3v5v"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPQBePPJMdgkRR0rEjcZokZilSyI6FyfwoDXvHQjNnr6VXYT17Yjum2t7qSxxibf2LnRF2PcykRBc7qQ4Z6mpeHk!/r" rel="gallery_ck8qagt1f002sgsum75iq12y1"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPQBePPJMdgkRR0rEjcZokZilSyI6FyfwoDXvHQjNnr6VXYT17Yjum2t7qSxxibf2LnRF2PcykRBc7qQ4Z6mpeHk!/r" itemprop="contentUrl"/>
               </a>
@@ -1691,7 +1709,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" rel="gallery_ck8qa68t500adqwum0tvw2r6p"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" rel="gallery_ck8qagtdn00aegsumbvizhvhw"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" itemprop="contentUrl"/>
               </a>
@@ -1938,7 +1956,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWcM4.DkNsheNcTqoi6UXwy3sbleQbL4O8vyDkcLiqaQSQAHO85xiqW8AN3Wh1wTBxX0gQAUb8iK2RG0TlF3yn0!/r" rel="gallery_ck8qa68ix002wqwum30at1yw7"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWcM4.DkNsheNcTqoi6UXwy3sbleQbL4O8vyDkcLiqaQSQAHO85xiqW8AN3Wh1wTBxX0gQAUb8iK2RG0TlF3yn0!/r" rel="gallery_ck8qagt1m003dgsum9h2ecgcb"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWcM4.DkNsheNcTqoi6UXwy3sbleQbL4O8vyDkcLiqaQSQAHO85xiqW8AN3Wh1wTBxX0gQAUb8iK2RG0TlF3yn0!/r" itemprop="contentUrl"/>
               </a>
@@ -2175,7 +2193,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" rel="gallery_ck8qa68m90078qwum99rphb7w"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" rel="gallery_ck8qagt78007bgsumalt72lcj"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -2412,7 +2430,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJtudfydwPNcdkV6mh06thVArWHVX3g4*AGfovxZkTta9g!/r" rel="gallery_ck8qa68hq000pqwum35ha3kyq"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJtudfydwPNcdkV6mh06thVArWHVX3g4*AGfovxZkTta9g!/r" rel="gallery_ck8qagt05000ogsumao723oqs"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJtudfydwPNcdkV6mh06thVArWHVX3g4*AGfovxZkTta9g!/r" itemprop="contentUrl"/>
               </a>
@@ -2651,7 +2669,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1xB9lV/*3vBzhnBUcOrDwh7Q.yS6BjsKsAsatliuS3k7mwB1Zs!/r/dLgAAAAAAAAA" rel="gallery_ck8qa68ib001gqwum00bt6ih5"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1xB9lV/*3vBzhnBUcOrDwh7Q.yS6BjsKsAsatliuS3k7mwB1Zs!/r/dLgAAAAAAAAA" rel="gallery_ck8qagt0s001ngsum706q2k1b"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1xB9lV/*3vBzhnBUcOrDwh7Q.yS6BjsKsAsatliuS3k7mwB1Zs!/r/dLgAAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -3130,7 +3148,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

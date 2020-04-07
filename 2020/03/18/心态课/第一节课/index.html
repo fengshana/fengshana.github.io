@@ -355,7 +355,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -508,7 +525,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPWgDIzHgEL1WM.FlovG*5NdgxKKlV2sccaALq513JRlOLCs7yQHDaaPVuJkxzkvBl1znZx*ms1E1L4ZuNOhDo44!/r" rel="gallery_ck8qa68hz000yqwum2pxcgbj4"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPWgDIzHgEL1WM.FlovG*5NdgxKKlV2sccaALq513JRlOLCs7yQHDaaPVuJkxzkvBl1znZx*ms1E1L4ZuNOhDo44!/r" rel="gallery_ck8qagt0b000tgsumg99p75me"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPWgDIzHgEL1WM.FlovG*5NdgxKKlV2sccaALq513JRlOLCs7yQHDaaPVuJkxzkvBl1znZx*ms1E1L4ZuNOhDo44!/r" itemprop="contentUrl"/>
               </a>
@@ -717,8 +734,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/" rel="next" title="第五节心态课">
-                <i class="fa fa-chevron-left"></i> 第五节心态课
+              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/" rel="next" title="第七节心态课">
+                <i class="fa fa-chevron-left"></i> 第七节心态课
               </a>
             
           </div>
@@ -727,8 +744,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/" rel="prev" title="第七节心态课">
-                第七节心态课 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/" rel="prev" title="第五节心态课">
+                第五节心态课 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1137,7 +1154,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {

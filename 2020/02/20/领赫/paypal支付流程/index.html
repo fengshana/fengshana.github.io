@@ -355,7 +355,24 @@
 
 
 
- </div>
+
+
+
+
+<script>
+    window.onload = function(){
+        var path = 'https://fengshana.github.io/'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+</script> </div>
     </header>
 
     <main id="main" class="main">
@@ -508,7 +525,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" rel="gallery_ck8qa68m60072qwum1j66926f"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" rel="gallery_ck8qagt740074gsum6wni5boc"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" itemprop="contentUrl"/>
               </a>
@@ -693,8 +710,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/26/%E9%A2%86%E8%B5%AB/%E8%B4%A6%E5%8D%95/" rel="prev" title="账单样式">
-                账单样式 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/26/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%88%86%E9%A1%B5/" rel="prev" title="分页">
+                分页 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1128,7 +1145,7 @@
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "./public/search.xml";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
