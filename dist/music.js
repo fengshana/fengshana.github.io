@@ -4,6 +4,12 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
+        name: '月色与雪色之间，你是第三种绝色。',
+        artist: '十指流玉 / 鲤羽Lyka',
+        url: 'http://music.163.com/song/media/outer/url?id=535612106.mp3',
+        cover: 'http://p1.music.126.net/xYzP49uwP-JFR9U2JpdVQw==/109951163322250690.jpg',
+},
+      {
         name: '谷雨 伴奏',
         artist: '桑葚上的猴子',
         url: 'http://music.163.com/song/media/outer/url?id=410161058.mp3',
@@ -32,12 +38,6 @@ const ap = new APlayer({
         artist: 'AniFace',
         url: 'http://music.163.com/song/media/outer/url?id=509720124.mp3',
         cover: 'http://p1.music.126.net/VM7ZmBeI1B1eZzh7_z73JA==/109951163036196252.jpg',
-},
-      {
-        name: '月色与雪色之间，你是第三种绝色。',
-        artist: '十指流玉 / 鲤羽Lyka',
-        url: 'http://music.163.com/song/media/outer/url?id=535612106.mp3',
-        cover: 'http://p1.music.126.net/xYzP49uwP-JFR9U2JpdVQw==/109951163322250690.jpg',
 },
       {
         name: '写给我第一个喜欢的女孩的歌',
