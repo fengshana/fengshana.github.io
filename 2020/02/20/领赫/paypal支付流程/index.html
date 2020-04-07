@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,16 +91,16 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/favicon-16x16-next.png?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
 
 
 
@@ -111,6 +111,8 @@
 
 
 
+
+  <link rel="alternate" href="/atom.xml" title="Fsn" type="application/atom+xml" />
 
 
 
@@ -123,7 +125,6 @@
 <meta property="og:url" content="https://fengshana.github.io/2020/02/20/%E9%A2%86%E8%B5%AB/paypal%E6%94%AF%E4%BB%98%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Fsn">
 <meta property="og:description" content="记录 浏览器【回车】：https:&#x2F;&#x2F;www.paypal.com&#x2F;；就到了：https:&#x2F;&#x2F;www.paypal.com&#x2F;c2&#x2F;home界面 点击右上方的【注册】按钮，就到了此界面：https:&#x2F;&#x2F;www.paypal.com&#x2F;c2&#x2F;webapps&#x2F;mpp&#x2F;account-selection 选择【个人账户】，然后点击【下一步】 然后呢就还是该界面浏览器地址不变，标题栏（PayPal–安全快捷的">
-<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r">
 <meta property="article:published_time" content="2020-02-20T04:52:56.000Z">
 <meta property="article:modified_time" content="2020-03-07T00:46:21.410Z">
@@ -146,7 +147,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -208,7 +209,7 @@
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -254,7 +255,9 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Home
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
           </a>
         </li>
       
@@ -262,7 +265,9 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-            About
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -270,7 +275,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-            Tags
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -278,7 +285,9 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-            Categories
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -286,13 +295,17 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-            Archives
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-photos">
           <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             Photos
           </a>
@@ -305,7 +318,9 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-            Search
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
           </a>
         </li>
       
@@ -325,7 +340,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -392,9 +407,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-20T12:52:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-20T12:52:56+08:00">
                 2020-02-20
               </time>
             
@@ -413,7 +428,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -436,6 +451,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -445,10 +465,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  2.5k
+                <span title="字数统计">
+                  2.4k
                 </span>
               
 
@@ -461,9 +481,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   11
                 </span>
               
@@ -488,7 +508,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" rel="gallery_ck8p7vjt20075xoumabmc157q"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" rel="gallery_ck8q9jk7p0072y4um4i6gd1zn"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTdVNVb5JR2YfAyJKQO07paRo5lmkQUYMPKHfeVpQEhJ.jtzSm5skrcSmKmDQKDJ3BB2y.Ifv69UBWH4TlqXodk!/r" itemprop="contentUrl"/>
               </a>
@@ -524,7 +544,7 @@
 <li>今天没时间，之后有时间再来完成这个流程的文档，我今天得先去测试回调流程发货，过几天就要测试了byebye</li>
 </ul>
 <p>今天遇到了一个问题<br>No tracked branch configured for branch developing or the branch doesn’t exist. To make your branch track a remote branch call, for example, git branch –set-upstream-to=origin/developing developing</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">oft Windows [版本 10.0.17763.1039]</span><br><span class="line">(c) 2018 Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">                       git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin</span><br><span class="line">error: the requested upstream branch &#39;origin&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin</span><br><span class="line">error: the requested upstream branch &#39;origin&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin&#x2F;developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push -u</span><br><span class="line">fatal: No configured push destination.</span><br><span class="line">Either specify the URL from the command-line or configure a remote repository using</span><br><span class="line"></span><br><span class="line">    git remote add &lt;name&gt; &lt;url&gt;</span><br><span class="line"></span><br><span class="line">and then push using the remote name</span><br><span class="line"></span><br><span class="line">    git push &lt;name&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hint: If you are planning on basing your work on an upstream</span><br><span class="line">&#39;hint:&#39; 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hint: branch that already exists at the remote, you may need to</span><br><span class="line">&#39;hint:&#39; 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">&#39;hint:&#39; 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint:</span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint:</span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to origin&#x2F;developing developing</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push -u developing</span><br><span class="line">fatal: The current branch developing has no upstream branch.</span><br><span class="line">To push the current branch and set the remote as upstream, use</span><br><span class="line"></span><br><span class="line">    git push --set-upstream developing developing</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push --set-upstream developing developing</span><br><span class="line">Enter passphrase for key &#39;&#x2F;c&#x2F;Users&#x2F;ASUS&#x2F;.ssh&#x2F;id_rsa&#39;:</span><br><span class="line">Everything up-to-date</span><br><span class="line">Branch &#39;developing&#39; set up to track remote branch &#39;developing&#39; from &#39;developing&#39;.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --set-upstream-to&#x3D;origin&#x2F;developing developing</span><br><span class="line">error: the requested upstream branch &#39;origin&#x2F;developing&#39; does not exist</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning on basing your work on an upstream</span><br><span class="line">hint: branch that already exists at the remote, you may need to</span><br><span class="line">hint: run &quot;git fetch&quot; to retrieve it.</span><br><span class="line">hint: </span><br><span class="line">hint: If you are planning to push out a new local branch that</span><br><span class="line">hint: will track its remote counterpart, you may want to use</span><br><span class="line">hint: &quot;git push -u&quot; to set the upstream config as you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;^A</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br></pre></td><td class="code"><pre><span class="line">oft Windows [版本 <span class="number">10.0</span>.<span class="number">17763.1039</span>]</span><br><span class="line">(<span class="keyword">c</span>) <span class="number">2018</span> Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">                       git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span>=origin/developing developing</span><br><span class="line">error: the requested upstream branch <span class="string">'origin/developing'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span>=origin/developing developing</span><br><span class="line">error: the requested upstream branch <span class="string">'origin/developing'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span> origin</span><br><span class="line">error: the requested upstream branch <span class="string">'origin'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span> origin</span><br><span class="line">error: the requested upstream branch <span class="string">'origin'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span> origin/developing</span><br><span class="line">error: the requested upstream branch <span class="string">'origin/developing'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span>=origin/developing developing</span><br><span class="line">error: the requested upstream branch <span class="string">'origin/developing'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push -<span class="keyword">u</span></span><br><span class="line">fata<span class="variable">l:</span> No configured push destination.</span><br><span class="line">Either specify the URL from the <span class="keyword">command</span>-<span class="built_in">line</span> <span class="built_in">or</span> configure <span class="keyword">a</span> remote repository using</span><br><span class="line"></span><br><span class="line">    git remote <span class="built_in">add</span> <span class="symbol">&lt;name&gt;</span> <span class="symbol">&lt;url&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">and</span> then push using the remote name</span><br><span class="line"></span><br><span class="line">    git push <span class="symbol">&lt;name&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line"><span class="string">'hint:'</span> 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line"><span class="string">'hint:'</span> 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line"><span class="string">'hint:'</span> 不是内部或外部命令，也不是可运行的程序</span><br><span class="line">或批处理文件。</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span>=origin/developing developing</span><br><span class="line">error: the requested upstream branch <span class="string">'origin/developing'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span></span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span></span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span> origin/developing developing</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;</span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span>=origin/developing developing</span><br><span class="line">error: the requested upstream branch <span class="string">'origin/developing'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git fetch</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push -<span class="keyword">u</span> developing</span><br><span class="line">fata<span class="variable">l:</span> The current branch developing <span class="built_in">has</span> <span class="keyword">no</span> upstream branch.</span><br><span class="line">To push the current branch <span class="built_in">and</span> <span class="keyword">set</span> the remote <span class="keyword">as</span> upstream, use</span><br><span class="line"></span><br><span class="line">    git push --<span class="keyword">set</span>-upstream developing developing</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git push --<span class="keyword">set</span>-upstream developing developing</span><br><span class="line">Enter passphrase <span class="keyword">for</span> key <span class="string">'/c/Users/ASUS/.ssh/id_rsa'</span>:</span><br><span class="line">Everything <span class="keyword">up</span>-<span class="keyword">to</span>-date</span><br><span class="line">Branch <span class="string">'developing'</span> <span class="keyword">set</span> <span class="keyword">up</span> <span class="keyword">to</span> track remote branch <span class="string">'developing'</span> from <span class="string">'developing'</span>.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;git branch --<span class="keyword">set</span>-upstream-<span class="keyword">to</span>=origin/developing developing</span><br><span class="line">error: the requested upstream branch <span class="string">'origin/developing'</span> does not exist</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">on</span> basing your work <span class="keyword">on</span> <span class="keyword">an</span> upstream</span><br><span class="line">hin<span class="variable">t:</span> branch that already <span class="built_in">exists</span> at the remote, you may need <span class="keyword">to</span></span><br><span class="line">hin<span class="variable">t:</span> run <span class="string">"git fetch"</span> <span class="keyword">to</span> retrieve it.</span><br><span class="line">hin<span class="variable">t:</span> </span><br><span class="line">hin<span class="variable">t:</span> If you are planning <span class="keyword">to</span> push out <span class="keyword">a</span> <span class="keyword">new</span> local branch that</span><br><span class="line">hin<span class="variable">t:</span> will track its remote counterpart, you may want <span class="keyword">to</span> use</span><br><span class="line">hin<span class="variable">t:</span> <span class="string">"git push -u"</span> <span class="keyword">to</span> <span class="keyword">set</span> the upstream config <span class="keyword">as</span> you push.</span><br><span class="line"></span><br><span class="line">F:\Project\Lingo\lingo&gt;^A</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -609,21 +629,21 @@
         <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
   <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
   <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
+    <span>打赏</span>
   </button>
   <div id="QR" style="display: none;">
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn WeChat Pay"/>
-        <p>WeChat Pay</p>
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn 微信支付"/>
+        <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn Alipay"/>
-        <p>Alipay</p>
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn 支付宝"/>
+        <p>支付宝</p>
       </div>
     
 
@@ -673,8 +693,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/26/%E9%9D%A2%E8%AF%95%E9%A2%98/HashTable/" rel="prev" title="HashTable源码">
-                HashTable源码 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/26/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%88%86%E9%A1%B5/" rel="prev" title="分页">
+                分页 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -740,10 +760,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -765,10 +785,10 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7Carchive">
               
                   <span class="site-state-item-count">126</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -779,7 +799,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
@@ -790,13 +810,20 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 </a>
               </div>
             
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -806,24 +833,6 @@
                     <a href="https://github.com/fengshana" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://user.qzone.qq.com/2915324940/main" target="_blank" title="QQ">
-                      
-                        <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="fengyue2915324940" target="_blank" title="wechat">
-                      
-                        <i class="fa fa-fw fa-weixin"></i>wechat</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="skype:live:.cid.823b4e929670864a" target="_blank" title="Skype">
-                      
-                        <i class="fa fa-fw fa-skype"></i>Skype</a>
                   </span>
                 
             </div>
@@ -922,7 +931,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 
+        <div class="copyright">&copy; 2019 &mdash; 
 
 <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -933,11 +942,29 @@
  <span class="author" itemprop="copyrightHolder">Fsn</span>
 
   
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+	<span title="Site words total count">
+     381.1k字 </span>
+    <!--<span title="symbols_count_time.count_total">915k</span>-->
+  
 </div>
 
 
 
-  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>-->
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
 
 
 
@@ -946,31 +973,54 @@
 
 <!--
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
-
 
 
  -->
  
  
  
+  <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共392.7k字</span>
+
+  <span class="post-count">博客全站共381.1k字</span>
   
-  <span class="post-meta-divider">|</span>
-
+ 
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
 </div>
+ -->
 
-<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+
+<!--<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
 <span class="post-meta-divider">|</span>
 <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"</span>人</span>
-
+-->
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -91,16 +91,16 @@
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
 
 
-  <link rel="mask-icon" href="/images/favicon-16x16-next.png?v=5.1.4" color="#222">
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
 
 
 
@@ -111,6 +111,8 @@
 
 
 
+
+  <link rel="alternate" href="/atom.xml" title="Fsn" type="application/atom+xml" />
 
 
 
@@ -123,7 +125,6 @@
 <meta property="og:url" content="https://fengshana.github.io/page/4/index.html">
 <meta property="og:site_name" content="Fsn">
 <meta property="og:description" content="勿忘初心，方得始终">
-<meta property="og:locale" content="en_US">
 <meta property="article:author" content="Fsn">
 <meta name="twitter:card" content="summary">
 
@@ -141,7 +142,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -203,7 +204,7 @@
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -250,7 +251,9 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-            Home
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
           </a>
         </li>
       
@@ -258,7 +261,9 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-            About
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -266,7 +271,9 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-            Tags
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
           </a>
         </li>
       
@@ -274,7 +281,9 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-            Categories
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -282,13 +291,17 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-            Archives
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-photos">
           <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             Photos
           </a>
@@ -301,7 +314,9 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-            Search
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
           </a>
         </li>
       
@@ -321,7 +336,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
+             placeholder="搜索..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -359,7 +374,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/LinkedList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fsn">
@@ -378,7 +393,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/" itemprop="url">Arrays源码</a></h1>
+                <a class="post-title-link" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/LinkedList/" itemprop="url">LinkedList源码</a></h1>
         
 
         <div class="post-meta">
@@ -390,9 +405,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-13T23:12:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-13T23:12:56+08:00">
                 2020-03-13
               </time>
             
@@ -411,7 +426,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -443,10 +458,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  36.5k
+                <span title="字数统计">
+                  5.4k
                 </span>
               
 
@@ -459,10 +474,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
-                  228
+                <span title="阅读时长">
+                  33
                 </span>
               
             </div>
@@ -486,9 +501,9 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" rel="gallery_ck8p7vk5o00bjxoum7z59e6pj"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8q9jkfy009my4um1ugmgo49"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" itemprop="contentUrl"/>
+                <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
             
           
@@ -505,8 +520,8 @@
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/Arrays/#more" rel="contents">
-              Read more &raquo;
+            <a class="btn" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/LinkedList/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -626,9 +641,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-13T23:12:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-13T23:12:56+08:00">
                 2020-03-13
               </time>
             
@@ -647,7 +662,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -679,10 +694,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  13.5k
+                <span title="字数统计">
+                  11.9k
                 </span>
               
 
@@ -695,10 +710,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
-                  84
+                <span title="阅读时长">
+                  74
                 </span>
               
             </div>
@@ -722,7 +737,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8p7vk3n00bexoumdcng5a4p"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8q9jkim00bby4um2rz6cx9a"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -737,12 +752,12 @@
       
         
           
-          1234567891011121314151617&#x2F;* * Copyright (c) 1997, 2017, Oracle and&#x2F;or its affiliates. All rights reserved. * ORACLE PROPRIETARY&#x2F;CONFIDE
+          1234567891011121314151617/* * Copyright (c) 1997, 2017, Oracle and/or its affiliates. All rights reserved. * ORACLE PROPRIETARY/CONFIDENTIAL. Use is s
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/HashMap/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -831,7 +846,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/LinkedList/">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Fsn">
@@ -850,7 +865,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/LinkedList/" itemprop="url">LinkedList源码</a></h1>
+                <a class="post-title-link" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/" itemprop="url">ArrayList源码</a></h1>
         
 
         <div class="post-meta">
@@ -862,9 +877,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-13T23:12:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-13T23:12:56+08:00">
                 2020-03-13
               </time>
             
@@ -883,7 +898,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -915,10 +930,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  6k
+                <span title="字数统计">
+                  9.9k
                 </span>
               
 
@@ -931,10 +946,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
-                  37
+                <span title="阅读时长">
+                  53
                 </span>
               
             </div>
@@ -958,9 +973,9 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" rel="gallery_ck8p7vk1a009oxoum1n9rdrzo"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" rel="gallery_ck8q9jki000b0y4um9sox0b4z"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
-                <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/88wuJhHdzDlnt8tFke7Y0Bd3*kAqnqwmvViMT3OFhTk!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
+                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWVRpqPAddSoFmfNVnUird9QePM33QZuggoTeNesk*rIzVAhrnmubD*GCL9A9ZKXcHm1wv8ZA4kz.ufU7iGNde0!/r" itemprop="contentUrl"/>
               </a>
             
           
@@ -973,12 +988,13 @@
       
         
           
-          123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798
+          坚强。虽然很想发个表情包出来。我得坚强。我就不信了，磨不死我。我得向阳而生，活的灿烂一点。我可真讨厌做笔记。  
+1234/* * Copyright (c) 1997, 2017, Oracle and/or its affiliates. All rights reserved. * ORACL
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/LinkedList/#more" rel="contents">
-              Read more &raquo;
+            <a class="btn" href="/2020/03/13/%E9%9D%A2%E8%AF%95%E9%A2%98/ArrayList/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1098,9 +1114,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-12T14:33:50+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-12T14:33:50+08:00">
                 2020-03-12
               </time>
             
@@ -1119,7 +1135,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1151,10 +1167,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  1.3k
+                <span title="字数统计">
+                  1.1k
                 </span>
               
 
@@ -1167,10 +1183,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
-                  6
+                <span title="阅读时长">
+                  5
                 </span>
               
             </div>
@@ -1194,7 +1210,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" rel="gallery_ck8p7vjo6000pxoum0pr59kbv"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" rel="gallery_ck8q9jk2k000ky4um5k2vbr3i"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJt6St4R9*ffxpzStpc.TY8eiG9ryIAGvParchHNTS.cn8!/r" itemprop="contentUrl"/>
               </a>
@@ -1214,7 +1230,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/12/Vuejs/Vuejs%E6%8E%A5%E8%A7%A6/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1334,9 +1350,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-09T14:21:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-09T14:21:56+08:00">
                 2020-03-09
               </time>
             
@@ -1355,7 +1371,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1387,9 +1403,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
+                <span title="字数统计">
                   1.2k
                 </span>
               
@@ -1403,9 +1419,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   4
                 </span>
               
@@ -1430,7 +1446,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPQBePPJMdgkRR0rEjcZokZilSyI6FyfwoDXvHQjNnr6VXYT17Yjum2t7qSxxibf2LnRF2PcykRBc7qQ4Z6mpeHk!/r" rel="gallery_ck8p7vjpk002oxoumhttp2izb"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPQBePPJMdgkRR0rEjcZokZilSyI6FyfwoDXvHQjNnr6VXYT17Yjum2t7qSxxibf2LnRF2PcykRBc7qQ4Z6mpeHk!/r" rel="gallery_ck8q9jk4h002ry4um3iah50ew"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPQBePPJMdgkRR0rEjcZokZilSyI6FyfwoDXvHQjNnr6VXYT17Yjum2t7qSxxibf2LnRF2PcykRBc7qQ4Z6mpeHk!/r" itemprop="contentUrl"/>
               </a>
@@ -1460,7 +1476,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/springboot%E4%B8%8Etomcat/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1580,9 +1596,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-09T12:52:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-09T12:52:56+08:00">
                 2020-03-09
               </time>
             
@@ -1601,7 +1617,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1633,10 +1649,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  11.2k
+                <span title="字数统计">
+                  8.4k
                 </span>
               
 
@@ -1649,10 +1665,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
-                  61
+                <span title="阅读时长">
+                  43
                 </span>
               
             </div>
@@ -1676,7 +1692,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" rel="gallery_ck8p7vk1u00afxoumcurraz16"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" rel="gallery_ck8q9jkh500acy4umcdt0etol"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjKvOwBaHij99pJ064TCaQylQwAMgcXqqDiYncrmY.78OqCyFoK4*xR.abVbSKjPizligSp54Xn9.4DyBxxpVQ!/r" itemprop="contentUrl"/>
               </a>
@@ -1707,7 +1723,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/09/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%91%A8%E8%81%AA%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1827,9 +1843,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-07T19:19:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-07T19:19:56+08:00">
                 2020-03-07
               </time>
             
@@ -1848,7 +1864,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1880,9 +1896,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
+                <span title="字数统计">
                   154
                 </span>
               
@@ -1896,9 +1912,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   1
                 </span>
               
@@ -1923,7 +1939,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWcM4.DkNsheNcTqoi6UXwy3sbleQbL4O8vyDkcLiqaQSQAHO85xiqW8AN3Wh1wTBxX0gQAUb8iK2RG0TlF3yn0!/r" rel="gallery_ck8p7vjpw003fxouma0t02oyi"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWcM4.DkNsheNcTqoi6UXwy3sbleQbL4O8vyDkcLiqaQSQAHO85xiqW8AN3Wh1wTBxX0gQAUb8iK2RG0TlF3yn0!/r" rel="gallery_ck8q9jk4y003hy4um5w7w3du8"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPWcM4.DkNsheNcTqoi6UXwy3sbleQbL4O8vyDkcLiqaQSQAHO85xiqW8AN3Wh1wTBxX0gQAUb8iK2RG0TlF3yn0!/r" itemprop="contentUrl"/>
               </a>
@@ -1944,7 +1960,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/07/%E9%A2%86%E8%B5%AB/%E9%9D%A2%E8%AF%95%E9%A2%98/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2064,9 +2080,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-05T20:01:56+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-05T20:01:56+08:00">
                 2020-03-05
               </time>
             
@@ -2085,7 +2101,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2117,10 +2133,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
-                  3.8k
+                <span title="字数统计">
+                  3.7k
                 </span>
               
 
@@ -2133,10 +2149,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
-                  13
+                <span title="阅读时长">
+                  12
                 </span>
               
             </div>
@@ -2160,7 +2176,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" rel="gallery_ck8p7vjt5007cxoumgljybz6u"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" rel="gallery_ck8q9jk7s0079y4um7wr73i3u"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/ZFxcc2RncJY0cRKnKdPG*EnvB1G59kWvi2dD0HvUpUY!/r/dDcBAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -2181,7 +2197,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/05/%E9%A2%86%E8%B5%AB/%E9%A2%86%E8%B5%ABDESC/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2301,9 +2317,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T12:47:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T12:47:58+08:00">
                 2020-03-02
               </time>
             
@@ -2322,7 +2338,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2354,9 +2370,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
+                <span title="字数统计">
                   72
                 </span>
               
@@ -2370,9 +2386,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   1
                 </span>
               
@@ -2397,7 +2413,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJtudfydwPNcdkV6mh06thVArWHVX3g4*AGfovxZkTta9g!/r" rel="gallery_ck8p7vjo5000oxoum93sh7ygq"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJtudfydwPNcdkV6mh06thVArWHVX3g4*AGfovxZkTta9g!/r" rel="gallery_ck8q9jk2m000oy4um7xmj0mtd"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPbyhlv9QWJgMUG1wGeNicuLlx1mxIiEJa7D4xO1ECwJtudfydwPNcdkV6mh06thVArWHVX3g4*AGfovxZkTta9g!/r" itemprop="contentUrl"/>
               </a>
@@ -2420,7 +2436,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/02/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E6%98%8E%E6%98%9F%E5%A7%90%E4%BF%A1666%E5%88%86%E6%B6%A6%E8%A7%84%E5%88%99/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2540,9 +2556,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-02T12:47:58+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T12:47:58+08:00">
                 2020-03-02
               </time>
             
@@ -2561,7 +2577,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">分类于</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -2593,9 +2609,9 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                  <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="Words count in article">
+                <span title="字数统计">
                   6
                 </span>
               
@@ -2609,9 +2625,9 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="Reading time">
+                <span title="阅读时长">
                   1
                 </span>
               
@@ -2636,7 +2652,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1xB9lV/*3vBzhnBUcOrDwh7Q.yS6BjsKsAsatliuS3k7mwB1Zs!/r/dLgAAAAAAAAA" rel="gallery_ck8p7vjoz001dxoumfbv2ezv5"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1xB9lV/*3vBzhnBUcOrDwh7Q.yS6BjsKsAsatliuS3k7mwB1Zs!/r/dLgAAAAAAAAA" rel="gallery_ck8q9jk3o0019y4um7vat5h6j"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1xB9lV/*3vBzhnBUcOrDwh7Q.yS6BjsKsAsatliuS3k7mwB1Zs!/r/dLgAAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -2654,7 +2670,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/03/02/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%854/#more" rel="contents">
-              Read more &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -2792,10 +2808,10 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7Carchive">
               
                   <span class="site-state-item-count">126</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -2806,7 +2822,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
@@ -2817,13 +2833,20 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">52</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">标签</span>
                 </a>
               </div>
             
 
           </nav>
 
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
           
 
           
@@ -2833,24 +2856,6 @@
                     <a href="https://github.com/fengshana" target="_blank" title="GitHub">
                       
                         <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://user.qzone.qq.com/2915324940/main" target="_blank" title="QQ">
-                      
-                        <i class="fa fa-fw fa-qq"></i>QQ</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="fengyue2915324940" target="_blank" title="wechat">
-                      
-                        <i class="fa fa-fw fa-weixin"></i>wechat</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="skype:live:.cid.823b4e929670864a" target="_blank" title="Skype">
-                      
-                        <i class="fa fa-fw fa-skype"></i>Skype</a>
                   </span>
                 
             </div>
@@ -2933,7 +2938,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 
+        <div class="copyright">&copy; 2019 &mdash; 
 
 <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
@@ -2944,11 +2949,29 @@
  <span class="author" itemprop="copyrightHolder">Fsn</span>
 
   
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+	<span title="Site words total count">
+     381.1k字 </span>
+    <!--<span title="symbols_count_time.count_total">915k</span>-->
+  
 </div>
 
 
 
-  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>-->
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
 
 
 
@@ -2957,31 +2980,54 @@
 
 <!--
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
-
 
 
  -->
  
  
  
+  <!--
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共392.7k字</span>
+
+  <span class="post-count">博客全站共381.1k字</span>
   
-  <span class="post-meta-divider">|</span>
-
+ 
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
 </div>
+ -->
 
-<script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+
+<!--<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
 <span class="post-meta-divider">|</span>
 <span id="busuanzi_container_site_uv">本站访客数<span id="busuanzi_value_site_uv"</span>人</span>
-
+-->
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
