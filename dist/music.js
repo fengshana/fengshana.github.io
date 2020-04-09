@@ -4,6 +4,12 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
+        name: '所念皆星河',
+        artist: 'CMJ',
+        url: 'http://music.163.com/song/media/outer/url?id=1384026889.mp3',
+        cover: 'http://p1.music.126.net/M34HFzLO2xhDLuX_zEALKA==/109951164291347934.jpg',
+},
+      {
         name: '月色与雪色之间，你是第三种绝色。',
         artist: '十指流玉 / 鲤羽Lyka',
         url: 'http://music.163.com/song/media/outer/url?id=535612106.mp3',
