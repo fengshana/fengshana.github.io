@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="直播," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fsn" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="在这当中协助我完成直播功能的博客：https:&#x2F;&#x2F;me.csdn.net&#x2F;eguid_1   前期使用了有Red5、VLC、OBS；后来就直接使用的就是OBS进行拉流获取直播视频；   OBS：https:&#x2F;&#x2F;obsproject.com&#x2F;   由于转化器converter会转化的是IplImage从而获取得到Frame；而robot机器从屏幕读取得到的像素图像只能是BufferedImage；所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PC端直播屏幕变红">
+<meta property="og:url" content="https://fengshana.github.io/2020/04/17/%E7%9B%B4%E6%92%AD/pc%E7%9B%B4%E6%92%AD%E5%B1%8F%E5%B9%95%E5%8F%98%E7%BA%A2/index.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="在这当中协助我完成直播功能的博客：https:&#x2F;&#x2F;me.csdn.net&#x2F;eguid_1   前期使用了有Red5、VLC、OBS；后来就直接使用的就是OBS进行拉流获取直播视频；   OBS：https:&#x2F;&#x2F;obsproject.com&#x2F;   由于转化器converter会转化的是IplImage从而获取得到Frame；而robot机器从屏幕读取得到的像素图像只能是BufferedImage；所">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPf*U8unjnT7rxQ.EiGBaJvyLeCdhpjuvEuZIS.R764KnC*a3VePU7lXPoUBhxPYYGqYxuylZfD3H0GHW*kzXRfw!/r">
+<meta property="article:published_time" content="2020-04-16T20:01:20.706Z">
+<meta property="article:modified_time" content="2020-04-16T20:20:50.109Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="直播">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPf*U8unjnT7rxQ.EiGBaJvyLeCdhpjuvEuZIS.R764KnC*a3VePU7lXPoUBhxPYYGqYxuylZfD3H0GHW*kzXRfw!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/04/17/直播/pc直播屏幕变红/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>PC端直播屏幕变红 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-相册">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/04/17/%E7%9B%B4%E6%92%AD/pc%E7%9B%B4%E6%92%AD%E5%B1%8F%E5%B9%95%E5%8F%98%E7%BA%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PC端直播屏幕变红</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-17T04:01:20+08:00">
+                2020-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%9B%B4%E6%92%AD/" itemprop="url" rel="index">
+                    <span itemprop="name">直播</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  18
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPf*U8unjnT7rxQ.EiGBaJvyLeCdhpjuvEuZIS.R764KnC*a3VePU7lXPoUBhxPYYGqYxuylZfD3H0GHW*kzXRfw!/r" rel="gallery_ck937l1aq0098ogum56l42zzc"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPf*U8unjnT7rxQ.EiGBaJvyLeCdhpjuvEuZIS.R764KnC*a3VePU7lXPoUBhxPYYGqYxuylZfD3H0GHW*kzXRfw!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p>在这当中协助我完成直播功能的博客：<a href="https://me.csdn.net/eguid_1" target="_blank" rel="noopener">https://me.csdn.net/eguid_1</a>  </p>
+<p>前期使用了有Red5、VLC、OBS；后来就直接使用的就是OBS进行拉流获取直播视频；  </p>
+<p>OBS：<a href="https://obsproject.com/" target="_blank" rel="noopener">https://obsproject.com/</a>  </p>
+<p>由于转化器converter会转化的是IplImage从而获取得到Frame；<br>而robot机器从屏幕读取得到的像素图像只能是BufferedImage；所以这两者需要做一个转化；</p>
+<p>参考一些Blog，发现说是BufferedImage与IplImage之间的转化问题；  </p>
+<p>参考了博客：<a href="https://blog.csdn.net/zwl18210851801/article/details/81279725" target="_blank" rel="noopener">https://blog.csdn.net/zwl18210851801/article/details/81279725</a><br>这篇博客是记录Mat与BufferedImage与我要的不一致；</p>
+<p>因为参考的博客比如：<a href="https://blog.csdn.net/qiao_198911/article/details/52135013" target="_blank" rel="noopener">https://blog.csdn.net/qiao_198911/article/details/52135013</a><br>这篇博客是转化IplImage转化为BufferedImage；而我要的是BufferedImage转化为IplImage；</p>
+<p>后来又找到博客发现：<a href="https://stackoverflow.com/questions/8368078/java-bufferedimage-to-iplimage" target="_blank" rel="noopener">https://stackoverflow.com/questions/8368078/java-bufferedimage-to-iplimage</a><br>这篇博客就记录了BufferedImage转化成IplImage；</p>
+<p>PC端视频直播屏幕变红解决：  </p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**bufferedImage to IplImage 的转化*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> IplImage toIplImage(BufferedImage bufImage) &#123;</span><br><span class="line">    ToIplImage iplConverter = <span class="keyword">new</span> <span class="type">OpenCVFrameConverter</span>.ToIplImage();</span><br><span class="line">    Java2DFrameConverter java2dConverter = <span class="keyword">new</span> <span class="type">Java2DFrameConverter</span>();</span><br><span class="line">    IplImage iplImage = iplConverter.convert(java2dConverter.convert(bufImage));</span><br><span class="line">    <span class="keyword">return</span> iplImage;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于不是很明白；所以之前的代码都会做一个注释；贴一下之前的代码：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br></pre></td><td class="code"><pre><span class="line">package com.live;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.nio.ByteBuffer;</span><br><span class="line"><span class="keyword">import</span> java.nio.ByteOrder;</span><br><span class="line"><span class="keyword">import</span> java.nio.ShortBuffer;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ScheduledThreadPoolExecutor;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sound.sampled.AudioFormat;</span><br><span class="line"><span class="keyword">import</span> javax.sound.sampled.AudioSystem;</span><br><span class="line"><span class="keyword">import</span> javax.sound.sampled.DataLine;</span><br><span class="line"><span class="keyword">import</span> javax.sound.sampled.Line;</span><br><span class="line"><span class="keyword">import</span> javax.sound.sampled.LineUnavailableException;</span><br><span class="line"><span class="keyword">import</span> javax.sound.sampled.Mixer;</span><br><span class="line"><span class="keyword">import</span> javax.sound.sampled.TargetDataLine;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JFrame;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.Loader;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.avcodec;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.opencv_core.IplImage;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.helper.opencv_objdetect;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.CanvasFrame;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.FFmpegFrameRecorder;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.Frame;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.FrameGrabber;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.FrameGrabber.Exception;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.FrameRecorder;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.OpenCVFrameConverter;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.OpenCVFrameGrabber;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.awt.AWTException;</span><br><span class="line"><span class="keyword">import</span> java.awt.Dimension;</span><br><span class="line"><span class="keyword">import</span> java.awt.GraphicsDevice;</span><br><span class="line"><span class="keyword">import</span> java.awt.GraphicsEnvironment;</span><br><span class="line"><span class="keyword">import</span> java.awt.Rectangle;</span><br><span class="line"><span class="keyword">import</span> java.awt.Robot;</span><br><span class="line"><span class="keyword">import</span> java.awt.Toolkit;</span><br><span class="line"><span class="keyword">import</span> java.awt.image.BufferedImage;</span><br><span class="line"><span class="keyword">import</span> java.awt.image.DataBufferByte;</span><br><span class="line"><span class="keyword">import</span> java.awt.image.WritableRaster;</span><br><span class="line"><span class="keyword">import</span> java.io.ByteArrayOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.text.ParseException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.imageio.ImageIO;</span><br><span class="line"><span class="keyword">import</span> javax.swing.JFrame;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.BytePointer;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.Loader;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.avcodec;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.opencv_highgui;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacpp.opencv_core.IplImage;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.CanvasFrame;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.Frame;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.FrameGrabber;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.FrameGrabber.Exception;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.FrameRecorder;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.Java2DFrameConverter;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.OpenCVFrameConverter;</span><br><span class="line"><span class="keyword">import</span> org.bytedeco.javacv.OpenCVFrameConverter.ToIplImage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"><span class="keyword">import</span> com.service.VideoService;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">JavacvAudioTest</span> &#123;</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**bufferedImage to IplImage 的转化*/</span></span><br><span class="line">	public static IplImage toIplImage(BufferedImage bufImage) &#123;</span><br><span class="line">	    ToIplImage iplConverter = <span class="keyword">new</span> OpenCVFrameConverter.ToIplImage();</span><br><span class="line">	    Java2DFrameConverter java2dConverter = <span class="keyword">new</span> Java2DFrameConverter();</span><br><span class="line">	    IplImage iplImage = iplConverter.convert(java2dConverter.convert(bufImage));</span><br><span class="line">	    <span class="keyword">return</span> iplImage;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 推送/录制本机的音/视频(Webcam/Microphone)到流媒体服务器(Stream media server)</span></span><br><span class="line"><span class="comment">	 * </span></span><br><span class="line"><span class="comment">	 * @param WEBCAM_DEVICE_INDEX</span></span><br><span class="line"><span class="comment">	 *            - 视频设备，本机默认是0</span></span><br><span class="line"><span class="comment">	 * @param AUDIO_DEVICE_INDEX</span></span><br><span class="line"><span class="comment">	 *            - 音频设备，本机默认是4</span></span><br><span class="line"><span class="comment">	 * @param outputFile</span></span><br><span class="line"><span class="comment">	 *            - 输出文件/地址(可以是本地文件，也可以是流媒体服务器地址)</span></span><br><span class="line"><span class="comment">	 * @param captureWidth</span></span><br><span class="line"><span class="comment">	 *            - 摄像头宽</span></span><br><span class="line"><span class="comment">	 * @param captureHeight</span></span><br><span class="line"><span class="comment">	 *            - 摄像头高</span></span><br><span class="line"><span class="comment">	 * @param FRAME_RATE</span></span><br><span class="line"><span class="comment">	 *            - 视频帧率:最低 25(即每秒25张图片,低于25就会出现闪屏)</span></span><br><span class="line"><span class="comment">	 * @throws org.bytedeco.javacv.FrameGrabber.Exception</span></span><br><span class="line"><span class="comment">	 * @throws org.bytedeco.javacv.FrameRecorder.Exception </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	public static CanvasFrame recordWebcamAndMicrophone(int WEBCAM_DEVICE_INDEX, final int AUDIO_DEVICE_INDEX, String outputFile,</span><br><span class="line">			int captureWidth, int captureHeight, final int FRAME_RATE) throws org.bytedeco.javacv.FrameGrabber.Exception, org.bytedeco.javacv.FrameRecorder.Exception &#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 1.录制自己的小窗口进行隐藏，不能有声音</span></span><br><span class="line"><span class="comment">		 * 2.将录制屏的不显示出来</span></span><br><span class="line"><span class="comment">		 * 4.即通过录制屏将小窗口一起进行录制</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		</span><br><span class="line">		<span class="regexp">//JavacAudioTest.recordWebcamAndMicrophone2(0, 4,"output.mp4", 100, 100,25);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 获取显示器</span><br><span class="line">		long startTime = <span class="number">0</span>;</span><br><span class="line">		long videoTS = <span class="number">0</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 获取当前屏幕大小</span></span><br><span class="line"><span class="regexp">		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();</span></span><br><span class="line"><span class="regexp">		captureWidth=(int)screenSize.getWidth();</span></span><br><span class="line"><span class="regexp">		captureHeight=(int)screenSize.getHeight();</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 指定捕获屏幕区域大小，这里使用全屏捕获</span><br><span class="line">		Rectangle rectangle = <span class="keyword">new</span> Rectangle(screenSize);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 本地环境</span></span><br><span class="line"><span class="regexp">		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 获取本地屏幕设备列表</span><br><span class="line">		GraphicsDevice[] gs = ge.getScreenDevices();</span><br><span class="line">		System.err.println(<span class="string">"eguid温馨提示，找到"</span> + gs.length + <span class="string">"个屏幕设备"</span>);</span><br><span class="line">		<span class="regexp">// 目的：取到本地屏幕设备当中可以进行获取本地屏幕的设备下标</span></span><br><span class="line"><span class="regexp">		//</span> 通过robot可以实例化该获取本地屏幕的设备，大概就是这意思，</span><br><span class="line">		<span class="regexp">// 先令该robot机器设置为null,也就是类似于foreach当中的一个变量，所以是不能够放在循环里面的</span></span><br><span class="line"><span class="regexp">		//</span> 去循环遍历该本地屏幕设备列表当中的所有设备，即数组gs，通过下标取出数组当中的该元素来进行实例化robot对象</span><br><span class="line">		<span class="regexp">// 如果存在数组当中有一个下标所对应的元素实例化了robot对象后，</span></span><br><span class="line"><span class="regexp">		//</span> 可以让robot对象切实的获取得到本地屏幕的缓冲图片，且该缓冲图片不为空，并且宽大于<span class="number">0</span></span><br><span class="line">		<span class="regexp">// 即说明该下标所对应在数组当中的该元素即，就是我们所需要寻找的设备</span></span><br><span class="line"><span class="regexp">		Robot robot = null;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">		//</span> -<span class="number">1</span> 猜测：极有可能说的是没有这种可以获取本地屏幕的设备</span><br><span class="line">		int ret = -<span class="number">1</span>;</span><br><span class="line">		BufferedImage img=<span class="literal">null</span>;</span><br><span class="line">		<span class="regexp">// 进行本地屏幕设备数组列表的循环</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		for (int index = 0; index &lt; 10; index++) &#123;</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">			//</span> 从本地屏幕设备列表当中进行一一取出屏幕设备</span><br><span class="line">			GraphicsDevice g = gs[index];</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">			</span><br><span class="line">				<span class="regexp">// 通过robot来进行生成该种获取本地屏幕的机器设备</span></span><br><span class="line"><span class="regexp">				robot = new Robot(g);</span></span><br><span class="line"><span class="regexp">				</span></span><br><span class="line"><span class="regexp">				//</span> 通过该可以获取本地屏幕的机器设备来进行生成本地屏幕，也就是显示器图片</span><br><span class="line">				 img = robot.createScreenCapture(rectangle);</span><br><span class="line">				</span><br><span class="line">				 <span class="regexp">// 判断如果该图片如果不为空的话，并且该图片大于1，也就说明该图片是存在的，有一定宽度，而并不是宽为0，宽为0，即说明该并不是图片了</span></span><br><span class="line"><span class="regexp">				if (img != null &amp;&amp; img.getWidth() &gt; 1) &#123;</span></span><br><span class="line"><span class="regexp">				</span></span><br><span class="line"><span class="regexp">					//</span> 获取得到该机器设备的下标，并赋值给ret</span><br><span class="line">					ret = index;</span><br><span class="line">					</span><br><span class="line">					<span class="regexp">// 当下打断循环，跳出，找到该种设备之后立即打断循环，提高效率</span></span><br><span class="line"><span class="regexp">					break;</span></span><br><span class="line"><span class="regexp">				&#125;</span></span><br><span class="line"><span class="regexp">			&#125; catch (AWTException e) &#123;</span></span><br><span class="line"><span class="regexp">				System.err.println("打开第" + index + "个屏幕设备失败，尝试打开第" + (index + 1) + "个屏幕设备");</span></span><br><span class="line"><span class="regexp">			&#125;</span></span><br><span class="line"><span class="regexp">		&#125;</span></span><br><span class="line"><span class="regexp">		//</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span>/</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * FrameGrabber 类包含：OpenCVFrameGrabber</span></span><br><span class="line"><span class="comment">		 * (opencv_videoio),C1394FrameGrabber, FlyCaptureFrameGrabber,</span></span><br><span class="line"><span class="comment">		 * OpenKinectFrameGrabber,PS3EyeFrameGrabber,VideoInputFrameGrabber, 和</span></span><br><span class="line"><span class="comment">		 * FFmpegFrameGrabber.</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line"><span class="comment">/*		OpenCVFrameGrabber grabber = new OpenCVFrameGrabber(WEBCAM_DEVICE_INDEX);</span></span><br><span class="line"><span class="comment">		grabber.setImageWidth(captureWidth);</span></span><br><span class="line"><span class="comment">		grabber.setImageHeight(captureHeight);</span></span><br><span class="line"><span class="comment">		System.out.println("开始抓取摄像头...");</span></span><br><span class="line"><span class="comment">		int isTrue = 0;// 摄像头开启状态</span></span><br><span class="line"><span class="comment">		try &#123;</span></span><br><span class="line"><span class="comment">			grabber.start();</span></span><br><span class="line"><span class="comment">			isTrue += 1;</span></span><br><span class="line"><span class="comment">		&#125; catch (org.bytedeco.javacv.FrameGrabber.Exception e2) &#123;</span></span><br><span class="line"><span class="comment">			if (grabber != null) &#123;</span></span><br><span class="line"><span class="comment">				try &#123;</span></span><br><span class="line"><span class="comment">					grabber.restart();</span></span><br><span class="line"><span class="comment">					isTrue += 1;</span></span><br><span class="line"><span class="comment">				&#125; catch (org.bytedeco.javacv.FrameGrabber.Exception e) &#123;</span></span><br><span class="line"><span class="comment">					isTrue -= 1;</span></span><br><span class="line"><span class="comment">					try &#123;</span></span><br><span class="line"><span class="comment">						grabber.stop();</span></span><br><span class="line"><span class="comment">					&#125; catch (org.bytedeco.javacv.FrameGrabber.Exception e1) &#123;</span></span><br><span class="line"><span class="comment">						isTrue -= 1;</span></span><br><span class="line"><span class="comment">					&#125;</span></span><br><span class="line"><span class="comment">				&#125;</span></span><br><span class="line"><span class="comment">			&#125;</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">		if (isTrue &lt; 0) &#123;</span></span><br><span class="line"><span class="comment">			System.err.println("摄像头首次开启失败，尝试重启也失败！");</span></span><br><span class="line"><span class="comment">			return;</span></span><br><span class="line"><span class="comment">		&#125; else if (isTrue &lt; 1) &#123;</span></span><br><span class="line"><span class="comment">			System.err.println("摄像头开启失败！");</span></span><br><span class="line"><span class="comment">			return;</span></span><br><span class="line"><span class="comment">		&#125; else if (isTrue == 1) &#123;</span></span><br><span class="line"><span class="comment">			System.err.println("摄像头开启成功！");</span></span><br><span class="line"><span class="comment">		&#125; else if (isTrue == 1) &#123;</span></span><br><span class="line"><span class="comment">			System.err.println("摄像头首次开启失败，重新启动成功！");</span></span><br><span class="line"><span class="comment">		&#125;*/</span></span><br><span class="line">		<span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">//</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 本机摄像头默认<span class="number">0</span>，这里使用javacv的帧抓取器，至于使用的是ffmpeg还是opencv，请自行查看源码</span><br><span class="line">		FrameGrabber grabber = FrameGrabber.createDefault(ret);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 开启抓取器</span></span><br><span class="line"><span class="regexp">		grabber.start();</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 播放窗口的设置</span><br><span class="line">		System.err.println(<span class="string">"打开的屏幕序号："</span> + ret);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// javacv提供的图像展现窗口</span></span><br><span class="line"><span class="regexp">		//</span> title 颜色的校正值</span><br><span class="line">		CanvasFrame frame = <span class="keyword">new</span> CanvasFrame(<span class="string">"camera"</span>, CanvasFrame.getDefaultGamma() / grabber.getGamma());</span><br><span class="line">		</span><br><span class="line">		int width = <span class="number">800</span>;</span><br><span class="line">		int height = <span class="number">600</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 窗口居中</span></span><br><span class="line"><span class="regexp">		frame.setBounds((int) (screenSize.getWidth() - width) / 2, (int) (screenSize.getHeight() - height) / 2, width, height);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 设置CanvasFrame窗口大小</span><br><span class="line">		frame.setCanvasSize(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">//frame.setVisible(false);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 转换器的获取以及配置</span><br><span class="line">		OpenCVFrameConverter.ToIplImage converter = <span class="keyword">new</span> OpenCVFrameConverter.ToIplImage();</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 转换器通过抓取器grabber获取当前Frame进行来获取得到IplImage</span></span><br><span class="line"><span class="regexp">		//</span> 抓取一帧视频并将其转换为图像，至于用这个图像用来做什么？加水印，人脸识别等等自行添加</span><br><span class="line">		IplImage grabbedImage = converter.convert(grabber.grab());</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 通过当前视频直播放映内容的存储地址以及当前视频直播放映界面的大小来进行创建视频记录器，也就是界面的记录</span></span><br><span class="line"><span class="regexp">		final FrameRecorder recorder = FrameRecorder.createDefault(outputFile, width, height);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 设置该视频记录器的编码，即将视频直播的流进行编码，也就是直播流/推流进行编码</span><br><span class="line">		<span class="regexp">// avcodec.AV_CODEC_ID_H264，编码</span></span><br><span class="line"><span class="regexp">		recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 设置记录器的记录视频的格式</span><br><span class="line">		<span class="regexp">// 封装格式，如果是推送到rtmp就必须是flv封装格式</span></span><br><span class="line"><span class="regexp">		recorder.setFormat("flv");</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 设置记录器的记录视频的速率</span><br><span class="line">		recorder.setFrameRate(FRAME_RATE);</span><br><span class="line">		<span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span>/</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span></span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * FFmpegFrameRecorder(String filename, int imageWidth, int imageHeight, int audioChannels) </span></span><br><span class="line"><span class="comment">		 * fileName可以是本地文件（会自动创建），也可以是RTMP路径（发布到流媒体服务器）</span></span><br><span class="line"><span class="comment">		 * imageWidth = width （为捕获器设置宽） </span></span><br><span class="line"><span class="comment">		 * imageHeight = height （为捕获器设置高）</span></span><br><span class="line"><span class="comment">		 * audioChannels = 2（立体声）；1（单声道）；0（无音频）</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="regexp">//final FFmpegFrameRecorder recorder = new FFmpegFrameRecorder(outputFile, captureWidth, captureHeight, 2);</span></span><br><span class="line"><span class="regexp">		recorder.setInterleaved(true);</span></span><br><span class="line"><span class="regexp">		recorder.setAudioChannels(2);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		/**</span></span><br><span class="line"><span class="regexp">		 * 该参数用于降低延迟 参考FFMPEG官方文档：https://</span>trac.ffmpeg.org/wiki/StreamingGuide</span><br><span class="line">		 * 官方原文参考：ffmpeg -f dshow -i video=<span class="string">"Virtual-Camera"</span> -vcodec libx264</span><br><span class="line">		 * -tune zerolatency -b <span class="number">900k</span> -f mpegts udp:<span class="regexp">//10.1.0.102:1234</span></span><br><span class="line"><span class="regexp">		 */</span></span><br><span class="line"><span class="regexp">		recorder.setVideoOption("tune", "zerolatency");</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		/**</span></span><br><span class="line"><span class="regexp">		 * 权衡quality(视频质量)和encode speed(编码速度) values(值)：</span></span><br><span class="line"><span class="regexp">		 * ultrafast(终极快),</span></span><br><span class="line"><span class="regexp">		 * superfast(超级快),</span></span><br><span class="line"><span class="regexp">		 * veryfast(非常快), </span></span><br><span class="line"><span class="regexp">		 * faster(很快), </span></span><br><span class="line"><span class="regexp">		 * fast(快),</span></span><br><span class="line"><span class="regexp">		 * medium(中等), </span></span><br><span class="line"><span class="regexp">		 * slow(慢), </span></span><br><span class="line"><span class="regexp">		 * slower(很慢), </span></span><br><span class="line"><span class="regexp">		 * veryslow(非常慢)</span></span><br><span class="line"><span class="regexp">		 * ultrafast(终极快)提供最少的压缩（低编码器CPU）和最大的视频流大小；</span></span><br><span class="line"><span class="regexp">		 * 而veryslow(非常慢)提供最佳的压缩（高编码器CPU）的同时降低视频流的大小</span></span><br><span class="line"><span class="regexp">		 * 参考：https://</span>trac.ffmpeg.org/wiki/Encode/H.<span class="number">264</span> 官方原文参考：-preset ultrafast</span><br><span class="line">		 * as the name implies provides <span class="keyword">for</span> the fastest possible encoding. If</span><br><span class="line">		 * some tradeoff between quality <span class="keyword">and</span> encode speed, go <span class="keyword">for</span> the speed.</span><br><span class="line">		 * This might be needed <span class="keyword">if</span> you are going <span class="keyword">to</span> be transcoding multiple</span><br><span class="line">		 * streams <span class="literal">on</span> one machine.</span><br><span class="line">		 */</span><br><span class="line">		recorder.setVideoOption(<span class="string">"preset"</span>, <span class="string">"ultrafast"</span>);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 参考转流命令: ffmpeg</span></span><br><span class="line"><span class="comment">		 * -i'udp://localhost:5000?fifo_size=1000000&amp;overrun_nonfatal=1' -crf 30</span></span><br><span class="line"><span class="comment">		 * -preset ultrafast -acodec aac -strict experimental -ar 44100 -ac</span></span><br><span class="line"><span class="comment">		 * 2-b:a 96k -vcodec libx264 -r 25 -b:v 500k -f flv 'rtmp://&lt;wowza</span></span><br><span class="line"><span class="comment">		 * serverIP&gt;/live/cam0' -crf 30</span></span><br><span class="line"><span class="comment">		 * -设置内容速率因子,这是一个x264的动态比特率参数，它能够在复杂场景下(使用不同比特率，即可变比特率)保持视频质量；</span></span><br><span class="line"><span class="comment">		 * 可以设置更低的质量(quality)和比特率(bit rate),参考Encode/H.264 -preset ultrafast</span></span><br><span class="line"><span class="comment">		 * -参考上面preset参数，与视频压缩率(视频大小)和速度有关,需要根据情况平衡两大点：压缩率(视频大小)，编/解码速度 -acodec</span></span><br><span class="line"><span class="comment">		 * aac -设置音频编/解码器 (内部AAC编码) -strict experimental</span></span><br><span class="line"><span class="comment">		 * -允许使用一些实验的编解码器(比如上面的内部AAC属于实验编解码器) -ar 44100 设置音频采样率(audio sample</span></span><br><span class="line"><span class="comment">		 * rate) -ac 2 指定双通道音频(即立体声) -b:a 96k 设置音频比特率(bit rate) -vcodec libx264</span></span><br><span class="line"><span class="comment">		 * 设置视频编解码器(codec) -r 25 -设置帧率(frame rate) -b:v 500k -设置视频比特率(bit</span></span><br><span class="line"><span class="comment">		 * rate),比特率越高视频越清晰,视频体积也会变大,需要根据实际选择合理范围 -f flv</span></span><br><span class="line"><span class="comment">		 * -提供输出流封装格式(rtmp协议只支持flv封装格式) 'rtmp://&lt;FMS server</span></span><br><span class="line"><span class="comment">		 * IP&gt;/live/cam0'-流媒体服务器地址</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		recorder.setVideoOption(<span class="string">"crf"</span>, <span class="string">"25"</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 2000 kb/s, 720P视频的合理比特率范围</span></span><br><span class="line"><span class="regexp">		recorder.setVideoBitrate(2000000);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> h264编/解码器</span><br><span class="line">		<span class="regexp">//recorder.setVideoCodec(avcodec.AV_CODEC_ID_H264);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 封装格式flv</span><br><span class="line">		<span class="regexp">//recorder.setFormat("flv");</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 视频帧率(保证视频质量的情况下最低<span class="number">25</span>，低于<span class="number">25</span>会出现闪屏)</span><br><span class="line">		<span class="regexp">//recorder.setFrameRate(FRAME_RATE);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 关键帧间隔，一般与帧率相同或者是视频帧率的两倍</span><br><span class="line">		recorder.setGopSize(FRAME_RATE * <span class="number">2</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 不可变(固定)音频比特率</span></span><br><span class="line"><span class="regexp">		recorder.setAudioOption("crf", "0");</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 最高质量</span><br><span class="line">		recorder.setAudioQuality(<span class="number">0</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 音频比特率</span></span><br><span class="line"><span class="regexp">		recorder.setAudioBitrate(192000);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 音频采样率</span><br><span class="line">		recorder.setSampleRate(<span class="number">44100</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 双通道(立体声)</span></span><br><span class="line"><span class="regexp">		recorder.setAudioChannels(2);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 音频编/解码器</span><br><span class="line">		recorder.setAudioCodec(avcodec.AV_CODEC_ID_AAC);</span><br><span class="line">		</span><br><span class="line">		System.out.println(<span class="string">"开始录制..."</span>);</span><br><span class="line"> </span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			recorder.start();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (org.bytedeco.javacv.FrameRecorder.Exception e2) &#123;</span><br><span class="line">			<span class="keyword">if</span> (recorder != <span class="literal">null</span>) &#123;</span><br><span class="line">				System.out.println(<span class="string">"关闭失败，尝试重启"</span>);</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					recorder.stop();</span><br><span class="line">					recorder.start();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (org.bytedeco.javacv.FrameRecorder.Exception e) &#123;</span><br><span class="line">					<span class="keyword">try</span> &#123;</span><br><span class="line">						System.out.println(<span class="string">"开启失败，关闭录制"</span>);</span><br><span class="line">						recorder.stop();</span><br><span class="line">						<span class="keyword">return</span> frame;</span><br><span class="line">					&#125; <span class="keyword">catch</span> (org.bytedeco.javacv.FrameRecorder.Exception e1) &#123;</span><br><span class="line">						<span class="keyword">return</span> frame;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line"> </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="regexp">// 音频捕获</span></span><br><span class="line"><span class="regexp">		new Thread(new Runnable() &#123;</span></span><br><span class="line"><span class="regexp">			@Override</span></span><br><span class="line"><span class="regexp">			public void run() &#123;</span></span><br><span class="line"><span class="regexp">				/**</span></span><br><span class="line"><span class="regexp">				 * 设置音频编码器 最好是系统支持的格式，否则getLine() 会发生错误</span></span><br><span class="line"><span class="regexp">				 * 采样率:44.1k;</span></span><br><span class="line"><span class="regexp">				 * 采样率位数:16位;</span></span><br><span class="line"><span class="regexp">				 * 立体声(stereo);</span></span><br><span class="line"><span class="regexp">				 * 是否签名;true:</span></span><br><span class="line"><span class="regexp">				 * big-endian字节顺序,false:little-endian字节顺序(详见:ByteOrder类)</span></span><br><span class="line"><span class="regexp">				 */</span></span><br><span class="line"><span class="regexp">				AudioFormat audioFormat = new AudioFormat(44100.0F, 16, 2, true, false);</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">				//</span> 通过AudioSystem获取本地音频混合器信息</span><br><span class="line">				Mixer.Info[] minfoSet = AudioSystem.getMixerInfo();</span><br><span class="line">				</span><br><span class="line">				<span class="regexp">// 通过AudioSystem获取本地音频混合器</span></span><br><span class="line"><span class="regexp">				Mixer mixer = AudioSystem.getMixer(minfoSet[AUDIO_DEVICE_INDEX]);</span></span><br><span class="line"><span class="regexp">				</span></span><br><span class="line"><span class="regexp">				//</span> 通过设置好的音频编解码器获取数据线信息</span><br><span class="line">				DataLine.Info dataLineInfo = <span class="keyword">new</span> DataLine.Info(TargetDataLine<span class="class">.<span class="keyword">class</span>, <span class="title">audioFormat</span>);</span></span><br><span class="line">				</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					</span><br><span class="line">					<span class="regexp">// 打开并开始捕获音频</span></span><br><span class="line"><span class="regexp">					//</span> 通过line可以获得更多控制权</span><br><span class="line">					<span class="regexp">// 获取设备：TargetDataLine line</span></span><br><span class="line"><span class="regexp">					//</span> =(TargetDataLine)mixer.getLine(dataLineInfo);</span><br><span class="line">					final TargetDataLine line = (TargetDataLine) AudioSystem.getLine(dataLineInfo);</span><br><span class="line">					</span><br><span class="line">					line.open(audioFormat);</span><br><span class="line">					</span><br><span class="line">					line.start();</span><br><span class="line">					</span><br><span class="line">					<span class="regexp">// 获得当前音频采样率</span></span><br><span class="line"><span class="regexp">					final int sampleRate = (int) audioFormat.getSampleRate();</span></span><br><span class="line"><span class="regexp">					</span></span><br><span class="line"><span class="regexp">					//</span> 获取当前音频通道数量</span><br><span class="line">					final int numChannels = audioFormat.getChannels();</span><br><span class="line">					</span><br><span class="line">					<span class="regexp">// 初始化音频缓冲区(size是音频采样率*通道数)</span></span><br><span class="line"><span class="regexp">					int audioBufferSize = sampleRate * numChannels;</span></span><br><span class="line"><span class="regexp">					</span></span><br><span class="line"><span class="regexp">					final byte[] audioBytes = new byte[audioBufferSize];</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">					ScheduledThreadPoolExecutor exec = new ScheduledThreadPoolExecutor(1);</span></span><br><span class="line"><span class="regexp">					</span></span><br><span class="line"><span class="regexp">					exec.scheduleAtFixedRate(new Runnable() &#123;</span></span><br><span class="line"><span class="regexp">						@Override</span></span><br><span class="line"><span class="regexp">						public void run() &#123;</span></span><br><span class="line"><span class="regexp">							try &#123;</span></span><br><span class="line"><span class="regexp">								//</span> 非阻塞方式读取</span><br><span class="line">								int nBytesRead = line.read(audioBytes, <span class="number">0</span>, line.available());</span><br><span class="line">					</span><br><span class="line">								<span class="regexp">// 因为我们设置的是16位音频格式,所以需要将byte[]转成short[]</span></span><br><span class="line"><span class="regexp">								int nSamplesRead = nBytesRead / 2;</span></span><br><span class="line"><span class="regexp">								</span></span><br><span class="line"><span class="regexp">								short[] samples = new short[nSamplesRead];</span></span><br><span class="line"><span class="regexp">								</span></span><br><span class="line"><span class="regexp">								</span></span><br><span class="line"><span class="regexp">								/**</span></span><br><span class="line"><span class="regexp">								 * ByteBuffer.wrap(audioBytes)-将byte[]数组包装到缓冲区</span></span><br><span class="line"><span class="regexp">								 * ByteBuffer.order(ByteOrder)-按little-endian修改字节顺序，解码器定义的</span></span><br><span class="line"><span class="regexp">								 * ByteBuffer.asShortBuffer()-创建一个新的short[]缓冲区</span></span><br><span class="line"><span class="regexp">								 * ShortBuffer.get(samples)-将缓冲区里short数据传输到short[]</span></span><br><span class="line"><span class="regexp">								 */</span></span><br><span class="line"><span class="regexp">								ByteBuffer.wrap(audioBytes).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer().get(samples);</span></span><br><span class="line"><span class="regexp">								</span></span><br><span class="line"><span class="regexp">								//</span> 将short[]包装到ShortBuffer</span><br><span class="line">								ShortBuffer sBuff = ShortBuffer.wrap(samples, <span class="number">0</span>, nSamplesRead);</span><br><span class="line">								</span><br><span class="line">								<span class="regexp">// 按通道录制shortBuffer</span></span><br><span class="line"><span class="regexp">								 ((FFmpegFrameRecorder) recorder).recordSamples(sampleRate, numChannels, sBuff);</span></span><br><span class="line"><span class="regexp">							</span></span><br><span class="line"><span class="regexp">							&#125; catch (org.bytedeco.javacv.FrameRecorder.Exception e) &#123;</span></span><br><span class="line"><span class="regexp">								e.printStackTrace();</span></span><br><span class="line"><span class="regexp">							&#125;</span></span><br><span class="line"><span class="regexp">						&#125;</span></span><br><span class="line"><span class="regexp">					&#125;, 0, (long) 1000 / FRAME_RATE, TimeUnit.MILLISECONDS);</span></span><br><span class="line"><span class="regexp">				&#125; catch (LineUnavailableException e1) &#123;</span></span><br><span class="line"><span class="regexp">					e1.printStackTrace();</span></span><br><span class="line"><span class="regexp">				&#125;</span></span><br><span class="line"><span class="regexp">			&#125;</span></span><br><span class="line"><span class="regexp">		&#125;).start();</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">//</span></span><br><span class="line"><span class="regexp">		//</span> 设置界面的默认关闭操作的方式，即界面退出的时候</span><br><span class="line">		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// 设置会让录制视频的窗体一直处于屏幕的最前端，即这个窗口永远会挡住别的窗口，所以录制到的内容也就是整个显示器的内容</span></span><br><span class="line"><span class="regexp">		frame.setAlwaysOnTop(true);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		//</span> 转换器通过进行转化 IplImage图片得到Frame,轮流[按顺序循环];</span><br><span class="line">		<span class="regexp">//Frame rotatedFrame = converter.convert(grabbedImage);//</span> 不知道为什么这里不做转换就不能推到rtmp</span><br><span class="line">		Frame rotatedFrame=converter.convert(toIplImage(robot.createScreenCapture(rectangle)));</span><br><span class="line">		</span><br><span class="line">		<span class="regexp">// //</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">///</span></span><br><span class="line"><span class="regexp">				//</span> <span class="keyword">while</span>判断视频是否还在继续直播，如果继续的话，那么就显示图片</span><br><span class="line">				<span class="keyword">while</span> (frame.isShowing() &amp;&amp; frame.isVisible() &amp;&amp; (grabbedImage = converter.convert(grabber.grab())) != <span class="literal">null</span>) &#123;</span><br><span class="line">		</span><br><span class="line">					<span class="regexp">// 从当前屏幕中读取的像素图像，该图像不包括鼠标光标</span></span><br><span class="line"><span class="regexp">					BufferedImage image = robot.createScreenCapture(rectangle);</span></span><br><span class="line"><span class="regexp">					</span></span><br><span class="line"><span class="regexp">					//</span> 该界面用以来显示图片</span><br><span class="line">					<span class="regexp">//frame.showImage(image);</span></span><br><span class="line"><span class="regexp">					</span></span><br><span class="line"><span class="regexp">					//</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">///</span></span><br><span class="line"><span class="regexp">					//</span> 转换器通过进行转化 IplImage图片得到Frame,轮流[按顺序循环];</span><br><span class="line">					rotatedFrame = converter.convert(toIplImage(robot.createScreenCapture(rectangle)));</span><br><span class="line">					</span><br><span class="line">					<span class="regexp">// 设置该Frame界面当中图为动态的图</span></span><br><span class="line"><span class="regexp">					//</span> frame.showImage(rotatedFrame);</span><br><span class="line">					<span class="regexp">// 如果开始时间为0，即让开始时间变为当前时间，初始化时间戳</span></span><br><span class="line"><span class="regexp">					if (startTime == 0) &#123;</span></span><br><span class="line"><span class="regexp">						startTime = System.currentTimeMillis();</span></span><br><span class="line"><span class="regexp">					&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">					//</span> ((当前时间-视频录制开始的时间)*<span class="number">1000</span>)=从开始到现在的时间差值</span><br><span class="line">					videoTS = <span class="number">1000</span> * (System.currentTimeMillis() - startTime);</span><br><span class="line"></span><br><span class="line">					<span class="regexp">// 设置视频记录器的时间戳</span></span><br><span class="line"><span class="regexp">					//</span>recorder.setTimestamp(videoTS);</span><br><span class="line"></span><br><span class="line">					<span class="regexp">//检查偏移量</span></span><br><span class="line"><span class="regexp">					if (videoTS &gt; recorder.getTimestamp()) &#123;</span></span><br><span class="line"><span class="regexp">						//</span>System.out.println(<span class="string">"Lip-flap correction: "</span> + videoTS + <span class="string">" : "</span> + recorder.getTimestamp() + <span class="string">" -&gt; "</span> + (videoTS - recorder.getTimestamp()));</span><br><span class="line">					</span><br><span class="line">						<span class="regexp">//告诉录制器写入这个timestamp</span></span><br><span class="line"><span class="regexp">						recorder.setTimestamp(videoTS);</span></span><br><span class="line"><span class="regexp">					&#125;</span></span><br><span class="line"><span class="regexp">					</span></span><br><span class="line"><span class="regexp">					//</span> 设置视频的记录为 转化器通过进行转化IplImage图片得到的Frame，该Frame为轮流的</span><br><span class="line">					recorder.record(rotatedFrame);</span><br><span class="line"></span><br><span class="line">					<span class="regexp">// //</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span><span class="regexp">////</span>/</span><br><span class="line">					<span class="keyword">try</span> &#123;</span><br><span class="line">						<span class="regexp">// 线程沉睡时间40</span></span><br><span class="line"><span class="regexp">						Thread.sleep(40);</span></span><br><span class="line"><span class="regexp">					&#125; catch (InterruptedException e) &#123;</span></span><br><span class="line"><span class="regexp">						e.printStackTrace();</span></span><br><span class="line"><span class="regexp">					&#125;</span></span><br><span class="line"><span class="regexp">				&#125;</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">/*		//</span> javaCV提供了优化非常好的硬件加速组件来帮助显示我们抓取的摄像头视频</span><br><span class="line">		CanvasFrame cFrame = <span class="keyword">new</span> CanvasFrame(<span class="string">"Capture Preview"</span>, CanvasFrame.getDefaultGamma() / grabber.getGamma());</span><br><span class="line">		Frame capturedFrame = <span class="literal">null</span>;</span><br><span class="line">		<span class="regexp">// 执行抓取（capture）过程</span></span><br><span class="line"><span class="regexp">		while ((capturedFrame = grabber.grab()) != null) &#123;</span></span><br><span class="line"><span class="regexp">			if (cFrame.isVisible()) &#123;</span></span><br><span class="line"><span class="regexp">				//</span>本机预览要发送的帧</span><br><span class="line">				cFrame.showImage(capturedFrame);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="regexp">//定义我们的开始时间，当开始时需要先初始化时间戳</span></span><br><span class="line"><span class="regexp">			if (startTime == 0)</span></span><br><span class="line"><span class="regexp">				startTime = System.currentTimeMillis();</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">			//</span> 创建一个 timestamp用来写入帧中</span><br><span class="line">			videoTS = <span class="number">1000</span> * (System.currentTimeMillis() - startTime);</span><br><span class="line">			</span><br><span class="line">			<span class="regexp">//检查偏移量</span></span><br><span class="line"><span class="regexp">			if (videoTS &gt; recorder.getTimestamp()) &#123;</span></span><br><span class="line"><span class="regexp">				System.out.println("Lip-flap correction: " + videoTS + " : " + recorder.getTimestamp() + " -&gt; "</span></span><br><span class="line"><span class="regexp">						+ (videoTS - recorder.getTimestamp()));</span></span><br><span class="line"><span class="regexp">			</span></span><br><span class="line"><span class="regexp">				//</span>告诉录制器写入这个timestamp</span><br><span class="line">				recorder.setTimestamp(videoTS);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			<span class="regexp">// 发送帧</span></span><br><span class="line"><span class="regexp">			try &#123;</span></span><br><span class="line"><span class="regexp">				recorder.record(capturedFrame);</span></span><br><span class="line"><span class="regexp">			&#125; catch (org.bytedeco.javacv.FrameRecorder.Exception e) &#123;</span></span><br><span class="line"><span class="regexp">				System.out.println("录制帧发生异常，什么都不做");</span></span><br><span class="line"><span class="regexp">			&#125;</span></span><br><span class="line"><span class="regexp">		&#125;</span></span><br><span class="line"><span class="regexp"> </span></span><br><span class="line"><span class="regexp">		cFrame.dispose();*/</span></span><br><span class="line"><span class="regexp">		try &#123;</span></span><br><span class="line"><span class="regexp">			if (recorder != null) &#123;</span></span><br><span class="line"><span class="regexp">				recorder.stop();</span></span><br><span class="line"><span class="regexp">			&#125;</span></span><br><span class="line"><span class="regexp">		&#125; catch (org.bytedeco.javacv.FrameRecorder.Exception e) &#123;</span></span><br><span class="line"><span class="regexp">			System.out.println("关闭录制器失败");</span></span><br><span class="line"><span class="regexp">			try &#123;</span></span><br><span class="line"><span class="regexp">				if (recorder != null) &#123;</span></span><br><span class="line"><span class="regexp">					grabber.stop();</span></span><br><span class="line"><span class="regexp">				&#125;</span></span><br><span class="line"><span class="regexp">			&#125; catch (org.bytedeco.javacv.FrameGrabber.Exception e1) &#123;</span></span><br><span class="line"><span class="regexp">				System.out.println("关闭摄像头失败");</span></span><br><span class="line"><span class="regexp">				return frame;</span></span><br><span class="line"><span class="regexp">			&#125;</span></span><br><span class="line"><span class="regexp">		&#125;</span></span><br><span class="line"><span class="regexp">		try &#123;</span></span><br><span class="line"><span class="regexp">			if (recorder != null) &#123;</span></span><br><span class="line"><span class="regexp">				grabber.stop();</span></span><br><span class="line"><span class="regexp">			&#125;</span></span><br><span class="line"><span class="regexp">		&#125; catch (org.bytedeco.javacv.FrameGrabber.Exception e) &#123;</span></span><br><span class="line"><span class="regexp">			System.out.println("关闭摄像头失败");</span></span><br><span class="line"><span class="regexp">		&#125;</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">		frame.dispose();</span></span><br><span class="line"><span class="regexp">		recorder.stop();</span></span><br><span class="line"><span class="regexp">		recorder.release();</span></span><br><span class="line"><span class="regexp">		grabber.stop();</span></span><br><span class="line"><span class="regexp">		return frame;</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">	&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">	</span></span><br><span class="line"><span class="regexp">	public static void main(String[] args) throws Exception, org.bytedeco.javacv.FrameRecorder.Exception, ParseException &#123;</span></span><br><span class="line"><span class="regexp">		VideoService videoService = new VideoService();</span></span><br><span class="line"><span class="regexp">		String jsonStr = videoService.getPushAddress("Fsn");</span></span><br><span class="line"><span class="regexp">		JSONObject json = JSONObject.parseObject(jsonStr);</span></span><br><span class="line"><span class="regexp">		recordWebcamAndMicrophone(0, 4, json.getString("PUSH_URL"), 800, 600, 25);</span></span><br><span class="line"><span class="regexp">		</span></span><br><span class="line"><span class="regexp">	&#125;</span></span><br><span class="line"><span class="regexp">	</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>PC端直播屏幕变红</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年04月17日 - 04:01:20</p>
+  <p><span>最后更新:</span>2020年04月17日 - 04:20:50</p>
+  <p><span>原始链接:</span><a href="/2020/04/17/%E7%9B%B4%E6%92%AD/pc%E7%9B%B4%E6%92%AD%E5%B1%8F%E5%B9%95%E5%8F%98%E7%BA%A2/" title="PC端直播屏幕变红">https://fengshana.github.io/2020/04/17/%E7%9B%B4%E6%92%AD/pc%E7%9B%B4%E6%92%AD%E5%B1%8F%E5%B9%95%E5%8F%98%E7%BA%A2/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/04/17/%E7%9B%B4%E6%92%AD/pc%E7%9B%B4%E6%92%AD%E5%B1%8F%E5%B9%95%E5%8F%98%E7%BA%A2/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag"><i class="fa fa-tag">直播</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/15/%E9%9D%A2%E8%AF%95%E9%A2%98/Java%E4%B8%BB%E6%B5%81%E6%89%80%E5%85%A8%E9%83%A8%E8%AF%A6%E8%A7%A3%E9%9D%A2%E8%AF%95%E5%BF%85%E5%A4%87/" rel="next" title="Java主流锁全部详解面试必备">
+                <i class="fa fa-chevron-left"></i> Java主流锁全部详解面试必备
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+	<span title="Site words total count">
+     361.5k字 </span>
+    <!--<span title="symbols_count_time.count_total">692k</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+ 
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":100,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+
