@@ -4,6 +4,12 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
+        name: '冬眠',
+        artist: '司南',
+        url: 'http://music.163.com/song/media/outer/url?id=1398663411.mp3',
+        cover: 'http://p2.music.126.net/4KDBaQXnQywQovmqvjx-8Q==/109951164444131697.jpg',
+},
+      {
         name: '所念皆星河',
         artist: 'CMJ',
         url: 'http://music.163.com/song/media/outer/url?id=1384026889.mp3',
