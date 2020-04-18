@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengshana.github.io/"/>
-  <updated>2020-04-18T01:07:33.635Z</updated>
+  <updated>2020-04-18T03:18:21.819Z</updated>
   <id>https://fengshana.github.io/</id>
   
   <author>
@@ -17,11 +17,65 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>整数反转</title>
+    <link href="https://fengshana.github.io/2020/04/18/LeetCode/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/"/>
+    <id>https://fengshana.github.io/2020/04/18/LeetCode/%E6%95%B4%E6%95%B0%E5%8F%8D%E8%BD%AC/</id>
+    <published>2020-04-18T03:10:12.003Z</published>
+    <updated>2020-04-18T03:18:21.819Z</updated>
+    
+    <content type="html"><![CDATA[<p>我觉得还是得多看点优秀的代码，我这个太low了；<br>可以看这个的：<a href="https://drawcode.mdnice.com/algorithm/intro/" target="_blank" rel="noopener">https://drawcode.mdnice.com/algorithm/intro/</a><br>体会到差距就是执行用时与内存消耗上面；<br>害；<br>基础不扎实；<br>晚上有时间看下别人优秀的代码解析；<br>害；别说；还是蛮沉浸其中的；  </p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Solution &#123;</span><br><span class="line">    static Long <span class="keyword">minValue</span>=new Long(<span class="number">-2</span>);</span><br><span class="line">    static Long <span class="keyword">maxValue</span>=new Long(<span class="number">2</span>);</span><br><span class="line">    static&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">30</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">minValue</span>=<span class="keyword">minValue</span>*(<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">maxValue</span>=<span class="keyword">maxValue</span>*<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">maxValue</span>=<span class="keyword">maxValue</span><span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    给出一个32位的有符号整数，</span></span><br><span class="line"><span class="comment">    你需要将这个整数中每位上的数字进行反转；</span></span><br><span class="line"><span class="comment">    int x  32位的有符号整数</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="built_in">public</span> <span class="type">int</span> reverse(<span class="type">int</span> x) &#123;</span><br><span class="line">        String s=x&lt;<span class="number">0</span>?(x+"").substring(<span class="number">1</span>,(x+"").length()):x+"";</span><br><span class="line">        Long result=<span class="built_in">new</span> Long(<span class="number">0</span>);</span><br><span class="line">        StringBuilder stringBuilder=<span class="built_in">new</span> StringBuilder();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=s.length();i&gt;<span class="number">0</span>;i<span class="comment">--)&#123;</span></span><br><span class="line">            stringBuilder.append(s.substring(i<span class="number">-1</span>,i));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;<span class="number">0</span>)&#123;</span><br><span class="line">            Long <span class="keyword">value</span>=Long.parseLong("-"+stringBuilder.toString());</span><br><span class="line">            result=<span class="keyword">value</span>&lt;<span class="keyword">minValue</span>?result:value;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            Long value=Long.parseLong(stringBuilder.toString());</span><br><span class="line">            result=value&gt;<span class="keyword">maxValue</span>?result:value;</span><br><span class="line">        &#125;</span><br><span class="line">        return result.intValue();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我觉得还是得多看点优秀的代码，我这个太low了；&lt;br&gt;可以看这个的：&lt;a href=&quot;https://drawcode.mdnice.com/algorithm/intro/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://drawcode
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="https://fengshana.github.io/categories/LeetCode/"/>
+    
+    
+      <category term="LeetCode" scheme="https://fengshana.github.io/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redis+高并发+分布式锁</title>
+    <link href="https://fengshana.github.io/2020/04/18/%E9%9D%A2%E8%AF%95%E9%A2%98/Redis%E9%9D%A2%E8%AF%95%E6%8A%80%E6%9C%AF%E7%82%B9/"/>
+    <id>https://fengshana.github.io/2020/04/18/%E9%9D%A2%E8%AF%95%E9%A2%98/Redis%E9%9D%A2%E8%AF%95%E6%8A%80%E6%9C%AF%E7%82%B9/</id>
+    <published>2020-04-18T01:26:14.615Z</published>
+    <updated>2020-04-18T01:39:51.200Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>观看视频笔记：<a href="https://www.bilibili.com/video/BV1p7411u7S6" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1p7411u7S6</a>  </p><p>昨天面试了一轮；害；说到底还是自己不会；<br>我明明知道，面试官会问些什么；但是就是自个儿没有好好复习好；我觉得；  </p><h2 id="分布式锁场景-互联网秒杀实例讲解"><a href="#分布式锁场景-互联网秒杀实例讲解" class="headerlink" title="分布式锁场景-互联网秒杀实例讲解"></a>分布式锁场景-互联网秒杀实例讲解</h2><p>分布式锁；  </p><h3 id="BAT面试-Redis高并发分布式锁实战"><a href="#BAT面试-Redis高并发分布式锁实战" class="headerlink" title="BAT面试-Redis高并发分布式锁实战"></a>BAT面试-Redis高并发分布式锁实战</h3><p>课程内容：  </p><ol><li>分布式架构下如何实现Redis分布式锁</li><li>基于Redisson框架实现分布式锁</li><li>Redis主从架构锁失效问题及RedLock详解</li><li>双十一大促如何将分布式锁性能提升100倍</li><li>Zookeeper又是如何实现分布式锁的</li></ol><p>问题：对分布式锁没有什么概念？<br>答：额，我可能对分布式锁没有什么概念；就，我知道有红锁RedLock；其余的；不是很清楚；  </p><p>分布式锁场景：  </p><ul><li>互联网秒杀</li><li>抢优惠券</li><li>接口幂等性校验</li></ul><h2 id="分布式架构下如何实现Redis分布式锁"><a href="#分布式架构下如何实现Redis分布式锁" class="headerlink" title="分布式架构下如何实现Redis分布式锁"></a>分布式架构下如何实现Redis分布式锁</h2><h2 id="Redis主从架构锁失效问题及RedLock详解"><a href="#Redis主从架构锁失效问题及RedLock详解" class="headerlink" title="Redis主从架构锁失效问题及RedLock详解"></a>Redis主从架构锁失效问题及RedLock详解</h2><h2 id="基于Redission框架实现分布式锁"><a href="#基于Redission框架实现分布式锁" class="headerlink" title="基于Redission框架实现分布式锁"></a>基于Redission框架实现分布式锁</h2><h2 id="Redis高并发分布式锁综合讲解"><a href="#Redis高并发分布式锁综合讲解" class="headerlink" title="Redis高并发分布式锁综合讲解"></a>Redis高并发分布式锁综合讲解</h2><h2 id="Redis核心数据结构介绍"><a href="#Redis核心数据结构介绍" class="headerlink" title="Redis核心数据结构介绍"></a>Redis核心数据结构介绍</h2><h2 id="String应用场景解析"><a href="#String应用场景解析" class="headerlink" title="String应用场景解析"></a>String应用场景解析</h2><h2 id="Hash应用场景解析"><a href="#Hash应用场景解析" class="headerlink" title="Hash应用场景解析"></a>Hash应用场景解析</h2><h2 id="Hash结构的优缺点解析"><a href="#Hash结构的优缺点解析" class="headerlink" title="Hash结构的优缺点解析"></a>Hash结构的优缺点解析</h2><h2 id="List应用场景解析"><a href="#List应用场景解析" class="headerlink" title="List应用场景解析"></a>List应用场景解析</h2><h2 id="微博与微信关注模型解析"><a href="#微博与微信关注模型解析" class="headerlink" title="微博与微信关注模型解析"></a>微博与微信关注模型解析</h2><h2 id="一线大厂Redis开发最佳实践"><a href="#一线大厂Redis开发最佳实践" class="headerlink" title="一线大厂Redis开发最佳实践"></a>一线大厂Redis开发最佳实践</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h2&gt;&lt;p&gt;观看视频笔记：&lt;a href=&quot;https://www.bilibili.com/video/BV1p7411u7S6&quot; target=&quot;_
+      
+    
+    </summary>
+    
+    
+      <category term="Redis" scheme="https://fengshana.github.io/categories/Redis/"/>
+    
+    
+      <category term="Redis" scheme="https://fengshana.github.io/tags/Redis/"/>
+    
+      <category term="面试" scheme="https://fengshana.github.io/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>两数之和</title>
     <link href="https://fengshana.github.io/2020/04/18/LeetCode/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
     <id>https://fengshana.github.io/2020/04/18/LeetCode/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/</id>
     <published>2020-04-18T00:55:01.818Z</published>
-    <updated>2020-04-18T01:07:33.635Z</updated>
+    <updated>2020-04-18T01:09:52.993Z</updated>
     
     <content type="html"><![CDATA[<p>写了两种方法；<br>很奇怪执行用时和内存消耗不知道怎么降下去；<br>我开始就搜了下：java 定义变量会消耗内存是吗？<br>我这个傻逼问题；<br>抱歉抱歉，我刚入门，对不住；  </p><p> <img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXyrH0mn2colZek3cguDxrWyGXx4pLFnHCZcZ9eF4N289iZ2JtlaYYYeWf2LHQ5qRWF8Mf0xWoO6sbLjgob1pXQM!/r" alt="两数之和"></p><p>想一想办法应该还可以优化下；<br>一开始使用Map，觉得内存消耗可能会大；不知道莫名就是给我的感觉就是这种结构给我的感觉要大；后来就换成了用数组；<br>刚开始接触，写的不好，还请见谅；  </p><p>诶诶诶，换成js，内存消耗以及运行时间可能会要短一点吗？有时间再去试试js；<br>不知道为什么我感觉js会要短点？<br>好了今天是LeetCode打卡第一天；<br>最近有一首歌挺好听的：(司南-冬眠)</p><blockquote><p>方法一：  </p></blockquote><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     int[] nums 整数数组</span></span><br><span class="line"><span class="comment">     int target 目标值</span></span><br><span class="line"><span class="comment">     int[] 该数组nums中找出和为目标值的那两个整数，并返回他们的数组下标</span></span><br><span class="line"><span class="comment">     每中输入只会对应一个答案，但是数组中同一个元素不能使用两遍。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</span><br><span class="line">        Map&lt;Integer,Integer&gt; <span class="built_in">map</span>=<span class="keyword">new</span> HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">        <span class="keyword">int</span>[] twoNums=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> numA=nums[i];</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">map</span>.<span class="built_in">size</span>()==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="built_in">map</span>.<span class="built_in">put</span>(i,numA);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">int</span> numB=target-numA;</span><br><span class="line">                Set&lt;Map.Entry&lt;Integer, Integer&gt;&gt; <span class="built_in">set</span>=<span class="built_in">map</span>.entrySet();</span><br><span class="line">                <span class="keyword">for</span>(Map.Entry&lt;Integer,Integer&gt; entry:<span class="built_in">set</span>)&#123;</span><br><span class="line">                    System.out.<span class="built_in">println</span>(<span class="string">"entry.getValue():  "</span>+entry.getValue());</span><br><span class="line">                    <span class="keyword">if</span>(numB==entry.getValue())&#123;</span><br><span class="line">                        twoNums[<span class="number">0</span>]=i&gt;entry.<span class="built_in">getKey</span>()?entry.<span class="built_in">getKey</span>():i;</span><br><span class="line">                        twoNums[<span class="number">1</span>]=i&gt;entry.<span class="built_in">getKey</span>()?i:entry.<span class="built_in">getKey</span>();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">map</span>.<span class="built_in">put</span>(i,numA);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> twoNums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><blockquote><p>方法二：  </p></blockquote><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> static <span class="built_in">int</span>[] twoSum2(<span class="built_in">int</span>[] nums,<span class="built_in">int</span> target)&#123;</span><br><span class="line">        <span class="built_in">int</span>[] twoNums=new <span class="built_in">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="built_in">bool</span>ean flag=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="built_in">int</span> numA=nums[i];</span><br><span class="line">            <span class="built_in">int</span> numB=target-numA;</span><br><span class="line">           <span class="keyword">for</span>(<span class="built_in">int</span> n=i+<span class="number">1</span>;n&lt;nums.length;n++)&#123;</span><br><span class="line">               <span class="built_in">int</span> numV=nums[n];</span><br><span class="line">               <span class="keyword">if</span>(numB==numV)&#123;</span><br><span class="line">                   twoNums[<span class="number">0</span>]=i;</span><br><span class="line">                   twoNums[<span class="number">1</span>]=n;</span><br><span class="line">                   flag=<span class="literal">true</span>;</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                   <span class="keyword">continue</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> twoNums;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -427,62 +481,6 @@
   </entry>
   
   <entry>
-    <title>图</title>
-    <link href="https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/"/>
-    <id>https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</id>
-    <published>2020-04-03T04:52:56.000Z</published>
-    <updated>2020-04-07T01:17:23.283Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;阅读笔记&quot;&gt;&lt;a href=&quot;#阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;阅读笔记&quot;&gt;&lt;/a&gt;阅读笔记&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%
-      
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://fengshana.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="https://fengshana.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="图" scheme="https://fengshana.github.io/tags/%E5%9B%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>排序</title>
-    <link href="https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/"/>
-    <id>https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</id>
-    <published>2020-04-03T04:52:56.000Z</published>
-    <updated>2020-04-07T01:16:45.719Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;阅读笔记&quot;&gt;&lt;a href=&quot;#阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;阅读笔记&quot;&gt;&lt;/a&gt;阅读笔记&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%
-      
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://fengshana.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构" scheme="https://fengshana.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-      <category term="排序" scheme="https://fengshana.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>树</title>
     <link href="https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/"/>
     <id>https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/</id>
@@ -507,6 +505,34 @@
       <category term="数据结构" scheme="https://fengshana.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="树" scheme="https://fengshana.github.io/tags/%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图</title>
+    <link href="https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/"/>
+    <id>https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</id>
+    <published>2020-04-03T04:52:56.000Z</published>
+    <updated>2020-04-07T01:17:23.283Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;阅读笔记&quot;&gt;&lt;a href=&quot;#阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;阅读笔记&quot;&gt;&lt;/a&gt;阅读笔记&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%
+      
+    
+    </summary>
+    
+    
+      <category term="数据结构" scheme="https://fengshana.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="数据结构" scheme="https://fengshana.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="图" scheme="https://fengshana.github.io/tags/%E5%9B%BE/"/>
     
   </entry>
   
@@ -539,19 +565,19 @@
   </entry>
   
   <entry>
-    <title>算法</title>
-    <link href="https://fengshana.github.io/2020/04/01/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-02/"/>
-    <id>https://fengshana.github.io/2020/04/01/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-02/</id>
-    <published>2020-04-01T04:52:56.000Z</published>
-    <updated>2020-04-07T01:17:27.646Z</updated>
+    <title>排序</title>
+    <link href="https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/"/>
+    <id>https://fengshana.github.io/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</id>
+    <published>2020-04-03T04:52:56.000Z</published>
+    <updated>2020-04-07T01:16:45.719Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/01/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95-02/%E7%AE%97%E6%B3%95-02.png" alt="算法-02"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;阅读笔记&quot;&gt;&lt;a href=&quot;#阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;阅读笔记&quot;&gt;&lt;/a&gt;阅读笔记&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2020/04/01/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%
+        &lt;h2 id=&quot;阅读笔记&quot;&gt;&lt;a href=&quot;#阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;阅读笔记&quot;&gt;&lt;/a&gt;阅读笔记&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%
       
     
     </summary>
@@ -562,33 +588,7 @@
     
       <category term="数据结构" scheme="https://fengshana.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="算法" scheme="https://fengshana.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构绪论</title>
-    <link href="https://fengshana.github.io/2020/03/30/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA-01/"/>
-    <id>https://fengshana.github.io/2020/03/30/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA-01/</id>
-    <published>2020-03-30T04:52:56.000Z</published>
-    <updated>2020-04-07T01:17:02.790Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/03/30/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA-01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA-01.png" alt="数据结构绪论-01"></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;阅读笔记&quot;&gt;&lt;a href=&quot;#阅读笔记&quot; class=&quot;headerlink&quot; title=&quot;阅读笔记&quot;&gt;&lt;/a&gt;阅读笔记&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/2020/03/30/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%
-      
-    
-    </summary>
-    
-    
-      <category term="数据结构" scheme="https://fengshana.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="数据结构绪论 - 数据结构" scheme="https://fengshana.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%BB%AA%E8%AE%BA-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="排序" scheme="https://fengshana.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
