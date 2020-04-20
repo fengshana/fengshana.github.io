@@ -33,9 +33,9 @@
       </tags>
   </entry>
   <entry>
-    <title>Git学习笔记</title>
-    <url>/2020/04/20/%E9%9D%A2%E8%AF%95%E9%A2%98/Git/</url>
-    <content><![CDATA[<h2 id="Git工作流指南-分布式版本控制系统"><a href="#Git工作流指南-分布式版本控制系统" class="headerlink" title="Git工作流指南 分布式版本控制系统"></a>Git工作流指南 分布式版本控制系统</h2><p>观看笔记：<a href="https://www.bilibili.com/video/BV1dW411U7ER?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1dW411U7ER?p=1</a>  </p>
+    <title>Git工作流学习笔记</title>
+    <url>/2020/04/20/%E9%9D%A2%E8%AF%95%E9%A2%98/Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h2 id="Git工作流指南-分布式版本控制系统"><a href="#Git工作流指南-分布式版本控制系统" class="headerlink" title="Git工作流指南 分布式版本控制系统"></a>Git工作流指南 分布式版本控制系统</h2><p>观看笔记：<a href="https://www.bilibili.com/video/BV1dW411U7ER?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1dW411U7ER?p=1</a><br>老师笔记： <a href="http://www.funtl.com/zh/git/" target="_blank" rel="noopener">http://www.funtl.com/zh/git/</a>  </p>
 <h2 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h2><ul>
 <li>什么是版本控制系统</li>
 <li>什么是Git</li>
@@ -56,8 +56,27 @@
 <li>留下修改记录，以便随时查看；</li>
 <li>发版时可以方便的管理不同的版本；</li>
 </ul>
-<h4 id="什么是版本控制系统-1"><a href="#什么是版本控制系统-1" class="headerlink" title="什么是版本控制系统"></a>什么是版本控制系统</h4><p>一个标准的版本控制系统 Version Control System（VCS），通常需要有以下功能：</p>
-<h2 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h2><ul>
+<h4 id="什么是版本控制系统-1"><a href="#什么是版本控制系统-1" class="headerlink" title="什么是版本控制系统"></a>什么是版本控制系统</h4><p>一个标准的版本控制系统 Version Control System（VCS），通常需要有以下功能：  </p>
+<ul>
+<li>能够创建Repository（仓库），用来保存代码；</li>
+<li>协同开发时，方便将代码分发给团队成员；</li>
+<li>记录每次修改代码的内容、时间、原因等信息；</li>
+<li>能够创建Branch（分支），可以根据不同的场景进行开发；</li>
+<li>能够创建Tag（标签），建立项目里程碑；</li>
+</ul>
+<h4 id="版本控制系统的发展史"><a href="#版本控制系统的发展史" class="headerlink" title="版本控制系统的发展史"></a>版本控制系统的发展史</h4><p>版本控制系统发展至今有几种不同的模式：  </p>
+<h5 id="Local-VCS"><a href="#Local-VCS" class="headerlink" title="Local VCS"></a>Local VCS</h5><p>本地使用 复制/粘贴 的方式进行管理，缺点是无法协同开发</p>
+<h5 id="Gentralized-VCS（Lock，悲观锁）"><a href="#Gentralized-VCS（Lock，悲观锁）" class="headerlink" title="Gentralized VCS（Lock，悲观锁）"></a>Gentralized VCS（Lock，悲观锁）</h5><p>中央集中式版本控制系统团队共用仓库，当某人需要编辑文件时，进行锁定，以免其他人同时编辑时造成冲突，但不是很方便，其他人需要排队才能编辑文件，如果有人编辑了很久或是忘记解锁会造成其他人长时间等待的情况；  </p>
+<p>如何理解悲观锁：总有刁民想害朕。<br>我要是面试这么答，会怎么样？  </p>
+<h5 id="Gentralized-VCS（Merge，乐观锁）"><a href="#Gentralized-VCS（Merge，乐观锁）" class="headerlink" title="Gentralized VCS（Merge，乐观锁）"></a>Gentralized VCS（Merge，乐观锁）</h5><p>中央集中式版本控制系统团队共用仓库，不采用悲观锁方式来避免冲突，而是时候发现如果别人也修改相同文件（冲突），再进行手动修改解决。  </p>
+<p>有很多VCS属于这种类型，如：CVS、Subversion、Perforce等；  </p>
+<p>中央集中式版本控制系统的共同问题是，做任何操作都需要和服务器同步，如果服务器宕机则会造成无法继续工作的窘迫；  </p>
+<p>如何理解乐观锁：天网恢恢疏而不漏。<br>我想给自己两锤子；  </p>
+<h5 id="Distributed-VCS"><a href="#Distributed-VCS" class="headerlink" title="Distributed VCS"></a>Distributed VCS</h5><p>分布式版本控制系统，本地也拥有完整的代码仓库，就不会出现上述集中式管理的问题，即使没有网络，依然可以commit和看log，也无需担心服务器同步问题；  </p>
+<p>如：Git、Mercurial、Bazaar等就属于分布式版本控制系统。缺点是功能比较复杂，上手需要一定的学习时间；  </p>
+<p>（分布式版本控制系统都有一个本地化的这样一个概念；区块链系统也能称之为一个分布式系统）  </p>
+<h2 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h2><p>Git工作流：代码管理的工作流程、方式  </p>
+<ul>
 <li>Git工作流简介</li>
 <li>集中式工作流</li>
 <li>功能分支工作流</li>
@@ -65,12 +84,419 @@
 <li>Forking工作流</li>
 <li>Pull Requests</li>
 </ul>
+<h3 id="Git工作流简介"><a href="#Git工作流简介" class="headerlink" title="Git工作流简介"></a>Git工作流简介</h3><p>工作流有各式各样的用法，但也正因此使得在实际工作中如何上手使用增加了难度。  </p>
+<p>这篇指南通过总览公司团队中最常用的集中Git工作流让大家可以上手使用；  </p>
+<p>在阅读的过程中请记住，本文中的集中工作流是作为方案指导而不是条例规定，在展示了各种工作流可能的用法后，可以从不同的工作流中挑选或揉合出一个满足自己需求的工作流；  </p>
+<h4 id="集中式工作流"><a href="#集中式工作流" class="headerlink" title="集中式工作流"></a>集中式工作流</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXyIW2ezMoDhUXO*s5pTGue2N753CPNKcE42sPIP6l3d0rpu2DZjcGmC.Kga3cDUruqQwuWnPoetw.KevCfGSm5U!/r" alt="集中式工作流"></p>
+<p>如果开发团队成员已经很熟Subversion，集中式工作流让你无需去适应一个全新流程就可以体验Git带来的收益。  </p>
+<p>这个工作流也可以作为向更Git风格工作流迁移的友好过渡。  </p>
+<p>（个人、三五个人的小团队）  </p>
+<h4 id="功能分支工作流"><a href="#功能分支工作流" class="headerlink" title="功能分支工作流"></a>功能分支工作流</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX.QLkS1nyIjv6HHWnbV4dX7srariw7MEQpLi1gOAxL3ou18PqhQZr1mrBrEaIbVs5JuQWzjNbAd8lfxuJK8OGPM!/r" alt="功能分支工作流"></p>
+<p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。  </p>
+<p>这样可以在把新功能继承到正式项目前，用Pull  Requests的方式讨论变更；  </p>
+<p>（达到约12个人的团队）  </p>
+<h4 id="Git-Flow工作流"><a href="#Git-Flow工作流" class="headerlink" title="Git Flow工作流"></a>Git Flow工作流</h4><p>Git Flow工作流通过为功能开发、发布准备和维护分配独立的分支，让发布迭代过程更顺畅。  </p>
+<p>严格的分支模型也为大型项目提供了一些非常必要的结构。  </p>
+<p>（整个公司，这么一个团队的规模）  </p>
+<h4 id="Forking工作流"><a href="#Forking工作流" class="headerlink" title="Forking工作流"></a>Forking工作流</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX7NQkdqkFQWuuELLHKCcql5ABKaPDZFUejww*HH9qtsi8qr7IlATkqBkQ9PV1LJ9rT6faqWzcfgS3pJZnzLSzVg!/r" alt="Forking工作流"></p>
+<p>Forking工作流是分布式工作流，充分利用了Git在分支和克隆上的优势。  </p>
+<p>可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。  </p>
+<p>（跨国合作。跨国团队的使用，一般用于Forking工作流）  </p>
+<h4 id="Pull-Requests"><a href="#Pull-Requests" class="headerlink" title="Pull Requests"></a>Pull Requests</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXzYbgZ.02.6Smac50apszMyWGwg89uQEVJSVU01e69u2Dts1al5lueZ4HgBrr.WyV.0GtO*ZTdT3LpQtilbX2Vk!/r" alt="Pull Requests"></p>
+<p>功能分支工作流、GitFlow工作流、Forking工作流都会穿插一个Pull Requests的一个东西。  </p>
+<p>Pull Requests通常称为请求合并（Merge Pull Requests）；  </p>
+<p>Pull Requests让开发者更方便地进行协作的功能，提供了友好的Web界面可以在提议的修改合并到正式项目之前对修改进行讨论。  </p>
+<p>（相当于一个评论系统）；</p>
+<h3 id="集中式工作流-1"><a href="#集中式工作流-1" class="headerlink" title="集中式工作流"></a>集中式工作流</h3><p>转到分布式版本控制系统看起来像个令人生畏的任务，但不改变已用的工作流你也可以用上Git带来的收益。  </p>
+<p>团队可以用和Subversion完全不变的方式来开发项目。  </p>
+<p>但使用Git加强开发的工作流，Git比SVN有几个优势。  </p>
+<p>（1）首先，每个开发者可以有属于自己的整个工程的本地拷贝。隔离的环境让各个开发者的工作和项目的其他部分（修改）独立开来——-即自由地提交到自己的本地仓库，先完全忽略上游的开发，直到方便的时候再把修改反馈上去。  </p>
+<p>（2）其次，Git提供了强壮的分支和合并模型。不像SVN，Git的分支设计成可以作为一种用来在仓库之间集成代码和分享修改的【失败安全】的机制。  </p>
+<h4 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX58rubGqwbukXS4rvP.hcw8vVDFpcMEKyanOzFC60vYY7EfnKsFaNa8DYFcGkpbCkTOCu8b0QXObUxn8ABvZn4U!/r" alt="工作方式"></p>
+<p>像Subversion一样，集中式工作流以中央仓库作为项目所有修改的单点实体。  </p>
+<p>相比SVN缺省的开发分支trunk，Git叫做master，所有修改提交到这个分支上。  </p>
+<p>该工作流只用到master这一个分支。  </p>
+<p>开发者开始先克隆中央仓库。  </p>
+<p>在自己的项目拷贝中，像SVN一样的编辑文件和提交修改；  </p>
+<p>但修改是存在本地的，和中央仓库完全隔离的；  </p>
+<p>开发者可以把和上游的同步延后到一个方便时间点；  </p>
+<p>要发布修改到正式项目中，开发者要把本地master分支的修改【推（push）】到中央仓库中。  </p>
+<p>这相当于svn  commit操作，但push操作会把所有还不在中央仓库的本地提交都推上去。  </p>
+<h4 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX7NAq94egRJ5nBPO8Co87th*P0cTdtAGYXp43mklxBxvhd73.i5d8Lm58WdsFYNrarV7XZaiqfrmkd3gUFAFW0o!/r" alt="解决冲突"></p>
+<p>中央仓库代表了正式项目，所以提交历史应该被尊重且是稳定不变的。  </p>
+<p>如果开发者本地的提交历史和中央仓库有分歧，Git会拒绝push提交否则会覆盖已经在中央库的正式提交。  </p>
+<p>在开发者提交自己功能修改到中央库前，需要先fetch在中央库的新增提交，rebase自己提交到中央库提交历史之上。  </p>
+<p>这样做的意思是在说，【我要把自己的修改加到别人已经完成的修改上。】最终的结果是一个完美的线性历史，就像以前的SVN的工作流中一样；  </p>
+<p>如果本地修改和上游提交有冲突，Git会暂停rebase过程，给你手动解决冲突的机会。  </p>
+<p>Git解决合并冲突，用和生成提交一样的git  status和git add命令，很一致方便。  </p>
+<p>还有一点，如果解决冲突时遇到麻烦，Git可以很简单中止整个rebase操作，重来一次（或者让别人来帮助解决）。  </p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>一起逐步分解来看看一个常见的小团队如何用这个工作流来协作的。  </p>
+<p>有两个开发者小明和小红，看他们是如何开发自己的功能并提交到中央仓库上的。  </p>
+<h5 id="有人先初始化好中央仓库"><a href="#有人先初始化好中央仓库" class="headerlink" title="有人先初始化好中央仓库"></a>有人先初始化好中央仓库</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX9UbT3uXKi44e*o.QOIDNJOk403REJAlPsZkIyST70GEweXbAbks3cFR7TqiVMFHAtTg9MXSvYT6HSyIH1eLii4!/r" alt="有人先初始化好中央仓库"></p>
+<p>第一步，有人在服务器上创建好中央仓库。  </p>
+<p>如果是新项目，可以初始化一个空仓库；否则要导入已有的Git或SVN仓库。  </p>
+<p>中央仓库应该是个裸仓库（bare repository），即没有工作目录（working directory）的仓库。  </p>
+<h5 id="所有人克隆中央仓库"><a href="#所有人克隆中央仓库" class="headerlink" title="所有人克隆中央仓库"></a>所有人克隆中央仓库</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX8lXRlkamDF*h*SxpL42PuUsH4aIULseTwL66K.p5pWkVzGz*Bh8Nih.I7qaVf43t7zoP8GGUp44vHNS*NRccIY!/r" alt="所有人克隆中央仓库"></p>
+<p>下一步，各个开发者创建整个项目的本地拷贝。  </p>
+<p>通过git clone命令完成。  </p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">clone</span>  <span class="title">https</span>://github.com/path/to/repo.git</span><br></pre></td></tr></table></figure>
+
+<p>基于后续会持续和克隆的仓库做交互的假设，克隆仓库时Git会自动添加远程别名origin指回【父】仓库。  </p>
+<p>github即git的中央仓库；版本控制系统有一个版本仓库。  </p>
+<p>github上public即开源，公开的意思，代码开源。  </p>
+<p>如果是私有private则需要进行CreditCard 信用卡支付相应的金额；收费；  </p>
+<h5 id="小明开发功能"><a href="#小明开发功能" class="headerlink" title="小明开发功能"></a>小明开发功能</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX3cSXX6681Ge8WeUymk3FFjspNtDVB3t7XeHuVufMD05ZhJzX9OyWJDCYAlloD65QJLNRkDaLpYfFLKjESAA0SM!/r" alt="小明开发功能"></p>
+<p>在小明的本地仓库中，他使用标准的Git过程开发功能：编辑、暂存（Stage）和提交。  </p>
+<p>如果你不熟悉暂存区（Stageing Area），这里说明一下：暂存区的用来准备一个提交，但可以不用把工作目录中所有的修改内容都包含进来。  </p>
+<p>这样可以创建一个高度聚焦的提交，尽管本地修改很多内容。  </p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">git status <span class="comment"># 查看本地仓库的修改状态</span></span><br><span class="line">git <span class="keyword">add</span><span class="bash"> <span class="comment"># 暂存文件</span></span></span><br><span class="line">git commit <span class="comment"># 提交文件</span></span><br></pre></td></tr></table></figure>
+
+<p>请记住，因为这些命令生成的是本地提交，小明可以按自己需求反复操作多次，而不用担心中央仓库有了什么操作。  </p>
+<p>对需要多个更简单更原子分块的大功能，这个做法是很有用的；  </p>
+<h5 id="小红开发功能"><a href="#小红开发功能" class="headerlink" title="小红开发功能"></a>小红开发功能</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX3AhXN0w*Kh7FwIloQiq3PMOUwp*anqXsBqPo.yaxL1hWnR.kZm*XseG5RhBNtuoS8.PVSKuKSdHEw1x7MixOxA!/r" alt="小红开发功能"></p>
+<p>与此同时，小红在自己的本地仓库中用相同的编辑、暂存和提交过程开发功能。  </p>
+<p>和小明一样，她也不关心中央仓库有没有新提交；当然更不关心小明在他的本地仓库中的操作，因为所有本地仓库都是私有的。  </p>
+<h5 id="小明发布功能"><a href="#小明发布功能" class="headerlink" title="小明发布功能"></a>小明发布功能</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX2DDMKOOXZiA6a0j82260kNXKGqba7MbMMt5OmvuzTfK3A*Lxszb8CTdFEjjZXvIDOZez3cKxhQHt2dZMB.G9S4!/r" alt="小明发布功能"></p>
+<p>一旦小明完成了他的功能开发，会发布他的本地提交到中央仓库中，这样其他团队成员可以看到他的修改。  </p>
+<p>他可以用下面的git push  命令：  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+
+<p>注意，origin是小明克隆仓库时Git创建的远程中央仓库别名。  </p>
+<p>master参数告诉Git推送的分支。  </p>
+<p>由于中央仓库自从小明克隆以来还没有被更新过，所以push操作不会有冲突，成功完成。  </p>
+<h5 id="小红试着发布功能"><a href="#小红试着发布功能" class="headerlink" title="小红试着发布功能"></a>小红试着发布功能</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX49Hssuuk2yHbmsbkSdUuOtLRbTxRlP3xEORKm5txDWaExKbZyYnyzyBD0oDqcjETeUWkabVFxZpo*3gs9yQWHs!/r" alt="小红试着发布功能"></p>
+<p>一起来看看在小明发布修改后，小红push修改会怎么样？  </p>
+<p>她使用完全一样的push命令：  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+
+<p>但她的本地历史已经和中央仓库有分歧了，Git拒绝操作并给出下面很长的出错消息：  </p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">error: failed <span class="keyword">to</span> push some refs <span class="keyword">to</span> <span class="string">'/path/to/repo.git'</span></span><br><span class="line">hin<span class="variable">t:</span> Updates were rejected because the tip of your current branch <span class="keyword">is</span> behind</span><br><span class="line">hin<span class="variable">t:</span> its remote counterpart. Merge the remote <span class="keyword">changes</span>(<span class="keyword">e</span>.g. <span class="string">'git pull'</span>)</span><br><span class="line">hin<span class="variable">t:</span> before pushing again.</span><br><span class="line">hin<span class="variable">t:</span> See the <span class="string">'Note about fast-forwards'</span> in <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<p>这避免了小红覆写正式的提交。  </p>
+<p>她要先pull小明的更新到她本地仓库合并上她的本地修改后，再重试。  </p>
+<h5 id="小红在小明的提交之上rebase"><a href="#小红在小明的提交之上rebase" class="headerlink" title="小红在小明的提交之上rebase"></a>小红在小明的提交之上rebase</h5><p>小红用git pull 合并上游的修改到自己的仓库中。  </p>
+<p>这条命令类似svn update ——-拉取所有上游提交命令到小红的本地仓库，并尝试和她本地修改合并。  </p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">git pull <span class="comment">--rebase origin master</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXyi6Y8l5sb1aRwQRlb0CiRDNdgM9NZtfk5D41PvfJEccriZP3FT6WnQ4PWKvEqz*e7LpBOfcXui.l9nUXAPUgd4!/r" alt="images"></p>
+<p>–rebase 选项告诉Git把小红的提交移到同步了中央仓库修改后的master分支的顶部；  </p>
+<p>如果忘了加这个选项，pull操作仍然可以完成，但每次pull操作要同步中央仓库别人修改时，提交历史会以一个多余的【合并提交】结尾。  </p>
+<p>对于集中式工作流，最好是使用rebase而不是生成一个合并提交。  </p>
+<h5 id="小红解决合并冲突"><a href="#小红解决合并冲突" class="headerlink" title="小红解决合并冲突"></a>小红解决合并冲突</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX7FxPBYYYsKKPOWXqC*0rCPhZKJRqU86pJwCJIVi3g31ZcpHEH2b76upvPK6lrEAQ9UWa9VqeFjlEC4dX2PAHTw!/r" alt="小红解决合并冲突"></p>
+<p>rebase操作过程是把本地提交一次一个地迁移到更新了的中央仓库master分支之上，这意味着可能要解决在迁移某个提交时出现的合并冲突，而不是解决包含了所有提交的大型合并时所出现的冲突。  </p>
+<p>这样的方式让你尽可能保持每个提交的聚焦和项目历史的整洁。  </p>
+<p>反过来，简化了哪里引入Bug的分析，如果有必要，回滚修改也可以做到对项目影响最小。  </p>
+<p>如果小红和小明的功能是相关的，不大可能在rebase过程中有冲突。  </p>
+<p>如果有，Git在合并有冲突的提交出暂停rebase过程，输出下面的信息并带上相关的指令：  </p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CONFLICT</span> (content): Merge <span class="keyword">conflict</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX5fiCqpawh2bvFoyuusAOSGHKu5sc59EGgvKP1aVmHVmey3BEhEwMSvuvtOXh1oSZU1zNvf5QV2G*SN2a1sgwiA!/r" alt="images"></p>
+<p>Git 很赞的一点是，任何人可以解决他自己的冲突。  </p>
+<p>在这个例子中，小红可以简单的运行 git status 命令来查看哪里有问题。  </p>
+<p>冲突文件列在 Unmerged paths（未合并路径）一节中：  </p>
+<figure class="highlight leaf"><table><tr><td class="code"><pre><span class="line"># Unmerged paths：</span><br><span class="line"><span class="function"><span class="keyword">#</span><span class="params">(<span class="variable">use</span> <span class="string">"git reset HEAD &lt;some-file&gt;..."</span> <span class="variable">to</span> <span class="variable">unstage</span>)</span></span></span><br><span class="line"><span class="function"><span class="keyword">#</span><span class="params">(<span class="variable">use</span> <span class="string">"git add/rm &lt;some-file&gt;..."</span> <span class="variable">as</span> <span class="variable">appropriate</span> <span class="variable">to</span> <span class="variable">mark</span> <span class="variable">resolution</span>)</span></span></span><br><span class="line">#</span><br><span class="line"># both modified:&lt;some-file&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接着小红编辑这些文件。  </p>
+<p>修改完成后，用老套路暂存这些文件，并让git rebase 完成剩下的事情：  </p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">add</span></span><br><span class="line"><span class="bash">git rebase --<span class="built_in">continue</span></span></span><br></pre></td></tr></table></figure>
+
+<p>要做的就这些了。  </p>
+<p>Git会继续一个一个的合并后面的提交，如其他的提交有冲突就重复这个过程。  </p>
+<p>如果你碰到了冲突，但是发现搞不定，不要惊慌。  </p>
+<p>只要执行下面这条命令，就可以回到你执行git pull –rebase命令前的样子：  </p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">git rebase <span class="comment">--abort</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="小红成功发布功能"><a href="#小红成功发布功能" class="headerlink" title="小红成功发布功能"></a>小红成功发布功能</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX0kBnWeNL8ejRYU6ro4.2u6jfdf4WmDKrAtmoAnmJ9TQ4sDBTQl0i3xlqRsJMoYZns72c0lo3zm5ObKWH4CoUG0!/r" alt="小红成功发布功能"></p>
+<p>小红完成和中央仓库的同步之后，就能成功发布她的修改了。  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><p>如你所见，仅仅使用几个Git命令，就可以模拟出传统Subversion开发环境。  </p>
+<p>对于要从SVN迁移过来的团队来说这太好了，但是没有发挥出Git分布式本质的优势。  </p>
+<p>如果你的团队适应了集中式工作流，但想要更流畅的协作效果，绝对值得探索一下功能分支工作流的收益。  </p>
+<p>通过为一个功能分配一个专门的分支，能够做到一个新增功能集成到正式项目之前对新功能进行深入讨论。  </p>
+<h3 id="功能分支工作流-1"><a href="#功能分支工作流-1" class="headerlink" title="功能分支工作流"></a>功能分支工作流</h3><p>一旦玩转了集中式工作流，在开发过程中可以很简单地加上功能分支，用来鼓励开发者之间协作和简化交流。  </p>
+<p>功能分支工作流背后的核心思路是所有的功能开发应该在一个专门的分支，而不是在master分支上。  </p>
+<p>这个隔离可以方便多个开发者在各自的功能上开发而不会弄乱主干代码。  </p>
+<p>另外，也保证了master分支的代码一定不会是有问题的，极大有利于集成环境。  </p>
+<p>功能开发隔离也让pull  requests工作流成为可能， pull requests工作流能为每一个分支发起一个讨论，在分支合入正式项目之前，给其它开发者有表示赞同的机会。  </p>
+<p>另外，如果你在功能开发中有问题卡出了，可以开一个pull Requests来向同学们征求建议。  </p>
+<p>这些做法的重点就是，pull Requests让团队成员之间互相评论工作变成非常方便！  </p>
+<h4 id="工作方式-1"><a href="#工作方式-1" class="headerlink" title="工作方式"></a>工作方式</h4><p>功能分支工作流仍然用中央仓库，并且master分支还是代表了正式项目的历史。  </p>
+<p>但不是直接提交本地历史到各自的本地master分支，开发者每次在开始新功能前先创建一个新分支。  </p>
+<p>功能分支应该有个描述性的名字，比如 animated-menu-items 或者  issue-#1061，这样可以让分支有个清楚且高聚焦的用途。  </p>
+<p>在master分支和功能分支之间，Git是没有技术上的区别，所以开发者可以用和集中式工作流完全一样的方式编辑、暂存和提交修改到功能分支上。  </p>
+<p>另外，功能分支也可以（且应该）push到中央仓库中。  </p>
+<p>这样不修改正是代码就可以和其他开发者分享提交的功能。  </p>
+<p>由于master仅有的一个【特殊】分支，在中央仓库上存在多个功能分支不会有任何问题。  </p>
+<p>当然这样做也可以很方便地备份各自的本地提交。  </p>
+<h4 id="Pull-Requests-1"><a href="#Pull-Requests-1" class="headerlink" title="Pull Requests"></a>Pull Requests</h4><p>功能分支除了可以隔离功能的开发，也使得通过 Pull Requests讨论变更称为可能。  </p>
+<p>一旦某个开发完成一个功能，不是立即合并到master，而是push到中央仓库的功能分支上并发起一个Pull Requests的请求去合并并修改到master。  </p>
+<p>在修改成为主干代码之前，这让其他的开发者有机会先去Review变更。  </p>
+<p>Code Review是Pull Requests的一个重要的收益。  </p>
+<p>但是pull Requests目的是讨论代码一个通用方式。  </p>
+<p>你可以把Pull  Requests作为专门给某个分支的讨论。  </p>
+<p>这意味着可以在更早的开发过程中就可以进行Code Review。  </p>
+<p>比如，一个开发者开发功能需要帮助时，要做的就是发起一个Pull Requests，相关的人就会自动收到通知，在相关的提交旁边能看到需要帮助解决的问题。  </p>
+<p>一旦Pull  Requests被接受了，发布功能要做的就和集中式工作流就很像了。  </p>
+<p>（1）首先，确定本地的master分支和上游的master分支是同步的。  </p>
+<p>（2）然后合并功能分支到本地master分支，并push已经更新的本地master分支到中央仓库。</p>
+<h4 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h4><p>下面的示例演示了如何把Pull Requests作为Code Review的方式，但注意Pull Requests可以用于很多其他的目的。  </p>
+<h5 id="小红开始开发一个新功能"><a href="#小红开始开发一个新功能" class="headerlink" title="小红开始开发一个新功能"></a>小红开始开发一个新功能</h5><p>在开始开发功能之前，小红需要一个独立的分支。  </p>
+<p>使用下面的命令新建一个分支。  </p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">git</span> checkout -<span class="keyword">b </span><span class="keyword">marys-feature </span>master</span><br></pre></td></tr></table></figure>
+
+<p>这个命令检出一个基于master名为marys-feature的分支，Git的-b选项表示如果分支还不存在则新建分支。  </p>
+<p>这个新分支上，小红按照老套路编辑、暂存和提交修改，按需要提交以实现功能：  </p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">git</span>  <span class="string">status</span></span><br><span class="line"><span class="attr">git</span> <span class="string">add</span></span><br><span class="line"><span class="attr">git</span> <span class="string">commit</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="小红要去吃个午饭"><a href="#小红要去吃个午饭" class="headerlink" title="小红要去吃个午饭"></a>小红要去吃个午饭</h5><p>（两个人、多个人同时开发，称之为协同开发）  </p>
+<p>仓库：github、码云、码市、gitlab  </p>
+<p>review 代码审核；  </p>
+<p>早上小红为新功能添加了一些提交。  </p>
+<p>去吃午饭前，push功能分支到中央仓库是很好的做法，这样可以方便地备份，如果和其他开发协作，也让他们可以看到小红的提交。  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> marys-<span class="built_in">feature</span></span><br></pre></td></tr></table></figure>
+
+<p>这条命令  push marys-feature 分支到中央仓库（origin），-u选项设置本地分支去跟踪远程对应的分支。  </p>
+<p>设置好跟踪的分支后，小红就可以使用git push 命令省去指定推送分支的参数。  </p>
+<h5 id="小红完成功能开发"><a href="#小红完成功能开发" class="headerlink" title="小红完成功能开发"></a>小红完成功能开发</h5><p>小红吃完午饭回来，完成整个功能的开发。  </p>
+<p>在合并到master之前，她发起一个Pull Requests让团队的其他人知道功能已经完成。  </p>
+<p>但是首先，她要确认中央仓库中已经有她最近的提交。  </p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
+
+<p>然后，在她的Git GUI客户端中发起Pull Request，请求合并marys-feature到master，团队成员会自动收到通知。  </p>
+<p>Pull Request很酷的是可以在相关的提交旁边显示评注，所以你可以很对某个变更集提问。  </p>
+<h5 id="小黑收到Pull-Request"><a href="#小黑收到Pull-Request" class="headerlink" title="小黑收到Pull  Request"></a>小黑收到Pull  Request</h5><p>小黑收到Pull Request后会查看marys-feature的修改。  </p>
+<p>决定在合并到正式项目前是否要做些修改，且通过Pull Request和小红来回的讨论。  </p>
+<h5 id="小红再做修改"><a href="#小红再做修改" class="headerlink" title="小红再做修改"></a>小红再做修改</h5><p>要在做修改，小红用和功能第一个迭代完全一样的过程。  </p>
+<p>编辑、暂存、提交并push更新到中央仓库。  </p>
+<p>小红这些活动都会显示在Pull Request上，小黑可以断续做评注。  </p>
+<p>如果小黑有需要，也可以把marys-feature分支拉到本地，自己来修改，他加的提交也会一样显示在Pull Request上。  </p>
+<h5 id="小红发布她的功能"><a href="#小红发布她的功能" class="headerlink" title="小红发布她的功能"></a>小红发布她的功能</h5><p>一旦小黑可以接受Pull Request，就可以合并功能到稳定项目代码中（可以由小黑或者是小红来做这个操作）：  </p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">git</span> <span class="string">checkout master</span></span><br><span class="line"><span class="attr">git</span> <span class="string">pull</span></span><br><span class="line"><span class="attr">git</span> <span class="string">pull origin marys-feature</span></span><br><span class="line"><span class="attr">git</span> <span class="string">push</span></span><br></pre></td></tr></table></figure>
+
+<p>无论谁来做合并，首先要检出master分支并确认它是最新的。  </p>
+<p>然后执行 git pull origin marys-feature 合并 marys-feature 分支到已经和远程一直的本地 master分支。  </p>
+<p>你可以使用简单 git merge marys-feature命令，但是前面的命令可以保证总是最新的新功能分支。  </p>
+<p>最后更新的master分支要重新push回到origin。  </p>
+<p>这个过程常常会生成一个和并提交。  </p>
+<p>有些开发者喜欢有合并提交。  </p>
+<p>因为它像一个新功能和原来代码基线的连通符。  </p>
+<p>但如果你偏爱线性的提交历史，可以在执行合并rebase新功能到master分支的顶部，这样生成一个快进（fast-forward）的合并。  </p>
+<p>一些GUI客户端只要点一下【接受】按钮执行好上面的命令来自动化Pull Request接受过程。  </p>
+<p>如果你的不能这样，至少在功能合并到master分子后自动关闭Pull Request。  </p>
+<h5 id="与此同时，小明在做和小红一样的事情"><a href="#与此同时，小明在做和小红一样的事情" class="headerlink" title="与此同时，小明在做和小红一样的事情"></a>与此同时，小明在做和小红一样的事情</h5><p>当小红和小黑在marys-feature上工作并讨论她的Pull  Request的时候，小明在自己的功能分支上做完全一样的事情。  </p>
+<p>通过隔离功能能到独立的分支上，每个人都可以自主的工作，当然必要的时候在开发者之间分享变更还是比较繁琐的。  </p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>到了这里，但愿你发现了功能分支可以很直接地在集中式工作流的仅有的master分支上完成多功能的开发。  </p>
+<p>另外，功能分支还使用了Pull Request，使得可以在你的版本控制GUI客户端中讨论某个提交。  </p>
+<p>功能分支工作流是开发项目异常灵活的方式。  </p>
+<p>问题是，有时候太灵活了。  </p>
+<p>对于大型团队，常常需要给不同分支分配一个更具体的角色。  </p>
+<p>GitFlow工作流是管理功能开发、发布准备和维护的常用模式。  </p>
+<h3 id="GitFlow工作流"><a href="#GitFlow工作流" class="headerlink" title="GitFlow工作流"></a>GitFlow工作流</h3><p>在实际开发当中，可能通常使用GitFlow工作流。  </p>
+<p>GitFlow工作流定义了一个围绕项目发布的严格分支模型。  </p>
+<p>虽然比功能分支工作流复杂几分，但是提供了一个用于健壮的用于管理大型项目的框架。  </p>
+<p>GitFlow工作流没有用超出功能分支工作流的概念和命令。  </p>
+<p>而是为不同的分支分配了一个很明确的角色，并定义分支之间如何交互和什么时候进行交互。  </p>
+<p>除了使用功能分支，在做准备、维护和记录发布也是用各自的分支。  </p>
+<p>当然你可以用上功能分支工作流所有的好处：Pull Request、隔离实验性开发和更高效的工作。  </p>
+<h4 id="工作方式-2"><a href="#工作方式-2" class="headerlink" title="工作方式"></a>工作方式</h4><p>GitFlow工作流仍然用中央仓库作为所有开发者的交互中心。  </p>
+<p>和其他工作流一样，开发者在本地工作并push分子到中央分支去。  </p>
+<h5 id="历史分支"><a href="#历史分支" class="headerlink" title="历史分支"></a>历史分支</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX0DucqArpSZN8V1mN.Djx7WchltIFUxePFkxo0wF6tL9hJ92GPpyK1meBHYC6jQnh92Uk6*6zENCWbjq21uqLsI!/r" alt="历史分支"></p>
+<p>相对使用仅有的一个master分支，GitFlow工作流使用两个分支来记录项目的历史。  </p>
+<p>master分支存储了正式发布的历史，而develop分支作为功能的集成分支，这样也方便master分支上的所有提交分配一个版本号。  </p>
+<p>剩下要说明的问题就是围绕这两个分支的区别展开。  </p>
+<h5 id="功能分支"><a href="#功能分支" class="headerlink" title="功能分支"></a>功能分支</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX4suzD8O2OoWbYPwQ150IFWgQS3qSKoLWdglLxIjfri4eWAHC*W6m9OYJM0vFH4CxIhXiOdTBQYoWLsUJ3d8M.k!/r" alt="功能分支"></p>
+<p>每个新功能位于一个自己的分支，这样可以push到中央仓库以备份和协作。  </p>
+<p>但是功能分支不是从master分支上拉出新分支，而是使用develop分支作为父分支。  </p>
+<p>当新功能完成时，合并会develop分支。  </p>
+<p>新功能提交应该从不直接与master分支交互。  </p>
+<p>开源软件基本上是使用GitFlow来做代码版本管理的控制。  </p>
+<p>注意，从各种含义和目的上来看，功能分支加上develop分支就是功能分支工作流的用法。  </p>
+<p>但是GitFlow工作流没有在这里止步。  </p>
+<h5 id="发布分支"><a href="#发布分支" class="headerlink" title="发布分支"></a>发布分支</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX1K5y5ivKrS*rhk3l.NtQVVaNHmKMdlqKelqYaRENh70*1X*IrEmFCJIhfs5U7wXELfZbYI1tihPDOGBwBPqt6E!/r" alt="发布分支"></p>
+<p>一旦develop分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从develop分支上fork一个发布分支。  </p>
+<p>新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上——-这个分支只应该叫Bug修复、文档生成或其他面向发布任务。  </p>
+<p>一旦对外发布的工作都完成了，发布分支合并到master分支并飞配一个版本号打好Tag。  </p>
+<p>另外，这些新建发部分之以来做的修改要合并回develop分支。  </p>
+<p>使用一个用于发布准备的专门分支，使得一个团队可以在完善当前的发布版本的同时，另一个团队可以继续开发下个版本的功能。  </p>
+<p>这也打造定义良好的开发阶段（比如，可以很轻松的说，【这周我们要做准备发布版本4.0】，并且在仓库的目录结构中可以实际看到）  </p>
+<p>常用的分支约定：  </p>
+<ul>
+<li>用于新建发布分支的分支：develop</li>
+<li>用于合并的分支：master</li>
+<li>分支命名：release- 或 release/</li>
+</ul>
+<h5 id="维护分支"><a href="#维护分支" class="headerlink" title="维护分支"></a>维护分支</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX8qfvx9q8UhYcwpU4tSoxZoCzp2TGnchoEgJnBAd**ejGrSWx7H1n1RbZFVAdVlD7v3kEO6EHjpPFNMCD9pabTQ!/r" alt="维护分支"></p>
+<p>维护分支或者说是热修复（hotfix）分支用于生成快速给产品发布版本（production release）打补丁，这是唯一可以从master分支fork出来的分支。  </p>
+<p>修复完成，修改应该马上合并回master分支和develop分支（当前的发部分支），master分支应该用新的版本号打好Tag。  </p>
+<p>为了Bug修复使用专门分支，让团队可以处理问题而不用打断其他工作或者是等待下一个发布循环。  </p>
+<p>你可以把维护分支想成是一个直接在master分支上处理的临时发布。  </p>
+<p>即hotfix，维护的是v1.0.0—&gt;v1.0.1这种；<br>第三位数修改的是Bug（hotfix维护版本第三位数）；第二位数修改的是功能（功能分支维护的是版本的第二位数）；第一位为大架构改变的时候进行修改（维护版本的第一位数）；  </p>
+<p>GitFlow从这点上就可以与语义化规范牵扯上联系；  </p>
+<h4 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h4><p>下面的示例演示本工作流如何用于管理单个发布循环。  </p>
+<p>假设你已经创建了一个中央仓库。  </p>
+<h5 id="创建开发分支"><a href="#创建开发分支" class="headerlink" title="创建开发分支"></a>创建开发分支</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX4Xsg92Awirp0bThQ4n*YW8UWB.U5*XFBFsn5hkNOcst0hBz.q1uwuu*KDADM.W9naZBQq8eKQyo4iLkzk28e1g!/r" alt="创建开发分支"></p>
+<p>第一步为master分支配套一个develop分支。  </p>
+<p>简单来做可以本地创建一个空的develop分支，push到服务器上：  </p>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">branch </span>develop</span><br><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>-u origin master</span><br></pre></td></tr></table></figure>
+
+<p>以后这个分支将会包含了项目的全部历史。  </p>
+<p>而master分支将只包含部分历史。  </p>
+<p>其他开发者这时应该克隆中央仓库，建好develop分支的跟踪分支：  </p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">ssh</span>://user@host/path/to/repo.git</span><br><span class="line">git checkout -b develop origin/develop</span><br></pre></td></tr></table></figure>
+
+<p>现在每个开发都有了这些历史分支的本地拷贝。  </p>
+<h5 id="小红和小明开始开发新功能"><a href="#小红和小明开始开发新功能" class="headerlink" title="小红和小明开始开发新功能"></a>小红和小明开始开发新功能</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX2X16EiSaoizI9a2HRgo6HRlddb*dD0yGRzorFtrKInoqDMveDkX4.ujU1ZgrgxXoZf1vY83YLzd6Dl2YO5SDUc!/r" alt="小红和小明开始开发新功能"></p>
+<p>这个示例中，小红和小明开始各自的功能开发。  </p>
+<p>他们需要为各自的功能创建相应的分支。  </p>
+<p>新分支不是基于master分支，而是应该基于develop分支：  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git checkout -b <span class="built_in">some</span>-<span class="built_in">feature</span> develop</span><br></pre></td></tr></table></figure>
+
+<p>他们用老套路添加提交到各自功能分支上：编辑、暂存、提交；  </p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">git</span> <span class="string">status</span></span><br><span class="line"><span class="attr">git</span> <span class="string">add</span></span><br><span class="line"><span class="attr">git</span> <span class="string">commit</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="小红完成功能开发-1"><a href="#小红完成功能开发-1" class="headerlink" title="小红完成功能开发"></a>小红完成功能开发</h5><p>添加了提交后，小红觉得她的功能OK了。  </p>
+<p>如果团队使用Pull Requests，这时候可以发起一个用于合并到develop分支。  </p>
+<p>否则她可以直接合并到她本地的develop分之后push到中央仓库：  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git pull <span class="built_in">origin</span> develop</span><br><span class="line">git checkout develop</span><br><span class="line">git merge <span class="built_in">some</span>-<span class="built_in">feature</span></span><br><span class="line">git <span class="built_in">push</span></span><br><span class="line">git branch -d <span class="built_in">some</span>-<span class="built_in">feature</span></span><br></pre></td></tr></table></figure>
+
+<p>第一条命令在合并功能前确保develop分支是最新的。  </p>
+<p>注意，功能绝不应该直接合并到master分支。  </p>
+<p>冲突解决方法和集中式工作流一样。  </p>
+<h5 id="小红开始准备发布"><a href="#小红开始准备发布" class="headerlink" title="小红开始准备发布"></a>小红开始准备发布</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXxm6aYd1gMGOxylETc6cDcj7kTwBnGuyoyzYDL7pNxxvtXeo*D5bCxnVfWE*k.cQe8O4lhgkHo2zR.IIDII1kmA!/r" alt="小红开始准备发布"></p>
+<p>这个时候小明正在实现他的功能。  </p>
+<p>小红开始准备她的第一个项目正式发布（发布分支也叫预发布分支，预发布分支基于develop，只有预发布版本分支才能够去合并到master分支，而预发布版本是经过测试人员测试之后的没有问题的一个版本；master分支代码必须可以执行，没有被污染）。  </p>
+<p>像功能开发一样，她用一个新的分支来做发布准备。  </p>
+<p>这一步也确定了发布的版本号：  </p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">git checkout -b release<span class="number">-0.1</span> develop</span><br></pre></td></tr></table></figure>
+
+<p>这个分支是清理分支、执行所有测试、更新文档和其他为下个发布做准备操作的地方，像是一个专门用于改善发布的功能分支。  </p>
+<p>只要小红创建的这个分支push到中央仓库，这个发布就是功能冻结的。  </p>
+<p>任何不在develop分支中的新功能都推到下一个发布循环中。  </p>
+<h5 id="小红完成发布"><a href="#小红完成发布" class="headerlink" title="小红完成发布"></a>小红完成发布</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXx2fdZ*.CxsTwPMg235DDXkchbPbk7hNVec6.FIcmcf72k0vjzhdQvVlYt8u8ao*65n3gyQAyN5GOxndJKhwiNk!/r" alt="小红完成发布"></p>
+<p>一旦准备好了对外发布，小红合并修改到master分支和develop分支上，删除发布分支。  </p>
+<p>合并回develop分支很重要，因为在发布分支中已经提交的更新需要在后面的新功能中也要是可用的。  </p>
+<p>另外，如果小红的团队要求Code  Review，这是一个发起Pull Request的理想时机。  </p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">git</span> <span class="string">checkout master</span></span><br><span class="line"><span class="attr">git</span> <span class="string">merge release-0.1</span></span><br><span class="line"><span class="attr">git</span> <span class="string">push</span></span><br><span class="line"><span class="attr">git</span> <span class="string">checkout develop</span></span><br><span class="line"><span class="attr">git</span> <span class="string">merge release-0.1</span></span><br><span class="line"><span class="attr">git</span> <span class="string">push</span></span><br><span class="line"><span class="attr">git</span> <span class="string">branch -d release-0.1</span></span><br></pre></td></tr></table></figure>
+
+<p>发布分支是作为功能开发（develop分支）和对外发布（master分支）间的缓冲。  </p>
+<p>只要有合并到master分支，就应该打好Tag以方便跟踪。  </p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">tag</span> <span class="title">-a</span> <span class="number">0.1</span> -m <span class="string">"Initial public release"</span> <span class="literal">master</span></span><br><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
+
+<p>Git有提供各种钩子（hook），即仓库有时间发生时触发执行的脚本。  </p>
+<p>可以配置一个钩子，在你push中央仓库的master分支时，自动构建好对外发布。  </p>
+<h5 id="最终用户发现Bug"><a href="#最终用户发现Bug" class="headerlink" title="最终用户发现Bug"></a>最终用户发现Bug</h5><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXzsQH1hJotlrx1khR6EZ0dUlyxkaf9L1Yi66Fs6sohYE0UTifJNygNHa*okiIgZc5dg2qSXBW*VyQGtiyMr0yo8!/r" alt="最终用户发现Bug"></p>
+<p>对外发布后，小红回去和小明一起做下个发布的新功能开发，直到有最终用户开了一个Ticket抱怨当前版本的一个Bug。  </p>
+<p>为了处理Bug，小红（或者小明）从master分支上来去了一个维护分支（hotfix），提交修改以解决问题，然后直接合并回master分支：  </p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git checkout -b issue-<span class="comment">#001 master</span></span><br><span class="line"><span class="comment"># Fix the bug</span></span><br><span class="line">git checkout <span class="literal">master</span></span><br><span class="line">git merge issue-<span class="comment">#001</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>就像发布分支，维护分支中新加这些重要修改需要包含到develop分支中，所以小红要执行一个合并操作，然后就可以安全地删除这个分支了：  </p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">git</span> <span class="string">checkout develop</span></span><br><span class="line"><span class="attr">git</span> <span class="string">merge issue-#001</span></span><br><span class="line"><span class="attr">git</span> <span class="string">push</span></span><br><span class="line"><span class="attr">git</span> <span class="string">branch -d issue-#001</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p>到了这里，但愿你对集中式工作流、功能分支工作流和GitFlow工作流已经感觉很舒适了。  </p>
+<p>你应该也牢固的掌握了本地仓库的潜能，push/pull模式和Git健壮的分支和合并模型。  </p>
+<p>记住，这里演示的工作流只是可能用法的例子，而不是在实际工作中使用Git不可违逆的条例。  </p>
+<p>所以不要畏惧按自己需要对工作流的用法做取舍，不变的目标就是让Git为你所用。  </p>
+<p>（在整个GitFlow工作流当中，只会去进行省略功能分支Feature，Master、HotFix、Release、Develop是必不可少的分支，以便控制每一次版本的迭代）  </p>
+<h3 id="Forking工作流-1"><a href="#Forking工作流-1" class="headerlink" title="Forking工作流"></a>Forking工作流</h3><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX2qjPC0eDN.Xf29HcBYoAsTtpBFvJhu8qPVkh5cv575QWLsHx3q8JbFYK3X5cts.Zn43gkCjc7OzyBcDFaNdl.g!/r" alt="Forking工作流"></p>
+<p>Forking工作流和前面讨论的几种工作流有根本的不同。  </p>
+<p>这种工作流不是适用单个服务器端仓库作为【中央】代码基线，而让各个开发者都有一个服务端仓库。  </p>
+<p>这意味着各个代码贡献者有2个Git仓库而不是1个：一个本地私有的，另一个服务端公开的。  </p>
+<p>Forking工作流的一个主要优势是，贡献的代码可以被集成，而不需要所有人都能push代码到仅有的中央仓库中。  </p>
+<p>开发者push到自己的服务端仓库，而只有项目维护者才能push到正式仓库。  </p>
+<p>这样项目维护者可以接受任何开发者的提交，但无需给他正式代码库的写权限。  </p>
+<p>效果就是一个分布式的工作流，能为大型、自发性的团队（包括了不受信的第三方）提供灵活的方式来安全的写作。  </p>
+<p>也让这个工作流称为开源项目的理想工作流。  </p>
+<h4 id="工作方式-3"><a href="#工作方式-3" class="headerlink" title="工作方式"></a>工作方式</h4><p>和其他的Git工作流一样，Forking工作流要先有一个公开的正式仓库存储在服务器上，但一个新的开发者想要在项目上工作时，不是直接从正式仓库克隆，而是fork正式项目在服务器上创建一个拷贝。  </p>
+<p>这个仓库拷贝作为他人公开仓库—–其他开发者不允许push到这个仓库，但可以pull到修改（后面很快就会看到这点很重要）。  </p>
+<p>在创建了自己服务端拷贝之后，和之前的工作流一样，开发者执行git clone命令克隆仓库到本地机器上，作为私有的开发环境。  </p>
+<p>要提交本地修改时，push提交到自己公开仓库中——-而不是正式仓库中。  </p>
+<p>然后，给正式仓库发起一个pull request，让项目维护者知道有更新已经准备好可以集成了。  </p>
+<p>对于贡献的代码，pull request也可以很方便地作为一个讨论的地方。  </p>
+<p>为了集成功能到正式代码库，维护者pull贡献者的变更到自己的本地仓库中，检查变更以确保不会让项目出错，合并变更到自己本地的master分支，然后push master分支到服务器的正式仓库中。  </p>
+<p>到此，贡献的提交成为了项目的一部分，其他的开发者应该执行pull操作与正式仓库同步自己本地仓库。  </p>
+<h5 id="正式仓库"><a href="#正式仓库" class="headerlink" title="正式仓库"></a>正式仓库</h5><p>在Forking工作流中，【官方】仓库的叫法只是一个约定，理解这点很重要。  </p>
+<p>从技术上来看，各个开发者仓库和正式仓库在Git卡那里没有任何区别。  </p>
+<p>事实上，让正式仓库之所以正式的唯一原因是他是项目维护者的公开仓库。  </p>
+<h5 id="Forking工作流的分支使用方式"><a href="#Forking工作流的分支使用方式" class="headerlink" title="Forking工作流的分支使用方式"></a>Forking工作流的分支使用方式</h5><p>所有的个人公开仓库实际商只是为了方便和其他的开发者共享分支。  </p>
+<p>各个开发者应该用分支隔离各个功能，就像功能分支工作流和GitFlow工作流一样。  </p>
+<p>唯一的区别是这些分支被共享了。  </p>
+<p>在Forking工作流中这些分支会被pull到另一个开发者的本地仓库中，而在功能分支工作流和GitFlow工作流中是直接被push到正式仓库当中。  </p>
+<h4 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h4><h5 id="项目维护者初始化正式仓库"><a href="#项目维护者初始化正式仓库" class="headerlink" title="项目维护者初始化正式仓库"></a>项目维护者初始化正式仓库</h5><p>和任何使用Git项目一样，第一步还是创建在服务器上一个正式仓库，让所有团队成员都可以访问到。  </p>
+<p>通常这个仓库也会作为项目维护者的公开仓库。  </p>
+<p>公开仓库应该是裸仓库，不管是不是正式代码库。  </p>
+<p>所以项目维护者会运行像下面的命令来搭建正式仓库：  </p>
+<figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">ssh user<span class="symbol">@host</span></span><br><span class="line">git init --bare /path/<span class="keyword">to</span>/repo.git</span><br></pre></td></tr></table></figure>
+
+<p>Bitbucket和Stash提供了一个方便的GUI客户端已完成上面命令行做的事。  </p>
+<p>这个搭建中央仓库的过程和前面提到的工作流完全一样。  </p>
+<p>如果有现存的代码库，维护者也要push到这个仓库中。  </p>
+<h5 id="开发者fork正式仓库"><a href="#开发者fork正式仓库" class="headerlink" title="开发者fork正式仓库"></a>开发者fork正式仓库</h5><p>其他所有的开发需要fork正式仓库。  </p>
+<p>可以用git clone命令用SSH协议连通到服务器，拷贝仓库到服务器另一个位置—–是的，fork操作基本上就只是一个服务端的克隆。  </p>
+<p>Bitbucket和Stash上可以点一下按钮就让开发者完成仓库的fork操作。  </p>
+<p>这一步完成后，每个开发都在服务端有一个自己的仓库。  </p>
+<p>和正式仓库一样，这些仓库应该是裸仓库。  </p>
+<h5 id="开发者克隆自己fork出来的仓库"><a href="#开发者克隆自己fork出来的仓库" class="headerlink" title="开发者克隆自己fork出来的仓库"></a>开发者克隆自己fork出来的仓库</h5><p>下一步，各个开发者要克隆自己的公开仓库，用熟悉的git clone命令。  </p>
+<p>在这个示例中，假定用Bitbucket托管了仓库。  </p>
+<p>记住，如果这样的话各个开发者需要有各自的Bitbucket账号，使用下面命令克隆服务端自己的仓库。  </p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://user@bitbucket.org/user/repo.git</span><br></pre></td></tr></table></figure>
+
+<p>相比前面介绍的工作流只用了一个origin远程别名指向中央仓库，Forking工作流需要2个远程别名——-一个指向正式仓库，另一个指向开发者自己的服务端仓库。  </p>
+<p>别名的名字可以任意命名，常见的约定是使用origin作为远程克隆的仓库的别名（这个别名会在运行git clone自动创建），upstream（上游）作为正式仓库的别名。  </p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">git remote <span class="keyword">add</span> upstream https://bitbucket<span class="meta">.org</span>/maintainer/repo</span><br></pre></td></tr></table></figure>
+
+<p>需要自己用上面的命令创建upstream别名。  </p>
+<p>这样可以简单地保持本地仓库和正式仓库的同步更新。  </p>
+<p>注意，如果上游仓库需要认证（比如不是开源的），你需要提供用户：  </p>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line">git remote <span class="keyword">add</span> upstream https://user@bitbucket<span class="meta">.org</span>/maintainer/repo</span><br></pre></td></tr></table></figure>
+
+<p>这时在克隆和pull正式仓库时，需要提供用户的密码。  </p>
+<h5 id="开发者开发自己的功能"><a href="#开发者开发自己的功能" class="headerlink" title="开发者开发自己的功能"></a>开发者开发自己的功能</h5><p>在刚克隆的本地仓库中，开发者可以向其他工作流一样的编辑代码、提交修改和新建分支：  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git checkout -b <span class="built_in">some</span>-<span class="built_in">feature</span></span><br><span class="line">// Edit <span class="built_in">some</span> code</span><br><span class="line">git commit -a -m <span class="string">"Add first draft of some feature"</span></span><br></pre></td></tr></table></figure>
+
+<p>所有的修改都是私有的直到push到自己公开仓库中。  </p>
+<p>如果正式项目已经向前走了，可以用git pull命令获得新的提交：  </p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git pull upstream <span class="literal">master</span></span><br></pre></td></tr></table></figure>
+
+<p>由于开发者应该都在专门的功能分支上工作，pull操作结果会都是快进合并。  </p>
+<h5 id="开发者发布自己的功能"><a href="#开发者发布自己的功能" class="headerlink" title="开发者发布自己的功能"></a>开发者发布自己的功能</h5><p>一旦开发者准备好了分享新功能，需要做两件事。  </p>
+<p>（1）首先，通过push他的贡献代码到自己的公开仓库中，让其他的开发者都可以访问到。他的origin远程别名应该已经有了，所有要做的就是：  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span>  <span class="built_in">feature</span>-branch</span><br></pre></td></tr></table></figure>
+
+<p>这里和之前的工作流的差异是，origin远程别名指向开发者自己的服务端仓库，而不是正式仓库。  </p>
+<p>（2）第二件事，开发者要通知项目维护者，想要合并他的新功能到正式库中。Bitbucket和Stash提供了Pull Request按钮，弹出个表单让你指定哪个分支要合并到正式仓库。一般你会想集成你的功能分支到上游远程仓库的master分支中。  </p>
+<h5 id="项目维护者集成开发者的功能"><a href="#项目维护者集成开发者的功能" class="headerlink" title="项目维护者集成开发者的功能"></a>项目维护者集成开发者的功能</h5><p>当项目维护者收到pull request时，他要做的是决定是否集成它到正式代码库中。  </p>
+<p>有两种方式来做：  </p>
+<ul>
+<li>直接在pull request中查看代码</li>
+<li>pull代码到他自己的本地仓库，再手动合并</li>
+</ul>
+<p>第一种做法更简单，维护者可以在GUI中查看变更的差异，做评注和执行合并。  </p>
+<p>但如果出现了合并冲突，需要第二种做法来解决。  </p>
+<p>这种情况下，维护者需要从开发者的服务端仓库中fetch功能分支，合并到他本地的master分支，解决冲突：  </p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">git fetch https:<span class="regexp">//</span>bitbucket.org<span class="regexp">/user/</span>repo feature-branch</span><br><span class="line"><span class="regexp">//</span>查看变更</span><br><span class="line">git checkout master</span><br><span class="line">git merge FETCH_HEAD</span><br></pre></td></tr></table></figure>
+
+<p>变更集成到本地的master分支后，维护者要push变更到服务器上的正式仓库，这样其他的开发者都能访问到：  </p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+
+<p>注意，维护者的origin是指向他自己公开仓库的，即是项目的正式代码库。  </p>
+<p>到此，开发者的贡献完全集成到了项目中。  </p>
+<h5 id="开发者和正式仓库做同步"><a href="#开发者和正式仓库做同步" class="headerlink" title="开发者和正式仓库做同步"></a>开发者和正式仓库做同步</h5><p>由于正式代码库往前走了，其他的开发需要和正式仓库做同步：  </p>
+<figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">git pull upstream <span class="literal">master</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h4><p>如果你之前是使用SVN，Forking工作流可能看起来像是一个激进的范式切换（paradigm shift）。  </p>
+<p>但是不要害怕，这个工作流实际上就是在功能分支工作流之上引入了另一个抽象层。  </p>
+<p>不是直接通过单个中央仓库来分享分支，而是把贡献代码发布到开发者自己的服务端仓库中。  </p>
+<p>示例中解释了，一个贡献如何从一个开发者流到正式的master分支中，但是同样的方法可以把贡献集中到任意一个仓库中。  </p>
+<p>比如，如果团队的几个人协作实现一个功能，可以在开发之间用相同的方法分享变更，完全不涉及正式仓库。  </p>
+<p>这使得Forking工作流对于松散组织的团队来说是个非常强大的工具。  </p>
+<p>任一开发者可以方便地和另一开发者分享变更，任何分支都能有效地合并到正式代码库中。  </p>
 ]]></content>
       <categories>
-        <category>Git</category>
+        <category>Git工作流</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>Git工作流</tag>
         <tag>学习笔记</tag>
       </tags>
   </entry>
@@ -823,32 +1249,6 @@
       </tags>
   </entry>
   <entry>
-    <title>树</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/%E6%A0%91-06.png" alt="树-06"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>图</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>查找</title>
     <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
@@ -862,6 +1262,19 @@
       </tags>
   </entry>
   <entry>
+    <title>树</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/%E6%A0%91-06.png" alt="树-06"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>排序</title>
     <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
@@ -872,6 +1285,19 @@
       <tags>
         <tag>数据结构</tag>
         <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>图</tag>
       </tags>
   </entry>
   <entry>
@@ -2335,6 +2761,40 @@
       </tags>
   </entry>
   <entry>
+    <title>第五节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第五堂课主题：面对批评，你应该摆一个正确姿势  </p>
+<p>懒惰是最可怕的事情<br>不牺牲短暂的享乐和安逸，就换不来长久的保障和幸福<br>找借口也很可怕<br>找借口会让自己失去机会<br>不能扛起责任无法付以重任  </p>
+<h2 id="闻过则喜的心态"><a href="#闻过则喜的心态" class="headerlink" title="闻过则喜的心态"></a>闻过则喜的心态</h2><p>一味在意对方的态度和自己的感受就会忘了事情的根本所在<br>错了就是错了，面对批评输球不要输姿势。  </p>
+<h2 id="永远感谢愿意花时间在你身上的人"><a href="#永远感谢愿意花时间在你身上的人" class="headerlink" title="永远感谢愿意花时间在你身上的人"></a>永远感谢愿意花时间在你身上的人</h2><p>他认识你。<br>你们之间有关系别人才会花时间批评你。<br>所以一定是你们之间有联系，尤其在你年轻的时候，多半是你有改进的空间<br>他的批评可以让你变得更好<br>所以错了就认，认了就改正。</p>
+<h2 id="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"><a href="#面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”" class="headerlink" title="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"></a>面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”</h2><p>哪怕严厉苛刻，谦虚使人进步骄傲使人落后，有则改之无则加勉。<br>达尔文： 能够生存性下来的物种，并不是那些最强壮的，也不是最聪明的，而是那些对变化做出快速反应的<br>面对批评，正确地姿势应该是沉心静气的想一想我哪儿做错了。我该怎么改。<br>被批评不是坏事。  </p>
+<p>因为在意，所以争吵。  </p>
+<h2 id="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"><a href="#如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。" class="headerlink" title="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"></a>如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。</h2><p>凡事先在自身找原因。<br>不要苛求他人。千万不要遇事着急，冷静思考沉着应对才是面对批评正确的姿势。<br>如果大错酿成，最重要的不是埋怨推诿，而是面对和解决。  </p>
+<h2 id="面对批评的职业心态"><a href="#面对批评的职业心态" class="headerlink" title="面对批评的职业心态"></a>面对批评的职业心态</h2><p>不要埋怨老板苛刻。老板骂你是希望快点成长。</p>
+<h2 id="褒贬是买主，喝彩是闲人"><a href="#褒贬是买主，喝彩是闲人" class="headerlink" title="褒贬是买主，喝彩是闲人"></a>褒贬是买主，喝彩是闲人</h2><p>正是因为有所期待才会批评有所改进。</p>
+<p>普京：没有实力的愤怒毫无意义。<br>道理：好学生做坏事不是没有被老师发现，老师可能只是装作看不见。对自己而言成长才是硬道理。  </p>
+<p>苦练七十二变才能笑对八十一难。  </p>
+<p>高情商：不断改过，默默自强。<br>解释就是掩饰，掩饰就是事实。  </p>
+<p>可怕的不是犯错，而是不知道错在哪里还在盲目争辩。而是知错不改还重复犯错。  </p>
+<p>所以错了第一步是认，第二步是改。  </p>
+<p>第一次是不知道，第二次是不小心，第三次就是故意了。</p>
+<h2 id="示弱有助于解决冲突。先认错后解释"><a href="#示弱有助于解决冲突。先认错后解释" class="headerlink" title="示弱有助于解决冲突。先认错后解释"></a>示弱有助于解决冲突。先认错后解释</h2><h2 id="越是不认错被骂的越多"><a href="#越是不认错被骂的越多" class="headerlink" title="越是不认错被骂的越多"></a>越是不认错被骂的越多</h2><p>骂你是因为你是负责的人。谁负责谁担责。这个是态度问题。  </p>
+<p>狗咬人一口，人不能回咬回去。</p>
+<p>有个好心态，先和自己将锻炼自己情商的时候到了，先克制情绪在解决问题。  </p>
+<p>退一步海阔天空，退三分风平浪静。  </p>
+<p>所以和蛮不讲理的人讲理先示弱表达部分认同，再换位思考给出方案，先礼后兵。  </p>
+<p>发现问题是好事，解决问题是大事，没有问题是坏事。</p>
+<p>成功是来自精准的勤奋而不是平庸的忙碌，批评是成长的机会，闻过则喜。  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第二节心态课</title>
     <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
@@ -2441,26 +2901,31 @@
       </tags>
   </entry>
   <entry>
-    <title>第七节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
+    <title>第三节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
-<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
-<p>自我和自私是两种最糟糕的负面心态。</p>
-<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
-<p>先做好自己不要给别人带来麻烦。</p>
-<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
-<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
-<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
-<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
-<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
-<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
-<p>总结：</p>
-<ul>
-<li>第一讲：心态认知，别人的评价…自我认知</li>
-<li>……..</li>
-</ul>
-<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
+<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
+<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
+<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
+<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
+<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
+<p>它可以帮你建立自信  </p>
+<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
+<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
+<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
+<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
+<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
+<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
+<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
+<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
+<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
+<p>疗效持久不易复发  </p>
+<p>自卑不自信一定要试试  </p>
+<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
+<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
+<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
+<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
+<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -2508,65 +2973,26 @@
       </tags>
   </entry>
   <entry>
-    <title>第五节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/</url>
+    <title>第七节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第五堂课主题：面对批评，你应该摆一个正确姿势  </p>
-<p>懒惰是最可怕的事情<br>不牺牲短暂的享乐和安逸，就换不来长久的保障和幸福<br>找借口也很可怕<br>找借口会让自己失去机会<br>不能扛起责任无法付以重任  </p>
-<h2 id="闻过则喜的心态"><a href="#闻过则喜的心态" class="headerlink" title="闻过则喜的心态"></a>闻过则喜的心态</h2><p>一味在意对方的态度和自己的感受就会忘了事情的根本所在<br>错了就是错了，面对批评输球不要输姿势。  </p>
-<h2 id="永远感谢愿意花时间在你身上的人"><a href="#永远感谢愿意花时间在你身上的人" class="headerlink" title="永远感谢愿意花时间在你身上的人"></a>永远感谢愿意花时间在你身上的人</h2><p>他认识你。<br>你们之间有关系别人才会花时间批评你。<br>所以一定是你们之间有联系，尤其在你年轻的时候，多半是你有改进的空间<br>他的批评可以让你变得更好<br>所以错了就认，认了就改正。</p>
-<h2 id="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"><a href="#面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”" class="headerlink" title="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"></a>面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”</h2><p>哪怕严厉苛刻，谦虚使人进步骄傲使人落后，有则改之无则加勉。<br>达尔文： 能够生存性下来的物种，并不是那些最强壮的，也不是最聪明的，而是那些对变化做出快速反应的<br>面对批评，正确地姿势应该是沉心静气的想一想我哪儿做错了。我该怎么改。<br>被批评不是坏事。  </p>
-<p>因为在意，所以争吵。  </p>
-<h2 id="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"><a href="#如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。" class="headerlink" title="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"></a>如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。</h2><p>凡事先在自身找原因。<br>不要苛求他人。千万不要遇事着急，冷静思考沉着应对才是面对批评正确的姿势。<br>如果大错酿成，最重要的不是埋怨推诿，而是面对和解决。  </p>
-<h2 id="面对批评的职业心态"><a href="#面对批评的职业心态" class="headerlink" title="面对批评的职业心态"></a>面对批评的职业心态</h2><p>不要埋怨老板苛刻。老板骂你是希望快点成长。</p>
-<h2 id="褒贬是买主，喝彩是闲人"><a href="#褒贬是买主，喝彩是闲人" class="headerlink" title="褒贬是买主，喝彩是闲人"></a>褒贬是买主，喝彩是闲人</h2><p>正是因为有所期待才会批评有所改进。</p>
-<p>普京：没有实力的愤怒毫无意义。<br>道理：好学生做坏事不是没有被老师发现，老师可能只是装作看不见。对自己而言成长才是硬道理。  </p>
-<p>苦练七十二变才能笑对八十一难。  </p>
-<p>高情商：不断改过，默默自强。<br>解释就是掩饰，掩饰就是事实。  </p>
-<p>可怕的不是犯错，而是不知道错在哪里还在盲目争辩。而是知错不改还重复犯错。  </p>
-<p>所以错了第一步是认，第二步是改。  </p>
-<p>第一次是不知道，第二次是不小心，第三次就是故意了。</p>
-<h2 id="示弱有助于解决冲突。先认错后解释"><a href="#示弱有助于解决冲突。先认错后解释" class="headerlink" title="示弱有助于解决冲突。先认错后解释"></a>示弱有助于解决冲突。先认错后解释</h2><h2 id="越是不认错被骂的越多"><a href="#越是不认错被骂的越多" class="headerlink" title="越是不认错被骂的越多"></a>越是不认错被骂的越多</h2><p>骂你是因为你是负责的人。谁负责谁担责。这个是态度问题。  </p>
-<p>狗咬人一口，人不能回咬回去。</p>
-<p>有个好心态，先和自己将锻炼自己情商的时候到了，先克制情绪在解决问题。  </p>
-<p>退一步海阔天空，退三分风平浪静。  </p>
-<p>所以和蛮不讲理的人讲理先示弱表达部分认同，再换位思考给出方案，先礼后兵。  </p>
-<p>发现问题是好事，解决问题是大事，没有问题是坏事。</p>
-<p>成功是来自精准的勤奋而不是平庸的忙碌，批评是成长的机会，闻过则喜。  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第三节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
-<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
-<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
-<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
-<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
-<p>它可以帮你建立自信  </p>
-<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
-<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
-<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
-<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
-<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
-<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
-<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
-<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
-<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
-<p>疗效持久不易复发  </p>
-<p>自卑不自信一定要试试  </p>
-<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
-<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
-<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
-<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
-<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
+<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
+<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
+<p>自我和自私是两种最糟糕的负面心态。</p>
+<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
+<p>先做好自己不要给别人带来麻烦。</p>
+<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
+<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
+<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
+<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
+<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
+<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
+<p>总结：</p>
+<ul>
+<li>第一讲：心态认知，别人的评价…自我认知</li>
+<li>……..</li>
+</ul>
+<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -3438,6 +3864,17 @@
       </tags>
   </entry>
   <entry>
+    <title>心情</title>
+    <url>/2020/03/02/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%854/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="Hey, password is required here." /><label>Hey, password is required here.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="eba6423c712fadc1c60a0f4b7007311ecc755bce75d0e3a26af48154d59d5d82">b31f159afd2875e238fd142233ddd138ab0d44113399ddd50e5ab9b91b0c753d14a01c8b3bcab5e08ccf8224732c4c70a840a7308c87103c606a5af5e236c0f6c50ac472a5e1b17c499f9d933266a62042f3de19e4ec423d23aed3c70d366f3c44caa5aaa05849f3da439e9d7fc3ec1666d0549c63d75c5cf681938638c5c3e663f66c9ab216784739d8c5a0464dd40dd2e94520e5f38d69f30abc6c891dc72679be36d493273ee456d11855f26d6e7429e93e849824314265ee3eaa7640af69a5ce0603eef9a03efe5166ec0669a7ed36f3e28ad7c315739a351ca497aeadab1c3b4a0a6b4ee397ae6c40adebffc7f159e596e2e3cf674336b55b7512637728a14e0ffc4bb458904082b6df9694f8044b3912e221635e0e4827e28eaf0272df5ae67dbb3779ebf15b85e152f5b4c53025df49efc1f4d904b82b26913bd1d5ed6278376b880ea9bc09e8e0b16888a4e8da2ea2ba79c473cd33cff39fd32e76b6abd687c69e8e21e2b4a5b77d3567bd869ef8d8f51917c97c6a2f2d2e9a378736afd6c06b91bc58bb106f093c130cccf48a7efc7a77b6050b01437867c0b8584ae3f4e0432c501a2f6101841d63f8a7c7312a923f515f72e2f42edf20380d962a103e6a145405bcb58d6d27bd155ec0e3559e517aced496266bafed8608473e875dd058cfc8b148dc196b2fa84d4846a7aa7543d5f3f24b6db93d791124b759b73a8b49884e0972f37f1ed38ce9dd343c68caebc7c9b24f6d9aff767f59af8be7ee2cdd5468d6f8ecd9c42f2d821191a387a4a522ca3cc33e6e92996be99acd842aeccda0fdefc41480767048f8ee5400e088e64f40357d616d5f94b576a3434877f646a56ab4632b130679a6ac6174010c634d9cc51ac658764fe89149d9c9ba7240216fc9491dc0d09c4e25752ab5be2dcdb7a757e5b204a5adbb2523bae63fed7d6f57db6ed9c6f6597638b1e1b9b665ab6b42fca4ecec9a0a29a96bbe5eb719643012edc6bbca9dfb8d679e2d8b1bb18b8d5c3e866a23f98402f604a3225a02a708271b6adaaddfa5d915a1c907e86b449f959ea2a9e3caf116f78edc95b555522c95885c439ae4074682e95def110b615af352c43d196e0ac4dd412f05806ab0f7fa64445682b9ccf93ce256ebba3924723a1be266e1ff27f56a902a19e49d7a3ff84ec9b5ab6a5c39b7916a604e9f2d6fe35d51a8d2f5abd08797682887ab04bc1400fa1c4df167cfd83c5b54c9f9107beea8266d3fef4e5abf47d1e3ab6c2233ecc51391f9cec03caa7f493a5090a4ff4d83186d3708c81158d97da63456bb73465ef2e81a8c92583f976b18ad898cb2ce36778469f6fefe8b5c905c1eff61570a6b331d18ea2c86b28edc2b72a6b7a1593f971e8321668aeff200a8ba95bf7aa41de3cc6f32f73c22b822e5386c980e73cf4bda6b679de0ac6205aa56d8c4895bda0cd79be75ba6e4b099c682557138057007d098c4c9c7b487315d6a51b7726f772532e8afc66e359c092f51f63138fac029f080784c74cf66b0f9b06b5f07ed7121817f2c912974e19fe9c39320ca2fcdc2430b9187fc50c9b5c1ea0df6b12c739664af07c1f08d6a8c172987649db4c0de3c63ccb6988c73e327ec07c84e4ff5545fbe68001135c3289f03a01465f8abf78f0c0c1786709e9434023882199a2e635f21c14fcf92ff9c1d6da559e4c4d97c46a4978223c5d8151f74936e5e30cd2e6b4b8ad3ea3d944d621d42ab091d8d1e27050416e256ee23b115824b68b4a00d4fd763f6017138d8108ffd64d7cb0acfdb68d9a3f8b502311f53653a0ccd4f64dda5bddaf654354364b29883b937ec92f4eb0e717f5724eef021cb1a640de554b73bd35576b50c634d314e83bd1629df8991144eb576b54ea257952503b79f9edbf40343c7f2de0a3a26397c7d7e3cbf8a86ab2e73fd9ce7f92ed582364de238edd985b5a03158848e329c13872f0a80201b402cfe8cd51d4ca62252bf8e7bb085820406b79b106c605a6ff0532fcb36149c5812653992ad17dd78ffa9530586e87ed52270f1487adbb19e7a16d3e7da09b91daf7cf48ee940fa7ee92c5165f9780e1eff0df30b76f3b4b6021ef3b6032bd3093d0627dbc87f7727c0d444f8bdf3f2f6f84216a15545a195f4ebf86e17e6f7980589d81070a26f107fc5942997c3aac4d8e2c2bdc72a3881d932d4efc2f8e445e2bc6002fc37d7b289066d4473cd932ae6cf184b059878fe0cbbcdd87ca8d107044c0aef47c2f14044c9612bf0e59412eccfac9068ad9fb1d73f13832ac3b498e4d1d64541986a55c9fccfc66268ca143f3c09ba16ed6d60c1f0a925c853203bd0d7a4c69a3f995fb88b82ad39f99594ee9cd3e34b54ebd6c33557ea3f8748bc215902a8638d9ba873af80060e28191e55d63367906ceddc113fdd94c7cb072992640bf30a8c44fe1e1a402d63c9a02cbc4307aaa25891b8de076cb368fff2c796d0cf87fc91943d8ccdbc1610d9c5a1b4c945e4c716a6eafc4bd1f5ec90eee5043bb210a8bc0f1acc6ca49cd10f9c760c91b1644fd3a6bb22ae094d36220e5a5ef06e34a4076414372ea1105672c8239f09dcdfffd162d4443fd437587be9af94c7c02a9add7cf64d2ce12a3d467da295fa4ae340b7d018ddf86355965aafd67159442e886729bbee5f7993bb28cefcabc53c4bf85ae820737af0b2b011b6e9e6d097cec034043199d564d71dc776f8deca9e05f37737e5613619fad785329f1a0147fc4ec7548ad56cab2784b6e841c77608ecee37521131c656c3a4c84c28e79c4b49d97e0336d465d6e9f2af043ab7ae56423297151338da9ba029dd29147448132f192e4e594d670395f093c473e04261e9bbe5dcce87f8c79ee272eb229a9f410331a71cefd94f5df7f8cfe7843eb30f8ea2a27c22b2b6bc0bf4648a60098338a6b81d9b90190d2bb02bb814f2821d7b0a8e122321c908996a0d5d2a61c2f9d42774e15c1fae514b9d13fb0c84cd03245198f11664ab675604873f19e9a335b17c14c0877fff13ca99726a2fc209cef682be7700acf40c8230c1d2bbd9012d25cf58626c59a486094288b1000f801e5cb9b7df3b7ddbed197408fa6979341de0e29f0dfa275ae30a325a2eddd4494f60bd0852f83fa170db98d53f8d68509f4a4cdf6afa3d0596c751c91eeb92a15aaef9245e2c37aec2017d99d7a6b71eb75068cdbefc791625f2cdd9aa75236e0ae2c0c906316423176d8fd2bb25d8b827045f635409</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>心情</category>
+      </categories>
+      <tags>
+        <tag>心情</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>信666分润规则</title>
     <url>/2020/03/02/%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/%E6%98%8E%E6%98%9F%E5%A7%90%E4%BF%A1666%E5%88%86%E6%B6%A6%E8%A7%84%E5%88%99/</url>
     <content><![CDATA[<h2 id="分润规则-countProfit"><a href="#分润规则-countProfit" class="headerlink" title="分润规则-countProfit"></a>分润规则-countProfit</h2><p>我就不直接贴代码了，说一下流程</p>
@@ -3449,17 +3886,6 @@
       </categories>
       <tags>
         <tag>信666工作交接</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>心情</title>
-    <url>/2020/03/02/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%854/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="Hey, password is required here." /><label>Hey, password is required here.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="eba6423c712fadc1c60a0f4b7007311ecc755bce75d0e3a26af48154d59d5d82">b31f159afd2875e238fd142233ddd138ab0d44113399ddd50e5ab9b91b0c753d14a01c8b3bcab5e08ccf8224732c4c70a840a7308c87103c606a5af5e236c0f6c50ac472a5e1b17c499f9d933266a62042f3de19e4ec423d23aed3c70d366f3c44caa5aaa05849f3da439e9d7fc3ec1666d0549c63d75c5cf681938638c5c3e663f66c9ab216784739d8c5a0464dd40dd2e94520e5f38d69f30abc6c891dc72679be36d493273ee456d11855f26d6e7429e93e849824314265ee3eaa7640af69a5ce0603eef9a03efe5166ec0669a7ed36f3e28ad7c315739a351ca497aeadab1c3b4a0a6b4ee397ae6c40adebffc7f159e596e2e3cf674336b55b7512637728a14e0ffc4bb458904082b6df9694f8044b3912e221635e0e4827e28eaf0272df5ae67dbb3779ebf15b85e152f5b4c53025df49efc1f4d904b82b26913bd1d5ed6278376b880ea9bc09e8e0b16888a4e8da2ea2ba79c473cd33cff39fd32e76b6abd687c69e8e21e2b4a5b77d3567bd869ef8d8f51917c97c6a2f2d2e9a378736afd6c06b91bc58bb106f093c130cccf48a7efc7a77b6050b01437867c0b8584ae3f4e0432c501a2f6101841d63f8a7c7312a923f515f72e2f42edf20380d962a103e6a145405bcb58d6d27bd155ec0e3559e517aced496266bafed8608473e875dd058cfc8b148dc196b2fa84d4846a7aa7543d5f3f24b6db93d791124b759b73a8b49884e0972f37f1ed38ce9dd343c68caebc7c9b24f6d9aff767f59af8be7ee2cdd5468d6f8ecd9c42f2d821191a387a4a522ca3cc33e6e92996be99acd842aeccda0fdefc41480767048f8ee5400e088e64f40357d616d5f94b576a3434877f646a56ab4632b130679a6ac6174010c634d9cc51ac658764fe89149d9c9ba7240216fc9491dc0d09c4e25752ab5be2dcdb7a757e5b204a5adbb2523bae63fed7d6f57db6ed9c6f6597638b1e1b9b665ab6b42fca4ecec9a0a29a96bbe5eb719643012edc6bbca9dfb8d679e2d8b1bb18b8d5c3e866a23f98402f604a3225a02a708271b6adaaddfa5d915a1c907e86b449f959ea2a9e3caf116f78edc95b555522c95885c439ae4074682e95def110b615af352c43d196e0ac4dd412f05806ab0f7fa64445682b9ccf93ce256ebba3924723a1be266e1ff27f56a902a19e49d7a3ff84ec9b5ab6a5c39b7916a604e9f2d6fe35d51a8d2f5abd08797682887ab04bc1400fa1c4df167cfd83c5b54c9f9107beea8266d3fef4e5abf47d1e3ab6c2233ecc51391f9cec03caa7f493a5090a4ff4d83186d3708c81158d97da63456bb73465ef2e81a8c92583f976b18ad898cb2ce36778469f6fefe8b5c905c1eff61570a6b331d18ea2c86b28edc2b72a6b7a1593f971e8321668aeff200a8ba95bf7aa41de3cc6f32f73c22b822e5386c980e73cf4bda6b679de0ac6205aa56d8c4895bda0cd79be75ba6e4b099c682557138057007d098c4c9c7b487315d6a51b7726f772532e8afc66e359c092f51f63138fac029f080784c74cf66b0f9b06b5f07ed7121817f2c912974e19fe9c39320ca2fcdc2430b9187fc50c9b5c1ea0df6b12c739664af07c1f08d6a8c172987649db4c0de3c63ccb6988c73e327ec07c84e4ff5545fbe68001135c3289f03a01465f8abf78f0c0c1786709e9434023882199a2e635f21c14fcf92ff9c1d6da559e4c4d97c46a4978223c5d8151f74936e5e30cd2e6b4b8ad3ea3d944d621d42ab091d8d1e27050416e256ee23b115824b68b4a00d4fd763f6017138d8108ffd64d7cb0acfdb68d9a3f8b502311f53653a0ccd4f64dda5bddaf654354364b29883b937ec92f4eb0e717f5724eef021cb1a640de554b73bd35576b50c634d314e83bd1629df8991144eb576b54ea257952503b79f9edbf40343c7f2de0a3a26397c7d7e3cbf8a86ab2e73fd9ce7f92ed582364de238edd985b5a03158848e329c13872f0a80201b402cfe8cd51d4ca62252bf8e7bb085820406b79b106c605a6ff0532fcb36149c5812653992ad17dd78ffa9530586e87ed52270f1487adbb19e7a16d3e7da09b91daf7cf48ee940fa7ee92c5165f9780e1eff0df30b76f3b4b6021ef3b6032bd3093d0627dbc87f7727c0d444f8bdf3f2f6f84216a15545a195f4ebf86e17e6f7980589d81070a26f107fc5942997c3aac4d8e2c2bdc72a3881d932d4efc2f8e445e2bc6002fc37d7b289066d4473cd932ae6cf184b059878fe0cbbcdd87ca8d107044c0aef47c2f14044c9612bf0e59412eccfac9068ad9fb1d73f13832ac3b498e4d1d64541986a55c9fccfc66268ca143f3c09ba16ed6d60c1f0a925c853203bd0d7a4c69a3f995fb88b82ad39f99594ee9cd3e34b54ebd6c33557ea3f8748bc215902a8638d9ba873af80060e28191e55d63367906ceddc113fdd94c7cb072992640bf30a8c44fe1e1a402d63c9a02cbc4307aaa25891b8de076cb368fff2c796d0cf87fc91943d8ccdbc1610d9c5a1b4c945e4c716a6eafc4bd1f5ec90eee5043bb210a8bc0f1acc6ca49cd10f9c760c91b1644fd3a6bb22ae094d36220e5a5ef06e34a4076414372ea1105672c8239f09dcdfffd162d4443fd437587be9af94c7c02a9add7cf64d2ce12a3d467da295fa4ae340b7d018ddf86355965aafd67159442e886729bbee5f7993bb28cefcabc53c4bf85ae820737af0b2b011b6e9e6d097cec034043199d564d71dc776f8deca9e05f37737e5613619fad785329f1a0147fc4ec7548ad56cab2784b6e841c77608ecee37521131c656c3a4c84c28e79c4b49d97e0336d465d6e9f2af043ab7ae56423297151338da9ba029dd29147448132f192e4e594d670395f093c473e04261e9bbe5dcce87f8c79ee272eb229a9f410331a71cefd94f5df7f8cfe7843eb30f8ea2a27c22b2b6bc0bf4648a60098338a6b81d9b90190d2bb02bb814f2821d7b0a8e122321c908996a0d5d2a61c2f9d42774e15c1fae514b9d13fb0c84cd03245198f11664ab675604873f19e9a335b17c14c0877fff13ca99726a2fc209cef682be7700acf40c8230c1d2bbd9012d25cf58626c59a486094288b1000f801e5cb9b7df3b7ddbed197408fa6979341de0e29f0dfa275ae30a325a2eddd4494f60bd0852f83fa170db98d53f8d68509f4a4cdf6afa3d0596c751c91eeb92a15aaef9245e2c37aec2017d99d7a6b71eb75068cdbefc791625f2cdd9aa75236e0ae2c0c906316423176d8fd2bb25d8b827045f635409</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>心情</category>
-      </categories>
-      <tags>
-        <tag>心情</tag>
       </tags>
   </entry>
   <entry>
@@ -3479,18 +3905,6 @@
       </tags>
   </entry>
   <entry>
-    <title>账单样式</title>
-    <url>/2020/02/26/%E9%A2%86%E8%B5%AB/%E8%B4%A6%E5%8D%95/</url>
-    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>今天突然觉得内心十分惶恐不安。<br>实在是太茫然了。</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">				text-align: right;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.indent</span>&#123;</span></span><br><span class="line">				text-indent: 180px;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.widd</span>&#123;</span></span><br><span class="line">				width: 230px;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.centt</span>&#123;</span></span><br><span class="line">				text-align: center;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.bolder</span>&#123;</span></span><br><span class="line">				font-size: 10px;</span><br><span class="line">				font-weight: bolder;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.ant-btn-red</span> &#123;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">color</span>: <span class="selector-id">#FFF</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">background-color</span>: <span class="selector-id">#FF5A44</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">border-color</span>: <span class="selector-id">#FF5A44</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">text-shadow</span>: 0 <span class="selector-tag">-1px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.12</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">-webkit-box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.045</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.045</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line"><span class="css"><span class="selector-class">.ant-btn</span> &#123;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">line-height</span>: 2<span class="selector-class">.2</span>;</span></span><br><span class="line">			    position: relative;</span><br><span class="line">			    display: inline-block;</span><br><span class="line">			    font-weight: 400;</span><br><span class="line">			    white-space: nowrap;</span><br><span class="line">			    text-align: center;</span><br><span class="line">			    background-image: none;</span><br><span class="line">			    border: 1px solid transparent;</span><br><span class="line"><span class="css">			    <span class="selector-tag">-webkit-box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.015</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.015</span>);</span></span><br><span class="line">			    cursor: pointer;</span><br><span class="line"><span class="css">			    <span class="selector-tag">-webkit-transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.3s</span> <span class="selector-tag">cubic-bezier</span>(<span class="selector-class">.645</span>, <span class="selector-class">.045</span>, <span class="selector-class">.355</span>, 1);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.3s</span> <span class="selector-tag">cubic-bezier</span>(<span class="selector-class">.645</span>, <span class="selector-class">.045</span>, <span class="selector-class">.355</span>, 1);</span></span><br><span class="line">			    -webkit-user-select: none;</span><br><span class="line">			    -moz-user-select: none;</span><br><span class="line">			    -ms-user-select: none;</span><br><span class="line">			    user-select: none;</span><br><span class="line">			    -ms-touch-action: manipulation;</span><br><span class="line">			    touch-action: manipulation;</span><br><span class="line">			    height: 32px;</span><br><span class="line">			    padding: 0 15px;</span><br><span class="line">			    font-size: 14px;</span><br><span class="line">			    border-radius: 4px;</span><br><span class="line"><span class="css">			    <span class="selector-tag">color</span>: <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.65</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">background-color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">border-color</span>: <span class="selector-id">#d9d9d9</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.font</span>&#123;<span class="attribute">font-size</span>: <span class="number">10px</span>;&#125;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">"650px"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">style</span>=<span class="string">"background-color: white;margin: auto; font-family:'Microsoft YaHei';"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 25px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"width: 50px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> &gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">width</span>=<span class="string">"120px"</span> <span class="attr">height</span>=<span class="string">"25px"</span> <span class="attr">src</span>=<span class="string">"http://fba-srm.oss-cn-hongkong.aliyuncs.com/202002241734417550微信图片_20200224173432.png"</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="comment">&lt;!--FBABEE--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">style</span>=<span class="string">"text-align: right;font-size: 25px;font-weight: bold;"</span> &gt;</span>INVOICE<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>Shenzhen Linkhub Supply-Chain Management Co.LTD<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>Invoince ID<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>1904193751<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>Add:302,Building D,New Retail Tech Industrial Zoon<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>FBA ID<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>XXXXXXX<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>GUshu,Xixiang Street,Bao'An,518000<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>Date Issued<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>2019/05/02<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>Guangdong Province,China<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>Due Date<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>2019/05/02<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Bill to<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Ship to<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>公司名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>24300 Nandina Ave,Moreno Valley,CA,<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>公司地址<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>92551,United States<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Items Description<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>费用集合一<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>Rate<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt bolder"</span>&gt;</span>Quantity<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right bolder"</span>&gt;</span>Amount<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>固定费用<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 10 <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 10.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>快递取件费用<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>0/kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 121kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 0.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>关税<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 1331 <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 0.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>重量变动费用<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>8/kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 121kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 968.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"1"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>偏远地区配送附加费<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>偏远地区配送附加费<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>90/kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 121kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 10890.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Total<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right bolder"</span>&gt;</span>$ 11868.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Bank Infomation<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"width: 100px;"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Paypal Account<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"widd"</span>&gt;</span>Palpal@fbabee.com<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Payoneer Account<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"widd"</span>&gt;</span>fsn2915324940@163.com<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>T/T<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"widd"</span>&gt;</span>银行账号信息，暂时明确不了<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 80px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin:0 auto;width:200px;"</span>&gt;</span> </span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.baidu.com"</span> <span class="attr">class</span>=<span class="string">"ant-btn-red ant-btn"</span> <span class="attr">style</span>=<span class="string">" text-decoration: none;"</span>&gt;</span>PayPal确认支付<span class="tag">&lt;/<span class="name">a</span>&gt;</span> </span><br><span class="line">					<span class="tag">&lt;/<span class="name">div</span>&gt;</span> 					</span><br><span class="line">				<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>领赫</category>
-      </categories>
-      <tags>
-        <tag>领赫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分页</title>
     <url>/2020/02/26/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%88%86%E9%A1%B5/</url>
     <content><![CDATA[<p>这个是很久很久之前做的个人理解。  </p>
@@ -3501,6 +3915,18 @@
       <tags>
         <tag>分页</tag>
         <tag>理解分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>账单样式</title>
+    <url>/2020/02/26/%E9%A2%86%E8%B5%AB/%E8%B4%A6%E5%8D%95/</url>
+    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>今天突然觉得内心十分惶恐不安。<br>实在是太茫然了。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">			<span class="selector-class">.right</span>&#123;</span></span><br><span class="line">				text-align: right;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.indent</span>&#123;</span></span><br><span class="line">				text-indent: 180px;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.widd</span>&#123;</span></span><br><span class="line">				width: 230px;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.centt</span>&#123;</span></span><br><span class="line">				text-align: center;</span><br><span class="line">				font-size: 10px;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.bolder</span>&#123;</span></span><br><span class="line">				font-size: 10px;</span><br><span class="line">				font-weight: bolder;</span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.ant-btn-red</span> &#123;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">color</span>: <span class="selector-id">#FFF</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">background-color</span>: <span class="selector-id">#FF5A44</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">border-color</span>: <span class="selector-id">#FF5A44</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">text-shadow</span>: 0 <span class="selector-tag">-1px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.12</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">-webkit-box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.045</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.045</span>);</span></span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line"><span class="css"><span class="selector-class">.ant-btn</span> &#123;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">line-height</span>: 2<span class="selector-class">.2</span>;</span></span><br><span class="line">			    position: relative;</span><br><span class="line">			    display: inline-block;</span><br><span class="line">			    font-weight: 400;</span><br><span class="line">			    white-space: nowrap;</span><br><span class="line">			    text-align: center;</span><br><span class="line">			    background-image: none;</span><br><span class="line">			    border: 1px solid transparent;</span><br><span class="line"><span class="css">			    <span class="selector-tag">-webkit-box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.015</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">box-shadow</span>: 0 2<span class="selector-tag">px</span> 0 <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.015</span>);</span></span><br><span class="line">			    cursor: pointer;</span><br><span class="line"><span class="css">			    <span class="selector-tag">-webkit-transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.3s</span> <span class="selector-tag">cubic-bezier</span>(<span class="selector-class">.645</span>, <span class="selector-class">.045</span>, <span class="selector-class">.355</span>, 1);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">transition</span>: <span class="selector-tag">all</span> <span class="selector-class">.3s</span> <span class="selector-tag">cubic-bezier</span>(<span class="selector-class">.645</span>, <span class="selector-class">.045</span>, <span class="selector-class">.355</span>, 1);</span></span><br><span class="line">			    -webkit-user-select: none;</span><br><span class="line">			    -moz-user-select: none;</span><br><span class="line">			    -ms-user-select: none;</span><br><span class="line">			    user-select: none;</span><br><span class="line">			    -ms-touch-action: manipulation;</span><br><span class="line">			    touch-action: manipulation;</span><br><span class="line">			    height: 32px;</span><br><span class="line">			    padding: 0 15px;</span><br><span class="line">			    font-size: 14px;</span><br><span class="line">			    border-radius: 4px;</span><br><span class="line"><span class="css">			    <span class="selector-tag">color</span>: <span class="selector-tag">rgba</span>(0,0,0,0<span class="selector-class">.65</span>);</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">background-color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line"><span class="css">			    <span class="selector-tag">border-color</span>: <span class="selector-id">#d9d9d9</span>;</span></span><br><span class="line">			&#125;</span><br><span class="line"><span class="css">			<span class="selector-class">.font</span>&#123;<span class="attribute">font-size</span>: <span class="number">10px</span>;&#125;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">"650px"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">style</span>=<span class="string">"background-color: white;margin: auto; font-family:'Microsoft YaHei';"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 25px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"width: 50px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> &gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">width</span>=<span class="string">"120px"</span> <span class="attr">height</span>=<span class="string">"25px"</span> <span class="attr">src</span>=<span class="string">"http://fba-srm.oss-cn-hongkong.aliyuncs.com/202002241734417550微信图片_20200224173432.png"</span>/&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span><span class="comment">&lt;!--FBABEE--&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">style</span>=<span class="string">"text-align: right;font-size: 25px;font-weight: bold;"</span> &gt;</span>INVOICE<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>Shenzhen Linkhub Supply-Chain Management Co.LTD<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>Invoince ID<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>1904193751<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>Add:302,Building D,New Retail Tech Industrial Zoon<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>FBA ID<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>XXXXXXX<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>GUshu,Xixiang Street,Bao'An,518000<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>Date Issued<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>2019/05/02<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>Guangdong Province,China<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;font-weight: bolder;"</span>&gt;</span>Due Date<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"font-size: 10px;text-align: right;"</span>&gt;</span>2019/05/02<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Bill to<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Ship to<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>公司名称<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>24300 Nandina Ave,Moreno Valley,CA,<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"2"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>公司地址<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>92551,United States<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Items Description<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>费用集合一<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>Rate<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt bolder"</span>&gt;</span>Quantity<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right bolder"</span>&gt;</span>Amount<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			</span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>固定费用<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 10 <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 10.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>快递取件费用<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>0/kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 121kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 0.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>关税<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>0<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 1331 <span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 0.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>重量变动费用<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>8/kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 121kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 968.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"1"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>偏远地区配送附加费<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"font"</span>&gt;</span>偏远地区配送附加费<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"indent"</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>90/kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"centt"</span>&gt;</span>x 121kg<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>$ 10890.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Total<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"right bolder"</span>&gt;</span>$ 11868.00<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Bank Infomation<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 2px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">style</span>=<span class="string">"width: 100px;"</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Paypal Account<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"widd"</span>&gt;</span>Palpal@fbabee.com<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>Payoneer Account<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"widd"</span>&gt;</span>fsn2915324940@163.com<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"bolder"</span>&gt;</span>T/T<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"widd"</span>&gt;</span>银行账号信息，暂时明确不了<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"3"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 80px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">tr</span> <span class="attr">style</span>=<span class="string">"height: 30px;"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">"5"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin:0 auto;width:200px;"</span>&gt;</span> </span><br><span class="line">					<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.baidu.com"</span> <span class="attr">class</span>=<span class="string">"ant-btn-red ant-btn"</span> <span class="attr">style</span>=<span class="string">" text-decoration: none;"</span>&gt;</span>PayPal确认支付<span class="tag">&lt;/<span class="name">a</span>&gt;</span> </span><br><span class="line">					<span class="tag">&lt;/<span class="name">div</span>&gt;</span> 					</span><br><span class="line">				<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>领赫</category>
+      </categories>
+      <tags>
+        <tag>领赫</tag>
       </tags>
   </entry>
   <entry>
@@ -7301,138 +7727,107 @@
 ]]></content>
   </entry>
   <entry>
-    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
-    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
-    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
+    <title>RabbitMQ实战之南笔记</title>
+    <url>/2020/01/30/RabbitMQ/RabbitMQ/</url>
+    <content><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>《RabbitMQ实战指南》 - 朱忠华  </p>
+<blockquote>
+<p>内容简介</p>
+</blockquote>
+<ul>
+<li>从消息中间件的概念和RabbitMQ的历史切入，阐述RabbitMQ的安装、使用、配置、管理、运维、原理、扩展等方面的细节。</li>
+<li>分为基础、进阶、高级三个部分。</li>
+<li>基础：介绍RabbitMQ的基本安装以及使用方式，RabbitMQ的基本概念，包括生产者、消费者、交换器、队列、绑定等，通过java讲述客户端如何与RabbitMQ建立（关闭）连接，声明（删除）交换器，队列，绑定关系，以及如何发送和消费消息等。</li>
+<li>进阶：RabbitMQ的TTL，死信、延迟队列、优先级队列、RPC、消息持久化、生产端和消费端的消息确认机制等内容。</li>
+<li>中间篇幅主要从RabbitMQ的管理、配置、运维三个角度提供帮助文档以及解决问题的思路。</li>
+<li>高阶：RabbitMQ的存储机制、流控以及镜像队列的原理，深入讲述RabbitMQ的一些实现细节，</li>
+<li>涉及网络分区概念。</li>
+<li>最后讲述的是RabbitMQ的一些扩展内容以及附录，供参考使用。</li>
+</ul>
+<blockquote>
+<p>前言  </p>
+</blockquote>
+<p>略…  </p>
+<blockquote>
+<p>内容大纲</p>
+</blockquote>
+<ul>
+<li>第一章：摘要性介绍，什么是消息中间件、消息中间件的作用以及特点等。引入RabbitMQ对其历史和相关特点做一个简要介绍，最后介绍RabbitMQ的安装以及生产、消费的使用示例。</li>
+<li>第二章：讲述RabbitMQ的入门知识，包括生产者、消费者、队列、交换器、路由键、绑定、连接以及信道等基本术语。还阐述了RabbitMQ与AMQP协议的对应关系。</li>
+<li>第三章：介绍RabbitMQ客户端开发的简单使用，按照一个生命周期对连接、创建、生产、消费以及关闭等几个方面进行宏观的介绍。</li>
+<li>第四章：数据可靠性的一些细节，展示RabbitMQ的集中已具备或衍生的高级特性，包括TTL、死信队列、延迟队列、优先级队列、RPC等。</li>
+<li>第五章：围绕RabbitMQ管理展开，包括多租户、权限、用户、应用和集群管理、服务端状态等方面，并且从侧面讲述rabbitmqctl工具和rabbitmq_management插件的使用。</li>
+<li>第六章：讲述RabbitMQ的配置，通过环境变量、配置文件、运行时参数（和策略）等三种方式来定制化相应的服务。</li>
+<li>第七章：围绕运维层面展开，主要包括集群搭建、日志查看、故障恢复、集群迁移、集群监控等方面。</li>
+<li>第八章：讲述Federation和Shovel这两个插件的使用、细节以及相关原理。区别于第七章中集群的部署方式，Federation和Shovel可以部署在广域网中，为RabbitMQ提供更广泛的应用空间。</li>
+<li>第九章：介绍RabbitMQ相关原理，包括RabbitMQ存储机制、磁盘和内存告罄、流控机制、镜像队列。</li>
+<li>第十章：围绕网络分区进行展开，阐述网络分区意义，如何查看和处理网络分区以及网络分区所带来的的影响。</li>
+<li>第十一章：探讨RabbitMQ的两个扩展内容：消息追踪和负载均衡。消息追踪可以有效定位消息丢失的问题。负载均衡本身属于运维层面，但是负载均衡一般需要借助第三方工具—–HAProxy、LVS等实现。</li>
+</ul>
+<blockquote>
+<p>读者讨论</p>
+</blockquote>
+<p>略…</p>
+<blockquote>
+<p>致谢</p>
+</blockquote>
+<p>略…</p>
+<h3 id="第一章-RabbitMQ简介"><a href="#第一章-RabbitMQ简介" class="headerlink" title="第一章 RabbitMQ简介"></a>第一章 RabbitMQ简介</h3><p>RabbitMQ: 消息中间件<br>RabbitMQ功能特性：【高可靠】、【易扩展】、【高可用】、其他丰富的功能特性  </p>
+<h4 id="1-1-什么是消息中间件"><a href="#1-1-什么是消息中间件" class="headerlink" title="1.1 什么是消息中间件"></a>1.1 什么是消息中间件</h4><p>消息（Message）是指在【应用间】传送的数据。  </p>
+<table>
+<thead>
+<tr>
+<th>消息</th>
+<th>example</th>
+<th>example2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单</td>
+<td>文本字符串</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>复杂</td>
+<td>内前对象</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>消息队列中间件（Message Queue Middleware,简称MQ）<br>是指利用高效可靠的【消息传递机制】进行与平台无关的数据交流，并基于数据通信来进行分布式系统的集成。<br>通过提供消息传递和消息排队模型，它可以在分布式环境下扩展进程间的通信。  </p>
+<p>消息队列中间件，也可以成为消息队列或者消息中间件。  </p>
+<p>消息中间件 |  |<br>-|-|-<br>| 传递模式1 | 点对点（P2P，Point-to-Point）模式 |  | |<br>| 传递模式2 | 发布/订阅(Pub/Sub)模式 | | |</p>
+<blockquote>
+<p>点对点模式</p>
+</blockquote>
+<ul>
+<li>基于队列的  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">消息生产者发送消息到队列，消息消费者从队列当中接受消息，队列的存在使得消息的异步传输成为可能。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>发布订阅模式  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">发布订阅模式定义了如何向一个内容节点发布和订阅消息，</span><br><span class="line">这个内容节点成为主题（topic），</span><br><span class="line">主题可以认为是消息传递的中介，消息发布者将消息发布到某个主题，而消息订阅者则可以从主体中订阅消息，主题使得晓得的订阅者和消息的发布者相互保持独立，不需要进行接触即可保证消息的传递，</span><br><span class="line">发布&#x2F;订阅模式在消息的一对多广播室采用。</span><br></pre></td></tr></table></figure>
+
+<p>目前开源的消息中间件有很多，比较主流的有：</p>
+<ul>
+<li>RabbitMQ</li>
+<li>Kafka</li>
+<li>ActiveMQ</li>
+<li>RocketMQ</li>
+<li>等</li>
+</ul>
+<p>面向消息的中间件（简称为MOM，Message Oriented Middleware）提供了以【松散耦合】的灵活方式集成应用程序的一种机制。  </p>
+<p>它们提供了基于【存储】和【转发】的应用程序之间的【异步数据】发送，即应用程序彼此不直接通信，而是与作为【中介】的消息中间件通信。  </p>
+<p>消息中间件提供了有保证的消息发送，应用程序开发人员无需了解远程调用（RPC）和网络通信协议的细节。  </p>
+<p>消息中间件适用于需要可靠的数据传送的【分布式环境】。<br>采用消息中间件的系统中，不同的对象之间通过传递消息来激活对方的时间，已完成相应的操作，发送者将消息发送给消息服务器，消息服务器将消息存放在若干队列中，在合适的时候再将消息转发给接受者。  </p>
+<p>消息中间件能在不同平台之间通信，它常被用来表示屏蔽各种平台以及协议之间的特性，实现应用程序之间的协同，其优点在于能够在客户和服务器之间提供同步和异步的链接，并且在任何时刻都可以将消息进行传送或者存储转发，这也是它比远程调用更进步的原因。</p>
 ]]></content>
       <categories>
-        <category>理财</category>
+        <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>理财学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>两种思维方式决定了你只能当穷人</title>
-    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB01/</url>
-    <content><![CDATA[<p>今天跟几个朋友在不同的场合下偶然谈到理财投资这方面的话题，几个朋友的反应不尽相同却又大体一致。<br>    燕子是我的闺蜜，偶尔会在微信上跟我哭穷，今天又是如此，我终于按耐不住心中的激动的问她为什么还不理财？她却依然还是那句老话：“我现在连五百块的存款都没有，还理财，至少也得等我月余三千的时候再考虑这方面的问题吧。我现在只想挣钱。”我只能无奈摊手。<br>    其实跟燕子提起理财已经不是第一次，可是她不仅听不进去，甚至还怀疑我是不是在搞传销……我记得之前她说自己是因为工资低所以存不下钱，于是她不断跳槽，即使一年跳槽三次，每次工资都有所上涨，她仍旧月月无结余。<br>    在燕子眼里，理财是一定要建立在有可观的存款基础之上的。<br>    而另一个人物，也是这么想的。<br>    沈二是个帅哥，大学那会儿过得风生水起，甚至半途退学创业，摆脱了学校的禁锢小日子过得有声有色。好景不长，创业遭遇失败后沈二本分地当起了上班族，但是近两年却开始频繁地找人借钱，以此度日。欠我五百块钱一直拖了两个月都没还上，今天实在是捱不下面子给我说月底会还。<br>    我问他为什么现在如此狼狈，他说现在月月负债，领了这个月的工资都不够还上个月的欠款，生活一度陷入恶性循环。<br>    我说那你为什么不理财？他说：“都负债了还有财可理？每个月工资都不够我花。”我说那你不能怪工资少，因为你现在肯定也不记账，也不检讨，更谈不上自我总结自我分析了。你根本不知道到底为什么自己每个月都入不敷出。<br>    在沈二眼里，因为工资低所以常年负债，因为时常负债所以无从理财。<br>但是理财门槛真的有那么高吗？<br>难道一定要先有财才能理，不可以先打理，后生财？<br>我相信像燕子一样人不在少数，和沈二同样处境的人也肯定占比不小。月光族在社会上绝对是一个相当庞大的群体，没有经济来源的学生党也是无财大军。<br>但我认为可怕的不是月光不是穷，真正可怕的是一个人月月月光常常吃土，却从来不自我剖析自我检讨，安于现状的在困窘无奈的漩涡里沉醉，不想改变现状，不愿努力向上，不敢看真正的自己。<br>    有时候我们还真的不能怪工资少，寄希望于用存款改变生活也是愚不可及的。没有哪一家企业长生不老，我们的钱也每天都在经历通货膨胀。<br>如果你现在已经可以做到月有结余，那你只是把钱放在银行和余额宝是肯定不够的，定期利率和余额宝收益率并不能帮你跑赢通货膨胀，你辛苦攒下来的钱还会在日复一日的通货膨胀中经历贬值。<br>    所以你愿意看着自己存款在上涨，购买力却在降低吗？</p>
-<p>如果你现在是月光，那你需要先认清自己现状，再树立一个正确的理财理念，找到合适自己的理财方法和投资方式，努力开源节流，以实现月有结余，再跑赢通货膨胀，从而进一步追求财富自由。<br>    光挣钱只存钱是远远不够的。<br>如果你时常负债，那你更不能破罐子破摔地颓废下去，建议你先学会科学记账，并认真分析你的账本，减少甚至规避掉那些不必要的支出，就是保持正常生活的第一步。<br>负债看消费，盈利靠理财。<br>    理财并不像想象中需要很多钱，100多块就可以开始买基金，几百块就可以买股票。<br>    理财也并没有你想象中的那么高大上，它甚至简单到人人可行。<br>    因为理财就是理生活，没有财更要理财，人人都该学理财。</p>
-<p>2）比贫穷更可怕的 是“穷人思维”</p>
-<pre><code>由穷人变富人是一个艰难和漫长的过程，但比起做穷人来说，做一个思想上的“穷人”更为可怕。今天和大家聊聊“穷人思维”。
-
-01
-穷人嘛，就是缺钱的人。但“穷人思维”不一定只有穷人有。
-
-多和少都是相对的，穷人缺钱，但他们和富人拥有的时间完全一样。所以，穷人就是那种钱 &quot; 绝对 &quot; 少，但时间相对 &quot; 多 &quot; 的人。
-
-从经济学的角度上讲，你缺什么，就会把什么看得特别重；不缺什么，就会把这个东西的价值看得特别轻。
-有一次，有人问我有没有电子书资源——没好意思说出来的话，我帮他补充了：免费的。
-
-过几天，他又来留言说自己在各大网站、网盘、资源站找遍了，都找不到资源。这好像是说：没有免费资源的书，你推荐个屁啊。
-
-拜托，这是一本帮你提高思维能力的书，各大网站上都有卖，也就 40 多块，而且书的内容我也一一介绍了，你既然想看，说明读这本书不会浪费你的时间。
-
-免费的东西不一定真免费——难道你找资源的时间，就不值这 40 多块钱？
-
-我先得补充一句，&quot; 穷人思维 &quot; 不是 &quot; 穷人 &quot; 的思维，而是 &quot; 曾经是穷人 &quot; 的思维。不是嘲讽穷人，而是谈论这种思维。
-
-02
-穷人思维对我们的第一个影响，就是喜欢用时间换钱。
-
-豆瓣电影上有很多电影星级很低。但根据我的经验，就算片子再烂，中途退场的人也不会超过 30%。就是说，有超过 60% 的人看来，90 分钟的时间价值不会超过 30 元的票价。
-
-穷人的时间不值钱，所以愿意用时间换钱，这是一种 &quot; 经济行为 &quot;。但当你的口袋已经走出穷困，却仍然把自己和别人的时间都看得不太值钱的话，说明你的脑袋依然停留在穷人思维中。
-
-用经济学的观点来说，穷人思维往往过于注重 &quot; 沉没成本 &quot;。
-
-什么叫沉没成本？就像你明明爱上了一个烂人，却因为已经付出的感情，时间和物质而舍不得沉没成本，寄希望于等待和改变。
-
-举个简单的例子，你花了五块钱买了一个苹果，咬了一口发现是烂的，你却因为舍不得花掉的钱，坚持要将整个咽下。人们总是忘记不管你怎么选择，五块钱都不会再回来了，而你却偏偏还要再多吃一个烂苹果。
-
-有一个有趣的现象叫 &quot; 买鞋定理 &quot;：
-
-假设你在商场买了双鞋，大小没问题，但真正穿的时候又发现夹脚，退也退不掉，于是，你会经历下面的心理挣扎：
-
-● 不甘心定理：这双鞋对你而言越贵，你尝试穿一下的次数也就越多 ( 换句话说，你越穷，受的罪越多 ) ；
-● 侥幸定理：你确定穿不了了，那么这双鞋越贵，放在你家里占地方的时间就越长；
-● 绝望定理：无论你放多长时间，总有一天，你都会把它扔了，有多远扔多远。
-终于，世界清静了，但可早知今日，何必当初？
-
-对此，富人思维则完全相反：花钱，要么是为了赚钱，要么是为了享受，两样都不搭的事，就不值得白白浪费精力。
-
-当然，这种 &quot; 时间不值钱 &quot; 的穷人思维，往往只在人生过渡期对我们产生影响。但下一种思维惯性，就没那么好摆脱了。
-
-03
-有一句话平时说出来会得罪人，但有了前面的理论铺垫，我就不怕大家打死我了：
-价格贵？这怎么会是产品的缺点呢？难道不是你的缺点吗？
-
-我不是嘲笑大家穷，而是想说穷人思维容易在价值判断上出问题。
-
-举个例子：超市里的被子打折，有大、中、小三种规格，原价分别是 300 元、250 元和 200 元，现价一律 150 元。
-
-根据售货员的经验：穷人更倾向于买大的——省钱，而有钱人更倾向于适合的尺寸——也就是纯粹为了自身需求。
-
-这就是穷人思维造成的第二个影响，就是说穷人思维让我们过于关注自己拥有的资源，从而忽略了另外一些更重要的东西。比如说，你的目标。
-
-穷人思维的特点是量入为出，而富人思维特点是目标导向。
-
-比如带着穷人思维的人买房，最先考虑的是自己有多少钱付首付、月收入多少还贷，然后再倒过来推算自己该不该买房、买什么房。
-
-而带着富人思维的人则先问我要不要买房、买房有什么用、想买什么房，然后再算还差多少、怎么解决。
-
-如果一项任务的目标是合理的，那么我们就不能以 &quot; 资源不足 &quot; 为理由去否定这个目标。
-
-04
-电影《华尔街之狼》就讲了一个专门骗穷人的股票经纪人，他发现，穷人在长期消费决策中，形成了一种思维惯性——便宜的东西更有吸引力。当他们把这种思维惯性带到了投资中，就很容易成为 &quot; 垃圾股 &quot; 的目标客户。
-
-电影里有句台词说：&quot; 我们把垃圾卖给垃圾人，因为钱在我们手里，总比在他们手里更能发挥价值。&quot;
-
-这不仅是全天下骗子们的心声，更揭露了穷人思维的弊端。
-
-把 &quot; 垃圾 &quot; 卖给想发财的穷人，这在中国也是最赚钱的生意：那些利率高得吓死人的垃圾 P2P、那些根本不可能上市的 &quot; 内部原始股 &quot;、那些无数次崩盘又卷士重来的 &quot;3M 骗局 &quot;，都是抓住了穷人思维的致命弱点——既无判断力，又无自制力。
-
-那么，带有富人思维的人是怎么投资的呢？
-
-在巴菲特的投资偏好中，既没有房地产，也没有互联网，前者因为不喜欢，后者因为看不懂。
-
-05
-不过如前文所说，穷人思维不是穷人的专利。
-
-事实上，许多富人在重大决策中也常常会陷入穷人思维中，哪怕是最不缺钱花的——皇帝。
-
-在历代皇帝中，清朝的道光皇帝最以 &quot; 节俭 &quot; 闻名：
-皇后过生日，一人一碗打卤面，吃完不准添。
-在建自己的陵寝时，因为他给的银子太少，从而产生了严重的施工质量问题。最后，工程不得不返工，经过两建一拆，耗资反而是清代帝陵中最多的。
-道光会有如此严重的穷人思维，我认为这是历史原因的：康乾盛世的虚假繁荣后，导致嘉庆一朝财政空虚，这给当时还是皇子的道光留下了无法磨灭的可怕印象——穷怕了。
-于是，道光的 &quot; 节俭 &quot;，省到了 &quot; 误国 &quot; 的程度：他挖空心思想节省开支的办法，居然把主意打到了驻守新疆的军队上，想撤了他们。大臣想，这不是开国际玩笑吗？道光嘴一撇，不撤也行，反正我不给钱了，大家自己想办法吧。
-
-这一逼，果然逼出办法——大臣把驻守在其他要塞的军队平均撤掉一些，然后把节省下来的军晌拨给新疆。到了十几年后的鸦片战争，大家才发现，英国军舰可以在十几天内把大批士兵从广州运到天津，而清军则分散在全国各地，一次兵力的集结往往要花上几个月——仗都打完了，十几万军队还在半路上东奔西跑。
-
-这就是穷人思维的核心：如果你只关注钱，你往往是在浪费钱；如果你只关注眼前的利益，你很可能赢了一场战役，却输掉了整个战场。
-
-06
-想要从穷人思维走向富人思维，给大家几点建议：
-1. 建立 &quot; 时间价值 &quot; 的概念：减少做那些 &quot; 时间花得多、收益少 &quot; 的事情；
-2. 牢记 &quot; 沉没成本 &quot; 不可追：钱已经花错了，再浪费时间就是错上加错；
-3。培养 &quot; 目标导向 &quot; 的思维：好的项目永远会遇到钱少的问题；但只要目标正确，钱总有办法解决；
-4. 减少无意义的频繁决策，节省宝贵的意志力。
-
-比如说，我们可以在每年年初设立一个 &quot; 享受一下 &quot; 的基金，所有预算外消费都在这里开支，从而不必每次消费都反复权衡；
-
-又比如说，选择以基金定投这种被动的、不需要太多决策的投资品种为主要的投资对象；
-
-再比如说，对于需要大量意志力的活动 ( 学外语、健身等等 ) ，只挑最重要的做，因为多了会影响你做重大决策时的判断力；
-
-5. 拓展自己的视野：适当做一些眼前 &quot; 无用 &quot; 的事，防止进入只关注当下的 &quot; 管窥 &quot; 状态，建立长远规划的战略意识。
-
-以前，我妈每年年底大扫除扔东西时，总爱念叨一句话：&quot; 穷人才留破烂，越留越穷。&quot;
-
-其实，穷人思维才是越留越穷、最应扔掉的 &quot; 破烂 &quot;。永远记住——真正的穷不是缺钱，而是呆在穷人思维的怪圈里走不出来。</code></pre>]]></content>
-      <categories>
-        <category>理财</category>
-      </categories>
-      <tags>
-        <tag>理财学习</tag>
+        <tag>RabbitMQ</tag>
+        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -9975,6 +10370,141 @@
       </tags>
   </entry>
   <entry>
+    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
+    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
+    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
+]]></content>
+      <categories>
+        <category>理财</category>
+      </categories>
+      <tags>
+        <tag>理财学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>两种思维方式决定了你只能当穷人</title>
+    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB01/</url>
+    <content><![CDATA[<p>今天跟几个朋友在不同的场合下偶然谈到理财投资这方面的话题，几个朋友的反应不尽相同却又大体一致。<br>    燕子是我的闺蜜，偶尔会在微信上跟我哭穷，今天又是如此，我终于按耐不住心中的激动的问她为什么还不理财？她却依然还是那句老话：“我现在连五百块的存款都没有，还理财，至少也得等我月余三千的时候再考虑这方面的问题吧。我现在只想挣钱。”我只能无奈摊手。<br>    其实跟燕子提起理财已经不是第一次，可是她不仅听不进去，甚至还怀疑我是不是在搞传销……我记得之前她说自己是因为工资低所以存不下钱，于是她不断跳槽，即使一年跳槽三次，每次工资都有所上涨，她仍旧月月无结余。<br>    在燕子眼里，理财是一定要建立在有可观的存款基础之上的。<br>    而另一个人物，也是这么想的。<br>    沈二是个帅哥，大学那会儿过得风生水起，甚至半途退学创业，摆脱了学校的禁锢小日子过得有声有色。好景不长，创业遭遇失败后沈二本分地当起了上班族，但是近两年却开始频繁地找人借钱，以此度日。欠我五百块钱一直拖了两个月都没还上，今天实在是捱不下面子给我说月底会还。<br>    我问他为什么现在如此狼狈，他说现在月月负债，领了这个月的工资都不够还上个月的欠款，生活一度陷入恶性循环。<br>    我说那你为什么不理财？他说：“都负债了还有财可理？每个月工资都不够我花。”我说那你不能怪工资少，因为你现在肯定也不记账，也不检讨，更谈不上自我总结自我分析了。你根本不知道到底为什么自己每个月都入不敷出。<br>    在沈二眼里，因为工资低所以常年负债，因为时常负债所以无从理财。<br>但是理财门槛真的有那么高吗？<br>难道一定要先有财才能理，不可以先打理，后生财？<br>我相信像燕子一样人不在少数，和沈二同样处境的人也肯定占比不小。月光族在社会上绝对是一个相当庞大的群体，没有经济来源的学生党也是无财大军。<br>但我认为可怕的不是月光不是穷，真正可怕的是一个人月月月光常常吃土，却从来不自我剖析自我检讨，安于现状的在困窘无奈的漩涡里沉醉，不想改变现状，不愿努力向上，不敢看真正的自己。<br>    有时候我们还真的不能怪工资少，寄希望于用存款改变生活也是愚不可及的。没有哪一家企业长生不老，我们的钱也每天都在经历通货膨胀。<br>如果你现在已经可以做到月有结余，那你只是把钱放在银行和余额宝是肯定不够的，定期利率和余额宝收益率并不能帮你跑赢通货膨胀，你辛苦攒下来的钱还会在日复一日的通货膨胀中经历贬值。<br>    所以你愿意看着自己存款在上涨，购买力却在降低吗？</p>
+<p>如果你现在是月光，那你需要先认清自己现状，再树立一个正确的理财理念，找到合适自己的理财方法和投资方式，努力开源节流，以实现月有结余，再跑赢通货膨胀，从而进一步追求财富自由。<br>    光挣钱只存钱是远远不够的。<br>如果你时常负债，那你更不能破罐子破摔地颓废下去，建议你先学会科学记账，并认真分析你的账本，减少甚至规避掉那些不必要的支出，就是保持正常生活的第一步。<br>负债看消费，盈利靠理财。<br>    理财并不像想象中需要很多钱，100多块就可以开始买基金，几百块就可以买股票。<br>    理财也并没有你想象中的那么高大上，它甚至简单到人人可行。<br>    因为理财就是理生活，没有财更要理财，人人都该学理财。</p>
+<p>2）比贫穷更可怕的 是“穷人思维”</p>
+<pre><code>由穷人变富人是一个艰难和漫长的过程，但比起做穷人来说，做一个思想上的“穷人”更为可怕。今天和大家聊聊“穷人思维”。
+
+01
+穷人嘛，就是缺钱的人。但“穷人思维”不一定只有穷人有。
+
+多和少都是相对的，穷人缺钱，但他们和富人拥有的时间完全一样。所以，穷人就是那种钱 &quot; 绝对 &quot; 少，但时间相对 &quot; 多 &quot; 的人。
+
+从经济学的角度上讲，你缺什么，就会把什么看得特别重；不缺什么，就会把这个东西的价值看得特别轻。
+有一次，有人问我有没有电子书资源——没好意思说出来的话，我帮他补充了：免费的。
+
+过几天，他又来留言说自己在各大网站、网盘、资源站找遍了，都找不到资源。这好像是说：没有免费资源的书，你推荐个屁啊。
+
+拜托，这是一本帮你提高思维能力的书，各大网站上都有卖，也就 40 多块，而且书的内容我也一一介绍了，你既然想看，说明读这本书不会浪费你的时间。
+
+免费的东西不一定真免费——难道你找资源的时间，就不值这 40 多块钱？
+
+我先得补充一句，&quot; 穷人思维 &quot; 不是 &quot; 穷人 &quot; 的思维，而是 &quot; 曾经是穷人 &quot; 的思维。不是嘲讽穷人，而是谈论这种思维。
+
+02
+穷人思维对我们的第一个影响，就是喜欢用时间换钱。
+
+豆瓣电影上有很多电影星级很低。但根据我的经验，就算片子再烂，中途退场的人也不会超过 30%。就是说，有超过 60% 的人看来，90 分钟的时间价值不会超过 30 元的票价。
+
+穷人的时间不值钱，所以愿意用时间换钱，这是一种 &quot; 经济行为 &quot;。但当你的口袋已经走出穷困，却仍然把自己和别人的时间都看得不太值钱的话，说明你的脑袋依然停留在穷人思维中。
+
+用经济学的观点来说，穷人思维往往过于注重 &quot; 沉没成本 &quot;。
+
+什么叫沉没成本？就像你明明爱上了一个烂人，却因为已经付出的感情，时间和物质而舍不得沉没成本，寄希望于等待和改变。
+
+举个简单的例子，你花了五块钱买了一个苹果，咬了一口发现是烂的，你却因为舍不得花掉的钱，坚持要将整个咽下。人们总是忘记不管你怎么选择，五块钱都不会再回来了，而你却偏偏还要再多吃一个烂苹果。
+
+有一个有趣的现象叫 &quot; 买鞋定理 &quot;：
+
+假设你在商场买了双鞋，大小没问题，但真正穿的时候又发现夹脚，退也退不掉，于是，你会经历下面的心理挣扎：
+
+● 不甘心定理：这双鞋对你而言越贵，你尝试穿一下的次数也就越多 ( 换句话说，你越穷，受的罪越多 ) ；
+● 侥幸定理：你确定穿不了了，那么这双鞋越贵，放在你家里占地方的时间就越长；
+● 绝望定理：无论你放多长时间，总有一天，你都会把它扔了，有多远扔多远。
+终于，世界清静了，但可早知今日，何必当初？
+
+对此，富人思维则完全相反：花钱，要么是为了赚钱，要么是为了享受，两样都不搭的事，就不值得白白浪费精力。
+
+当然，这种 &quot; 时间不值钱 &quot; 的穷人思维，往往只在人生过渡期对我们产生影响。但下一种思维惯性，就没那么好摆脱了。
+
+03
+有一句话平时说出来会得罪人，但有了前面的理论铺垫，我就不怕大家打死我了：
+价格贵？这怎么会是产品的缺点呢？难道不是你的缺点吗？
+
+我不是嘲笑大家穷，而是想说穷人思维容易在价值判断上出问题。
+
+举个例子：超市里的被子打折，有大、中、小三种规格，原价分别是 300 元、250 元和 200 元，现价一律 150 元。
+
+根据售货员的经验：穷人更倾向于买大的——省钱，而有钱人更倾向于适合的尺寸——也就是纯粹为了自身需求。
+
+这就是穷人思维造成的第二个影响，就是说穷人思维让我们过于关注自己拥有的资源，从而忽略了另外一些更重要的东西。比如说，你的目标。
+
+穷人思维的特点是量入为出，而富人思维特点是目标导向。
+
+比如带着穷人思维的人买房，最先考虑的是自己有多少钱付首付、月收入多少还贷，然后再倒过来推算自己该不该买房、买什么房。
+
+而带着富人思维的人则先问我要不要买房、买房有什么用、想买什么房，然后再算还差多少、怎么解决。
+
+如果一项任务的目标是合理的，那么我们就不能以 &quot; 资源不足 &quot; 为理由去否定这个目标。
+
+04
+电影《华尔街之狼》就讲了一个专门骗穷人的股票经纪人，他发现，穷人在长期消费决策中，形成了一种思维惯性——便宜的东西更有吸引力。当他们把这种思维惯性带到了投资中，就很容易成为 &quot; 垃圾股 &quot; 的目标客户。
+
+电影里有句台词说：&quot; 我们把垃圾卖给垃圾人，因为钱在我们手里，总比在他们手里更能发挥价值。&quot;
+
+这不仅是全天下骗子们的心声，更揭露了穷人思维的弊端。
+
+把 &quot; 垃圾 &quot; 卖给想发财的穷人，这在中国也是最赚钱的生意：那些利率高得吓死人的垃圾 P2P、那些根本不可能上市的 &quot; 内部原始股 &quot;、那些无数次崩盘又卷士重来的 &quot;3M 骗局 &quot;，都是抓住了穷人思维的致命弱点——既无判断力，又无自制力。
+
+那么，带有富人思维的人是怎么投资的呢？
+
+在巴菲特的投资偏好中，既没有房地产，也没有互联网，前者因为不喜欢，后者因为看不懂。
+
+05
+不过如前文所说，穷人思维不是穷人的专利。
+
+事实上，许多富人在重大决策中也常常会陷入穷人思维中，哪怕是最不缺钱花的——皇帝。
+
+在历代皇帝中，清朝的道光皇帝最以 &quot; 节俭 &quot; 闻名：
+皇后过生日，一人一碗打卤面，吃完不准添。
+在建自己的陵寝时，因为他给的银子太少，从而产生了严重的施工质量问题。最后，工程不得不返工，经过两建一拆，耗资反而是清代帝陵中最多的。
+道光会有如此严重的穷人思维，我认为这是历史原因的：康乾盛世的虚假繁荣后，导致嘉庆一朝财政空虚，这给当时还是皇子的道光留下了无法磨灭的可怕印象——穷怕了。
+于是，道光的 &quot; 节俭 &quot;，省到了 &quot; 误国 &quot; 的程度：他挖空心思想节省开支的办法，居然把主意打到了驻守新疆的军队上，想撤了他们。大臣想，这不是开国际玩笑吗？道光嘴一撇，不撤也行，反正我不给钱了，大家自己想办法吧。
+
+这一逼，果然逼出办法——大臣把驻守在其他要塞的军队平均撤掉一些，然后把节省下来的军晌拨给新疆。到了十几年后的鸦片战争，大家才发现，英国军舰可以在十几天内把大批士兵从广州运到天津，而清军则分散在全国各地，一次兵力的集结往往要花上几个月——仗都打完了，十几万军队还在半路上东奔西跑。
+
+这就是穷人思维的核心：如果你只关注钱，你往往是在浪费钱；如果你只关注眼前的利益，你很可能赢了一场战役，却输掉了整个战场。
+
+06
+想要从穷人思维走向富人思维，给大家几点建议：
+1. 建立 &quot; 时间价值 &quot; 的概念：减少做那些 &quot; 时间花得多、收益少 &quot; 的事情；
+2. 牢记 &quot; 沉没成本 &quot; 不可追：钱已经花错了，再浪费时间就是错上加错；
+3。培养 &quot; 目标导向 &quot; 的思维：好的项目永远会遇到钱少的问题；但只要目标正确，钱总有办法解决；
+4. 减少无意义的频繁决策，节省宝贵的意志力。
+
+比如说，我们可以在每年年初设立一个 &quot; 享受一下 &quot; 的基金，所有预算外消费都在这里开支，从而不必每次消费都反复权衡；
+
+又比如说，选择以基金定投这种被动的、不需要太多决策的投资品种为主要的投资对象；
+
+再比如说，对于需要大量意志力的活动 ( 学外语、健身等等 ) ，只挑最重要的做，因为多了会影响你做重大决策时的判断力；
+
+5. 拓展自己的视野：适当做一些眼前 &quot; 无用 &quot; 的事，防止进入只关注当下的 &quot; 管窥 &quot; 状态，建立长远规划的战略意识。
+
+以前，我妈每年年底大扫除扔东西时，总爱念叨一句话：&quot; 穷人才留破烂，越留越穷。&quot;
+
+其实，穷人思维才是越留越穷、最应扔掉的 &quot; 破烂 &quot;。永远记住——真正的穷不是缺钱，而是呆在穷人思维的怪圈里走不出来。</code></pre>]]></content>
+      <categories>
+        <category>理财</category>
+      </categories>
+      <tags>
+        <tag>理财学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ocp学习</title>
     <url>/2020/01/30/OCP/ocp%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="OCP-OCA认证考试指南全册-Oracle-Database11g-1Z0-051、1Z0-052-和OCP-1Z0-053"><a href="#OCP-OCA认证考试指南全册-Oracle-Database11g-1Z0-051、1Z0-052-和OCP-1Z0-053" class="headerlink" title="OCP/OCA认证考试指南全册 Oracle Database11g(1Z0-051、1Z0-052)和OCP(1Z0-053)"></a>OCP/OCA认证考试指南全册 Oracle Database11g(1Z0-051、1Z0-052)和OCP(1Z0-053)</h1><h2 id="权威、完备的OCA（1Z0-051、1Z0-052）和OCP-1Z0-053-考试指南"><a href="#权威、完备的OCA（1Z0-051、1Z0-052）和OCP-1Z0-053-考试指南" class="headerlink" title="权威、完备的OCA（1Z0-051、1Z0-052）和OCP(1Z0-053)考试指南"></a>权威、完备的OCA（1Z0-051、1Z0-052）和OCP(1Z0-053)考试指南</h2><p>《OCP/OCA认证考试指南全册：Oracle Database 11g(1Z0-051,1Z0-052,1Z0-053)》是为OCA和OCP考试准备的独家权威指南。</p>
@@ -10735,110 +11265,6 @@
       </categories>
       <tags>
         <tag>口语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RabbitMQ实战之南笔记</title>
-    <url>/2020/01/30/RabbitMQ/RabbitMQ/</url>
-    <content><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>《RabbitMQ实战指南》 - 朱忠华  </p>
-<blockquote>
-<p>内容简介</p>
-</blockquote>
-<ul>
-<li>从消息中间件的概念和RabbitMQ的历史切入，阐述RabbitMQ的安装、使用、配置、管理、运维、原理、扩展等方面的细节。</li>
-<li>分为基础、进阶、高级三个部分。</li>
-<li>基础：介绍RabbitMQ的基本安装以及使用方式，RabbitMQ的基本概念，包括生产者、消费者、交换器、队列、绑定等，通过java讲述客户端如何与RabbitMQ建立（关闭）连接，声明（删除）交换器，队列，绑定关系，以及如何发送和消费消息等。</li>
-<li>进阶：RabbitMQ的TTL，死信、延迟队列、优先级队列、RPC、消息持久化、生产端和消费端的消息确认机制等内容。</li>
-<li>中间篇幅主要从RabbitMQ的管理、配置、运维三个角度提供帮助文档以及解决问题的思路。</li>
-<li>高阶：RabbitMQ的存储机制、流控以及镜像队列的原理，深入讲述RabbitMQ的一些实现细节，</li>
-<li>涉及网络分区概念。</li>
-<li>最后讲述的是RabbitMQ的一些扩展内容以及附录，供参考使用。</li>
-</ul>
-<blockquote>
-<p>前言  </p>
-</blockquote>
-<p>略…  </p>
-<blockquote>
-<p>内容大纲</p>
-</blockquote>
-<ul>
-<li>第一章：摘要性介绍，什么是消息中间件、消息中间件的作用以及特点等。引入RabbitMQ对其历史和相关特点做一个简要介绍，最后介绍RabbitMQ的安装以及生产、消费的使用示例。</li>
-<li>第二章：讲述RabbitMQ的入门知识，包括生产者、消费者、队列、交换器、路由键、绑定、连接以及信道等基本术语。还阐述了RabbitMQ与AMQP协议的对应关系。</li>
-<li>第三章：介绍RabbitMQ客户端开发的简单使用，按照一个生命周期对连接、创建、生产、消费以及关闭等几个方面进行宏观的介绍。</li>
-<li>第四章：数据可靠性的一些细节，展示RabbitMQ的集中已具备或衍生的高级特性，包括TTL、死信队列、延迟队列、优先级队列、RPC等。</li>
-<li>第五章：围绕RabbitMQ管理展开，包括多租户、权限、用户、应用和集群管理、服务端状态等方面，并且从侧面讲述rabbitmqctl工具和rabbitmq_management插件的使用。</li>
-<li>第六章：讲述RabbitMQ的配置，通过环境变量、配置文件、运行时参数（和策略）等三种方式来定制化相应的服务。</li>
-<li>第七章：围绕运维层面展开，主要包括集群搭建、日志查看、故障恢复、集群迁移、集群监控等方面。</li>
-<li>第八章：讲述Federation和Shovel这两个插件的使用、细节以及相关原理。区别于第七章中集群的部署方式，Federation和Shovel可以部署在广域网中，为RabbitMQ提供更广泛的应用空间。</li>
-<li>第九章：介绍RabbitMQ相关原理，包括RabbitMQ存储机制、磁盘和内存告罄、流控机制、镜像队列。</li>
-<li>第十章：围绕网络分区进行展开，阐述网络分区意义，如何查看和处理网络分区以及网络分区所带来的的影响。</li>
-<li>第十一章：探讨RabbitMQ的两个扩展内容：消息追踪和负载均衡。消息追踪可以有效定位消息丢失的问题。负载均衡本身属于运维层面，但是负载均衡一般需要借助第三方工具—–HAProxy、LVS等实现。</li>
-</ul>
-<blockquote>
-<p>读者讨论</p>
-</blockquote>
-<p>略…</p>
-<blockquote>
-<p>致谢</p>
-</blockquote>
-<p>略…</p>
-<h3 id="第一章-RabbitMQ简介"><a href="#第一章-RabbitMQ简介" class="headerlink" title="第一章 RabbitMQ简介"></a>第一章 RabbitMQ简介</h3><p>RabbitMQ: 消息中间件<br>RabbitMQ功能特性：【高可靠】、【易扩展】、【高可用】、其他丰富的功能特性  </p>
-<h4 id="1-1-什么是消息中间件"><a href="#1-1-什么是消息中间件" class="headerlink" title="1.1 什么是消息中间件"></a>1.1 什么是消息中间件</h4><p>消息（Message）是指在【应用间】传送的数据。  </p>
-<table>
-<thead>
-<tr>
-<th>消息</th>
-<th>example</th>
-<th>example2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简单</td>
-<td>文本字符串</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>复杂</td>
-<td>内前对象</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>消息队列中间件（Message Queue Middleware,简称MQ）<br>是指利用高效可靠的【消息传递机制】进行与平台无关的数据交流，并基于数据通信来进行分布式系统的集成。<br>通过提供消息传递和消息排队模型，它可以在分布式环境下扩展进程间的通信。  </p>
-<p>消息队列中间件，也可以成为消息队列或者消息中间件。  </p>
-<p>消息中间件 |  |<br>-|-|-<br>| 传递模式1 | 点对点（P2P，Point-to-Point）模式 |  | |<br>| 传递模式2 | 发布/订阅(Pub/Sub)模式 | | |</p>
-<blockquote>
-<p>点对点模式</p>
-</blockquote>
-<ul>
-<li>基于队列的  </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">消息生产者发送消息到队列，消息消费者从队列当中接受消息，队列的存在使得消息的异步传输成为可能。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>发布订阅模式  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">发布订阅模式定义了如何向一个内容节点发布和订阅消息，</span><br><span class="line">这个内容节点成为主题（topic），</span><br><span class="line">主题可以认为是消息传递的中介，消息发布者将消息发布到某个主题，而消息订阅者则可以从主体中订阅消息，主题使得晓得的订阅者和消息的发布者相互保持独立，不需要进行接触即可保证消息的传递，</span><br><span class="line">发布&#x2F;订阅模式在消息的一对多广播室采用。</span><br></pre></td></tr></table></figure>
-
-<p>目前开源的消息中间件有很多，比较主流的有：</p>
-<ul>
-<li>RabbitMQ</li>
-<li>Kafka</li>
-<li>ActiveMQ</li>
-<li>RocketMQ</li>
-<li>等</li>
-</ul>
-<p>面向消息的中间件（简称为MOM，Message Oriented Middleware）提供了以【松散耦合】的灵活方式集成应用程序的一种机制。  </p>
-<p>它们提供了基于【存储】和【转发】的应用程序之间的【异步数据】发送，即应用程序彼此不直接通信，而是与作为【中介】的消息中间件通信。  </p>
-<p>消息中间件提供了有保证的消息发送，应用程序开发人员无需了解远程调用（RPC）和网络通信协议的细节。  </p>
-<p>消息中间件适用于需要可靠的数据传送的【分布式环境】。<br>采用消息中间件的系统中，不同的对象之间通过传递消息来激活对方的时间，已完成相应的操作，发送者将消息发送给消息服务器，消息服务器将消息存放在若干队列中，在合适的时候再将消息转发给接受者。  </p>
-<p>消息中间件能在不同平台之间通信，它常被用来表示屏蔽各种平台以及协议之间的特性，实现应用程序之间的协同，其优点在于能够在客户和服务器之间提供同步和异步的链接，并且在任何时刻都可以将消息进行传送或者存储转发，这也是它比远程调用更进步的原因。</p>
-]]></content>
-      <categories>
-        <category>RabbitMQ</category>
-      </categories>
-      <tags>
-        <tag>RabbitMQ</tag>
-        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
