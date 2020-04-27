@@ -127,7 +127,7 @@
 <meta property="og:description" content="观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1fJ41127Rj?from&#x3D;search&amp;seid&#x3D;13531213796559959972   本课程作为MySQL高级课程，主要讲解了：    MySQL中的视图&#x2F;存储过程&#x2F;触发器&#x2F;索引等对象的使用 常见的SQL语句优化的技巧 应用优化 数据库优化 数据库日志  等方面的知识，并通过综合案例，对课程中的知识">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA">
 <meta property="article:published_time" content="2020-04-24T02:40:04.420Z">
-<meta property="article:modified_time" content="2020-04-27T06:31:00.706Z">
+<meta property="article:modified_time" content="2020-04-27T10:40:35.130Z">
 <meta property="article:author" content="Fsn">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="MySQL">
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.5k
+                  9.5k
                 </span>
               
 
@@ -485,7 +485,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  16
+                  34
                 </span>
               
             </div>
@@ -509,7 +509,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" rel="gallery_ck9i3tv2m008qy0um06t07j2b"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" rel="gallery_ck9icq9is00d4r0um7fhrgjxv"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -536,29 +536,14 @@
 <h2 id="课程内容介绍"><a href="#课程内容介绍" class="headerlink" title="课程内容介绍"></a>课程内容介绍</h2><blockquote>
 <p>Mysql高级-day01</p>
 </blockquote>
-<ul>
-<li>MySQL高级课程简介</li>
-<li><ol>
+<p>MySQL高级课程简介</p>
+<ol>
 <li>Linux系统安装MySQL</li>
-</ol>
-</li>
-<li><ol start="2">
 <li>索引</li>
-</ol>
-</li>
-<li><ol start="3">
 <li>视图</li>
-</ol>
-</li>
-<li><ol start="4">
 <li>存储过程和函数</li>
-</ol>
-</li>
-<li><ol start="5">
 <li>触发器</li>
 </ol>
-</li>
-</ul>
 <h3 id="MySQL高级课程简介"><a href="#MySQL高级课程简介" class="headerlink" title="MySQL高级课程简介"></a>MySQL高级课程简介</h3><table>
     <tr>
       <th>序号</th>
@@ -604,36 +589,83 @@
     </tr>
 </table>
 
-<h2 id="Linux上安装MySQL"><a href="#Linux上安装MySQL" class="headerlink" title="Linux上安装MySQL"></a>Linux上安装MySQL</h2><h3 id="下载Linux安装包"><a href="#下载Linux安装包" class="headerlink" title="下载Linux安装包"></a>下载Linux安装包</h3><figure class="highlight plain"><figcaption><span>```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 安装MySQL</span><br><span class="line"></span><br><span class="line">1. 卸载centos中预安装的mysql</span><br></pre></td></tr></table></figure>
-<p>rpm -qa | grep -i mysql # 查询服务器当中mysql的安装包是否存在，存在则显示出存在安装包的名称</p>
-<p>rpm -e mysql-libs-5.1.71-1.e16.x86_64 –nodeps # 对已存在的安装包(mysql-libs-5.1.71-1.e16.x86_64)进行卸载</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">2.</span> 上传mysql的安装包</span><br></pre></td></tr></table></figure>
-<p>alt + p ——-&gt;put E:/tset/MySQL-5.6.22-1.e16.i686.rpm-bundle.tar（MySQL安装包的目录）</p>
-<h1 id="使用SecureCRT远程连接服务器工具，alt-p命令进入sftp模式；再执行put-（MySQL安装包的目录）-上传"><a href="#使用SecureCRT远程连接服务器工具，alt-p命令进入sftp模式；再执行put-（MySQL安装包的目录）-上传" class="headerlink" title="使用SecureCRT远程连接服务器工具，alt+p命令进入sftp模式；再执行put （MySQL安装包的目录）[ 上传 ]"></a>使用SecureCRT远程连接服务器工具，alt+p命令进入sftp模式；再执行put （MySQL安装包的目录）[ 上传 ]</h1><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">3.</span> 解压mysql的安装包</span><br></pre></td></tr></table></figure>
-<p>mkdir mysql</p>
-<p>tar -xvf MySQL-5.6.22-1.e16.i686.rpm-bundle.tar -c /root/mysql</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">4.</span> 安装依赖包</span><br></pre></td></tr></table></figure>
-<h1 id="安装第三方的依赖库；yum-y-在线安装需连接网络"><a href="#安装第三方的依赖库；yum-y-在线安装需连接网络" class="headerlink" title="安装第三方的依赖库；yum -y 在线安装需连接网络"></a>安装第三方的依赖库；yum -y 在线安装需连接网络</h1><p>yum -y install libaio.so.1 libgc_s.so.1 libstdc++.so.6 libncurses.so.5 –setopt=protected_multilib=false</p>
-<p>yum update listdc++-4.4.7-4.e16.x86_64 # 更新第三方类包</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">5.</span> 安装mysql-client</span><br></pre></td></tr></table></figure>
-<p>rpm -ivh MySQL-client-5.6.22-1.e16.i686.rpm</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">6.</span> 安装mysql-server</span><br></pre></td></tr></table></figure>
-<p>rpm -ivh MySQL-server-5.6.22-1.e16.i686.rpm</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; Linux</span></span><br></pre></td></tr></table></figure>
-<p>ipconfig # 查看本机ip地址，内网地址</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 启动及登录MySQL</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 启动mysql命令</span></span><br></pre></td></tr></table></figure>
-<p>service mysql status # 查看mysql服务状态<br>service mysql start # 启动mysql服务<br>service mysql stop # 停止mysql服务</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; 登录mysql</span></span><br><span class="line"></span><br><span class="line">mysql 安装完成之后，会自动生成一个随机密码，并且保存在一个密码文件中：/root/.mysql_secret；  </span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; 查看随机密码</span></span><br></pre></td></tr></table></figure>
-<p>cat /root/.mysql_secret</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; 登录命令</span></span><br></pre></td></tr></table></figure>
-<p>mysql -u root -p</p>
-<h1 id="u-指的是用户"><a href="#u-指的是用户" class="headerlink" title="-u 指的是用户"></a>-u 指的是用户</h1><h1 id="p-指的是该用户所对应的密码"><a href="#p-指的是该用户所对应的密码" class="headerlink" title="-p 指的是该用户所对应的密码"></a>-p 指的是该用户所对应的密码</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; 登录之后，修改密码命令</span></span><br></pre></td></tr></table></figure>
-<p>set password = password(‘itcast’);</p>
-<h1 id="itcast即明文密码"><a href="#itcast即明文密码" class="headerlink" title="itcast即明文密码"></a>itcast即明文密码</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; 授权远程访问</span></span><br></pre></td></tr></table></figure>
-<p>grant all privileges on <em>.</em> to ‘root’@’%’ identified by ‘itcast’;<br>flush privileges;</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="quote">&gt; 防火墙</span></span><br></pre></td></tr></table></figure>
-<p>service iptables status # 查看防火墙状态<br>service iptables stop # 关闭防火墙</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">## 索引 - 概述</span></span><br><span class="line"></span><br><span class="line">MySQL官方对索引的定义为：  </span><br><span class="line"></span><br><span class="line">索引（<span class="keyword">index</span>）是帮助MySQL高效获取数据的数据结构（有序）。  </span><br><span class="line">在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。  </span><br><span class="line">如下面的示意图所示：  </span><br><span class="line"></span><br><span class="line">左边是数据库，一共有两列七条记录，最左边的是数据记录的物理地址（注意逻辑上相邻的记录在磁盘上也不是一定物理相邻的）。  </span><br><span class="line"></span><br><span class="line">为了加快Col2的查找，可以维护右边所示的二叉查找树，每个结点分别包含索引键值和一个指向对应数据记录物理地址的指针，这样就可以运用二叉查找快速后去到相应数据。  </span><br><span class="line"></span><br><span class="line">一般来说索引本身也很大，不可能全部存储在内存中，因此索引往往以索引文件的形式存储在磁盘上，索引是数据库中用来提供性能的最常用的工具。  </span><br><span class="line"></span><br><span class="line">```mspaint <span class="meta"># windows打开画板</span></span><br></pre></td></tr></table></figure>
+<h2 id="Linux上安装MySQL"><a href="#Linux上安装MySQL" class="headerlink" title="Linux上安装MySQL"></a>Linux上安装MySQL</h2><h3 id="下载Linux安装包"><a href="#下载Linux安装包" class="headerlink" title="下载Linux安装包"></a>下载Linux安装包</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">https:</span>/<span class="regexp">/dev.mysql.com/downloads</span><span class="regexp">/mysql/</span><span class="number">5.7</span>.html<span class="comment">#downloads</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><ol>
+<li>卸载centos中预安装的mysql</li>
+</ol>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep -i mysql # 查询服务器当中mysql的安装包是否存在，存在则显示出存在安装包的名称</span><br><span class="line"></span><br><span class="line">rpm -e mysql-libs<span class="number">-5.1</span><span class="number">.71</span><span class="number">-1.e16</span>.x86_64 --nodeps # 对已存在的安装包(mysql-libs<span class="number">-5.1</span><span class="number">.71</span><span class="number">-1.e16</span>.x86_64)进行卸载</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>上传mysql的安装包</li>
+</ol>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alt + p -------&gt;put E:/tset/MySQL<span class="number">-5.6</span><span class="number">.22</span><span class="number">-1.e16</span>.i686.rpm-bundle.tar（MySQL安装包的目录）</span><br><span class="line"></span><br><span class="line"># 使用SecureCRT远程连接服务器工具，alt+p命令进入sftp模式；再执行put （MySQL安装包的目录）[ 上传 ]</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>解压mysql的安装包</li>
+</ol>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir mysql</span><br><span class="line"></span><br><span class="line">tar -xvf MySQL-<span class="number">5.6</span>.<span class="number">22</span>-<span class="number">1</span><span class="selector-class">.e16</span><span class="selector-class">.i686</span><span class="selector-class">.rpm-bundle</span><span class="selector-class">.tar</span> -c /root/mysql</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>安装依赖包</li>
+</ol>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 安装第三方的依赖库；yum -y 在线安装需连接网络</span><br><span class="line">yum -y install libaio.so<span class="number">.1</span> libgc_s.so<span class="number">.1</span> libstdc++.so<span class="number">.6</span> libncurses.so<span class="number">.5</span> --setopt=protected_multilib=<span class="literal">false</span></span><br><span class="line"></span><br><span class="line">yum update listdc++<span class="number">-4.4</span><span class="number">.7</span><span class="number">-4.e16</span>.x86_64 # 更新第三方类包</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>安装mysql-client</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">rpm</span> <span class="selector-tag">-ivh</span> <span class="selector-tag">MySQL-client-5</span><span class="selector-class">.6</span><span class="selector-class">.22-1</span><span class="selector-class">.e16</span><span class="selector-class">.i686</span><span class="selector-class">.rpm</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>安装mysql-server</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">rpm</span> <span class="selector-tag">-ivh</span> <span class="selector-tag">MySQL-server-5</span><span class="selector-class">.6</span><span class="selector-class">.22-1</span><span class="selector-class">.e16</span><span class="selector-class">.i686</span><span class="selector-class">.rpm</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Linux</p>
+</blockquote>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ipconfig</span> <span class="comment"># 查看本机ip地址，内网地址</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="启动及登录MySQL"><a href="#启动及登录MySQL" class="headerlink" title="启动及登录MySQL"></a>启动及登录MySQL</h2><blockquote>
+<p>启动mysql命令</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysql status # 查看mysql服务状态</span><br><span class="line">service mysql start # 启动mysql服务</span><br><span class="line">service mysql stop # 停止mysql服务</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>登录mysql</p>
+</blockquote>
+<p>mysql 安装完成之后，会自动生成一个随机密码，并且保存在一个密码文件中：/root/.mysql_secret；  </p>
+<blockquote>
+<p>查看随机密码</p>
+</blockquote>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat <span class="regexp">/root/</span>.mysql_secret</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>登录命令</p>
+</blockquote>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"><span class="meta"># -u 指的是用户</span></span><br><span class="line"><span class="meta"># -p 指的是该用户所对应的密码</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>登录之后，修改密码命令</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">password</span> = <span class="keyword">password</span>(<span class="string">'itcast'</span>);</span><br><span class="line"><span class="comment"># itcast即明文密码</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>授权远程访问</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'itcast'</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>防火墙</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables status # 查看防火墙状态</span><br><span class="line">service iptables stop # 关闭防火墙</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引-概述"><a href="#索引-概述" class="headerlink" title="索引 - 概述"></a>索引 - 概述</h2><p>MySQL官方对索引的定义为：  </p>
+<p>索引（index）是帮助MySQL高效获取数据的数据结构（有序）。<br>在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。<br>如下面的示意图所示：  </p>
+<p>左边是数据库，一共有两列七条记录，最左边的是数据记录的物理地址（注意逻辑上相邻的记录在磁盘上也不是一定物理相邻的）。  </p>
+<p>为了加快Col2的查找，可以维护右边所示的二叉查找树，每个结点分别包含索引键值和一个指向对应数据记录物理地址的指针，这样就可以运用二叉查找快速后去到相应数据。  </p>
+<p>一般来说索引本身也很大，不可能全部存储在内存中，因此索引往往以索引文件的形式存储在磁盘上，索引是数据库中用来提供性能的最常用的工具。  </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mspaint</span> <span class="comment"># windows打开画板</span></span><br></pre></td></tr></table></figure>
 
 <table>
   <tr>
@@ -685,7 +717,8 @@
 <p>以上就是第一种情况，即没有建立索引的情况；查询效率很慢；  </p>
 <p>下面分析有了索引之后，又是如何进行查找的；<br>此时有了表结构还需要对表结构当中的字段进行建立索引；索引就是一种数据结构；那么此时就可以使用数据结构来表示这种表当中的索引；这里使用一种数据结构二叉树；  </p>
 <p>既然是二叉树；那么二叉树当中的第一个结点，也就是34；即根节点；34即作为当前该树状结构的根结点；<br>接下来第二行记录是77；对于二叉树来说，二叉树有一个特点；即当根结点已经存在的时候，再插入下一个结点；则需要将下一个结点的数值与根结点的数值进行比较大小；如果比根结点小则放在左边，称之为生成一个左子树；如果比根结点大则放在右边，称之为生成一个右子树，作为右子树存在；这个时候77是比34要大的，所以放在34的右边，即77为34根结点的一个子节点；<br>接下来第三行是5，需要对5也要进行插入到二叉树该数据结构当中，那么此时也是需要进行与34根结点进行比较的；此时5比34要小；那么则放在根结点34的左边，所以此时34根结点又有一个子节点5；<br>当5插入到二叉树结构当中之后，接着下一行记录91；则首先将91与34根结点进行比较大小；显然91比34要大，则处于根结点34的右边；当前使用的是二叉树的这种数据结构，也就意味着每一个结点最多都只能有2个分支；所以称之为二叉树；所以当此时34根结点已经有了两个分支之后，那么此时91比34大，但是34的右边已经有元素77了，所以这个时候91就需要去和77去进行比较；77与91进行比较，91显然要大，所以放在77的右侧，作为77的一个右子节点存在；<br>接下来是第5行记录数据集22；22比34小，显然要放在根结点的左侧；但是根结点的左侧已经有左子节点也就是5；那么此时22就去与5进行比较，显然22比5大；也就放在5的右边；称为5的右子结点；<br>最后还剩下最后两条记录，一个是59一个是3；快速过一下；59首先和34这个元素进行比较；显然59比34大需要放在34的右侧；然34已经有右子结点77了，那么这个时候59和77进行比较；显然77大于59，那么这个时候就将59放置在77的左侧，叶子结点91的左边，成为77的左子节点；同理最后一个元素，3也是同样的方式；3与34进行比较；显然3比34要小；然此时34是存在有左子节点5的；那么这个时候就将3与5进行比较；显然3比5要小；那么这个时候；就把3放在5的左侧；成为5的左子节点，叶子结点22的左侧；<br>此时到此为止二叉树已经构建完毕；二叉树构建完毕之后再来进行分析；构建了一棵二叉树之后就能够提高查询效率吗？<br>（我认为；在二叉树一定的深度下，二叉树依然会存在查询效率慢的情况；）<br>二叉树构建好了之后，再来进行搜索；如果按照刚才的查询情况；先进行搜索34这一数值；搜索二叉树；那么就需要到索引的结构二叉树的数据结构当中来进行搜索；在进行二叉树搜索的时候，是从根结点处开始进行查询匹配数值；即树状结构当中最顶层的这一节点即为根结点；最底层的结点，即3、22、59、91这四个结点称之为叶子结点；那么二叉树的搜索是从根节点开始进行搜索的；走根结点34；这个时候就已经将34查询到了，那么这个时候就可以直接进行返回即可；但是如果这一块当中查询的并不是34而是3；那么此时仍然先会去搜索根结点34，将要查询搜索的值3去与根节点34进行比较；发现3比根结点要小；所以此时就会去根结点的左侧，即左子树当中去进行查找3；二叉树当中根结点的左边的称之为左子树；右边则称之为右子树；那么在左子树当中通过3去跟根结点的左子节点5进行比较，那么此时5比3要大；所以紧接着，让3去跟结点5的左子节点3去进行比较；所以在这个时候就找到了3这个元素；<br>而找到了3之后，二叉树的这种数据结构是如何关联到表当中具体行数当中的具体数据的呢？<br>这个时候就需要看笔记当中提到的一句话：  </p>
-<p><code>在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法，这种数据结构就是索引。</span><br></pre></td></tr></table></figure>
+
 <p>那也就意味着，二叉树这种数据结构当中的每一个结点都是需要指向具体表当中具体行数的具体数据；<br>那么从刚才的查询规律当中从上而下进行查找3，则从根结点34到左子节点5，再从5到5的左子节点3查找到了3这一元素的指向/引用即可找到在具体某表当中的具体某一行的数据；那么这样的话就查找到了数据；  </p>
 <table>
   <tr>
@@ -739,7 +772,1543 @@
 <li><p>建立了索引的表：如果是在建立了索引的这种情况之下；那么同样还是查找元素3；只需要查找第一次34；第二次5；第三次3即可；三次即可；那么这样的话这个时候通过索引由二叉树这种数据结构实现的话就不再需要去遍历整张表的数据了；通过二叉树这种数据结构就可以快速的定位到3这个查询的数据元素；那么这就是索引；索引的目的即在于快速的来查找数据；  </p>
 </li>
 </ul>
-<h2 id="索引-优势和劣势"><a href="#索引-优势和劣势" class="headerlink" title="索引 - 优势和劣势"></a>索引 - 优势和劣势</h2><h2 id="索引-数据结构"><a href="#索引-数据结构" class="headerlink" title="索引 - 数据结构"></a>索引 - 数据结构</h2><h2 id="索引-数据结构-BTREE"><a href="#索引-数据结构-BTREE" class="headerlink" title="索引 - 数据结构 - BTREE"></a>索引 - 数据结构 - BTREE</h2><h2 id="索引-数据结构-B-TREE"><a href="#索引-数据结构-B-TREE" class="headerlink" title="索引 - 数据结构 - B+TREE"></a>索引 - 数据结构 - B+TREE</h2><h2 id="索引-索引分类"><a href="#索引-索引分类" class="headerlink" title="索引 - 索引分类"></a>索引 - 索引分类</h2><h2 id="索引-索引语法"><a href="#索引-索引语法" class="headerlink" title="索引 - 索引语法"></a>索引 - 索引语法</h2><h2 id="索引-索引设计原则"><a href="#索引-索引设计原则" class="headerlink" title="索引 - 索引设计原则"></a>索引 - 索引设计原则</h2><h2 id="视图-创建及修改视图"><a href="#视图-创建及修改视图" class="headerlink" title="视图 - 创建及修改视图"></a>视图 - 创建及修改视图</h2><h2 id="视图-查看及删除视图"><a href="#视图-查看及删除视图" class="headerlink" title="视图 - 查看及删除视图"></a>视图 - 查看及删除视图</h2><h2 id="存储过程-概述"><a href="#存储过程-概述" class="headerlink" title="存储过程 - 概述"></a>存储过程 - 概述</h2><h2 id="存储过程-创建调用查询删除语法"><a href="#存储过程-创建调用查询删除语法" class="headerlink" title="存储过程 - 创建调用查询删除语法"></a>存储过程 - 创建调用查询删除语法</h2><h2 id="存储过程-语法-变量"><a href="#存储过程-语法-变量" class="headerlink" title="存储过程 - 语法 - 变量"></a>存储过程 - 语法 - 变量</h2><h2 id="存储过程-语法-if判断"><a href="#存储过程-语法-if判断" class="headerlink" title="存储过程 - 语法 - if判断"></a>存储过程 - 语法 - if判断</h2><h2 id="存储过程-语法-输入参数"><a href="#存储过程-语法-输入参数" class="headerlink" title="存储过程 - 语法 - 输入参数"></a>存储过程 - 语法 - 输入参数</h2><h2 id="存储过程-语法-输出参数"><a href="#存储过程-语法-输出参数" class="headerlink" title="存储过程 - 语法 - 输出参数"></a>存储过程 - 语法 - 输出参数</h2><h2 id="存储过程-语法-case结构"><a href="#存储过程-语法-case结构" class="headerlink" title="存储过程 - 语法 - case结构"></a>存储过程 - 语法 - case结构</h2><h2 id="存储过程-语法-while循环"><a href="#存储过程-语法-while循环" class="headerlink" title="存储过程 - 语法 - while循环"></a>存储过程 - 语法 - while循环</h2><h2 id="存储过程-语法-repeat循环"><a href="#存储过程-语法-repeat循环" class="headerlink" title="存储过程 - 语法 - repeat循环"></a>存储过程 - 语法 - repeat循环</h2><h2 id="存储过程-语法-loop循环"><a href="#存储过程-语法-loop循环" class="headerlink" title="存储过程 - 语法 - loop循环"></a>存储过程 - 语法 - loop循环</h2><h2 id="存储过程-语法-游标介绍"><a href="#存储过程-语法-游标介绍" class="headerlink" title="存储过程 - 语法 - 游标介绍"></a>存储过程 - 语法 - 游标介绍</h2><h2 id="存储过程-语法-游标基本操作"><a href="#存储过程-语法-游标基本操作" class="headerlink" title="存储过程 - 语法 - 游标基本操作"></a>存储过程 - 语法 - 游标基本操作</h2><h2 id="存储过程-语法-循环获取游标"><a href="#存储过程-语法-循环获取游标" class="headerlink" title="存储过程 - 语法 - 循环获取游标"></a>存储过程 - 语法 - 循环获取游标</h2><h2 id="存储过程-函数"><a href="#存储过程-函数" class="headerlink" title="存储过程 - 函数"></a>存储过程 - 函数</h2><h2 id="触发器-介绍"><a href="#触发器-介绍" class="headerlink" title="触发器 - 介绍"></a>触发器 - 介绍</h2><h2 id="触发器-创建及应用"><a href="#触发器-创建及应用" class="headerlink" title="触发器 - 创建及应用"></a>触发器 - 创建及应用</h2><h2 id="触发器-查看及删除"><a href="#触发器-查看及删除" class="headerlink" title="触发器 - 查看及删除"></a>触发器 - 查看及删除</h2><h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h2 id="存储引擎-概述"><a href="#存储引擎-概述" class="headerlink" title="存储引擎 - 概述"></a>存储引擎 - 概述</h2><h2 id="存储引擎-特性"><a href="#存储引擎-特性" class="headerlink" title="存储引擎 - 特性"></a>存储引擎 - 特性</h2><h2 id="存储引擎-InnoDB特性"><a href="#存储引擎-InnoDB特性" class="headerlink" title="存储引擎 - InnoDB特性"></a>存储引擎 - InnoDB特性</h2><h2 id="存储引擎-MyISAM特性"><a href="#存储引擎-MyISAM特性" class="headerlink" title="存储引擎 - MyISAM特性"></a>存储引擎 - MyISAM特性</h2><h2 id="存储引擎-Memory与Merge特性"><a href="#存储引擎-Memory与Merge特性" class="headerlink" title="存储引擎 - Memory与Merge特性"></a>存储引擎 - Memory与Merge特性</h2><h2 id="存储引擎-选择原则"><a href="#存储引擎-选择原则" class="headerlink" title="存储引擎 - 选择原则"></a>存储引擎 - 选择原则</h2><h2 id="优化SQL步骤-SQL执行频率"><a href="#优化SQL步骤-SQL执行频率" class="headerlink" title="优化SQL步骤 - SQL执行频率"></a>优化SQL步骤 - SQL执行频率</h2><h2 id="优化SQL步骤-定位低效SQL"><a href="#优化SQL步骤-定位低效SQL" class="headerlink" title="优化SQL步骤 - 定位低效SQL"></a>优化SQL步骤 - 定位低效SQL</h2><h2 id="优化SQL步骤-explain指令介绍"><a href="#优化SQL步骤-explain指令介绍" class="headerlink" title="优化SQL步骤 - explain指令介绍"></a>优化SQL步骤 - explain指令介绍</h2><h2 id="优化SQL步骤-explain之id"><a href="#优化SQL步骤-explain之id" class="headerlink" title="优化SQL步骤 - explain之id"></a>优化SQL步骤 - explain之id</h2><h2 id="优化SQL步骤-explain之select-type"><a href="#优化SQL步骤-explain之select-type" class="headerlink" title="优化SQL步骤 - explain之select_type"></a>优化SQL步骤 - explain之select_type</h2><h2 id="优化SQL步骤-explain之table-type"><a href="#优化SQL步骤-explain之table-type" class="headerlink" title="优化SQL步骤 - explain之table type"></a>优化SQL步骤 - explain之table type</h2><h2 id="优化SQL步骤-explain之key-rows-extra"><a href="#优化SQL步骤-explain之key-rows-extra" class="headerlink" title="优化SQL步骤 - explain之key rows extra"></a>优化SQL步骤 - explain之key rows extra</h2><h2 id="优化SQL步骤-show-profile"><a href="#优化SQL步骤-show-profile" class="headerlink" title="优化SQL步骤 - show profile"></a>优化SQL步骤 - show profile</h2><h2 id="优化SQL步骤-trace工具"><a href="#优化SQL步骤-trace工具" class="headerlink" title="优化SQL步骤 - trace工具"></a>优化SQL步骤 - trace工具</h2><h2 id="索引的使用-验证索引提升查询效率"><a href="#索引的使用-验证索引提升查询效率" class="headerlink" title="索引的使用 - 验证索引提升查询效率"></a>索引的使用 - 验证索引提升查询效率</h2><h2 id="索引的使用-全值匹配"><a href="#索引的使用-全值匹配" class="headerlink" title="索引的使用 - 全值匹配"></a>索引的使用 - 全值匹配</h2><h2 id="索引的使用-最左前缀法则"><a href="#索引的使用-最左前缀法则" class="headerlink" title="索引的使用 - 最左前缀法则"></a>索引的使用 - 最左前缀法则</h2><h2 id="索引的使用-索引失效情况（范围查询、字段运算）"><a href="#索引的使用-索引失效情况（范围查询、字段运算）" class="headerlink" title="索引的使用 - 索引失效情况（范围查询、字段运算）"></a>索引的使用 - 索引失效情况（范围查询、字段运算）</h2><h2 id="索引的使用-覆盖索引"><a href="#索引的使用-覆盖索引" class="headerlink" title="索引的使用 - 覆盖索引"></a>索引的使用 - 覆盖索引</h2><h2 id="索引的使用-or索引失效情况"><a href="#索引的使用-or索引失效情况" class="headerlink" title="索引的使用 - or索引失效情况"></a>索引的使用 - or索引失效情况</h2><h2 id="索引的使用-like模糊匹配"><a href="#索引的使用-like模糊匹配" class="headerlink" title="索引的使用 - like模糊匹配"></a>索引的使用 - like模糊匹配</h2><h2 id="索引的使用-全表扫描更快"><a href="#索引的使用-全表扫描更快" class="headerlink" title="索引的使用 - 全表扫描更快"></a>索引的使用 - 全表扫描更快</h2><h2 id="索引的使用-NULL值的判定"><a href="#索引的使用-NULL值的判定" class="headerlink" title="索引的使用 - NULL值的判定"></a>索引的使用 - NULL值的判定</h2><h2 id="索引的使用-in和not-in"><a href="#索引的使用-in和not-in" class="headerlink" title="索引的使用 - in和not in"></a>索引的使用 - in和not in</h2><h2 id="索引的使用-单列索引与复合索引选择"><a href="#索引的使用-单列索引与复合索引选择" class="headerlink" title="索引的使用 - 单列索引与复合索引选择"></a>索引的使用 - 单列索引与复合索引选择</h2><h2 id="索引的使用-查看索引使用情况"><a href="#索引的使用-查看索引使用情况" class="headerlink" title="索引的使用 - 查看索引使用情况"></a>索引的使用 - 查看索引使用情况</h2><h2 id="SQL优化-大批量插入数据"><a href="#SQL优化-大批量插入数据" class="headerlink" title="SQL优化 - 大批量插入数据"></a>SQL优化 - 大批量插入数据</h2><h2 id="SQL优化-insert优化"><a href="#SQL优化-insert优化" class="headerlink" title="SQL优化 - insert优化"></a>SQL优化 - insert优化</h2><h2 id="SQL优化-orderby优化"><a href="#SQL优化-orderby优化" class="headerlink" title="SQL优化 - orderby优化"></a>SQL优化 - orderby优化</h2><h2 id="SQL优化-group-by优化"><a href="#SQL优化-group-by优化" class="headerlink" title="SQL优化 - group by优化"></a>SQL优化 - group by优化</h2><h2 id="SQL优化-子查询优化"><a href="#SQL优化-子查询优化" class="headerlink" title="SQL优化 - 子查询优化"></a>SQL优化 - 子查询优化</h2><h2 id="SQL优化-or优化"><a href="#SQL优化-or优化" class="headerlink" title="SQL优化 - or优化"></a>SQL优化 - or优化</h2><h2 id="SQL优化-limit优化"><a href="#SQL优化-limit优化" class="headerlink" title="SQL优化 - limit优化"></a>SQL优化 - limit优化</h2><h2 id="SQL优化-索引提示"><a href="#SQL优化-索引提示" class="headerlink" title="SQL优化 - 索引提示"></a>SQL优化 - 索引提示</h2><h2 id="今日内容2"><a href="#今日内容2" class="headerlink" title="今日内容2"></a>今日内容2</h2><h2 id="应用优化"><a href="#应用优化" class="headerlink" title="应用优化"></a>应用优化</h2><h2 id="查询缓存-概述及流程"><a href="#查询缓存-概述及流程" class="headerlink" title="查询缓存 - 概述及流程"></a>查询缓存 - 概述及流程</h2><h2 id="查询缓存-配置参数"><a href="#查询缓存-配置参数" class="headerlink" title="查询缓存 - 配置参数"></a>查询缓存 - 配置参数</h2><h2 id="查询缓存-开启查询缓存"><a href="#查询缓存-开启查询缓存" class="headerlink" title="查询缓存 - 开启查询缓存"></a>查询缓存 - 开启查询缓存</h2><h2 id="查询缓存-SELECT选项"><a href="#查询缓存-SELECT选项" class="headerlink" title="查询缓存 - SELECT选项"></a>查询缓存 - SELECT选项</h2><h2 id="查询缓存-失效场景"><a href="#查询缓存-失效场景" class="headerlink" title="查询缓存 - 失效场景"></a>查询缓存 - 失效场景</h2><h2 id="内存优化-优化原则"><a href="#内存优化-优化原则" class="headerlink" title="内存优化 - 优化原则"></a>内存优化 - 优化原则</h2><h2 id="内存优化-MyISAM内存优化"><a href="#内存优化-MyISAM内存优化" class="headerlink" title="内存优化 - MyISAM内存优化"></a>内存优化 - MyISAM内存优化</h2><h2 id="内存优化-InnoDB内存优化"><a href="#内存优化-InnoDB内存优化" class="headerlink" title="内存优化 - InnoDB内存优化"></a>内存优化 - InnoDB内存优化</h2><h2 id="并发参数调整"><a href="#并发参数调整" class="headerlink" title="并发参数调整"></a>并发参数调整</h2><h2 id="锁-锁的概述及分类"><a href="#锁-锁的概述及分类" class="headerlink" title="锁 - 锁的概述及分类"></a>锁 - 锁的概述及分类</h2><h2 id="锁-MySQL对锁的支持"><a href="#锁-MySQL对锁的支持" class="headerlink" title="锁 - MySQL对锁的支持"></a>锁 - MySQL对锁的支持</h2><h2 id="锁-MyISAM表锁-读锁"><a href="#锁-MyISAM表锁-读锁" class="headerlink" title="锁 - MyISAM表锁 - 读锁"></a>锁 - MyISAM表锁 - 读锁</h2><h2 id="锁-MyISAM表锁-写锁"><a href="#锁-MyISAM表锁-写锁" class="headerlink" title="锁 - MyISAM表锁 - 写锁"></a>锁 - MyISAM表锁 - 写锁</h2><h2 id="锁-MyISAM表锁-小结"><a href="#锁-MyISAM表锁-小结" class="headerlink" title="锁 - MyISAM表锁 - 小结"></a>锁 - MyISAM表锁 - 小结</h2><h2 id="锁-MyISAM表锁-查看锁争用情况"><a href="#锁-MyISAM表锁-查看锁争用情况" class="headerlink" title="锁 - MyISAM表锁 - 查看锁争用情况"></a>锁 - MyISAM表锁 - 查看锁争用情况</h2><h2 id="锁-InnoDB行锁-介绍及背景知识"><a href="#锁-InnoDB行锁-介绍及背景知识" class="headerlink" title="锁 - InnoDB行锁 - 介绍及背景知识"></a>锁 - InnoDB行锁 - 介绍及背景知识</h2><h2 id="锁-InnoDB行锁-类型"><a href="#锁-InnoDB行锁-类型" class="headerlink" title="锁 - InnoDB行锁 - 类型"></a>锁 - InnoDB行锁 - 类型</h2><h2 id="锁-InnoDB行锁-行锁升级为表锁"><a href="#锁-InnoDB行锁-行锁升级为表锁" class="headerlink" title="锁 - InnoDB行锁 - 行锁升级为表锁"></a>锁 - InnoDB行锁 - 行锁升级为表锁</h2><h2 id="锁-InnoDB行锁-间隙锁危害"><a href="#锁-InnoDB行锁-间隙锁危害" class="headerlink" title="锁 - InnoDB行锁 - 间隙锁危害"></a>锁 - InnoDB行锁 - 间隙锁危害</h2><h2 id="锁-InnoDB行锁-争用情况查看"><a href="#锁-InnoDB行锁-争用情况查看" class="headerlink" title="锁 - InnoDB行锁 - 争用情况查看"></a>锁 - InnoDB行锁 - 争用情况查看</h2><h2 id="锁-InnoDB行锁-总结"><a href="#锁-InnoDB行锁-总结" class="headerlink" title="锁 - InnoDB行锁 - 总结"></a>锁 - InnoDB行锁 - 总结</h2><h2 id="SQL技巧-SQL执行顺序及正则表达式"><a href="#SQL技巧-SQL执行顺序及正则表达式" class="headerlink" title="SQL技巧 - SQL执行顺序及正则表达式"></a>SQL技巧 - SQL执行顺序及正则表达式</h2><h2 id="SQL技巧-数字函数与字符串函数"><a href="#SQL技巧-数字函数与字符串函数" class="headerlink" title="SQL技巧 - 数字函数与字符串函数"></a>SQL技巧 - 数字函数与字符串函数</h2><h2 id="SQL技巧-日期函数与聚合函数"><a href="#SQL技巧-日期函数与聚合函数" class="headerlink" title="SQL技巧 - 日期函数与聚合函数"></a>SQL技巧 - 日期函数与聚合函数</h2><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><h2 id="常用工具-mysql"><a href="#常用工具-mysql" class="headerlink" title="常用工具 - mysql"></a>常用工具 - mysql</h2><h2 id="常用工具-mysqladmin"><a href="#常用工具-mysqladmin" class="headerlink" title="常用工具 - mysqladmin"></a>常用工具 - mysqladmin</h2><h2 id="常用工具-mysqlbinlog与mysqldump"><a href="#常用工具-mysqlbinlog与mysqldump" class="headerlink" title="常用工具 - mysqlbinlog与mysqldump"></a>常用工具 - mysqlbinlog与mysqldump</h2><h2 id="常用工具-mysqlimport与source"><a href="#常用工具-mysqlimport与source" class="headerlink" title="常用工具 - mysqlimport与source"></a>常用工具 - mysqlimport与source</h2><h2 id="常用工具-mysqlshow"><a href="#常用工具-mysqlshow" class="headerlink" title="常用工具 - mysqlshow"></a>常用工具 - mysqlshow</h2><h2 id="日志-错误日志"><a href="#日志-错误日志" class="headerlink" title="日志 - 错误日志"></a>日志 - 错误日志</h2><h2 id="日志-二进制日志（statement）"><a href="#日志-二进制日志（statement）" class="headerlink" title="日志 - 二进制日志（statement）"></a>日志 - 二进制日志（statement）</h2><h2 id="日志-二进制日志（row及日志删除）"><a href="#日志-二进制日志（row及日志删除）" class="headerlink" title="日志 - 二进制日志（row及日志删除）"></a>日志 - 二进制日志（row及日志删除）</h2><h2 id="日志-查询日志"><a href="#日志-查询日志" class="headerlink" title="日志 - 查询日志"></a>日志 - 查询日志</h2><h2 id="日志-慢查询日志"><a href="#日志-慢查询日志" class="headerlink" title="日志 - 慢查询日志"></a>日志 - 慢查询日志</h2><h2 id="复制-原理"><a href="#复制-原理" class="headerlink" title="复制 - 原理"></a>复制 - 原理</h2><h2 id="案例-需求及环境准备"><a href="#案例-需求及环境准备" class="headerlink" title="案例 - 需求及环境准备"></a>案例 - 需求及环境准备</h2><h2 id="案例-基本工程导入"><a href="#案例-基本工程导入" class="headerlink" title="案例 - 基本工程导入"></a>案例 - 基本工程导入</h2><h2 id="案例-AOP记录日志"><a href="#案例-AOP记录日志" class="headerlink" title="案例 - AOP记录日志"></a>案例 - AOP记录日志</h2><h2 id="案例-日志查询后端-mapper接口"><a href="#案例-日志查询后端-mapper接口" class="headerlink" title="案例 - 日志查询后端 - mapper接口"></a>案例 - 日志查询后端 - mapper接口</h2><h2 id="案例-日志查询后端-Service-amp-Controller"><a href="#案例-日志查询后端-Service-amp-Controller" class="headerlink" title="案例 - 日志查询后端 - Service&amp;Controller"></a>案例 - 日志查询后端 - Service&amp;Controller</h2><h2 id="案例-日志查询-前端"><a href="#案例-日志查询-前端" class="headerlink" title="案例 - 日志查询 - 前端"></a>案例 - 日志查询 - 前端</h2><h2 id="案例-系统性能优化分析"><a href="#案例-系统性能优化分析" class="headerlink" title="案例 - 系统性能优化分析"></a>案例 - 系统性能优化分析</h2><h2 id="案例-系统性能优化-分页优化"><a href="#案例-系统性能优化-分页优化" class="headerlink" title="案例 - 系统性能优化 - 分页优化"></a>案例 - 系统性能优化 - 分页优化</h2><h2 id="案例-系统性能优化-索引优化"><a href="#案例-系统性能优化-索引优化" class="headerlink" title="案例 - 系统性能优化 - 索引优化"></a>案例 - 系统性能优化 - 索引优化</h2><h2 id="案例-系统性能优化-读写分离概述"><a href="#案例-系统性能优化-读写分离概述" class="headerlink" title="案例 - 系统性能优化 - 读写分离概述"></a>案例 - 系统性能优化 - 读写分离概述</h2><h2 id="案例-系统性能优化-数据源配置"><a href="#案例-系统性能优化-数据源配置" class="headerlink" title="案例 - 系统性能优化 - 数据源配置"></a>案例 - 系统性能优化 - 数据源配置</h2><h2 id="案例-系统性能优化-AOP切换数据源"><a href="#案例-系统性能优化-AOP切换数据源" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源"></a>案例 - 系统性能优化 - AOP切换数据源</h2><h2 id="案例-系统性能优化-AOP切换数据源-测试"><a href="#案例-系统性能优化-AOP切换数据源-测试" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源 - 测试"></a>案例 - 系统性能优化 - AOP切换数据源 - 测试</h2><h2 id="案例-系统性能优化-AOP切换数据源-原理解析"><a href="#案例-系统性能优化-AOP切换数据源-原理解析" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源 - 原理解析"></a>案例 - 系统性能优化 - AOP切换数据源 - 原理解析</h2><h2 id="案例-系统性能优化-应用优化"><a href="#案例-系统性能优化-应用优化" class="headerlink" title="案例 - 系统性能优化 - 应用优化"></a>案例 - 系统性能优化 - 应用优化</h2>
+<h2 id="索引-优势和劣势"><a href="#索引-优势和劣势" class="headerlink" title="索引 - 优势和劣势"></a>索引 - 优势和劣势</h2><blockquote>
+<p>优势<br>1） 类似于书籍的目录索引，提高数据检索的效率，降低数据库的IO成本；<br>2） 通过索引列对数据进行排序，降低数据排序的成本，降低CPU的消耗；  </p>
+</blockquote>
+<blockquote>
+<p>劣势<br>1）实际上索引也是一张表，该表中保存了主键与索引字段，并指向实体类的记录，索引列也是要占用空间的；（并不放在内存当中而是放在磁盘当中，索引占用磁盘空间）<br>2）虽然索引大大提高了查询效率，同时却也降低了更新表的速度，如对表进行INSERT、UPDATE、DELETE（都需要对索引进行维护，也就是相关实现该索引的数据结构当中存储的数据也要进行变动）。因为更新表时，MySQL不仅要保存数据，还要保存一下索引文件每次更新添加了索引列的字段，都会因为更新所带来的的键值变化后的索引信息。（所以索引的字段并不是越多越好也会影响到性能）  </p>
+</blockquote>
+<h2 id="索引-数据结构"><a href="#索引-数据结构" class="headerlink" title="索引 - 数据结构"></a>索引 - 数据结构</h2><p>索引是在MySQL的存储引擎层中实现的，而不是在服务器层实现的。  </p>
+<p>所以每种存储引擎的索引都不一定完全相同；也不是所有的存储引擎都支持所有的索引类型。  </p>
+<p>MySQL目前提供了以下4中索引：  </p>
+<ul>
+<li>BTREE索引：最常见的索引类型，大部分索引都支持B树索引；</li>
+<li>HASH索引：只有Memory引擎支持，使用场景简单（刚刚看了下我当前MySQL数据库现在InnoDB也支持HASH哦）；</li>
+<li>R-tree索引（空间索引）：空间索引是MyISAM引擎的一个特殊索引类型，主要用于地理空间数据类型，通常使用较少，不做特别介绍；</li>
+<li>Full-text（全文索引）：全文索引也是MyISAM的一个特殊索引类型，主要用于全文索引，InnoDB从MySQL5.6版本开始支持全文索引；  </li>
+</ul>
+<p>这个统计应该也有些时候了；不是一定正确的哦；需要结合当前不同版本的MySQL来说明；我还是贴一下吧；  </p>
+<h3 id="MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持"><a href="#MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持" class="headerlink" title="MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持"></a>MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持</h3><table>
+  <tr>
+    <th>索引</th>
+    <th>InnoDB引擎</th>
+    <th>MyISAM引擎</th>
+    <th>Memory引擎</th>
+  </tr>
+  <tr>
+    <td>BTREE索引</td>
+    <td>支持</td>
+    <td>支持</td>
+    <td>支持</td>
+  </tr>
+  <tr>
+    <td>HASH索引</td>
+    <td>不支持</td>
+    <td>不支持</td>
+    <td>支持</td>
+  </tr>
+  <tr>
+    <td>R-tree索引</td>
+    <td>不支持</td>
+    <td>支持</td>
+    <td>不支持</td>
+  </tr>
+  <tr>
+    <td>Full-text索引</td>
+    <td>5.6版本之后支持</td>
+    <td>支持</td>
+    <td>不支持</td>
+  </tr>
+</table>
+
+<p>平常所说的索引，如果没有特别指明，都是指B+树（多路搜索树，并不一定是二叉的）结构组织的索引。<br>其中聚集索引、复合索引、前缀索引、唯一索引默认都是使用B+tree树索引，统称为索引。  </p>
+<h2 id="索引-数据结构-BTREE"><a href="#索引-数据结构-BTREE" class="headerlink" title="索引 - 数据结构 - BTREE"></a>索引 - 数据结构 - BTREE</h2><p>BTree又叫做多路平衡搜索树，一棵 m 叉的 BTree 特性如下：  </p>
+<ul>
+<li>树中每个结点最多包含 m 个孩子；</li>
+<li>除根结点与叶子结点外，每个结点至少有[ cell ( m / 2 ) ]（cell向上取整）个孩子；</li>
+<li>若根结点不是叶子结点，则至少有两个孩子；</li>
+<li>所有的叶子结点都在同一层；</li>
+<li>每个非叶子结点由 n 个 key 与 n + 1 个指针组成，其中[ cell ( m / 2 ) -1 ] &lt; = n &lt; =  m - 1</li>
+</ul>
+<p>（对于二叉树来说，树中的每个结点最多有2个分支）  </p>
+<p>以5叉BTree为例（当前根结点下最多有5个分支，即每个结点下最多包含5个孩子），key的数量：公式推导[ cell ( m / 2 ) - 1 ] &lt; = n &lt; = m-1 ；所以 2 &lt; = n &lt; = 4。<br>当n&gt;4时，中间节点分裂到父节点，两边结点分裂。<br>插入 C N G A H E K Q M F W L T Z D P R X Y S 数据为例；<br>1）插入前4个字母C N G A；  </p>
+<table border="1">
+  <tr>
+    <td>A</td>
+    <td>C</td>
+    <td>G</td>
+    <td>N</td>
+  </tr>
+</table>
+
+<p>（按照26个字母排队顺序，字母A在C前，C排在G前，G排在N前的顺序进行排列）  </p>
+<p>2）插入H ，n &gt; 4，中间元素G字母向上分裂到新的结点；  </p>
+<table border="1">
+  <tr>
+    <td>A</td>
+    <td>C</td>
+    <td>G</td>
+    <td>H</td>
+    <td>N</td>
+  </tr>
+</table>
+
+<p>所以演变成中间元素G字母向上分裂到新的结点，即G分裂到父节点；</p>
+<table border="1">
+<tr>
+     <td colspan="5" style="text-align:center">G</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>C</td>
+    <td></td>
+    <td>H</td>
+    <td>N</td>
+  </tr>
+</table>
+
+<br>
+
+<table border="1">
+  <tr>
+     <td></td>
+    <td></td>
+      <td></td>
+     <td colspan="2" style="text-align:center;background-color:lightblue;color:black;">G</td>
+     <td></td>
+     <td></td>
+    <td></td>
+  </tr>
+  <tr>
+     <td></td>
+    <td></td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+     <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="8"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C</td>
+    <td></td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span> N</td>
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>新插入的H结点会在元素G之后，那么排序也就是 A C G H N 这个样子的一个排序；那么此时的中间的结点就是G元素了；那么按照规则，当n&gt;4时，中间节点分裂到父节点；此时的G元素结点就将会进行一次分裂；分裂至父节点（H插入至BTree则G分裂至父节点）；而此时两边结点进行一次分裂；也就是原本的中间元素中间节点G左边的A、C以及右边的（新插入的）H、N就将会被分裂成父节点G的两边结点；左边的A、C分裂至父节点G的左子节点；右边的H、N分裂至父节点G的右子结点；  </p>
+<p>接下来继续进行插入操作；插入元素E；<br>插入的E首先进行跟根结点G进行比较前后顺序；比较完成之后，E应该是在根结点G的排位在前的；所以应该被放在根结点G的左侧；也就是结点A、C该侧，A、C、E这三个元素也是需要进行排出一个顺序来的，那么也就是A、C、E这样的一个顺序排列放置；插入的是左边；由于左边元素未构成5个，所以不做任何的（分裂）变化等；  </p>
+<p>接下来再继续插入元素K；<br>在K插入元素的时候就需要拿G与K元素的前后排位顺序进行比较，K的排位顺序比G大，所以插入到根结点G的右侧，也就是H、N所在该侧；插入的是右边，即插入时也需要与H、N这两个元素相进行比较排位顺序，也就是K元素插入到H、N这两个元素的中间；那么此时右侧的元素未构成5个所以不作任何变化；  </p>
+<p>接下来继续插入Q；<br>插入Q也是需要与根节点G相进行比较排位顺序的；得出Q是在G之后，那么就将Q放在G根节点的右侧，然后将Q进行与节点元素H、K、N相进行比较；得到排列顺序H、K、N、Q这样一个排列顺序，当然此时仍然不需要做出（分裂）变化；因为此时n并没有超过4；只有当n超过4的时候才会发生分裂的变化；分叉小于等于4的情况下并不做任何的分裂改变只进行结点元素间的大小排位；  </p>
+<p>在此之前一直在说分裂；当前已经分裂过一次；也就是A、C、G、H、N的时候进行将G分裂至父节点；A、C结点与H、N结点进行两边结点的分裂；并且插入了三个新的元素E、K、Q；  </p>
+<p>此时需要说明的是：  </p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">每个非叶子结点由 n 个 <span class="type">key</span> 与 n + <span class="number">1</span> 个指针组成，其中[ cell( m / <span class="number">2</span>) <span class="number">-1</span> ] &lt; = n &lt; = m<span class="number">-1</span></span><br></pre></td></tr></table></figure>
+
+<p>n+1个指针值的就是每个结点下都有两个方块，这两个方块都是指针存储区域；<br>指针的含义：当进行插入一个元素的时候，比如说插入元素E；当插入E元素的时候会进行与根节点G进行一个前后顺序排位的一个对比；如果E比G要小；那么E元素就需要放在G的左侧，指向左侧；成为根结点当中的左子节点当中的一个；那么这个时候就由G结点的左指针指向左子节点的方向；通过左边的这个指针指向左边的这个数据块；小于G那么这个指针就指向的是小于G的这个数据块（也就是左侧的左子结点）；大于G那么指向的就是大于G的这个数据块（也就是右侧的右子结点）；  </p>
+<p>即</p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="2" style="text-align:center;background-color:lightblue;color:black;">G</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="11"></td>
+  </tr>
+  <tr>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C<span style="margin-left:5px;margin-right:5px;"></span> E</td>
+    <td></td>
+    <td></td>
+    <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> N <span style="margin-left:5px;margin-right:5px;"></span> Q</td>
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>接下来继续插入M元素；M与G根结点相进行比较，应该是属于在G的后面的；所以应该排放在G的右侧；通过G的右指针指向右边的数据块；M插入进来之后，应该要介于K和N之间；也就是说此时G的右子结点当中的排列顺序为H、K、M、N、Q这样一个排列顺序；这个时候就需要将M插入到K和N之间；但是当M插入到K和N之间之后，此时右子结点当中的元素已经超过了4个，即5个了；超过4个元素那么此时就要发生分裂变化，M结点刚好是中间节点；即会要发生中间节点（新插入的元素）M结点元素最终需要向上分裂到G父节点当中去，以及同时左右两边的元素H、K以及H、Q需要分裂变化成两块；  </p>
+<p>问题：明白没有？小朋友？<br>答：明白了！(ಥ_ಥ)  </p>
+<p>经过分裂之后再来看其指针；那么根结点当中的三个指针分别指的是；第一个指针指的是小于根节点当中的G元素则指针指向左侧第一个数据元素块A、C、E；第二个指针，则因为根节点当中存在两个元素；所以中间这个第二个指针用于大于根节点当中的G元素而小于根节点当中的M元素则指向中间的H、K的这个数据块；最后根节点当中的第三个指针用于大于根节点当中M元素的指向第三个数据元素块即N、Q；  </p>
+<p>问题：明白？小朋友？<br>答：明白了！o(ﾟДﾟ)っ！  </p>
+<p>当前为插入M的数据结构；  </p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">G<span style="margin-left:5px;margin-right:5px;"></span> M</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="14"></td>
+  </tr>
+  <tr>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C<span style="margin-left:5px;margin-right:5px;"></span> E</td>
+    <td></td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    N <span style="margin-left:5px;margin-right:5px;"></span> Q</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>当前M插入完成之后，继续插入F、W、L、T这四个数据元素；<br>那么此时插入F、W、L、T这四个数据元素时是不需要进行分裂变化的；因为当这四个元素插入进来之后，各个数据块当中的key 结点都没有超过4；所以是不需要进行分裂变化处理的；  </p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">G<span style="margin-left:5px;margin-right:5px;"></span> M</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="18"></td>
+  </tr>
+  <tr>
+    <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C<span style="margin-left:5px;margin-right:5px;"></span> E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    N <span style="margin-left:5px;margin-right:5px;"></span> Q<span style="margin-left:5px;margin-right:5px;"></span> T<span style="margin-left:5px;margin-right:5px;"></span> W</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>上述F、W、L、T这四个元素插入完成之后，接着插入元素Z；<br>插入Z的时候，首先会进行与根节点的G和M相进行比较；Z元素比G、M都要大；所以就由根结点的第三个指针指向第三个数据块，也就是N、Q、T、W；走向第三个数据块时又会与第三个数据块当中的元素相进行比较得到其元素排列顺序N、Q、T、W、Z这样一个排列摆放位置；所以此时将Z插入第三个数据块当中的最后一个位置，当Z元素出现在W元素之后的时候，此时观察第三个数据库块当中的元素个数已经超过了4，即已经成为5个了，那么此时这5个元素当中中间元素需要进行向上分裂，分裂至父节点，然后其左右两边需要分裂成两个数据块；该第三个数据块当中的中间元素为T；T元素此时应当符合条件需要分裂至上一节点父节点当中去；以及T元素在分裂至父节点之前原来两边的结点需要进行分裂成两块也就是N、Q结点以及W、Z结点这两大块进行分裂开来称为单独的结点；</p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">G<span style="margin-left:5px;margin-right:5px;"></span> M<span style="margin-left:5px;margin-right:5px;"></span> T</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="20"></td>
+  </tr>
+  <tr>
+    <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C<span style="margin-left:5px;margin-right:5px;"></span> E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    N <span style="margin-left:5px;margin-right:5px;"></span> Q<span style="margin-left:5px;margin-right:5px;"></span> 
+    </td>
+    <td></td>
+<td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>当元素Z插入完成之后，接下来进行插入元素D；<br>元素D和根结点当中的G、M、T相比，显然是都小于这三者的；所以由根结点当中的第一个指针进行指向第一个数据块，也就是A、C、E、F这个数据块当中来；并且D元素需要进行与数据块元素当中的A、C、E、F这四个元素需要进行比较排序顺序大小；即通过排序顺序可得A、C、D、E、F；插入进来之后，此时该数据块当中的key元素大于4个了，即出现了5个；那么此时就需要将该数据块元素当中的那个中间元素（D作为该数据块当中的中间元素存在），也就是刚刚新插入的元素D进行向上分裂至父节点G、M、T当中去，且分裂至父节点的元素D也需要与G、M、T进行一个排序，排序得到D、G、M、T这样一个排列顺序；那么此时分裂至父节点的元素D的两边的元素同样也需要进行分裂成两个结点；即A、C与E、F进行分裂开来；<br>最终出现的数据结构：  </p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">D<span style="margin-left:5px;margin-right:5px;"></span> G<span style="margin-left:5px;margin-right:5px;"></span> M<span style="margin-left:5px;margin-right:5px;"></span> T</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="22"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C
+    </td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    N <span style="margin-left:5px;margin-right:5px;"></span> Q<span style="margin-left:5px;margin-right:5px;"></span> 
+    </td>
+    <td></td>
+<td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>当元素D插入完成之后，接着进行插入元素P、R、X、Y；<br>插入P、R、X、Y时并不需要进行相应的变化分裂；因为插入到数据块当中元素key并没有满足 &gt; 4 的这样一个条件；所以并不需要做出分裂；  </p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">D<span style="margin-left:5px;margin-right:5px;"></span> G<span style="margin-left:5px;margin-right:5px;"></span> M<span style="margin-left:5px;margin-right:5px;"></span> T</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="26"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C
+    </td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    N<span style="margin-left:5px;margin-right:5px;"></span> P<span style="margin-left:5px;margin-right:5px;"></span> Q<span style="margin-left:5px;margin-right:5px;"></span> R</td>
+    <td></td>
+<td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> X<span style="margin-left:5px;margin-right:5px;"></span> Y<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>当插入元素P、R、X、Y这四个元素之后，接下来进行插入最后一个元素S；<br>S首先和根结点当中的是个元素D、G、M、T进行比较；显然介于M与T之间；即大于M而小于T这样一个范围；从而使得根结点的第四个指针指向第四个数据块，即N、P、Q、R这一个数据块当中；而当S插入到第四个数据块当中首先也是需要进行比较排序顺序大小的；有顺序可得；得到顺序为N、P、Q、R、S这样一个顺序排列；将S插入到该数据块当中来；此时第四个数据块当中的元素个数已经达到了5个，也就是超过了4个就需要进行分裂了；那么此时；该数据块当中的中间元素为Q；也就是Q元素需要进行向上分裂至父节点D、G、M、T该数据块当中去；以及Q元素两边的元素需要进行分裂，也就是N、P与R、S这两块分裂开来；<br>但是Q如果此时向上进行分裂，而此时父节点当中的元素对向上分裂来的Q元素进行排序得到D、G、M、Q、T；父节点插入元素Q；父节点当中的元素也达到了了5个；也需要进行分裂；其父节点当中的中间元素为M元素，则此时M元素继续向上进行分裂，则M更新称为该BTree的根节点；而M两边的元素，即D、G两元素与Q、T两元素则这两块进行分裂开来，D、G块称为根结点M的左子节点，Q、T块称为M根结点的右子结点；这就是所提到的五叉BTree结构的一个演变过程；</p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="2" style="text-align:center;background-color:lightblue;color:black;">M</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">D<span style="margin-left:5px;margin-right:5px;"></span>  G
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    Q <span style="margin-left:5px;margin-right:5px;"></span> T</td>
+    
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C
+    </td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    N<span style="margin-left:5px;margin-right:5px;"></span> P</td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">R<span style="margin-left:5px;margin-right:5px;"></span> S</td>
+    <td></td>
+<td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> X<span style="margin-left:5px;margin-right:5px;"></span> Y<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>了解了五叉BTree数据结构的一个演变过程之后回过头来再看；一棵m叉的BTree特性；<br>如果是一个五叉的BTree；<br>则：  </p>
+<ul>
+<li>树中每个结点最多包含m个孩子；即树中每个结点最多包含5个孩子；不能多于5个，即不能多于m个；  </li>
+</ul>
+<blockquote>
+<p>举例</p>
+</blockquote>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">D<span style="margin-left:5px;margin-right:5px;"></span> G<span style="margin-left:5px;margin-right:5px;"></span> M<span style="margin-left:5px;margin-right:5px;"></span> T</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="26"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C
+    </td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    N<span style="margin-left:5px;margin-right:5px;"></span> P<span style="margin-left:5px;margin-right:5px;"></span> Q<span style="margin-left:5px;margin-right:5px;"></span> R</td>
+    <td></td>
+<td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> X<span style="margin-left:5px;margin-right:5px;"></span> Y<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+
+<ul>
+<li>除根结点与叶子结点外，每个结点至少有 [ cell( m / 2 )]个孩子；即每个结点至少有5/2=3（向上取整）个孩子；M为根节点；AC块、EF块、HKL块、NP块、RS块、WXYZ块为叶子结点；所以仅剩DG块与QT块非叶子结点也非根节点；这两块分别有三个字节点，DG块的孩子即AC块、EF块、HKL块；QT块的孩子即NP块、RS块、WXYZ块；  </li>
+</ul>
+<blockquote>
+<p>举例</p>
+</blockquote>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="2" style="text-align:center;background-color:lightblue;color:black;">M</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">D<span style="margin-left:5px;margin-right:5px;"></span>  G
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    Q <span style="margin-left:5px;margin-right:5px;"></span> T</td>
+    
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C
+    </td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    N<span style="margin-left:5px;margin-right:5px;"></span> P</td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">R<span style="margin-left:5px;margin-right:5px;"></span> S</td>
+    <td></td>
+<td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> X<span style="margin-left:5px;margin-right:5px;"></span> Y<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+
+<ul>
+<li>若根结点不是叶子结点，则至少有两个孩子；</li>
+</ul>
+<blockquote>
+<p>举例</p>
+</blockquote>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="2" style="text-align:center;background-color:lightblue;color:black;">M</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">D<span style="margin-left:5px;margin-right:5px;"></span>  G
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    Q <span style="margin-left:5px;margin-right:5px;"></span> T</td>
+    
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C
+    </td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    N<span style="margin-left:5px;margin-right:5px;"></span> P</td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">R<span style="margin-left:5px;margin-right:5px;"></span> S</td>
+    <td></td>
+<td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> X<span style="margin-left:5px;margin-right:5px;"></span> Y<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<ul>
+<li>所有的叶子结点都在同一层；</li>
+</ul>
+<blockquote>
+<p>举例</p>
+</blockquote>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="2" style="text-align:center;background-color:lightblue;color:black;">M</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">D<span style="margin-left:5px;margin-right:5px;"></span>  G
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    Q <span style="margin-left:5px;margin-right:5px;"></span> T</td>
+    
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td><td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td colspan="28"></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C
+    </td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">
+    N<span style="margin-left:5px;margin-right:5px;"></span> P</td>
+    <td></td>
+    <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">R<span style="margin-left:5px;margin-right:5px;"></span> S</td>
+    <td></td>
+<td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    W<span style="margin-left:5px;margin-right:5px;"></span> X<span style="margin-left:5px;margin-right:5px;"></span> Y<span style="margin-left:5px;margin-right:5px;"></span> Z</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+      <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+
+<ul>
+<li>每个非叶子结点由n个key与n+1个指针组成；其中[ cell( m / 2)-1] &lt; = n &lt; = m - 1；即</li>
+</ul>
+<p>key即指的每一个结点当中的元素；指针即用来指向数据块</p>
+<table border="1">
+  <tr>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td colspan="3" style="text-align:center;background-color:lightblue;color:black;">G<span style="margin-left:5px;margin-right:5px;"></span> M</td>
+     <td></td>
+    <td></td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+  </tr>
+  <tr>
+    <td colspan="18"></td>
+  </tr>
+  <tr>
+    <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">A<span style="margin-left:5px;margin-right:5px;"></span> C<span style="margin-left:5px;margin-right:5px;"></span> E<span style="margin-left:5px;margin-right:5px;"></span> F</td>
+    <td></td>
+    <td></td>
+    <td colspan="4" style="text-align:center;background-color:lightblue;color:black;">H<span style="margin-left:5px;margin-right:5px;"></span>  K<span style="margin-left:5px;margin-right:5px;"></span> L
+    </td>
+    <td></td>
+    <td></td>
+      <td colspan="5" style="text-align:center;background-color:lightblue;color:black;">
+    N <span style="margin-left:5px;margin-right:5px;"></span> Q<span style="margin-left:5px;margin-right:5px;"></span> T<span style="margin-left:5px;margin-right:5px;"></span> W</td>
+    
+  </tr>
+  <tr>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td></td>
+    <td></td>
+    <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+    <td></td>
+    <td></td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+     <td style="background-color:lightgreen;color:black;">指针</td>
+  </tr>
+</table>
+
+<p>到此已经提到了两种数据结构，一种是二叉树；一种是BTree；这两个数据结构可以拿过来相互比较一下优劣；  </p>
+<p>BTree数据结构相对于二叉树相比；存在有多个分支；而二叉树一个结点仅仅只存在有两个结点；那么对于相同数据量来说，二叉树的数据层次，也就是二叉树的深度要更高一些；一旦层次更深也就意味着查找数据的时候；磁盘的IO的次数也就更多；从而导致查询的效率也就比较低；<br>到此，该BTree树就已经构建完成了，BTREE树和二叉树相比，查询数据的效率更高，因为对于相同的数据量来说，BTREE的层次结构相比二叉树小，因此搜索速度更快；  </p>
+<h2 id="索引-数据结构-B-TREE"><a href="#索引-数据结构-B-TREE" class="headerlink" title="索引 - 数据结构 - B+TREE"></a>索引 - 数据结构 - B+TREE</h2><h2 id="索引-索引分类"><a href="#索引-索引分类" class="headerlink" title="索引 - 索引分类"></a>索引 - 索引分类</h2><h2 id="索引-索引语法"><a href="#索引-索引语法" class="headerlink" title="索引 - 索引语法"></a>索引 - 索引语法</h2><h2 id="索引-索引设计原则"><a href="#索引-索引设计原则" class="headerlink" title="索引 - 索引设计原则"></a>索引 - 索引设计原则</h2><h2 id="视图-创建及修改视图"><a href="#视图-创建及修改视图" class="headerlink" title="视图 - 创建及修改视图"></a>视图 - 创建及修改视图</h2><h2 id="视图-查看及删除视图"><a href="#视图-查看及删除视图" class="headerlink" title="视图 - 查看及删除视图"></a>视图 - 查看及删除视图</h2><h2 id="存储过程-概述"><a href="#存储过程-概述" class="headerlink" title="存储过程 - 概述"></a>存储过程 - 概述</h2><h2 id="存储过程-创建调用查询删除语法"><a href="#存储过程-创建调用查询删除语法" class="headerlink" title="存储过程 - 创建调用查询删除语法"></a>存储过程 - 创建调用查询删除语法</h2><h2 id="存储过程-语法-变量"><a href="#存储过程-语法-变量" class="headerlink" title="存储过程 - 语法 - 变量"></a>存储过程 - 语法 - 变量</h2><h2 id="存储过程-语法-if判断"><a href="#存储过程-语法-if判断" class="headerlink" title="存储过程 - 语法 - if判断"></a>存储过程 - 语法 - if判断</h2><h2 id="存储过程-语法-输入参数"><a href="#存储过程-语法-输入参数" class="headerlink" title="存储过程 - 语法 - 输入参数"></a>存储过程 - 语法 - 输入参数</h2><h2 id="存储过程-语法-输出参数"><a href="#存储过程-语法-输出参数" class="headerlink" title="存储过程 - 语法 - 输出参数"></a>存储过程 - 语法 - 输出参数</h2><h2 id="存储过程-语法-case结构"><a href="#存储过程-语法-case结构" class="headerlink" title="存储过程 - 语法 - case结构"></a>存储过程 - 语法 - case结构</h2><h2 id="存储过程-语法-while循环"><a href="#存储过程-语法-while循环" class="headerlink" title="存储过程 - 语法 - while循环"></a>存储过程 - 语法 - while循环</h2><h2 id="存储过程-语法-repeat循环"><a href="#存储过程-语法-repeat循环" class="headerlink" title="存储过程 - 语法 - repeat循环"></a>存储过程 - 语法 - repeat循环</h2><h2 id="存储过程-语法-loop循环"><a href="#存储过程-语法-loop循环" class="headerlink" title="存储过程 - 语法 - loop循环"></a>存储过程 - 语法 - loop循环</h2><h2 id="存储过程-语法-游标介绍"><a href="#存储过程-语法-游标介绍" class="headerlink" title="存储过程 - 语法 - 游标介绍"></a>存储过程 - 语法 - 游标介绍</h2><h2 id="存储过程-语法-游标基本操作"><a href="#存储过程-语法-游标基本操作" class="headerlink" title="存储过程 - 语法 - 游标基本操作"></a>存储过程 - 语法 - 游标基本操作</h2><h2 id="存储过程-语法-循环获取游标"><a href="#存储过程-语法-循环获取游标" class="headerlink" title="存储过程 - 语法 - 循环获取游标"></a>存储过程 - 语法 - 循环获取游标</h2><h2 id="存储过程-函数"><a href="#存储过程-函数" class="headerlink" title="存储过程 - 函数"></a>存储过程 - 函数</h2><h2 id="触发器-介绍"><a href="#触发器-介绍" class="headerlink" title="触发器 - 介绍"></a>触发器 - 介绍</h2><h2 id="触发器-创建及应用"><a href="#触发器-创建及应用" class="headerlink" title="触发器 - 创建及应用"></a>触发器 - 创建及应用</h2><h2 id="触发器-查看及删除"><a href="#触发器-查看及删除" class="headerlink" title="触发器 - 查看及删除"></a>触发器 - 查看及删除</h2><h2 id="今日内容"><a href="#今日内容" class="headerlink" title="今日内容"></a>今日内容</h2><h2 id="体系结构"><a href="#体系结构" class="headerlink" title="体系结构"></a>体系结构</h2><h2 id="存储引擎-概述"><a href="#存储引擎-概述" class="headerlink" title="存储引擎 - 概述"></a>存储引擎 - 概述</h2><h2 id="存储引擎-特性"><a href="#存储引擎-特性" class="headerlink" title="存储引擎 - 特性"></a>存储引擎 - 特性</h2><h2 id="存储引擎-InnoDB特性"><a href="#存储引擎-InnoDB特性" class="headerlink" title="存储引擎 - InnoDB特性"></a>存储引擎 - InnoDB特性</h2><h2 id="存储引擎-MyISAM特性"><a href="#存储引擎-MyISAM特性" class="headerlink" title="存储引擎 - MyISAM特性"></a>存储引擎 - MyISAM特性</h2><h2 id="存储引擎-Memory与Merge特性"><a href="#存储引擎-Memory与Merge特性" class="headerlink" title="存储引擎 - Memory与Merge特性"></a>存储引擎 - Memory与Merge特性</h2><h2 id="存储引擎-选择原则"><a href="#存储引擎-选择原则" class="headerlink" title="存储引擎 - 选择原则"></a>存储引擎 - 选择原则</h2><h2 id="优化SQL步骤-SQL执行频率"><a href="#优化SQL步骤-SQL执行频率" class="headerlink" title="优化SQL步骤 - SQL执行频率"></a>优化SQL步骤 - SQL执行频率</h2><h2 id="优化SQL步骤-定位低效SQL"><a href="#优化SQL步骤-定位低效SQL" class="headerlink" title="优化SQL步骤 - 定位低效SQL"></a>优化SQL步骤 - 定位低效SQL</h2><h2 id="优化SQL步骤-explain指令介绍"><a href="#优化SQL步骤-explain指令介绍" class="headerlink" title="优化SQL步骤 - explain指令介绍"></a>优化SQL步骤 - explain指令介绍</h2><h2 id="优化SQL步骤-explain之id"><a href="#优化SQL步骤-explain之id" class="headerlink" title="优化SQL步骤 - explain之id"></a>优化SQL步骤 - explain之id</h2><h2 id="优化SQL步骤-explain之select-type"><a href="#优化SQL步骤-explain之select-type" class="headerlink" title="优化SQL步骤 - explain之select_type"></a>优化SQL步骤 - explain之select_type</h2><h2 id="优化SQL步骤-explain之table-type"><a href="#优化SQL步骤-explain之table-type" class="headerlink" title="优化SQL步骤 - explain之table type"></a>优化SQL步骤 - explain之table type</h2><h2 id="优化SQL步骤-explain之key-rows-extra"><a href="#优化SQL步骤-explain之key-rows-extra" class="headerlink" title="优化SQL步骤 - explain之key rows extra"></a>优化SQL步骤 - explain之key rows extra</h2><h2 id="优化SQL步骤-show-profile"><a href="#优化SQL步骤-show-profile" class="headerlink" title="优化SQL步骤 - show profile"></a>优化SQL步骤 - show profile</h2><h2 id="优化SQL步骤-trace工具"><a href="#优化SQL步骤-trace工具" class="headerlink" title="优化SQL步骤 - trace工具"></a>优化SQL步骤 - trace工具</h2><h2 id="索引的使用-验证索引提升查询效率"><a href="#索引的使用-验证索引提升查询效率" class="headerlink" title="索引的使用 - 验证索引提升查询效率"></a>索引的使用 - 验证索引提升查询效率</h2><h2 id="索引的使用-全值匹配"><a href="#索引的使用-全值匹配" class="headerlink" title="索引的使用 - 全值匹配"></a>索引的使用 - 全值匹配</h2><h2 id="索引的使用-最左前缀法则"><a href="#索引的使用-最左前缀法则" class="headerlink" title="索引的使用 - 最左前缀法则"></a>索引的使用 - 最左前缀法则</h2><h2 id="索引的使用-索引失效情况（范围查询、字段运算）"><a href="#索引的使用-索引失效情况（范围查询、字段运算）" class="headerlink" title="索引的使用 - 索引失效情况（范围查询、字段运算）"></a>索引的使用 - 索引失效情况（范围查询、字段运算）</h2><h2 id="索引的使用-覆盖索引"><a href="#索引的使用-覆盖索引" class="headerlink" title="索引的使用 - 覆盖索引"></a>索引的使用 - 覆盖索引</h2><h2 id="索引的使用-or索引失效情况"><a href="#索引的使用-or索引失效情况" class="headerlink" title="索引的使用 - or索引失效情况"></a>索引的使用 - or索引失效情况</h2><h2 id="索引的使用-like模糊匹配"><a href="#索引的使用-like模糊匹配" class="headerlink" title="索引的使用 - like模糊匹配"></a>索引的使用 - like模糊匹配</h2><h2 id="索引的使用-全表扫描更快"><a href="#索引的使用-全表扫描更快" class="headerlink" title="索引的使用 - 全表扫描更快"></a>索引的使用 - 全表扫描更快</h2><h2 id="索引的使用-NULL值的判定"><a href="#索引的使用-NULL值的判定" class="headerlink" title="索引的使用 - NULL值的判定"></a>索引的使用 - NULL值的判定</h2><h2 id="索引的使用-in和not-in"><a href="#索引的使用-in和not-in" class="headerlink" title="索引的使用 - in和not in"></a>索引的使用 - in和not in</h2><h2 id="索引的使用-单列索引与复合索引选择"><a href="#索引的使用-单列索引与复合索引选择" class="headerlink" title="索引的使用 - 单列索引与复合索引选择"></a>索引的使用 - 单列索引与复合索引选择</h2><h2 id="索引的使用-查看索引使用情况"><a href="#索引的使用-查看索引使用情况" class="headerlink" title="索引的使用 - 查看索引使用情况"></a>索引的使用 - 查看索引使用情况</h2><h2 id="SQL优化-大批量插入数据"><a href="#SQL优化-大批量插入数据" class="headerlink" title="SQL优化 - 大批量插入数据"></a>SQL优化 - 大批量插入数据</h2><h2 id="SQL优化-insert优化"><a href="#SQL优化-insert优化" class="headerlink" title="SQL优化 - insert优化"></a>SQL优化 - insert优化</h2><h2 id="SQL优化-orderby优化"><a href="#SQL优化-orderby优化" class="headerlink" title="SQL优化 - orderby优化"></a>SQL优化 - orderby优化</h2><h2 id="SQL优化-group-by优化"><a href="#SQL优化-group-by优化" class="headerlink" title="SQL优化 - group by优化"></a>SQL优化 - group by优化</h2><h2 id="SQL优化-子查询优化"><a href="#SQL优化-子查询优化" class="headerlink" title="SQL优化 - 子查询优化"></a>SQL优化 - 子查询优化</h2><h2 id="SQL优化-or优化"><a href="#SQL优化-or优化" class="headerlink" title="SQL优化 - or优化"></a>SQL优化 - or优化</h2><h2 id="SQL优化-limit优化"><a href="#SQL优化-limit优化" class="headerlink" title="SQL优化 - limit优化"></a>SQL优化 - limit优化</h2><h2 id="SQL优化-索引提示"><a href="#SQL优化-索引提示" class="headerlink" title="SQL优化 - 索引提示"></a>SQL优化 - 索引提示</h2><h2 id="今日内容2"><a href="#今日内容2" class="headerlink" title="今日内容2"></a>今日内容2</h2><h2 id="应用优化"><a href="#应用优化" class="headerlink" title="应用优化"></a>应用优化</h2><h2 id="查询缓存-概述及流程"><a href="#查询缓存-概述及流程" class="headerlink" title="查询缓存 - 概述及流程"></a>查询缓存 - 概述及流程</h2><h2 id="查询缓存-配置参数"><a href="#查询缓存-配置参数" class="headerlink" title="查询缓存 - 配置参数"></a>查询缓存 - 配置参数</h2><h2 id="查询缓存-开启查询缓存"><a href="#查询缓存-开启查询缓存" class="headerlink" title="查询缓存 - 开启查询缓存"></a>查询缓存 - 开启查询缓存</h2><h2 id="查询缓存-SELECT选项"><a href="#查询缓存-SELECT选项" class="headerlink" title="查询缓存 - SELECT选项"></a>查询缓存 - SELECT选项</h2><h2 id="查询缓存-失效场景"><a href="#查询缓存-失效场景" class="headerlink" title="查询缓存 - 失效场景"></a>查询缓存 - 失效场景</h2><h2 id="内存优化-优化原则"><a href="#内存优化-优化原则" class="headerlink" title="内存优化 - 优化原则"></a>内存优化 - 优化原则</h2><h2 id="内存优化-MyISAM内存优化"><a href="#内存优化-MyISAM内存优化" class="headerlink" title="内存优化 - MyISAM内存优化"></a>内存优化 - MyISAM内存优化</h2><h2 id="内存优化-InnoDB内存优化"><a href="#内存优化-InnoDB内存优化" class="headerlink" title="内存优化 - InnoDB内存优化"></a>内存优化 - InnoDB内存优化</h2><h2 id="并发参数调整"><a href="#并发参数调整" class="headerlink" title="并发参数调整"></a>并发参数调整</h2><h2 id="锁-锁的概述及分类"><a href="#锁-锁的概述及分类" class="headerlink" title="锁 - 锁的概述及分类"></a>锁 - 锁的概述及分类</h2><h2 id="锁-MySQL对锁的支持"><a href="#锁-MySQL对锁的支持" class="headerlink" title="锁 - MySQL对锁的支持"></a>锁 - MySQL对锁的支持</h2><h2 id="锁-MyISAM表锁-读锁"><a href="#锁-MyISAM表锁-读锁" class="headerlink" title="锁 - MyISAM表锁 - 读锁"></a>锁 - MyISAM表锁 - 读锁</h2><h2 id="锁-MyISAM表锁-写锁"><a href="#锁-MyISAM表锁-写锁" class="headerlink" title="锁 - MyISAM表锁 - 写锁"></a>锁 - MyISAM表锁 - 写锁</h2><h2 id="锁-MyISAM表锁-小结"><a href="#锁-MyISAM表锁-小结" class="headerlink" title="锁 - MyISAM表锁 - 小结"></a>锁 - MyISAM表锁 - 小结</h2><h2 id="锁-MyISAM表锁-查看锁争用情况"><a href="#锁-MyISAM表锁-查看锁争用情况" class="headerlink" title="锁 - MyISAM表锁 - 查看锁争用情况"></a>锁 - MyISAM表锁 - 查看锁争用情况</h2><h2 id="锁-InnoDB行锁-介绍及背景知识"><a href="#锁-InnoDB行锁-介绍及背景知识" class="headerlink" title="锁 - InnoDB行锁 - 介绍及背景知识"></a>锁 - InnoDB行锁 - 介绍及背景知识</h2><h2 id="锁-InnoDB行锁-类型"><a href="#锁-InnoDB行锁-类型" class="headerlink" title="锁 - InnoDB行锁 - 类型"></a>锁 - InnoDB行锁 - 类型</h2><h2 id="锁-InnoDB行锁-行锁升级为表锁"><a href="#锁-InnoDB行锁-行锁升级为表锁" class="headerlink" title="锁 - InnoDB行锁 - 行锁升级为表锁"></a>锁 - InnoDB行锁 - 行锁升级为表锁</h2><h2 id="锁-InnoDB行锁-间隙锁危害"><a href="#锁-InnoDB行锁-间隙锁危害" class="headerlink" title="锁 - InnoDB行锁 - 间隙锁危害"></a>锁 - InnoDB行锁 - 间隙锁危害</h2><h2 id="锁-InnoDB行锁-争用情况查看"><a href="#锁-InnoDB行锁-争用情况查看" class="headerlink" title="锁 - InnoDB行锁 - 争用情况查看"></a>锁 - InnoDB行锁 - 争用情况查看</h2><h2 id="锁-InnoDB行锁-总结"><a href="#锁-InnoDB行锁-总结" class="headerlink" title="锁 - InnoDB行锁 - 总结"></a>锁 - InnoDB行锁 - 总结</h2><h2 id="SQL技巧-SQL执行顺序及正则表达式"><a href="#SQL技巧-SQL执行顺序及正则表达式" class="headerlink" title="SQL技巧 - SQL执行顺序及正则表达式"></a>SQL技巧 - SQL执行顺序及正则表达式</h2><h2 id="SQL技巧-数字函数与字符串函数"><a href="#SQL技巧-数字函数与字符串函数" class="headerlink" title="SQL技巧 - 数字函数与字符串函数"></a>SQL技巧 - 数字函数与字符串函数</h2><h2 id="SQL技巧-日期函数与聚合函数"><a href="#SQL技巧-日期函数与聚合函数" class="headerlink" title="SQL技巧 - 日期函数与聚合函数"></a>SQL技巧 - 日期函数与聚合函数</h2><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><h2 id="常用工具-mysql"><a href="#常用工具-mysql" class="headerlink" title="常用工具 - mysql"></a>常用工具 - mysql</h2><h2 id="常用工具-mysqladmin"><a href="#常用工具-mysqladmin" class="headerlink" title="常用工具 - mysqladmin"></a>常用工具 - mysqladmin</h2><h2 id="常用工具-mysqlbinlog与mysqldump"><a href="#常用工具-mysqlbinlog与mysqldump" class="headerlink" title="常用工具 - mysqlbinlog与mysqldump"></a>常用工具 - mysqlbinlog与mysqldump</h2><h2 id="常用工具-mysqlimport与source"><a href="#常用工具-mysqlimport与source" class="headerlink" title="常用工具 - mysqlimport与source"></a>常用工具 - mysqlimport与source</h2><h2 id="常用工具-mysqlshow"><a href="#常用工具-mysqlshow" class="headerlink" title="常用工具 - mysqlshow"></a>常用工具 - mysqlshow</h2><h2 id="日志-错误日志"><a href="#日志-错误日志" class="headerlink" title="日志 - 错误日志"></a>日志 - 错误日志</h2><h2 id="日志-二进制日志（statement）"><a href="#日志-二进制日志（statement）" class="headerlink" title="日志 - 二进制日志（statement）"></a>日志 - 二进制日志（statement）</h2><h2 id="日志-二进制日志（row及日志删除）"><a href="#日志-二进制日志（row及日志删除）" class="headerlink" title="日志 - 二进制日志（row及日志删除）"></a>日志 - 二进制日志（row及日志删除）</h2><h2 id="日志-查询日志"><a href="#日志-查询日志" class="headerlink" title="日志 - 查询日志"></a>日志 - 查询日志</h2><h2 id="日志-慢查询日志"><a href="#日志-慢查询日志" class="headerlink" title="日志 - 慢查询日志"></a>日志 - 慢查询日志</h2><h2 id="复制-原理"><a href="#复制-原理" class="headerlink" title="复制 - 原理"></a>复制 - 原理</h2><h2 id="案例-需求及环境准备"><a href="#案例-需求及环境准备" class="headerlink" title="案例 - 需求及环境准备"></a>案例 - 需求及环境准备</h2><h2 id="案例-基本工程导入"><a href="#案例-基本工程导入" class="headerlink" title="案例 - 基本工程导入"></a>案例 - 基本工程导入</h2><h2 id="案例-AOP记录日志"><a href="#案例-AOP记录日志" class="headerlink" title="案例 - AOP记录日志"></a>案例 - AOP记录日志</h2><h2 id="案例-日志查询后端-mapper接口"><a href="#案例-日志查询后端-mapper接口" class="headerlink" title="案例 - 日志查询后端 - mapper接口"></a>案例 - 日志查询后端 - mapper接口</h2><h2 id="案例-日志查询后端-Service-amp-Controller"><a href="#案例-日志查询后端-Service-amp-Controller" class="headerlink" title="案例 - 日志查询后端 - Service&amp;Controller"></a>案例 - 日志查询后端 - Service&amp;Controller</h2><h2 id="案例-日志查询-前端"><a href="#案例-日志查询-前端" class="headerlink" title="案例 - 日志查询 - 前端"></a>案例 - 日志查询 - 前端</h2><h2 id="案例-系统性能优化分析"><a href="#案例-系统性能优化分析" class="headerlink" title="案例 - 系统性能优化分析"></a>案例 - 系统性能优化分析</h2><h2 id="案例-系统性能优化-分页优化"><a href="#案例-系统性能优化-分页优化" class="headerlink" title="案例 - 系统性能优化 - 分页优化"></a>案例 - 系统性能优化 - 分页优化</h2><h2 id="案例-系统性能优化-索引优化"><a href="#案例-系统性能优化-索引优化" class="headerlink" title="案例 - 系统性能优化 - 索引优化"></a>案例 - 系统性能优化 - 索引优化</h2><h2 id="案例-系统性能优化-读写分离概述"><a href="#案例-系统性能优化-读写分离概述" class="headerlink" title="案例 - 系统性能优化 - 读写分离概述"></a>案例 - 系统性能优化 - 读写分离概述</h2><h2 id="案例-系统性能优化-数据源配置"><a href="#案例-系统性能优化-数据源配置" class="headerlink" title="案例 - 系统性能优化 - 数据源配置"></a>案例 - 系统性能优化 - 数据源配置</h2><h2 id="案例-系统性能优化-AOP切换数据源"><a href="#案例-系统性能优化-AOP切换数据源" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源"></a>案例 - 系统性能优化 - AOP切换数据源</h2><h2 id="案例-系统性能优化-AOP切换数据源-测试"><a href="#案例-系统性能优化-AOP切换数据源-测试" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源 - 测试"></a>案例 - 系统性能优化 - AOP切换数据源 - 测试</h2><h2 id="案例-系统性能优化-AOP切换数据源-原理解析"><a href="#案例-系统性能优化-AOP切换数据源-原理解析" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源 - 原理解析"></a>案例 - 系统性能优化 - AOP切换数据源 - 原理解析</h2><h2 id="案例-系统性能优化-应用优化"><a href="#案例-系统性能优化-应用优化" class="headerlink" title="案例 - 系统性能优化 - 应用优化"></a>案例 - 系统性能优化 - 应用优化</h2>
       
     </div>
     
@@ -762,7 +2331,7 @@
   <p><span>本文标题:</span>全面深入讲解MySQL数据库优化</a></p>
   <p><span>文章作者:</span>Fsn</a></p>
   <p><span>发布时间:</span>2020年04月24日 - 10:40:04</p>
-  <p><span>最后更新:</span>2020年04月27日 - 14:31:00</p>
+  <p><span>最后更新:</span>2020年04月27日 - 18:40:35</p>
   <p><span>原始链接:</span><a href="/2020/04/24/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%85%A8%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%AE%B2%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" title="全面深入讲解MySQL数据库优化">https://fengshana.github.io/2020/04/24/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%85%A8%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%AE%B2%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/04/24/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%85%A8%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%AE%B2%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1059,7 +2628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#课程内容介绍"><span class="nav-number">1.</span> <span class="nav-text">课程内容介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL高级课程简介"><span class="nav-number">1.1.</span> <span class="nav-text">MySQL高级课程简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux上安装MySQL"><span class="nav-number">2.</span> <span class="nav-text">Linux上安装MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Linux安装包"><span class="nav-number">2.1.</span> <span class="nav-text">下载Linux安装包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用SecureCRT远程连接服务器工具，alt-p命令进入sftp模式；再执行put-（MySQL安装包的目录）-上传"><span class="nav-number"></span> <span class="nav-text">使用SecureCRT远程连接服务器工具，alt+p命令进入sftp模式；再执行put （MySQL安装包的目录）[ 上传 ]</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装第三方的依赖库；yum-y-在线安装需连接网络"><span class="nav-number"></span> <span class="nav-text">安装第三方的依赖库；yum -y 在线安装需连接网络</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u-指的是用户"><span class="nav-number"></span> <span class="nav-text">-u 指的是用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#p-指的是该用户所对应的密码"><span class="nav-number"></span> <span class="nav-text">-p 指的是该用户所对应的密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#itcast即明文密码"><span class="nav-number"></span> <span class="nav-text">itcast即明文密码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-优势和劣势"><span class="nav-number">1.</span> <span class="nav-text">索引 - 优势和劣势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-数据结构"><span class="nav-number">2.</span> <span class="nav-text">索引 - 数据结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-数据结构-BTREE"><span class="nav-number">3.</span> <span class="nav-text">索引 - 数据结构 - BTREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-数据结构-B-TREE"><span class="nav-number">4.</span> <span class="nav-text">索引 - 数据结构 - B+TREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引分类"><span class="nav-number">5.</span> <span class="nav-text">索引 - 索引分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引语法"><span class="nav-number">6.</span> <span class="nav-text">索引 - 索引语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引设计原则"><span class="nav-number">7.</span> <span class="nav-text">索引 - 索引设计原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-创建及修改视图"><span class="nav-number">8.</span> <span class="nav-text">视图 - 创建及修改视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-查看及删除视图"><span class="nav-number">9.</span> <span class="nav-text">视图 - 查看及删除视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-概述"><span class="nav-number">10.</span> <span class="nav-text">存储过程 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-创建调用查询删除语法"><span class="nav-number">11.</span> <span class="nav-text">存储过程 - 创建调用查询删除语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-变量"><span class="nav-number">12.</span> <span class="nav-text">存储过程 - 语法 - 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-if判断"><span class="nav-number">13.</span> <span class="nav-text">存储过程 - 语法 - if判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输入参数"><span class="nav-number">14.</span> <span class="nav-text">存储过程 - 语法 - 输入参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输出参数"><span class="nav-number">15.</span> <span class="nav-text">存储过程 - 语法 - 输出参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-case结构"><span class="nav-number">16.</span> <span class="nav-text">存储过程 - 语法 - case结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-while循环"><span class="nav-number">17.</span> <span class="nav-text">存储过程 - 语法 - while循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-repeat循环"><span class="nav-number">18.</span> <span class="nav-text">存储过程 - 语法 - repeat循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-loop循环"><span class="nav-number">19.</span> <span class="nav-text">存储过程 - 语法 - loop循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标介绍"><span class="nav-number">20.</span> <span class="nav-text">存储过程 - 语法 - 游标介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标基本操作"><span class="nav-number">21.</span> <span class="nav-text">存储过程 - 语法 - 游标基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-循环获取游标"><span class="nav-number">22.</span> <span class="nav-text">存储过程 - 语法 - 循环获取游标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-函数"><span class="nav-number">23.</span> <span class="nav-text">存储过程 - 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-介绍"><span class="nav-number">24.</span> <span class="nav-text">触发器 - 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-创建及应用"><span class="nav-number">25.</span> <span class="nav-text">触发器 - 创建及应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-查看及删除"><span class="nav-number">26.</span> <span class="nav-text">触发器 - 查看及删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今日内容"><span class="nav-number">27.</span> <span class="nav-text">今日内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">28.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-概述"><span class="nav-number">29.</span> <span class="nav-text">存储引擎 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-特性"><span class="nav-number">30.</span> <span class="nav-text">存储引擎 - 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-InnoDB特性"><span class="nav-number">31.</span> <span class="nav-text">存储引擎 - InnoDB特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-MyISAM特性"><span class="nav-number">32.</span> <span class="nav-text">存储引擎 - MyISAM特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-Memory与Merge特性"><span class="nav-number">33.</span> <span class="nav-text">存储引擎 - Memory与Merge特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-选择原则"><span class="nav-number">34.</span> <span class="nav-text">存储引擎 - 选择原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-SQL执行频率"><span class="nav-number">35.</span> <span class="nav-text">优化SQL步骤 - SQL执行频率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-定位低效SQL"><span class="nav-number">36.</span> <span class="nav-text">优化SQL步骤 - 定位低效SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain指令介绍"><span class="nav-number">37.</span> <span class="nav-text">优化SQL步骤 - explain指令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之id"><span class="nav-number">38.</span> <span class="nav-text">优化SQL步骤 - explain之id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之select-type"><span class="nav-number">39.</span> <span class="nav-text">优化SQL步骤 - explain之select_type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之table-type"><span class="nav-number">40.</span> <span class="nav-text">优化SQL步骤 - explain之table type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之key-rows-extra"><span class="nav-number">41.</span> <span class="nav-text">优化SQL步骤 - explain之key rows extra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-show-profile"><span class="nav-number">42.</span> <span class="nav-text">优化SQL步骤 - show profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-trace工具"><span class="nav-number">43.</span> <span class="nav-text">优化SQL步骤 - trace工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-验证索引提升查询效率"><span class="nav-number">44.</span> <span class="nav-text">索引的使用 - 验证索引提升查询效率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-全值匹配"><span class="nav-number">45.</span> <span class="nav-text">索引的使用 - 全值匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-最左前缀法则"><span class="nav-number">46.</span> <span class="nav-text">索引的使用 - 最左前缀法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-索引失效情况（范围查询、字段运算）"><span class="nav-number">47.</span> <span class="nav-text">索引的使用 - 索引失效情况（范围查询、字段运算）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-覆盖索引"><span class="nav-number">48.</span> <span class="nav-text">索引的使用 - 覆盖索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-or索引失效情况"><span class="nav-number">49.</span> <span class="nav-text">索引的使用 - or索引失效情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-like模糊匹配"><span class="nav-number">50.</span> <span class="nav-text">索引的使用 - like模糊匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-全表扫描更快"><span class="nav-number">51.</span> <span class="nav-text">索引的使用 - 全表扫描更快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-NULL值的判定"><span class="nav-number">52.</span> <span class="nav-text">索引的使用 - NULL值的判定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-in和not-in"><span class="nav-number">53.</span> <span class="nav-text">索引的使用 - in和not in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-单列索引与复合索引选择"><span class="nav-number">54.</span> <span class="nav-text">索引的使用 - 单列索引与复合索引选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-查看索引使用情况"><span class="nav-number">55.</span> <span class="nav-text">索引的使用 - 查看索引使用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-大批量插入数据"><span class="nav-number">56.</span> <span class="nav-text">SQL优化 - 大批量插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-insert优化"><span class="nav-number">57.</span> <span class="nav-text">SQL优化 - insert优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-orderby优化"><span class="nav-number">58.</span> <span class="nav-text">SQL优化 - orderby优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-group-by优化"><span class="nav-number">59.</span> <span class="nav-text">SQL优化 - group by优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-子查询优化"><span class="nav-number">60.</span> <span class="nav-text">SQL优化 - 子查询优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-or优化"><span class="nav-number">61.</span> <span class="nav-text">SQL优化 - or优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-limit优化"><span class="nav-number">62.</span> <span class="nav-text">SQL优化 - limit优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-索引提示"><span class="nav-number">63.</span> <span class="nav-text">SQL优化 - 索引提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今日内容2"><span class="nav-number">64.</span> <span class="nav-text">今日内容2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用优化"><span class="nav-number">65.</span> <span class="nav-text">应用优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-概述及流程"><span class="nav-number">66.</span> <span class="nav-text">查询缓存 - 概述及流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-配置参数"><span class="nav-number">67.</span> <span class="nav-text">查询缓存 - 配置参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-开启查询缓存"><span class="nav-number">68.</span> <span class="nav-text">查询缓存 - 开启查询缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-SELECT选项"><span class="nav-number">69.</span> <span class="nav-text">查询缓存 - SELECT选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-失效场景"><span class="nav-number">70.</span> <span class="nav-text">查询缓存 - 失效场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-优化原则"><span class="nav-number">71.</span> <span class="nav-text">内存优化 - 优化原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-MyISAM内存优化"><span class="nav-number">72.</span> <span class="nav-text">内存优化 - MyISAM内存优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-InnoDB内存优化"><span class="nav-number">73.</span> <span class="nav-text">内存优化 - InnoDB内存优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发参数调整"><span class="nav-number">74.</span> <span class="nav-text">并发参数调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-锁的概述及分类"><span class="nav-number">75.</span> <span class="nav-text">锁 - 锁的概述及分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MySQL对锁的支持"><span class="nav-number">76.</span> <span class="nav-text">锁 - MySQL对锁的支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-读锁"><span class="nav-number">77.</span> <span class="nav-text">锁 - MyISAM表锁 - 读锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-写锁"><span class="nav-number">78.</span> <span class="nav-text">锁 - MyISAM表锁 - 写锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-小结"><span class="nav-number">79.</span> <span class="nav-text">锁 - MyISAM表锁 - 小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-查看锁争用情况"><span class="nav-number">80.</span> <span class="nav-text">锁 - MyISAM表锁 - 查看锁争用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-介绍及背景知识"><span class="nav-number">81.</span> <span class="nav-text">锁 - InnoDB行锁 - 介绍及背景知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-类型"><span class="nav-number">82.</span> <span class="nav-text">锁 - InnoDB行锁 - 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-行锁升级为表锁"><span class="nav-number">83.</span> <span class="nav-text">锁 - InnoDB行锁 - 行锁升级为表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-间隙锁危害"><span class="nav-number">84.</span> <span class="nav-text">锁 - InnoDB行锁 - 间隙锁危害</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-争用情况查看"><span class="nav-number">85.</span> <span class="nav-text">锁 - InnoDB行锁 - 争用情况查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-总结"><span class="nav-number">86.</span> <span class="nav-text">锁 - InnoDB行锁 - 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-SQL执行顺序及正则表达式"><span class="nav-number">87.</span> <span class="nav-text">SQL技巧 - SQL执行顺序及正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-数字函数与字符串函数"><span class="nav-number">88.</span> <span class="nav-text">SQL技巧 - 数字函数与字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-日期函数与聚合函数"><span class="nav-number">89.</span> <span class="nav-text">SQL技巧 - 日期函数与聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程内容"><span class="nav-number">90.</span> <span class="nav-text">课程内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysql"><span class="nav-number">91.</span> <span class="nav-text">常用工具 - mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqladmin"><span class="nav-number">92.</span> <span class="nav-text">常用工具 - mysqladmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlbinlog与mysqldump"><span class="nav-number">93.</span> <span class="nav-text">常用工具 - mysqlbinlog与mysqldump</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlimport与source"><span class="nav-number">94.</span> <span class="nav-text">常用工具 - mysqlimport与source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlshow"><span class="nav-number">95.</span> <span class="nav-text">常用工具 - mysqlshow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-错误日志"><span class="nav-number">96.</span> <span class="nav-text">日志 - 错误日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-二进制日志（statement）"><span class="nav-number">97.</span> <span class="nav-text">日志 - 二进制日志（statement）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-二进制日志（row及日志删除）"><span class="nav-number">98.</span> <span class="nav-text">日志 - 二进制日志（row及日志删除）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-查询日志"><span class="nav-number">99.</span> <span class="nav-text">日志 - 查询日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-慢查询日志"><span class="nav-number">100.</span> <span class="nav-text">日志 - 慢查询日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制-原理"><span class="nav-number">101.</span> <span class="nav-text">复制 - 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-需求及环境准备"><span class="nav-number">102.</span> <span class="nav-text">案例 - 需求及环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-基本工程导入"><span class="nav-number">103.</span> <span class="nav-text">案例 - 基本工程导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-AOP记录日志"><span class="nav-number">104.</span> <span class="nav-text">案例 - AOP记录日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询后端-mapper接口"><span class="nav-number">105.</span> <span class="nav-text">案例 - 日志查询后端 - mapper接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询后端-Service-amp-Controller"><span class="nav-number">106.</span> <span class="nav-text">案例 - 日志查询后端 - Service&amp;Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询-前端"><span class="nav-number">107.</span> <span class="nav-text">案例 - 日志查询 - 前端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化分析"><span class="nav-number">108.</span> <span class="nav-text">案例 - 系统性能优化分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-分页优化"><span class="nav-number">109.</span> <span class="nav-text">案例 - 系统性能优化 - 分页优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-索引优化"><span class="nav-number">110.</span> <span class="nav-text">案例 - 系统性能优化 - 索引优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-读写分离概述"><span class="nav-number">111.</span> <span class="nav-text">案例 - 系统性能优化 - 读写分离概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-数据源配置"><span class="nav-number">112.</span> <span class="nav-text">案例 - 系统性能优化 - 数据源配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源"><span class="nav-number">113.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源-测试"><span class="nav-number">114.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源 - 测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源-原理解析"><span class="nav-number">115.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源 - 原理解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-应用优化"><span class="nav-number">116.</span> <span class="nav-text">案例 - 系统性能优化 - 应用优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#课程内容介绍"><span class="nav-number">1.</span> <span class="nav-text">课程内容介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL高级课程简介"><span class="nav-number">1.1.</span> <span class="nav-text">MySQL高级课程简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux上安装MySQL"><span class="nav-number">2.</span> <span class="nav-text">Linux上安装MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Linux安装包"><span class="nav-number">2.1.</span> <span class="nav-text">下载Linux安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL"><span class="nav-number">2.2.</span> <span class="nav-text">安装MySQL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动及登录MySQL"><span class="nav-number">3.</span> <span class="nav-text">启动及登录MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-概述"><span class="nav-number">4.</span> <span class="nav-text">索引 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-优势和劣势"><span class="nav-number">5.</span> <span class="nav-text">索引 - 优势和劣势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-数据结构"><span class="nav-number">6.</span> <span class="nav-text">索引 - 数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持"><span class="nav-number">6.1.</span> <span class="nav-text">MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-数据结构-BTREE"><span class="nav-number">7.</span> <span class="nav-text">索引 - 数据结构 - BTREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-数据结构-B-TREE"><span class="nav-number">8.</span> <span class="nav-text">索引 - 数据结构 - B+TREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引分类"><span class="nav-number">9.</span> <span class="nav-text">索引 - 索引分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引语法"><span class="nav-number">10.</span> <span class="nav-text">索引 - 索引语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引设计原则"><span class="nav-number">11.</span> <span class="nav-text">索引 - 索引设计原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-创建及修改视图"><span class="nav-number">12.</span> <span class="nav-text">视图 - 创建及修改视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-查看及删除视图"><span class="nav-number">13.</span> <span class="nav-text">视图 - 查看及删除视图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-概述"><span class="nav-number">14.</span> <span class="nav-text">存储过程 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-创建调用查询删除语法"><span class="nav-number">15.</span> <span class="nav-text">存储过程 - 创建调用查询删除语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-变量"><span class="nav-number">16.</span> <span class="nav-text">存储过程 - 语法 - 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-if判断"><span class="nav-number">17.</span> <span class="nav-text">存储过程 - 语法 - if判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输入参数"><span class="nav-number">18.</span> <span class="nav-text">存储过程 - 语法 - 输入参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输出参数"><span class="nav-number">19.</span> <span class="nav-text">存储过程 - 语法 - 输出参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-case结构"><span class="nav-number">20.</span> <span class="nav-text">存储过程 - 语法 - case结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-while循环"><span class="nav-number">21.</span> <span class="nav-text">存储过程 - 语法 - while循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-repeat循环"><span class="nav-number">22.</span> <span class="nav-text">存储过程 - 语法 - repeat循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-loop循环"><span class="nav-number">23.</span> <span class="nav-text">存储过程 - 语法 - loop循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标介绍"><span class="nav-number">24.</span> <span class="nav-text">存储过程 - 语法 - 游标介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标基本操作"><span class="nav-number">25.</span> <span class="nav-text">存储过程 - 语法 - 游标基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-循环获取游标"><span class="nav-number">26.</span> <span class="nav-text">存储过程 - 语法 - 循环获取游标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-函数"><span class="nav-number">27.</span> <span class="nav-text">存储过程 - 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-介绍"><span class="nav-number">28.</span> <span class="nav-text">触发器 - 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-创建及应用"><span class="nav-number">29.</span> <span class="nav-text">触发器 - 创建及应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-查看及删除"><span class="nav-number">30.</span> <span class="nav-text">触发器 - 查看及删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今日内容"><span class="nav-number">31.</span> <span class="nav-text">今日内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">32.</span> <span class="nav-text">体系结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-概述"><span class="nav-number">33.</span> <span class="nav-text">存储引擎 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-特性"><span class="nav-number">34.</span> <span class="nav-text">存储引擎 - 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-InnoDB特性"><span class="nav-number">35.</span> <span class="nav-text">存储引擎 - InnoDB特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-MyISAM特性"><span class="nav-number">36.</span> <span class="nav-text">存储引擎 - MyISAM特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-Memory与Merge特性"><span class="nav-number">37.</span> <span class="nav-text">存储引擎 - Memory与Merge特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-选择原则"><span class="nav-number">38.</span> <span class="nav-text">存储引擎 - 选择原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-SQL执行频率"><span class="nav-number">39.</span> <span class="nav-text">优化SQL步骤 - SQL执行频率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-定位低效SQL"><span class="nav-number">40.</span> <span class="nav-text">优化SQL步骤 - 定位低效SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain指令介绍"><span class="nav-number">41.</span> <span class="nav-text">优化SQL步骤 - explain指令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之id"><span class="nav-number">42.</span> <span class="nav-text">优化SQL步骤 - explain之id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之select-type"><span class="nav-number">43.</span> <span class="nav-text">优化SQL步骤 - explain之select_type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之table-type"><span class="nav-number">44.</span> <span class="nav-text">优化SQL步骤 - explain之table type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之key-rows-extra"><span class="nav-number">45.</span> <span class="nav-text">优化SQL步骤 - explain之key rows extra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-show-profile"><span class="nav-number">46.</span> <span class="nav-text">优化SQL步骤 - show profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-trace工具"><span class="nav-number">47.</span> <span class="nav-text">优化SQL步骤 - trace工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-验证索引提升查询效率"><span class="nav-number">48.</span> <span class="nav-text">索引的使用 - 验证索引提升查询效率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-全值匹配"><span class="nav-number">49.</span> <span class="nav-text">索引的使用 - 全值匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-最左前缀法则"><span class="nav-number">50.</span> <span class="nav-text">索引的使用 - 最左前缀法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-索引失效情况（范围查询、字段运算）"><span class="nav-number">51.</span> <span class="nav-text">索引的使用 - 索引失效情况（范围查询、字段运算）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-覆盖索引"><span class="nav-number">52.</span> <span class="nav-text">索引的使用 - 覆盖索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-or索引失效情况"><span class="nav-number">53.</span> <span class="nav-text">索引的使用 - or索引失效情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-like模糊匹配"><span class="nav-number">54.</span> <span class="nav-text">索引的使用 - like模糊匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-全表扫描更快"><span class="nav-number">55.</span> <span class="nav-text">索引的使用 - 全表扫描更快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-NULL值的判定"><span class="nav-number">56.</span> <span class="nav-text">索引的使用 - NULL值的判定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-in和not-in"><span class="nav-number">57.</span> <span class="nav-text">索引的使用 - in和not in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-单列索引与复合索引选择"><span class="nav-number">58.</span> <span class="nav-text">索引的使用 - 单列索引与复合索引选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-查看索引使用情况"><span class="nav-number">59.</span> <span class="nav-text">索引的使用 - 查看索引使用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-大批量插入数据"><span class="nav-number">60.</span> <span class="nav-text">SQL优化 - 大批量插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-insert优化"><span class="nav-number">61.</span> <span class="nav-text">SQL优化 - insert优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-orderby优化"><span class="nav-number">62.</span> <span class="nav-text">SQL优化 - orderby优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-group-by优化"><span class="nav-number">63.</span> <span class="nav-text">SQL优化 - group by优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-子查询优化"><span class="nav-number">64.</span> <span class="nav-text">SQL优化 - 子查询优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-or优化"><span class="nav-number">65.</span> <span class="nav-text">SQL优化 - or优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-limit优化"><span class="nav-number">66.</span> <span class="nav-text">SQL优化 - limit优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-索引提示"><span class="nav-number">67.</span> <span class="nav-text">SQL优化 - 索引提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今日内容2"><span class="nav-number">68.</span> <span class="nav-text">今日内容2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用优化"><span class="nav-number">69.</span> <span class="nav-text">应用优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-概述及流程"><span class="nav-number">70.</span> <span class="nav-text">查询缓存 - 概述及流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-配置参数"><span class="nav-number">71.</span> <span class="nav-text">查询缓存 - 配置参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-开启查询缓存"><span class="nav-number">72.</span> <span class="nav-text">查询缓存 - 开启查询缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-SELECT选项"><span class="nav-number">73.</span> <span class="nav-text">查询缓存 - SELECT选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-失效场景"><span class="nav-number">74.</span> <span class="nav-text">查询缓存 - 失效场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-优化原则"><span class="nav-number">75.</span> <span class="nav-text">内存优化 - 优化原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-MyISAM内存优化"><span class="nav-number">76.</span> <span class="nav-text">内存优化 - MyISAM内存优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-InnoDB内存优化"><span class="nav-number">77.</span> <span class="nav-text">内存优化 - InnoDB内存优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发参数调整"><span class="nav-number">78.</span> <span class="nav-text">并发参数调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-锁的概述及分类"><span class="nav-number">79.</span> <span class="nav-text">锁 - 锁的概述及分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MySQL对锁的支持"><span class="nav-number">80.</span> <span class="nav-text">锁 - MySQL对锁的支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-读锁"><span class="nav-number">81.</span> <span class="nav-text">锁 - MyISAM表锁 - 读锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-写锁"><span class="nav-number">82.</span> <span class="nav-text">锁 - MyISAM表锁 - 写锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-小结"><span class="nav-number">83.</span> <span class="nav-text">锁 - MyISAM表锁 - 小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-查看锁争用情况"><span class="nav-number">84.</span> <span class="nav-text">锁 - MyISAM表锁 - 查看锁争用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-介绍及背景知识"><span class="nav-number">85.</span> <span class="nav-text">锁 - InnoDB行锁 - 介绍及背景知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-类型"><span class="nav-number">86.</span> <span class="nav-text">锁 - InnoDB行锁 - 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-行锁升级为表锁"><span class="nav-number">87.</span> <span class="nav-text">锁 - InnoDB行锁 - 行锁升级为表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-间隙锁危害"><span class="nav-number">88.</span> <span class="nav-text">锁 - InnoDB行锁 - 间隙锁危害</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-争用情况查看"><span class="nav-number">89.</span> <span class="nav-text">锁 - InnoDB行锁 - 争用情况查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-总结"><span class="nav-number">90.</span> <span class="nav-text">锁 - InnoDB行锁 - 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-SQL执行顺序及正则表达式"><span class="nav-number">91.</span> <span class="nav-text">SQL技巧 - SQL执行顺序及正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-数字函数与字符串函数"><span class="nav-number">92.</span> <span class="nav-text">SQL技巧 - 数字函数与字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-日期函数与聚合函数"><span class="nav-number">93.</span> <span class="nav-text">SQL技巧 - 日期函数与聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程内容"><span class="nav-number">94.</span> <span class="nav-text">课程内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysql"><span class="nav-number">95.</span> <span class="nav-text">常用工具 - mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqladmin"><span class="nav-number">96.</span> <span class="nav-text">常用工具 - mysqladmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlbinlog与mysqldump"><span class="nav-number">97.</span> <span class="nav-text">常用工具 - mysqlbinlog与mysqldump</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlimport与source"><span class="nav-number">98.</span> <span class="nav-text">常用工具 - mysqlimport与source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlshow"><span class="nav-number">99.</span> <span class="nav-text">常用工具 - mysqlshow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-错误日志"><span class="nav-number">100.</span> <span class="nav-text">日志 - 错误日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-二进制日志（statement）"><span class="nav-number">101.</span> <span class="nav-text">日志 - 二进制日志（statement）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-二进制日志（row及日志删除）"><span class="nav-number">102.</span> <span class="nav-text">日志 - 二进制日志（row及日志删除）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-查询日志"><span class="nav-number">103.</span> <span class="nav-text">日志 - 查询日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-慢查询日志"><span class="nav-number">104.</span> <span class="nav-text">日志 - 慢查询日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制-原理"><span class="nav-number">105.</span> <span class="nav-text">复制 - 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-需求及环境准备"><span class="nav-number">106.</span> <span class="nav-text">案例 - 需求及环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-基本工程导入"><span class="nav-number">107.</span> <span class="nav-text">案例 - 基本工程导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-AOP记录日志"><span class="nav-number">108.</span> <span class="nav-text">案例 - AOP记录日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询后端-mapper接口"><span class="nav-number">109.</span> <span class="nav-text">案例 - 日志查询后端 - mapper接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询后端-Service-amp-Controller"><span class="nav-number">110.</span> <span class="nav-text">案例 - 日志查询后端 - Service&amp;Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询-前端"><span class="nav-number">111.</span> <span class="nav-text">案例 - 日志查询 - 前端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化分析"><span class="nav-number">112.</span> <span class="nav-text">案例 - 系统性能优化分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-分页优化"><span class="nav-number">113.</span> <span class="nav-text">案例 - 系统性能优化 - 分页优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-索引优化"><span class="nav-number">114.</span> <span class="nav-text">案例 - 系统性能优化 - 索引优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-读写分离概述"><span class="nav-number">115.</span> <span class="nav-text">案例 - 系统性能优化 - 读写分离概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-数据源配置"><span class="nav-number">116.</span> <span class="nav-text">案例 - 系统性能优化 - 数据源配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源"><span class="nav-number">117.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源-测试"><span class="nav-number">118.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源 - 测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源-原理解析"><span class="nav-number">119.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源 - 原理解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-应用优化"><span class="nav-number">120.</span> <span class="nav-text">案例 - 系统性能优化 - 应用优化</span></a></li></ol></div>
             
 
           </div>
@@ -1105,8 +2674,8 @@
       <span class="post-meta-item-text">站点总字数：</span>
     
 	<span title="Site words total count">
-     405.7k字 </span>
-    <!--<span title="symbols_count_time.count_total">756k</span>-->
+     410.8k字 </span>
+    <!--<span title="symbols_count_time.count_total">762k</span>-->
   
 </div>
 
