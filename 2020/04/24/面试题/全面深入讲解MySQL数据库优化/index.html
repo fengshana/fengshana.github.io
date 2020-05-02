@@ -127,7 +127,7 @@
 <meta property="og:description" content="前言观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1fJ41127Rj?from&#x3D;search&amp;seid&#x3D;13531213796559959972   本课程作为MySQL高级课程，主要讲解了：    MySQL中的视图&#x2F;存储过程&#x2F;触发器&#x2F;索引等对象的使用 常见的SQL语句优化的技巧 应用优化 数据库优化 数据库日志  等方面的知识，并通过综合案例，对课程中的">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA">
 <meta property="article:published_time" content="2020-04-24T02:40:04.420Z">
-<meta property="article:modified_time" content="2020-04-28T06:18:45.346Z">
+<meta property="article:modified_time" content="2020-05-02T17:29:04.944Z">
 <meta property="article:author" content="Fsn">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="MySQL">
@@ -469,7 +469,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  21.2k
+                  28k
                 </span>
               
 
@@ -485,7 +485,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  81
+                  108
                 </span>
               
             </div>
@@ -509,7 +509,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" rel="gallery_ck9jismp200dkacum9fia4itu"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" rel="gallery_ck9pwin0s00d908um1j2z0aiz"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -2837,7 +2837,966 @@
 </li>
 </ul>
 <p>有一个点：就是有没有类似emm，MERGE然后内部基层的表的存储引擎是InnoDB这种的；如果是这种的话；不是有那个什么分库分表什么的？（我不太了解分库分表，乱说的）  </p>
-<h2 id="优化SQL步骤-SQL执行频率"><a href="#优化SQL步骤-SQL执行频率" class="headerlink" title="优化SQL步骤 - SQL执行频率"></a>优化SQL步骤 - SQL执行频率</h2><h2 id="优化SQL步骤-定位低效SQL"><a href="#优化SQL步骤-定位低效SQL" class="headerlink" title="优化SQL步骤 - 定位低效SQL"></a>优化SQL步骤 - 定位低效SQL</h2><h2 id="优化SQL步骤-explain指令介绍"><a href="#优化SQL步骤-explain指令介绍" class="headerlink" title="优化SQL步骤 - explain指令介绍"></a>优化SQL步骤 - explain指令介绍</h2><h2 id="优化SQL步骤-explain之id"><a href="#优化SQL步骤-explain之id" class="headerlink" title="优化SQL步骤 - explain之id"></a>优化SQL步骤 - explain之id</h2><h2 id="优化SQL步骤-explain之select-type"><a href="#优化SQL步骤-explain之select-type" class="headerlink" title="优化SQL步骤 - explain之select_type"></a>优化SQL步骤 - explain之select_type</h2><h2 id="优化SQL步骤-explain之table-type"><a href="#优化SQL步骤-explain之table-type" class="headerlink" title="优化SQL步骤 - explain之table type"></a>优化SQL步骤 - explain之table type</h2><h2 id="优化SQL步骤-explain之key-rows-extra"><a href="#优化SQL步骤-explain之key-rows-extra" class="headerlink" title="优化SQL步骤 - explain之key rows extra"></a>优化SQL步骤 - explain之key rows extra</h2><h2 id="优化SQL步骤-show-profile"><a href="#优化SQL步骤-show-profile" class="headerlink" title="优化SQL步骤 - show profile"></a>优化SQL步骤 - show profile</h2><h2 id="优化SQL步骤-trace工具"><a href="#优化SQL步骤-trace工具" class="headerlink" title="优化SQL步骤 - trace工具"></a>优化SQL步骤 - trace工具</h2><h2 id="索引的使用-验证索引提升查询效率"><a href="#索引的使用-验证索引提升查询效率" class="headerlink" title="索引的使用 - 验证索引提升查询效率"></a>索引的使用 - 验证索引提升查询效率</h2><h2 id="索引的使用-全值匹配"><a href="#索引的使用-全值匹配" class="headerlink" title="索引的使用 - 全值匹配"></a>索引的使用 - 全值匹配</h2><h2 id="索引的使用-最左前缀法则"><a href="#索引的使用-最左前缀法则" class="headerlink" title="索引的使用 - 最左前缀法则"></a>索引的使用 - 最左前缀法则</h2><h2 id="索引的使用-索引失效情况（范围查询、字段运算）"><a href="#索引的使用-索引失效情况（范围查询、字段运算）" class="headerlink" title="索引的使用 - 索引失效情况（范围查询、字段运算）"></a>索引的使用 - 索引失效情况（范围查询、字段运算）</h2><h2 id="索引的使用-覆盖索引"><a href="#索引的使用-覆盖索引" class="headerlink" title="索引的使用 - 覆盖索引"></a>索引的使用 - 覆盖索引</h2><h2 id="索引的使用-or索引失效情况"><a href="#索引的使用-or索引失效情况" class="headerlink" title="索引的使用 - or索引失效情况"></a>索引的使用 - or索引失效情况</h2><h2 id="索引的使用-like模糊匹配"><a href="#索引的使用-like模糊匹配" class="headerlink" title="索引的使用 - like模糊匹配"></a>索引的使用 - like模糊匹配</h2><h2 id="索引的使用-全表扫描更快"><a href="#索引的使用-全表扫描更快" class="headerlink" title="索引的使用 - 全表扫描更快"></a>索引的使用 - 全表扫描更快</h2><h2 id="索引的使用-NULL值的判定"><a href="#索引的使用-NULL值的判定" class="headerlink" title="索引的使用 - NULL值的判定"></a>索引的使用 - NULL值的判定</h2><h2 id="索引的使用-in和not-in"><a href="#索引的使用-in和not-in" class="headerlink" title="索引的使用 - in和not in"></a>索引的使用 - in和not in</h2><h2 id="索引的使用-单列索引与复合索引选择"><a href="#索引的使用-单列索引与复合索引选择" class="headerlink" title="索引的使用 - 单列索引与复合索引选择"></a>索引的使用 - 单列索引与复合索引选择</h2><h2 id="索引的使用-查看索引使用情况"><a href="#索引的使用-查看索引使用情况" class="headerlink" title="索引的使用 - 查看索引使用情况"></a>索引的使用 - 查看索引使用情况</h2><h2 id="SQL优化-大批量插入数据"><a href="#SQL优化-大批量插入数据" class="headerlink" title="SQL优化 - 大批量插入数据"></a>SQL优化 - 大批量插入数据</h2><h2 id="SQL优化-insert优化"><a href="#SQL优化-insert优化" class="headerlink" title="SQL优化 - insert优化"></a>SQL优化 - insert优化</h2><h2 id="SQL优化-orderby优化"><a href="#SQL优化-orderby优化" class="headerlink" title="SQL优化 - orderby优化"></a>SQL优化 - orderby优化</h2><h2 id="SQL优化-group-by优化"><a href="#SQL优化-group-by优化" class="headerlink" title="SQL优化 - group by优化"></a>SQL优化 - group by优化</h2><h2 id="SQL优化-子查询优化"><a href="#SQL优化-子查询优化" class="headerlink" title="SQL优化 - 子查询优化"></a>SQL优化 - 子查询优化</h2><h2 id="SQL优化-or优化"><a href="#SQL优化-or优化" class="headerlink" title="SQL优化 - or优化"></a>SQL优化 - or优化</h2><h2 id="SQL优化-limit优化"><a href="#SQL优化-limit优化" class="headerlink" title="SQL优化 - limit优化"></a>SQL优化 - limit优化</h2><h2 id="SQL优化-索引提示"><a href="#SQL优化-索引提示" class="headerlink" title="SQL优化 - 索引提示"></a>SQL优化 - 索引提示</h2><h2 id="今日内容2"><a href="#今日内容2" class="headerlink" title="今日内容2"></a>今日内容2</h2><h2 id="应用优化"><a href="#应用优化" class="headerlink" title="应用优化"></a>应用优化</h2><h2 id="查询缓存-概述及流程"><a href="#查询缓存-概述及流程" class="headerlink" title="查询缓存 - 概述及流程"></a>查询缓存 - 概述及流程</h2><h2 id="查询缓存-配置参数"><a href="#查询缓存-配置参数" class="headerlink" title="查询缓存 - 配置参数"></a>查询缓存 - 配置参数</h2><h2 id="查询缓存-开启查询缓存"><a href="#查询缓存-开启查询缓存" class="headerlink" title="查询缓存 - 开启查询缓存"></a>查询缓存 - 开启查询缓存</h2><h2 id="查询缓存-SELECT选项"><a href="#查询缓存-SELECT选项" class="headerlink" title="查询缓存 - SELECT选项"></a>查询缓存 - SELECT选项</h2><h2 id="查询缓存-失效场景"><a href="#查询缓存-失效场景" class="headerlink" title="查询缓存 - 失效场景"></a>查询缓存 - 失效场景</h2><h2 id="内存优化-优化原则"><a href="#内存优化-优化原则" class="headerlink" title="内存优化 - 优化原则"></a>内存优化 - 优化原则</h2><h2 id="内存优化-MyISAM内存优化"><a href="#内存优化-MyISAM内存优化" class="headerlink" title="内存优化 - MyISAM内存优化"></a>内存优化 - MyISAM内存优化</h2><h2 id="内存优化-InnoDB内存优化"><a href="#内存优化-InnoDB内存优化" class="headerlink" title="内存优化 - InnoDB内存优化"></a>内存优化 - InnoDB内存优化</h2><h2 id="并发参数调整"><a href="#并发参数调整" class="headerlink" title="并发参数调整"></a>并发参数调整</h2><h2 id="锁-锁的概述及分类"><a href="#锁-锁的概述及分类" class="headerlink" title="锁 - 锁的概述及分类"></a>锁 - 锁的概述及分类</h2><h2 id="锁-MySQL对锁的支持"><a href="#锁-MySQL对锁的支持" class="headerlink" title="锁 - MySQL对锁的支持"></a>锁 - MySQL对锁的支持</h2><h2 id="锁-MyISAM表锁-读锁"><a href="#锁-MyISAM表锁-读锁" class="headerlink" title="锁 - MyISAM表锁 - 读锁"></a>锁 - MyISAM表锁 - 读锁</h2><h2 id="锁-MyISAM表锁-写锁"><a href="#锁-MyISAM表锁-写锁" class="headerlink" title="锁 - MyISAM表锁 - 写锁"></a>锁 - MyISAM表锁 - 写锁</h2><h2 id="锁-MyISAM表锁-小结"><a href="#锁-MyISAM表锁-小结" class="headerlink" title="锁 - MyISAM表锁 - 小结"></a>锁 - MyISAM表锁 - 小结</h2><h2 id="锁-MyISAM表锁-查看锁争用情况"><a href="#锁-MyISAM表锁-查看锁争用情况" class="headerlink" title="锁 - MyISAM表锁 - 查看锁争用情况"></a>锁 - MyISAM表锁 - 查看锁争用情况</h2><h2 id="锁-InnoDB行锁-介绍及背景知识"><a href="#锁-InnoDB行锁-介绍及背景知识" class="headerlink" title="锁 - InnoDB行锁 - 介绍及背景知识"></a>锁 - InnoDB行锁 - 介绍及背景知识</h2><h2 id="锁-InnoDB行锁-类型"><a href="#锁-InnoDB行锁-类型" class="headerlink" title="锁 - InnoDB行锁 - 类型"></a>锁 - InnoDB行锁 - 类型</h2><h2 id="锁-InnoDB行锁-行锁升级为表锁"><a href="#锁-InnoDB行锁-行锁升级为表锁" class="headerlink" title="锁 - InnoDB行锁 - 行锁升级为表锁"></a>锁 - InnoDB行锁 - 行锁升级为表锁</h2><h2 id="锁-InnoDB行锁-间隙锁危害"><a href="#锁-InnoDB行锁-间隙锁危害" class="headerlink" title="锁 - InnoDB行锁 - 间隙锁危害"></a>锁 - InnoDB行锁 - 间隙锁危害</h2><h2 id="锁-InnoDB行锁-争用情况查看"><a href="#锁-InnoDB行锁-争用情况查看" class="headerlink" title="锁 - InnoDB行锁 - 争用情况查看"></a>锁 - InnoDB行锁 - 争用情况查看</h2><h2 id="锁-InnoDB行锁-总结"><a href="#锁-InnoDB行锁-总结" class="headerlink" title="锁 - InnoDB行锁 - 总结"></a>锁 - InnoDB行锁 - 总结</h2><h2 id="SQL技巧-SQL执行顺序及正则表达式"><a href="#SQL技巧-SQL执行顺序及正则表达式" class="headerlink" title="SQL技巧 - SQL执行顺序及正则表达式"></a>SQL技巧 - SQL执行顺序及正则表达式</h2><h2 id="SQL技巧-数字函数与字符串函数"><a href="#SQL技巧-数字函数与字符串函数" class="headerlink" title="SQL技巧 - 数字函数与字符串函数"></a>SQL技巧 - 数字函数与字符串函数</h2><h2 id="SQL技巧-日期函数与聚合函数"><a href="#SQL技巧-日期函数与聚合函数" class="headerlink" title="SQL技巧 - 日期函数与聚合函数"></a>SQL技巧 - 日期函数与聚合函数</h2><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><h2 id="常用工具-mysql"><a href="#常用工具-mysql" class="headerlink" title="常用工具 - mysql"></a>常用工具 - mysql</h2><h2 id="常用工具-mysqladmin"><a href="#常用工具-mysqladmin" class="headerlink" title="常用工具 - mysqladmin"></a>常用工具 - mysqladmin</h2><h2 id="常用工具-mysqlbinlog与mysqldump"><a href="#常用工具-mysqlbinlog与mysqldump" class="headerlink" title="常用工具 - mysqlbinlog与mysqldump"></a>常用工具 - mysqlbinlog与mysqldump</h2><h2 id="常用工具-mysqlimport与source"><a href="#常用工具-mysqlimport与source" class="headerlink" title="常用工具 - mysqlimport与source"></a>常用工具 - mysqlimport与source</h2><h2 id="常用工具-mysqlshow"><a href="#常用工具-mysqlshow" class="headerlink" title="常用工具 - mysqlshow"></a>常用工具 - mysqlshow</h2><h2 id="日志-错误日志"><a href="#日志-错误日志" class="headerlink" title="日志 - 错误日志"></a>日志 - 错误日志</h2><h2 id="日志-二进制日志（statement）"><a href="#日志-二进制日志（statement）" class="headerlink" title="日志 - 二进制日志（statement）"></a>日志 - 二进制日志（statement）</h2><h2 id="日志-二进制日志（row及日志删除）"><a href="#日志-二进制日志（row及日志删除）" class="headerlink" title="日志 - 二进制日志（row及日志删除）"></a>日志 - 二进制日志（row及日志删除）</h2><h2 id="日志-查询日志"><a href="#日志-查询日志" class="headerlink" title="日志 - 查询日志"></a>日志 - 查询日志</h2><h2 id="日志-慢查询日志"><a href="#日志-慢查询日志" class="headerlink" title="日志 - 慢查询日志"></a>日志 - 慢查询日志</h2><h2 id="复制-原理"><a href="#复制-原理" class="headerlink" title="复制 - 原理"></a>复制 - 原理</h2><h2 id="案例-需求及环境准备"><a href="#案例-需求及环境准备" class="headerlink" title="案例 - 需求及环境准备"></a>案例 - 需求及环境准备</h2><h2 id="案例-基本工程导入"><a href="#案例-基本工程导入" class="headerlink" title="案例 - 基本工程导入"></a>案例 - 基本工程导入</h2><h2 id="案例-AOP记录日志"><a href="#案例-AOP记录日志" class="headerlink" title="案例 - AOP记录日志"></a>案例 - AOP记录日志</h2><h2 id="案例-日志查询后端-mapper接口"><a href="#案例-日志查询后端-mapper接口" class="headerlink" title="案例 - 日志查询后端 - mapper接口"></a>案例 - 日志查询后端 - mapper接口</h2><h2 id="案例-日志查询后端-Service-amp-Controller"><a href="#案例-日志查询后端-Service-amp-Controller" class="headerlink" title="案例 - 日志查询后端 - Service&amp;Controller"></a>案例 - 日志查询后端 - Service&amp;Controller</h2><h2 id="案例-日志查询-前端"><a href="#案例-日志查询-前端" class="headerlink" title="案例 - 日志查询 - 前端"></a>案例 - 日志查询 - 前端</h2><h2 id="案例-系统性能优化分析"><a href="#案例-系统性能优化分析" class="headerlink" title="案例 - 系统性能优化分析"></a>案例 - 系统性能优化分析</h2><h2 id="案例-系统性能优化-分页优化"><a href="#案例-系统性能优化-分页优化" class="headerlink" title="案例 - 系统性能优化 - 分页优化"></a>案例 - 系统性能优化 - 分页优化</h2><h2 id="案例-系统性能优化-索引优化"><a href="#案例-系统性能优化-索引优化" class="headerlink" title="案例 - 系统性能优化 - 索引优化"></a>案例 - 系统性能优化 - 索引优化</h2><h2 id="案例-系统性能优化-读写分离概述"><a href="#案例-系统性能优化-读写分离概述" class="headerlink" title="案例 - 系统性能优化 - 读写分离概述"></a>案例 - 系统性能优化 - 读写分离概述</h2><h2 id="案例-系统性能优化-数据源配置"><a href="#案例-系统性能优化-数据源配置" class="headerlink" title="案例 - 系统性能优化 - 数据源配置"></a>案例 - 系统性能优化 - 数据源配置</h2><h2 id="案例-系统性能优化-AOP切换数据源"><a href="#案例-系统性能优化-AOP切换数据源" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源"></a>案例 - 系统性能优化 - AOP切换数据源</h2><h2 id="案例-系统性能优化-AOP切换数据源-测试"><a href="#案例-系统性能优化-AOP切换数据源-测试" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源 - 测试"></a>案例 - 系统性能优化 - AOP切换数据源 - 测试</h2><h2 id="案例-系统性能优化-AOP切换数据源-原理解析"><a href="#案例-系统性能优化-AOP切换数据源-原理解析" class="headerlink" title="案例 - 系统性能优化 - AOP切换数据源 - 原理解析"></a>案例 - 系统性能优化 - AOP切换数据源 - 原理解析</h2><h2 id="案例-系统性能优化-应用优化"><a href="#案例-系统性能优化-应用优化" class="headerlink" title="案例 - 系统性能优化 - 应用优化"></a>案例 - 系统性能优化 - 应用优化</h2>
+<h2 id="优化SQL步骤-SQL执行频率"><a href="#优化SQL步骤-SQL执行频率" class="headerlink" title="优化SQL步骤 - SQL执行频率"></a>优化SQL步骤 - SQL执行频率</h2><p>在应用的开发过程中，由于初期数据量小，开发人员写SQL语句时更重视功能上的实现，但是当应用系统正式上线后，随着生产数据的急剧增长，很多SQL语句开始逐渐显露出性能问题，对生产的影响也越来越大，此时这些有问题的SQL语句就成为整个系统性能的瓶颈，因此必须要对它们进行优化，本章将详细介绍MySQL中优化SQL语句的方法。  </p>
+<p>当面对一个有SQL性能问题的数据库时，应该从何处入手来进行系统的分析，使得能够尽快定位问题SQL并尽快解决问题。  </p>
+<h3 id="查看SQL执行频率"><a href="#查看SQL执行频率" class="headerlink" title="查看SQL执行频率"></a>查看SQL执行频率</h3><p>MySQL客户端连接成功后，通过 show [ session | global ] status 命令可以提供服务器状态信息。<br>show [ session | global ]status 可以根据需要加上参数 “session”或者“global”来显示session级（当前连接）的统计结果和global级（自数据库上次启动至今）的统计结果。<br>如果不写，默认使用参数是“session”。  </p>
+<p>下面的命令显示了当前session中所有统计参数的值：</p>
+<blockquote>
+<p>针对数据库</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">'Com_______'</span>; <span class="comment"># _ 占位字符，匹配的模糊字符 查询级别为session会话级别</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">'Com_______'</span>; <span class="comment"># _ 匹配的模糊字符 查询级别为global全局级别</span></span><br><span class="line"></span><br><span class="line">Com_binlog</span><br><span class="line">Com_commit</span><br><span class="line">Com_delete <span class="comment">#删除的次数</span></span><br><span class="line">Com_insert <span class="comment">#插入的次数</span></span><br><span class="line">Com_repair</span><br><span class="line">Com_select <span class="comment">#查询的次数</span></span><br><span class="line">Com_revoke</span><br><span class="line">Com_signal</span><br><span class="line">Com_update <span class="comment">#修改的次数</span></span><br><span class="line">Com_xa_end</span><br><span class="line"></span><br><span class="line"><span class="comment">#此时查询的为当前连接session的信息，并非为整个数据库全局的统计参数</span></span><br><span class="line"><span class="comment">#如果需要查询全局则：show global status like 'Com_______';</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#通过知道当前数据库当中是以查询为主还是增删改为主；为SQL优化提供借鉴性指标</span></span><br></pre></td></tr></table></figure>
+
+<p>Com_xxx表示每个xxx语句执行的次数，通常比较关心的是以下几个统计参数</p>
+<table>
+  <tr>
+    <th>参数</th>
+    <th>含义</th>
+  </tr>
+  <tr>
+    <td>Com_select</td>
+    <td>执行select操作的次数，一次查询只累加1</td>
+  </tr>
+  <tr>
+    <td>Com_insert</td>
+    <td>执行INSERT操作的次数，对于批量插入的INSERT操作，只累加一次</td>
+  </tr>
+  <tr>
+    <td>Com_update</td>
+    <td>执行UPDATE操作的次数</td>
+  </tr>
+  <tr>
+    <td>Com_delete</td>
+    <td>执行DELETE操作的次数</td>
+  </tr>
+  <tr>
+    <td>Innodb_rows_read</td>
+    <td>select查询返回的行数</td>
+  </tr>
+  <tr>
+    <td>Innodb_rows_inserted</td>
+    <td>执行INSERT操作插入的行数</td>
+  </tr>
+  <tr>
+    <td>Innodb_rows_updated</td>
+    <td>执行UPDATE操作更新的行数</td>
+  </tr>
+  <tr>
+    <td>Innodb_rows_deleted</td>
+    <td>执行DELETE操作删除的行数</td>
+  </tr>
+  <tr>
+    <td>Connections</td>
+    <td>视图连接MySQL服务器的次数</td>
+  </tr>
+  <tr>
+    <td>Uptime</td>
+    <td>服务器工作时间</td>
+  </tr>
+  <tr>
+    <td>Slow_queries</td>
+    <td>慢查询的次数</td>
+  </tr>
+</table>
+
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Com_*** : 这些参数对于所有存储引擎的表操作都会进行累计</span><br><span class="line">Innodb_** : 这几个参数只是针对<span class="type">Innodb</span>存储引擎的，累加的算法也略有不同。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>针对InnoDB存储引擎</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">针对于InnoDB：  </span><br><span class="line"><span class="keyword">show</span> <span class="keyword">status</span> <span class="keyword">like</span> <span class="string">'Innodb_rows_%'</span>;<span class="comment"># 此时查询出来的为InnoDB的各个操作所影响的行，数量</span></span><br><span class="line"></span><br><span class="line">Innodb_rows_deleted 2 <span class="comment"># 该存储引擎中删去的行数</span></span><br><span class="line">Innodb_rows_inserted 49<span class="comment"># 该存储引擎中插入的行数</span></span><br><span class="line">Innodb_rows_read 380<span class="comment"># 该存储引擎中读取的行数</span></span><br><span class="line">Innodb_rows_updated 15<span class="comment"># 更新的行数</span></span><br><span class="line"></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="keyword">use</span> demo_01l</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> goods_innodb; <span class="comment"># Innodb_rows_read此时会增加，查询出来的结果集有n条记录，则Innodb_rows_read增加n</span></span><br><span class="line"></span><br><span class="line">Innodb_rows_deleted 2 <span class="comment"># 该存储引擎中删去的行数</span></span><br><span class="line">Innodb_rows_inserted 49<span class="comment"># 该存储引擎中插入的行数</span></span><br><span class="line">Innodb_rows_read 382<span class="comment"># 该存储引擎中读取的行数</span></span><br><span class="line">Innodb_rows_updated 15<span class="comment"># 更新的行数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> goods_innodb <span class="keyword">set</span> <span class="keyword">name</span> =<span class="string">'Meta30'</span>; <span class="comment"># Innodb_rows_update此时会增加；修改影响n条记录，则Innodb_rows_update增加n;</span></span><br><span class="line"></span><br><span class="line">Innodb_rows_deleted 2 <span class="comment"># 该存储引擎中删去的行数</span></span><br><span class="line">Innodb_rows_inserted 49<span class="comment"># 该存储引擎中插入的行数</span></span><br><span class="line">Innodb_rows_read 382<span class="comment"># 该存储引擎中读取的行数</span></span><br><span class="line">Innodb_rows_updated 17<span class="comment"># 更新的行数</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="优化SQL步骤-定位低效SQL"><a href="#优化SQL步骤-定位低效SQL" class="headerlink" title="优化SQL步骤 - 定位低效SQL"></a>优化SQL步骤 - 定位低效SQL</h2><p>可以通过以下两种方式定位执行效率较低的SQL语句。  </p>
+<ul>
+<li>慢查询日志：通过慢查询日志定位那些执行效率较低的SQL语句，用–log-slow-queries[ =file_name ]选项启动时，mysqld写一个包含所有执行时间超过long_query_time秒的SQL语句的日志文件。</li>
+<li>show processlist：慢查询日志在查询结束以后才记录，所以在应该用反映执行效率出现问题的时候查询慢日志并不能定位问题，可以使用show processlist命令查看当前MySQL在进行的线程，包括线程的状态、是否锁表等，可以实时地查看SQL的执行情况，同时对一些锁表操作进行优化。(实时)  </li>
+</ul>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">show processlist;</span><br><span class="line"></span><br><span class="line"><span class="meta">#（1）id列：用户登录mysql时，系统分配的“connection_id”，可以使用函数connection_id()查看；</span></span><br><span class="line"><span class="meta">#（2）user列：显示当前用户，如果不是root，这个命令就只显示用户权限范围的sql语句；</span></span><br><span class="line"><span class="meta">#（3）host列：显示这个语句是从哪个ip的哪个端口上发的，可以用来跟踪出现问题语句的用户；</span></span><br><span class="line"><span class="meta">#（4）db列：显示这个进程目前连接的是哪个数据库；</span></span><br><span class="line"><span class="meta">#（5）command列：显示当前连接的执行命令，一般取值为休眠（sleep）、查询（query）、连接（connect）等；</span></span><br><span class="line"><span class="meta">#（6）time列，显示这个状态持续的时间，单位是秒；</span></span><br><span class="line"><span class="meta">#（7）state列，显示使用当前连接的sql语句的状态，很重要的列。state描述的是语句执行中的某个状态。一个sql语句，以查询为例，可能需要经过copying to tmp table， sorting result， sending data等状态才可以完成。  </span></span><br><span class="line"><span class="meta">#（8）info列，显示这个sql语句，是判断问题语句的一个重要依据。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="优化SQL步骤-explain指令介绍"><a href="#优化SQL步骤-explain指令介绍" class="headerlink" title="优化SQL步骤 - explain指令介绍"></a>优化SQL步骤 - explain指令介绍</h2><p>通过以上步骤查询到效率低的SQL语句后，可以通过EXPLAIN或者DESC命令获取MySQL如何执行SELECT语句的信息，包括SELECT语句执行过程中表如何连接和连接的顺序。  </p>
+<p>查询SQL语句的执行计划：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>tb_item</td>
+    <td>const</td>
+    <td>PRIMARY</td>
+    <td>PRIMARY</td>
+    <td>4</td>
+    <td>const</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+</table>
+
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> <span class="built_in">title</span>=<span class="string">'阿尔卡特（OT-979）冰川白 联通3G手机3'</span>;</span><br></pre></td></tr></table></figure>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>tb_item</td>
+    <td>ALL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>9816098</td>
+    <td>Using where</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <th>字段</th>
+    <th>含义</th>
+  </tr>
+  <tr>
+    <td>id</td>
+    <td>select查询的序列号，是一组数字，表示的是查询中select子句或者是操作表的顺序。（与表结构执行的顺序有关系）</td>
+  </tr>
+  <tr>
+    <td>select_type</td>
+    <td>表示SELECT的类型，常见的取值有SIMPLE（简单表，即不使用表连接或者是子查询）、PRIMARY（主查询，即外层的查询）、UNION（UNION中的第二个或者后面的查询语句）、SUBQUERY（子查询中的第一个SELECT）等</td>
+  </tr>
+  <tr>
+    <td>table</td>
+    <td>输出结果集的表（当前输出的数据与哪一张表有关）</td>
+  </tr>
+  <tr>
+    <td>type</td>
+    <td>表示表的连接类型，性能由好到差的连接类型为（system---->const---->eq_ref------>ref------->ref_or_null------>index_merge------>index_subquery------->range------>index------>all）</td>
+  </tr>
+  <tr>
+    <td>possible_keys</td>
+    <td>表示查询时，可能使用的索引。</td>
+  </tr>
+  <tr>
+    <td>key</td>
+    <td>表示实际使用的索引</td>
+  </tr>
+  <tr>
+    <td>key_len</td>
+    <td>索引字段的长度</td>
+  </tr>
+  <tr>
+    <td>ref</td>
+    <td>引用</td>
+  </tr>
+  <tr>
+    <td>rows</td>
+    <td>扫描行的数量</td>
+  </tr>
+  <tr>
+    <td>extra</td>
+    <td>执行情况的说明和描述，额外的内容，前面几个字段当中没有表述清楚的，在这个字段当中表述出来</td>
+  </tr>
+</table>
+
+<blockquote>
+<p>explain 用来查看SQL语句的执行计划。</p>
+</blockquote>
+<h2 id="优化SQL步骤-explain之id"><a href="#优化SQL步骤-explain之id" class="headerlink" title="优化SQL步骤 - explain之id"></a>优化SQL步骤 - explain之id</h2><p><strong>环境准备</strong></p>
+<p>用户表、角色表、用户角色表（多对多关系）  </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE <span class="string">'t_role'</span>(</span><br><span class="line">  <span class="string">'id'</span> varchar(32) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">'role_name'</span> varchar(255)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">'role_code'</span> varchar(255)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">'description'</span> varchar(255)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY KEY (<span class="string">'id'</span>),</span><br><span class="line">  UNIQUE KEY <span class="string">'union_role_name'</span> (<span class="string">'role_name'</span>)</span><br><span class="line">)<span class="attribute">ENGINE</span>=InnoDB<span class="built_in"> DEFAULT </span><span class="attribute">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line">CREATE TABLE <span class="string">'t_user'</span>(</span><br><span class="line">  <span class="string">'id'</span> varchar(32) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">'username'</span> varchar(45)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">'name'</span> varchar(45)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">'password'</span> varchar(96)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY KEY (<span class="string">'id'</span>),</span><br><span class="line">  UNIQUE KEY <span class="string">'union_user_username'</span> (<span class="string">'user_name'</span>)</span><br><span class="line">)<span class="attribute">ENGINE</span>=InnoDB<span class="built_in"> DEFAULT </span><span class="attribute">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CREATE TABLE <span class="string">'user_role'</span>(</span><br><span class="line">  <span class="string">'id'</span> int(11) <span class="keyword">NOT</span> <span class="literal">NULL</span> autoincrement,</span><br><span class="line">  <span class="string">'user_id'</span> varchar(32)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">'role_id'</span> varchar(32)<span class="built_in"> DEFAULT </span><span class="literal">NULL</span>,</span><br><span class="line">  PRIMARY KEY (<span class="string">'id'</span>),</span><br><span class="line">  KEY <span class="string">'fk_ur_user_id'</span>(<span class="string">'user_id'</span>),</span><br><span class="line">  KEY <span class="string">'fk_ur_role_id'</span>(<span class="string">'role_id'</span>),</span><br><span class="line">  CONSTRAINT <span class="string">'fk_ur_role_id'</span> FOREIGN KEY (<span class="string">'role_id'</span>) REFERENCES <span class="string">'t_role'</span> (<span class="string">'id'</span>) ON DELETE <span class="literal">NO</span> ACTION ON UPDATE <span class="literal">NO</span> ACTION,</span><br><span class="line">  CONSTRAINT <span class="string">'fk_ur_user_id'</span> FOREIGN KEY (<span class="string">'user_id'</span>) REFERENCES <span class="string">'t_user'</span> (<span class="string">'id'</span>) ON DELETE <span class="literal">NO</span> ACTION ON UPDATE <span class="literal">NO</span> ACTION</span><br><span class="line">)<span class="attribute">ENGINE</span>=InnoDB<span class="built_in"> DEFAULT </span><span class="attribute">CHARSET</span>=utf8;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入用戶数据</span></span><br><span class="line">insert into <span class="string">'t_user'</span>(<span class="string">'id'</span>,<span class="string">'username'</span>,<span class="string">'password'</span>,<span class="string">'name'</span>) values(<span class="string">'1'</span>,<span class="string">'老王'</span>,<span class="string">'xxxxxyyyyyyy'</span>,<span class="string">'超级管理员'</span>);</span><br><span class="line">insert into <span class="string">'t_user'</span>(<span class="string">'id'</span>,<span class="string">'username'</span>,<span class="string">'password'</span>,<span class="string">'name'</span>) values(<span class="string">'2'</span>,<span class="string">'老李'</span>,<span class="string">'xxxxxyyyyyyyzzzzz'</span>,<span class="string">'系统管理员'</span>);</span><br><span class="line">insert into <span class="string">'t_user'</span>(<span class="string">'id'</span>,<span class="string">'username'</span>,<span class="string">'password'</span>,<span class="string">'name'</span>) values(<span class="string">'3'</span>,<span class="string">'老头子'</span>,<span class="string">'xxxxxyyyytyyyzzzzz'</span>,<span class="string">'学生1'</span>);</span><br><span class="line">insert into <span class="string">'t_user'</span>(<span class="string">'id'</span>,<span class="string">'username'</span>,<span class="string">'password'</span>,<span class="string">'name'</span>) values(<span class="string">'4'</span>,<span class="string">'老婆子'</span>,<span class="string">'xxxxxyywyyyyyzzzzz'</span>,<span class="string">'学生2'</span>);</span><br><span class="line">insert into <span class="string">'t_user'</span>(<span class="string">'id'</span>,<span class="string">'username'</span>,<span class="string">'password'</span>,<span class="string">'name'</span>) values(<span class="string">'5'</span>,<span class="string">'super'</span>,<span class="string">'xxxxxyyfyyyyyzzzzz'</span>,<span class="string">'学生3'</span>);</span><br><span class="line">insert into <span class="string">'t_user'</span>(<span class="string">'id'</span>,<span class="string">'username'</span>,<span class="string">'password'</span>,<span class="string">'name'</span>) values(<span class="string">'6'</span>,<span class="string">'admin'</span>,<span class="string">'xxxxxyyyyyyyzzzzze'</span>,<span class="string">'学生4'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入角色数据</span></span><br><span class="line"><span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line"><span class="comment"># 插入用户角色数据</span></span><br><span class="line"><span class="built_in">..</span><span class="built_in">..</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>explain当中的id字段</strong></p>
+<p>id字段是select查询的序号(并不是自增，控制表结构的执行顺序)，是一组数字，表示是的是处查询中执行select子句或者是操作表的顺序，id情况有三种：<br>（1）<strong>id相同表示加载表的顺序是从上到下</strong>  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_role r,t_user u,user_role ur <span class="keyword">where</span> r.id=ur.role_id <span class="keyword">and</span> u.id=ur.user_id;<span class="comment"># 多表联查</span></span><br></pre></td></tr></table></figure>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>r</td>
+    <td>PRIMARY</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>5</td>
+    <td>NULL</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>ur</td>
+    <td>ref</td>
+    <td>fk_ur_user_id,fk_ur_role_id</td>
+    <td>fk_ur_role_id</td>
+    <td>99</td>
+    <td>db03.r.id</td>
+    <td>1</td>
+    <td>Using where</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>u</td>
+    <td>eq_ref</td>
+    <td>PRIMARY</td>
+    <td>PRIMARY</td>
+    <td>98</td>
+    <td>db.ur.user_id</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+</table>
+
+<p>（2）<strong>id不同id值越大，优先级越高，越先被执行</strong>  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_role <span class="keyword">WHERE</span> <span class="keyword">id</span>=</span><br><span class="line">(</span><br><span class="line">  <span class="keyword">SELECT</span> role_id <span class="keyword">FROM</span> user_role <span class="keyword">WHERE</span> user_id=</span><br><span class="line">  (</span><br><span class="line">    <span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">FROM</span> t_user <span class="keyword">WHERE</span> username=<span class="string">'stu1'</span></span><br><span class="line">  )</span><br><span class="line">)<span class="comment"># 嵌套子查询</span></span><br></pre></td></tr></table></figure>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>PRIMARY</td>
+    <td>t_role</td>
+    <td>const</td>
+    <td>PRIMARY</td>
+    <td>PRIMARY</td>
+    <td>98</td>
+    <td>const</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>SUBQUERY</td>
+    <td>user_role</td>
+    <td>ref</td>
+    <td>fk_ur_user_id</td>
+    <td>fk_ur_user_id</td>
+    <td>99</td>
+    <td>const</td>
+    <td>1</td>
+    <td>Using where</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>SUBQUERY</td>
+    <td>t_user</td>
+    <td>const</td>
+    <td>unique_user_username</td>
+    <td>unique_user_username</td>
+    <td>137</td>
+    <td>const</td>
+    <td>1</td>
+    <td>Using index</td>
+  </tr>
+</table>
+
+<p>（3）<strong>id有相同，也有不同，同时存在。id相同的可以认为是一组，从上往下顺序执行；在所有的组中，id的值越大，优先级越高，越先执行。</strong>  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXPLAIN</span> <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_role r,</span><br><span class="line">(</span><br><span class="line">  <span class="keyword">SELECT</span> * <span class="keyword">FROM</span> user_role ur <span class="keyword">WHERE</span> ur.<span class="string">'user_id'</span>=<span class="string">'2'</span></span><br><span class="line">) a  </span><br><span class="line"><span class="keyword">WHERE</span> r.id=a.role_id;  </span><br><span class="line"><span class="comment">#三表查询又连接了一个子查询</span></span><br></pre></td></tr></table></figure>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>PRIMARY</td>
+    <td>< derived2></td>
+    <td>ALL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>2</td>
+    <td>Using where</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>PRIMARY</td>
+    <td>r</td>
+    <td>eq_ref</td>
+    <td>PRIMARY</td>
+    <td>PRIMARY</td>
+    <td>98</td>
+    <td>a.role_id</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>DERIVED</td>
+    <td>ur</td>
+    <td>ref</td>
+    <td>fk_ur_user_id</td>
+    <td>fk_ur_user_id</td>
+    <td>99</td>
+    <td>const</td>
+    <td>1</td>
+    <td>Using index condition</td>
+  </tr>
+</table>
+
+<h2 id="优化SQL步骤-explain之select-type"><a href="#优化SQL步骤-explain之select-type" class="headerlink" title="优化SQL步骤 - explain之select_type"></a>优化SQL步骤 - explain之select_type</h2><p><strong>explain之select_type</strong><br>表示SELECT的类型，常见的取值，如下表所示（从上往下，效率越来越低）：  </p>
+<table>
+  <tr>
+    <th>select_type</th>
+    <th>含义</th>
+  </tr>
+  <tr>
+    <td>SIMPLE</td>
+    <td>简单的select查询，查询中不包含子查询或者UNION。</td>
+  </tr>
+  <tr>
+    <td>PRIMARY</td>
+    <td>查询中若包含任何复杂的子查询，最外层查询标记为该标识。</td>
+  </tr>
+  <tr>
+    <td>SUBQUERY</td>
+    <td>在SELECT或者WHERE列表中包含了子查询。</td>
+  </tr>
+  <tr>
+    <td>DERIVED</td>
+    <td>在FROM列表中包含的子查询，被标记为DERIVED（衍生）MYSQL或递归执行这些子查询，把结果放在临时表中。</td>
+  </tr>
+  <tr>
+    <td>UNION</td>
+    <td>若第二个SELECT出现在UNION之后，则标记为UNION；若UNION包含在FROM子句的子查询中，外层SELECT将标记为：DERIVED</td>
+  </tr>
+  <tr>
+    <td>UNION RESULT</td>
+    <td>从UNION表获取结果的SELECT</td>
+  </tr>
+</table>
+
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_item;</span><br><span class="line"># SIMPLE  </span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=(<span class="keyword">select</span> id <span class="keyword">from</span> user_role <span class="keyword">where</span> role_id=<span class="string">'9'</span>);  </span><br><span class="line"># <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id： <span class="keyword">PRIMARY</span> ；  </span><br><span class="line">#(<span class="keyword">select</span> id <span class="keyword">from</span> user_role <span class="keyword">where</span> role_id=<span class="string">'9'</span>)：SUBQUERY  </span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> a.* <span class="keyword">from</span> (<span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id <span class="keyword">in</span> (<span class="string">'1'</span>,<span class="string">'2'</span>)) a;</span><br><span class="line"># <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id <span class="keyword">in</span> (<span class="string">'1'</span>,<span class="string">'2'</span>): <span class="keyword">DERIVED</span>；存储至衍生的临时表</span><br><span class="line"># <span class="keyword">select</span> a.* <span class="keyword">from</span> ： <span class="keyword">PRIMARY</span>  derived2指的是<span class="keyword">derived</span>指的是衍生的表a，<span class="number">2</span>则指的是id，执行操作表顺序字段；</span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=<span class="string">'1'</span> <span class="keyword">union</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=<span class="string">'2'</span>;</span><br><span class="line">#<span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=<span class="string">'1'</span>: <span class="keyword">PRIMARY</span></span><br><span class="line">#<span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=<span class="string">'2'</span> ： <span class="keyword">UNION</span></span><br><span class="line"># <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=<span class="string">'1'</span>的结果  &amp;&amp;  <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=<span class="string">'2'</span>的结果联合起来： <span class="keyword">UNION</span> RESULT</span><br></pre></td></tr></table></figure>
+
+<h2 id="优化SQL步骤-explain之table-、type"><a href="#优化SQL步骤-explain之table-、type" class="headerlink" title="优化SQL步骤 - explain之table 、type"></a>优化SQL步骤 - explain之table 、type</h2><p><strong>explain之table</strong><br>展示这一行的数据是关于哪一张表的；  </p>
+<p><strong>explain之type</strong><br>type显示的是访问类型，是较为重要的一个指标，可取值为：  </p>
+<table>
+  <tr>
+    <th>type</th>
+    <th>含义</th>
+  </tr>
+  <tr>
+    <td>NULL</td>
+    <td>MySQL不访问任何表，索引，直接返回结果</td>
+  </tr>
+  <tr>
+    <td>system</td>
+    <td>表只有一行记录（等同于系统表），这是const类型的特例，一般不会出现</td>
+  </tr>
+  <tr>
+    <td>const</td>
+    <td>表示通过索引一次就找到了，const用于比较primary key或者unique索引。因为只匹配一行数据，索引很快。如将主键置于where列表中，MySQL就能将该查询转换成一个常量。(根据主键或者唯一索引进行查询)</td>
+  </tr>
+  <tr>
+    <td>eq_ref</td>
+    <td>类似ref，区别在于使用的是唯一索引，使用主键的关联查询，关联查询出的记录只有一条。常见于主键或唯一索引扫描</td>
+  </tr>
+  <tr>
+    <td>ref</td>
+    <td>非唯一性索引扫描，返回皮诶某个单独值的所有行。本质上也是野种索引访问，返回所有匹配某个单独值的所有行（多个）</td>
+  </tr>
+  <tr>
+    <td>range</td>
+    <td>只检索给定返回的行，使用一个索引来选择行。where之后出现between，<，>，in等操作</，></td>
+  </tr>
+  <tr>
+    <td>index</td>
+    <td>index与ALL的区别为index类型只是遍历了索引树，通常比ALL快，ALL是遍历数据文件。</td>
+  </tr>
+  <tr>
+    <td>all</td>
+    <td>将遍历全表以找到匹配的行</td>
+  </tr>
+</table>
+
+<p><strong>type为NULL</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> now(); # 查询当前时间(查询效率非常高) ： <span class="keyword">type</span>-&gt;<span class="keyword">NULL</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例：</p>
+</blockquote>
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>No tables used</td>
+  </tr>
+</table>
+
+<p><strong>type为system</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> (<span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> id=<span class="string">'1'</span>) a;： <span class="keyword">type</span>-&gt;<span class="keyword">system</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例：</p>
+</blockquote>
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>PRIMARY</td>
+    <td>< derived2></td>
+    <td>system</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>DERIVED</td>
+    <td>t_user</td>
+    <td>const</td>
+    <td>PRIMARY</td>
+    <td>PRIMARY</td>
+    <td>98</td>
+    <td>const</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+</table>
+
+<p><strong>type为const</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">id</span>=<span class="string">'1'</span>;<span class="comment"># 根据主键查询返回一条记录：type-&gt;const</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例：</p>
+</blockquote>
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>t_user</td>
+    <td>const</td>
+    <td>PRIMARY</td>
+    <td>PRIMARY</td>
+    <td>98</td>
+    <td>const</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+</table>
+
+<p><strong>type为const</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> username=<span class="string">'stu1'</span>;<span class="comment">#根据唯一索引查询返回一条记录：type-&gt;const</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例：</p>
+</blockquote>
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>t_user</td>
+    <td>const</td>
+    <td>unique_user_username</td>
+    <td>unique_user_username</td>
+    <td>137</td>
+    <td>const</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+</table>
+
+<p><strong>type为eq_ref</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_user;//id有1、2、3、4、5、6</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_role;//id有10、5、7、8、9</span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user u ,t_role r <span class="keyword">where</span> u.id=r.id;<span class="comment">#业务逻辑层面不符合，只是数据库硬性查询（强行关联）出一个type为eq_ref的示例而已</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例：</p>
+</blockquote>
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>r</td>
+    <td>ALL</td>
+    <td>PRIMARY</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>NULL</td>
+    <td>5</td>
+    <td>NULL</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>u</td>
+    <td>eq_ref</td>
+    <td>PRIMARY</td>
+    <td>PRIMARY</td>
+    <td>98</td>
+    <td>demo_02.r.id</td>
+    <td>1</td>
+    <td>NULL</td>
+  </tr>
+</table>
+
+<p><strong>type为ref</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">index</span> <span class="keyword">from</span> t_user;<span class="comment">#查询t_user表当中的索引</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> idx_user_name <span class="keyword">on</span> t_user(<span class="string">'name'</span>);</span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'a'</span>;<span class="comment">#根据非唯一性索引进行查询，返回的记录只有一条</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例：</p>
+</blockquote>
+<table>
+  <tr>
+    <th>id</th>
+    <th>select_type</th>
+    <th>table</th>
+    <th>type</th>
+    <th>possible_keys</th>
+    <th>key</th>
+    <th>key_len</th>
+    <th>ref</th>
+    <th>rows</th>
+    <th>Extra</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>SIMPLE</td>
+    <td>t_user</td>
+    <td>ref</td>
+    <td>idx_user_name</td>
+    <td>idx_user_name</td>
+    <td>137</td>
+    <td>const</td>
+    <td>1</td>
+    <td>Using index condition</td>
+  </tr>
+</table>
+
+<p><strong>type为range(范围查询)</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span>.（between <span class="keyword">and</span>）、（&gt;、&lt;、&gt;=、&lt;=）<span class="built_in">..</span>.</span><br></pre></td></tr></table></figure>
+
+<p><strong>type为index(指的即索引)</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user;//查询所有数据，进行全表扫描，即到数据文件当中进行读取；<span class="keyword">type</span>为<span class="keyword">ALL</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> id <span class="keyword">from</span> t_user;//此时<span class="keyword">type</span>为<span class="keyword">index</span>；因为id为主键，主键则走主键索引；</span><br></pre></td></tr></table></figure>
+
+<p>结果值从最好到最坏依次是：  </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">NULL</span> &gt;<span class="built_in"> system </span>&gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; all</span><br></pre></td></tr></table></figure>
+
+<h2 id="优化SQL步骤-explain之key-rows-extra"><a href="#优化SQL步骤-explain之key-rows-extra" class="headerlink" title="优化SQL步骤 - explain之key rows extra"></a>优化SQL步骤 - explain之key rows extra</h2><p><strong>explain之key</strong>  </p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">possible_keys:</span>显示可能应用在这张表的索引，一个或者多个；</span><br><span class="line"><span class="symbol">key:</span>实际使用的索引，如果为NULL，则没有使用索引；</span><br><span class="line">key_len：表示索引中使用的字节数，该值为索引字段最大可能长度，并非实际使用长度，在不损失精确性的前提下，长度越短越好（越短执行效率越高）；</span><br></pre></td></tr></table></figure>
+
+<p><strong>explain之rows</strong>  </p>
+<p>扫描行的数量。  </p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="type">name</span> =<span class="string">'a'</span>;#<span class="type">name</span>建了索引，所以查询<span class="keyword">rows</span>为<span class="number">1</span>行</span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">where</span> <span class="keyword">password</span>=<span class="string">'aaa'</span>;# <span class="keyword">password</span>没有建立索引，整表扫描；<span class="keyword">rows</span>即<span class="keyword">SQL</span>语句查询时所查询的行数；</span><br></pre></td></tr></table></figure>
+
+<p><strong>explain之extra</strong>  </p>
+<p>其他的额外的执行计划信息，在该列展示。<br>（using_filesort以及using_temporary非常耗性能；需要优化using_filesort以及using_temporary；保持using_index）</p>
+<table>
+  <tr>
+    <th>extra</th>
+    <th>含义</th>
+  </tr>
+  <tr>
+    <td>using_filesort</td>
+    <td>说明mysql会对数据使用一个外部的索引排序，而不是按照表内的索引顺序进行读取，称为“文件排序”</td>
+  </tr>
+  <tr>
+    <td>using_temporary</td>
+    <td>使用了临时表保存中间结果，MySQL对查询结果排序时使用临时表。常见于order by 和group by</td>
+  </tr>
+  <tr>
+    <td>using_index</td>
+    <td>表示相应的select操作使用了覆盖索引，避免访问表的数据行，效率不错。</td>
+  </tr>
+</table>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span>;<span class="comment">#按照id进行排序</span></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">password</span>;<span class="comment">#根据文件进行排序；即需要扫描文件当中的内容，然后再去进行排序；效率非常低；这个时候如果需要进行优化的话，可以在password字段上与name一样建立索引；</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">name</span>; <span class="comment">#此时依然是using_filesort根据文件排序</span></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> <span class="keyword">name</span> <span class="keyword">from</span> t_user <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">name</span>;<span class="comment">#此时则使用的是using_index根据索引排序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">name</span>;<span class="comment">#此时extra为null，原因是根据name字段建立了索引</span></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> t_user <span class="keyword">group</span> <span class="keyword">by</span> <span class="keyword">password</span>;<span class="comment">#此时password字段没有建立索引；extra为using temporary；using filesort效率低；</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="优化SQL步骤-show-profile"><a href="#优化SQL步骤-show-profile" class="headerlink" title="优化SQL步骤 - show profile"></a>优化SQL步骤 - show profile</h2><p>MySQL从5.0.37版本开始增加了对 show profiles 和show profile语句的支持。  </p>
+<p>show profiles能够在做SQL优化时帮助了解事件都耗费到哪里去了；  </p>
+<p>通过 have_profiling 参数，能够看到当前MySQL是否支持profile；  </p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> <span class="comment">@@</span>have_profiling;<span class="meta">#系统变量；YES/NO</span></span><br></pre></td></tr></table></figure>
+
+<p>默认 profiling 是关闭的，可以通过set语句在Session级别开启profiling：  </p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="symbol">@profiling</span><span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> <span class="attribute">profiling</span>=1;# 开启profiling开关；0:未开启；1：开启</span><br></pre></td></tr></table></figure>
+
+<p>通过profile，能够更清楚的了解SQL执行的过程；<br>首先，可以执行一系列的操作，如下图所示：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">shwo databases;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> db01;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_user;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tb_item;</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> title=<span class="string">'abc'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">profiles</span>;<span class="comment">#查看之前每一个操作的耗时情况 query_id(当前查询的id)、duration（执行的耗时时间）、query（查询的sql）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># use db01;其实底层即select database();</span></span><br></pre></td></tr></table></figure>
+
+<p>执行完上述命令之后，再执行show profiles指令，来查看SQL语句执行的耗时：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">profiles</span>;<span class="comment"># query_id、duration、query</span></span><br></pre></td></tr></table></figure>
+
+<p>通过 show profile for query query_id 语句可以查看到该SQL执行过程中每个线程的状态和消耗的时间；  </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show<span class="built_in"> profile </span><span class="keyword">for</span> query 6;#6即通过show profiles查询出来的query_id;  status、duration</span><br></pre></td></tr></table></figure>
+
+<table>
+  <tr>
+    <th>status（经历的每一个阶段）</th>
+    <th>duration（每一个阶段的耗时情况）</th>
+  </tr>
+  <tr>
+    <td>starting（开启）</td>
+    <td>0.000046</td>
+  </tr>
+  <tr>
+    <td>checking permissions（校验权限）</td>    <td>...</td>
+  </tr>
+  <tr>
+    <td>opening tables（打开表）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>init（初始化）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>system lock（系统锁）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>optimizing（优化器）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>statistics（统计）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>perparing（准备）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>executing（执行）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>sending data（发送数据）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>end（结束）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>query end（查询结束）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>closing tabls（关闭表）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>freeing itmes（释放其他项）</td>    <td>...</td>
+  </tr>
+    <tr>
+    <td>cleaning up（清除）</td>
+    <td>...</td>
+  </tr>
+</table>
+
+<p>（select count(*) from tb_item；该sql语句的时间都耗费在sending data上了；）  </p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">TIP:  </span></span><br><span class="line"><span class="code">    Sending data 状态表示MySQL线程开始访问数据行并把结果放回给客户端，而不仅仅是返回给客户端。  </span></span><br><span class="line"><span class="code">    由于Sending data 状态下，MySQL线程往往需要做大量的磁盘读取操作，所以经常是整个查询中耗时最长的状态。</span></span><br></pre></td></tr></table></figure>
+
+<p>在获取到最耗时时间的线程状态后，MySQL支持进一步选择all、cpu、block io、context switch、page faults 等明细类型等查看MySQL在使用什么资源上耗费了过高的时间。<br>例如，选择查看CPU的耗费时间：  </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select<span class="built_in"> profile </span>cpu <span class="keyword">for</span> query 6;# status、duration、CPU_user、CPU_System查询到的是id为6的该条sql语句在各个阶段当中cpu的耗费情况；</span><br><span class="line"></span><br><span class="line">select<span class="built_in"> profile </span>all <span class="keyword">for</span> query 6;# status、duration、CPU_user、CPU_system、context_voluntary、context_involuntary、block_ops_in、block_ops_out、<span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过show profile可以分析SQL语句各个阶段的耗时情况</p>
+</blockquote>
+<h2 id="优化SQL步骤-trace工具"><a href="#优化SQL步骤-trace工具" class="headerlink" title="优化SQL步骤 - trace工具"></a>优化SQL步骤 - trace工具</h2><p>mysql的服务端server有一个步骤就是optimizer，优化sql部分；按照mysql当中具体对应的规则对SQL进行优化处理；trace即分析优化器</p>
+<p><strong>trace分析优化器执行计划</strong><br>MySQL5.6提供了对SQL的跟踪 trace，通过trace文件能够进一步了解为什么优化器选择A计划，而不是B计划。  </p>
+<p>打开trace，设置格式为JSON，并设置trace最大能够使用的内存大小，避免解析过程中因为默认内存过小而不能够完整展示。  </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">SET</span> optimizer_trace =<span class="string">'enabled=on'</span>, <span class="attribute">end_markers_in_json</span>=on;# optimizer_trace =<span class="string">'enabled=on'</span>进行开启；<span class="attribute">end_markers_in_json</span>=on 设置格式为JSON</span><br><span class="line"></span><br><span class="line"><span class="builtin-name">set</span> <span class="attribute">optimizer_trace_max_mem_size</span>=1000000;# 日志文件占用内存大小</span><br></pre></td></tr></table></figure>
+
+<p>执行SQL语句：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> <span class="keyword">id</span> &lt; <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<p>最后，检查information_schema.optimizer_trace就可以知道MySQL是如何执行SQL的：  </p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> infomation_schema.optimizer_trace\G;# infomation_schema系统库；optimizer_trace系统库当中的日志表</span><br><span class="line"></span><br><span class="line"># QUERY 查询的SQL语句；<span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> id&lt;<span class="number">4</span>;</span><br><span class="line"># TRACE 跟踪信息；在跟踪信息当中最终<span class="keyword">select</span> * 当中的* 最终解析为tb_item表当中的每一个具体的字段</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引的使用-验证索引提升查询效率"><a href="#索引的使用-验证索引提升查询效率" class="headerlink" title="索引的使用 - 验证索引提升查询效率"></a>索引的使用 - 验证索引提升查询效率</h2><p><strong>索引的使用</strong><br>索引时候数据库优化最常用也是最重要的手段之一，通过索引通常可以帮助用户解决大多数的MySQL的性能优化问题；  </p>
+<p><strong>验证索引提升查询效率</strong><br>在准备的表结构tb_item中，一共存储了300万条记录；  </p>
+<p><strong>A.</strong> 根据ID查询  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> tb_items;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">1888</span>;<span class="comment">#id字段具有主键索引</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">1999</span>\G;</span><br><span class="line"></span><br><span class="line"><span class="comment">#根据title进行精确查询</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> title=<span class="string">'阿尔卡特'</span>;<span class="comment">#查询速度慢，因为title字段没有索引，查询效率低，创建主键即自动生成主键索引；</span></span><br><span class="line"><span class="comment">#查看SQL语句的执行计划：  </span></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> title=<span class="string">'阿尔卡特'</span>\G;</span><br></pre></td></tr></table></figure>
+
+<p>处理方案，针对title字段，创建索引：  </p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> idx_item_title <span class="keyword">on</span> tb_item(<span class="built_in">title</span>);</span><br></pre></td></tr></table></figure>
+
+<p>索引创建完成之后，再次查询：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> title=<span class="string">'阿尔卡特'</span>\G;</span><br><span class="line"><span class="comment"># 创建索引的过程中，mysql在做什么？表tb_item中有300万条记录，那么在创建索引的时候就会对这300万条记录重建索引；所以此时即数据库底层在重建索引；创建完索引之后再进行查询效率则变快；索引是优化查询最有效的方式之一；</span></span><br></pre></td></tr></table></figure>
+
+<p>查询速度很快，接近0s，主要的原因是因为id为主键，有索引；  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_item <span class="keyword">where</span> <span class="keyword">id</span>=<span class="number">1999</span>\G;</span><br></pre></td></tr></table></figure>
+
+<p><strong>准备环境</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="string">'tb_seller'</span>(</span><br><span class="line">  <span class="string">'sellerid'</span> <span class="built_in">varchar</span>(<span class="number">100</span>),</span><br><span class="line">  <span class="string">'name'</span> <span class="built_in">varchar</span>(<span class="number">100</span>),</span><br><span class="line">  <span class="string">'nickname'</span> <span class="built_in">varchar</span>(<span class="number">50</span>),</span><br><span class="line">  <span class="string">'password'</span> <span class="built_in">varchar</span>(<span class="number">60</span>),</span><br><span class="line">  <span class="string">'status'</span> <span class="built_in">varchar</span>(<span class="number">1</span>),</span><br><span class="line">  <span class="string">'address'</span> <span class="built_in">varchar</span>(<span class="number">100</span>),</span><br><span class="line">  <span class="string">'createtime'</span> datetime,</span><br><span class="line">  primary <span class="keyword">key</span>(<span class="string">'sellerid'</span>)</span><br><span class="line">)<span class="keyword">engine</span>=<span class="keyword">innodb</span> <span class="keyword">default</span> <span class="keyword">charset</span>=utf8mb4;</span><br><span class="line"></span><br><span class="line"><span class="comment">#插入记录 导入基本数据</span></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> tb_seller <span class="keyword">values</span> ......</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建联合索引</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">index</span> idx_seller_name_sta_addr <span class="keyword">on</span> tb_seller(<span class="keyword">name</span>,<span class="keyword">status</span>,address);</span><br></pre></td></tr></table></figure>
+
+<p>创建了索引并不是一定会提高效率；创建了索引并且需要合理运用索引才能够提高查询效率；  </p>
+<h2 id="索引的使用-全值匹配"><a href="#索引的使用-全值匹配" class="headerlink" title="索引的使用 - 全值匹配"></a>索引的使用 - 全值匹配</h2><p><strong>避免索引失效</strong>  </p>
+<p>(1) 全值匹配，对索引中所有列都指定具体值。<br>该情况下，索引生效，执行效率提高。  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'小米科技'</span> <span class="keyword">and</span> <span class="keyword">status</span>=<span class="string">'1'</span> <span class="keyword">and</span> address=<span class="string">'北京市'</span>\G;</span><br></pre></td></tr></table></figure>
+
+<h2 id="索引的使用-最左前缀法则"><a href="#索引的使用-最左前缀法则" class="headerlink" title="索引的使用 - 最左前缀法则"></a>索引的使用 - 最左前缀法则</h2><p><strong>避免索引失效</strong>  </p>
+<p>(2)最左前缀法则<br>tb_seller创建了一个复合索引即name、status、address这三个字段；<br>如果索引了多列，要遵守最左前缀法则。<br>指的是查询从索引的最左前列开始，并且不跳过索引中的列。<br>匹配最左前缀法则，走索引：  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">name</span> =<span class="string">'小米科技'</span>;<span class="comment"># key:idx_name_sta_addr； key_len：403</span></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'小米科技'</span> <span class="keyword">and</span> <span class="keyword">status</span>=<span class="string">'1'</span>;<span class="comment"># key:idx_name_sta_addr； key_len：410</span></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'小米科技'</span> <span class="keyword">and</span> <span class="keyword">status</span>=<span class="string">'1'</span> <span class="keyword">and</span> address=<span class="string">'北京市'</span>;<span class="comment"># key:idx_name_sta_addr； key_len：813</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">status</span>=<span class="string">'1'</span> <span class="keyword">and</span> address=<span class="string">'北京市'</span>;<span class="comment"># key:NULL key_len：NULL 此时则不再走索引；因为不再符合最左前缀法则，没有以最左边的列开始；  </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">status</span>=<span class="string">'1'</span> <span class="keyword">and</span> address=<span class="string">'北京市'</span> <span class="keyword">and</span> <span class="keyword">name</span>=<span class="string">'小米科技'</span>;<span class="comment"># key:idx_name_sta_addr； key_len：813 此时是走索引的；与where列表当中字段的先后顺序无关；会检查where条件列表中包不包含最左列；而是与复合索引当中的是否存在有复合索引当中的最左字段；</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'小米科技'</span> <span class="keyword">and</span> address=<span class="string">'北京市'</span> ;<span class="comment">#跳过索引列不走索引; key:idx_sellter_name_sta_addr；key_len: 403；此时索引的长度是403；也就是这是执行 explain select * from tb_seller where name ='小米科技'; 时所走的索引；即后面的 and address='北京市' 并未走索引；</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>违反最左前缀法则，索引失效；<br>需要包含复合索引当中的最左列，并且不能跳过复合索引当中的某一列进行查询否则复合索引失效；</p>
+</blockquote>
+<h2 id="索引的使用-索引失效情况（范围查询、字段运算）"><a href="#索引的使用-索引失效情况（范围查询、字段运算）" class="headerlink" title="索引的使用 - 索引失效情况（范围查询、字段运算）"></a>索引的使用 - 索引失效情况（范围查询、字段运算）</h2><p><strong>避免索引失效</strong>  </p>
+<p>（3）范围查询右边的列，不能使用索引；<br>根据前面的两个字段name、status查询是走索引的，但是最后一个条件address没有用到索引。  </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">explain select * <span class="keyword">from</span> tb_seller where <span class="attribute">name</span>=<span class="string">'小米科技'</span> <span class="keyword">and</span> <span class="attribute">status</span>=<span class="string">'1'</span> <span class="keyword">and</span> <span class="attribute">address</span>=<span class="string">'北京市'</span>;# key:idx_name_sta_addr； key_len：813；此时三个字段name、status、address三个字段都走了索引；  </span><br><span class="line"></span><br><span class="line">explain select * <span class="keyword">from</span> tb_seller where name =<span class="string">'小米科技'</span> <span class="keyword">and</span> status &gt;<span class="string">'1'</span> <span class="keyword">and</span><span class="built_in"> address </span>=<span class="string">'北京市'</span>;# key:idx_name_sta_addr； key_len：410;此时走的索引是name和status字段的索引；而范围查询status&gt;<span class="string">'1'</span>之后的address并没有走索引；  </span><br><span class="line"><span class="comment"># 范围查询之后的索引字段将失效</span></span><br></pre></td></tr></table></figure>
+
+<p>（4）不要在索引列上进行运算操作，索引将失效；  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_seller;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_seller  <span class="keyword">where</span> <span class="keyword">name</span>=<span class="string">'小米科技'</span>;<span class="comment">#此时走索引</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">substring</span>(<span class="keyword">name</span>,<span class="number">3</span>,<span class="number">2</span>)=<span class="string">'科技'</span>;</span><br><span class="line"><span class="keyword">explain</span> <span class="keyword">select</span> * <span class="keyword">from</span> tb_seller <span class="keyword">where</span> <span class="keyword">substring</span>(<span class="keyword">name</span>,<span class="number">3</span>,<span class="number">2</span>)=<span class="string">'科技'</span>;<span class="comment">#此时key为null以及key_len为null；而type为ALL则说明了进行了全表扫描；没有走索引</span></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">（5）字符串不加单引号，会造成索引失效；</span><br></pre></td></tr></table></figure>
+<p>explain select * from tb_seller where name=’科技’ and status=’0’;# 此时key:idx_name_sta_addr；key_len：410；</p>
+<p>explain select * from tb_seller where name=’科技’ and status=0;# 此时key：idx_name_sta_addr；key_len：403；索引长度为403；则说明走的索引为name字段的索引；而status字段的索引并没有走；造成了status=0 该索引字段的失效；当status字段取值没有加单引号时，mysql底层检测到status字段为varchar类型所以会对其没有加单引号的取值进行隐式类型转换；隐式类型转换了之后该status索引字段就失效了；因为底层对该字段进行了运算操作；</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">## 索引的使用 - 覆盖索引</span></span><br><span class="line"></span><br><span class="line">**避免索引失效**  </span><br><span class="line"></span><br><span class="line">（<span class="number">6</span>）尽量使用覆盖索引，避免使用 <span class="keyword">select</span> *  </span><br><span class="line"></span><br><span class="line">尽量使用覆盖索引（只访问索引的查询（索引列完全包含查询列）），减少<span class="keyword">select</span> * ；  </span><br><span class="line"></span><br><span class="line">如果查询列，超出索引列，也会降低性能；</span><br></pre></td></tr></table></figure>
+<p>explain select * from tb_seller where name =’小米科技’;# extra为using index condition指的是：在查询的时候确实用到了name这个字段的索引；但是用到了name这个字段的索引信息之后，在返回数据的时候还需要进行索引回调查询；  </p>
+<p>explain select name , status ,address where name=’小米科技’; # 此时extra为using where ;using index；此时表示的是：可以通过索引进行查询；但是此时并不需要进行回调查询了；原因就在于查询的字段在索引结构当中已经被记录了；所以并不需要去进行回调查询；<br>explain select name , status  where name=’小米科技’;#同上<br>explain select name ,  address where name=’小米科技’;#同上</p>
+<p>explain select name ,  address ,password where name=’小米科技’;#复合索引当中并未包括password字段则此时name索引字段以及address索引字段当中并没有包括password字段的信息，则此时需要去回调查询password字段的信息；即extra为using index_condition</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>TIP:<br>索引回调查询指的是：<br>    using index : 使用覆盖索引的时候就会出现<br>    using where : 在查找使用索引的情况下，需要回表去查询所需的数据<br>    using index condition ：查找使用了索引，但是需要回表查询数据（从索引当中拿到了数据，然后再到表结构当中去拿到该数据对应的一整行数据，因为该name索引字段并没有记录所有的数据，只是记录了那么字段的数据；所以需要回表查询数据；即用了索引还需要回调查询）<br>    using index ; using where : 查找使用了索引，但是需要的数据都在索引列中能找到，索引不需要回表查询数据</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">（<span class="number">7</span>） <span class="keyword">in</span>走索引，<span class="keyword">not</span> <span class="keyword">in</span> 索引失效</span><br><span class="line"></span><br><span class="line">## 索引的使用 - <span class="keyword">or</span>索引失效情况</span><br><span class="line"></span><br><span class="line">**避免索引失效**  </span><br><span class="line">（<span class="number">7</span>）用<span class="keyword">or</span>分隔开的条件，如果<span class="keyword">or</span>前的条件中的列有索引，而后面的列中没有索引，那么涉及的索引都不会被用到；  </span><br><span class="line"></span><br><span class="line">示例：name字段是索引列，而createtime不是索引列，中间是<span class="keyword">or</span>进行连接是不走索引的；</span><br></pre></td></tr></table></figure>
+<p>explain select * from tb_seller where name=’小米科技’ or createtime=’’</p>
+<pre><code>
+## 索引的使用 - like模糊匹配
+
+## 索引的使用 - 全表扫描更快
+
+## 索引的使用 - NULL值的判定
+
+## 索引的使用 - in和not in
+
+## 索引的使用 - 单列索引与复合索引选择
+
+## 索引的使用 - 查看索引使用情况
+
+## SQL优化 - 大批量插入数据
+
+## SQL优化 - insert优化
+
+## SQL优化 - orderby优化
+
+## SQL优化 - group by优化
+
+## SQL优化 - 子查询优化
+
+## SQL优化 - or优化
+
+## SQL优化 - limit优化
+
+## SQL优化 - 索引提示
+
+## 今日内容2
+
+## 应用优化
+
+## 查询缓存 - 概述及流程
+
+## 查询缓存 - 配置参数
+
+## 查询缓存 - 开启查询缓存
+
+## 查询缓存 - SELECT选项
+
+## 查询缓存 - 失效场景
+
+## 内存优化 - 优化原则
+
+## 内存优化 - MyISAM内存优化
+
+## 内存优化 - InnoDB内存优化
+
+## 并发参数调整
+
+## 锁 - 锁的概述及分类
+
+## 锁 - MySQL对锁的支持
+
+## 锁 - MyISAM表锁 - 读锁
+
+## 锁 - MyISAM表锁 - 写锁
+
+## 锁 - MyISAM表锁 - 小结
+
+## 锁 - MyISAM表锁 - 查看锁争用情况
+
+## 锁 - InnoDB行锁 - 介绍及背景知识
+
+## 锁 - InnoDB行锁 - 类型
+
+## 锁 - InnoDB行锁 - 行锁升级为表锁
+
+## 锁 - InnoDB行锁 - 间隙锁危害
+
+## 锁 - InnoDB行锁 - 争用情况查看
+
+## 锁 - InnoDB行锁 - 总结
+
+## SQL技巧 - SQL执行顺序及正则表达式
+
+## SQL技巧 - 数字函数与字符串函数
+
+## SQL技巧 - 日期函数与聚合函数
+
+## 课程内容
+
+## 常用工具 - mysql
+
+## 常用工具 - mysqladmin
+
+## 常用工具 - mysqlbinlog与mysqldump
+
+## 常用工具 - mysqlimport与source
+
+## 常用工具 - mysqlshow
+
+## 日志 - 错误日志
+
+## 日志 - 二进制日志（statement）
+
+## 日志 - 二进制日志（row及日志删除）
+
+## 日志 - 查询日志
+
+## 日志 - 慢查询日志
+
+## 复制 - 原理
+
+## 案例 - 需求及环境准备
+
+## 案例 - 基本工程导入
+
+## 案例 - AOP记录日志
+
+## 案例 - 日志查询后端 - mapper接口
+
+## 案例 - 日志查询后端 - Service&amp;Controller
+
+## 案例 - 日志查询 - 前端
+
+## 案例 - 系统性能优化分析
+
+## 案例 - 系统性能优化 - 分页优化
+
+## 案例 - 系统性能优化 - 索引优化
+
+## 案例 - 系统性能优化 - 读写分离概述
+
+## 案例 - 系统性能优化 - 数据源配置
+
+## 案例 - 系统性能优化 - AOP切换数据源
+
+## 案例 - 系统性能优化 - AOP切换数据源 - 测试
+
+## 案例 - 系统性能优化 - AOP切换数据源 - 原理解析
+
+## 案例 - 系统性能优化 - 应用优化</code></pre>
       
     </div>
     
@@ -2860,7 +3819,7 @@
   <p><span>本文标题:</span>全面深入讲解MySQL数据库优化</a></p>
   <p><span>文章作者:</span>Fsn</a></p>
   <p><span>发布时间:</span>2020年04月24日 - 10:40:04</p>
-  <p><span>最后更新:</span>2020年04月28日 - 14:18:45</p>
+  <p><span>最后更新:</span>2020年05月03日 - 01:29:04</p>
   <p><span>原始链接:</span><a href="/2020/04/24/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%85%A8%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%AE%B2%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" title="全面深入讲解MySQL数据库优化">https://fengshana.github.io/2020/04/24/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%85%A8%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%AE%B2%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/04/24/%E9%9D%A2%E8%AF%95%E9%A2%98/%E5%85%A8%E9%9D%A2%E6%B7%B1%E5%85%A5%E8%AE%B2%E8%A7%A3MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/"  aria-label="复制成功！"></i></span>
   </p>
@@ -3157,7 +4116,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程内容介绍"><span class="nav-number">2.</span> <span class="nav-text">课程内容介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL高级课程简介"><span class="nav-number">2.1.</span> <span class="nav-text">MySQL高级课程简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux上安装MySQL"><span class="nav-number">3.</span> <span class="nav-text">Linux上安装MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Linux安装包"><span class="nav-number">3.1.</span> <span class="nav-text">下载Linux安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL"><span class="nav-number">3.2.</span> <span class="nav-text">安装MySQL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动及登录MySQL"><span class="nav-number">4.</span> <span class="nav-text">启动及登录MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-概述"><span class="nav-number">5.</span> <span class="nav-text">索引 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-优势和劣势"><span class="nav-number">6.</span> <span class="nav-text">索引 - 优势和劣势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构"><span class="nav-number">7.</span> <span class="nav-text">索引 - 索引结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持"><span class="nav-number">7.1.</span> <span class="nav-text">MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构-BTREE"><span class="nav-number">8.</span> <span class="nav-text">索引 - 索引结构 - BTREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构-B-TREE"><span class="nav-number">9.</span> <span class="nav-text">索引 - 索引结构 - B+TREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构-MySQL中的B-Tree"><span class="nav-number">10.</span> <span class="nav-text">索引 - 索引结构 - MySQL中的B+Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引分类"><span class="nav-number">11.</span> <span class="nav-text">索引 - 索引分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引语法"><span class="nav-number">12.</span> <span class="nav-text">索引 - 索引语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建索引"><span class="nav-number">12.1.</span> <span class="nav-text">创建索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看索引"><span class="nav-number">12.2.</span> <span class="nav-text">查看索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除索引"><span class="nav-number">12.3.</span> <span class="nav-text">删除索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALTER指令"><span class="nav-number">12.4.</span> <span class="nav-text">ALTER指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引设计原则"><span class="nav-number">13.</span> <span class="nav-text">索引 - 索引设计原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-创建及修改视图"><span class="nav-number">14.</span> <span class="nav-text">视图 - 创建及修改视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建或者修改视图"><span class="nav-number">14.1.</span> <span class="nav-text">创建或者修改视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-查看及删除视图"><span class="nav-number">15.</span> <span class="nav-text">视图 - 查看及删除视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看视图"><span class="nav-number">15.1.</span> <span class="nav-text">查看视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除视图"><span class="nav-number">15.2.</span> <span class="nav-text">删除视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-概述"><span class="nav-number">16.</span> <span class="nav-text">存储过程 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-创建调用查询删除语法"><span class="nav-number">17.</span> <span class="nav-text">存储过程 - 创建调用查询删除语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建存储过程"><span class="nav-number">17.1.</span> <span class="nav-text">创建存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识小贴士"><span class="nav-number">17.1.1.</span> <span class="nav-text">知识小贴士</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用存储过程"><span class="nav-number">17.2.</span> <span class="nav-text">调用存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看存储过程"><span class="nav-number">17.3.</span> <span class="nav-text">查看存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除存储过程"><span class="nav-number">17.4.</span> <span class="nav-text">删除存储过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-变量"><span class="nav-number">18.</span> <span class="nav-text">存储过程 - 语法 - 变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">18.1.</span> <span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-if判断"><span class="nav-number">19.</span> <span class="nav-text">存储过程 - 语法 - if判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件判断"><span class="nav-number">19.1.</span> <span class="nav-text">if条件判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输入参数"><span class="nav-number">20.</span> <span class="nav-text">存储过程 - 语法 - 输入参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输出参数"><span class="nav-number">21.</span> <span class="nav-text">存储过程 - 语法 - 输出参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-case结构"><span class="nav-number">22.</span> <span class="nav-text">存储过程 - 语法 - case结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-while循环"><span class="nav-number">23.</span> <span class="nav-text">存储过程 - 语法 - while循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-repeat循环"><span class="nav-number">24.</span> <span class="nav-text">存储过程 - 语法 - repeat循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-loop循环"><span class="nav-number">25.</span> <span class="nav-text">存储过程 - 语法 - loop循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#loop语句"><span class="nav-number">25.1.</span> <span class="nav-text">loop语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leave语句"><span class="nav-number">25.2.</span> <span class="nav-text">leave语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标介绍"><span class="nav-number">26.</span> <span class="nav-text">存储过程 - 语法 - 游标介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标基本操作"><span class="nav-number">27.</span> <span class="nav-text">存储过程 - 语法 - 游标基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-循环获取游标"><span class="nav-number">28.</span> <span class="nav-text">存储过程 - 语法 - 循环获取游标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储函数"><span class="nav-number">29.</span> <span class="nav-text">存储函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-介绍"><span class="nav-number">30.</span> <span class="nav-text">触发器 - 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-创建及应用"><span class="nav-number">31.</span> <span class="nav-text">触发器 - 创建及应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建触发器"><span class="nav-number">31.1.</span> <span class="nav-text">创建触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-查看及删除"><span class="nav-number">32.</span> <span class="nav-text">触发器 - 查看及删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除触发器"><span class="nav-number">32.1.</span> <span class="nav-text">删除触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看触发器"><span class="nav-number">32.2.</span> <span class="nav-text">查看触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今日内容"><span class="nav-number">33.</span> <span class="nav-text">今日内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">34.</span> <span class="nav-text">体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL的体系结构概览"><span class="nav-number">34.1.</span> <span class="nav-text">MySQL的体系结构概览</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-概述"><span class="nav-number">35.</span> <span class="nav-text">存储引擎 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-特性"><span class="nav-number">36.</span> <span class="nav-text">存储引擎 - 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-InnoDB特性"><span class="nav-number">37.</span> <span class="nav-text">存储引擎 - InnoDB特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-MyISAM特性"><span class="nav-number">38.</span> <span class="nav-text">存储引擎 - MyISAM特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-Memory与Merge特性"><span class="nav-number">39.</span> <span class="nav-text">存储引擎 - Memory与Merge特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-选择原则"><span class="nav-number">40.</span> <span class="nav-text">存储引擎 - 选择原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-SQL执行频率"><span class="nav-number">41.</span> <span class="nav-text">优化SQL步骤 - SQL执行频率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-定位低效SQL"><span class="nav-number">42.</span> <span class="nav-text">优化SQL步骤 - 定位低效SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain指令介绍"><span class="nav-number">43.</span> <span class="nav-text">优化SQL步骤 - explain指令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之id"><span class="nav-number">44.</span> <span class="nav-text">优化SQL步骤 - explain之id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之select-type"><span class="nav-number">45.</span> <span class="nav-text">优化SQL步骤 - explain之select_type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之table-type"><span class="nav-number">46.</span> <span class="nav-text">优化SQL步骤 - explain之table type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之key-rows-extra"><span class="nav-number">47.</span> <span class="nav-text">优化SQL步骤 - explain之key rows extra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-show-profile"><span class="nav-number">48.</span> <span class="nav-text">优化SQL步骤 - show profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-trace工具"><span class="nav-number">49.</span> <span class="nav-text">优化SQL步骤 - trace工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-验证索引提升查询效率"><span class="nav-number">50.</span> <span class="nav-text">索引的使用 - 验证索引提升查询效率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-全值匹配"><span class="nav-number">51.</span> <span class="nav-text">索引的使用 - 全值匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-最左前缀法则"><span class="nav-number">52.</span> <span class="nav-text">索引的使用 - 最左前缀法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-索引失效情况（范围查询、字段运算）"><span class="nav-number">53.</span> <span class="nav-text">索引的使用 - 索引失效情况（范围查询、字段运算）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-覆盖索引"><span class="nav-number">54.</span> <span class="nav-text">索引的使用 - 覆盖索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-or索引失效情况"><span class="nav-number">55.</span> <span class="nav-text">索引的使用 - or索引失效情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-like模糊匹配"><span class="nav-number">56.</span> <span class="nav-text">索引的使用 - like模糊匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-全表扫描更快"><span class="nav-number">57.</span> <span class="nav-text">索引的使用 - 全表扫描更快</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-NULL值的判定"><span class="nav-number">58.</span> <span class="nav-text">索引的使用 - NULL值的判定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-in和not-in"><span class="nav-number">59.</span> <span class="nav-text">索引的使用 - in和not in</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-单列索引与复合索引选择"><span class="nav-number">60.</span> <span class="nav-text">索引的使用 - 单列索引与复合索引选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-查看索引使用情况"><span class="nav-number">61.</span> <span class="nav-text">索引的使用 - 查看索引使用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-大批量插入数据"><span class="nav-number">62.</span> <span class="nav-text">SQL优化 - 大批量插入数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-insert优化"><span class="nav-number">63.</span> <span class="nav-text">SQL优化 - insert优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-orderby优化"><span class="nav-number">64.</span> <span class="nav-text">SQL优化 - orderby优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-group-by优化"><span class="nav-number">65.</span> <span class="nav-text">SQL优化 - group by优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-子查询优化"><span class="nav-number">66.</span> <span class="nav-text">SQL优化 - 子查询优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-or优化"><span class="nav-number">67.</span> <span class="nav-text">SQL优化 - or优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-limit优化"><span class="nav-number">68.</span> <span class="nav-text">SQL优化 - limit优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL优化-索引提示"><span class="nav-number">69.</span> <span class="nav-text">SQL优化 - 索引提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今日内容2"><span class="nav-number">70.</span> <span class="nav-text">今日内容2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用优化"><span class="nav-number">71.</span> <span class="nav-text">应用优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-概述及流程"><span class="nav-number">72.</span> <span class="nav-text">查询缓存 - 概述及流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-配置参数"><span class="nav-number">73.</span> <span class="nav-text">查询缓存 - 配置参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-开启查询缓存"><span class="nav-number">74.</span> <span class="nav-text">查询缓存 - 开启查询缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-SELECT选项"><span class="nav-number">75.</span> <span class="nav-text">查询缓存 - SELECT选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询缓存-失效场景"><span class="nav-number">76.</span> <span class="nav-text">查询缓存 - 失效场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-优化原则"><span class="nav-number">77.</span> <span class="nav-text">内存优化 - 优化原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-MyISAM内存优化"><span class="nav-number">78.</span> <span class="nav-text">内存优化 - MyISAM内存优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存优化-InnoDB内存优化"><span class="nav-number">79.</span> <span class="nav-text">内存优化 - InnoDB内存优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并发参数调整"><span class="nav-number">80.</span> <span class="nav-text">并发参数调整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-锁的概述及分类"><span class="nav-number">81.</span> <span class="nav-text">锁 - 锁的概述及分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MySQL对锁的支持"><span class="nav-number">82.</span> <span class="nav-text">锁 - MySQL对锁的支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-读锁"><span class="nav-number">83.</span> <span class="nav-text">锁 - MyISAM表锁 - 读锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-写锁"><span class="nav-number">84.</span> <span class="nav-text">锁 - MyISAM表锁 - 写锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-小结"><span class="nav-number">85.</span> <span class="nav-text">锁 - MyISAM表锁 - 小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-MyISAM表锁-查看锁争用情况"><span class="nav-number">86.</span> <span class="nav-text">锁 - MyISAM表锁 - 查看锁争用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-介绍及背景知识"><span class="nav-number">87.</span> <span class="nav-text">锁 - InnoDB行锁 - 介绍及背景知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-类型"><span class="nav-number">88.</span> <span class="nav-text">锁 - InnoDB行锁 - 类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-行锁升级为表锁"><span class="nav-number">89.</span> <span class="nav-text">锁 - InnoDB行锁 - 行锁升级为表锁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-间隙锁危害"><span class="nav-number">90.</span> <span class="nav-text">锁 - InnoDB行锁 - 间隙锁危害</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-争用情况查看"><span class="nav-number">91.</span> <span class="nav-text">锁 - InnoDB行锁 - 争用情况查看</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁-InnoDB行锁-总结"><span class="nav-number">92.</span> <span class="nav-text">锁 - InnoDB行锁 - 总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-SQL执行顺序及正则表达式"><span class="nav-number">93.</span> <span class="nav-text">SQL技巧 - SQL执行顺序及正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-数字函数与字符串函数"><span class="nav-number">94.</span> <span class="nav-text">SQL技巧 - 数字函数与字符串函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL技巧-日期函数与聚合函数"><span class="nav-number">95.</span> <span class="nav-text">SQL技巧 - 日期函数与聚合函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程内容"><span class="nav-number">96.</span> <span class="nav-text">课程内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysql"><span class="nav-number">97.</span> <span class="nav-text">常用工具 - mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqladmin"><span class="nav-number">98.</span> <span class="nav-text">常用工具 - mysqladmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlbinlog与mysqldump"><span class="nav-number">99.</span> <span class="nav-text">常用工具 - mysqlbinlog与mysqldump</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlimport与source"><span class="nav-number">100.</span> <span class="nav-text">常用工具 - mysqlimport与source</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用工具-mysqlshow"><span class="nav-number">101.</span> <span class="nav-text">常用工具 - mysqlshow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-错误日志"><span class="nav-number">102.</span> <span class="nav-text">日志 - 错误日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-二进制日志（statement）"><span class="nav-number">103.</span> <span class="nav-text">日志 - 二进制日志（statement）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-二进制日志（row及日志删除）"><span class="nav-number">104.</span> <span class="nav-text">日志 - 二进制日志（row及日志删除）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-查询日志"><span class="nav-number">105.</span> <span class="nav-text">日志 - 查询日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日志-慢查询日志"><span class="nav-number">106.</span> <span class="nav-text">日志 - 慢查询日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制-原理"><span class="nav-number">107.</span> <span class="nav-text">复制 - 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-需求及环境准备"><span class="nav-number">108.</span> <span class="nav-text">案例 - 需求及环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-基本工程导入"><span class="nav-number">109.</span> <span class="nav-text">案例 - 基本工程导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-AOP记录日志"><span class="nav-number">110.</span> <span class="nav-text">案例 - AOP记录日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询后端-mapper接口"><span class="nav-number">111.</span> <span class="nav-text">案例 - 日志查询后端 - mapper接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询后端-Service-amp-Controller"><span class="nav-number">112.</span> <span class="nav-text">案例 - 日志查询后端 - Service&amp;Controller</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-日志查询-前端"><span class="nav-number">113.</span> <span class="nav-text">案例 - 日志查询 - 前端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化分析"><span class="nav-number">114.</span> <span class="nav-text">案例 - 系统性能优化分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-分页优化"><span class="nav-number">115.</span> <span class="nav-text">案例 - 系统性能优化 - 分页优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-索引优化"><span class="nav-number">116.</span> <span class="nav-text">案例 - 系统性能优化 - 索引优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-读写分离概述"><span class="nav-number">117.</span> <span class="nav-text">案例 - 系统性能优化 - 读写分离概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-数据源配置"><span class="nav-number">118.</span> <span class="nav-text">案例 - 系统性能优化 - 数据源配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源"><span class="nav-number">119.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源-测试"><span class="nav-number">120.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源 - 测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-AOP切换数据源-原理解析"><span class="nav-number">121.</span> <span class="nav-text">案例 - 系统性能优化 - AOP切换数据源 - 原理解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例-系统性能优化-应用优化"><span class="nav-number">122.</span> <span class="nav-text">案例 - 系统性能优化 - 应用优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程内容介绍"><span class="nav-number">2.</span> <span class="nav-text">课程内容介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL高级课程简介"><span class="nav-number">2.1.</span> <span class="nav-text">MySQL高级课程简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux上安装MySQL"><span class="nav-number">3.</span> <span class="nav-text">Linux上安装MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载Linux安装包"><span class="nav-number">3.1.</span> <span class="nav-text">下载Linux安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL"><span class="nav-number">3.2.</span> <span class="nav-text">安装MySQL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动及登录MySQL"><span class="nav-number">4.</span> <span class="nav-text">启动及登录MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-概述"><span class="nav-number">5.</span> <span class="nav-text">索引 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-优势和劣势"><span class="nav-number">6.</span> <span class="nav-text">索引 - 优势和劣势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构"><span class="nav-number">7.</span> <span class="nav-text">索引 - 索引结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持"><span class="nav-number">7.1.</span> <span class="nav-text">MyISAM、InnoDB、Memory三种存储引擎对各种索引类型的支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构-BTREE"><span class="nav-number">8.</span> <span class="nav-text">索引 - 索引结构 - BTREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构-B-TREE"><span class="nav-number">9.</span> <span class="nav-text">索引 - 索引结构 - B+TREE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引结构-MySQL中的B-Tree"><span class="nav-number">10.</span> <span class="nav-text">索引 - 索引结构 - MySQL中的B+Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引分类"><span class="nav-number">11.</span> <span class="nav-text">索引 - 索引分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引语法"><span class="nav-number">12.</span> <span class="nav-text">索引 - 索引语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建索引"><span class="nav-number">12.1.</span> <span class="nav-text">创建索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看索引"><span class="nav-number">12.2.</span> <span class="nav-text">查看索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除索引"><span class="nav-number">12.3.</span> <span class="nav-text">删除索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALTER指令"><span class="nav-number">12.4.</span> <span class="nav-text">ALTER指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引-索引设计原则"><span class="nav-number">13.</span> <span class="nav-text">索引 - 索引设计原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-创建及修改视图"><span class="nav-number">14.</span> <span class="nav-text">视图 - 创建及修改视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建或者修改视图"><span class="nav-number">14.1.</span> <span class="nav-text">创建或者修改视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图-查看及删除视图"><span class="nav-number">15.</span> <span class="nav-text">视图 - 查看及删除视图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看视图"><span class="nav-number">15.1.</span> <span class="nav-text">查看视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除视图"><span class="nav-number">15.2.</span> <span class="nav-text">删除视图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-概述"><span class="nav-number">16.</span> <span class="nav-text">存储过程 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-创建调用查询删除语法"><span class="nav-number">17.</span> <span class="nav-text">存储过程 - 创建调用查询删除语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建存储过程"><span class="nav-number">17.1.</span> <span class="nav-text">创建存储过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知识小贴士"><span class="nav-number">17.1.1.</span> <span class="nav-text">知识小贴士</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用存储过程"><span class="nav-number">17.2.</span> <span class="nav-text">调用存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看存储过程"><span class="nav-number">17.3.</span> <span class="nav-text">查看存储过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除存储过程"><span class="nav-number">17.4.</span> <span class="nav-text">删除存储过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-变量"><span class="nav-number">18.</span> <span class="nav-text">存储过程 - 语法 - 变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">18.1.</span> <span class="nav-text">变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-if判断"><span class="nav-number">19.</span> <span class="nav-text">存储过程 - 语法 - if判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#if条件判断"><span class="nav-number">19.1.</span> <span class="nav-text">if条件判断</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输入参数"><span class="nav-number">20.</span> <span class="nav-text">存储过程 - 语法 - 输入参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-输出参数"><span class="nav-number">21.</span> <span class="nav-text">存储过程 - 语法 - 输出参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-case结构"><span class="nav-number">22.</span> <span class="nav-text">存储过程 - 语法 - case结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-while循环"><span class="nav-number">23.</span> <span class="nav-text">存储过程 - 语法 - while循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-repeat循环"><span class="nav-number">24.</span> <span class="nav-text">存储过程 - 语法 - repeat循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-loop循环"><span class="nav-number">25.</span> <span class="nav-text">存储过程 - 语法 - loop循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#loop语句"><span class="nav-number">25.1.</span> <span class="nav-text">loop语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leave语句"><span class="nav-number">25.2.</span> <span class="nav-text">leave语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标介绍"><span class="nav-number">26.</span> <span class="nav-text">存储过程 - 语法 - 游标介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-游标基本操作"><span class="nav-number">27.</span> <span class="nav-text">存储过程 - 语法 - 游标基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储过程-语法-循环获取游标"><span class="nav-number">28.</span> <span class="nav-text">存储过程 - 语法 - 循环获取游标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储函数"><span class="nav-number">29.</span> <span class="nav-text">存储函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-介绍"><span class="nav-number">30.</span> <span class="nav-text">触发器 - 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-创建及应用"><span class="nav-number">31.</span> <span class="nav-text">触发器 - 创建及应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建触发器"><span class="nav-number">31.1.</span> <span class="nav-text">创建触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#触发器-查看及删除"><span class="nav-number">32.</span> <span class="nav-text">触发器 - 查看及删除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#删除触发器"><span class="nav-number">32.1.</span> <span class="nav-text">删除触发器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看触发器"><span class="nav-number">32.2.</span> <span class="nav-text">查看触发器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#今日内容"><span class="nav-number">33.</span> <span class="nav-text">今日内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#体系结构"><span class="nav-number">34.</span> <span class="nav-text">体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL的体系结构概览"><span class="nav-number">34.1.</span> <span class="nav-text">MySQL的体系结构概览</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-概述"><span class="nav-number">35.</span> <span class="nav-text">存储引擎 - 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-特性"><span class="nav-number">36.</span> <span class="nav-text">存储引擎 - 特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-InnoDB特性"><span class="nav-number">37.</span> <span class="nav-text">存储引擎 - InnoDB特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-MyISAM特性"><span class="nav-number">38.</span> <span class="nav-text">存储引擎 - MyISAM特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-Memory与Merge特性"><span class="nav-number">39.</span> <span class="nav-text">存储引擎 - Memory与Merge特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储引擎-选择原则"><span class="nav-number">40.</span> <span class="nav-text">存储引擎 - 选择原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-SQL执行频率"><span class="nav-number">41.</span> <span class="nav-text">优化SQL步骤 - SQL执行频率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看SQL执行频率"><span class="nav-number">41.1.</span> <span class="nav-text">查看SQL执行频率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-定位低效SQL"><span class="nav-number">42.</span> <span class="nav-text">优化SQL步骤 - 定位低效SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain指令介绍"><span class="nav-number">43.</span> <span class="nav-text">优化SQL步骤 - explain指令介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之id"><span class="nav-number">44.</span> <span class="nav-text">优化SQL步骤 - explain之id</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之select-type"><span class="nav-number">45.</span> <span class="nav-text">优化SQL步骤 - explain之select_type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之table-、type"><span class="nav-number">46.</span> <span class="nav-text">优化SQL步骤 - explain之table 、type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-explain之key-rows-extra"><span class="nav-number">47.</span> <span class="nav-text">优化SQL步骤 - explain之key rows extra</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-show-profile"><span class="nav-number">48.</span> <span class="nav-text">优化SQL步骤 - show profile</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化SQL步骤-trace工具"><span class="nav-number">49.</span> <span class="nav-text">优化SQL步骤 - trace工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-验证索引提升查询效率"><span class="nav-number">50.</span> <span class="nav-text">索引的使用 - 验证索引提升查询效率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-全值匹配"><span class="nav-number">51.</span> <span class="nav-text">索引的使用 - 全值匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-最左前缀法则"><span class="nav-number">52.</span> <span class="nav-text">索引的使用 - 最左前缀法则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的使用-索引失效情况（范围查询、字段运算）"><span class="nav-number">53.</span> <span class="nav-text">索引的使用 - 索引失效情况（范围查询、字段运算）</span></a></li></ol></div>
             
 
           </div>
@@ -3203,8 +4162,8 @@
       <span class="post-meta-item-text">站点总字数：</span>
     
 	<span title="Site words total count">
-     422.4k字 </span>
-    <!--<span title="symbols_count_time.count_total">789k</span>-->
+     429.2k字 </span>
+    <!--<span title="symbols_count_time.count_total">806k</span>-->
   
 </div>
 
