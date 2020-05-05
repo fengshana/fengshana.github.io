@@ -302,12 +302,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -364,6 +374,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -507,7 +535,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPWgDIzHgEL1WM.FlovG*5NdgxKKlV2sccaALq513JRlOLCs7yQHDaaPVuJkxzkvBl1znZx*ms1E1L4ZuNOhDo44!/r" rel="gallery_ck9tpy40c0027o0um2nab48q7"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPWgDIzHgEL1WM.FlovG*5NdgxKKlV2sccaALq513JRlOLCs7yQHDaaPVuJkxzkvBl1znZx*ms1E1L4ZuNOhDo44!/r" rel="gallery_ck9tsgm9a002cl4um3ot6fh66"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPWgDIzHgEL1WM.FlovG*5NdgxKKlV2sccaALq513JRlOLCs7yQHDaaPVuJkxzkvBl1znZx*ms1E1L4ZuNOhDo44!/r" itemprop="contentUrl"/>
               </a>
@@ -684,8 +712,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/" rel="next" title="第七节心态课">
-                <i class="fa fa-chevron-left"></i> 第七节心态课
+              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/" rel="next" title="第六节心态课">
+                <i class="fa fa-chevron-left"></i> 第六节心态课
               </a>
             
           </div>
@@ -694,8 +722,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/" rel="prev" title="第六节心态课">
-                第六节心态课 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/" rel="prev" title="第一节心态课">
+                第一节心态课 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -926,8 +954,6 @@
 
 
  -->
- 
- 
  
 
 

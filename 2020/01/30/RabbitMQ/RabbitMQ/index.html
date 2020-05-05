@@ -303,12 +303,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -365,6 +375,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -508,7 +536,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPSRtu6XyStitc8L5cwv04AKHONB7bw8zUIgAHw54GtJJ7p.MvGCVJUCRMnlMqyt7uHxirz7*iFevdDmhKTLVfJw!/r" rel="gallery_ck9tpy3w0000zo0umcs94fwnu"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPSRtu6XyStitc8L5cwv04AKHONB7bw8zUIgAHw54GtJJ7p.MvGCVJUCRMnlMqyt7uHxirz7*iFevdDmhKTLVfJw!/r" rel="gallery_ck9tsgm6j0011l4um3kk5089o"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPSRtu6XyStitc8L5cwv04AKHONB7bw8zUIgAHw54GtJJ7p.MvGCVJUCRMnlMqyt7uHxirz7*iFevdDmhKTLVfJw!/r" itemprop="contentUrl"/>
               </a>
@@ -754,8 +782,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB01/" rel="next" title="两种思维方式决定了你只能当穷人">
-                <i class="fa fa-chevron-left"></i> 两种思维方式决定了你只能当穷人
+              <a href="/2020/01/29/baidu_verify_oveVSDl85R/" rel="next" title="baidu_verify_oveVSDl85R">
+                <i class="fa fa-chevron-left"></i> baidu_verify_oveVSDl85R
               </a>
             
           </div>
@@ -764,8 +792,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/" rel="prev" title="投资起步晚5年，赶上需要1.5倍的汗水+时间">
-                投资起步晚5年，赶上需要1.5倍的汗水+时间 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/30/%E8%8B%B1%E8%AF%AD/%E6%95%99%E6%A1%88/" rel="prev" title="教案 Contents">
+                教案 Contents <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -996,8 +1024,6 @@
 
 
  -->
- 
- 
  
 
 

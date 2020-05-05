@@ -298,12 +298,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -360,6 +370,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -509,7 +537,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPb6Kio2qzVyJAGrQT85cSC5iVeTmEisrFwi9Jl1dGv158tpfUFuIJ*pF9*Jb*jLM2Q8FVohEq51HZGqrCJhYiD0!/r" rel="gallery_ck9tpy3eg0003o0umecb418t7"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPb6Kio2qzVyJAGrQT85cSC5iVeTmEisrFwi9Jl1dGv158tpfUFuIJ*pF9*Jb*jLM2Q8FVohEq51HZGqrCJhYiD0!/r" rel="gallery_ck9tsgli80003l4ume7uj9wl2"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPb6Kio2qzVyJAGrQT85cSC5iVeTmEisrFwi9Jl1dGv158tpfUFuIJ*pF9*Jb*jLM2Q8FVohEq51HZGqrCJhYiD0!/r" itemprop="contentUrl"/>
               </a>
@@ -745,7 +773,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/Il*5bTasWU7SZ5KbHio2N8Wfh*a3P30RrRefRyS3nJ4!/r/dD8BAAAAAAAA" rel="gallery_ck9tpy41r0036o0um509gc0mo"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/Il*5bTasWU7SZ5KbHio2N8Wfh*a3P30RrRefRyS3nJ4!/r/dD8BAAAAAAAA" rel="gallery_ck9tsgm9y0038l4um47cz61nj"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/Il*5bTasWU7SZ5KbHio2N8Wfh*a3P30RrRefRyS3nJ4!/r/dD8BAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -987,7 +1015,7 @@ Redis核心数据结构精讲
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" rel="gallery_ck9tpy5ah00dko0um6w2a4fk9"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" rel="gallery_ck9tsgn7900dll4um7lelbrfb"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/GXpIx6xVrrx71*TqsSAOVAhVsm4z2Sy6OQ6FnfnoV80!/r/dLYAAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -1227,7 +1255,7 @@ MySQL中的视图/存储过程/触发器/索引等对象的使用
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/dmqLmrDXAecLIlXfpkOnx2*W9SaVG7By8wskhAr2tYI!/r/dD4BAAAAAAAA" rel="gallery_ck9tpy41g002zo0umb6hlg73p"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/dmqLmrDXAecLIlXfpkOnx2*W9SaVG7By8wskhAr2tYI!/r/dD4BAAAAAAAA" rel="gallery_ck9tsgm9t0032l4umeteldwcz"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/dmqLmrDXAecLIlXfpkOnx2*W9SaVG7By8wskhAr2tYI!/r/dD4BAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -1465,7 +1493,7 @@ MySQL中的视图/存储过程/触发器/索引等对象的使用
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPe5S4jBNGOlwmbWbM4a2tInlWhl49kO9ToXeyabUzTdO6QDFv.0FmqM5wy7ClpmeW8UyOEwYO7QTjXtOh2aq9JQ!/r" rel="gallery_ck9tpy47p007to0umeylk02g0"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPe5S4jBNGOlwmbWbM4a2tInlWhl49kO9ToXeyabUzTdO6QDFv.0FmqM5wy7ClpmeW8UyOEwYO7QTjXtOh2aq9JQ!/r" rel="gallery_ck9tsgmje007vl4umffqw8q3w"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPe5S4jBNGOlwmbWbM4a2tInlWhl49kO9ToXeyabUzTdO6QDFv.0FmqM5wy7ClpmeW8UyOEwYO7QTjXtOh2aq9JQ!/r" itemprop="contentUrl"/>
               </a>
@@ -1708,7 +1736,7 @@ MySQL中的视图/存储过程/触发器/索引等对象的使用
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPR7Cly8gB*XFqHqZtzCagtigypyg1pyJQmg9iWx03JtPWBBeMayVUR*aU7u5iFsNefsZ0fbzdhK6yFtUkztRYxs!/r" rel="gallery_ck9tpy3er0005o0umepks861s"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPR7Cly8gB*XFqHqZtzCagtigypyg1pyJQmg9iWx03JtPWBBeMayVUR*aU7u5iFsNefsZ0fbzdhK6yFtUkztRYxs!/r" rel="gallery_ck9tsglib0005l4um5x9i52r7"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPR7Cly8gB*XFqHqZtzCagtigypyg1pyJQmg9iWx03JtPWBBeMayVUR*aU7u5iFsNefsZ0fbzdhK6yFtUkztRYxs!/r" itemprop="contentUrl"/>
               </a>
@@ -1955,7 +1983,7 @@ MySQL中的视图/存储过程/触发器/索引等对象的使用
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPel5t8xZU7rWNhfTxPiI2RfvYvQ6DvosmE1pGIqWlqAV7PfqYumXBoiVQ8HSQ88KfHkmwZxDHt.ymsgsHJsmdgw!/r" rel="gallery_ck9tpy4z900cco0um4wwj1lgu"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPel5t8xZU7rWNhfTxPiI2RfvYvQ6DvosmE1pGIqWlqAV7PfqYumXBoiVQ8HSQ88KfHkmwZxDHt.ymsgsHJsmdgw!/r" rel="gallery_ck9tsgmzt00cdl4um9usge8qv"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPel5t8xZU7rWNhfTxPiI2RfvYvQ6DvosmE1pGIqWlqAV7PfqYumXBoiVQ8HSQ88KfHkmwZxDHt.ymsgsHJsmdgw!/r" itemprop="contentUrl"/>
               </a>
@@ -2197,7 +2225,7 @@ Git简介
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/uShdIwZAxDlL9sZe5T6UhvNayhmaRJkIgo1PjdVG8NY!/r/dDIBAAAAAAAA" rel="gallery_ck9tpy51s00dbo0umep4e4fwn"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/uShdIwZAxDlL9sZe5T6UhvNayhmaRJkIgo1PjdVG8NY!/r/dDIBAAAAAAAA" rel="gallery_ck9tsgn2t00dcl4umbj30335l"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/uShdIwZAxDlL9sZe5T6UhvNayhmaRJkIgo1PjdVG8NY!/r/dDIBAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -2436,7 +2464,7 @@ Git简介
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/3WKLp4Zygim99IyH6pDaspn2EIM4mJlundu6NU94fLc!/r/dPMAAAAAAAAA" rel="gallery_ck9tpy3v9000po0umd46g531c"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/3WKLp4Zygim99IyH6pDaspn2EIM4mJlundu6NU94fLc!/r/dPMAAAAAAAAA" rel="gallery_ck9tsgm61000rl4um5sthaunj"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/3WKLp4Zygim99IyH6pDaspn2EIM4mJlundu6NU94fLc!/r/dPMAAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -2673,7 +2701,7 @@ Git简介
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXwtF7FE.6vVdfMCQFbsNYPVVkiMmkqLrtZ.ZR.lqIIVRaZOV4yohZJcwK4QrFwIXyAa5jzI4Z3.*piKPVe9BQos!/r" rel="gallery_ck9tpy3vc000qo0umd4ct8h5g"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXwtF7FE.6vVdfMCQFbsNYPVVkiMmkqLrtZ.ZR.lqIIVRaZOV4yohZJcwK4QrFwIXyAa5jzI4Z3.*piKPVe9BQos!/r" rel="gallery_ck9tsgm66000vl4um7b4keqzu"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXwtF7FE.6vVdfMCQFbsNYPVVkiMmkqLrtZ.ZR.lqIIVRaZOV4yohZJcwK4QrFwIXyAa5jzI4Z3.*piKPVe9BQos!/r" itemprop="contentUrl"/>
               </a>
@@ -2957,8 +2985,6 @@ Git简介
 
 
  -->
- 
- 
  
 
 

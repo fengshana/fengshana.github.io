@@ -298,12 +298,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -360,6 +370,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -505,7 +533,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPf*U8unjnT7rxQ.EiGBaJvyLeCdhpjuvEuZIS.R764KnC*a3VePU7lXPoUBhxPYYGqYxuylZfD3H0GHW*kzXRfw!/r" rel="gallery_ck9tpy4qv00a3o0um58s58i79"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPf*U8unjnT7rxQ.EiGBaJvyLeCdhpjuvEuZIS.R764KnC*a3VePU7lXPoUBhxPYYGqYxuylZfD3H0GHW*kzXRfw!/r" rel="gallery_ck9tsgmtl00a4l4umfhog81yv"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPf*U8unjnT7rxQ.EiGBaJvyLeCdhpjuvEuZIS.R764KnC*a3VePU7lXPoUBhxPYYGqYxuylZfD3H0GHW*kzXRfw!/r" itemprop="contentUrl"/>
               </a>
@@ -744,7 +772,7 @@ OBS：https://obsproject.com/
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/A4iGmUNmJRGB0WvSlhU9nZBOfN1vHYopvPMA4j5j9c4!/r/dFQBAAAAAAAA" rel="gallery_ck9tpy4wx00bpo0um9lz7fg61"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/A4iGmUNmJRGB0WvSlhU9nZBOfN1vHYopvPMA4j5j9c4!/r/dFQBAAAAAAAA" rel="gallery_ck9tsgmyb00bql4umfv1ufqm5"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/A4iGmUNmJRGB0WvSlhU9nZBOfN1vHYopvPMA4j5j9c4!/r/dFQBAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -988,7 +1016,7 @@ OBS：https://obsproject.com/
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/MesyoIaGc0Ju5fm5BBjcpAELawSs0x4mFkJk0stUCHA!/r/dMMAAAAAAAAA" rel="gallery_ck9tpy47s007vo0um4mgphqfq"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/MesyoIaGc0Ju5fm5BBjcpAELawSs0x4mFkJk0stUCHA!/r/dMMAAAAAAAAA" rel="gallery_ck9tsgmjf007xl4umb1ij3mwh"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/MesyoIaGc0Ju5fm5BBjcpAELawSs0x4mFkJk0stUCHA!/r/dMMAAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -1231,7 +1259,7 @@ OBS：https://obsproject.com/
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/4vjILorfS.jKPLvvTVcs87a2Ojd7wfbyFmeo9p97iEU!/r/dD4BAAAAAAAA" rel="gallery_ck9tpy4r000a4o0umc9y4187f"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/4vjILorfS.jKPLvvTVcs87a2Ojd7wfbyFmeo9p97iEU!/r/dD4BAAAAAAAA" rel="gallery_ck9tsgmtp00a5l4um4g0g0b0p"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/4vjILorfS.jKPLvvTVcs87a2Ojd7wfbyFmeo9p97iEU!/r/dD4BAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -1470,7 +1498,7 @@ david指导
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPUSy.NVsw*itmiSUXULaLBRNprFEIOw.E8T9k2FCN2ou9xyYG*2pjP6NvjCIYB8Nc8OZ37yXjnwR1JQppednM*A!/r" rel="gallery_ck9tpy50v00cno0umepnfgc6v"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPUSy.NVsw*itmiSUXULaLBRNprFEIOw.E8T9k2FCN2ou9xyYG*2pjP6NvjCIYB8Nc8OZ37yXjnwR1JQppednM*A!/r" rel="gallery_ck9tsgn1000cnl4um2hvwdv3c"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPUSy.NVsw*itmiSUXULaLBRNprFEIOw.E8T9k2FCN2ou9xyYG*2pjP6NvjCIYB8Nc8OZ37yXjnwR1JQppednM*A!/r" itemprop="contentUrl"/>
               </a>
@@ -1709,7 +1737,7 @@ https://www.cnblogs.com/ac
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPS6Wc9QtgIs.Yq*ehRBk*n2KNyYRAvxyHwMyNUFKQT8DH5MKrbT3I5tKHMlu0ulZrCGiH67skXae26B0IaIqiME!/r" rel="gallery_ck9tpy3vg000to0um4b4e3dq2"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPS6Wc9QtgIs.Yq*ehRBk*n2KNyYRAvxyHwMyNUFKQT8DH5MKrbT3I5tKHMlu0ulZrCGiH67skXae26B0IaIqiME!/r" rel="gallery_ck9tsgm6g000xl4um2p1g7kpi"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPS6Wc9QtgIs.Yq*ehRBk*n2KNyYRAvxyHwMyNUFKQT8DH5MKrbT3I5tKHMlu0ulZrCGiH67skXae26B0IaIqiME!/r" itemprop="contentUrl"/>
               </a>
@@ -1945,7 +1973,7 @@ https://www.cnblogs.com/ac
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPZXz7257uHsg4Ptu3icmTBBtnsIlFVp.rTonrrcEnfDCQPRUQ*OI1HMAuPKaMJtANUsAPY32dZWpszL6.bAvT3M!/r" rel="gallery_ck9tpy3vj000uo0um1yrtbern"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPZXz7257uHsg4Ptu3icmTBBtnsIlFVp.rTonrrcEnfDCQPRUQ*OI1HMAuPKaMJtANUsAPY32dZWpszL6.bAvT3M!/r" rel="gallery_ck9tsgm6e000wl4um1q7j0jzp"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPZXz7257uHsg4Ptu3icmTBBtnsIlFVp.rTonrrcEnfDCQPRUQ*OI1HMAuPKaMJtANUsAPY32dZWpszL6.bAvT3M!/r" itemprop="contentUrl"/>
               </a>
@@ -2190,7 +2218,7 @@ https://www.cnblogs.com/ac
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX7uuHUVbVPuACfzTyR9eJsRiBmxtqPAUyvZo4RqJDM5tRKOUIoVDnT2XkRpSkRFQ5lXoVRpn0ahUJOp48IFGL.Y!/r" rel="gallery_ck9tpy4zb00cdo0um3h2xdj0j"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX7uuHUVbVPuACfzTyR9eJsRiBmxtqPAUyvZo4RqJDM5tRKOUIoVDnT2XkRpSkRFQ5lXoVRpn0ahUJOp48IFGL.Y!/r" rel="gallery_ck9tsgmzv00cel4um29zahkig"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX7uuHUVbVPuACfzTyR9eJsRiBmxtqPAUyvZo4RqJDM5tRKOUIoVDnT2XkRpSkRFQ5lXoVRpn0ahUJOp48IFGL.Y!/r" itemprop="contentUrl"/>
               </a>
@@ -2428,7 +2456,7 @@ https://www.cnblogs.com/ac
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjV8zNWZndXl83OLeb5cx.aagvvKhJIrlYQv2JmUU3tRhiw99K06aghM6JCIINWMLDqd9JSwGGlom7FGAEZLQY!/r" rel="gallery_ck9tpy3xs001io0umh7rye90v"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjV8zNWZndXl83OLeb5cx.aagvvKhJIrlYQv2JmUU3tRhiw99K06aghM6JCIINWMLDqd9JSwGGlom7FGAEZLQY!/r" rel="gallery_ck9tsgm6x0017l4um880qcg4a"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPTjV8zNWZndXl83OLeb5cx.aagvvKhJIrlYQv2JmUU3tRhiw99K06aghM6JCIINWMLDqd9JSwGGlom7FGAEZLQY!/r" itemprop="contentUrl"/>
               </a>
@@ -2665,7 +2693,7 @@ https://www.cnblogs.com/ac
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX1wyfp7iDW4amn2hf1PKob*RxkDYKnfM50s*nGCXvvNlr4GIWKejaT2GvyPexza1jis9EF3oHqPJb2Q7giZH5r0!/r" rel="gallery_ck9tpy3yv001no0umc66b7r3p"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX1wyfp7iDW4amn2hf1PKob*RxkDYKnfM50s*nGCXvvNlr4GIWKejaT2GvyPexza1jis9EF3oHqPJb2Q7giZH5r0!/r" rel="gallery_ck9tsgm8b001kl4ume81lad3z"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX1wyfp7iDW4amn2hf1PKob*RxkDYKnfM50s*nGCXvvNlr4GIWKejaT2GvyPexza1jis9EF3oHqPJb2Q7giZH5r0!/r" itemprop="contentUrl"/>
               </a>
@@ -2963,8 +2991,6 @@ https://www.cnblogs.com/ac
 
 
  -->
- 
- 
  
 
 

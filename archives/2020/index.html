@@ -297,12 +297,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -359,6 +369,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -1250,9 +1278,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/" itemprop="url">
+            <a class="post-title-link" href="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/" itemprop="url">
               
-                <span itemprop="name">排序</span>
+                <span itemprop="name">查找</span>
               
             </a>
         
@@ -1287,9 +1315,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/" itemprop="url">
+            <a class="post-title-link" href="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/" itemprop="url">
               
-                <span itemprop="name">查找</span>
+                <span itemprop="name">排序</span>
               
             </a>
         
@@ -1686,8 +1714,6 @@
 
 
  -->
- 
- 
  
 
 

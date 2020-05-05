@@ -106,7 +106,7 @@
 
 
 
-  <meta name="keywords" content="排序,数据结构," />
+  <meta name="keywords" content="数据结构,排序," />
 
 
 
@@ -129,8 +129,8 @@
 <meta property="article:published_time" content="2020-04-03T04:52:56.000Z">
 <meta property="article:modified_time" content="2020-04-07T01:16:45.719Z">
 <meta property="article:author" content="Fsn">
-<meta property="article:tag" content="排序">
 <meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="排序">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX5tqyWQ.uw9WKu6Y2Dhz84ihxsysOkiEA5ofdDLc1tUedppiBBr4NM2VlXYu0i9CvjP3jTw3ec8IFAibWIYuH4M!/r">
 
@@ -303,12 +303,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -365,6 +375,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -508,7 +536,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX5tqyWQ.uw9WKu6Y2Dhz84ihxsysOkiEA5ofdDLc1tUedppiBBr4NM2VlXYu0i9CvjP3jTw3ec8IFAibWIYuH4M!/r" rel="gallery_ck9tpy3wq0016o0umb61f3icj"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX5tqyWQ.uw9WKu6Y2Dhz84ihxsysOkiEA5ofdDLc1tUedppiBBr4NM2VlXYu0i9CvjP3jTw3ec8IFAibWIYuH4M!/r" rel="gallery_ck9tsgm7m001cl4um85w50ci6"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX5tqyWQ.uw9WKu6Y2Dhz84ihxsysOkiEA5ofdDLc1tUedppiBBr4NM2VlXYu0i9CvjP3jTw3ec8IFAibWIYuH4M!/r" itemprop="contentUrl"/>
               </a>
@@ -648,9 +676,9 @@
       
         <div class="post-tags" style="text-align:center">
           
-            <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag">排序</i></a>
-          
             <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag">数据结构</i></a>
+          
+            <a href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag"><i class="fa fa-tag">排序</i></a>
           
         </div>
       
@@ -673,8 +701,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/" rel="prev" title="图">
-                图 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/" rel="prev" title="查找">
+                查找 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -905,8 +933,6 @@
 
 
  -->
- 
- 
  
 
 

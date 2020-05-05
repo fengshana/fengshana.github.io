@@ -297,12 +297,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -359,6 +369,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -373,34 +401,6 @@
         <h1>心态课程<small>标签</small>
         </h1>
       </div>
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/" itemprop="url">
-              
-                <span itemprop="name">第三节心态课</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-03-18T14:33:50+08:00"
-              content="2020-03-18" >
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
 
       
         
@@ -441,6 +441,34 @@
             <a class="post-title-link" href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/" itemprop="url">
               
                 <span itemprop="name">第七节心态课</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2020-03-18T14:33:50+08:00"
+              content="2020-03-18" >
+          03-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/" itemprop="url">
+              
+                <span itemprop="name">第三节心态课</span>
               
             </a>
         
@@ -522,9 +550,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/" itemprop="url">
+            <a class="post-title-link" href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/" itemprop="url">
               
-                <span itemprop="name">第四节心态课</span>
+                <span itemprop="name">第六节心态课</span>
               
             </a>
         
@@ -550,9 +578,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/" itemprop="url">
+            <a class="post-title-link" href="/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/" itemprop="url">
               
-                <span itemprop="name">第六节心态课</span>
+                <span itemprop="name">第四节心态课</span>
               
             </a>
         
@@ -758,8 +786,6 @@
 
 
  -->
- 
- 
  
 
 

@@ -298,12 +298,22 @@
         </li>
       
         
-        <li class="menu-item menu-item-相册">
+        <li class="menu-item menu-item-camera">
           <a href="/photos/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
             
             相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
           </a>
         </li>
       
@@ -360,6 +370,24 @@
 
     <main id="main" class="main">
       <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
         <div class="content-wrap">
           <div id="content" class="content">
             
@@ -1705,7 +1733,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPQMhpfzB*SDyRPMrA90HTbpYZzspuGPkdilXsW9962JOXB2rHPIk8oH.602nQYkU.E92*WqsgsOfnLwy68vw7mE!/r" rel="gallery_ck9tpy4ol009no0um5rw6b5l6"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPQMhpfzB*SDyRPMrA90HTbpYZzspuGPkdilXsW9962JOXB2rHPIk8oH.602nQYkU.E92*WqsgsOfnLwy68vw7mE!/r" rel="gallery_ck9tsgmpd009ul4um2assfqsx"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ4UrBPH/hsnfJ.a5yg7.BhItQyNwPQMhpfzB*SDyRPMrA90HTbpYZzspuGPkdilXsW9962JOXB2rHPIk8oH.602nQYkU.E92*WqsgsOfnLwy68vw7mE!/r" itemprop="contentUrl"/>
               </a>
@@ -2589,8 +2617,6 @@
 
 
  -->
- 
- 
  
 
 
