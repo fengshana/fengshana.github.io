@@ -1,6 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Synchronized和ReentrantLock</title>
+    <url>/2020/05/06/%E9%9D%A2%E8%AF%95/Synchronized%E5%92%8CReentrantLock/</url>
+    <content><![CDATA[<p>观看笔记: <a href="https://www.bilibili.com/video/BV1dE411r7iy?from=search&amp;seid=2860602863323633916" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1dE411r7iy?from=search&amp;seid=2860602863323633916</a>  </p>
+<p>java当中的锁，比如说ReentrantLock，还有Synchronized关键字；  </p>
+<p>重点：sync(synchronized关键字原理)  </p>
+<p>java体系最难的技术点之一：sync；（涉及到JVM，C++源码等）  </p>
+<ul>
+<li>java的对象布局</li>
+<li>sync底层工作的原理</li>
+<li>sync优化原理</li>
+<li>学习方法-学习的深度</li>
+</ul>
+<h2 id="java头的信息分析"><a href="#java头的信息分析" class="headerlink" title="java头的信息分析"></a>java头的信息分析</h2><p><font style="color:orange;font-weight:bold;">首先为什么要去研究java的对象头？</font>  </p>
+<p><font style="color:orange;font-weight:bold;">这里截取一张Hotspot的源码当中的注释</font></p>
+<figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> 64 bits;</span><br><span class="line"><span class="string">//</span> <span class="params">--------</span></span><br><span class="line"><span class="string">//</span> unused: 25 hash<span class="function">:31</span> <span class="params">---</span>&gt;| unused<span class="function">:1</span>   age<span class="function">:4</span>   biased_lock<span class="function">:1</span> lock<span class="function">:2</span> <span class="params">(normal object)</span></span><br><span class="line"><span class="string">//JavaThread</span>*<span class="function">:54</span> epoch<span class="function">:2</span> unused<span class="function">:1</span> age<span class="function">:4</span> biased_lock<span class="function">:1</span> lock<span class="function">:2</span> <span class="params">(biased object)</span></span><br><span class="line"><span class="string">//</span> PromotedObject*<span class="function">:61</span> <span class="params">-----------------</span>&gt;| promo_bits<span class="function">:3</span> <span class="params">-----</span>&gt; <span class="params">(CMS promoted object)</span></span><br><span class="line"><span class="string">.//</span> size<span class="function">:64-------------------------------------------------</span>&gt;| <span class="params">(CMS free block)</span></span><br><span class="line"><span class="string">//</span></span><br></pre></td></tr></table></figure>
+
+<p>这张图换成人可读的表格如下：  </p>
+<table>
+    <tr>
+        <td colspan="3">Object Header(128 bits)</td>
+    </tr>
+    <tr>
+        <td>Mark Word(64 bits)</td>
+        <td>Klass Word(64 bits)</td>
+        <td></td>
+    </tr>
+        <tr>
+        <td>unused:25 | identity_hashcode:31 | unused:1 | age:4 | biased_lock:1 | lock:2 </td>
+        <td>OOP to metadata object</td>
+        <td style="color:red;font-weight:bolder;">无锁</td>
+    </tr>
+    <tr>
+        <td>thread:54 |       epoch:2        | unused:1 | age:4 | biased_lock:1 | lock:2 </td>
+        <td>OOP to metadata object</td>
+        <td style="color:red;font-weight:bolder;">偏向锁</td>
+    </tr>
+      <tr>
+        <td>ptr_to_lock_record:62                                                    | lock:2 </td>
+        <td>OOP to metadata object</td>
+        <td style="color:red;font-weight:bolder;">轻量锁</td>
+    </tr>
+    <tr>
+        <td>ptr_to_heavyweight_monitor:62                                                    | lock:2 </td>
+        <td>OOP to metadata object</td>
+        <td style="color:red;font-weight:bolder;">重量锁</td>
+    </tr>
+    <tr>
+        <td>                                                    | lock:2 </td>
+        <td>OOP to metadata object</td>
+        <td style="color:red;font-weight:bolder;">gc</td>
+    </tr>
+</table>
+
+<p>意思是：<font style="color:orange;font-weight:bold;">java的对象头在对象的不同状态下会有不同的表现形式。</font>  </p>
+<p>主要有三种状态：<br><font style="color:orange;font-weight:bold;">无锁状态、加锁状态、gc标记状态。</font>  </p>
+<p>那么可以理解 <font style="color:orange;font-weight:bold;">java当中的取锁</font>  其实可以理解为是：<font style="color:orange;font-weight:bold;">给对象上锁，也就是改变对象头的状态。</font>  </p>
+<p><font style="color:orange;font-weight:bold;">如果上锁成功则进入同步代码块。</font>  </p>
+<p>但是java当中的锁有分为很多种，从上图可以看出大体分为：<font style="color:orange;font-weight:bold;">偏向锁、轻量锁、重量锁三种锁状态。</font>  </p>
+<p><font style="color:orange;font-weight:bold;">这三种锁的效率完全不同。</font>  </p>
+<p>关于效率的分析会在下文分析，只有合理的设计代码，才能合理的利用锁</p>
+<p>那么这三种锁的原理是什么？所以，需要先研究这个 <font style="color:orange;font-weight:bold;">对象头</font>  </p>
+<h2 id="java对象的布局以及对象头的布局"><a href="#java对象的布局以及对象头的布局" class="headerlink" title="java对象的布局以及对象头的布局"></a>java对象的布局以及对象头的布局</h2><ol>
+<li><strong>JOL来分析java的对象布局</strong></li>
+</ol>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">package com.lock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span>&#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] args)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        lockTest();<span class="comment">//问题：现在当前想要对该lockTest方法做同步处理</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//假设此时lockTest存在线程安全问题；如何用最简单的方式来进行处理lockTest方法的同步</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lockTest</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"xxxx"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>处理方式一：（加synchronized关键字）  </p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> <span class="title">com.lock;</span></span><br><span class="line"></span><br><span class="line">public class Test&#123;</span><br><span class="line"></span><br><span class="line">    static L l=<span class="keyword">new</span> L();//为lock新建的专门的一个类；由于lockTest方法是静态的；该静态方法当中需要使用到该l 对象，所以将其置为static</span><br><span class="line"></span><br><span class="line">    static ReentrantLock reentrantLock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line"></span><br><span class="line">        lockTest();//问题：现在当前想要对该lockTest方法做同步处理</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //假设此时lockTest存在线程安全同步问题；如何处理</span><br><span class="line">    public static void lockTest()&#123;</span><br><span class="line">        //<span class="keyword">synchronized</span>()当中需要一个对象；可以传很多；</span><br><span class="line">        //比如说在非静态方法当中可以传this；</span><br><span class="line">        //如果是静态方法则可以传Test.class；也可以进行对对象加锁；</span><br><span class="line">        //更多的时候是建一个专门用来的lock类L,传入该类的对象l，给该l上锁；</span><br><span class="line">        //valatile不能实现同步；valatile只能用来保证访问时的可见性以及不乱去执行，与同步没有很大的关系；</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">        java 并发编程入门级别的问题：  </span><br><span class="line">        <span class="number">1</span>. java当中有哪些锁？</span><br><span class="line">        <span class="number">2</span>. <span class="keyword">synchronized</span>(l)&#123;System.<span class="keyword">out</span>.println(<span class="string">"xxxx"</span>);&#125; 当前该代码锁的是什么？锁的是代码块？还是锁l对象？</span><br><span class="line"></span><br><span class="line">        java当中的锁：比如说公平锁、非公平锁、读写锁、共享锁、互斥锁、自旋锁、偏向锁、轻量级锁、重量级锁....</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span>(l)&#123;System.<span class="keyword">out</span>.println(<span class="string">"xxxx"</span>);&#125; 这段代码本质上的语义是什么?<span class="keyword">synchronized</span>关键字锁住的是代码块还是l该对象？<span class="keyword">synchronized</span>此时锁的是该l 对象；</span><br><span class="line">        给该l 对象进行上锁；</span><br><span class="line">        该<span class="keyword">synchronized</span>是如何给该 l 对象进行上锁的？</span><br><span class="line">        */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">        reentrantLock与<span class="keyword">synchronized</span>都是锁，但是这两把锁是有区别的；</span><br><span class="line">        <span class="keyword">synchronized</span>是java的内置锁；</span><br><span class="line">        而reentrantLock是JUC并发包下提供的锁；</span><br><span class="line">        这两个锁都能完成同样的功能：让锁之间的代码块进行同步执行，只有一个线程去访问；</span><br><span class="line">        当前问题在于：如果采用ReentrantLock调用lock()方法的时候，很容易理解为：就是给这个<span class="keyword">new</span>出来的reentrantLock对象去上锁；</span><br><span class="line">        那么从代码当中如何来理解呢？</span><br><span class="line">        因为在reentrantLock这个对象当中，有一个变量:</span><br><span class="line">        public void lock()&#123;</span><br><span class="line">            sync.lock();</span><br><span class="line">            /**</span><br><span class="line">            sync.lock();<span class="comment">--&gt;</span></span><br><span class="line">            <span class="keyword">abstract</span> static class Sync extends AbstractQueueSynchronizer&#123;</span><br><span class="line">                <span class="keyword">abstract</span> void lock();</span><br><span class="line">            &#125;<span class="comment">---&gt;</span></span><br><span class="line">            static final class FairSync extends Sync&#123;</span><br><span class="line">                final void lock()&#123;</span><br><span class="line">                    acquire(<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="comment">-----&gt;</span></span><br><span class="line">            public final void acquire(int arg)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!tryAcquire(arg)&amp;&amp; acquireQueued(addWaiter(Node.EXCLUSIVE),arg))</span><br><span class="line">                selfInterrupt();</span><br><span class="line">            &#125;<span class="comment">----&gt;</span></span><br><span class="line">            //<span class="keyword">protected</span> boolean tryAcquire(int arg)&#123;</span><br><span class="line">            //    throw <span class="keyword">new</span> UnsupportedOperationException();</span><br><span class="line">            //&#125;</span><br><span class="line">            <span class="keyword">protected</span> final boolean tryAcquire(int acquires)&#123;</span><br><span class="line">                final Thread current = Thread.currentThread();</span><br><span class="line">                int c = getState();</span><br><span class="line">                <span class="keyword">if</span>(c==<span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(!hasQueuedPredecessors() &amp;&amp;</span><br><span class="line">                        //compareAndSetState CAS操作</span><br><span class="line">                        //即将getState()<span class="comment">---&gt;private volatile int state;当中的state变量，如果取值为0则改为1；</span></span><br><span class="line">                        compareAndSetState(<span class="number">0</span>,acquires))&#123;</span><br><span class="line">                            setExclusiveOwnerThread(current);</span><br><span class="line">                            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(current == getExclusiveOwnerThread())&#123;</span><br><span class="line">                    int nextc = c+ acquires;</span><br><span class="line">                    <span class="keyword">if</span>(nextc &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                        throw <span class="keyword">new</span> Error(<span class="string">"Maximum lock count exceeded"</span>);</span><br><span class="line">                    setState(nextc);</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            */</span><br><span class="line">        &#125;</span><br><span class="line">        */</span><br><span class="line"></span><br><span class="line">        //整个reentrantLock代码reentrantLock.lock()该行代码的本质意义即为去改变reentrantLock对象当中的一个属性叫做state；将其改成<span class="number">1</span>；如果能够修改属性取值为<span class="number">1</span>成功说明上锁成功；如果没有修改属性取值为<span class="number">1</span>成功则上锁失败</span><br><span class="line">        //所以说给该对象reentrantLock加锁，那么该对象reentrantLock当中就需要有一个标识，标识存在的含义即是否加锁成功；</span><br><span class="line">        reentrantLock.lock();</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"zzzzzz"</span>);</span><br><span class="line">        reentrantLock.unlock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span>(l)&#123;</span><br><span class="line">            System.<span class="keyword">out</span>.println(<span class="string">"xxxx"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>锁</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2020年redis面试全套视频教程笔记</title>
     <url>/2020/04/24/%E9%9D%A2%E8%AF%95/Redis%E7%9B%B8%E5%85%B3/</url>
     <content><![CDATA[<p>观看笔记：<a href="https://www.bilibili.com/video/BV18J411V7oq?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV18J411V7oq?p=1</a>  </p>
@@ -8097,8 +8301,8 @@
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>串</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -8198,6 +8402,19 @@
       </tags>
   </entry>
   <entry>
+    <title>图</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>树</title>
     <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/%E6%A0%91-06.png" alt="树-06"></p>
@@ -8208,19 +8425,6 @@
       <tags>
         <tag>数据结构</tag>
         <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>图</tag>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -9674,6 +9878,42 @@
       </tags>
   </entry>
   <entry>
+    <title>第四节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
+<p>别人家孩子。  </p>
+<p>你看看人家谁谁谁，你再看看你自己  </p>
+<p>不能让孩子输在起跑线上  </p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
+<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
+<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
+<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
+<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
+<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
+<p>比较有时让人惶恐  </p>
+<p>不要在千千万万的比较当中迷失自我。  </p>
+<p>比较有时候就是用拉人下水的形式找认同感  </p>
+<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
+<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
+<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
+<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
+<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
+<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
+<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
+<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
+<p>知足是一种生活态度  </p>
+<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
+<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第五节心态课</title>
     <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
@@ -9708,33 +9948,35 @@
       </tags>
   </entry>
   <entry>
-    <title>第四节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
+    <title>第二节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
-<p>别人家孩子。  </p>
-<p>你看看人家谁谁谁，你再看看你自己  </p>
-<p>不能让孩子输在起跑线上  </p>
-<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
-<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
-<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
-<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
-<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
-<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
-<p>比较有时让人惶恐  </p>
-<p>不要在千千万万的比较当中迷失自我。  </p>
-<p>比较有时候就是用拉人下水的形式找认同感  </p>
-<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
-<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
-<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
-<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
-<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
-<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
-<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
-<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
-<p>知足是一种生活态度  </p>
-<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
-<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
+<p>第二堂课主题：别让你的情绪，变成你的性格缺陷  </p>
+<p>不打招呼不说话，情绪写在脸上的人不能委以重任<br>田乐好像都跟我说过<br>先处理心情，再处理事情  </p>
+<p>在职场掉眼泪能接受吗？<br>其实哪儿都不相信眼泪  </p>
+<p>老板不会惯着你<br>所有的善良都需要有人买单的<br>老板为自己的错误买单<br>任何时候别干哭鼻子的事情，有泪不轻弹，有多少委屈自己打碎了牙吞进去<br>像个爷们<br>错了就要人，挨打就要立正，有问题就要解决问题，都是成年人，职业一点，一个人要是当地隐藏自己的情绪<br>高兴的时候就笑，不高兴的时候假装什么也没有发生<br>不要在人前表演你的情绪  </p>
+<h2 id="第一点-你不应该是个煤气罐"><a href="#第一点-你不应该是个煤气罐" class="headerlink" title="第一点 你不应该是个煤气罐"></a>第一点 你不应该是个煤气罐</h2><p>嗓门大不代表你有道理，脸通红不代表可以主持正义<br>就是再好也有人挑刺<br>为什么要活在别人的评价里<br>别人只会关心你有用还是没用<br>从为人处世上来说，别做煤气罐一点就炸了  </p>
+<p>要用体面的方式表达你的情绪，否则你的情绪会被视作性格的缺陷<br>可以表达愤怒，而不是愤怒的表达，这二者区别很大。<br>吵架只会让心情更差，打架只会让事情变糟<br>已解决问题为目的，发脾气是本能，控制脾气是本领  </p>
+<p>永远不要让你的脾气比你的本事还大  </p>
+<p>冷静下来问自己三个问题：</p>
+<ol>
+<li>这是别人的错吗？</li>
+</ol>
+<p>很多时候并不是别人的问题，而是误会或者是我们对别人有误解或者偏见，所以闲谈莫论人非，静坐常思己过，先从自己身上找找问题<br>的确是的，有很多的时候都是我自己的错误  </p>
+<ol start="2">
+<li>这个事情值得生气吗</li>
+</ol>
+<p>田乐就跟我说过，你至于为了这么一件小事跟我吵？<br>其实的确不值得。<br>但是我还是吵了。<br>确实，我的确是一个小肚鸡肠的人。<br>俗话说宰相肚里能撑船，但是要明白，他不是当了宰相肚里才能撑船，一定是他平时肚里就能撑船，所以他才当了宰相  </p>
+<ol start="3">
+<li>生气能解决问题吗？</li>
+</ol>
+<p>越是有本事的人，脾气越好。<br>是的。<br>我脾气就不好。<br>因为明白发脾气无法解决任何问题。<br>解决问题唯一的方法就是面对它，然后冷静的把这个问题给解决掉。  </p>
+<p>没那么多需要生气的事情。  </p>
+<h2 id="第二点：你也不应该还是个祥林嫂"><a href="#第二点：你也不应该还是个祥林嫂" class="headerlink" title="第二点：你也不应该还是个祥林嫂"></a>第二点：你也不应该还是个祥林嫂</h2><p>碰到一点压力，就把自己变成不堪重负的样子，碰到一点不确定性，就把前途描摹成前途无光  </p>
+<p>不要做个怨妇  </p>
+<p>这个世界上最无能的就是怨妇。<br>挫折失败经历的太少了。你才会觉得鸡毛蒜皮都是烦恼。<br>抱怨只会让别人觉得你委屈，可怜，但无助于解决任何问题<br>牢骚太盛防肠断，风物长宜放眼量<br>已经发生的事情，埋怨一点用也没有，成年人，我已经是个成年人了  </p>
+<p>其实在生活当中，让你不堪重负的不是压力，而是你承受压力的方式<br>你曾在什么样的公司工作，你就是什么样的人<br>说过去的公司不好那只是证明你的无能<br>的确，我挺无能的  </p>
+<h2 id="第三点：没有本事就不要表演真性情"><a href="#第三点：没有本事就不要表演真性情" class="headerlink" title="第三点：没有本事就不要表演真性情"></a>第三点：没有本事就不要表演真性情</h2><p>只有玻璃心的员工，所以别那么多怀才不遇的抱怨。<br>我觉得这就是在说我呗。<br>说明你的能力还撑不起你的雄心。<br>没有收拾残局的能力，就不要放纵你善变的情绪。<br>在你成为强者之前，所有的委屈都必须吞咽和妥协。<br>因为没有人会在乎弱者的眼泪。<br>成年的世界里，微笑只是一个表情，对讨厌的人或者事情露出你的微笑，使我们必须要学会的恶心<br>要想人前显贵必须背后受罪<br>能忍多大的事情就能成多大的事情<br>永远不应该挑战领导的权威<br>鸡汤：使我们痛苦者让我们强大，没本事的时候身边的坏人特别多，就会受委屈<br>等有一天强大了，所有人都是好人，和颜悦色<br>表达厌恶最好的方式不是争吵，而是要努力的奋斗。  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -9807,6 +10049,44 @@
       </tags>
   </entry>
   <entry>
+    <title>第六节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
+<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
+<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
+<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
+<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
+<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
+<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
+<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
+<ol>
+<li>第一个阶段:不要再为自己担心了,自己做决定</li>
+<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
+</ol>
+<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
+<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
+<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
+<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
+<p>越疼越要不动声色，越苦越要保持沉默  </p>
+<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
+<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
+<ul>
+<li>两利相权取其重</li>
+<li>两害相权取其轻</li>
+</ul>
+<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
+<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
+<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一节心态课</title>
     <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>  </p>
@@ -9866,82 +10146,6 @@
 </ol>
 <p>总分：3<em>8）+2+2</em>7）=24+2+14=40<br>60——80 心态不错<br>20——30 说明你未来可以进步的空间还是挺大的。  </p>
 <p>判断自己的心态偏积极还是消极，建议每年做一次<br>一个人心态积极还是消极，看一个生活中的常见问题，怎么回答即可<br>我有一个好消息还是坏消息，- 答： 先听坏消息，再听好消息<br>如果总是先听好消息，可能偏积极，如果总是先听坏消息，可能偏消极  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第六节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
-<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
-<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
-<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
-<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
-<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
-<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
-<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
-<ol>
-<li>第一个阶段:不要再为自己担心了,自己做决定</li>
-<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
-</ol>
-<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
-<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
-<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
-<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
-<p>越疼越要不动声色，越苦越要保持沉默  </p>
-<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
-<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
-<ul>
-<li>两利相权取其重</li>
-<li>两害相权取其轻</li>
-</ul>
-<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
-<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
-<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第二节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第二堂课主题：别让你的情绪，变成你的性格缺陷  </p>
-<p>不打招呼不说话，情绪写在脸上的人不能委以重任<br>田乐好像都跟我说过<br>先处理心情，再处理事情  </p>
-<p>在职场掉眼泪能接受吗？<br>其实哪儿都不相信眼泪  </p>
-<p>老板不会惯着你<br>所有的善良都需要有人买单的<br>老板为自己的错误买单<br>任何时候别干哭鼻子的事情，有泪不轻弹，有多少委屈自己打碎了牙吞进去<br>像个爷们<br>错了就要人，挨打就要立正，有问题就要解决问题，都是成年人，职业一点，一个人要是当地隐藏自己的情绪<br>高兴的时候就笑，不高兴的时候假装什么也没有发生<br>不要在人前表演你的情绪  </p>
-<h2 id="第一点-你不应该是个煤气罐"><a href="#第一点-你不应该是个煤气罐" class="headerlink" title="第一点 你不应该是个煤气罐"></a>第一点 你不应该是个煤气罐</h2><p>嗓门大不代表你有道理，脸通红不代表可以主持正义<br>就是再好也有人挑刺<br>为什么要活在别人的评价里<br>别人只会关心你有用还是没用<br>从为人处世上来说，别做煤气罐一点就炸了  </p>
-<p>要用体面的方式表达你的情绪，否则你的情绪会被视作性格的缺陷<br>可以表达愤怒，而不是愤怒的表达，这二者区别很大。<br>吵架只会让心情更差，打架只会让事情变糟<br>已解决问题为目的，发脾气是本能，控制脾气是本领  </p>
-<p>永远不要让你的脾气比你的本事还大  </p>
-<p>冷静下来问自己三个问题：</p>
-<ol>
-<li>这是别人的错吗？</li>
-</ol>
-<p>很多时候并不是别人的问题，而是误会或者是我们对别人有误解或者偏见，所以闲谈莫论人非，静坐常思己过，先从自己身上找找问题<br>的确是的，有很多的时候都是我自己的错误  </p>
-<ol start="2">
-<li>这个事情值得生气吗</li>
-</ol>
-<p>田乐就跟我说过，你至于为了这么一件小事跟我吵？<br>其实的确不值得。<br>但是我还是吵了。<br>确实，我的确是一个小肚鸡肠的人。<br>俗话说宰相肚里能撑船，但是要明白，他不是当了宰相肚里才能撑船，一定是他平时肚里就能撑船，所以他才当了宰相  </p>
-<ol start="3">
-<li>生气能解决问题吗？</li>
-</ol>
-<p>越是有本事的人，脾气越好。<br>是的。<br>我脾气就不好。<br>因为明白发脾气无法解决任何问题。<br>解决问题唯一的方法就是面对它，然后冷静的把这个问题给解决掉。  </p>
-<p>没那么多需要生气的事情。  </p>
-<h2 id="第二点：你也不应该还是个祥林嫂"><a href="#第二点：你也不应该还是个祥林嫂" class="headerlink" title="第二点：你也不应该还是个祥林嫂"></a>第二点：你也不应该还是个祥林嫂</h2><p>碰到一点压力，就把自己变成不堪重负的样子，碰到一点不确定性，就把前途描摹成前途无光  </p>
-<p>不要做个怨妇  </p>
-<p>这个世界上最无能的就是怨妇。<br>挫折失败经历的太少了。你才会觉得鸡毛蒜皮都是烦恼。<br>抱怨只会让别人觉得你委屈，可怜，但无助于解决任何问题<br>牢骚太盛防肠断，风物长宜放眼量<br>已经发生的事情，埋怨一点用也没有，成年人，我已经是个成年人了  </p>
-<p>其实在生活当中，让你不堪重负的不是压力，而是你承受压力的方式<br>你曾在什么样的公司工作，你就是什么样的人<br>说过去的公司不好那只是证明你的无能<br>的确，我挺无能的  </p>
-<h2 id="第三点：没有本事就不要表演真性情"><a href="#第三点：没有本事就不要表演真性情" class="headerlink" title="第三点：没有本事就不要表演真性情"></a>第三点：没有本事就不要表演真性情</h2><p>只有玻璃心的员工，所以别那么多怀才不遇的抱怨。<br>我觉得这就是在说我呗。<br>说明你的能力还撑不起你的雄心。<br>没有收拾残局的能力，就不要放纵你善变的情绪。<br>在你成为强者之前，所有的委屈都必须吞咽和妥协。<br>因为没有人会在乎弱者的眼泪。<br>成年的世界里，微笑只是一个表情，对讨厌的人或者事情露出你的微笑，使我们必须要学会的恶心<br>要想人前显贵必须背后受罪<br>能忍多大的事情就能成多大的事情<br>永远不应该挑战领导的权威<br>鸡汤：使我们痛苦者让我们强大，没本事的时候身边的坏人特别多，就会受委屈<br>等有一天强大了，所有人都是好人，和颜悦色<br>表达厌恶最好的方式不是争吵，而是要努力的奋斗。  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -17563,6 +17767,110 @@
       </tags>
   </entry>
   <entry>
+    <title>RabbitMQ实战之南笔记</title>
+    <url>/2020/01/30/RabbitMQ/RabbitMQ/</url>
+    <content><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>《RabbitMQ实战指南》 - 朱忠华  </p>
+<blockquote>
+<p>内容简介</p>
+</blockquote>
+<ul>
+<li>从消息中间件的概念和RabbitMQ的历史切入，阐述RabbitMQ的安装、使用、配置、管理、运维、原理、扩展等方面的细节。</li>
+<li>分为基础、进阶、高级三个部分。</li>
+<li>基础：介绍RabbitMQ的基本安装以及使用方式，RabbitMQ的基本概念，包括生产者、消费者、交换器、队列、绑定等，通过java讲述客户端如何与RabbitMQ建立（关闭）连接，声明（删除）交换器，队列，绑定关系，以及如何发送和消费消息等。</li>
+<li>进阶：RabbitMQ的TTL，死信、延迟队列、优先级队列、RPC、消息持久化、生产端和消费端的消息确认机制等内容。</li>
+<li>中间篇幅主要从RabbitMQ的管理、配置、运维三个角度提供帮助文档以及解决问题的思路。</li>
+<li>高阶：RabbitMQ的存储机制、流控以及镜像队列的原理，深入讲述RabbitMQ的一些实现细节，</li>
+<li>涉及网络分区概念。</li>
+<li>最后讲述的是RabbitMQ的一些扩展内容以及附录，供参考使用。</li>
+</ul>
+<blockquote>
+<p>前言  </p>
+</blockquote>
+<p>略…  </p>
+<blockquote>
+<p>内容大纲</p>
+</blockquote>
+<ul>
+<li>第一章：摘要性介绍，什么是消息中间件、消息中间件的作用以及特点等。引入RabbitMQ对其历史和相关特点做一个简要介绍，最后介绍RabbitMQ的安装以及生产、消费的使用示例。</li>
+<li>第二章：讲述RabbitMQ的入门知识，包括生产者、消费者、队列、交换器、路由键、绑定、连接以及信道等基本术语。还阐述了RabbitMQ与AMQP协议的对应关系。</li>
+<li>第三章：介绍RabbitMQ客户端开发的简单使用，按照一个生命周期对连接、创建、生产、消费以及关闭等几个方面进行宏观的介绍。</li>
+<li>第四章：数据可靠性的一些细节，展示RabbitMQ的集中已具备或衍生的高级特性，包括TTL、死信队列、延迟队列、优先级队列、RPC等。</li>
+<li>第五章：围绕RabbitMQ管理展开，包括多租户、权限、用户、应用和集群管理、服务端状态等方面，并且从侧面讲述rabbitmqctl工具和rabbitmq_management插件的使用。</li>
+<li>第六章：讲述RabbitMQ的配置，通过环境变量、配置文件、运行时参数（和策略）等三种方式来定制化相应的服务。</li>
+<li>第七章：围绕运维层面展开，主要包括集群搭建、日志查看、故障恢复、集群迁移、集群监控等方面。</li>
+<li>第八章：讲述Federation和Shovel这两个插件的使用、细节以及相关原理。区别于第七章中集群的部署方式，Federation和Shovel可以部署在广域网中，为RabbitMQ提供更广泛的应用空间。</li>
+<li>第九章：介绍RabbitMQ相关原理，包括RabbitMQ存储机制、磁盘和内存告罄、流控机制、镜像队列。</li>
+<li>第十章：围绕网络分区进行展开，阐述网络分区意义，如何查看和处理网络分区以及网络分区所带来的的影响。</li>
+<li>第十一章：探讨RabbitMQ的两个扩展内容：消息追踪和负载均衡。消息追踪可以有效定位消息丢失的问题。负载均衡本身属于运维层面，但是负载均衡一般需要借助第三方工具—–HAProxy、LVS等实现。</li>
+</ul>
+<blockquote>
+<p>读者讨论</p>
+</blockquote>
+<p>略…</p>
+<blockquote>
+<p>致谢</p>
+</blockquote>
+<p>略…</p>
+<h3 id="第一章-RabbitMQ简介"><a href="#第一章-RabbitMQ简介" class="headerlink" title="第一章 RabbitMQ简介"></a>第一章 RabbitMQ简介</h3><p>RabbitMQ: 消息中间件<br>RabbitMQ功能特性：【高可靠】、【易扩展】、【高可用】、其他丰富的功能特性  </p>
+<h4 id="1-1-什么是消息中间件"><a href="#1-1-什么是消息中间件" class="headerlink" title="1.1 什么是消息中间件"></a>1.1 什么是消息中间件</h4><p>消息（Message）是指在【应用间】传送的数据。  </p>
+<table>
+<thead>
+<tr>
+<th>消息</th>
+<th>example</th>
+<th>example2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单</td>
+<td>文本字符串</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>复杂</td>
+<td>内前对象</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>消息队列中间件（Message Queue Middleware,简称MQ）<br>是指利用高效可靠的【消息传递机制】进行与平台无关的数据交流，并基于数据通信来进行分布式系统的集成。<br>通过提供消息传递和消息排队模型，它可以在分布式环境下扩展进程间的通信。  </p>
+<p>消息队列中间件，也可以成为消息队列或者消息中间件。  </p>
+<p>消息中间件 |  |<br>-|-|-<br>| 传递模式1 | 点对点（P2P，Point-to-Point）模式 |  | |<br>| 传递模式2 | 发布/订阅(Pub/Sub)模式 | | |</p>
+<blockquote>
+<p>点对点模式</p>
+</blockquote>
+<ul>
+<li>基于队列的  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">消息生产者发送消息到队列，消息消费者从队列当中接受消息，队列的存在使得消息的异步传输成为可能。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>发布订阅模式  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">发布订阅模式定义了如何向一个内容节点发布和订阅消息，</span><br><span class="line">这个内容节点成为主题（topic），</span><br><span class="line">主题可以认为是消息传递的中介，消息发布者将消息发布到某个主题，而消息订阅者则可以从主体中订阅消息，主题使得晓得的订阅者和消息的发布者相互保持独立，不需要进行接触即可保证消息的传递，</span><br><span class="line">发布&#x2F;订阅模式在消息的一对多广播室采用。</span><br></pre></td></tr></table></figure>
+
+<p>目前开源的消息中间件有很多，比较主流的有：</p>
+<ul>
+<li>RabbitMQ</li>
+<li>Kafka</li>
+<li>ActiveMQ</li>
+<li>RocketMQ</li>
+<li>等</li>
+</ul>
+<p>面向消息的中间件（简称为MOM，Message Oriented Middleware）提供了以【松散耦合】的灵活方式集成应用程序的一种机制。  </p>
+<p>它们提供了基于【存储】和【转发】的应用程序之间的【异步数据】发送，即应用程序彼此不直接通信，而是与作为【中介】的消息中间件通信。  </p>
+<p>消息中间件提供了有保证的消息发送，应用程序开发人员无需了解远程调用（RPC）和网络通信协议的细节。  </p>
+<p>消息中间件适用于需要可靠的数据传送的【分布式环境】。<br>采用消息中间件的系统中，不同的对象之间通过传递消息来激活对方的时间，已完成相应的操作，发送者将消息发送给消息服务器，消息服务器将消息存放在若干队列中，在合适的时候再将消息转发给接受者。  </p>
+<p>消息中间件能在不同平台之间通信，它常被用来表示屏蔽各种平台以及协议之间的特性，实现应用程序之间的协同，其优点在于能够在客户和服务器之间提供同步和异步的链接，并且在任何时刻都可以将消息进行传送或者存储转发，这也是它比远程调用更进步的原因。</p>
+]]></content>
+      <categories>
+        <category>RabbitMQ</category>
+      </categories>
+      <tags>
+        <tag>RabbitMQ</tag>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>教案 Contents</title>
     <url>/2020/01/30/%E8%8B%B1%E8%AF%AD/%E6%95%99%E6%A1%88/</url>
     <content><![CDATA[<h1 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h1><table>
@@ -18185,110 +18493,6 @@
       </categories>
       <tags>
         <tag>口语</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>RabbitMQ实战之南笔记</title>
-    <url>/2020/01/30/RabbitMQ/RabbitMQ/</url>
-    <content><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>《RabbitMQ实战指南》 - 朱忠华  </p>
-<blockquote>
-<p>内容简介</p>
-</blockquote>
-<ul>
-<li>从消息中间件的概念和RabbitMQ的历史切入，阐述RabbitMQ的安装、使用、配置、管理、运维、原理、扩展等方面的细节。</li>
-<li>分为基础、进阶、高级三个部分。</li>
-<li>基础：介绍RabbitMQ的基本安装以及使用方式，RabbitMQ的基本概念，包括生产者、消费者、交换器、队列、绑定等，通过java讲述客户端如何与RabbitMQ建立（关闭）连接，声明（删除）交换器，队列，绑定关系，以及如何发送和消费消息等。</li>
-<li>进阶：RabbitMQ的TTL，死信、延迟队列、优先级队列、RPC、消息持久化、生产端和消费端的消息确认机制等内容。</li>
-<li>中间篇幅主要从RabbitMQ的管理、配置、运维三个角度提供帮助文档以及解决问题的思路。</li>
-<li>高阶：RabbitMQ的存储机制、流控以及镜像队列的原理，深入讲述RabbitMQ的一些实现细节，</li>
-<li>涉及网络分区概念。</li>
-<li>最后讲述的是RabbitMQ的一些扩展内容以及附录，供参考使用。</li>
-</ul>
-<blockquote>
-<p>前言  </p>
-</blockquote>
-<p>略…  </p>
-<blockquote>
-<p>内容大纲</p>
-</blockquote>
-<ul>
-<li>第一章：摘要性介绍，什么是消息中间件、消息中间件的作用以及特点等。引入RabbitMQ对其历史和相关特点做一个简要介绍，最后介绍RabbitMQ的安装以及生产、消费的使用示例。</li>
-<li>第二章：讲述RabbitMQ的入门知识，包括生产者、消费者、队列、交换器、路由键、绑定、连接以及信道等基本术语。还阐述了RabbitMQ与AMQP协议的对应关系。</li>
-<li>第三章：介绍RabbitMQ客户端开发的简单使用，按照一个生命周期对连接、创建、生产、消费以及关闭等几个方面进行宏观的介绍。</li>
-<li>第四章：数据可靠性的一些细节，展示RabbitMQ的集中已具备或衍生的高级特性，包括TTL、死信队列、延迟队列、优先级队列、RPC等。</li>
-<li>第五章：围绕RabbitMQ管理展开，包括多租户、权限、用户、应用和集群管理、服务端状态等方面，并且从侧面讲述rabbitmqctl工具和rabbitmq_management插件的使用。</li>
-<li>第六章：讲述RabbitMQ的配置，通过环境变量、配置文件、运行时参数（和策略）等三种方式来定制化相应的服务。</li>
-<li>第七章：围绕运维层面展开，主要包括集群搭建、日志查看、故障恢复、集群迁移、集群监控等方面。</li>
-<li>第八章：讲述Federation和Shovel这两个插件的使用、细节以及相关原理。区别于第七章中集群的部署方式，Federation和Shovel可以部署在广域网中，为RabbitMQ提供更广泛的应用空间。</li>
-<li>第九章：介绍RabbitMQ相关原理，包括RabbitMQ存储机制、磁盘和内存告罄、流控机制、镜像队列。</li>
-<li>第十章：围绕网络分区进行展开，阐述网络分区意义，如何查看和处理网络分区以及网络分区所带来的的影响。</li>
-<li>第十一章：探讨RabbitMQ的两个扩展内容：消息追踪和负载均衡。消息追踪可以有效定位消息丢失的问题。负载均衡本身属于运维层面，但是负载均衡一般需要借助第三方工具—–HAProxy、LVS等实现。</li>
-</ul>
-<blockquote>
-<p>读者讨论</p>
-</blockquote>
-<p>略…</p>
-<blockquote>
-<p>致谢</p>
-</blockquote>
-<p>略…</p>
-<h3 id="第一章-RabbitMQ简介"><a href="#第一章-RabbitMQ简介" class="headerlink" title="第一章 RabbitMQ简介"></a>第一章 RabbitMQ简介</h3><p>RabbitMQ: 消息中间件<br>RabbitMQ功能特性：【高可靠】、【易扩展】、【高可用】、其他丰富的功能特性  </p>
-<h4 id="1-1-什么是消息中间件"><a href="#1-1-什么是消息中间件" class="headerlink" title="1.1 什么是消息中间件"></a>1.1 什么是消息中间件</h4><p>消息（Message）是指在【应用间】传送的数据。  </p>
-<table>
-<thead>
-<tr>
-<th>消息</th>
-<th>example</th>
-<th>example2</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>简单</td>
-<td>文本字符串</td>
-<td>JSON</td>
-</tr>
-<tr>
-<td>复杂</td>
-<td>内前对象</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>消息队列中间件（Message Queue Middleware,简称MQ）<br>是指利用高效可靠的【消息传递机制】进行与平台无关的数据交流，并基于数据通信来进行分布式系统的集成。<br>通过提供消息传递和消息排队模型，它可以在分布式环境下扩展进程间的通信。  </p>
-<p>消息队列中间件，也可以成为消息队列或者消息中间件。  </p>
-<p>消息中间件 |  |<br>-|-|-<br>| 传递模式1 | 点对点（P2P，Point-to-Point）模式 |  | |<br>| 传递模式2 | 发布/订阅(Pub/Sub)模式 | | |</p>
-<blockquote>
-<p>点对点模式</p>
-</blockquote>
-<ul>
-<li>基于队列的  </li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">消息生产者发送消息到队列，消息消费者从队列当中接受消息，队列的存在使得消息的异步传输成为可能。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>发布订阅模式  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">发布订阅模式定义了如何向一个内容节点发布和订阅消息，</span><br><span class="line">这个内容节点成为主题（topic），</span><br><span class="line">主题可以认为是消息传递的中介，消息发布者将消息发布到某个主题，而消息订阅者则可以从主体中订阅消息，主题使得晓得的订阅者和消息的发布者相互保持独立，不需要进行接触即可保证消息的传递，</span><br><span class="line">发布&#x2F;订阅模式在消息的一对多广播室采用。</span><br></pre></td></tr></table></figure>
-
-<p>目前开源的消息中间件有很多，比较主流的有：</p>
-<ul>
-<li>RabbitMQ</li>
-<li>Kafka</li>
-<li>ActiveMQ</li>
-<li>RocketMQ</li>
-<li>等</li>
-</ul>
-<p>面向消息的中间件（简称为MOM，Message Oriented Middleware）提供了以【松散耦合】的灵活方式集成应用程序的一种机制。  </p>
-<p>它们提供了基于【存储】和【转发】的应用程序之间的【异步数据】发送，即应用程序彼此不直接通信，而是与作为【中介】的消息中间件通信。  </p>
-<p>消息中间件提供了有保证的消息发送，应用程序开发人员无需了解远程调用（RPC）和网络通信协议的细节。  </p>
-<p>消息中间件适用于需要可靠的数据传送的【分布式环境】。<br>采用消息中间件的系统中，不同的对象之间通过传递消息来激活对方的时间，已完成相应的操作，发送者将消息发送给消息服务器，消息服务器将消息存放在若干队列中，在合适的时候再将消息转发给接受者。  </p>
-<p>消息中间件能在不同平台之间通信，它常被用来表示屏蔽各种平台以及协议之间的特性，实现应用程序之间的协同，其优点在于能够在客户和服务器之间提供同步和异步的链接，并且在任何时刻都可以将消息进行传送或者存储转发，这也是它比远程调用更进步的原因。</p>
-]]></content>
-      <categories>
-        <category>RabbitMQ</category>
-      </categories>
-      <tags>
-        <tag>RabbitMQ</tag>
-        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
