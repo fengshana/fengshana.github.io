@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>HashMap和ConcurrentHashMap</title>
-    <url>/2020/05/07/%E9%9D%A2%E8%AF%95/HashMap%E5%92%8CConcurrentHashMap/</url>
-    <content><![CDATA[<p>观看笔记: <a href="https://www.bilibili.com/video/BV1ye411s7z8" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1ye411s7z8</a></p>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-        <tag>HashMap</tag>
-        <tag>ConcurrentHashMap</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Synchronized和ReentrantLock</title>
     <url>/2020/05/06/%E9%9D%A2%E8%AF%95/Synchronized%E5%92%8CReentrantLock/</url>
     <content><![CDATA[<p>观看笔记: <a href="https://www.bilibili.com/video/BV1dE411r7iy?from=search&amp;seid=2860602863323633916" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1dE411r7iy?from=search&amp;seid=2860602863323633916</a>  </p>
@@ -216,145 +202,6 @@
       <tags>
         <tag>面试</tag>
         <tag>锁</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2020年redis面试全套视频教程笔记</title>
-    <url>/2020/04/24/%E9%9D%A2%E8%AF%95/Redis%E7%9B%B8%E5%85%B3/</url>
-    <content><![CDATA[<p>观看笔记：<a href="https://www.bilibili.com/video/BV18J411V7oq?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV18J411V7oq?p=1</a>  </p>
-<h2 id="Redis核心数据结构介绍"><a href="#Redis核心数据结构介绍" class="headerlink" title="Redis核心数据结构介绍"></a>Redis核心数据结构介绍</h2><p>一线大厂Redis开发最佳实践<br>Redis轻松实现新浪微博与微信  </p>
-<p>课程内容：  </p>
-<ol>
-<li>Redis核心数据结构精讲</li>
-<li>微博与微信消息流Redis实现</li>
-<li>微信点赞、收藏与标签基于Redis实现</li>
-<li>微博与微信朋友关注模型基于Redis实现</li>
-<li>互联网电商场景Redis使用那些事</li>
-<li>Redis深度学习路线指引</li>
-</ol>
-<h3 id="五种数据结构"><a href="#五种数据结构" class="headerlink" title="五种数据结构"></a>五种数据结构</h3><ul>
-<li>字符串string</li>
-<li>哈希hash</li>
-<li>列表list（可以实现队列的功能，但是功能远远比队列强大）</li>
-<li>集合set</li>
-<li>有序集合zset</li>
-</ul>
-<h2 id="string应用场景解析"><a href="#string应用场景解析" class="headerlink" title="string应用场景解析"></a>string应用场景解析</h2><h3 id="String结构"><a href="#String结构" class="headerlink" title="String结构"></a>String结构</h3><blockquote>
-<p>字符串常用操作</p>
-</blockquote>
-<figure class="highlight q"><table><tr><td class="code"><pre><span class="line">SET <span class="built_in">key</span> <span class="built_in">value</span> <span class="comment">//存入字符串键值对</span></span><br><span class="line">MSET <span class="built_in">key</span> <span class="built_in">value</span> [<span class="built_in">key</span> <span class="built_in">value</span> ...] <span class="comment">//批量存储字符串键值对</span></span><br><span class="line">SETNX <span class="built_in">key</span> <span class="built_in">value</span> <span class="comment">//存入一个不存在的字符串键值对</span></span><br><span class="line">GET <span class="built_in">key</span> <span class="comment">//获取一个字符串键值</span></span><br><span class="line">MGET <span class="built_in">key</span> [<span class="built_in">key</span> ...] <span class="comment">//批量获取字符串键值</span></span><br><span class="line">DEL <span class="built_in">key</span> [<span class="built_in">key</span> ...] <span class="comment">//删除一个键</span></span><br><span class="line">EXPIRE <span class="built_in">key</span> seconds <span class="comment">//设置一个键的过期时间（秒）</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>原子相减</p>
-</blockquote>
-<figure class="highlight gauss"><table><tr><td class="code"><pre><span class="line">INCR <span class="built_in">key</span> <span class="comment">//将key中储存的数字值加1</span></span><br><span class="line">DECR <span class="built_in">key</span> <span class="comment">//将key中储存的数字值减1</span></span><br><span class="line">INCRBY <span class="built_in">key</span> increment <span class="comment">//将key所储存的值加上increment</span></span><br><span class="line">DECRBY <span class="built_in">key</span> decrement <span class="comment">//将key所储存的值减去decrement</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="String应用场景"><a href="#String应用场景" class="headerlink" title="String应用场景"></a>String应用场景</h3><blockquote>
-<p>单值缓存</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">key</span> <span class="keyword">value</span></span><br><span class="line"><span class="keyword">GET</span> <span class="keyword">key</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>对象缓存</p>
-</blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">1) <span class="keyword">SET</span> <span class="keyword">user</span>:<span class="number">1</span> <span class="keyword">value</span>(<span class="keyword">json</span>格式数据)</span><br><span class="line"><span class="number">2</span>) MSET <span class="keyword">user</span>:<span class="number">1</span> <span class="keyword">name</span> hhhhhh <span class="keyword">user</span>:<span class="number">1</span>:balance <span class="number">1888</span></span><br><span class="line">   MGET <span class="keyword">user</span>:<span class="number">1</span>:<span class="keyword">name</span> <span class="keyword">user</span>:<span class="number">1</span>:balance</span><br><span class="line"></span><br><span class="line">其实这个地方根据不同的情况下，<span class="keyword">SET</span>与MSET有不同的优劣；  </span><br><span class="line">MSET更好一些的原因：</span><br><span class="line"><span class="keyword">SET</span>第一种用起来简单；但是从性能上来说或者其他的使用方便度来说，都是不如MSET的；</span><br><span class="line">假如需要进行改一用户的余额，使用第一种方式<span class="keyword">SET</span>将如何实现；使用第二种方式MSET该如何实现；</span><br><span class="line">那么在这种情况下属于第二种MSET方便一些，因为是要该用户的某一属性的值，使用第一种方式<span class="keyword">SET</span>就可能麻烦一点，因为将要将该<span class="keyword">key</span>的<span class="keyword">json</span>数据全部拿回来，然后把这个<span class="keyword">json</span>数据进行反序列化，然后再去进行修改<span class="keyword">json</span>数据当中的该值，然后再去设置到redis当中去；</span><br><span class="line">如果是使用的第二种方式MSET，由于<span class="keyword">key</span>当中存储的是该用户的某一个属性值，所以直接对该需要进行修改的该属性<span class="keyword">key</span>进行操作即可；从这推测，<span class="keyword">hash</span>更适用一些；</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>分布式锁</p>
-</blockquote>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">SETNX product:<span class="number">10001</span> <span class="literal">true</span> <span class="comment">//返回1代表获取锁成功</span></span><br><span class="line">SETNX product:<span class="number">10001</span> <span class="literal">true</span> <span class="comment">//返回0代表获取锁失败</span></span><br><span class="line">.....执行业务操作</span><br><span class="line">DEL product:<span class="number">10001</span> <span class="comment">//执行完业务释放锁</span></span><br><span class="line"></span><br><span class="line">SET product:<span class="number">10001</span> <span class="literal">true</span> ex <span class="number">10</span> nx <span class="comment">//防止程序意外终止导致死锁</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//NX即Not Exists：不存在</span></span><br><span class="line">SETNX </span><br><span class="line">格式：setnx key value</span><br><span class="line">    将key的值设为value，当且仅当key不存在；</span><br><span class="line">    若指定的key已经存在，则setnx不做任何操作；</span><br><span class="line">    SETNX是[ SET <span class="keyword">if</span> <span class="keyword">not</span> exists ]（如果不存在，则SET）的简写；</span><br><span class="line">可用版本：</span><br><span class="line">    &gt;= <span class="number">1.0</span><span class="number">.0</span></span><br><span class="line">时间复杂度：</span><br><span class="line"></span><br><span class="line">    Redis，单线程；那么在多线程的情况下，多个线程同时对productId为<span class="number">10001</span>的商品做一个SETNX的命令操作，那么谁SETNX进行设置成功，那么也就代表着当前该线程拿到了这把锁，既可以进行相关的业务操作；执行完业务操作之后，将该productId为<span class="number">10001</span>的产品在redis缓存当中直接delete掉；那么也就意味着这把锁给释放掉了；那么后续的多线程依然可以对不同的产品id进行相关加锁；</span><br><span class="line">    这种写法存在很多问题；只是引出相关的一个例子；</span><br></pre></td></tr></table></figure>
-
-<table>
-  <tr>
-    <th>id</th>
-    <th>name</th>
-    <th>balance</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>AaaaBbbb</td>
-    <td>1888</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>yangguo</td>
-    <td>16000</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>AaaBbb2</td>
-    <td>2400</td>
-  </tr>
-  <tr>
-    <td>4</td>
-    <td>Bbbb3</td>
-    <td>1888</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td>Aa4</td>
-    <td>1888</td>
-  </tr>
-</table>
-
-<h3 id="String应用场景-1"><a href="#String应用场景-1" class="headerlink" title="String应用场景"></a>String应用场景</h3><blockquote>
-<p>计数器</p>
-</blockquote>
-<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">INCR <span class="string">article:</span><span class="string">readcount:</span>&#123;文章id&#125;</span><br><span class="line">GET <span class="string">ariticle:</span><span class="string">readcount:</span>&#123;文章id&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Web集群session共享</p>
-</blockquote>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">spring <span class="keyword">session</span>+redis实现<span class="keyword">session</span>共享</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>分布式系统全局序列号</p>
-</blockquote>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">INCRBY orderId <span class="number">1000</span> <span class="comment">//redis批量生成序列号提升性能</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="hash应用场景解析"><a href="#hash应用场景解析" class="headerlink" title="hash应用场景解析"></a>hash应用场景解析</h2><h3 id="Hash结构"><a href="#Hash结构" class="headerlink" title="Hash结构"></a>Hash结构</h3><blockquote>
-<p>Hash常用操作</p>
-</blockquote>
-<figure class="highlight q"><table><tr><td class="code"><pre><span class="line">HSET <span class="built_in">key</span> field <span class="built_in">value</span> <span class="comment">//存储一个哈希表key的值</span></span><br><span class="line">HSETNX <span class="built_in">key</span> field <span class="built_in">value</span> <span class="comment">//存储一个不存在的哈希表key的键值</span></span><br><span class="line">HMSET <span class="built_in">key</span> field <span class="built_in">value</span> [ field <span class="built_in">value</span> ...] <span class="comment">//在一个哈希表key中存储多个键值对</span></span><br><span class="line">HGET <span class="built_in">key</span> field <span class="comment">//获取哈希表key对应的field键值</span></span><br><span class="line">HMGET <span class="built_in">key</span> field [ field ...] <span class="comment">//批量获取哈希表key中多个field键值</span></span><br><span class="line">HDEL <span class="built_in">key</span> field [ field ...] <span class="comment">//删除哈希表key中field的数量</span></span><br><span class="line">HLEN <span class="built_in">key</span> <span class="comment">//返回哈希表key中field的数量</span></span><br><span class="line">HGETALL <span class="built_in">key</span> <span class="comment">//返回哈希表key中所有的键值</span></span><br><span class="line"></span><br><span class="line">HINCRBY <span class="built_in">key</span> field increment <span class="comment">//为哈希表key中field键的值加上增量increment</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>对象缓存</p>
-</blockquote>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">HMSET<span class="built_in"> user </span>&#123;userId&#125;:name lalala &#123;userId&#125;:balance 1888</span><br><span class="line">HMSET<span class="built_in"> user </span>1:name lalala 1:balance 1888</span><br><span class="line">HMGET<span class="built_in"> user </span>1:name 1:balance</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>电商购物车</p>
-</blockquote>
-<p>1） 以用户id为key<br>2） 商品id为field<br>3） 商品数量为value</p>
-<blockquote>
-<p>购物车操作</p>
-</blockquote>
-<p>1） 添加商品-&gt;hset cart:1001 10088 1<br>2） 增加数量-&gt;hincrby cart:1001<br>3） 商品总数-&gt;hlen cart:1001<br>4） 删除商品-&gt;hdel cart:1001 10088<br>5） 获取购物车所有商品-&gt;hgetall cart:1001  </p>
-<h2 id="hash结构的优缺点解析"><a href="#hash结构的优缺点解析" class="headerlink" title="hash结构的优缺点解析"></a>hash结构的优缺点解析</h2><blockquote>
-<p>hash结构的优点</p>
-</blockquote>
-<p>1） 同类数据归类整合储存，方便数据管理<br>2） 相比String操作消耗内存与CPU更小<br>3） 相比String储存更节省空间  </p>
-<blockquote>
-<p> 缺点</p>
-</blockquote>
-<p>1） 过期功能不能使用在field上，只能用在key上<br>2） Redis集群架构下不适合大规模使用  </p>
-<h2 id="list应用场景解析"><a href="#list应用场景解析" class="headerlink" title="list应用场景解析"></a>list应用场景解析</h2><blockquote>
-<p>List常用操作</p>
-</blockquote>
-<figure class="highlight xquery"><table><tr><td class="code"><pre><span class="line">LPUSH<span class="built_in"> key</span> <span class="keyword">value</span> [ <span class="keyword">value</span> ...] //将一个或多个值<span class="keyword">value</span>插入<span class="built_in">到key</span>列表的表头（最左边）</span><br><span class="line">RPUSH<span class="built_in"> key</span> <span class="keyword">value</span>[ <span class="keyword">value</span> ...] //将一个或多个值<span class="keyword">value</span>插入<span class="built_in">到key</span>列表的表尾（最右边）</span><br><span class="line">LPOP<span class="built_in"> key</span> //移除并返<span class="built_in">回key</span>列表的头元素</span><br><span class="line">RPOP<span class="built_in"> key</span> //移除并返<span class="built_in">回key</span>列表的尾元素</span><br><span class="line">LRANGE<span class="built_in"> key</span> <span class="keyword">start</span> stop //返回列<span class="built_in">表key</span>中指定区间内的元素，区间以偏移量<span class="keyword">start</span>和stop指定</span><br><span class="line">BLPOP<span class="built_in"> key</span> [<span class="built_in"> key</span> ...] timeout //<span class="built_in">从key</span>列表表头弹出一个元素，若列表中没有元素，阻塞等待timeout秒，如果timeout=<span class="number">0</span>，则一直阻塞等待</span><br><span class="line">BRPOP<span class="built_in"> key</span> [<span class="built_in"> key</span> ...] timeout //<span class="built_in">从key</span>列表表尾弹出一个元素，若列表中没有元素，阻塞等待timeout秒，如果timeout=<span class="number">0</span>，一直阻塞等待</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>常用数据结构</p>
-</blockquote>
-<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line">Stack（栈）=LPUSH+LPOP-&gt;FILO（first in last out）</span><br><span class="line">Queue（队列）=LPUSH+RPOP</span><br><span class="line">Blocking MQ（阻塞队列）=LPUSH+BRPOP</span><br></pre></td></tr></table></figure>
-
-<h2 id="set应用场景解析"><a href="#set应用场景解析" class="headerlink" title="set应用场景解析"></a>set应用场景解析</h2><h2 id="微博与微信关注模型解析"><a href="#微博与微信关注模型解析" class="headerlink" title="微博与微信关注模型解析"></a>微博与微信关注模型解析</h2><h2 id="一线大厂redis开发最佳实践"><a href="#一线大厂redis开发最佳实践" class="headerlink" title="一线大厂redis开发最佳实践"></a>一线大厂redis开发最佳实践</h2><h2 id="分布式锁场景解析"><a href="#分布式锁场景解析" class="headerlink" title="分布式锁场景解析"></a>分布式锁场景解析</h2><h2 id="现场模拟高并发场景"><a href="#现场模拟高并发场景" class="headerlink" title="现场模拟高并发场景"></a>现场模拟高并发场景</h2><h2 id="基于redisson框架实现分布式锁"><a href="#基于redisson框架实现分布式锁" class="headerlink" title="基于redisson框架实现分布式锁"></a>基于redisson框架实现分布式锁</h2><h2 id="redis主从架构锁失效问题解析"><a href="#redis主从架构锁失效问题解析" class="headerlink" title="redis主从架构锁失效问题解析"></a>redis主从架构锁失效问题解析</h2><h2 id="redisson分布式锁实现原理"><a href="#redisson分布式锁实现原理" class="headerlink" title="redisson分布式锁实现原理"></a>redisson分布式锁实现原理</h2><h2 id="双十一大促如何将分布式锁的性能提升100倍"><a href="#双十一大促如何将分布式锁的性能提升100倍" class="headerlink" title="双十一大促如何将分布式锁的性能提升100倍"></a>双十一大促如何将分布式锁的性能提升100倍</h2><h2 id="redis集群方案比较-哨兵模式详解"><a href="#redis集群方案比较-哨兵模式详解" class="headerlink" title="redis集群方案比较-哨兵模式详解"></a>redis集群方案比较-哨兵模式详解</h2><h2 id="redis集群方案比较-高可用集群模式"><a href="#redis集群方案比较-高可用集群模式" class="headerlink" title="redis集群方案比较-高可用集群模式"></a>redis集群方案比较-高可用集群模式</h2><h2 id="redis安装"><a href="#redis安装" class="headerlink" title="redis安装"></a>redis安装</h2><h2 id="redis集群搭建过程详解"><a href="#redis集群搭建过程详解" class="headerlink" title="redis集群搭建过程详解"></a>redis集群搭建过程详解</h2><h2 id="验证集群"><a href="#验证集群" class="headerlink" title="验证集群"></a>验证集群</h2><h2 id="轻松搭建redis缓存高可用集群"><a href="#轻松搭建redis缓存高可用集群" class="headerlink" title="轻松搭建redis缓存高可用集群"></a>轻松搭建redis缓存高可用集群</h2>]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>Redis</tag>
       </tags>
   </entry>
   <entry>
@@ -5910,21 +5757,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Mybatis源码分析</title>
-    <url>/2020/04/24/%E9%9D%A2%E8%AF%95/Mybatis%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<p>观看笔记：<a href="https://www.bilibili.com/video/BV1yE41187A3?from=search&amp;seid=14718277397907237551" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1yE41187A3?from=search&amp;seid=14718277397907237551</a>  </p>
-<p>课程内容：</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>Mybatis</tag>
-        <tag>源码</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微信支付</title>
     <url>/2020/04/23/%E9%9D%A2%E8%AF%95/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/</url>
     <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>重点是复习一下微信支付流程。  </p>
@@ -8416,32 +8248,6 @@
       </tags>
   </entry>
   <entry>
-    <title>图</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>查找</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>查找</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>排序</title>
     <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
@@ -8465,6 +8271,32 @@
       <tags>
         <tag>数据结构</tag>
         <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查找</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>查找</tag>
       </tags>
   </entry>
   <entry>
@@ -8718,8 +8550,8 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
-        <tag>HashMap</tag>
         <tag>红黑树</tag>
+        <tag>HashMap</tag>
       </tags>
   </entry>
   <entry>
@@ -9892,65 +9724,60 @@
       </tags>
   </entry>
   <entry>
-    <title>第一节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>  </p>
-<p>第一堂课主题：基于评价体系的自我认知术  </p>
-<p>飞机的发动机，内因</p>
-<p>心态很重要  </p>
-<p>你做任何事情最后的结果，都由你做这些事情时，所抱持的心态所决定  </p>
-<p>拼了命-试试看：不必拼尽全力  </p>
-<p>你的心态：从你的声音里能听见，从你的举止里能看见，从你的身上能感受到  </p>
-<p>自我认知实验<br>写出自己的五个优点和五个缺点  </p>
-<p>五个优点  </p>
+    <title>第三节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
+<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
+<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
+<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
+<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
+<p>它可以帮你建立自信  </p>
+<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
+<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
+<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
+<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
+<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
+<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
+<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
+<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
+<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
+<p>疗效持久不易复发  </p>
+<p>自卑不自信一定要试试  </p>
+<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
+<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
+<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
+<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
+<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第七节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
+<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
+<p>自我和自私是两种最糟糕的负面心态。</p>
+<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
+<p>先做好自己不要给别人带来麻烦。</p>
+<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
+<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
+<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
+<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
+<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
+<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
+<p>总结：</p>
 <ul>
-<li>别人觉得我很努力  </li>
-<li>别人觉得我字写的好看  </li>
-<li>别人觉得我拍照拍的好看  </li>
-<li>找不到自己的优点算优点吗</li>
-<li>爱整洁  </li>
+<li>第一讲：心态认知，别人的评价…自我认知</li>
+<li>……..</li>
 </ul>
-<p>发现的不多，好像也没有什么优点  </p>
-<p>五个缺点  </p>
-<ul>
-<li>懒</li>
-<li>自私  </li>
-<li>不上进  </li>
-<li>心态不好  </li>
-<li>不诚信，答应别人的事情没做到  </li>
-<li>自我约束不够，自制力不够强  </li>
-<li>情商低，智商低  </li>
-<li>得过且过  </li>
-</ul>
-<p>第二个实验 了解一下别人对你的评价<br>找你最好的朋友，让他写下看到你的人或听到你的名字时，最先想到的形容词  </p>
-<p>不用找了，我觉得第一个词肯定是傻  </p>
-<p>「ChoiMinki：单纯 努力 勤奋」</p>
-<hr>
-<p>「ChoiMinki：good  心态还不错」</p>
-<hr>
-<p>「David：美」</p>
-<hr>
-<p>「ChoiMinki：@Fsn   还有缺点哦  一根筋」</p>
-<hr>
-<p>「七七：大概就是上面那个吧」 最好的朋友</p>
-<hr>
-<p>这个实验结果非常具有参考价值  </p>
-<p>自我认知和别人对自己的评价几乎一致是相当有难度的，因为人容易高估自己<br>自己看自己永远是上帝视角<br>第一个是发现问题<br>第二个是解决问题<br>第三个复杂点的实验<br>招聘企业最在意的员工的职业素养  </p>
-<p>举例： 1. 你够勤奋吗 - 答：不够  3分 够 7分</p>
-<ol>
-<li>你有目标吗？ - 答：好像是没有的 3分    目标能让你坚持</li>
-<li>你够勤奋吗？ - 答：不够努力 3分  勤奋是高效利用时间</li>
-<li>你持之以恒吗？ - 答：应该没有 3分 做任何事要坚持到底，哪怕是一个坏结果，至少证明你人生有一条路走不通，这不是坏事  </li>
-<li>你安排有序吗 - 答：没有 3分 东搞搞西搞搞，时间都被浪费掉了  </li>
-<li>你有创造性吗 - 答:   想方设法解决问题的能力，我会百度搜索这个够不够？ 问老师问同学问朋友这些我很少会问  4分吧那就</li>
-<li>你精力集中吗 - 答： 现在挺集中的  7分  </li>
-<li>你正直吗？ - 答： 就是你是否有正常和正确的心态，我没有 3分 不能一边抱怨一边不停的努力，让在这个不公平的社会里，站在对自己有利的位置。一边抱怨一边懒得要死这样就不好，我应该是正直的。7分   </li>
-<li>你乐观吗？ - 答: 一种乐观，想尽办法解决处理问题 ，一种悲观，为什么倒霉的总是我，总想着该抱怨谁 我好像也没有抱怨谁，就是挺抱怨自己的。4分吧  </li>
-<li>你愿与人合作吗？ - 答：我可能额，愿意吧。就是共赢的一种吧，那我还挺乐意的，我就是担心别人不愿意。  7分</li>
-<li>你愿接受他人的建议吗？ - 答：这个问题，首先对待他人的建议得理性的去想这个建议对我是好是坏，做出客观的判断，这个建议是否合理。我倒是挺愿意接受别人的建议，但是我担心我改不过来呗。3分吧。别人给我建议的时候，我首先会像个刺猬一样把刺竖起来，但是我仔细想过之后，我会承认这个是我的错误，是我没有处理好，会坦白的。因为一开始我也不知道是怎么错了。后来仔细想过之后发现的确是自己的错，还是去主动承担这个错误比较好。我觉得我还是不咋地这方面。  </li>
-</ol>
-<p>总分：3<em>8）+2+2</em>7）=24+2+14=40<br>60——80 心态不错<br>20——30 说明你未来可以进步的空间还是挺大的。  </p>
-<p>判断自己的心态偏积极还是消极，建议每年做一次<br>一个人心态积极还是消极，看一个生活中的常见问题，怎么回答即可<br>我有一个好消息还是坏消息，- 答： 先听坏消息，再听好消息<br>如果总是先听好消息，可能偏积极，如果总是先听坏消息，可能偏消极  </p>
+<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -10106,60 +9933,65 @@
       </tags>
   </entry>
   <entry>
-    <title>第七节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
-<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
-<p>自我和自私是两种最糟糕的负面心态。</p>
-<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
-<p>先做好自己不要给别人带来麻烦。</p>
-<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
-<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
-<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
-<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
-<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
-<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
-<p>总结：</p>
+    <title>第一节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>  </p>
+<p>第一堂课主题：基于评价体系的自我认知术  </p>
+<p>飞机的发动机，内因</p>
+<p>心态很重要  </p>
+<p>你做任何事情最后的结果，都由你做这些事情时，所抱持的心态所决定  </p>
+<p>拼了命-试试看：不必拼尽全力  </p>
+<p>你的心态：从你的声音里能听见，从你的举止里能看见，从你的身上能感受到  </p>
+<p>自我认知实验<br>写出自己的五个优点和五个缺点  </p>
+<p>五个优点  </p>
 <ul>
-<li>第一讲：心态认知，别人的评价…自我认知</li>
-<li>……..</li>
+<li>别人觉得我很努力  </li>
+<li>别人觉得我字写的好看  </li>
+<li>别人觉得我拍照拍的好看  </li>
+<li>找不到自己的优点算优点吗</li>
+<li>爱整洁  </li>
 </ul>
-<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第三节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
-<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
-<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
-<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
-<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
-<p>它可以帮你建立自信  </p>
-<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
-<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
-<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
-<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
-<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
-<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
-<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
-<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
-<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
-<p>疗效持久不易复发  </p>
-<p>自卑不自信一定要试试  </p>
-<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
-<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
-<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
-<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
-<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
+<p>发现的不多，好像也没有什么优点  </p>
+<p>五个缺点  </p>
+<ul>
+<li>懒</li>
+<li>自私  </li>
+<li>不上进  </li>
+<li>心态不好  </li>
+<li>不诚信，答应别人的事情没做到  </li>
+<li>自我约束不够，自制力不够强  </li>
+<li>情商低，智商低  </li>
+<li>得过且过  </li>
+</ul>
+<p>第二个实验 了解一下别人对你的评价<br>找你最好的朋友，让他写下看到你的人或听到你的名字时，最先想到的形容词  </p>
+<p>不用找了，我觉得第一个词肯定是傻  </p>
+<p>「ChoiMinki：单纯 努力 勤奋」</p>
+<hr>
+<p>「ChoiMinki：good  心态还不错」</p>
+<hr>
+<p>「David：美」</p>
+<hr>
+<p>「ChoiMinki：@Fsn   还有缺点哦  一根筋」</p>
+<hr>
+<p>「七七：大概就是上面那个吧」 最好的朋友</p>
+<hr>
+<p>这个实验结果非常具有参考价值  </p>
+<p>自我认知和别人对自己的评价几乎一致是相当有难度的，因为人容易高估自己<br>自己看自己永远是上帝视角<br>第一个是发现问题<br>第二个是解决问题<br>第三个复杂点的实验<br>招聘企业最在意的员工的职业素养  </p>
+<p>举例： 1. 你够勤奋吗 - 答：不够  3分 够 7分</p>
+<ol>
+<li>你有目标吗？ - 答：好像是没有的 3分    目标能让你坚持</li>
+<li>你够勤奋吗？ - 答：不够努力 3分  勤奋是高效利用时间</li>
+<li>你持之以恒吗？ - 答：应该没有 3分 做任何事要坚持到底，哪怕是一个坏结果，至少证明你人生有一条路走不通，这不是坏事  </li>
+<li>你安排有序吗 - 答：没有 3分 东搞搞西搞搞，时间都被浪费掉了  </li>
+<li>你有创造性吗 - 答:   想方设法解决问题的能力，我会百度搜索这个够不够？ 问老师问同学问朋友这些我很少会问  4分吧那就</li>
+<li>你精力集中吗 - 答： 现在挺集中的  7分  </li>
+<li>你正直吗？ - 答： 就是你是否有正常和正确的心态，我没有 3分 不能一边抱怨一边不停的努力，让在这个不公平的社会里，站在对自己有利的位置。一边抱怨一边懒得要死这样就不好，我应该是正直的。7分   </li>
+<li>你乐观吗？ - 答: 一种乐观，想尽办法解决处理问题 ，一种悲观，为什么倒霉的总是我，总想着该抱怨谁 我好像也没有抱怨谁，就是挺抱怨自己的。4分吧  </li>
+<li>你愿与人合作吗？ - 答：我可能额，愿意吧。就是共赢的一种吧，那我还挺乐意的，我就是担心别人不愿意。  7分</li>
+<li>你愿接受他人的建议吗？ - 答：这个问题，首先对待他人的建议得理性的去想这个建议对我是好是坏，做出客观的判断，这个建议是否合理。我倒是挺愿意接受别人的建议，但是我担心我改不过来呗。3分吧。别人给我建议的时候，我首先会像个刺猬一样把刺竖起来，但是我仔细想过之后，我会承认这个是我的错误，是我没有处理好，会坦白的。因为一开始我也不知道是怎么错了。后来仔细想过之后发现的确是自己的错，还是去主动承担这个错误比较好。我觉得我还是不咋地这方面。  </li>
+</ol>
+<p>总分：3<em>8）+2+2</em>7）=24+2+14=40<br>60——80 心态不错<br>20——30 说明你未来可以进步的空间还是挺大的。  </p>
+<p>判断自己的心态偏积极还是消极，建议每年做一次<br>一个人心态积极还是消极，看一个生活中的常见问题，怎么回答即可<br>我有一个好消息还是坏消息，- 答： 先听坏消息，再听好消息<br>如果总是先听好消息，可能偏积极，如果总是先听坏消息，可能偏消极  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -10504,9 +10336,9 @@
         <category>面试</category>
       </categories>
       <tags>
-        <tag>面试</tag>
         <tag>springboot</tag>
         <tag>tomcat</tag>
+        <tag>面试</tag>
         <tag>docker</tag>
       </tags>
   </entry>
