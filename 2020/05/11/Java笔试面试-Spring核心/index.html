@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Spring,面试," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fsn" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="笔记：https:&#x2F;&#x2F;blog.csdn.net&#x2F;huanglei305&#x2F;article&#x2F;details&#x2F;101195116?utm_source&#x3D;app Spring framework 简称 Spring , 是Java开发中最常用的框架，地位仅次于Java API ;   就连近几年比较流行的微服务框架 SpringBoot ， 也是基于  Spring 实现的， SpringBoot 的诞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java笔试面试-Spring核心">
+<meta property="og:url" content="https://fengshana.github.io/2020/05/11/Java%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95-Spring%E6%A0%B8%E5%BF%83/index.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="笔记：https:&#x2F;&#x2F;blog.csdn.net&#x2F;huanglei305&#x2F;article&#x2F;details&#x2F;101195116?utm_source&#x3D;app Spring framework 简称 Spring , 是Java开发中最常用的框架，地位仅次于Java API ;   就连近几年比较流行的微服务框架 SpringBoot ， 也是基于  Spring 实现的， SpringBoot 的诞">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/dqMj6Yn6V2Sp6iFoBCTLq628MpKUUtqmUDtatQKEOPM!/r/dL8AAAAAAAAA">
+<meta property="article:published_time" content="2020-05-11T01:56:02.931Z">
+<meta property="article:modified_time" content="2020-05-11T10:51:31.326Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/dqMj6Yn6V2Sp6iFoBCTLq628MpKUUtqmUDtatQKEOPM!/r/dL8AAAAAAAAA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/05/11/Java笔试面试-Spring核心/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>Java笔试面试-Spring核心 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-camera">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/05/11/Java%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95-Spring%E6%A0%B8%E5%BF%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java笔试面试-Spring核心</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-11T09:56:02+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  6.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  23
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/dqMj6Yn6V2Sp6iFoBCTLq628MpKUUtqmUDtatQKEOPM!/r/dL8AAAAAAAAA" rel="gallery_cka2ddpa700940kum3xh1fjxi"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ1CgWNF/dqMj6Yn6V2Sp6iFoBCTLq628MpKUUtqmUDtatQKEOPM!/r/dL8AAAAAAAAA" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <p>笔记：<a href="https://blog.csdn.net/huanglei305/article/details/101195116?utm_source=app" target="_blank" rel="noopener">https://blog.csdn.net/huanglei305/article/details/101195116?utm_source=app</a></p>
+<p><font style="color:red;font-weight:bolder;">Spring framework</font> 简称 <font style="color:red;font-weight:bolder;">Spring</font> , 是Java开发中最常用的框架，地位仅次于<font style="color:red;font-weight:bolder;">Java API</font> ;  </p>
+<p>就连近几年比较流行的微服务框架 <font style="color:red;font-weight:bolder;">SpringBoot</font> ， 也是基于  <font style="color:red;font-weight:bolder;">Spring</font> 实现的， <font style="color:red;font-weight:bolder;">SpringBoot</font> 的诞生是为了让开发者更方便的使用 <font style="color:red;font-weight:bolder;">Spring</font> ， 因此 <font style="color:red;font-weight:bolder;">Spring</font> 在java体系中的地位可谓首屈一指。</p>
+<h2 id="Spring-介绍"><a href="#Spring-介绍" class="headerlink" title="Spring 介绍"></a>Spring 介绍</h2><p><font style="color:red;font-weight:bolder;">Spring</font> 是一个 <font style="color:red;font-weight:bolder;">开源框架</font> ， 为了  <font style="color:red;font-weight:bolder;">解决企业应用程序开发复杂性</font>  而创建的， <font style="color:red;font-weight:bolder;">Spring</font> 的概念诞生于 2002年，于2003年正式发布第一个版本 Spring Framework 0.9。</p>
+<p><strong>Spring 1.x</strong><br>此版本主要是为了  <font style="color:red;font-weight:bolder;">解决企业应用程序开发复杂性</font>  而创建的，当时 <font style="color:red;font-weight:bolder;">J2EE</font> 应用的经典架构是  <font style="color:red;font-weight:bolder;">分层架构</font>： <font style="color:red;font-weight:bolder;">表现层、业务层、持久层</font>，最流行的组合就是 <font style="color:red;font-weight:bolder;">SSH（Struts、Spring、Hibernate）</font>。</p>
+<p><font style="color:red;font-weight:bolder;">Spring1.x</font> 仅支持 <font style="color:red;font-weight:bolder;">基于XML的配置</font> ， 确保用户 <font style="color:red;font-weight:bolder;">代码不依赖Spring</font>，它主要包含了以下功能模块： <font style="color:red;font-weight:bolder;">aop、 beans、ejb、jdbc、jndi、orm、transation、validation、web</font>等。</p>
+<p><strong>Spring 2.x</strong><br><font style="color:red;font-weight:bolder;">Spring 2.x</font> 的改动并不是很大， 主要是在 <font style="color:red;font-weight:bolder;">Spring 1.x</font>的基础上增加了几个新模块，如 <font style="color:red;font-weight:bolder;">ehcache、jms、jmx、scripting、stereotype</font> 等。</p>
+<p><strong>Spring 3.x</strong><br><font style="color:red;font-weight:bolder;">Spring 3.x</font> 开始不止支持 <font style="color:red;font-weight:bolder;">XML的配置</font> ， 还扩展了 <font style="color:red;font-weight:bolder;">基于Java类的配置</font>， 还增加了 <font style="color:red;font-weight:bolder;">Expression、Instructment、Tomcat、oxm</font>等组件， 同时将原来的 <font style="color:red;font-weight:bolder;">Web</font> 细分为：<font style="color:red;font-weight:bolder;">Portlet、Servlet</font>。</p>
+<p><strong>Spring 4.x</strong><br><font style="color:red;font-weight:bolder;">Spring 4.x</font> 扩充了 <font style="color:red;font-weight:bolder;">Groovy、Messaging、WebMvc、Tiles2、WebSocket</font>等功能组件，同时 <font style="color:red;font-weight:bolder;">Spring</font> 还适配了 <font style="color:red;font-weight:bolder;">Java版本</font>，全面支持 <font style="color:red;font-weight:bolder;">Java 8.0、Lambda表达式</font>等。 随着 <font style="color:red;font-weight:bolder;">RESTful 架构风格</font>被越来越多的用户所采用， <font style="color:red;font-weight:bolder;">Spring 4.x</font> 也提供了<font style="color:red;font-weight:bolder;">ResultController 等注解</font> 新特性。  </p>
+<p><strong>Spring 5.x</strong><br><font style="color:red;font-weight:bolder;">Spring 5.x</font> 紧跟 Java 相关技术的更新迭代，不断适配 <font style="color:red;font-weight:bolder;">Java 的新版本</font>，同时不断重构优化自身核心框架代码，支持 <font style="color:red;font-weight:bolder;">函数式、响应式编程模型</font> 等。  </p>
+<h2 id="Spring-核心"><a href="#Spring-核心" class="headerlink" title="Spring 核心"></a>Spring 核心</h2><p><font style="color:red;font-weight:bolder;">Spring 核心</font>  包括以下三个方面：</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">控制反转（IOC，Inversion of Control）</font></li>
+<li><font style="color:red;font-weight:bolder;">依赖注入（DI，Dependency Injection）</font></li>
+<li><font style="color:red;font-weight:bolder;">面向切面编程（AOP，Aspect Oriented Programming）</font></li>
+</ul>
+<p><strong>控制反转（IOC）</strong><br><font style="color:red;font-weight:bolder;">控制反转（Inversion of Control, IOC）</font> ,顾名思义所谓的 <font style="color:red;font-weight:bolder;">控制反转</font> 就是 <font style="color:red;font-weight:bolder;">把创建对象的权利交给框架去控制， 而不需要人为的去创建</font>， 这样就实现了 <font style="color:red;font-weight:bolder;">可插拔式的接口编程</font> ， 有效的 <font style="color:red;font-weight:bolder;">降低代码的耦合度，降低了扩展和维护的成本</font>。<br>比如，去某地旅游不再用自己亲自为订购A酒店还是B酒店而发愁了，只需要把住店的这个需求告诉给某个 托管平台， 这个托管平台就会帮您订购一个既便宜又舒适的酒店，而这个帮你订购酒店的行为就可以称之为 <font style="color:red;font-weight:bolder;">控制反转</font>。</p>
+<p><strong>依赖注入（DI）</strong><br><font style="color:red;font-weight:bolder;">依赖注入 （Dependency Injection，DI）</font>，是 <font style="color:red;font-weight:bolder;">组件之间依赖关系</font> 由 <font style="color:red;font-weight:bolder;">容器在运行期</font> 决定，即由 <font style="color:red;font-weight:bolder;">容器动态的将某个依赖关系注入到组件之中</font>。<br><font style="color:red;font-weight:bolder;">依赖注入</font> 的目的 并非为 软件系统带来更多功能，而是为了 <font style="color:red;font-weight:bolder;">提高组件重用的频率，并为系统搭建一个灵活、可扩展的平台</font>。<br>通过 <font style="color:red;font-weight:bolder;">依赖注入机制</font>，只需要通过简单的配置，而无需任何代码就可以指定目标需要的资源， 完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。</p>
+<p><strong>IOC和DI的关系</strong><br><font style="color:red;font-weight:bolder;">IOC</font> 是 <font style="color:red;font-weight:bolder;">Spring</font> 中一个极为重要的<font style="color:red;font-weight:bolder;">概念</font>， 而 <font style="color:red;font-weight:bolder;">DI </font>则是 <font style="color:red;font-weight:bolder;">实现IOC</font> 的 <font style="color:red;font-weight:bolder;">方法和手段</font>。  </p>
+<p><strong>依赖注入的常见实现方式</strong></p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">setter</font> 注入</li>
+<li><font style="color:red;font-weight:bolder;">构造方法</font> 注入</li>
+<li><font style="color:red;font-weight:bolder;">注解</font> 注入</li>
+</ul>
+<ol>
+<li><strong>setter 注入</strong></li>
+</ol>
+<p>Java代码：  </p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="symbol">UserController</span>&#123;</span><br><span class="line">  <span class="comment">//注入 UserService 对象</span></span><br><span class="line">  <span class="keyword">private</span> UserService userService;</span><br><span class="line">  <span class="keyword">public</span> <span class="built_in">void</span> setUserService(UserService userService)&#123;</span><br><span class="line">    <span class="keyword">this</span>.userService = userService;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>XML 配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"userController"</span> <span class="attr">class</span>=<span class="string">"com.learning.controller.UserController"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 依赖注入 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"userService"</span> <span class="attr">ref</span>=<span class="string">"userService"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"userService"</span> <span class="attr">class</span>=<span class="string">"com.learning.dao.impl.UserServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Bean标签的常用属性说明：</strong></p>
+<ul>
+<li><strong>id</strong>: 为实例化对象 起名称， 根据id值 可以得到配置的实例化对象，id属性的名称原则上可以任意命名，但是不能包含任何特殊符号；</li>
+<li><strong>class</strong>: 创建对象所在类的全路径。</li>
+<li><strong>name</strong>: 功能和id属性一样，但是现在一般不用；与id的区别在于：name属性值里可以包含特殊符号，但是id不可以；</li>
+<li><strong>scope</strong>： 一般最常用的有两个值：<br><font style="color:red;font-weight:bolder;">Singleton（单例模式）</font>，整个应用程序，只创建bean这一个示例；<br><font style="color:red;font-weight:bolder;">Prototype（原型模式）</font>，每次注入都会创建一个新的bean实例，<font style="color:red;font-weight:bolder;">Spring默认的是单例模式</font>。</li>
+</ul>
+<ol start="2">
+<li><strong>构造方法注入</strong></li>
+</ol>
+<p>Java代码：</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="symbol">UserController</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> UserService userService;</span><br><span class="line">  <span class="keyword">public</span> UserController(UserService userService)&#123;</span><br><span class="line">    <span class="keyword">this</span>.userService = userService;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>XML配置：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"userController"</span> <span class="attr">class</span>=<span class="string">"com.learning.controller.UserController"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 依赖注入 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">ref</span>=<span class="string">"userService"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">name</span>=<span class="string">"userService"</span> <span class="attr">class</span>=<span class="string">"com.learning.dao.impl.UserServiceImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>注解注入：</strong></li>
+</ol>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Controller</span></span><br><span class="line">public class UserController&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//使用注解自动注入</span></span><br><span class="line">  <span class="variable">@Autowired</span></span><br><span class="line">  private UserService userService;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建依赖对象</span></span><br><span class="line"><span class="variable">@Service</span></span><br><span class="line">public class UserService&#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:red;font-weight:bolder;">创建依赖对象</font>的常见注解：<br><font style="color:red;font-weight:bolder;">@Component</font>、<br><font style="color:red;font-weight:bolder;">@Controller</font>、<br><font style="color:red;font-weight:bolder;">@Service</font>、<br><font style="color:red;font-weight:bolder;">@Repository</font></p>
+<p>总结： 可以看出 <font style="color:red;font-weight:bolder;">注解的方式</font> 要比 <font style="color:red;font-weight:bolder;">传统的XML（setter和构造器注入）</font> 是实现注入更为方便，同时注解方式 也是官方力推的依赖注入最佳使用方式。</p>
+<p><strong>面向切面编程（AOP，Aspect Oriented Programming）</strong><br><font style="color:red;font-weight:bolder;">面向切面编程（Aspect Oriented Programming，AOP）</font>；<br>它就好比 将系统按照功能分类，每一个类别就是一个“切面”，再针对不同的切面制定相应的规则，类似开发模式被称为<font style="color:red;font-weight:bolder;">面向切面编程</font>。</p>
+<p><strong>AOP使用场景</strong></p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">日志系统</font></li>
+<li><font style="color:red;font-weight:bolder;">安全统一校验</font></li>
+</ul>
+<p><strong>AOP优点</strong></p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">集中处理某一类问题，方便维护</font></li>
+<li><font style="color:red;font-weight:bolder;">逻辑更加清晰</font></li>
+<li><font style="color:red;font-weight:bolder;">降低模块间的耦合度</font></li>
+</ul>
+<p><strong>AOP相关概念</strong></p>
+<ul>
+<li><strong>Join point</strong>: <font style="color:red;font-weight:bolder;">连接点</font>，程序执行期间的某一个点，例如执行方法或处理异常时候的点，在Spring AOP中，连接点总是表示方法的执行。</li>
+<li><strong>Advice</strong>: <font style="color:red;font-weight:bolder;">通知</font>，通知分为方法执行前通知、方法执行后通知、环绕通知等。许多AOP框架（包括Spring）都将通知建模为拦截器，在连接点周围维护一系列拦截器（形成拦截器链），对连接点的方法进行增强。</li>
+<li><strong>PointCut</strong>：<font style="color:red;font-weight:bolder;">切点</font>，匹配连接点（Join point）的表达式，是AOP的核心，并且Spring默认使用AspectJ作为切入点表达式语言；</li>
+<li><strong>Aspect</strong>：<font style="color:red;font-weight:bolder;">切面</font>，是一个跨越多个类的模块化的关注点，它是通知（Advice）和切点（Pointcut）合起来的抽象，它定义了一个切点（Pointcut）用来匹配连接点（Join point）,也就是需要对需要拦截的那些方法进行定义；</li>
+<li><strong>Target object</strong>：<font style="color:red;font-weight:bolder;">目标对象</font>，对一个或者多个切面（Aspect）通知的对象，也就是需要被AOP进行拦截对方法进行增强（使用通知）的对象，也称为被通知的对象。由于在AOP里面使用运行时代理，因而目标对象一直是被代理的对象。</li>
+<li><strong>AOP Proxy</strong>：<font style="color:red;font-weight:bolder;">AOP代理</font>，为了是实现切面（Aspect）功能使用AOP框架创建一个对象，在Spring框架里面一个AOP代理指的是JDK自身的动态代理或者是CGLIB实现的动态代理；</li>
+<li><strong>Weaving</strong>：<font style="color:red;font-weight:bolder;">把切面加入到对象，并创建出代理对象的过程</font>；</li>
+<li><strong>Advisor</strong>：一个Advisor相当于一个<font style="color:red;font-weight:bolder;">小型的切面</font>，不同的是它只有一个通知（Advice），Advisor在事务管理里面会经常遇到。</li>
+</ul>
+<p><strong>AOP代码实现</strong><br>AOP的示例就以开车为例；<br>开车的完成流程是这样的：<br>巡视车体以及周围情况—》发动—》开车—》熄火—》锁车。<br>当然，主要的目的是“开车”，但是在开车之前和开完车之后，要做一些其他的工作，这些“其他”的工作，可以理解为AOP编程。  </p>
+<p>1）<strong>创建类和方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.learning.aop;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span>(<span class="string">"person"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">driver</span><span class="params">()</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"开车"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2）<strong>创建AOP拦截</strong></p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package com.learning.aop;</span><br><span class="line"></span><br><span class="line">import org.aspectj.lang.<span class="keyword">annotation</span>.<span class="title">After</span>;</span><br><span class="line">import org.aspectj.lang.<span class="keyword">annotation</span>.<span class="title">Aspect</span>;</span><br><span class="line">import org.aspectj.lang.<span class="keyword">annotation</span>.<span class="title">Before</span>;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">@Component</span><br><span class="line">@Aspect</span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">CarAop</span>&#123;</span></span><br><span class="line">  @Before(<span class="string">"execution(* com.learning.aop.Person.driver())"</span>)</span><br><span class="line">  public void before()&#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"巡视车体以及周围情况"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"发动"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  @After(<span class="string">"execution(* com.learning.aop.Person.driver())"</span>)</span><br><span class="line">  public void before()&#123;</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"熄火"</span>);</span><br><span class="line">    System.<span class="keyword">out</span>.println(<span class="string">"锁车"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3）<strong>XML配置注入扫描包路径</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:aop</span>=<span class="string">"http://www.springframework.org/schema/aop"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="tag"><span class="string">       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context-component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.learning"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">aop:aspectj-autoproxy</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>4）<strong>创建测试类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.learning.aop;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonTest</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ApplicationContext context=<span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</span><br><span class="line">    Person landlord=context.getBean(<span class="string">"person"</span>,Person<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">    landlord.driver();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行测试代码，执行结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">巡视车体以及周围情况</span><br><span class="line"></span><br><span class="line">发动</span><br><span class="line"></span><br><span class="line">开车</span><br><span class="line"></span><br><span class="line">熄火</span><br><span class="line"></span><br><span class="line">锁车</span><br></pre></td></tr></table></figure>
+
+<p><strong>AspectJ 注解</strong> 说明：  </p>
+<ul>
+<li><strong>@Before</strong> <font style="color:red;font-weight:bolder;">前置通知</font>，在连接点方法前调用；</li>
+<li><strong>@Around</strong> <font style="color:red;font-weight:bolder;">环绕通知</font>，它将覆盖原有方法，但是允许通过反射调用原有方法</li>
+<li><strong>@After</strong> <font style="color:red;font-weight:bolder;">后置通知</font>，在连接点方法后调用；</li>
+<li><strong>@AfterReturning</strong> <font style="color:red;font-weight:bolder;">返回通知</font>，在连接点方法执行并正常返回后调用，要求连接点方法在执行过程中没有发生任何异常。</li>
+<li><strong>@AfterThrowing</strong> <font style="color:red;font-weight:bolder;">异常通知</font>，当连接点方法异常时调用；</li>
+</ul>
+<h2 id="笔试面试题"><a href="#笔试面试题" class="headerlink" title="笔试面试题"></a>笔试面试题</h2><ol>
+<li><strong>@Value 注解的作用是什么？</strong></li>
+</ol>
+<p>答： 基于 <font style="color:red;font-weight:bolder;">@Value</font> 的注解可以 <font style="color:red;font-weight:bolder;">读取 properties 配置文件</font>，使用如下：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Value(<span class="string">"<span class="subst">#&#123;configProperties[<span class="string">'jdbc.username'</span>]&#125;</span>"</span>)</span><br><span class="line">private String userName;</span><br></pre></td></tr></table></figure>
+<p>以上为读取configProperties下的jdbc.username 配置</p>
+<ol start="2">
+<li><strong>Spring通知类型有哪些？</strong></li>
+</ol>
+<p>答：<br><font style="color:red;font-weight:bolder;">Spring 通知类型</font> 总共有5种：<br><font style="color:red;font-weight:bolder;">前置通知</font>、<br><font style="color:red;font-weight:bolder;">环绕通知</font>、<br><font style="color:red;font-weight:bolder;">后置通知</font>、<br><font style="color:red;font-weight:bolder;">异常通知</font>、<br><font style="color:red;font-weight:bolder;">最终通知</font>。</p>
+<ul>
+<li><strong>前置通知（Before Advice）</strong>：在目标方法执行之前执行的通知。在某连接点（join point）之前执行的通知，但这个通知不能阻止连接点前的执行（除非它抛出一个异常）。</li>
+<li><strong>环绕通知（Around Advice）</strong>：在目标方法执行之前和之后都可以执行额外代码的通知，也可以选择是否继续执行连接点或者直接返回他们自己的返回值或抛出异常来结束执行。</li>
+<li><strong>后置通知（After（finally）Advice）</strong>：目标方法执行之后（某连接点退出的时候）执行的通知（不论是正常返回还是异常退出）</li>
+<li><strong>异常后通知（After throwing Advice）</strong>：在方法抛出异常退出时执行通知</li>
+<li><strong>最终通知（After returning Advice）</strong>：在某连接点（join point）正常完成后执行的通知，例如，一个方法没有抛出任何异常，正常返回。</li>
+</ul>
+<ol start="3">
+<li><strong>怎么理解Spring中的IOC容器？</strong></li>
+</ol>
+<p>答： <font style="color:red;font-weight:bolder;">Spring IOC</font> 就是 <font style="color:red;font-weight:bolder;">把创建对象的权利交给框架去控制，而不需要人为的去创建</font>，这样就实现了 <font style="color:red;font-weight:bolder;">可插拔式的接口编程</font>，<font style="color:red;font-weight:bolder;">有效的降低代码的耦合度，降低了扩展和维护的成本</font>。</p>
+<p>比如，去某地旅游不再用自己亲自为订购A酒店还是B酒店而发愁了，只需要把住店的需求告诉给某个托管平台，这个托管平台就会帮您订购一个既便宜又舒适的酒店，而这个帮你订购酒店的行为就可以称之为 控制反转。</p>
+<ol start="4">
+<li><strong>怎么理解 Spring 中的依赖注入？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">依赖注入</font> 是指 <font style="color:red;font-weight:bolder;">组件之间的依赖关系</font> 由  <font style="color:red;font-weight:bolder;">容器在运行期决定</font>，即由 <font style="color:red;font-weight:bolder;">容器动态的将某个依赖关系注入到组件之中</font>。依赖注入的目的并非为软件系统带来更多功能，而是 <font style="color:red;font-weight:bolder;">为了提升组件重用的频率， 并为系统搭建一个灵活、可扩展的平台</font>。 通过 <font style="color:red;font-weight:bolder;">依赖注入机制</font>，只需要通过简单的配置，而无需任何代码就可指定目标需要的资源，完成自身的业务逻辑，而不需要关心具体的资源来自何处，由谁实现。  </p>
+<ol start="5">
+<li><strong>IOC和DI有什么关系？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">IOC(Inversion of Control)</font> 是 <font style="color:red;font-weight:bolder;">Spring</font> 中一个极为重要的 <font style="color:red;font-weight:bolder;">概念</font>，提供了<font style="color:red;font-weight:bolder;">对象管理</font> 的功能，从而省去了人为创建麻烦，而 <font style="color:red;font-weight:bolder;">DI(Dependency Injection)</font> 正是实现 <font style="color:red;font-weight:bolder;">IOC(Inversion of Control)</font> 的 <font style="color:red;font-weight:bolder;">方法和手段</font>。  </p>
+<ol start="6">
+<li><strong>@Component和@Bean有什么区别？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">@Component</font> 和 <font style="color:red;font-weight:bolder;">@Bean</font> 的 <font style="color:red;font-weight:bolder;">作用对象</font> 不同；</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">@Component</font>作用于<font style="color:red;font-weight:bolder;">类</font></li>
+<li><font style="color:red;font-weight:bolder;">@Bean</font>直接作用于<font style="color:red;font-weight:bolder;">方法</font></li>
+</ul>
+<p><font style="color:red;font-weight:bolder;">@Component</font> 通常是通过 <font style="color:red;font-weight:bolder;">类路径扫描</font> 来自动 侦测和 装配 对象到Spring容器中；<br>比如<font style="color:red;font-weight:bolder;">@ComponentScan</font> 注解就是定义 扫描路径中的类 装配 到Spring的Bean容器中；</p>
+<p><font style="color:red;font-weight:bolder;">@Bean</font> 注解是告诉Spring这是某个类的实例，当调用者需要用它的时候把它给调用者；<br>@Bean 注解比 @Component注解 <font style="color:red;font-weight:bolder;">自定义性</font> 更强，很多地方只能通过@Bean注解来注册Bean，比如当引用第三方库中的类需要 装配 到Spring容器时，则只能通过 @Bean 来实现，比如以下示例，只能通过@Bean注解来实现：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WireThirdLibClass</span></span>&#123;</span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> ThirdLibClass <span class="title">getThirdLibClass</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ThirdLibClass();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><strong>Spring中Bean的作用域有几种类型？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring中bean的作用域有四种类型</font>，如下列表：</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">单例（Singleton）</font>: 整个应用程序，只创建bean的一个实例；</li>
+<li><font style="color:red;font-weight:bolder;">原型（Prototype）：</font> 每次注入都会创建一个新的bean实例；</li>
+<li><font style="color:red;font-weight:bolder;">会话（Session）：</font> 每个会话创建一个bean实例，只在Web系统中有效；</li>
+<li><font style="color:red;font-weight:bolder;">请求（Request）：</font> 每个请求创建一个bean实例，只在Web系统中有效；</li>
+<li><font style="color:red;font-weight:bolder;">Spring默认的是单例模式。</font></li>
+</ul>
+<ol start="8">
+<li><strong>什么是Spring的内部Bean？</strong></li>
+</ol>
+<p>答：当一个bean仅被用作另一个bean的属性时，它能被声明为一个内部bean，为了定义innerBean，在Spring的基于XML的配置元数据中，可以在&lt; property/&gt; 或者&lt; constructor-arg/&gt;元素内使用&lt; bean/&gt;元素，内部bean通常是匿名的，它们的Scope一般是prototype。  </p>
+<ol start="9">
+<li><strong>Spring注入方式有哪些？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring的注入方式包含以下五种</font>：  </p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">setter</font> 注入</li>
+<li><font style="color:red;font-weight:bolder;">构造方法</font> 注入</li>
+<li><font style="color:red;font-weight:bolder;">注解</font> 注入</li>
+<li><font style="color:red;font-weight:bolder;">静态工厂</font> 注入</li>
+<li><font style="color:red;font-weight:bolder;">实例工厂</font> 注入</li>
+</ul>
+<p>其中最常用的是前三种，官方推荐使用的是 <font style="color:red;font-weight:bolder;">注解</font> 注入，相对使用更简单，维护成本更低，更直观。  </p>
+<ol start="10">
+<li><strong>在Spring中如何操作数据库？</strong></li>
+</ol>
+<p>答：在Spring中操作数据库，可以使用Spring提供的JDBC Template对象；<br>JDBC Template类提供了很多便利的方法；<br>比如把数据库数据转变成基本数据类型或对象；<br>执行自定义SQL语句；<br>提供了自定义的数据错误处理等；</p>
+<p>jdbc template 使用示例如下：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line"><span class="keyword">private</span> JdbcTemplate jdbcTemplate;</span><br><span class="line"></span><br><span class="line"><span class="comment">//新增</span></span><br><span class="line">@GetMapping(<span class="string">"save"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">String</span> save()&#123;</span><br><span class="line">  <span class="built_in">String</span> sql=<span class="string">"INSERT INTO USER(USER_NAME,PASS_WORD) VALUES ('LAOWANG','ADMIN')"</span>;</span><br><span class="line">  int <span class="keyword">rows</span>=jdbcTemplate.update(sql);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"执行成功，影响"</span>+<span class="keyword">rows</span>+<span class="string">"行"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line">@GetMapping(<span class="string">"del"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">String</span> del(int id)&#123;</span><br><span class="line">  int <span class="keyword">rows</span>=jdbcTemplate.update(<span class="string">"DELETE FROM USER WHERE ID=?"</span>,id);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"执行成功，影响"</span>+<span class="keyword">rows</span>+<span class="string">"行"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//查询</span></span><br><span class="line">@GetMapping(<span class="string">"getMapById"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">Map</span> getMapById(<span class="built_in">Integer</span> id)&#123;</span><br><span class="line">  <span class="built_in">String</span> sql=<span class="string">"SELECT * FROM USER WHERE ID=?"</span>;</span><br><span class="line">  <span class="built_in">Map</span> <span class="built_in">map</span>=jdbcTemplate.queryForMap(sql,id);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">map</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="11">
+<li><strong>Spring的 JdbcTemplate 对象和 JDBC 有什么区别？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring</font>的 <font style="color:red;font-weight:bolder;">JdbcTemplate</font>是对<font style="color:red;font-weight:bolder;">JDBC API的封装</font>，提供更多的功能和更便利的操作，比如<font style="color:red;font-weight:bolder;">JDBC Template </font>拥有：</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">JDBC Template</font>是<font style="color:red;font-weight:bolder;">线程安全</font>的；</li>
+<li><font style="color:red;font-weight:bolder;">实例化</font>操作比较<font style="color:red;font-weight:bolder;">简单</font>，仅需要传递<font style="color:red;font-weight:bolder;">DataSource</font></li>
+<li><font style="color:red;font-weight:bolder;">自动完成资源的创建和释放</font>工作；</li>
+<li>创建一次JDBCTemplate，到处可用，<font style="color:red;font-weight:bolder;">避免重复开发</font>。</li>
+</ul>
+<ol start="12">
+<li><strong>Spring有几种实现事务的方式？</strong></li>
+</ol>
+<p>答：Spring实现事务的方式有两种方式：</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">编程式</font> 事务；</li>
+<li><font style="color:red;font-weight:bolder;">声明式</font> 事务；</li>
+</ul>
+<p><font style="color:red;font-weight:bolder;">编程式</font> 事务：<br>使用<font style="color:red;font-weight:bolder;">TransactionTemplate</font>或<font style="color:red;font-weight:bolder;">Platform TransactionManager</font>实现，<br>示例代码如下：  </p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> TransactionTemplate transactionTemplate;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(User user)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">  <span class="comment">//Spring编程式事务，回调机制</span></span><br><span class="line">  transactionTemplate.execute(<span class="keyword">new</span> TransactionCallback&lt;Object&gt;)&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function">Object <span class="title">doInTransaction</span><span class="params">(TransactionStatus status)</span></span>&#123;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        userMapper.insertSelective(user);</span><br><span class="line">      &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        <span class="comment">//异常，设置为回滚</span></span><br><span class="line">        status.setRollbackOnly();</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果有<font style="color:red;font-weight:bolder;">异常</font>，调用<font style="color:red;font-weight:bolder;">status.setRollbackOnly()</font>，<font style="color:red;font-weight:bolder;">回滚事务</font>；<br>否则<font style="color:red;font-weight:bolder;">正常</font>，执行<font style="color:red;font-weight:bolder;">doInTransaction()</font>方法，正常<font style="color:red;font-weight:bolder;">提交事务</font>。  </p>
+<p>如果<font style="color:red;font-weight:bolder;">事务控制的方法不需要返回值</font>：<br>就可以使用<font style="color:red;font-weight:bolder;">TransactionCallbackWithoutResult(TransactionCallback接口的抽象实现类)</font><br>示例代码如下:  </p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(User user)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">  <span class="comment">//Spring编程式事务，回调机制</span></span><br><span class="line">  transactionTemplate.execute(<span class="keyword">new</span> TransactionCallbackWithoutResult()&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">doInTransactionWithoutResult</span><span class="params">(TransactionStatus status)</span></span>&#123;</span><br><span class="line">      <span class="keyword">try</span>&#123;</span><br><span class="line">        userMapper.insertSelective(user);</span><br><span class="line">      &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">        <span class="comment">//异常，设置为回滚</span></span><br><span class="line">        status.setRollbackOnly();</span><br><span class="line">        <span class="keyword">throw</span> e;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:red;font-weight:bolder;">声明式</font> 事务：<br>底层是建立在<font style="color:red;font-weight:bolder;">SpringAOP的基础</font>上；<br>在方法执行前后进行拦截；<br>并在目标方法开始执行前创建新事物或加入一个已存在事务；<br>最后在目标方法执行完毕后根据情况进行提交或者回滚事务；  </p>
+<p><font style="color:red;font-weight:bolder;">声明式</font> 事务的优点:<br>不需要编程，<font style="color:red;font-weight:bolder;">减少了代码的耦合</font> ，<br>在配置文件中配置并在目标方法上添加 <font style="color:red;font-weight:bolder;">@Transactional 注解</font>来实现；</p>
+<p>示例代码如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Transactional</span><br><span class="line"><span class="built_in">public</span> <span class="type">void</span> save()&#123;</span><br><span class="line">  <span class="keyword">User</span> <span class="keyword">user</span>=<span class="built_in">new</span> <span class="keyword">User</span>("laowang");</span><br><span class="line">  userMapper.insertSelective(<span class="keyword">user</span>);</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">    throw <span class="built_in">new</span> RuntimeException("异常");</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>抛出异常，事务回自动回滚；<br>如果方法正常执行，则会自动提交事务。</p>
+<ol start="13">
+<li><strong>Spring中的AOP的底层实现原理是什么？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring AOP</font>的底层实现原理就是 <font style="color:red;font-weight:bolder;">动态代理</font>。</p>
+<p><font style="color:red;font-weight:bolder;">Spring AOP的动态代理有两种实现方式</font>：<br>对于<font style="color:red;font-weight:bolder;">接口</font>使用的是<font style="color:red;font-weight:bolder;">JDK自带的动态代理</font>来实现的；<br>而对比<font style="color:red;font-weight:bolder;">非接口</font>使用的是<font style="color:red;font-weight:bolder;">CGLIB来实现</font>的；</p>
+<ol start="14">
+<li><strong>Spring声明式事务无效可能的原因有哪些?</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring声明式事务无效可能的原因</font>如下：</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">MySQL使用的是MyISAM存储引擎</font>，而<font style="color:red;font-weight:bolder;">MyISAM是不支持事务</font>的；</li>
+<li><font style="color:red;font-weight:bolder;">@Transactional使用在非public方法上</font>，<font style="color:red;font-weight:bolder;">@Transactional注解只能支持public级别</font>，其他类型声明的事务不会生效；</li>
+<li><font style="color:red;font-weight:bolder;">@Transactional 在同一个类中无事务方法 A() 内部调用 有事务方法B()，那么此时B() 事务不会生效</font>。</li>
+</ul>
+<ol start="15">
+<li><strong>Spring中的Bean是线程安全的吗？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring中的Bean默认是单例模式</font>;<br>Spring框架并没有对单例Bean进行多线程的封装处理;<br>因此<font style="color:red;font-weight:bolder;">默认的情况Bean并非是安全</font>的;<br>最简单保证Bean安全的举措就是<font style="color:red;font-weight:bolder;">设置Bean的作用域为Prototype（原型）模式</font>，这样每次请求都会新建一个Bean。</p>
+<ol start="16">
+<li><strong>说一下Spring中Bean的生命周期？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring中Bean的生命周期</font>如下：</p>
+<p>1）<font style="color:red;font-weight:bolder;">实例化Bean</font>：<br>对于BeanFactory容器，当客户想容器请求一个尚未初始化的Bean时，或初始化Bean的时候需要注入另一个尚未初始化的依赖时，<br>容器就会调用createBean进行实例化。<br>对于ApplicationContext容器，当容器启动结束后，通过获取BeanDefinition对象中的信息，实例化所有的Bean。</p>
+<p>2）<font style="color:red;font-weight:bolder;">设置对象属性（依赖注入）</font>：<br>实例化后的对象被封装在BeanWrapper对象中，紧接着Spring根据BeanDefinition中的信息以及通过BeanWrapper提供的设置属性的接口完成依赖注入；</p>
+<p>3）<font style="color:red;font-weight:bolder;">处理Aware接口</font>：<br>Spring会检测该对象是否实现了  xxxAware 接口，并将相关 xxxAware实例注入给Bean；</p>
+<p>如果这个Bean已经实现了BeanNameAware接口，会调用它实现的setBeanName（String BeanId）方法，此处传递的就是Spring配置文件中Bean的id值；</p>
+<p>如果这个Bean已经实现了BeanFactoryAware接口，会调用它实现的setBeanFactory（）方法，传递的是Spring工厂自身；</p>
+<p>如果这个Bean已经实现了ApplicationContextAware接口，会调用setApplicationContext（ApplicationContext）方法，传入Spring上下文；</p>
+<p>4）<font style="color:red;font-weight:bolder;">BeanPostProcessor</font>：如果想对Bean进行一些自定义的处理，那么可以让Bean实现BeanPostProcessor接口，那将会调用 postProcessBeforeInitialization(Object obj，String s)方法；</p>
+<p>5）<font style="color:red;font-weight:bolder;">InitialiingBean与init-method</font>：如果Bean在Spring配置文件中配置了init-method属性，则会自动调用其配置的初始化方法；</p>
+<p>6）如果这个Bean实现了BeanPostProcessor接口，将会调用 postProcessAfterInitialization（Object obj，String s）方法；由于这个方法是在Bean初始化结束时调用的，因而可以被应用于内存或者缓存技术；</p>
+<p>以上几个步骤完成后，Bean 就已经被正确创建了，之后就可以使用这个Bean了。</p>
+<p>7）<font style="color:red;font-weight:bolder;">DisposableBean</font>：当Bean不再需要时，会经过清理阶段；如果Bean实现了DisposableBean这个接口，会调用其实现的 destroy()方法；</p>
+<p>8）<font style="color:red;font-weight:bolder;">destroy-mothod</font>：最后，如果这个Bean的Spring配置中配置了destroy-method属性，会自动调用其配置的销毁方法。</p>
+<ol start="17">
+<li><strong>Spring 有哪些优点？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring 优点</font>如下：</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">开源</font>、<font style="color:red;font-weight:bolder;">免费</font>的热门框架，<font style="color:red;font-weight:bolder;">稳定性高</font>、<font style="color:red;font-weight:bolder;">解决问题成本低</font>；</li>
+<li><font style="color:red;font-weight:bolder;">方便集成</font>各种优秀的框架；</li>
+<li><font style="color:red;font-weight:bolder;">降低了代码耦合性</font>：通过Spring提供的<font style="color:red;font-weight:bolder;">IOC(Inversion of Control)</font>容器，可以将对象之间的依赖关系交由Spring进行控制，避免硬编码所造成的过渡程序耦合；</li>
+<li><font style="color:red;font-weight:bolder;">方便程序测试</font>：在Spring里，测试变得非常简单；例如：Spring对Junit的支持，可以通过注解方便的测试Spring程序；</li>
+<li><font style="color:red;font-weight:bolder;">降低Java EE API 的使用难度</font>：Spring对很多难用的Java EE API（如JDBC、JavaMail、远程调用等）提供了一层封装，通过Spring的简易封装，让这些Java EE API的使用难度大为降低；</li>
+</ul>
+<ol start="18">
+<li><strong>Spring和Struts的区别？</strong></li>
+</ol>
+<p>答： <font style="color:red;font-weight:bolder;">Spring和Struts的区别</font>如下：</p>
+<p><font style="color:red;font-weight:bolder;">Spring 特性</font>如下：</p>
+<ul>
+<li>具备<font style="color:red;font-weight:bolder;">IOC(Inversion of Control)/DI(Dependency Injection)、AOP(Aspect oriented Programming)</font>等通用能力，提高研发效率</li>
+<li>除了支持Web层建设以外，还提供了了J2EE整体服务</li>
+<li>方便与其他不同技术结合使用，如Hibernate、Mybatis等</li>
+<li><font style="color:red;font-weight:bolder;">Spring拦截机制是方法级别</font></li>
+</ul>
+<p><font style="color:red;font-weight:bolder;">Struts特性</font>如下：</p>
+<ul>
+<li>是一个基于MVC模式的一个Web层的处理</li>
+<li><font style="color:red;font-weight:bolder;">Struts拦截机制是类级别</font></li>
+</ul>
+<ol start="19">
+<li><strong>Spring、SpringBoot、SpringCloud的区别是什么？</strong></li>
+</ol>
+<p>答： <font style="color:red;font-weight:bolder;">Spring、SpringBoot、SpringCloud的区别</font>如下：</p>
+<ul>
+<li><font style="color:red;font-weight:bolder;">Spring Framework</font> 简称 Spring，是整个Spring生态的基础；</li>
+<li><font style="color:red;font-weight:bolder;">Spring Boot</font>是一个快速开发框架；<br>让开发者可以迅速搭建一套基于Spring的应用程序；<br>并且将<font style="color:red;font-weight:bolder;">常用的Spring模块以及第三方模块</font>，如Mybatis、Hibernate等都做了很好的<font style="color:red;font-weight:bolder;">集成</font>，只需要简单的配置即可使用；<br><font style="color:red;font-weight:bolder;">不需要任何的XML配置文件</font>，真正做到了<font style="color:red;font-weight:bolder;">开箱即用</font>；<br>同时<font style="color:red;font-weight:bolder;">默认支持JSON格式的数据</font>；<br>使用Spring Boot进行<font style="color:red;font-weight:bolder;">前后端分离开发</font>也非常<font style="color:red;font-weight:bolder;">便捷</font>。</li>
+<li><font style="color:red;font-weight:bolder;">Spring Cloud</font>是一套整合了<font style="color:red;font-weight:bolder;">分布式应用</font> 常用模块的框架；<br>使得开发者可以快速实现<font style="color:red;font-weight:bolder;">微服务应用</font>。<br>作为目前非常热门的技术，有关微服务的话题总是在各种场景下被大家讨论；<br>企业的招聘信息中也越来越多的出现对于微服务架构能力的要求。</li>
+</ul>
+<ol start="20">
+<li><strong>Spring中都是用了哪些设计模式？</strong></li>
+</ol>
+<p>答： <font style="color:red;font-weight:bolder;">Spring中使用的设计模式</font>如下：</p>
+<ul>
+<li><strong>工厂模式</strong>： 通过BeanFactory、ApplicationContext 来创建bean 都是属于工厂模式；</li>
+<li><strong>单例、原型模式</strong>： 创建bean对象 设置作用域时，就可以声明Singleton（单例模式）、Prototype（原型模式）；</li>
+<li><strong>观察者模式</strong>：Spring可以定义一下监听，如ApplicationListener 当某个动作触发时就会发出通知；</li>
+<li><strong>责任链模式</strong>：AOP拦截器的执行；</li>
+<li><strong>策略模式</strong>：在创建代理类时，如果代理的接口使用的是JDK自身的动态代理，如果不是，则接口使用的是CGLIB实现动态代理；</li>
+</ul>
+<ol start="22">
+<li><strong>Spring事务隔离级别有哪些？</strong></li>
+</ol>
+<p>答：<font style="color:red;font-weight:bolder;">Spring的事务隔离级别包含以下五种</font>：</p>
+<ul>
+<li><strong>ISOLATION_DEFAULT（isolation default）</strong>: 用底层数据库的设置隔离级别，数据库设置的是什么就用什么；</li>
+<li><strong>ISOLATION_READ_UNCOMMITTED（isolation read uncommitted）</strong>:<font style="color:red;font-weight:bolder;">未提交读</font>，最低隔离级别、事务未提交前，就可以被其他事务读取（会出现幻读、脏读、不可重复读）；</li>
+<li><strong>ISOLATION_READ_COMMITTED（isolation read committed）</strong>: <font style="color:red;font-weight:bolder;">提交读</font>，一个事务提交后才能被其他事务读取到（会造成幻读、不可重复读），SQL Server的默认级别；</li>
+<li><strong>ISOLATION_REPEATABLE_READ( isolation repeatable read)</strong>: <font style="color:red;font-weight:bolder;">可重复度</font>，保证多次读取同一个数据时，其值都和事务开始时候的内容是一样的，禁止读取到别的事务未提交的数据（会造成幻读），MySQL的默认级别；</li>
+<li><strong>ISOLATION_SERIALIZABLE（isolation serializable）</strong>:<font style="color:red;font-weight:bolder;">序列化</font>，代价最高最可靠的隔离级别，该隔离界别能防止脏读、不可重复读、幻读。</li>
+</ul>
+<p>默认值是 <strong>ISOLATION_DEFAULT</strong> 遵循数据库的事务隔离级别设置；</p>
+
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>Java笔试面试-Spring核心</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年05月11日 - 09:56:02</p>
+  <p><span>最后更新:</span>2020年05月11日 - 18:51:31</p>
+  <p><span>原始链接:</span><a href="/2020/05/11/Java%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95-Spring%E6%A0%B8%E5%BF%83/" title="Java笔试面试-Spring核心">https://fengshana.github.io/2020/05/11/Java%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95-Spring%E6%A0%B8%E5%BF%83/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/05/11/Java%E7%AC%94%E8%AF%95%E9%9D%A2%E8%AF%95-Spring%E6%A0%B8%E5%BF%83/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/Spring/" rel="tag"><i class="fa fa-tag">Spring</i></a>
+          
+            <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"><i class="fa fa-tag">面试</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/10/%E9%9D%A2%E8%AF%95/MicroservicesGuide%E7%BF%BB%E8%AF%91/" rel="next" title="MicroservicesGuide翻译">
+                <i class="fa fa-chevron-left"></i> MicroservicesGuide翻译
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">140</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-介绍"><span class="nav-number">1.</span> <span class="nav-text">Spring 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-核心"><span class="nav-number">2.</span> <span class="nav-text">Spring 核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#笔试面试题"><span class="nav-number">3.</span> <span class="nav-text">笔试面试题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+	<span title="Site words total count">
+     456k字 </span>
+    <!--<span title="symbols_count_time.count_total">872k</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":100,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+
