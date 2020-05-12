@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengshana.github.io/"/>
-  <updated>2020-05-11T12:58:50.759Z</updated>
+  <updated>2020-05-12T04:12:24.058Z</updated>
   <id>https://fengshana.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>RabbitMQ实战之南</title>
+    <link href="https://fengshana.github.io/2020/05/12/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%9704/"/>
+    <id>https://fengshana.github.io/2020/05/12/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%9704/</id>
+    <published>2020-05-12T03:35:27.484Z</published>
+    <updated>2020-05-12T04:12:24.058Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>《RabbitMQ实战指南》 - 朱忠华  </p><h2 id="第4章-RabbitMQ进阶"><a href="#第4章-RabbitMQ进阶" class="headerlink" title="第4章 RabbitMQ进阶"></a>第4章 RabbitMQ进阶</h2><p>前一章所讲述的是一些基础的概念及使用方法，比如 <font style="color:red;font-weight:bolder">创建交换器</font>、<font style="color:red;font-weight:bolder">队列</font>和<font style="color:red;font-weight:bolder">绑定关系</font> 等。  </p><p>但是其中有许多细节并未陈述，对使用过程中的一些“坑”也并未提及，一些高级用法也并未展现，所以本章的内容就是要弥补这些缺憾。  </p><p>本章以 <font style="color:red;font-weight:bolder">RabbitMQ</font> 基础使用知识为前提，阐述一些根据特色的细节及功能，为读者更进一步地掌握 <font style="color:red;font-weight:bolder">RabbitMQ</font> 提供基准。</p><h2 id="消息何去何从"><a href="#消息何去何从" class="headerlink" title="消息何去何从"></a>消息何去何从</h2><p>mandatory 和immediate 是channel.basicPublish 方法中的两个参数，他们都有 当消息传递过程中不可达目的地时将消息返回给生产者的功能。  </p><p>RabbitMQ 提供的 备份交换器（Alternate Exchange） 可以 将未能被交换器路由的消息（没有绑定队列或者没有匹配的绑定）存储起来， 而不用返回给客户端。  </p><p>对于初学者来说，特别容易将 mandatory 和immediate 这两个参数混淆，而对于备份交换器更是一筹莫展，本章对此一一展开探讨。  </p><blockquote><p>mandatory</p></blockquote><p>[<br>  adj. 强制的；托管的；命令的<br>  n. 受托者（等于 mandatary）<br>  复数 mandatories<br>  网络释义 强制的；强制性；命令的；义务的；<br>  mandatory 强制的；强制性；命令的；义务的；<br>  mandatory plan 指令性计划；强制性计划；指令性打算；指令性规划；<br>  mandatory offer 强制要约；强制性要约；强制性收购建议；强制性收购；<br>]</p><blockquote><p>immediate</p></blockquote><p>[<br>  adj. 立即的；直接的；最接近的；<br>  网络释义 立刻；立即的；即时；直接的<br>  immediate 立刻；立即的；即时；直接的<br>  immediate employer 直接雇主<br>  immediate mode 直接模式；立即模式；即时模式<br>]</p><h3 id="mandatory-参数"><a href="#mandatory-参数" class="headerlink" title="mandatory 参数"></a>mandatory 参数</h3><p>当 mandatory 参数 设为 true 时，交换器无法根据自身的类型和路由键找到一个符合条件的队列，那么 RabbitMQ 会调用 Basic.Return 命令将消息返回给生产者。  </p><p>当 mandatory 参数 设置为 false 时，出现上述情形（交换器无法根据自身的类型和路由键找到一个符合条件的队列），则消息直接被丢弃。  </p><p>那么生产者如何获取到 没有被正确路由到合适队列的消息 呢？<br>这时候可以通过调用 channel.addReturnListener 来添加 ReturnListener 监听器实现。  </p><p>使用 mandatory 参数的关键代码清单如下所示：  </p><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">channel.basicPublish(</span><br><span class="line">  EXCHANGE_NAME,</span><br><span class="line">  <span class="string">""</span>,</span><br><span class="line">  <span class="keyword">true</span>,</span><br><span class="line">  MessageProperties.PERSISTENT_TEXT_PLAIN,</span><br><span class="line">  <span class="string">"mandatory test"</span>.getBytes()</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  channel.addReturnListener(</span><br><span class="line">    <span class="keyword">new</span> ReturnListener()&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">void</span> handleReturn(</span><br><span class="line">        <span class="built_in">int</span> replyCode,</span><br><span class="line">        <span class="keyword">String</span> replyText,</span><br><span class="line">        <span class="keyword">String</span> exchange,</span><br><span class="line">        <span class="keyword">String</span> routingKey,</span><br><span class="line">        AMQP.BasicProperties basicProperties,</span><br><span class="line">        <span class="built_in">byte</span>[] body</span><br><span class="line">      ) <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        <span class="keyword">String</span> message = <span class="keyword">new</span> <span class="keyword">String</span>(body);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"Basic.Return 返回的结果是："</span>+message);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure><p>上面代码中 生产者 没有成功地将消息路由到队列，此时 RabbitMQ 会通过 Basic.Return 返回 “mandatory test” 这条消息，之后生产者客户端通过 ReturnListener 监听到了这个时间，上面代码的最后输出应该是 “Basic.Return 返回的结果是：mandatory test”。  </p><p>从 AMQP 协议层面来说，其对应的流转过程如图：</p><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string">----------</span>|<span class="string">                              </span>|<span class="string">----------</span>|</span><br><span class="line">|<span class="string"> Producer </span>|<span class="string">                              </span>|<span class="string">  Broker  </span>|</span><br><span class="line">|<span class="string">----------</span>|<span class="string">                              </span>|<span class="string">----------</span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">---------------------------------------------------------------------</span><br><span class="line">     |<span class="string">  此处省略 Connection 和 Channel的开启     </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">  Basic.Publish--------------------------&gt;</span>|</span><br><span class="line">     |<span class="string">                                          </span>|<span class="string">&lt;-----没有路由到队列</span></span><br><span class="line"><span class="string">     </span>|<span class="string">&lt;-----------------------------Basic.Return</span>|</span><br><span class="line">     |<span class="string">                  (Basic.Return会携带消息) </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">    此处省略Connection和Channel的关闭      </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br></pre></td></tr></table></figure><h3 id="immediate-参数"><a href="#immediate-参数" class="headerlink" title="immediate 参数"></a>immediate 参数</h3><p>当 immediate 参数设为 true时，如果交换器在消息</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;笔记&quot;&gt;&lt;a href=&quot;#笔记&quot; class=&quot;headerlink&quot; title=&quot;笔记&quot;&gt;&lt;/a&gt;笔记&lt;/h2&gt;&lt;p&gt;《RabbitMQ实战指南》 - 朱忠华  &lt;/p&gt;
+&lt;h2 id=&quot;第4章-RabbitMQ进阶&quot;&gt;&lt;a href=&quot;#第4章-Rabbi
+      
+    
+    </summary>
+    
+    
+      <category term="RabbitMQ" scheme="https://fengshana.github.io/categories/RabbitMQ/"/>
+    
+    
+      <category term="笔记" scheme="https://fengshana.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="RabbitMQ" scheme="https://fengshana.github.io/tags/RabbitMQ/"/>
+    
+      <category term="RabbitMQ实战之南" scheme="https://fengshana.github.io/tags/RabbitMQ%E5%AE%9E%E6%88%98%E4%B9%8B%E5%8D%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Redis设计与实现</title>
     <link href="https://fengshana.github.io/2020/05/11/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/"/>
     <id>https://fengshana.github.io/2020/05/11/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/</id>
     <published>2020-05-11T12:26:03.085Z</published>
-    <updated>2020-05-11T12:58:50.759Z</updated>
+    <updated>2020-05-12T03:05:25.299Z</updated>
     
     <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>查阅了很多的如何学习Redis；发现很多人推荐了这本书《Redis设计与实现》（黄健宏著）  </p><p>于是，我想看了；<br>一口气吃不成一个胖子；我觉得多看书还挺好的；<br>对技术充满敬畏。突然有一种肃然起敬的感觉。不知道为什么。<br>我不想再这么浅显的过着，平庸乏味，单薄，好像仔细一想就能看透我这一生的轨迹。<br>我不想这么活着。我得有自己的信念，得有自己所坚持所热爱所为之奋斗一生的东西。<br>我不想，到一定年龄结婚生子，到一定年龄，成为了自己不想成为的人；  </p><p>redis github: <a href="https://github.com/antirez/redis" target="_blank" rel="noopener">https://github.com/antirez/redis</a>  </p><h2 id="The-Design-and-Implementation-of-Redis（Redis设计与实现）"><a href="#The-Design-and-Implementation-of-Redis（Redis设计与实现）" class="headerlink" title="The Design and Implementation of Redis（Redis设计与实现）"></a>The Design and Implementation of Redis（Redis设计与实现）</h2><p><strong>Redis设计与实现</strong><br>黄健宏 著  </p><p>The Design and Implementation of Redis.  </p><ul><li>由资深 Redis 技术专家撰写，深入了解 Redis 技术聂牧的必读之作。</li><li>从源码角度解析 Redis 的架构设计、实现原理和工作机制，为高效使用 Redis 提供原理性指导。  </li></ul><blockquote><p>design</p></blockquote><p>[<br>  n. 设计；构思；设计图样；装饰图案；打算<br>  v. 设计；构思；计划；制造；意欲<br>  n.(Design) (巴、印、俄)迪赛（人名）<br>  复数 designs；<br>  过去式 designed；<br>  过去分词 designed；<br>  现在分词 designing；<br>  第三人称单数 designs；<br>  网络释义 设计、外观设计、图案、工艺特色<br>  design 设计；外观设计；图案；工艺特色<br>  Fashion Design 时装设计；时尚设计；服装设计；服装设计专业<br>  urban design 城市设计；城区设计；都市设计；城市化规划<br>]</p><blockquote><p>implementation</p></blockquote><p>[<br>  n.[ 计] 实现；履行；安装启用<br>  网络释义 实现；实施；实现；执行<br>  implementation 实现；实施；实现；执行<br>  base implementation 基实现<br>  policy implementation 政策实施；政策执行；政策的实施；政策执行<br>]</p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本书全面而完整的讲解了 Redis 的 内部机制 与 实现方式。  </p><p>对 Redis 的大多数单机功能以及所有多机功能的实现原理进行了介绍。  </p><p>展示了这些功能的 核心数据结构 以及 关键的算法思想 ， 图示丰富，描述清晰，并给出大量参考信息。  </p><p>通过阅读本书，读者可以快速、有效地了解 Redis 的 内部构造 以及 运作机制，更好、更高效地使用 Redis。  </p><p>本书主要分为四大部分。  </p><ol><li><strong>第一部分</strong>：“数据结构与对象”</li></ol><p>介绍了 Redis 中的各种 对象及其数据结构，并说明这些 数据结构 如何影响 对象的功能和性能。</p><ol start="2"><li><strong>第二部分</strong>：“单机数据库的实现”</li></ol><p>对 Redis 实现单机数据库的方法 进行了介绍，包括 数据库、RDB持久化、AOF持久化、事件等；</p><ol start="3"><li><strong>第三部分</strong>：”多机数据库的实现“</li></ol><p>对 Redis 的 Sentinel、复制、集群 三个多机功能进行了介绍。</p><ol start="4"><li><strong>第四部分</strong>：”独立功能的实现“</li></ol><p>对 Redis 中各个相对独立的功能模块进行了介绍，涉及 发布与订阅、事务、Lua脚本、排序、二进制位数组、慢查询日志、监视器等。  </p><p>本书作者专门维护了 <a href="http://www.redisbook.com" target="_blank" rel="noopener">www.redisbook.com</a> 网站，提供带有详细注释的 Redis源码，以及本书相关的更新内容。</p>]]></content>
     
@@ -582,32 +613,6 @@
       <category term="SendGrid" scheme="https://fengshana.github.io/tags/SendGrid/"/>
     
       <category term="邮件服务" scheme="https://fengshana.github.io/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-Bean生命周期</title>
-    <link href="https://fengshana.github.io/2020/04/14/Spring/Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>https://fengshana.github.io/2020/04/14/Spring/Bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</id>
-    <published>2020-04-14T12:01:56.000Z</published>
-    <updated>2020-04-14T17:00:56.968Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h2>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;学习笔记&quot;&gt;&lt;a href=&quot;#学习笔记&quot; class=&quot;headerlink&quot; title=&quot;学习笔记&quot;&gt;&lt;/a&gt;学习笔记&lt;/h2&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="https://fengshana.github.io/categories/Spring/"/>
-    
-    
-      <category term="Spring" scheme="https://fengshana.github.io/tags/Spring/"/>
     
   </entry>
   

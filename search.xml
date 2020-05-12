@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>RabbitMQ实战之南</title>
+    <url>/2020/05/12/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%9704/</url>
+    <content><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>《RabbitMQ实战指南》 - 朱忠华  </p>
+<h2 id="第4章-RabbitMQ进阶"><a href="#第4章-RabbitMQ进阶" class="headerlink" title="第4章 RabbitMQ进阶"></a>第4章 RabbitMQ进阶</h2><p>前一章所讲述的是一些基础的概念及使用方法，比如 <font style="color:red;font-weight:bolder">创建交换器</font>、<font style="color:red;font-weight:bolder">队列</font>和<font style="color:red;font-weight:bolder">绑定关系</font> 等。  </p>
+<p>但是其中有许多细节并未陈述，对使用过程中的一些“坑”也并未提及，一些高级用法也并未展现，所以本章的内容就是要弥补这些缺憾。  </p>
+<p>本章以 <font style="color:red;font-weight:bolder">RabbitMQ</font> 基础使用知识为前提，阐述一些根据特色的细节及功能，为读者更进一步地掌握 <font style="color:red;font-weight:bolder">RabbitMQ</font> 提供基准。</p>
+<h2 id="消息何去何从"><a href="#消息何去何从" class="headerlink" title="消息何去何从"></a>消息何去何从</h2><p>mandatory 和immediate 是channel.basicPublish 方法中的两个参数，他们都有 当消息传递过程中不可达目的地时将消息返回给生产者的功能。  </p>
+<p>RabbitMQ 提供的 备份交换器（Alternate Exchange） 可以 将未能被交换器路由的消息（没有绑定队列或者没有匹配的绑定）存储起来， 而不用返回给客户端。  </p>
+<p>对于初学者来说，特别容易将 mandatory 和immediate 这两个参数混淆，而对于备份交换器更是一筹莫展，本章对此一一展开探讨。  </p>
+<blockquote>
+<p>mandatory</p>
+</blockquote>
+<p>[<br>  adj. 强制的；托管的；命令的<br>  n. 受托者（等于 mandatary）<br>  复数 mandatories<br>  网络释义 强制的；强制性；命令的；义务的；<br>  mandatory 强制的；强制性；命令的；义务的；<br>  mandatory plan 指令性计划；强制性计划；指令性打算；指令性规划；<br>  mandatory offer 强制要约；强制性要约；强制性收购建议；强制性收购；<br>]</p>
+<blockquote>
+<p>immediate</p>
+</blockquote>
+<p>[<br>  adj. 立即的；直接的；最接近的；<br>  网络释义 立刻；立即的；即时；直接的<br>  immediate 立刻；立即的；即时；直接的<br>  immediate employer 直接雇主<br>  immediate mode 直接模式；立即模式；即时模式<br>]</p>
+<h3 id="mandatory-参数"><a href="#mandatory-参数" class="headerlink" title="mandatory 参数"></a>mandatory 参数</h3><p>当 mandatory 参数 设为 true 时，交换器无法根据自身的类型和路由键找到一个符合条件的队列，那么 RabbitMQ 会调用 Basic.Return 命令将消息返回给生产者。  </p>
+<p>当 mandatory 参数 设置为 false 时，出现上述情形（交换器无法根据自身的类型和路由键找到一个符合条件的队列），则消息直接被丢弃。  </p>
+<p>那么生产者如何获取到 没有被正确路由到合适队列的消息 呢？<br>这时候可以通过调用 channel.addReturnListener 来添加 ReturnListener 监听器实现。  </p>
+<p>使用 mandatory 参数的关键代码清单如下所示：  </p>
+<figure class="highlight processing"><table><tr><td class="code"><pre><span class="line">channel.basicPublish(</span><br><span class="line">  EXCHANGE_NAME,</span><br><span class="line">  <span class="string">""</span>,</span><br><span class="line">  <span class="keyword">true</span>,</span><br><span class="line">  MessageProperties.PERSISTENT_TEXT_PLAIN,</span><br><span class="line">  <span class="string">"mandatory test"</span>.getBytes()</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  channel.addReturnListener(</span><br><span class="line">    <span class="keyword">new</span> ReturnListener()&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">void</span> handleReturn(</span><br><span class="line">        <span class="built_in">int</span> replyCode,</span><br><span class="line">        <span class="keyword">String</span> replyText,</span><br><span class="line">        <span class="keyword">String</span> exchange,</span><br><span class="line">        <span class="keyword">String</span> routingKey,</span><br><span class="line">        AMQP.BasicProperties basicProperties,</span><br><span class="line">        <span class="built_in">byte</span>[] body</span><br><span class="line">      ) <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        <span class="keyword">String</span> message = <span class="keyword">new</span> <span class="keyword">String</span>(body);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"Basic.Return 返回的结果是："</span>+message);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中 生产者 没有成功地将消息路由到队列，此时 RabbitMQ 会通过 Basic.Return 返回 “mandatory test” 这条消息，之后生产者客户端通过 ReturnListener 监听到了这个时间，上面代码的最后输出应该是 “Basic.Return 返回的结果是：mandatory test”。  </p>
+<p>从 AMQP 协议层面来说，其对应的流转过程如图：</p>
+<figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">|<span class="string">----------</span>|<span class="string">                              </span>|<span class="string">----------</span>|</span><br><span class="line">|<span class="string"> Producer </span>|<span class="string">                              </span>|<span class="string">  Broker  </span>|</span><br><span class="line">|<span class="string">----------</span>|<span class="string">                              </span>|<span class="string">----------</span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">---------------------------------------------------------------------</span><br><span class="line">     |<span class="string">  此处省略 Connection 和 Channel的开启     </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">  Basic.Publish--------------------------&gt;</span>|</span><br><span class="line">     |<span class="string">                                          </span>|<span class="string">&lt;-----没有路由到队列</span></span><br><span class="line"><span class="string">     </span>|<span class="string">&lt;-----------------------------Basic.Return</span>|</span><br><span class="line">     |<span class="string">                  (Basic.Return会携带消息) </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">    此处省略Connection和Channel的关闭      </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br></pre></td></tr></table></figure>
+
+<h3 id="immediate-参数"><a href="#immediate-参数" class="headerlink" title="immediate 参数"></a>immediate 参数</h3><p>当 immediate 参数设为 true时，如果交换器在消息</p>
+]]></content>
+      <categories>
+        <category>RabbitMQ</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>RabbitMQ</tag>
+        <tag>RabbitMQ实战之南</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Redis设计与实现</title>
     <url>/2020/05/11/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>查阅了很多的如何学习Redis；发现很多人推荐了这本书《Redis设计与实现》（黄健宏著）  </p>
@@ -8806,19 +8845,6 @@
       </tags>
   </entry>
   <entry>
-    <title>排序</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>排序</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图</title>
     <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
@@ -8842,6 +8868,19 @@
       <tags>
         <tag>数据结构</tag>
         <tag>查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
@@ -9571,94 +9610,6 @@
   </entry>
   <entry>
     <title>面试题</title>
-    <url>/2020/03/23/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="什么是Spring"><a href="#什么是Spring" class="headerlink" title="什么是Spring"></a>什么是Spring</h2><p>Spring是一个开源的Java EE开发框架。<br>Spring框架的核心功能可以应用在任何java应用程序中，但对Java EE平台上的Web应用程序有更好的扩展性。<br>Spring框架的目标是使得Java EE应用程序的开发更加简捷，通过使用POJO为基础的变成模型促进良好的变成风格。  </p>
-<h2 id="Spring有哪些优点"><a href="#Spring有哪些优点" class="headerlink" title="Spring有哪些优点"></a>Spring有哪些优点</h2><ul>
-<li>轻量级： Spring在大小和透明性方面觉得属于轻量级的，基础版本的Spring框架大约只有2MB。</li>
-<li>控制反转（IOC）： SPring使用控制反转技术实现了松耦合。依赖被注入到对象，而不是创建或者寻找依赖对象。</li>
-<li>面向切面编程（AOP）: Spring支持面向切面编程，同时把应用的业务逻辑与系统的服务分离开来。</li>
-<li>容器： Spring包含并管理应用程序对象的配置以及生命周期。</li>
-<li>MVC框架：Spring的web框架是一个设计优良的web MVC框架，很好的取代了一些web框架。</li>
-<li>事务管理： Spring对下至本地业务上至全局业务（JAT）提供了统一的事务管理接口。</li>
-<li>异常处理： Spring提供一个方便的API将特定技术的异常（由JDBC，Hibernate，或者JDO抛出）转化为一致的、Unchecked异常。</li>
-</ul>
-<h2 id="Spring事务实现方式"><a href="#Spring事务实现方式" class="headerlink" title="Spring事务实现方式"></a>Spring事务实现方式</h2><ul>
-<li>编程式事务管理： 这意味着你可以通过编程的方式管理事务，这种方式带来了很大的灵活性，但是很难维护。</li>
-<li>声明式事务管理： 这种方式意味着你可以将事务和业务代码分离。你只需要通过注解或者XML配置管理事务。</li>
-</ul>
-<h2 id="Spring框架的事务管理有哪些优点"><a href="#Spring框架的事务管理有哪些优点" class="headerlink" title="Spring框架的事务管理有哪些优点"></a>Spring框架的事务管理有哪些优点</h2><ul>
-<li>它为不同的事务API（如JTA,JDBC,Hibernate,JPA,和JDO）提供了统一的编程模型。</li>
-<li>它为编程式事务管理提供了一个简单的API而非一系列复杂的事务API（如JTA）</li>
-<li>它支持声明式事务管理。</li>
-<li>它可以和Spring的多种数据访问技术很好的融合。</li>
-</ul>
-<h2 id="Spring事务定义的传播规则"><a href="#Spring事务定义的传播规则" class="headerlink" title="Spring事务定义的传播规则"></a>Spring事务定义的传播规则</h2><ul>
-<li>propagation_required: 支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
-<li>propagation_supports: 支持当前事务，如果当前没有事务，就以非事务方式执行。</li>
-<li>propagation_mandatory: 支持当前事务，如果当前没有事务，就抛出异常。</li>
-<li>propagation_requires_new: 新建事务，如果当前存在事务，把当前事务挂起。</li>
-<li>propagation_not_supported: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
-<li>propagation_never: 以非事务方式执行，如果当前存在事务，则抛出异常。</li>
-<li>propagation_nested: 如果当前存在事务，则在嵌套式事务内执行。如果当前没有事务，则进行与propagation_required类似的操作，即支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
-</ul>
-<h2 id="Spring事务底层原理"><a href="#Spring事务底层原理" class="headerlink" title="Spring事务底层原理"></a>Spring事务底层原理</h2><h3 id="划分处理单元—-ioc"><a href="#划分处理单元—-ioc" class="headerlink" title="划分处理单元—-ioc"></a>划分处理单元—-ioc</h3><p>由于Spring解决的问题是对【单个数据库】进行【局部事务】处理的。<br>具体的实现首先用Spring的IOC划分了【事务处理单元】。<br>并且将对事务的各种配置放到了ioc容器中。<br>（设置事务管理器，设置事务的传播特性以及隔离机制）。  </p>
-<h3 id="AOP拦截需要进行事务处理的类"><a href="#AOP拦截需要进行事务处理的类" class="headerlink" title="AOP拦截需要进行事务处理的类"></a>AOP拦截需要进行事务处理的类</h3><p>【Spring事务处理模块】是通过【AOP】功能来实现【声明式事务】处理的，<br>具体操作（比如事务实行的配置和读取，事务对象的抽象），用TransactionProxyFactoryBean接口来使用AOP功能，生成proxy代理对象，通过TransactionInterceptor完成对代理方法的拦截，将事务处理的功能编织到拦截的方法中。读取ioc容器事务配置属性，转化为Spring事务处理需要的内部数据结构（TransactionAttributeSourceAdvisor），转化为TransactionAttribute表示的数据对象。</p>
-<h2 id="对事务处理实现（事务的生成、提交、回滚、挂起）"><a href="#对事务处理实现（事务的生成、提交、回滚、挂起）" class="headerlink" title="对事务处理实现（事务的生成、提交、回滚、挂起）"></a>对事务处理实现（事务的生成、提交、回滚、挂起）</h2><p>Spring委托给具体的事务处理器实现。<br>实现了一个抽象和适配。<br>适配的具体事务处理器：DataSource数据源支持、Hibernate数据源事务处理支持、JDO数据源事务处理支持、JPA、JTA数据源事务处理支持。<br>这些支持都是通过设计PlatformTransactionManager、AbstractPlatformTransaction一些列事务处理的支持。<br>为常用数据源支持提供了一系列TransactionManager。</p>
-<ul>
-<li>结合<br>PlatformTransactionManager实现了TransactionInterception接口，让其与TransactionProxyFactoryBean结合起来，形成一个Spring声明式事务处理的设计体系。</li>
-</ul>
-<h2 id="Spring-MVC运行流程"><a href="#Spring-MVC运行流程" class="headerlink" title="Spring MVC运行流程"></a>Spring MVC运行流程</h2><ol>
-<li>第一步：发起请求到前端控制器（DispatcherServlet）</li>
-<li>第二步：前端控制器请求HandlerMapping查找Handler（可以根据XML配置、注解进行查找）</li>
-<li>第三步：处理器映射器HandlerMapping向前端控制器返回Handler</li>
-<li>第四步：前端控制器调用处理器适配器去执行Handler</li>
-<li>第五步：处理器适配器去执行Handler</li>
-<li>第六步：Handler执行完成给适配器返回ModelAndView</li>
-<li>第七步：处理器适配器向前端控制器返回ModelAndView（ModelAndView是SpringMVC框架的一个底层对象，包括Model和View）</li>
-<li>第八步：前端控制器请求视图解析器去进行视图解析（根据逻辑视图名解析成真正的视图（jsp））</li>
-<li>第九步：视图解析器向前端控制器返回View</li>
-<li>前端控制器进行视图渲染（视图渲染将模型数据（在ModelAndView对象中）填充到Request域）</li>
-<li>前端控制器向用户响应结果</li>
-</ol>
-<h2 id="BeanFactory和ApplicationContext有什么区别"><a href="#BeanFactory和ApplicationContext有什么区别" class="headerlink" title="BeanFactory和ApplicationContext有什么区别"></a>BeanFactory和ApplicationContext有什么区别</h2><p>ApplicationContext提供了一种解决文档信息的方法，一种加载文件资源的方式（如图片），他们可以向监听他们的Beans发送消息。<br>另外，容器或者容器中的Beans的操作，这些必须以Bean工厂的编程方式处理的操作可以在应用上下文中以声明的方式处理。<br>应用上下文实现了MessageSource，该接口用于获取本地消息，实际的实现是可选的。  </p>
-<ul>
-<li>相同点：两者都是通过xml配置文件加载Bean，ApplicationContext和BeanFactory相比，提供了更多的扩展功能。</li>
-<li>不同点：BeanFactory是延迟加载，如果Bean的某一个属性没有注入，BeanFactory加载后，直至第一次使用调用getBean方法才会报异常；而ApplicationContext则在初始化自身是检验，这样有利于检查所依赖属性是否注入；通常情况狂下我们选择使用ApplicationContext。</li>
-</ul>
-<h2 id="什么是Spring-Beans"><a href="#什么是Spring-Beans" class="headerlink" title="什么是Spring Beans"></a>什么是Spring Beans</h2><p>Spring Beans是构成Spring应用核心的Java对象。<br>这些对象由Spring IOC容器实例化、组装、管理。<br>这些对象通过容器中配置的元数据创建。<br>例如，使用XML文件中的定义的创建。  </p>
-<p>在Spring中创建的beans都是单例的beans。<br>在bean标签中国有一个属性为”singleton”<br>如果设为true,则该bean是单例的；如果设置为false，则该bean是原型bean。<br>Singleton属性默认设置为true。<br>因此，Spring框架中所有的bean都默认是单例bean。  </p>
-<h2 id="说一下Spring中支持的bean作用域"><a href="#说一下Spring中支持的bean作用域" class="headerlink" title="说一下Spring中支持的bean作用域"></a>说一下Spring中支持的bean作用域</h2><p>Spring框架支持如下五种不同的作用域：</p>
-<ul>
-<li><p>singleton: 在Spring IOC容器中仅存在一个Bean实例，Bean以单实例的方式存在。</p>
-</li>
-<li><p>prototype：一个Bean可以定义多个实例。</p>
-</li>
-<li><p>request：每次Http请求都会创建一个新的Bean。该作用域仅适用于WebApplicationContext环境。</p>
-</li>
-<li><p>session：一个Http Session定义一个Bean。该作用于仅适用于WebApplicationContext环境。</p>
-</li>
-<li><p>globalSession：同一个全局Http Session定义一个Bean。该作用于同样仅适用于WebApplicationContext环境。</p>
-</li>
-<li><p>bean默认的scope属性是”singleton”</p>
-</li>
-</ul>
-<h2 id="Spring-的单例实现原理"><a href="#Spring-的单例实现原理" class="headerlink" title="Spring 的单例实现原理"></a>Spring 的单例实现原理</h2><p>Spring框架对单例的支持是采用单例注册表的方式进行实现的，而这个注册表的缓存是HashMap对象，如果配置文件中的配置信息不要求使用单例Spring会采用新建实例的方式返回对象实例。</p>
-<h2 id="解释Spring框架中Bean的生命周期"><a href="#解释Spring框架中Bean的生命周期" class="headerlink" title="解释Spring框架中Bean的生命周期"></a>解释Spring框架中Bean的生命周期</h2><ol>
-<li>容器启动</li>
-<li>实例化Bean对象</li>
-<li>设置对象属性</li>
-<li>调用BeanNameAware的setBeanName()方法</li>
-</ol>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>面试题</title>
     <url>/2020/03/23/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97/</url>
     <content><![CDATA[<blockquote>
 <p>借鉴自博客：<a href="https://blog.csdn.net/fangchao2011/article/details/89184058" target="_blank" rel="noopener">https://blog.csdn.net/fangchao2011/article/details/89184058</a></p>
@@ -9998,6 +9949,94 @@
       </tags>
   </entry>
   <entry>
+    <title>面试题</title>
+    <url>/2020/03/23/%E9%9D%A2%E8%AF%95/%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="什么是Spring"><a href="#什么是Spring" class="headerlink" title="什么是Spring"></a>什么是Spring</h2><p>Spring是一个开源的Java EE开发框架。<br>Spring框架的核心功能可以应用在任何java应用程序中，但对Java EE平台上的Web应用程序有更好的扩展性。<br>Spring框架的目标是使得Java EE应用程序的开发更加简捷，通过使用POJO为基础的变成模型促进良好的变成风格。  </p>
+<h2 id="Spring有哪些优点"><a href="#Spring有哪些优点" class="headerlink" title="Spring有哪些优点"></a>Spring有哪些优点</h2><ul>
+<li>轻量级： Spring在大小和透明性方面觉得属于轻量级的，基础版本的Spring框架大约只有2MB。</li>
+<li>控制反转（IOC）： SPring使用控制反转技术实现了松耦合。依赖被注入到对象，而不是创建或者寻找依赖对象。</li>
+<li>面向切面编程（AOP）: Spring支持面向切面编程，同时把应用的业务逻辑与系统的服务分离开来。</li>
+<li>容器： Spring包含并管理应用程序对象的配置以及生命周期。</li>
+<li>MVC框架：Spring的web框架是一个设计优良的web MVC框架，很好的取代了一些web框架。</li>
+<li>事务管理： Spring对下至本地业务上至全局业务（JAT）提供了统一的事务管理接口。</li>
+<li>异常处理： Spring提供一个方便的API将特定技术的异常（由JDBC，Hibernate，或者JDO抛出）转化为一致的、Unchecked异常。</li>
+</ul>
+<h2 id="Spring事务实现方式"><a href="#Spring事务实现方式" class="headerlink" title="Spring事务实现方式"></a>Spring事务实现方式</h2><ul>
+<li>编程式事务管理： 这意味着你可以通过编程的方式管理事务，这种方式带来了很大的灵活性，但是很难维护。</li>
+<li>声明式事务管理： 这种方式意味着你可以将事务和业务代码分离。你只需要通过注解或者XML配置管理事务。</li>
+</ul>
+<h2 id="Spring框架的事务管理有哪些优点"><a href="#Spring框架的事务管理有哪些优点" class="headerlink" title="Spring框架的事务管理有哪些优点"></a>Spring框架的事务管理有哪些优点</h2><ul>
+<li>它为不同的事务API（如JTA,JDBC,Hibernate,JPA,和JDO）提供了统一的编程模型。</li>
+<li>它为编程式事务管理提供了一个简单的API而非一系列复杂的事务API（如JTA）</li>
+<li>它支持声明式事务管理。</li>
+<li>它可以和Spring的多种数据访问技术很好的融合。</li>
+</ul>
+<h2 id="Spring事务定义的传播规则"><a href="#Spring事务定义的传播规则" class="headerlink" title="Spring事务定义的传播规则"></a>Spring事务定义的传播规则</h2><ul>
+<li>propagation_required: 支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
+<li>propagation_supports: 支持当前事务，如果当前没有事务，就以非事务方式执行。</li>
+<li>propagation_mandatory: 支持当前事务，如果当前没有事务，就抛出异常。</li>
+<li>propagation_requires_new: 新建事务，如果当前存在事务，把当前事务挂起。</li>
+<li>propagation_not_supported: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
+<li>propagation_never: 以非事务方式执行，如果当前存在事务，则抛出异常。</li>
+<li>propagation_nested: 如果当前存在事务，则在嵌套式事务内执行。如果当前没有事务，则进行与propagation_required类似的操作，即支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
+</ul>
+<h2 id="Spring事务底层原理"><a href="#Spring事务底层原理" class="headerlink" title="Spring事务底层原理"></a>Spring事务底层原理</h2><h3 id="划分处理单元—-ioc"><a href="#划分处理单元—-ioc" class="headerlink" title="划分处理单元—-ioc"></a>划分处理单元—-ioc</h3><p>由于Spring解决的问题是对【单个数据库】进行【局部事务】处理的。<br>具体的实现首先用Spring的IOC划分了【事务处理单元】。<br>并且将对事务的各种配置放到了ioc容器中。<br>（设置事务管理器，设置事务的传播特性以及隔离机制）。  </p>
+<h3 id="AOP拦截需要进行事务处理的类"><a href="#AOP拦截需要进行事务处理的类" class="headerlink" title="AOP拦截需要进行事务处理的类"></a>AOP拦截需要进行事务处理的类</h3><p>【Spring事务处理模块】是通过【AOP】功能来实现【声明式事务】处理的，<br>具体操作（比如事务实行的配置和读取，事务对象的抽象），用TransactionProxyFactoryBean接口来使用AOP功能，生成proxy代理对象，通过TransactionInterceptor完成对代理方法的拦截，将事务处理的功能编织到拦截的方法中。读取ioc容器事务配置属性，转化为Spring事务处理需要的内部数据结构（TransactionAttributeSourceAdvisor），转化为TransactionAttribute表示的数据对象。</p>
+<h2 id="对事务处理实现（事务的生成、提交、回滚、挂起）"><a href="#对事务处理实现（事务的生成、提交、回滚、挂起）" class="headerlink" title="对事务处理实现（事务的生成、提交、回滚、挂起）"></a>对事务处理实现（事务的生成、提交、回滚、挂起）</h2><p>Spring委托给具体的事务处理器实现。<br>实现了一个抽象和适配。<br>适配的具体事务处理器：DataSource数据源支持、Hibernate数据源事务处理支持、JDO数据源事务处理支持、JPA、JTA数据源事务处理支持。<br>这些支持都是通过设计PlatformTransactionManager、AbstractPlatformTransaction一些列事务处理的支持。<br>为常用数据源支持提供了一系列TransactionManager。</p>
+<ul>
+<li>结合<br>PlatformTransactionManager实现了TransactionInterception接口，让其与TransactionProxyFactoryBean结合起来，形成一个Spring声明式事务处理的设计体系。</li>
+</ul>
+<h2 id="Spring-MVC运行流程"><a href="#Spring-MVC运行流程" class="headerlink" title="Spring MVC运行流程"></a>Spring MVC运行流程</h2><ol>
+<li>第一步：发起请求到前端控制器（DispatcherServlet）</li>
+<li>第二步：前端控制器请求HandlerMapping查找Handler（可以根据XML配置、注解进行查找）</li>
+<li>第三步：处理器映射器HandlerMapping向前端控制器返回Handler</li>
+<li>第四步：前端控制器调用处理器适配器去执行Handler</li>
+<li>第五步：处理器适配器去执行Handler</li>
+<li>第六步：Handler执行完成给适配器返回ModelAndView</li>
+<li>第七步：处理器适配器向前端控制器返回ModelAndView（ModelAndView是SpringMVC框架的一个底层对象，包括Model和View）</li>
+<li>第八步：前端控制器请求视图解析器去进行视图解析（根据逻辑视图名解析成真正的视图（jsp））</li>
+<li>第九步：视图解析器向前端控制器返回View</li>
+<li>前端控制器进行视图渲染（视图渲染将模型数据（在ModelAndView对象中）填充到Request域）</li>
+<li>前端控制器向用户响应结果</li>
+</ol>
+<h2 id="BeanFactory和ApplicationContext有什么区别"><a href="#BeanFactory和ApplicationContext有什么区别" class="headerlink" title="BeanFactory和ApplicationContext有什么区别"></a>BeanFactory和ApplicationContext有什么区别</h2><p>ApplicationContext提供了一种解决文档信息的方法，一种加载文件资源的方式（如图片），他们可以向监听他们的Beans发送消息。<br>另外，容器或者容器中的Beans的操作，这些必须以Bean工厂的编程方式处理的操作可以在应用上下文中以声明的方式处理。<br>应用上下文实现了MessageSource，该接口用于获取本地消息，实际的实现是可选的。  </p>
+<ul>
+<li>相同点：两者都是通过xml配置文件加载Bean，ApplicationContext和BeanFactory相比，提供了更多的扩展功能。</li>
+<li>不同点：BeanFactory是延迟加载，如果Bean的某一个属性没有注入，BeanFactory加载后，直至第一次使用调用getBean方法才会报异常；而ApplicationContext则在初始化自身是检验，这样有利于检查所依赖属性是否注入；通常情况狂下我们选择使用ApplicationContext。</li>
+</ul>
+<h2 id="什么是Spring-Beans"><a href="#什么是Spring-Beans" class="headerlink" title="什么是Spring Beans"></a>什么是Spring Beans</h2><p>Spring Beans是构成Spring应用核心的Java对象。<br>这些对象由Spring IOC容器实例化、组装、管理。<br>这些对象通过容器中配置的元数据创建。<br>例如，使用XML文件中的定义的创建。  </p>
+<p>在Spring中创建的beans都是单例的beans。<br>在bean标签中国有一个属性为”singleton”<br>如果设为true,则该bean是单例的；如果设置为false，则该bean是原型bean。<br>Singleton属性默认设置为true。<br>因此，Spring框架中所有的bean都默认是单例bean。  </p>
+<h2 id="说一下Spring中支持的bean作用域"><a href="#说一下Spring中支持的bean作用域" class="headerlink" title="说一下Spring中支持的bean作用域"></a>说一下Spring中支持的bean作用域</h2><p>Spring框架支持如下五种不同的作用域：</p>
+<ul>
+<li><p>singleton: 在Spring IOC容器中仅存在一个Bean实例，Bean以单实例的方式存在。</p>
+</li>
+<li><p>prototype：一个Bean可以定义多个实例。</p>
+</li>
+<li><p>request：每次Http请求都会创建一个新的Bean。该作用域仅适用于WebApplicationContext环境。</p>
+</li>
+<li><p>session：一个Http Session定义一个Bean。该作用于仅适用于WebApplicationContext环境。</p>
+</li>
+<li><p>globalSession：同一个全局Http Session定义一个Bean。该作用于同样仅适用于WebApplicationContext环境。</p>
+</li>
+<li><p>bean默认的scope属性是”singleton”</p>
+</li>
+</ul>
+<h2 id="Spring-的单例实现原理"><a href="#Spring-的单例实现原理" class="headerlink" title="Spring 的单例实现原理"></a>Spring 的单例实现原理</h2><p>Spring框架对单例的支持是采用单例注册表的方式进行实现的，而这个注册表的缓存是HashMap对象，如果配置文件中的配置信息不要求使用单例Spring会采用新建实例的方式返回对象实例。</p>
+<h2 id="解释Spring框架中Bean的生命周期"><a href="#解释Spring框架中Bean的生命周期" class="headerlink" title="解释Spring框架中Bean的生命周期"></a>解释Spring框架中Bean的生命周期</h2><ol>
+<li>容器启动</li>
+<li>实例化Bean对象</li>
+<li>设置对象属性</li>
+<li>调用BeanNameAware的setBeanName()方法</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>In the Supermarket</title>
     <url>/2020/03/21/%E8%8B%B1%E8%AF%AD/lesson3/</url>
     <content><![CDATA[<h2 id="Learn-amp-Talk-I"><a href="#Learn-amp-Talk-I" class="headerlink" title="Learn &amp; Talk I"></a>Learn &amp; Talk I</h2><h3 id="Chapter-1-Shopping"><a href="#Chapter-1-Shopping" class="headerlink" title="Chapter 1 Shopping"></a>Chapter 1 Shopping</h3><h4 id="Lesson-3-In-the-Supermarket"><a href="#Lesson-3-In-the-Supermarket" class="headerlink" title="Lesson 3 In the Supermarket"></a>Lesson 3 In the Supermarket</h4><blockquote>
@@ -10175,116 +10214,6 @@
       </tags>
   </entry>
   <entry>
-    <title>第六节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
-<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
-<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
-<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
-<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
-<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
-<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
-<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
-<ol>
-<li>第一个阶段:不要再为自己担心了,自己做决定</li>
-<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
-</ol>
-<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
-<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
-<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
-<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
-<p>越疼越要不动声色，越苦越要保持沉默  </p>
-<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
-<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
-<ul>
-<li>两利相权取其重</li>
-<li>两害相权取其轻</li>
-</ul>
-<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
-<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
-<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第二节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第二堂课主题：别让你的情绪，变成你的性格缺陷  </p>
-<p>不打招呼不说话，情绪写在脸上的人不能委以重任<br>田乐好像都跟我说过<br>先处理心情，再处理事情  </p>
-<p>在职场掉眼泪能接受吗？<br>其实哪儿都不相信眼泪  </p>
-<p>老板不会惯着你<br>所有的善良都需要有人买单的<br>老板为自己的错误买单<br>任何时候别干哭鼻子的事情，有泪不轻弹，有多少委屈自己打碎了牙吞进去<br>像个爷们<br>错了就要人，挨打就要立正，有问题就要解决问题，都是成年人，职业一点，一个人要是当地隐藏自己的情绪<br>高兴的时候就笑，不高兴的时候假装什么也没有发生<br>不要在人前表演你的情绪  </p>
-<h2 id="第一点-你不应该是个煤气罐"><a href="#第一点-你不应该是个煤气罐" class="headerlink" title="第一点 你不应该是个煤气罐"></a>第一点 你不应该是个煤气罐</h2><p>嗓门大不代表你有道理，脸通红不代表可以主持正义<br>就是再好也有人挑刺<br>为什么要活在别人的评价里<br>别人只会关心你有用还是没用<br>从为人处世上来说，别做煤气罐一点就炸了  </p>
-<p>要用体面的方式表达你的情绪，否则你的情绪会被视作性格的缺陷<br>可以表达愤怒，而不是愤怒的表达，这二者区别很大。<br>吵架只会让心情更差，打架只会让事情变糟<br>已解决问题为目的，发脾气是本能，控制脾气是本领  </p>
-<p>永远不要让你的脾气比你的本事还大  </p>
-<p>冷静下来问自己三个问题：</p>
-<ol>
-<li>这是别人的错吗？</li>
-</ol>
-<p>很多时候并不是别人的问题，而是误会或者是我们对别人有误解或者偏见，所以闲谈莫论人非，静坐常思己过，先从自己身上找找问题<br>的确是的，有很多的时候都是我自己的错误  </p>
-<ol start="2">
-<li>这个事情值得生气吗</li>
-</ol>
-<p>田乐就跟我说过，你至于为了这么一件小事跟我吵？<br>其实的确不值得。<br>但是我还是吵了。<br>确实，我的确是一个小肚鸡肠的人。<br>俗话说宰相肚里能撑船，但是要明白，他不是当了宰相肚里才能撑船，一定是他平时肚里就能撑船，所以他才当了宰相  </p>
-<ol start="3">
-<li>生气能解决问题吗？</li>
-</ol>
-<p>越是有本事的人，脾气越好。<br>是的。<br>我脾气就不好。<br>因为明白发脾气无法解决任何问题。<br>解决问题唯一的方法就是面对它，然后冷静的把这个问题给解决掉。  </p>
-<p>没那么多需要生气的事情。  </p>
-<h2 id="第二点：你也不应该还是个祥林嫂"><a href="#第二点：你也不应该还是个祥林嫂" class="headerlink" title="第二点：你也不应该还是个祥林嫂"></a>第二点：你也不应该还是个祥林嫂</h2><p>碰到一点压力，就把自己变成不堪重负的样子，碰到一点不确定性，就把前途描摹成前途无光  </p>
-<p>不要做个怨妇  </p>
-<p>这个世界上最无能的就是怨妇。<br>挫折失败经历的太少了。你才会觉得鸡毛蒜皮都是烦恼。<br>抱怨只会让别人觉得你委屈，可怜，但无助于解决任何问题<br>牢骚太盛防肠断，风物长宜放眼量<br>已经发生的事情，埋怨一点用也没有，成年人，我已经是个成年人了  </p>
-<p>其实在生活当中，让你不堪重负的不是压力，而是你承受压力的方式<br>你曾在什么样的公司工作，你就是什么样的人<br>说过去的公司不好那只是证明你的无能<br>的确，我挺无能的  </p>
-<h2 id="第三点：没有本事就不要表演真性情"><a href="#第三点：没有本事就不要表演真性情" class="headerlink" title="第三点：没有本事就不要表演真性情"></a>第三点：没有本事就不要表演真性情</h2><p>只有玻璃心的员工，所以别那么多怀才不遇的抱怨。<br>我觉得这就是在说我呗。<br>说明你的能力还撑不起你的雄心。<br>没有收拾残局的能力，就不要放纵你善变的情绪。<br>在你成为强者之前，所有的委屈都必须吞咽和妥协。<br>因为没有人会在乎弱者的眼泪。<br>成年的世界里，微笑只是一个表情，对讨厌的人或者事情露出你的微笑，使我们必须要学会的恶心<br>要想人前显贵必须背后受罪<br>能忍多大的事情就能成多大的事情<br>永远不应该挑战领导的权威<br>鸡汤：使我们痛苦者让我们强大，没本事的时候身边的坏人特别多，就会受委屈<br>等有一天强大了，所有人都是好人，和颜悦色<br>表达厌恶最好的方式不是争吵，而是要努力的奋斗。  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第三节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
-<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
-<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
-<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
-<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
-<p>它可以帮你建立自信  </p>
-<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
-<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
-<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
-<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
-<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
-<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
-<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
-<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
-<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
-<p>疗效持久不易复发  </p>
-<p>自卑不自信一定要试试  </p>
-<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
-<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
-<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
-<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
-<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第七节心态课</title>
     <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
@@ -10305,6 +10234,42 @@
 <li>……..</li>
 </ul>
 <h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第四节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
+<p>别人家孩子。  </p>
+<p>你看看人家谁谁谁，你再看看你自己  </p>
+<p>不能让孩子输在起跑线上  </p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
+<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
+<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
+<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
+<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
+<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
+<p>比较有时让人惶恐  </p>
+<p>不要在千千万万的比较当中迷失自我。  </p>
+<p>比较有时候就是用拉人下水的形式找认同感  </p>
+<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
+<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
+<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
+<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
+<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
+<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
+<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
+<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
+<p>知足是一种生活态度  </p>
+<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
+<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -10382,33 +10347,107 @@
       </tags>
   </entry>
   <entry>
-    <title>第四节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
+    <title>第三节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
-<p>别人家孩子。  </p>
-<p>你看看人家谁谁谁，你再看看你自己  </p>
-<p>不能让孩子输在起跑线上  </p>
-<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
-<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
-<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
-<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
-<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
-<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
-<p>比较有时让人惶恐  </p>
-<p>不要在千千万万的比较当中迷失自我。  </p>
-<p>比较有时候就是用拉人下水的形式找认同感  </p>
-<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
-<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
-<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
-<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
-<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
-<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
-<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
-<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
-<p>知足是一种生活态度  </p>
-<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
-<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
+<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
+<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
+<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
+<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
+<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
+<p>它可以帮你建立自信  </p>
+<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
+<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
+<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
+<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
+<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
+<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
+<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
+<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
+<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
+<p>疗效持久不易复发  </p>
+<p>自卑不自信一定要试试  </p>
+<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
+<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
+<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
+<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
+<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第二节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第二堂课主题：别让你的情绪，变成你的性格缺陷  </p>
+<p>不打招呼不说话，情绪写在脸上的人不能委以重任<br>田乐好像都跟我说过<br>先处理心情，再处理事情  </p>
+<p>在职场掉眼泪能接受吗？<br>其实哪儿都不相信眼泪  </p>
+<p>老板不会惯着你<br>所有的善良都需要有人买单的<br>老板为自己的错误买单<br>任何时候别干哭鼻子的事情，有泪不轻弹，有多少委屈自己打碎了牙吞进去<br>像个爷们<br>错了就要人，挨打就要立正，有问题就要解决问题，都是成年人，职业一点，一个人要是当地隐藏自己的情绪<br>高兴的时候就笑，不高兴的时候假装什么也没有发生<br>不要在人前表演你的情绪  </p>
+<h2 id="第一点-你不应该是个煤气罐"><a href="#第一点-你不应该是个煤气罐" class="headerlink" title="第一点 你不应该是个煤气罐"></a>第一点 你不应该是个煤气罐</h2><p>嗓门大不代表你有道理，脸通红不代表可以主持正义<br>就是再好也有人挑刺<br>为什么要活在别人的评价里<br>别人只会关心你有用还是没用<br>从为人处世上来说，别做煤气罐一点就炸了  </p>
+<p>要用体面的方式表达你的情绪，否则你的情绪会被视作性格的缺陷<br>可以表达愤怒，而不是愤怒的表达，这二者区别很大。<br>吵架只会让心情更差，打架只会让事情变糟<br>已解决问题为目的，发脾气是本能，控制脾气是本领  </p>
+<p>永远不要让你的脾气比你的本事还大  </p>
+<p>冷静下来问自己三个问题：</p>
+<ol>
+<li>这是别人的错吗？</li>
+</ol>
+<p>很多时候并不是别人的问题，而是误会或者是我们对别人有误解或者偏见，所以闲谈莫论人非，静坐常思己过，先从自己身上找找问题<br>的确是的，有很多的时候都是我自己的错误  </p>
+<ol start="2">
+<li>这个事情值得生气吗</li>
+</ol>
+<p>田乐就跟我说过，你至于为了这么一件小事跟我吵？<br>其实的确不值得。<br>但是我还是吵了。<br>确实，我的确是一个小肚鸡肠的人。<br>俗话说宰相肚里能撑船，但是要明白，他不是当了宰相肚里才能撑船，一定是他平时肚里就能撑船，所以他才当了宰相  </p>
+<ol start="3">
+<li>生气能解决问题吗？</li>
+</ol>
+<p>越是有本事的人，脾气越好。<br>是的。<br>我脾气就不好。<br>因为明白发脾气无法解决任何问题。<br>解决问题唯一的方法就是面对它，然后冷静的把这个问题给解决掉。  </p>
+<p>没那么多需要生气的事情。  </p>
+<h2 id="第二点：你也不应该还是个祥林嫂"><a href="#第二点：你也不应该还是个祥林嫂" class="headerlink" title="第二点：你也不应该还是个祥林嫂"></a>第二点：你也不应该还是个祥林嫂</h2><p>碰到一点压力，就把自己变成不堪重负的样子，碰到一点不确定性，就把前途描摹成前途无光  </p>
+<p>不要做个怨妇  </p>
+<p>这个世界上最无能的就是怨妇。<br>挫折失败经历的太少了。你才会觉得鸡毛蒜皮都是烦恼。<br>抱怨只会让别人觉得你委屈，可怜，但无助于解决任何问题<br>牢骚太盛防肠断，风物长宜放眼量<br>已经发生的事情，埋怨一点用也没有，成年人，我已经是个成年人了  </p>
+<p>其实在生活当中，让你不堪重负的不是压力，而是你承受压力的方式<br>你曾在什么样的公司工作，你就是什么样的人<br>说过去的公司不好那只是证明你的无能<br>的确，我挺无能的  </p>
+<h2 id="第三点：没有本事就不要表演真性情"><a href="#第三点：没有本事就不要表演真性情" class="headerlink" title="第三点：没有本事就不要表演真性情"></a>第三点：没有本事就不要表演真性情</h2><p>只有玻璃心的员工，所以别那么多怀才不遇的抱怨。<br>我觉得这就是在说我呗。<br>说明你的能力还撑不起你的雄心。<br>没有收拾残局的能力，就不要放纵你善变的情绪。<br>在你成为强者之前，所有的委屈都必须吞咽和妥协。<br>因为没有人会在乎弱者的眼泪。<br>成年的世界里，微笑只是一个表情，对讨厌的人或者事情露出你的微笑，使我们必须要学会的恶心<br>要想人前显贵必须背后受罪<br>能忍多大的事情就能成多大的事情<br>永远不应该挑战领导的权威<br>鸡汤：使我们痛苦者让我们强大，没本事的时候身边的坏人特别多，就会受委屈<br>等有一天强大了，所有人都是好人，和颜悦色<br>表达厌恶最好的方式不是争吵，而是要努力的奋斗。  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第六节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
+<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
+<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
+<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
+<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
+<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
+<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
+<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
+<ol>
+<li>第一个阶段:不要再为自己担心了,自己做决定</li>
+<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
+</ol>
+<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
+<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
+<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
+<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
+<p>越疼越要不动声色，越苦越要保持沉默  </p>
+<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
+<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
+<ul>
+<li>两利相权取其重</li>
+<li>两害相权取其轻</li>
+</ul>
+<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
+<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
+<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -11747,8 +11786,8 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%852/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="Hey, password is required here." /><label>Hey, password is required here.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="e15458c1413da596b068016b7dad64a34c20a8ff50737245763ac9d4b7826401">c34c053c9e71f6d22ae7e6ea020ea24784845fffaef239a17a9104d59d5c62e55921fd655acc35e4cc1509a36b159febd6dc3f7b1e59633e97162e4f585d53a1310b65a4bb61520a4e806566fbc81caca217b0b878e442d699710205367c7d63a97a7bcdad224f1ce431175fb3f44f49c705728eb113c5409a1f703727858b8ec6ba563f65c4f7889c70c7bf6e5cbf7d1b070f16ce4e5791af310bd94a7eefaa2c5903e315fe1aee12d8486c6594b65a59d47722c5adcaa2882f09f557dd21f474d2b1fcb3237c8a2f4d9eec6adcf8dc1b44309683263cb15380bbc7ca82fadec1a6633eb71783c9f0ec7d389c66aff585536fe34e4dc6346887a8642727517b055d9da2bb0809f1fec9c8b5273393b96a8388c72192885cdd5a7309abe69b4f787e9d3d841e0984716f532c3212bb9439d2af1029fdf83d2ddfa38a73d2a6b12ff84c227686cda9f543054e53a71443725a4e4da493a304a13b6a6cc668830312f2bf4185bbc5673b93b21a1f27ebacc81d5d5a65469e4ef704fa3559fe36f990e5064f8a863e3337d9e14d6948ba245d6e0b8f6e19d5419500c6af49a2bfe60d6144bf5f21aacabcfdd56528e9ee1214f945b6d11faad842420d52ac0f49919382de8d4572d5b9da0279b622eaee3b9f48cc35071b652f458995c731fbe1c89a45c5a4cb4087ea041a80b304cbd3cb1efa1fd8861f0fa45dd772f510e784ef2e7ad58ac9bd8f1d4d0307536f9a388e9e7973a550fa9ff1ee69ca38ba2f8f9db37724d1dea207bcf6780bac024a03ef306ca75c794f60d902d954ee9da59ce1a0f0be1f971f13a3ccc9a2442ed6d890758fb769386188a235d10bf5e157ce158479e558a64c354af1d879423855d0fce5ed0ff4d8366a3e702871f98b33544060f92c8bbadce16f73645e72f34bc976dc3ec7a64fb618180f492c7bd77fcd616b4b13ea2f8f5a506a51c73f7109714793b5b6c5fe63dbea4f691d86af839c6998582700a65181e11902a3c2300a720fcb9b67531abc545c3461c04ebf18f037bb3fa02abcb32c3adc84fdfe112102bab798fe46813ed01dae319611d56c58327e60394eb80d04c11abb7c643b98ea02137bb105686e447a24a9f7bedd4a06afc2a4b94b4e4b6fb0cd2be638b6a436553e1b3b1ef902d0c517937dc538764753</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%853/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="Hey, password is required here." /><label>Hey, password is required here.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="9d0ac9e505d5d520847f0adfb84a4d86e037728f972eaea6c3ddf06f109487f7">f3a30fa1650751270770a2daf627a562e879711d975c1492d9865c05f15414b1</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>心情</category>
       </categories>
@@ -11758,8 +11797,8 @@
   </entry>
   <entry>
     <title>心情</title>
-    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%853/</url>
-    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="Hey, password is required here." /><label>Hey, password is required here.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="9d0ac9e505d5d520847f0adfb84a4d86e037728f972eaea6c3ddf06f109487f7">f3a30fa1650751270770a2daf627a562e879711d975c1492d9865c05f15414b1</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
+    <url>/2020/02/15/%E5%BF%83%E6%83%85/%E5%BF%83%E6%83%852/</url>
+    <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="Oh, these decrypted content cannot be verified, but you can still have a look."><div class="hbe-input-container"><input type="password" id="hbePass" placeholder="Hey, password is required here." /><label>Hey, password is required here.</label><div class="bottom-line"></div></div><script id="hbeData" type="hbeData" data-hmacdigest="e15458c1413da596b068016b7dad64a34c20a8ff50737245763ac9d4b7826401">c34c053c9e71f6d22ae7e6ea020ea24784845fffaef239a17a9104d59d5c62e55921fd655acc35e4cc1509a36b159febd6dc3f7b1e59633e97162e4f585d53a1310b65a4bb61520a4e806566fbc81caca217b0b878e442d699710205367c7d63a97a7bcdad224f1ce431175fb3f44f49c705728eb113c5409a1f703727858b8ec6ba563f65c4f7889c70c7bf6e5cbf7d1b070f16ce4e5791af310bd94a7eefaa2c5903e315fe1aee12d8486c6594b65a59d47722c5adcaa2882f09f557dd21f474d2b1fcb3237c8a2f4d9eec6adcf8dc1b44309683263cb15380bbc7ca82fadec1a6633eb71783c9f0ec7d389c66aff585536fe34e4dc6346887a8642727517b055d9da2bb0809f1fec9c8b5273393b96a8388c72192885cdd5a7309abe69b4f787e9d3d841e0984716f532c3212bb9439d2af1029fdf83d2ddfa38a73d2a6b12ff84c227686cda9f543054e53a71443725a4e4da493a304a13b6a6cc668830312f2bf4185bbc5673b93b21a1f27ebacc81d5d5a65469e4ef704fa3559fe36f990e5064f8a863e3337d9e14d6948ba245d6e0b8f6e19d5419500c6af49a2bfe60d6144bf5f21aacabcfdd56528e9ee1214f945b6d11faad842420d52ac0f49919382de8d4572d5b9da0279b622eaee3b9f48cc35071b652f458995c731fbe1c89a45c5a4cb4087ea041a80b304cbd3cb1efa1fd8861f0fa45dd772f510e784ef2e7ad58ac9bd8f1d4d0307536f9a388e9e7973a550fa9ff1ee69ca38ba2f8f9db37724d1dea207bcf6780bac024a03ef306ca75c794f60d902d954ee9da59ce1a0f0be1f971f13a3ccc9a2442ed6d890758fb769386188a235d10bf5e157ce158479e558a64c354af1d879423855d0fce5ed0ff4d8366a3e702871f98b33544060f92c8bbadce16f73645e72f34bc976dc3ec7a64fb618180f492c7bd77fcd616b4b13ea2f8f5a506a51c73f7109714793b5b6c5fe63dbea4f691d86af839c6998582700a65181e11902a3c2300a720fcb9b67531abc545c3461c04ebf18f037bb3fa02abcb32c3adc84fdfe112102bab798fe46813ed01dae319611d56c58327e60394eb80d04c11abb7c643b98ea02137bb105686e447a24a9f7bedd4a06afc2a4b94b4e4b6fb0cd2be638b6a436553e1b3b1ef902d0c517937dc538764753</script></div><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
         <category>心情</category>
       </categories>
@@ -18743,18 +18782,6 @@
       </tags>
   </entry>
   <entry>
-    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
-    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
-    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
-]]></content>
-      <categories>
-        <category>理财</category>
-      </categories>
-      <tags>
-        <tag>理财学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ocp学习</title>
     <url>/2020/01/30/OCPOCA%E8%AE%A4%E8%AF%81%E8%80%83%E8%AF%95%E6%8C%87%E5%8D%97/OCPOCA%E8%AE%A4%E8%AF%81%E8%80%83%E8%AF%95%E6%8C%87%E5%8D%9701/</url>
     <content><![CDATA[<h1 id="OCP-OCA认证考试指南全册-Oracle-Database11g-1Z0-051、1Z0-052-和OCP-1Z0-053"><a href="#OCP-OCA认证考试指南全册-Oracle-Database11g-1Z0-051、1Z0-052-和OCP-1Z0-053" class="headerlink" title="OCP/OCA认证考试指南全册 Oracle Database11g(1Z0-051、1Z0-052)和OCP(1Z0-053)"></a>OCP/OCA认证考试指南全册 Oracle Database11g(1Z0-051、1Z0-052)和OCP(1Z0-053)</h1><h2 id="权威、完备的OCA（1Z0-051、1Z0-052）和OCP-1Z0-053-考试指南"><a href="#权威、完备的OCA（1Z0-051、1Z0-052）和OCP-1Z0-053-考试指南" class="headerlink" title="权威、完备的OCA（1Z0-051、1Z0-052）和OCP(1Z0-053)考试指南"></a>权威、完备的OCA（1Z0-051、1Z0-052）和OCP(1Z0-053)考试指南</h2><p>《OCP/OCA认证考试指南全册：Oracle Database 11g(1Z0-051,1Z0-052,1Z0-053)》是为OCA和OCP考试准备的独家权威指南。</p>
@@ -18890,6 +18917,18 @@
       </categories>
       <tags>
         <tag>Oracle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
+    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
+    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
+]]></content>
+      <categories>
+        <category>理财</category>
+      </categories>
+      <tags>
+        <tag>理财学习</tag>
       </tags>
   </entry>
   <entry>
