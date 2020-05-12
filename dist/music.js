@@ -4,6 +4,12 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
+        name: '告白之夜（纯音乐）（翻自 Ayasa绚沙）',
+        artist: 'CMJ',
+        url: 'http://music.163.com/song/media/outer/url?id=1353301300.mp3',
+        cover: 'http://p1.music.126.net/HdtEacHZAidKtzPCp7Dtfg==/109951163942046079.jpg',
+},
+      {
         name: '冬眠',
         artist: '司南',
         url: 'http://music.163.com/song/media/outer/url?id=1398663411.mp3',

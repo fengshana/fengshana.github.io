@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengshana.github.io/"/>
-  <updated>2020-05-12T04:12:24.058Z</updated>
+  <updated>2020-05-12T10:23:14.977Z</updated>
   <id>https://fengshana.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>RabbitMQ实战之南</title>
+    <title>RabbitMQ实战指南</title>
     <link href="https://fengshana.github.io/2020/05/12/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%9704/"/>
     <id>https://fengshana.github.io/2020/05/12/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%9704/</id>
     <published>2020-05-12T03:35:27.484Z</published>
-    <updated>2020-05-12T04:12:24.058Z</updated>
+    <updated>2020-05-12T10:23:14.977Z</updated>
     
     <content type="html"><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>《RabbitMQ实战指南》 - 朱忠华  </p><h2 id="第4章-RabbitMQ进阶"><a href="#第4章-RabbitMQ进阶" class="headerlink" title="第4章 RabbitMQ进阶"></a>第4章 RabbitMQ进阶</h2><p>前一章所讲述的是一些基础的概念及使用方法，比如 <font style="color:red;font-weight:bolder">创建交换器</font>、<font style="color:red;font-weight:bolder">队列</font>和<font style="color:red;font-weight:bolder">绑定关系</font> 等。  </p><p>但是其中有许多细节并未陈述，对使用过程中的一些“坑”也并未提及，一些高级用法也并未展现，所以本章的内容就是要弥补这些缺憾。  </p><p>本章以 <font style="color:red;font-weight:bolder">RabbitMQ</font> 基础使用知识为前提，阐述一些根据特色的细节及功能，为读者更进一步地掌握 <font style="color:red;font-weight:bolder">RabbitMQ</font> 提供基准。</p><h2 id="消息何去何从"><a href="#消息何去何从" class="headerlink" title="消息何去何从"></a>消息何去何从</h2><p>mandatory 和immediate 是channel.basicPublish 方法中的两个参数，他们都有 当消息传递过程中不可达目的地时将消息返回给生产者的功能。  </p><p>RabbitMQ 提供的 备份交换器（Alternate Exchange） 可以 将未能被交换器路由的消息（没有绑定队列或者没有匹配的绑定）存储起来， 而不用返回给客户端。  </p><p>对于初学者来说，特别容易将 mandatory 和immediate 这两个参数混淆，而对于备份交换器更是一筹莫展，本章对此一一展开探讨。  </p><blockquote><p>mandatory</p></blockquote><p>[<br>  adj. 强制的；托管的；命令的<br>  n. 受托者（等于 mandatary）<br>  复数 mandatories<br>  网络释义 强制的；强制性；命令的；义务的；<br>  mandatory 强制的；强制性；命令的；义务的；<br>  mandatory plan 指令性计划；强制性计划；指令性打算；指令性规划；<br>  mandatory offer 强制要约；强制性要约；强制性收购建议；强制性收购；<br>]</p><blockquote><p>immediate</p></blockquote><p>[<br>  adj. 立即的；直接的；最接近的；<br>  网络释义 立刻；立即的；即时；直接的<br>  immediate 立刻；立即的；即时；直接的<br>  immediate employer 直接雇主<br>  immediate mode 直接模式；立即模式；即时模式<br>]</p><h3 id="mandatory-参数"><a href="#mandatory-参数" class="headerlink" title="mandatory 参数"></a>mandatory 参数</h3><p>当 mandatory 参数 设为 true 时，交换器无法根据自身的类型和路由键找到一个符合条件的队列，那么 RabbitMQ 会调用 Basic.Return 命令将消息返回给生产者。  </p><p>当 mandatory 参数 设置为 false 时，出现上述情形（交换器无法根据自身的类型和路由键找到一个符合条件的队列），则消息直接被丢弃。  </p><p>那么生产者如何获取到 没有被正确路由到合适队列的消息 呢？<br>这时候可以通过调用 channel.addReturnListener 来添加 ReturnListener 监听器实现。  </p><p>使用 mandatory 参数的关键代码清单如下所示：  </p><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">channel.basicPublish(</span><br><span class="line">  EXCHANGE_NAME,</span><br><span class="line">  <span class="string">""</span>,</span><br><span class="line">  <span class="keyword">true</span>,</span><br><span class="line">  MessageProperties.PERSISTENT_TEXT_PLAIN,</span><br><span class="line">  <span class="string">"mandatory test"</span>.getBytes()</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  channel.addReturnListener(</span><br><span class="line">    <span class="keyword">new</span> ReturnListener()&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="keyword">void</span> handleReturn(</span><br><span class="line">        <span class="built_in">int</span> replyCode,</span><br><span class="line">        <span class="keyword">String</span> replyText,</span><br><span class="line">        <span class="keyword">String</span> exchange,</span><br><span class="line">        <span class="keyword">String</span> routingKey,</span><br><span class="line">        AMQP.BasicProperties basicProperties,</span><br><span class="line">        <span class="built_in">byte</span>[] body</span><br><span class="line">      ) <span class="keyword">throws</span> IOException&#123;</span><br><span class="line">        <span class="keyword">String</span> message = <span class="keyword">new</span> <span class="keyword">String</span>(body);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"Basic.Return 返回的结果是："</span>+message);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br></pre></td></tr></table></figure><p>上面代码中 生产者 没有成功地将消息路由到队列，此时 RabbitMQ 会通过 Basic.Return 返回 “mandatory test” 这条消息，之后生产者客户端通过 ReturnListener 监听到了这个时间，上面代码的最后输出应该是 “Basic.Return 返回的结果是：mandatory test”。  </p><p>从 AMQP 协议层面来说，其对应的流转过程如图：</p><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">|<span class="string">----------</span>|<span class="string">                              </span>|<span class="string">----------</span>|</span><br><span class="line">|<span class="string"> Producer </span>|<span class="string">                              </span>|<span class="string">  Broker  </span>|</span><br><span class="line">|<span class="string">----------</span>|<span class="string">                              </span>|<span class="string">----------</span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">---------------------------------------------------------------------</span><br><span class="line">     |<span class="string">  此处省略 Connection 和 Channel的开启     </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">  Basic.Publish--------------------------&gt;</span>|</span><br><span class="line">     |<span class="string">                                          </span>|<span class="string">&lt;-----没有路由到队列</span></span><br><span class="line"><span class="string">     </span>|<span class="string">&lt;-----------------------------Basic.Return</span>|</span><br><span class="line">     |<span class="string">                  (Basic.Return会携带消息) </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">    此处省略Connection和Channel的关闭      </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br><span class="line">     |<span class="string">                                          </span>|</span><br></pre></td></tr></table></figure><h3 id="immediate-参数"><a href="#immediate-参数" class="headerlink" title="immediate 参数"></a>immediate 参数</h3><p>当 immediate 参数设为 true时，如果交换器在消息</p>]]></content>
     
@@ -39,11 +39,11 @@
       <category term="RabbitMQ" scheme="https://fengshana.github.io/categories/RabbitMQ/"/>
     
     
-      <category term="笔记" scheme="https://fengshana.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
       <category term="RabbitMQ" scheme="https://fengshana.github.io/tags/RabbitMQ/"/>
     
-      <category term="RabbitMQ实战之南" scheme="https://fengshana.github.io/tags/RabbitMQ%E5%AE%9E%E6%88%98%E4%B9%8B%E5%8D%97/"/>
+      <category term="笔记" scheme="https://fengshana.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="RabbitMQ实战指南" scheme="https://fengshana.github.io/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/"/>
     
   </entry>
   
@@ -70,9 +70,9 @@
       <category term="RabbitMQ" scheme="https://fengshana.github.io/categories/RabbitMQ/"/>
     
     
-      <category term="Redis" scheme="https://fengshana.github.io/tags/Redis/"/>
-    
       <category term="笔记" scheme="https://fengshana.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Redis" scheme="https://fengshana.github.io/tags/Redis/"/>
     
       <category term="Redis设计与实现" scheme="https://fengshana.github.io/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
     
