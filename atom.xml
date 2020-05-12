@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://fengshana.github.io/"/>
-  <updated>2020-05-11T10:51:31.326Z</updated>
+  <updated>2020-05-11T12:58:50.759Z</updated>
   <id>https://fengshana.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Redis设计与实现</title>
+    <link href="https://fengshana.github.io/2020/05/11/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/"/>
+    <id>https://fengshana.github.io/2020/05/11/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/</id>
+    <published>2020-05-11T12:26:03.085Z</published>
+    <updated>2020-05-11T12:58:50.759Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>查阅了很多的如何学习Redis；发现很多人推荐了这本书《Redis设计与实现》（黄健宏著）  </p><p>于是，我想看了；<br>一口气吃不成一个胖子；我觉得多看书还挺好的；<br>对技术充满敬畏。突然有一种肃然起敬的感觉。不知道为什么。<br>我不想再这么浅显的过着，平庸乏味，单薄，好像仔细一想就能看透我这一生的轨迹。<br>我不想这么活着。我得有自己的信念，得有自己所坚持所热爱所为之奋斗一生的东西。<br>我不想，到一定年龄结婚生子，到一定年龄，成为了自己不想成为的人；  </p><p>redis github: <a href="https://github.com/antirez/redis" target="_blank" rel="noopener">https://github.com/antirez/redis</a>  </p><h2 id="The-Design-and-Implementation-of-Redis（Redis设计与实现）"><a href="#The-Design-and-Implementation-of-Redis（Redis设计与实现）" class="headerlink" title="The Design and Implementation of Redis（Redis设计与实现）"></a>The Design and Implementation of Redis（Redis设计与实现）</h2><p><strong>Redis设计与实现</strong><br>黄健宏 著  </p><p>The Design and Implementation of Redis.  </p><ul><li>由资深 Redis 技术专家撰写，深入了解 Redis 技术聂牧的必读之作。</li><li>从源码角度解析 Redis 的架构设计、实现原理和工作机制，为高效使用 Redis 提供原理性指导。  </li></ul><blockquote><p>design</p></blockquote><p>[<br>  n. 设计；构思；设计图样；装饰图案；打算<br>  v. 设计；构思；计划；制造；意欲<br>  n.(Design) (巴、印、俄)迪赛（人名）<br>  复数 designs；<br>  过去式 designed；<br>  过去分词 designed；<br>  现在分词 designing；<br>  第三人称单数 designs；<br>  网络释义 设计、外观设计、图案、工艺特色<br>  design 设计；外观设计；图案；工艺特色<br>  Fashion Design 时装设计；时尚设计；服装设计；服装设计专业<br>  urban design 城市设计；城区设计；都市设计；城市化规划<br>]</p><blockquote><p>implementation</p></blockquote><p>[<br>  n.[ 计] 实现；履行；安装启用<br>  网络释义 实现；实施；实现；执行<br>  implementation 实现；实施；实现；执行<br>  base implementation 基实现<br>  policy implementation 政策实施；政策执行；政策的实施；政策执行<br>]</p><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本书全面而完整的讲解了 Redis 的 内部机制 与 实现方式。  </p><p>对 Redis 的大多数单机功能以及所有多机功能的实现原理进行了介绍。  </p><p>展示了这些功能的 核心数据结构 以及 关键的算法思想 ， 图示丰富，描述清晰，并给出大量参考信息。  </p><p>通过阅读本书，读者可以快速、有效地了解 Redis 的 内部构造 以及 运作机制，更好、更高效地使用 Redis。  </p><p>本书主要分为四大部分。  </p><ol><li><strong>第一部分</strong>：“数据结构与对象”</li></ol><p>介绍了 Redis 中的各种 对象及其数据结构，并说明这些 数据结构 如何影响 对象的功能和性能。</p><ol start="2"><li><strong>第二部分</strong>：“单机数据库的实现”</li></ol><p>对 Redis 实现单机数据库的方法 进行了介绍，包括 数据库、RDB持久化、AOF持久化、事件等；</p><ol start="3"><li><strong>第三部分</strong>：”多机数据库的实现“</li></ol><p>对 Redis 的 Sentinel、复制、集群 三个多机功能进行了介绍。</p><ol start="4"><li><strong>第四部分</strong>：”独立功能的实现“</li></ol><p>对 Redis 中各个相对独立的功能模块进行了介绍，涉及 发布与订阅、事务、Lua脚本、排序、二进制位数组、慢查询日志、监视器等。  </p><p>本书作者专门维护了 <a href="http://www.redisbook.com" target="_blank" rel="noopener">www.redisbook.com</a> 网站，提供带有详细注释的 Redis源码，以及本书相关的更新内容。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;查阅了很多的如何学习Redis；发现很多人推荐了这本书《Redis设计与实现》（黄健宏著）  &lt;/p&gt;
+&lt;p&gt;于是，我想看了；&lt;br&gt;一口气
+      
+    
+    </summary>
+    
+    
+      <category term="RabbitMQ" scheme="https://fengshana.github.io/categories/RabbitMQ/"/>
+    
+    
+      <category term="Redis" scheme="https://fengshana.github.io/tags/Redis/"/>
+    
+      <category term="笔记" scheme="https://fengshana.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Redis设计与实现" scheme="https://fengshana.github.io/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>Java笔试面试-Spring核心</title>
@@ -568,32 +599,6 @@
       
       
         &lt;h2 id=&quot;学习笔记&quot;&gt;&lt;a href=&quot;#学习笔记&quot; class=&quot;headerlink&quot; title=&quot;学习笔记&quot;&gt;&lt;/a&gt;学习笔记&lt;/h2&gt;
-      
-    
-    </summary>
-    
-    
-      <category term="Spring" scheme="https://fengshana.github.io/categories/Spring/"/>
-    
-    
-      <category term="Spring" scheme="https://fengshana.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring-AOP</title>
-    <link href="https://fengshana.github.io/2020/04/12/Spring/AOP1/"/>
-    <id>https://fengshana.github.io/2020/04/12/Spring/AOP1/</id>
-    <published>2020-04-12T12:01:56.000Z</published>
-    <updated>2020-04-12T10:54:39.075Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h4 id="面向切面的一些基本知识"><a href="#面向切面的一些基本知识" class="headerlink" title="面向切面的一些基本知识"></a>面向切面的一些基本知识</h4><h4 id="SpringAOP概览"><a href="#SpringAOP概览" class="headerlink" title="SpringAOP概览"></a>SpringAOP概览</h4><ol><li>走进面向切面编程</li></ol><h5 id="编程范式概览"><a href="#编程范式概览" class="headerlink" title="编程范式概览"></a>编程范式概览</h5><p>首先面向切面编程它是一个编程范式，<br>除了面向切面编程，还有哪几种编程范式？</p><ul><li>面向过程编程，C语言、Basic…</li><li>面向对象编程，Java、c++…</li><li>面向函数编程/函数式编程</li><li>事件驱动编程，JUI开发中常见</li><li>面向切面编程</li></ul><h5 id="AOP是什么"><a href="#AOP是什么" class="headerlink" title="AOP是什么"></a>AOP是什么</h5><ul><li>是一种编程范式，不是编程语言；AOP跟语言不是一个层次当中的；</li><li>解决特定问题，不能解决所有问题；（跟面向对象编程不是竞争关系，而是互补关系）</li><li>是OOP的补充，不是替代；</li></ul><h5 id="AOP的初衷"><a href="#AOP的初衷" class="headerlink" title="AOP的初衷"></a>AOP的初衷</h5><p>面向切面编程为什么会被提出来？<br>AOP跟面向对象编程互补，互补在哪里？<br>这就要讲到面向切面编程的一个初衷，也就是说AOP想要解决的一个问题是什么。  </p><ol><li>DRY：Don’t Repeat Yourself（代码层问题）</li><li>SoC：Separation of  Concerns（关注点分离）</li></ol><p>关注点分离：  </p><ul><li>水平分离：展示层-&gt;服务层-&gt;持久层</li><li>垂直分离：模块划分（订单、库存等，业务模块）</li><li>切面分离：分离功能性需求与非功能性需求</li></ul><p>非功能性需求从功能性需求当中剥离出来集中管理，从而实现Don’t Repeat Yourself这个功能。  </p><h5 id="使用AOP的好处"><a href="#使用AOP的好处" class="headerlink" title="使用AOP的好处"></a>使用AOP的好处</h5><ul><li>集中处理某一关注点/横切逻辑</li><li>可以很方便地添加/删除关注点</li><li>侵入性少，增强代码可读性及可维护性</li></ul><h5 id="AOP的应用场景"><a href="#AOP的应用场景" class="headerlink" title="AOP的应用场景"></a>AOP的应用场景</h5><p>在功能上属于非功能性需求<br>非常适合在AOP的应用场景  </p><ul><li>权限控制</li><li>缓存控制</li><li>事务控制，相对于数据库的事务控制</li><li>审计日志</li><li>性能监控</li><li>分布式追踪</li><li>异常处理</li></ul><h5 id="支持AOP的编程语言"><a href="#支持AOP的编程语言" class="headerlink" title="支持AOP的编程语言"></a>支持AOP的编程语言</h5><p>中间既包括了面向对象也包括了脚本语言，面向过程语言…  </p><ul><li>Java</li><li>.NET</li><li>c/c++</li><li>Ruby</li><li>Python</li><li>PHP</li><li>…</li></ul><ol start="2"><li>Spring中的AOP</li><li>小结</li></ol><h3 id="AOP使用"><a href="#AOP使用" class="headerlink" title="AOP使用"></a>AOP使用</h3><p>怎么在Spring中使用AOP</p><h3 id="AOP原理"><a href="#AOP原理" class="headerlink" title="AOP原理"></a>AOP原理</h3><p>讲述Spring  AOP的原理</p><h3 id="AOP开源运用"><a href="#AOP开源运用" class="headerlink" title="AOP开源运用"></a>AOP开源运用</h3><p>Spring AOP在一些开源项目当中的运用情况</p><h3 id="课程实战"><a href="#课程实战" class="headerlink" title="课程实战"></a>课程实战</h3><h3 id="课程总结"><a href="#课程总结" class="headerlink" title="课程总结"></a>课程总结</h3>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;学习笔记&quot;&gt;&lt;a href=&quot;#学习笔记&quot; class=&quot;headerlink&quot; title=&quot;学习笔记&quot;&gt;&lt;/a&gt;学习笔记&lt;/h2&gt;&lt;h3 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h
       
     
     </summary>
