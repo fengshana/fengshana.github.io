@@ -127,7 +127,7 @@
 <meta property="og:description" content="前言观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1gZ4y1s7Aw 之前这个的视频下架了，我就没办法再回过头去再看一遍；现在知道了，一边看一定得一定得做笔记。不然下次悄悄地没有了。想哭都没地方。   缓存穿透详解及实战 如何使用缓存？  （思路十分简单） controller层(对于数据的访问)：   123456789101112131415@Autowired">
 <meta property="og:image" content="http://b243.photo.store.qq.com/psb?/V11rBmNJ3kviLN/JPsVBajCNraCZAqMlohdteOUieU1NUT6rQhz8XR*hGk!/b/dPMAAAAAAAAA&bo=oAU4BKAFOAQRBzA!&rf=viewer_4">
 <meta property="article:published_time" content="2020-05-12T14:42:25.316Z">
-<meta property="article:modified_time" content="2020-05-12T22:04:25.310Z">
+<meta property="article:modified_time" content="2020-05-13T09:53:28.887Z">
 <meta property="article:author" content="Fsn">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="redis">
@@ -537,7 +537,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://b243.photo.store.qq.com/psb?/V11rBmNJ3kviLN/JPsVBajCNraCZAqMlohdteOUieU1NUT6rQhz8XR*hGk!/b/dPMAAAAAAAAA&bo=oAU4BKAFOAQRBzA!&rf=viewer_4" rel="gallery_cka4grsg500dlvoumfzgm999u"
+                 href="http://b243.photo.store.qq.com/psb?/V11rBmNJ3kviLN/JPsVBajCNraCZAqMlohdteOUieU1NUT6rQhz8XR*hGk!/b/dPMAAAAAAAAA&bo=oAU4BKAFOAQRBzA!&rf=viewer_4" rel="gallery_cka56fqoa00d1hkum94fpccp9"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://b243.photo.store.qq.com/psb?/V11rBmNJ3kviLN/JPsVBajCNraCZAqMlohdteOUieU1NUT6rQhz8XR*hGk!/b/dPMAAAAAAAAA&bo=oAU4BKAFOAQRBzA!&rf=viewer_4" itemprop="contentUrl"/>
               </a>
@@ -639,6 +639,7 @@
 
 <p><strong>布隆过滤器原理</strong><br>布隆过滤器的底层实现依赖于bit数组；<br>1个字节byte为8位；<br>1024个字节为1M；<br>所以其单位是很小；<br>512M=524288byte</p>
 <p>由于位数组，即byte只有一位；所以其取值就只能够是0和1；<br>默认该数组当中的白色格子取值value全部为0；而蓝色格子取值value为1；</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXy93sfkaGWRUBapr9y3pHbtQ6yRyawhbsd7*AS4G1K*c*Gb56IM9A4pA41f7IAo4fIom1PvvFF11WuEdaLRX51c!/r" alt="布隆过滤器"></p>
 <p>左边即为往布隆过滤器当中进行put方法操作的结果（把数据加入到布隆过滤器）；</p>
 <p>那么其位数组就会发生变化；<br>变化的表现有：</p>
 <ul>
@@ -665,9 +666,14 @@
 </ul>
 </li>
 </ul>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX1IOvYMzL*IGr4hMfNmq0SLpSUjWiYQqv*cQR*MK3kZarTxU*24HFj0FaxTXP9dLIO.fiVY2eH4cPYFmojOxc8M!/r" alt="布隆过滤器mightContain判断是否存在"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX1nwjJZCSD2X9riQotNbwt9nUD*060h1sSAaCk5hI9WOQJEcFG3tGpPrepg4ztfFPKkDeVMefdqHGj9ns7B99jw!/r" alt="布隆过滤器put方法"></p>
 <p>位数组（布隆过滤器）当中默认全部为0，当时当插入的数据量过大，即位数组当中将有大部分原本默认取值为0的index将被改变取值为1；</p>
 <p>当前插入到布隆过滤器当中的数据有21条数据记录行：<br>1、2、3、4、5、6、7、8、9、10、11、12、13、14、15、16、17、18、19、20、老王</p>
-<p><strong>可能存在（误判的原因）</strong><br>（1）当进行查找“老王”时，是可以查找得到的；<br>（2）当进行查找 1 时，是可以查找得到的；<br>（3）当进行查找 111 时，也是可以查找得到的；此时就出现了<strong>误判</strong>；<br>该取值111并不是加入到布隆过滤器当中的数值；<br>而是21条数据添加通过3个不同的hash取余数组长度得到各个不同的在数组当中的下标位置index；<br>恰巧就将 111 该取值进行3个不同的hash函数得出的3个不同的数值取余数组长度得到的3个不同位置下标index的默认取值0进行了改值为1；<br>而111该数值的三个在布隆过滤器数组当中index下标位置取值默认为0被修改为1；<br>并非是111进行mightContain时进行修改的；<br>而是当添加21条数据记录时进行修改的；<br>也就是当[<strong>因素1</strong>]添加到布隆过滤器当中的数据量过大时，如果[<strong>因素2</strong>]有多个hash函数（<strong>hash冲突</strong>），那么布隆过滤器当中就可能存在多个下标位置index的取值由0改变为1的这种情况；  </p>
+<p><strong>可能存在（误判的原因）</strong><br>（1）当进行查找“老王”时，是可以查找得到的；<br>（2）当进行查找 1 时，是可以查找得到的；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXw6xgVJROJh3BJY6xFr9VJp6l4Zz7Pw*B3XR97Ym8Flrt07pQJDvc4W*10SFkqDBy5AkMwUaqHzOjviy6g9514Q!/r" alt="bloomFilter插入数据量大进行数据判断时"></p>
+<p>（3）当进行查找 111 时，也是可以查找得到的；此时就出现了<strong>误判</strong>；<br>该取值111并不是加入到布隆过滤器当中的数值；<br>而是21条数据添加通过3个不同的hash取余数组长度得到各个不同的在数组当中的下标位置index；<br>恰巧就将 111 该取值进行3个不同的hash函数得出的3个不同的数值取余数组长度得到的3个不同位置下标index的默认取值0进行了改值为1；<br>而111该数值的三个在布隆过滤器数组当中index下标位置取值默认为0被修改为1；<br>并非是111进行mightContain时进行修改的；<br>而是当添加21条数据记录时进行修改的；<br>也就是当[<strong>因素1</strong>]添加到布隆过滤器当中的数据量过大时，如果[<strong>因素2</strong>]有多个hash函数（<strong>hash冲突</strong>），那么布隆过滤器当中就可能存在多个下标位置index的取值由0改变为1的这种情况；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX6G6Nkh9oP4j1AI.xWFqKAqs9pJ6hpqT9bcebJgsD1MnDW3AU*HyNTcnfjGcwoSGm1Y5nNUuczxo97CBCFXTZsA!/r" alt="bloomFilter插入数据量大误判情况的产生"></p>
 <p>1、为什么布隆过滤器没有取出的方法即get方法；—&gt;因为其布隆过滤器底层没有进行保存其加入到布隆顾虑器当中真实的取值；只有位数组；<br>2、布隆过滤器也没有delete方法；—&gt;由于在布隆过滤器当中该位数组当中其下标位置index要删除的位置其位置，同一个位置也有可能是其他数值所占的下标位；（<strong>hash冲突</strong>）；如果将该下标位置index的取值改为0；那么也将会影响其他的数值的下标取值；也就是说；当其他的数据进行判断是否存在时，原本其他数据的下标位置index取值为1；当前因为有需要要进行删除的数据所以对该布隆过滤器的下标位置index取值进行更改为从1变为0；其他数据的下标位置与当前要删除的数据的下标位置相撞相同了（<strong>hash冲突</strong>）；如果当前要删除的数据将该布隆过滤器数组当中下标位置的取值改为了0；则其他数据下次进行mightContain判断的时候将会被判断为不存在；所以布隆过滤器没有删除delete该方法；<br>3、布隆过滤器为什么会出现误判？—&gt;<strong>误判</strong>的缘故就在于存在<strong>hash冲突</strong>  </p>
 <p><strong>出现误判的概率，即容错率与什么因素有关？</strong>  </p>
 <ul>
@@ -676,6 +682,7 @@
 </ul>
 <p><strong>（1）</strong>首先，数组的长度是肯定会影响容错率的；如果数组的长度是100,0000；同样是添加21条数据；那么误判的概率就不会又这么高了（即111不存在的数据也能够判断mightContain为存在）；所以数组的长度是一个影响误判的因素；<br><strong>（2）</strong>第二，hash算法的个数；如果数组的长度是100,0000；且该布隆过滤器当中存在有10个hash算法<br>(不同hash函数越多，则误判的概率越小，即不同hash函数个数越多，即算的在布隆过滤器当中的下标位置越多，而只有当满足算出来的所有的下标位置的取自为1，才将返回可能存在；否则只要满足有一个算出来的index其下标取值不为1，即为0的这种情况则返回绝对不存在；)，</p>
 <p>（不同hash个数函数取余数组长度所得出的位置必须是全部为1才能够判断其值<br>[即判断值是否存在在布隆过滤当中]存在于布隆过滤器当中；<br>即存在有3个不同的hash函数，查询数值117；<br>布隆过滤器数组当中仅只有2个位置可证明该117存在于布隆过滤器当中，即这两个下标位置取值value为1，还有一个index value为0；<br>而hash个数有3个，此时能够证明的只有2个，所以判断为绝对不存在；<br>即只有当查询的数值通过n个不同的hash算法在布隆过滤器数组当中需要有n个不同下标地址的index其取值value必须全部为1；<br>才能够判断为可能存在在该布隆过滤器数组当中；否则判断为绝对不存在；）</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX1loeM8HGC*c1AuLK0zUPiHTgZ1ljiSnfjWcgvZCtpiFflSI8eyoV.J9xxKSa2wiJDTtvnfmwuqphXXn4wPQ7B4!/r" alt="bloomFilter数据量判断mightContain绝对不存在的情况"></p>
 <p>即如果数组长度越小；而不同的hash函数个数越多；<br>则容错率就将会增大<br>（即误判的几率增大，也就是说在数组长度小的情况下，而hash函数多，即算出来的在布隆过滤器数组当中的下标位置越多，即这些算出来的下标位置的取值就都将会被改为1，到时候布隆过滤器数组当中的下标位置index就将会有大量取值变动由0变为1；这样就会增大误判的几率，也就是说容错率也就增大了；）</p>
 <p>所以说；跟数组的长度以及hash函数的个数必须要配合使用才能够达到布隆过滤器最好的效果；（hash函数的个数必须要与数组长度相匹配；）</p>
 <p>numBits 即Google Guava框架中创建出来的位数组的长度；<br>size：100,0000（预计插入数值记录行），fpp：0.001（容错率）===(创建出来)===&gt;numBits：14377587（位数组长度），numHashFunction：10（hash函数的个数）</p>
@@ -802,6 +809,13 @@
 </ul>
 </li>
 </ul>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX4pgLmAu8VahKl7KcdIHB0TUz5G4e7vKThDgFA4qONmduoQbaGmQQkOcSL4ZRToJCp.Uf19bAH3AwkYd90x7O1U!/r" alt="数据一致性问题1"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX.XryE.7uV.ikOi43KtZHMMeFc5xE9CdpCZxb813hOndwi1w1ZBWEexHrxFZIBZfelNT79b7aY12qTQp7NauUZ8!/r" alt="数据一致性问题2"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX3mOzKCW7tUhJUWL8ztU7xPj*Pe*Joo30G7me5QGmt7Sxi5j5klGAArIsMW*y8bO.byfXwfDCTDh.6x5I.sLatg!/r" alt="数据一致性问题3"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX*S1qKXmK2eYWqUYxPcUsgsF6L*V72VsmLXrkJ.UnQ7ePKGiWhTZhWMp1b6T2ekmO6bUvjPP2Xe6sCMSxuyCrPc!/r" alt="数据一致性解决方案一"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX*S1qKXmK2eYWqUYxPcUsgsF6L*V72VsmLXrkJ.UnQ7ePKGiWhTZhWMp1b6T2ekmO6bUvjPP2Xe6sCMSxuyCrPc!/r" alt="数据一致性解决方案一"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXzQqwZMYfv*FkdsRt6pLKtRDNNQ8Pv2ce3feyq1.6u.ytk1wClBaFMU15A2dvCGK8aMDt0c6XmLkiGohBxyNLTo!/r" alt="数据一致性方案二串行化1"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX2CGSzajo.b8bZBcqLFBQeGmscwTpI*sRf3EyyWT3nGZ8bOZlQ82XlsrsHCkd*Z7RoJHLOsDtirE785Nk*g.jaA!/r" alt="数据一致性方案二串行化2"></p>
 <p>第五步一定要执行成功，实现：<br>StockListener采用了延时队列；</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">SendMessageUtil sendMessageUtil;</span><br><span class="line"></span><br><span class="line">@<span class="constructor">RabbitListener(<span class="params">queue</span> = <span class="string">"stock_queue"</span>, <span class="params">containerFactory</span>=<span class="string">"simpleRabbitListenerContainerFactory"</span>)</span></span><br><span class="line">public void get<span class="constructor">StockMessage(Message <span class="params">message</span>, Channel <span class="params">channel</span>)</span> throws Exception&#123;</span><br><span class="line">  <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"接收到了消息"</span>+<span class="keyword">new</span> <span class="constructor">String(<span class="params">message</span>.<span class="params">getBody</span>()</span>,<span class="string">"UTF-8"</span>));</span><br><span class="line"></span><br><span class="line">  Order order = <span class="module-access"><span class="module"><span class="identifier">JSON</span>.</span></span>parse<span class="constructor">Object(<span class="params">new</span> String(<span class="params">message</span>.<span class="params">getBody</span>()</span>,<span class="string">"UTF-8"</span>), <span class="module-access"><span class="module"><span class="identifier">Order</span>.</span></span><span class="keyword">class</span>);</span><br><span class="line">  <span class="keyword">try</span>&#123;</span><br><span class="line">      <span class="comment">//System.out.println(1/0);</span></span><br><span class="line">      redisTemplate.delete(<span class="module-access"><span class="module"><span class="identifier">String</span>.</span></span>value<span class="constructor">Of(Order.<span class="params">getId</span>()</span>));</span><br><span class="line">      channel.basic<span class="constructor">Ack(<span class="params">message</span>.<span class="params">getMessageProperties</span>()</span>.getDeliveryTag,<span class="literal">false</span>);</span><br><span class="line">  &#125;catch(Exception e)&#123;</span><br><span class="line">      <span class="built_in">int</span> count = <span class="module-access"><span class="module"><span class="identifier">Integer</span>.</span></span>parse<span class="constructor">Int(<span class="params">order</span>.<span class="params">getName</span>()</span>);</span><br><span class="line">      <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(order.get<span class="constructor">Name()</span>);</span><br><span class="line">      channel.basic<span class="constructor">Ack(<span class="params">message</span>.<span class="params">getMessageProperties</span>()</span>.get<span class="constructor">DeliveryTag()</span>, <span class="literal">false</span>);</span><br><span class="line">      <span class="comment">//重试5次；如果5次仍然不成功则记录到日志；到时候人为进行处理（人为干预）；</span></span><br><span class="line">      <span class="keyword">if</span>(count!=<span class="number">5</span>)&#123;</span><br><span class="line">        count++;</span><br><span class="line">        order.set<span class="constructor">Name(String.<span class="params">valueOf</span>(<span class="params">count</span>)</span>);</span><br><span class="line">        sendMessageUtil.place<span class="constructor">OrderMessage(<span class="params">order</span>)</span>;</span><br><span class="line">        return;</span><br><span class="line">      &#125;</span><br><span class="line">      loggerFactory.error(<span class="module-access"><span class="module"><span class="identifier">String</span>.</span></span>value<span class="constructor">Of(<span class="params">order</span>.<span class="params">getId</span>)</span>);</span><br><span class="line">      e.print<span class="constructor">StackTrace()</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -829,7 +843,7 @@
   <p><span>本文标题:</span>缓存四大问题</a></p>
   <p><span>文章作者:</span>Fsn</a></p>
   <p><span>发布时间:</span>2020年05月12日 - 22:42:25</p>
-  <p><span>最后更新:</span>2020年05月13日 - 06:04:25</p>
+  <p><span>最后更新:</span>2020年05月13日 - 17:53:28</p>
   <p><span>原始链接:</span><a href="/2020/05/12/%E9%9D%A2%E8%AF%95/redis%E7%BC%93%E5%AD%984%E5%A4%A7%E9%97%AE%E9%A2%98/" title="缓存四大问题">https://fengshana.github.io/2020/05/12/%E9%9D%A2%E8%AF%95/redis%E7%BC%93%E5%AD%984%E5%A4%A7%E9%97%AE%E9%A2%98/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/05/12/%E9%9D%A2%E8%AF%95/redis%E7%BC%93%E5%AD%984%E5%A4%A7%E9%97%AE%E9%A2%98/"  aria-label="复制成功！"></i></span>
   </p>
