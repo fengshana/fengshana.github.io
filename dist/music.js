@@ -4,6 +4,12 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
+        name: '晚星',
+        artist: '逆时针向',
+        url: 'http://music.163.com/song/media/outer/url?id=1319520140.mp3',
+        cover: 'http://p1.music.126.net/blQBZ_5HEUbq8iNvlrNsiw==/109951163617861379.jpg',
+},
+      {
         name: '告白之夜（纯音乐）（翻自 Ayasa绚沙）',
         artist: 'CMJ',
         url: 'http://music.163.com/song/media/outer/url?id=1353301300.mp3',
