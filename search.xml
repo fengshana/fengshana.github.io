@@ -381,8 +381,8 @@
         <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>RabbitMQ</tag>
         <tag>笔记</tag>
+        <tag>RabbitMQ</tag>
         <tag>RabbitMQ实战指南</tag>
       </tags>
   </entry>
@@ -433,8 +433,8 @@
         <category>Redis</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>Redis</tag>
+        <tag>笔记</tag>
         <tag>Redis设计与实现</tag>
       </tags>
   </entry>
@@ -9091,8 +9091,8 @@
         <category>数据结构</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>串</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -9192,32 +9192,6 @@
       </tags>
   </entry>
   <entry>
-    <title>图</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>图</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>排序</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>排序</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>树</title>
     <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%A0%91-06/%E6%A0%91-06.png" alt="树-06"></p>
@@ -9231,6 +9205,19 @@
       </tags>
   </entry>
   <entry>
+    <title>排序</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>查找</title>
     <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
@@ -9241,6 +9228,19 @@
       <tags>
         <tag>数据结构</tag>
         <tag>查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>图</tag>
       </tags>
   </entry>
   <entry>
@@ -10549,6 +10549,73 @@
       </tags>
   </entry>
   <entry>
+    <title>第七节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
+<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
+<p>自我和自私是两种最糟糕的负面心态。</p>
+<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
+<p>先做好自己不要给别人带来麻烦。</p>
+<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
+<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
+<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
+<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
+<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
+<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
+<p>总结：</p>
+<ul>
+<li>第一讲：心态认知，别人的评价…自我认知</li>
+<li>……..</li>
+</ul>
+<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第六节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
+<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
+<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
+<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
+<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
+<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
+<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
+<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
+<ol>
+<li>第一个阶段:不要再为自己担心了,自己做决定</li>
+<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
+</ol>
+<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
+<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
+<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
+<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
+<p>越疼越要不动声色，越苦越要保持沉默  </p>
+<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
+<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
+<ul>
+<li>两利相权取其重</li>
+<li>两害相权取其轻</li>
+</ul>
+<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
+<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
+<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第三节心态课</title>
     <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
@@ -10621,44 +10688,6 @@
       </tags>
   </entry>
   <entry>
-    <title>第六节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
-<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
-<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
-<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
-<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
-<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
-<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
-<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
-<ol>
-<li>第一个阶段:不要再为自己担心了,自己做决定</li>
-<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
-</ol>
-<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
-<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
-<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
-<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
-<p>越疼越要不动声色，越苦越要保持沉默  </p>
-<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
-<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
-<ul>
-<li>两利相权取其重</li>
-<li>两害相权取其轻</li>
-</ul>
-<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
-<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
-<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一节心态课</title>
     <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>  </p>
@@ -10718,35 +10747,6 @@
 </ol>
 <p>总分：3<em>8）+2+2</em>7）=24+2+14=40<br>60——80 心态不错<br>20——30 说明你未来可以进步的空间还是挺大的。  </p>
 <p>判断自己的心态偏积极还是消极，建议每年做一次<br>一个人心态积极还是消极，看一个生活中的常见问题，怎么回答即可<br>我有一个好消息还是坏消息，- 答： 先听坏消息，再听好消息<br>如果总是先听好消息，可能偏积极，如果总是先听坏消息，可能偏消极  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第七节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
-<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
-<p>自我和自私是两种最糟糕的负面心态。</p>
-<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
-<p>先做好自己不要给别人带来麻烦。</p>
-<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
-<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
-<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
-<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
-<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
-<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
-<p>总结：</p>
-<ul>
-<li>第一讲：心态认知，别人的评价…自我认知</li>
-<li>……..</li>
-</ul>
-<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -10936,8 +10936,8 @@
         <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>RabbitMQ</tag>
         <tag>笔记</tag>
+        <tag>RabbitMQ</tag>
         <tag>RabbitMQ实战指南</tag>
       </tags>
   </entry>
@@ -12200,6 +12200,22 @@
       </tags>
   </entry>
   <entry>
+    <title>david-prep单新增编辑逻辑</title>
+    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
+<blockquote>
+<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
+</blockquote>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
+]]></content>
+      <categories>
+        <category>领赫</category>
+      </categories>
+      <tags>
+        <tag>领赫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>原型图-发货</title>
     <url>/2020/02/09/%E9%A2%86%E8%B5%AB/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
     <content><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p>
@@ -12230,22 +12246,6 @@
 <li><p>还是我昨天说的，出库有2种方式。这个t_stock_box_number里面记录了每个提货单最终入库之后生产了哪些箱子，然后对应这发出去就可以了。</p>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>领赫</category>
-      </categories>
-      <tags>
-        <tag>领赫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>david-prep单新增编辑逻辑</title>
-    <url>/2020/02/09/%E9%A2%86%E8%B5%AB/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
-<blockquote>
-<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
-</blockquote>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
 ]]></content>
       <categories>
         <category>领赫</category>
