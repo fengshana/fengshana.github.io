@@ -4,6 +4,12 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
+        name: 'The Right Path',
+        artist: 'Thomas Greenberg',
+        url: 'http://music.163.com/song/media/outer/url?id=2061452.mp3',
+        cover: 'http://p1.music.126.net/_Nzg2JzIjaBy38rSSdfFig==/851021999952100.jpg',
+},
+      {
         name: '晚星',
         artist: '逆时针向',
         url: 'http://music.163.com/song/media/outer/url?id=1319520140.mp3',
