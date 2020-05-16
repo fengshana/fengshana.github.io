@@ -127,7 +127,7 @@
 <meta property="og:description" content="为什么想要翻译这篇博客呢，因为也是看了b站上的一个学习springboot的一个视频，而且我今天面试的时候人家问了微服务是什么，然后由此可得我万分后悔没有当时通篇翻译这篇博客。好了现在后悔也挽救不了我的愚不可及了。   观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Eg4y187XT就是这个视频告诉了我：推荐看哦~   为了不后悔，以后每件事情，能做笔记就一定要压着">
 <meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPRX4TlLazPiBRDQbF07SVVbDtPtdmEuBDXqFIYympnF3c.nRRImUZJEnu*JfYocULvuNOlFUf4MOX3aLxXnYKiI!/r">
 <meta property="article:published_time" content="2020-05-10T09:54:45.023Z">
-<meta property="article:modified_time" content="2020-05-16T07:36:06.329Z">
+<meta property="article:modified_time" content="2020-05-16T07:49:07.103Z">
 <meta property="article:author" content="Fsn">
 <meta property="article:tag" content="面试">
 <meta property="article:tag" content="微服务">
@@ -536,7 +536,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPRX4TlLazPiBRDQbF07SVVbDtPtdmEuBDXqFIYympnF3c.nRRImUZJEnu*JfYocULvuNOlFUf4MOX3aLxXnYKiI!/r" rel="gallery_cka9biq2h00b0zsum058bgqa9"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPRX4TlLazPiBRDQbF07SVVbDtPtdmEuBDXqFIYympnF3c.nRRImUZJEnu*JfYocULvuNOlFUf4MOX3aLxXnYKiI!/r" rel="gallery_cka9bxvsy00bez0umhf2j19v2"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPRX4TlLazPiBRDQbF07SVVbDtPtdmEuBDXqFIYympnF3c.nRRImUZJEnu*JfYocULvuNOlFUf4MOX3aLxXnYKiI!/r" itemprop="contentUrl"/>
               </a>
@@ -703,7 +703,7 @@
 <h2 id="Microservices-Guide-微服务指南（翻译）"><a href="#Microservices-Guide-微服务指南（翻译）" class="headerlink" title="Microservices Guide 微服务指南（翻译）"></a>Microservices Guide 微服务指南（翻译）</h2><p>In short , the microservice architectural style is an approach to developing a single application as a <strong>suite of small services</strong> , each <strong>running in its own process</strong>  and communicating with lightweight mechanisms , often an HTTP resource API .  </p>
 <p>These services are <strong>built around business capabilities</strong> and <strong>independently deployable</strong> by fully automated deployment machinery .  </p>
 <p>There is a bare minimum of centralized management of these services , which may be written in different programming languages and use different data storage technologies .  </p>
-<p>– <strong>James Lewis</strong> and <strong>Martin Fowler</strong>（2014 读音：twenty fourteen(two thousand and fourteen)）  </p>
+<p>– <strong>James Lewis</strong> and <strong>Martin Fowler</strong>（2014）  </p>
 <figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">简而言之，</span><br><span class="line"></span><br><span class="line">微服务架构风格 是一种近似于 将一个单体应用程序作为一个小型服务套件来进行开发的风格，</span><br><span class="line"></span><br><span class="line">每一个小型服务都运行在它自身的进程当中，</span><br><span class="line"></span><br><span class="line">并且通过轻量级机制进行相互间的交流，</span><br><span class="line"></span><br><span class="line">通常是以一种超文本传输协议资源应用编程接口的方式进行交互。</span><br><span class="line"></span><br><span class="line">这些服务都是围绕业务逻辑来进行构建的并且通过全自动化部署机制来进行独立部署。</span><br><span class="line"></span><br><span class="line">最低限度的集中式管理着这些服务（这些服务的集中管理非常少），</span><br><span class="line"></span><br><span class="line">通过这种方式，</span><br><span class="line"></span><br><span class="line">或许可以使用不同的程序语言进行编写以及使用不同的数据存储技术。</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line"></span><br><span class="line">简而言之，</span><br><span class="line">微服务体系结构风格是一种将单个应用程序作为一组小服务进行开发的方法，</span><br><span class="line">每个小服务都在自己的进程中运行，并与轻量级机制<span class="params">(通常是HTTP资源API)</span>进行通信。</span><br><span class="line">这些服务是围绕业务功能构建的，</span><br><span class="line">并且可以通过完全自动化的部署机制独立部署。</span><br><span class="line">这些服务的集中管理非常少，</span><br><span class="line">它们可以用不同的编程语言编写，</span><br><span class="line">并使用不同的数据存储技术。</span><br><span class="line">——詹姆斯·刘易斯和马丁·福勒<span class="params">(<span class="number">2014</span>)</span></span><br></pre></td></tr></table></figure>
 
       
@@ -728,7 +728,7 @@
   <p><span>本文标题:</span>MicroservicesGuide翻译</a></p>
   <p><span>文章作者:</span>Fsn</a></p>
   <p><span>发布时间:</span>2020年05月10日 - 17:54:45</p>
-  <p><span>最后更新:</span>2020年05月16日 - 15:36:06</p>
+  <p><span>最后更新:</span>2020年05月16日 - 15:49:07</p>
   <p><span>原始链接:</span><a href="/2020/05/10/%E9%9D%A2%E8%AF%95/MicroservicesGuide%E7%BF%BB%E8%AF%91/" title="MicroservicesGuide翻译">https://fengshana.github.io/2020/05/10/%E9%9D%A2%E8%AF%95/MicroservicesGuide%E7%BF%BB%E8%AF%91/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/05/10/%E9%9D%A2%E8%AF%95/MicroservicesGuide%E7%BF%BB%E8%AF%91/"  aria-label="复制成功！"></i></span>
   </p>
