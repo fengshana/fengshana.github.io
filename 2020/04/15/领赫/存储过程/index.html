@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="领赫,存储过程,Sql,MySql," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fsn" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="记录在领赫这个项目当中，方便敏捷式开发的存储过程pojo-model层以及mapper的编写。   david指导 那个存储过程等你有时间你得优化一下，不要名字全是sqlxJava，至少也要说明摸个存储过程是干嘛用的，不然后期很难维护，过几天你自己都忘了哪个 是干嘛用的。 如果业务不熟很复杂，还是少用存储过程，不利于维护。 写存储过程也可以，但是不要搞复杂了，你之前获取产品列表那个存储过程，我感觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql-存储过程">
+<meta property="og:url" content="https://fengshana.github.io/2020/04/15/%E9%A2%86%E8%B5%AB/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="记录在领赫这个项目当中，方便敏捷式开发的存储过程pojo-model层以及mapper的编写。   david指导 那个存储过程等你有时间你得优化一下，不要名字全是sqlxJava，至少也要说明摸个存储过程是干嘛用的，不然后期很难维护，过几天你自己都忘了哪个 是干嘛用的。 如果业务不熟很复杂，还是少用存储过程，不利于维护。 写存储过程也可以，但是不要搞复杂了，你之前获取产品列表那个存储过程，我感觉">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/4vjILorfS.jKPLvvTVcs87a2Ojd7wfbyFmeo9p97iEU!/r/dD4BAAAAAAAA">
+<meta property="article:published_time" content="2020-04-14T17:48:49.428Z">
+<meta property="article:modified_time" content="2020-04-15T13:22:55.765Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="领赫">
+<meta property="article:tag" content="存储过程">
+<meta property="article:tag" content="Sql">
+<meta property="article:tag" content="MySql">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/4vjILorfS.jKPLvvTVcs87a2Ojd7wfbyFmeo9p97iEU!/r/dD4BAAAAAAAA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/04/15/领赫/存储过程/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>MySql-存储过程 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-camera">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/04/15/%E9%A2%86%E8%B5%AB/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySql-存储过程</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-15T01:48:49+08:00">
+                2020-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%86%E8%B5%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">领赫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  24
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/4vjILorfS.jKPLvvTVcs87a2Ojd7wfbyFmeo9p97iEU!/r/dD4BAAAAAAAA" rel="gallery_ckabezhx800bii0umd7jrejer"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/4vjILorfS.jKPLvvTVcs87a2Ojd7wfbyFmeo9p97iEU!/r/dD4BAAAAAAAA" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>在领赫这个项目当中，方便敏捷式开发的存储过程pojo-model层以及mapper的编写。  </p>
+<h3 id="david指导"><a href="#david指导" class="headerlink" title="david指导"></a>david指导</h3><ul>
+<li>那个存储过程等你有时间你得优化一下，不要名字全是sqlxJava，至少也要说明摸个存储过程是干嘛用的，不然后期很难维护，过几天你自己都忘了哪个 是干嘛用的。</li>
+<li>如果业务不熟很复杂，还是少用存储过程，不利于维护。</li>
+<li>写存储过程也可以，但是不要搞复杂了，你之前获取产品列表那个存储过程，我感觉你搞复杂了。</li>
+<li>我们这业务不存在复杂的计算，基本上关联几张表就能查出数据。如果存在复杂的业务计算的时候存储过程才能发挥他额作用</li>
+<li>存储过程可以用，尽力做好备注</li>
+<li>两种方式都可以。你那个存储过程那个可以优化一下，通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要夸多个存储过程。</li>
+</ul>
+<p>其实我能说我不会写复杂的sql所以写了存储过程吗？(<em>/ω＼</em>)<br>害  </p>
+<h3 id="拼接列的名称"><a href="#拼接列的名称" class="headerlink" title="拼接列的名称"></a>拼接列的名称</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`admin`</span>@<span class="string">`%`</span> <span class="keyword">PROCEDURE</span> <span class="string">`concatColume`</span>(<span class="keyword">in</span> t_name <span class="built_in">char</span>(<span class="number">30</span>))</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">			<span class="keyword">GROUP_CONCAT</span>(</span><br><span class="line">			column_name</span><br><span class="line">			) <span class="keyword">as</span> <span class="keyword">java</span></span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">			information_schema. <span class="keyword">columns</span></span><br><span class="line">	<span class="keyword">where</span></span><br><span class="line">			table_name = t_name;</span><br><span class="line">	<span class="keyword">select</span></span><br><span class="line">			<span class="keyword">GROUP_CONCAT</span>(</span><br><span class="line">				<span class="keyword">CONCAT</span>(<span class="string">'#&#123;'</span>,column_name,<span class="string">'&#125;#'</span>)</span><br><span class="line">			) <span class="keyword">as</span> <span class="keyword">java</span></span><br><span class="line">	<span class="keyword">from</span></span><br><span class="line">			information_schema. <span class="keyword">columns</span></span><br><span class="line">	<span class="keyword">where</span></span><br><span class="line">			table_name = t_name;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过逗号分隔字段取值"><a href="#通过逗号分隔字段取值" class="headerlink" title="通过逗号分隔字段取值"></a>通过逗号分隔字段取值</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `fieldValue_split_by_comma`(<span class="keyword">in</span> splitContent <span class="type">varchar</span>(<span class="number">255</span>))</span><br><span class="line"><span class="keyword">BEGIN</span> <span class="comment">-- 原来的procedure - sql9java,现在改名为 field_split_by_comma</span></span><br><span class="line">   <span class="keyword">DECLARE</span> n   <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 特殊字符总个数</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> test_n   <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 特殊字符总个数</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> i   <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 循环变量</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> ind <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 得到特殊字符的下标</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> left_str  <span class="type">varchar</span>(<span class="number">30</span>); <span class="comment">-- 左边的字符串</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> str_value <span class="type">varchar</span>(<span class="number">30</span>); <span class="comment">-- value变量</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> str       <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 用于拼接的变量</span></span><br><span class="line">	 <span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql5java(num <span class="type">int</span>,s_id <span class="type">varchar</span>(<span class="number">255</span>));</span><br><span class="line">	 <span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql5java;<span class="comment">-- 将拆分出来的那个供应商编号新增入该表					</span></span><br><span class="line">	 <span class="keyword">SET</span> i = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">SET</span> str = splitContent;</span><br><span class="line">	 <span class="keyword">SET</span> n = length(str)-length(REPLACE(str,",",""))+<span class="number">1</span>; <span class="comment">-- 总共有多少次需要进行替换以及大小写变化</span></span><br><span class="line">	 <span class="keyword">SET</span> max_sp_recursion_depth = <span class="number">3000</span>;</span><br><span class="line">    <span class="keyword">WHILE</span> i &lt;= n <span class="keyword">DO</span> </span><br><span class="line">		    <span class="keyword">SET</span> ind = LENGTH(SUBSTRING_INDEX(str,<span class="string">','</span>,i)); <span class="comment">-- 特殊字符的下标</span></span><br><span class="line">			  <span class="keyword">SET</span> left_str = SUBSTRING_INDEX(str,<span class="string">','</span>,i); <span class="comment">-- 特殊字符左边的字符串</span></span><br><span class="line">				<span class="keyword">SET</span> test_n =  LENGTH(SUBSTRING_INDEX(left_str,<span class="string">','</span>,i)); <span class="comment">-- 查看截取了的内容是否还有特殊字符</span></span><br><span class="line">				<span class="keyword">if</span>(test_n&lt;<span class="number">0</span>) <span class="keyword">then</span></span><br><span class="line">				<span class="keyword">SET</span> str_value = left_str;</span><br><span class="line">				<span class="keyword">else</span>   </span><br><span class="line">				<span class="keyword">SET</span> str_value = SUBSTRING_INDEX(left_str,<span class="string">','</span>,<span class="number">-1</span>);</span><br><span class="line">				<span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line">				<span class="keyword">insert</span> <span class="keyword">into</span> tmp_sql5java <span class="keyword">values</span>(i,str_value);</span><br><span class="line">				<span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成基本的-Mapper-映射"><a href="#生成基本的-Mapper-映射" class="headerlink" title="生成基本的 Mapper 映射"></a>生成基本的 Mapper 映射</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `generate_base_mapper`(<span class="keyword">in</span> t_name <span class="type">char</span>(<span class="number">255</span>))</span><br><span class="line"><span class="keyword">BEGIN</span>  <span class="comment">-- 原来的 procedure - sql6java,现在改名为 generate_base_mapper</span></span><br><span class="line">		<span class="comment">-- t_name 即table_name 上送参数为表名称</span></span><br><span class="line">		<span class="keyword">DECLARE</span> columnName <span class="type">varchar</span>(<span class="number">5000</span>);         <span class="comment">-- 原型字段名称</span></span><br><span class="line">		<span class="keyword">DECLARE</span> property <span class="type">varchar</span>(<span class="number">255</span>);           <span class="comment">-- 大小写驼峰字段名称</span></span><br><span class="line">		<span class="keyword">DECLARE</span> mapper <span class="type">varchar</span>(<span class="number">255</span>);             <span class="comment">-- 表映射名称</span></span><br><span class="line">		<span class="keyword">DECLARE</span> <span class="keyword">class</span> <span class="type">varchar</span>(<span class="number">255</span>);              <span class="comment">-- 类名称</span></span><br><span class="line">		<span class="keyword">DECLARE</span> varClass <span class="type">varchar</span>(<span class="number">255</span>);           <span class="comment">-- 变量类名称</span></span><br><span class="line">		<span class="keyword">DECLARE</span> str text(<span class="number">50000</span>);               <span class="comment">-- 字符串变量</span></span><br><span class="line">		<span class="keyword">DECLARE</span> columnsStr <span class="type">varchar</span>(<span class="number">5000</span>);                <span class="comment">-- 列字符串变量</span></span><br><span class="line">		<span class="keyword">DECLARE</span> insertColumnsStr <span class="type">varchar</span>(<span class="number">5000</span>);                <span class="comment">-- 列字符串变量</span></span><br><span class="line">		<span class="keyword">DECLARE</span> propertyStr <span class="type">varchar</span>(<span class="number">5000</span>);               <span class="comment">-- 属性字符串变量</span></span><br><span class="line">		<span class="keyword">DECLARE</span> columnPropertyStr <span class="type">varchar</span>(<span class="number">5000</span>); <span class="comment">-- 列属性字符串变量</span></span><br><span class="line">		<span class="keyword">DECLARE</span> findByIdStr <span class="type">varchar</span>(<span class="number">5000</span>);       <span class="comment">-- 通过主键查找对象方法</span></span><br><span class="line">		<span class="keyword">DECLARE</span> insertRecord <span class="type">varchar</span>(<span class="number">5000</span>);      <span class="comment">-- 新增记录</span></span><br><span class="line">		<span class="keyword">DECLARE</span> selectCount <span class="type">varchar</span>(<span class="number">5000</span>);      <span class="comment">-- 新增记录</span></span><br><span class="line">		<span class="keyword">DECLARE</span> findAll <span class="type">varchar</span>(<span class="number">5000</span>);      <span class="comment">-- 新增记录</span></span><br><span class="line">		<span class="keyword">DECLARE</span> head <span class="type">varchar</span>(<span class="number">5000</span>);              <span class="comment">-- 新增记录</span></span><br><span class="line">		<span class="keyword">DECLARE</span> resultMapper text(<span class="number">10000</span>);             <span class="comment">-- 新增记录</span></span><br><span class="line">		<span class="keyword">DECLARE</span> n  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span> ;             <span class="comment">-- 总共的字段数</span></span><br><span class="line">		<span class="keyword">DECLARE</span> i  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>;              <span class="comment">-- 循环时的变量</span></span><br><span class="line">		<span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql2java(property_name <span class="type">varchar</span>(<span class="number">255</span>));</span><br><span class="line">		<span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql2java;</span><br><span class="line">		<span class="keyword">SET</span> i = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">SET</span> str = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> columnsStr = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> insertColumnsStr = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> propertyStr = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> columnPropertyStr = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> findByIdStr = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> insertRecord = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> selectCount =<span class="string">''</span>;      <span class="comment">-- 新增记录</span></span><br><span class="line">		<span class="keyword">SET</span> findAll =<span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> property = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> mapper = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> <span class="keyword">class</span> = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> varClass = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">SET</span> resultMapper = <span class="string">''</span>;</span><br><span class="line">		<span class="keyword">CALL</span> generate_class_mapperClass_name(t_name,<span class="string">'Mapper'</span>,@mapperName);       <span class="comment">-- 通过表名称获取得到Mapper类名称</span></span><br><span class="line">		<span class="keyword">CALL</span> generate_class_mapperClass_name(t_name,<span class="string">''</span>,@className);  <span class="comment">-- 通过表名称获取得到Model类名称</span></span><br><span class="line">		<span class="keyword">SET</span> mapper = @mapperName;</span><br><span class="line">		<span class="keyword">SET</span> <span class="keyword">class</span> = @className;</span><br><span class="line">		<span class="keyword">SET</span> head = CONCAT(</span><br><span class="line">										<span class="string">'&lt;?xml version="1.0" encoding="UTF-8"?&gt;\n'</span>,</span><br><span class="line">										<span class="string">'&lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;\n'</span>,</span><br><span class="line">										<span class="string">'&lt;mapper namespace="com.yourshares.entity.dao.'</span>,</span><br><span class="line">										mapper,</span><br><span class="line">										<span class="string">'"&gt;\n'</span>,</span><br><span class="line">										<span class="string">'&lt;resultMap id="BaseResultMap" type="com.yourshares.entity.model.'</span>,</span><br><span class="line">										<span class="keyword">class</span>,</span><br><span class="line">										<span class="string">'"&gt;\n'</span></span><br><span class="line">										);</span><br><span class="line">		<span class="keyword">select</span> COUNT(*) <span class="keyword">into</span> n <span class="keyword">from</span> information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name; <span class="comment">-- 总共的字段</span></span><br><span class="line"><span class="keyword">WHILE</span> i &lt;= n <span class="keyword">DO</span> 	                          <span class="comment">-- 循环</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">column_name</span> <span class="keyword">into</span> columnName <span class="keyword">from</span> information_schema.`<span class="keyword">columns</span>` <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line"><span class="keyword">CALL</span> generate_property_name(columnName,@propertyName);    <span class="comment">-- 通过表字段获取得到属性名称</span></span><br><span class="line"><span class="keyword">SET</span>  property = @propertyName;              <span class="comment">-- 赋值</span></span><br><span class="line"><span class="keyword">CALL</span> generate_class_mapperClass_name(columnName,<span class="string">'Mapper'</span>,@varClassName);</span><br><span class="line"><span class="keyword">SET</span>  varClass = @varClassName;</span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">		CONCAT(</span><br><span class="line">					columnPropertyStr,</span><br><span class="line">					<span class="keyword">case</span></span><br><span class="line">					<span class="keyword">when</span> column_key <span class="keyword">in</span> (<span class="string">'PRI'</span>) <span class="keyword">then</span>  <span class="string">'&lt;id column="'</span> </span><br><span class="line">					<span class="keyword">when</span> column_key <span class="keyword">not</span> <span class="keyword">in</span>  (<span class="string">'PRI'</span>,<span class="string">'MUL'</span>)   <span class="keyword">then</span>  <span class="string">'&lt;result column="'</span></span><br><span class="line">					<span class="keyword">when</span> column_key <span class="keyword">in</span> (<span class="string">'MUL'</span>) <span class="keyword">then</span>  <span class="string">'&lt;association column="'</span></span><br><span class="line">					<span class="keyword">end</span>,</span><br><span class="line">					<span class="built_in">column_name</span>,</span><br><span class="line">					CONCAT(<span class="string">'" property="'</span>, property, <span class="string">'"  '</span>),</span><br><span class="line">					<span class="keyword">case</span></span><br><span class="line">					<span class="keyword">when</span> column_key <span class="keyword">in</span> (<span class="string">'PRI'</span>) <span class="keyword">then</span> </span><br><span class="line">																	CONCAT(</span><br><span class="line">																	<span class="string">'jdbcType="'</span> ,</span><br><span class="line">																	<span class="keyword">case</span></span><br><span class="line">																	<span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'int'</span>,<span class="string">'smallint'</span>) <span class="keyword">then</span> <span class="string">'INTEGER'</span></span><br><span class="line">																	<span class="keyword">else</span> UPPER(data_type)</span><br><span class="line">																	<span class="keyword">end</span>,</span><br><span class="line">																	<span class="string">'"  /&gt;\n'</span></span><br><span class="line">																	)</span><br><span class="line">				  <span class="keyword">when</span> column_key <span class="keyword">not</span> <span class="keyword">in</span> (<span class="string">'PRI'</span>,<span class="string">'MUL'</span>) <span class="keyword">then</span> </span><br><span class="line">																	CONCAT(</span><br><span class="line">																	<span class="string">'jdbcType="'</span> ,</span><br><span class="line">																	<span class="keyword">case</span></span><br><span class="line">																	<span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'int'</span>,<span class="string">'smallint'</span>) <span class="keyword">then</span> <span class="string">'INTEGER'</span></span><br><span class="line">																	<span class="keyword">else</span> UPPER(data_type)</span><br><span class="line">																	<span class="keyword">end</span>,</span><br><span class="line">																	<span class="string">'"  /&gt;\n'</span></span><br><span class="line">																	)</span><br><span class="line">					<span class="keyword">when</span> column_key <span class="keyword">in</span> (<span class="string">'MUL'</span>) <span class="keyword">then</span> </span><br><span class="line">																	CONCAT(</span><br><span class="line">																	<span class="string">'select="com.yourshares.entity.dao.'</span>,</span><br><span class="line">																	@varClassName,</span><br><span class="line">																	<span class="string">'.findById"&gt;&lt;/association&gt;\n'</span></span><br><span class="line">																	)</span><br><span class="line">					<span class="keyword">else</span> <span class="string">''</span></span><br><span class="line">					<span class="keyword">end</span></span><br><span class="line">		) <span class="keyword">into</span> columnPropertyStr </span><br><span class="line">		<span class="keyword">from</span></span><br><span class="line">				information_schema.<span class="keyword">columns</span></span><br><span class="line">		<span class="keyword">where</span></span><br><span class="line">				<span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line">				</span><br><span class="line"><span class="keyword">SET</span> str = CONCAT(str,columnPropertyStr); <span class="comment">-- 拼接resultMap节点当中的子节点</span></span><br><span class="line"><span class="keyword">select</span> CONCAT(columnsStr,<span class="string">'a.'</span>,<span class="built_in">column_name</span>,<span class="string">','</span>) <span class="keyword">into</span> columnsStr <span class="keyword">from</span>  information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i; <span class="comment">-- 所有字段列</span></span><br><span class="line"><span class="keyword">select</span> CONCAT(insertColumnsStr,<span class="built_in">column_name</span>,<span class="string">','</span>) <span class="keyword">into</span> insertColumnsStr <span class="keyword">from</span>  information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i; <span class="comment">-- 所有字段列</span></span><br><span class="line"><span class="keyword">select</span> CONCAT(propertyStr,<span class="string">'#&#123;'</span>,property,<span class="string">'&#125;,'</span>) <span class="keyword">into</span> propertyStr <span class="keyword">from</span>  information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i; <span class="comment">-- 所有属性列</span></span><br><span class="line"><span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">WHILE</span>; </span><br><span class="line"><span class="keyword">SET</span> columnsStr = SUBSTRING(columnsStr,<span class="number">1</span>,LENGTH(columnsStr)<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">SET</span> propertyStr = SUBSTRING(propertyStr,<span class="number">1</span>,LENGTH(propertyStr)<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">SET</span> findByIdStr = CONCAT(</span><br><span class="line">											<span class="string">'&lt;select id="findById" parameterType="java.lang.Integer" resultMap="BaseResultMap"&gt;\n'</span>,</span><br><span class="line">											<span class="string">'select '</span>, columnsStr, <span class="string">' from '</span>, t_name, <span class="string">' a where a.id=#&#123;value&#125; \n'</span>,</span><br><span class="line">											<span class="string">'&lt;/select&gt;\n'</span></span><br><span class="line">											);  <span class="comment">-- 查询语句</span></span><br><span class="line"><span class="keyword">SET</span> insertRecord = CONCAT(</span><br><span class="line">											<span class="string">'&lt;insert id="insertRecord" parameterType="com.yourshares.entity.model.'</span>, <span class="keyword">class</span>, <span class="string">'"&gt;\n'</span>,</span><br><span class="line">											<span class="string">' insert into '</span>,t_name, <span class="string">'\n'</span>,<span class="string">'('</span>,insertColumnsStr,<span class="string">')\n'</span>, <span class="string">'values\n'</span>, <span class="string">'('</span>,propertyStr,<span class="string">')\n'</span>,</span><br><span class="line">											<span class="string">'&lt;/insert&gt;\n'</span></span><br><span class="line">											);  <span class="comment">-- 新增语句</span></span><br><span class="line"><span class="keyword">SET</span> selectCount = CONCAT(</span><br><span class="line">												<span class="string">''</span>,<span class="string">''</span>,<span class="string">''</span></span><br><span class="line">											);</span><br><span class="line"><span class="keyword">SET</span> selectCount = CONCAT(</span><br><span class="line">												<span class="string">''</span>,<span class="string">''</span>,<span class="string">''</span></span><br><span class="line">											);</span><br><span class="line"><span class="keyword">SET</span> resultMapper = CONCAT(	</span><br><span class="line">														head,</span><br><span class="line">														columnPropertyStr,</span><br><span class="line">														<span class="string">'&lt;/resultMap&gt;\n'</span>,</span><br><span class="line">														findByIdStr,</span><br><span class="line">														insertRecord,</span><br><span class="line">												    <span class="string">'&lt;/mapper&gt;'</span></span><br><span class="line">													);</span><br><span class="line"><span class="keyword">select</span> resultMapper;</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成类的名称，以及映射类的名称"><a href="#生成类的名称，以及映射类的名称" class="headerlink" title="生成类的名称，以及映射类的名称"></a>生成类的名称，以及映射类的名称</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `generate_class_mapperClass_name`(<span class="keyword">in</span> t_name <span class="type">varchar</span>(<span class="number">255</span>),<span class="keyword">in</span> split_joint_str <span class="type">varchar</span>(<span class="number">255</span>), <span class="keyword">out</span> property_name <span class="type">varchar</span>(<span class="number">255</span>))</span><br><span class="line"><span class="keyword">BEGIN</span> <span class="comment">-- 原来的 procedure - sql5java,现在改名为  generate_class_mapperClass_name,用于生成类名称或者是映射类的名称</span></span><br><span class="line">   <span class="keyword">DECLARE</span> n   <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 特殊字符总个数</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> i   <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 循环变量</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> ind <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 得到特殊字符的下标</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> left_str  <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 左边的字符串</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> right_str <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 右边的字符串</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> midd_char <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 中间的那个需要修改的字符</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> str       <span class="type">varchar</span>(<span class="number">1024</span>); <span class="comment">-- 用于拼接的变量</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> first_str <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 第一个字符</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> join_str  <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 拼接进来的字符串</span></span><br><span class="line">	 <span class="keyword">SET</span> i = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">SET</span> str = t_name;</span><br><span class="line">	 <span class="keyword">SET</span> join_str = split_joint_str;</span><br><span class="line">	 <span class="keyword">SET</span> n = length(str)-length(REPLACE(str,"_",""))+<span class="number">1</span>; <span class="comment">-- 总共有多少次需要进行替换以及大小写变化</span></span><br><span class="line">    <span class="keyword">WHILE</span> i &lt; n <span class="keyword">DO</span> </span><br><span class="line">		    <span class="keyword">SET</span> ind = LENGTH(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i)); <span class="comment">-- 特殊字符的下标</span></span><br><span class="line">			  <span class="keyword">SET</span> left_str = CONCAT(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i),<span class="string">'_'</span>); <span class="comment">-- 特殊字符左边的字符串</span></span><br><span class="line">				<span class="keyword">SET</span> right_str = </span><br><span class="line">				SUBSTRING(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i-(n)),<span class="number">2</span>,LENGTH(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i-(n)))); <span class="comment">-- 特殊字符右边的字符串</span></span><br><span class="line">				<span class="keyword">SET</span> midd_char = UPPER(SUBSTRING(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i-(n)),<span class="number">1</span>,<span class="number">1</span>)); <span class="comment">-- 需要变化成大写的字符</span></span><br><span class="line">				<span class="keyword">SET</span> str = concat(left_str,midd_char,right_str); <span class="comment">-- 对str字符串变量进行重新赋值</span></span><br><span class="line">				<span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line">		<span class="keyword">SET</span> first_str = UPPER(SUBSTRING(str,<span class="number">1</span>,<span class="number">1</span>));</span><br><span class="line">		<span class="keyword">SET</span> str = SUBSTRING(REPLACE(str,"_",""),<span class="number">2</span>);</span><br><span class="line">		<span class="keyword">SET</span> property_name = CONCAT(first_str,str,join_str);</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成模型层model层的属性-区分大小写"><a href="#生成模型层model层的属性-区分大小写" class="headerlink" title="生成模型层model层的属性,区分大小写"></a>生成模型层model层的属性,区分大小写</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `generate_model_case`(<span class="keyword">in</span> t_name <span class="type">char</span>(<span class="number">255</span>))</span><br><span class="line"><span class="keyword">BEGIN</span>  <span class="comment">-- 原来的procedure - sql4java,现在改名为 generate_model_case,生成model层属性，属性名称驼峰处理</span></span><br><span class="line"><span class="keyword">DECLARE</span> columnName <span class="type">varchar</span>(<span class="number">1000</span>); <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> property <span class="type">varchar</span>(<span class="number">5000</span>);   <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> str <span class="type">varchar</span>(<span class="number">5000</span>);       <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> n  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span> ;     <span class="comment">-- 总共的字段数</span></span><br><span class="line"><span class="keyword">DECLARE</span> i  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>;      <span class="comment">-- 循环时的变量</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql2java(property_name <span class="type">varchar</span>(<span class="number">5000</span>));</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql2java;</span><br><span class="line"><span class="keyword">SET</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> count(*) <span class="keyword">into</span> n <span class="keyword">from</span> information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name;</span><br><span class="line"><span class="keyword">WHILE</span> i &lt;= n <span class="keyword">DO</span> 	</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">column_name</span> <span class="keyword">into</span> columnName <span class="keyword">from</span> information_schema.`<span class="keyword">columns</span>` <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line"><span class="keyword">CALL</span> generate_property_name(columnName,@propertyName);</span><br><span class="line"><span class="keyword">SET</span> property = @propertyName;</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    concat(</span><br><span class="line">         <span class="string">'/*'</span>,</span><br><span class="line">         column_comment,</span><br><span class="line">         <span class="string">'*/\n'</span>,</span><br><span class="line">        <span class="string">'private  '</span>,</span><br><span class="line">        <span class="keyword">case</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'varchar'</span>, <span class="string">'char'</span>, <span class="string">'text'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'String'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'int'</span>, <span class="string">'tinyint'</span>,<span class="string">'smallint'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Integer'</span></span><br><span class="line">		<span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'float'</span>, <span class="string">'double'</span>,<span class="string">'decimal'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'BigDecimal'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'bigint'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Long'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'datetime'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Date'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'bit'</span>, <span class="string">'boolean'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Boolean'</span></span><br><span class="line">		<span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'double'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'BigDecimal'</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="string">'类型不确定'</span></span><br><span class="line">    <span class="keyword">end</span>,</span><br><span class="line">    <span class="string">'  '</span>,</span><br><span class="line">    property,</span><br><span class="line">    <span class="string">';'</span></span><br><span class="line">    ) <span class="keyword">as</span> java <span class="keyword">into</span> str </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    information_schema. <span class="keyword">columns</span></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line">		<span class="keyword">insert</span> <span class="keyword">into</span> tmp_sql2java (property_name) <span class="keyword">values</span>(str); </span><br><span class="line"><span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line">		<span class="keyword">select</span> property_name <span class="keyword">from</span> tmp_sql2java;</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成model层属性，不区分大小写"><a href="#生成model层属性，不区分大小写" class="headerlink" title="生成model层属性，不区分大小写"></a>生成model层属性，不区分大小写</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `generate_model_case`(<span class="keyword">in</span> t_name <span class="type">char</span>(<span class="number">255</span>))</span><br><span class="line"><span class="keyword">BEGIN</span>  <span class="comment">-- 原来的procedure - sql4java,现在改名为 generate_model_case,生成model层属性，属性名称驼峰处理</span></span><br><span class="line"><span class="keyword">DECLARE</span> columnName <span class="type">varchar</span>(<span class="number">1000</span>); <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> property <span class="type">varchar</span>(<span class="number">5000</span>);   <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> str <span class="type">varchar</span>(<span class="number">5000</span>);       <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> n  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span> ;     <span class="comment">-- 总共的字段数</span></span><br><span class="line"><span class="keyword">DECLARE</span> i  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>;      <span class="comment">-- 循环时的变量</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql2java(property_name <span class="type">varchar</span>(<span class="number">5000</span>));</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql2java;</span><br><span class="line"><span class="keyword">SET</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> count(*) <span class="keyword">into</span> n <span class="keyword">from</span> information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name;</span><br><span class="line"><span class="keyword">WHILE</span> i &lt;= n <span class="keyword">DO</span> 	</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">column_name</span> <span class="keyword">into</span> columnName <span class="keyword">from</span> information_schema.`<span class="keyword">columns</span>` <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line"><span class="keyword">CALL</span> generate_property_name(columnName,@propertyName);</span><br><span class="line"><span class="keyword">SET</span> property = @propertyName;</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    concat(</span><br><span class="line">         <span class="string">'/*'</span>,</span><br><span class="line">         column_comment,</span><br><span class="line">         <span class="string">'*/\n'</span>,</span><br><span class="line">        <span class="string">'private  '</span>,</span><br><span class="line">        <span class="keyword">case</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'varchar'</span>, <span class="string">'char'</span>, <span class="string">'text'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'String'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'int'</span>, <span class="string">'tinyint'</span>,<span class="string">'smallint'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Integer'</span></span><br><span class="line">		<span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'float'</span>, <span class="string">'double'</span>,<span class="string">'decimal'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'BigDecimal'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'bigint'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Long'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'datetime'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Date'</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'bit'</span>, <span class="string">'boolean'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'Boolean'</span></span><br><span class="line">		<span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'double'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'BigDecimal'</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="string">'类型不确定'</span></span><br><span class="line">    <span class="keyword">end</span>,</span><br><span class="line">    <span class="string">'  '</span>,</span><br><span class="line">    property,</span><br><span class="line">    <span class="string">';'</span></span><br><span class="line">    ) <span class="keyword">as</span> java <span class="keyword">into</span> str </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    information_schema. <span class="keyword">columns</span></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line">		<span class="keyword">insert</span> <span class="keyword">into</span> tmp_sql2java (property_name) <span class="keyword">values</span>(str); </span><br><span class="line"><span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line">		<span class="keyword">select</span> property_name <span class="keyword">from</span> tmp_sql2java;</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成属性名称"><a href="#生成属性名称" class="headerlink" title="生成属性名称"></a>生成属性名称</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `generate_property_name`(<span class="keyword">in</span> <span class="built_in">column_name</span> <span class="type">varchar</span>(<span class="number">1000</span>),<span class="keyword">out</span> property_name <span class="type">varchar</span>(<span class="number">30</span>))</span><br><span class="line"><span class="keyword">BEGIN</span>  <span class="comment">-- 原来的procedure - sql3java,现在改名为 generate_property_name</span></span><br><span class="line">   <span class="keyword">DECLARE</span> n   <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 特殊字符总个数</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> i   <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 循环变量</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> ind <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>; <span class="comment">-- 得到特殊字符的下标</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> left_str  <span class="type">varchar</span>(<span class="number">30</span>); <span class="comment">-- 左边的字符串</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> right_str <span class="type">varchar</span>(<span class="number">30</span>); <span class="comment">-- 右边的字符串</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> midd_char <span class="type">varchar</span>(<span class="number">30</span>); <span class="comment">-- 中间的那个需要修改的字符</span></span><br><span class="line">	 <span class="keyword">DECLARE</span> str       <span class="type">varchar</span>(<span class="number">5000</span>); <span class="comment">-- 用于拼接的变量</span></span><br><span class="line">	 <span class="keyword">SET</span> i = <span class="number">1</span>;</span><br><span class="line">	 <span class="keyword">SET</span> str = <span class="built_in">column_name</span>;</span><br><span class="line">	 <span class="keyword">SET</span> n = length(str)-length(REPLACE(str,"_",""))+<span class="number">1</span>; <span class="comment">-- 总共有多少次需要进行替换以及大小写变化</span></span><br><span class="line">    <span class="keyword">WHILE</span> i &lt; n <span class="keyword">DO</span> </span><br><span class="line">		    <span class="keyword">SET</span> ind = LENGTH(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i)); <span class="comment">-- 特殊字符的下标</span></span><br><span class="line">			  <span class="keyword">SET</span> left_str = CONCAT(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i),<span class="string">'_'</span>); <span class="comment">-- 特殊字符左边的字符串</span></span><br><span class="line">				<span class="keyword">SET</span> right_str = </span><br><span class="line">				SUBSTRING(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i-(n)),<span class="number">2</span>,LENGTH(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i-(n)))); <span class="comment">-- 特殊字符右边的字符串</span></span><br><span class="line">				<span class="keyword">SET</span> midd_char = UPPER(SUBSTRING(SUBSTRING_INDEX(str,<span class="string">'_'</span>,i-(n)),<span class="number">1</span>,<span class="number">1</span>)); <span class="comment">-- 需要变化成大写的字符</span></span><br><span class="line">				<span class="keyword">SET</span> str = concat(left_str,midd_char,right_str); <span class="comment">-- 对str字符串变量进行重新赋值</span></span><br><span class="line">				<span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line">		<span class="keyword">SET</span> property_name = REPLACE(str,"_","");</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="用于前端react使用"><a href="#用于前端react使用" class="headerlink" title="用于前端react使用"></a>用于前端react使用</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `generate_view_interface_model`(<span class="keyword">in</span> t_name <span class="type">char</span>(<span class="number">125</span>))</span><br><span class="line"><span class="keyword">BEGIN</span>  <span class="comment">-- 原来的procedure - sql7java, 用于前端生成基本属性映射，现在改名为  generate_view_interface_model</span></span><br><span class="line"><span class="keyword">DECLARE</span> columnName <span class="type">varchar</span>(<span class="number">1000</span>); <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> <span class="keyword">class</span> <span class="type">varchar</span>(<span class="number">125</span>);</span><br><span class="line"><span class="keyword">DECLARE</span> property <span class="type">varchar</span>(<span class="number">5000</span>);   <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> columnPropertyStr <span class="type">varchar</span>(<span class="number">5000</span>); <span class="comment">-- 列属性字符串变量</span></span><br><span class="line"><span class="keyword">DECLARE</span> resultInterface <span class="type">varchar</span>(<span class="number">5000</span>);             <span class="comment">-- 新增记录</span></span><br><span class="line"><span class="keyword">DECLARE</span> str <span class="type">varchar</span>(<span class="number">5000</span>);       <span class="comment">-- 字段名称</span></span><br><span class="line"><span class="keyword">DECLARE</span> n  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span> ;     <span class="comment">-- 总共的字段数</span></span><br><span class="line"><span class="keyword">DECLARE</span> i  <span class="type">int</span>  <span class="keyword">DEFAULT</span> <span class="number">0</span>;      <span class="comment">-- 循环时的变量</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql2java(property_name <span class="type">varchar</span>(<span class="number">5000</span>));</span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql2java;</span><br><span class="line"><span class="keyword">SET</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">SET</span> columnPropertyStr = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">SET</span> str = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">SET</span> resultInterface = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">CALL</span> generate_class_mapperClass_name(t_name,<span class="string">''</span>,@className);</span><br><span class="line"><span class="keyword">SET</span> <span class="keyword">class</span> = @className;</span><br><span class="line"><span class="keyword">select</span> count(*) <span class="keyword">into</span> n <span class="keyword">from</span> information_schema.<span class="keyword">columns</span> <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name;</span><br><span class="line"><span class="keyword">WHILE</span> i &lt;= n <span class="keyword">DO</span> 	</span><br><span class="line"><span class="keyword">select</span> <span class="built_in">column_name</span> <span class="keyword">into</span> columnName <span class="keyword">from</span> information_schema.`<span class="keyword">columns</span>` <span class="keyword">where</span> <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line"><span class="keyword">CALL</span> generate_property_name(columnName,@propertyName);</span><br><span class="line"><span class="keyword">SET</span> property = @propertyName;</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line">    concat(</span><br><span class="line">		     <span class="string">'/*'</span>,</span><br><span class="line">         column_comment,</span><br><span class="line">         <span class="string">'*/\n'</span>,</span><br><span class="line">        property,</span><br><span class="line">		<span class="keyword">case</span></span><br><span class="line">    <span class="keyword">when</span> is_nullable <span class="keyword">in</span> (<span class="string">'YES'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'?'</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="string">''</span></span><br><span class="line">		<span class="keyword">end</span>,</span><br><span class="line">		":",</span><br><span class="line">    <span class="keyword">case</span></span><br><span class="line">    <span class="keyword">when</span> data_type <span class="keyword">in</span> (<span class="string">'varchar'</span>, <span class="string">'char'</span>, <span class="string">'text'</span>) <span class="keyword">then</span></span><br><span class="line">        <span class="string">'string'</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="string">'number'</span></span><br><span class="line">    <span class="keyword">end</span>,</span><br><span class="line">    <span class="string">';\n'</span></span><br><span class="line">    ) <span class="keyword">as</span> java <span class="keyword">into</span> columnPropertyStr </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">    information_schema. <span class="keyword">columns</span></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">    <span class="built_in">table_name</span> = t_name <span class="keyword">and</span> ordinal_position=i;</span><br><span class="line">		<span class="keyword">SET</span> str = CONCAT(str,columnPropertyStr);</span><br><span class="line"><span class="keyword">SET</span> i = i+<span class="number">1</span>;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line"><span class="keyword">SET</span> resultInterface = CONCAT(<span class="string">'export interface '</span>,<span class="keyword">class</span>,<span class="string">' &#123;\n'</span>,str,<span class="string">'&#125;'</span>);</span><br><span class="line">		<span class="keyword">select</span> resultInterface;</span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">CREATE <span class="attribute">DEFINER</span>=`admin`@`%` PROCEDURE `page_helper`(<span class="keyword">in</span><span class="built_in"> page </span>int,<span class="keyword">in</span> pageSize int,<span class="keyword">in</span> sqlValue text(10000))</span><br><span class="line">BEGIN  -- 原来的procedure - sql12java,现在改名称为 page_helper</span><br><span class="line">DECLARE prepareSQL text(10000);</span><br><span class="line">DECLARE countSQL int<span class="built_in"> default </span>0;</span><br><span class="line">DECLARE count_sql text(10000);</span><br><span class="line">DECLARE select_sql text(10000);</span><br><span class="line"><span class="builtin-name">SET</span> count_sql = <span class="string">''</span>;</span><br><span class="line"><span class="builtin-name">SET</span> select_sql = <span class="string">''</span>;</span><br><span class="line">			<span class="keyword">IF</span><span class="built_in"> page </span>&lt; 1 THEN </span><br><span class="line">			<span class="builtin-name">SET</span><span class="built_in"> page </span>= 1;</span><br><span class="line">			END <span class="keyword">IF</span>;</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">IF</span> pageSize &lt; 0 THEN </span><br><span class="line">			<span class="builtin-name">SET</span> pageSize = 10;</span><br><span class="line">			END <span class="keyword">IF</span>;</span><br><span class="line"></span><br><span class="line">			<span class="builtin-name">SET</span> <span class="attribute">count_sql</span>=concat('select count(*) as count_sum <span class="keyword">from</span> ( <span class="string">',sqlValue,'</span> ) t<span class="string">');</span></span><br><span class="line"><span class="string">		  SET @prepareCountSql = count_sql;</span></span><br><span class="line"><span class="string">			prepare countSQL from @prepareCountSql; </span></span><br><span class="line"><span class="string">			EXECUTE countSQL;           </span></span><br><span class="line"><span class="string">			deallocate prepare countSQL;    </span></span><br><span class="line"><span class="string">			</span></span><br><span class="line"><span class="string">			select page, pageSize as page_size;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">			SET select_sql=concat(sqlValue,'</span>  limit <span class="string">',page*pageSize-pageSize,'</span>,<span class="string">',pageSize);</span></span><br><span class="line"><span class="string">			-- select select_sql;</span></span><br><span class="line"><span class="string">			SET @preparesql = select_sql;</span></span><br><span class="line"><span class="string">			prepare prepareSQL from @preparesql; </span></span><br><span class="line"><span class="string">			EXECUTE prepareSQL;           </span></span><br><span class="line"><span class="string">			deallocate prepare prepareSQL;    </span></span><br><span class="line"><span class="string">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过供应商名称获取得到产品编号"><a href="#通过供应商名称获取得到产品编号" class="headerlink" title="通过供应商名称获取得到产品编号"></a>通过供应商名称获取得到产品编号</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `select_productId_by_supplierName`(<span class="keyword">in</span> keyValue <span class="type">varchar</span>(<span class="number">255</span>))</span><br><span class="line"><span class="keyword">BEGIN</span>  <span class="comment">-- 原来的procedure - sql8java,用于中台当中的产品管理当中的关键字查询，通过供应商名称查找得到供应商编号，再进行对比产品表当中存在有供应商为查询得到的供应商编号，则取出该产品编号，现在改名为 select_productId_by_supplierName</span></span><br><span class="line"><span class="keyword">DECLARE</span> n TINYINT(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> t_supplier_id <span class="type">int</span>; <span class="comment">-- t_supplier表当中通过模糊查询出来的供应商编号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line"><span class="keyword">DECLARE</span> cur_1 <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">select</span> t.id <span class="keyword">from</span> t_supplier t <span class="keyword">where</span> t.supplier_name <span class="keyword">like</span> keyValue <span class="keyword">and</span> t.`status`=<span class="string">'0'</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> <span class="keyword">CONTINUE</span> <span class="keyword">HANDLER</span> <span class="keyword">FOR</span> <span class="keyword">NOT</span> <span class="built_in">FOUND</span> <span class="keyword">SET</span> n=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql3java(product <span class="type">int</span>);<span class="comment">-- 该表的作用在于，如果存在有这样的产品则进行新增到该表当中最后进行查询该表即可</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql3java;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">open</span> cur_1;                               <span class="comment">-- 打开游标，开始第一轮的遍历循环，循环的内容是通过关键字模糊查询出来的所有供应商编号,过滤删除掉的</span></span><br><span class="line">		<span class="keyword">WHILE</span> n&lt;&gt;<span class="number">1</span> <span class="keyword">DO</span></span><br><span class="line">		<span class="keyword">FETCH</span> cur_1 <span class="keyword">INTO</span> t_supplier_id;    </span><br><span class="line">		</span><br><span class="line">					<span class="keyword">BEGIN</span> </span><br><span class="line">					<span class="keyword">DECLARE</span> nn TINYINT(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="number">0</span>;                    <span class="comment">-- 变量，代表的是t_product当中supplier_id字段不为空值的总条数</span></span><br><span class="line">					<span class="keyword">DECLARE</span> supplier_ids <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 进行查询出来供应商字段取值不为空的未进行拆分的supplierId字符串</span></span><br><span class="line">					<span class="keyword">DECLARE</span> supp_id_value <span class="type">varchar</span>(<span class="number">255</span>);        <span class="comment">-- 新增入tmp_sql4java表的属性字段supp_id</span></span><br><span class="line">					<span class="keyword">DECLARE</span> flag <span class="type">int</span>;	                <span class="comment">-- 是否可以将产品编号进行新增到tmp_sql3java表当中的依据，如果大于0则新增当前循环的产品编号</span></span><br><span class="line">					<span class="keyword">DECLARE</span> nnn <span class="type">int</span>;                  <span class="comment">-- supplier_ids字符串拆分成数组后的总长度</span></span><br><span class="line">					<span class="keyword">DECLARE</span> iii <span class="type">int</span>;                  <span class="comment">-- 遍历supplier_ids拆分后数组的变量iii</span></span><br><span class="line">					<span class="keyword">DECLARE</span> id_value <span class="type">int</span>;             <span class="comment">-- 新增入tmp_sql4java表的属性字段id</span></span><br><span class="line">					<span class="keyword">DECLARE</span> supplier_id <span class="type">int</span>;           <span class="comment">-- 进行了拆分之后的supplierId编号</span></span><br><span class="line">					<span class="keyword">DECLARE</span> product_id <span class="type">int</span>;            <span class="comment">-- 进行查询出来供应商字段取值不为空的产品编号</span></span><br><span class="line">					<span class="keyword">DECLARE</span> cur_2 <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">select</span> tt.id,tt.supplier_id <span class="keyword">from</span> t_product tt <span class="keyword">where</span> tt.supplier_id <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">and</span> tt.`status`=<span class="string">'0'</span>;</span><br><span class="line">					<span class="keyword">DECLARE</span> <span class="keyword">CONTINUE</span> <span class="keyword">HANDLER</span> <span class="keyword">FOR</span> <span class="keyword">NOT</span> <span class="built_in">FOUND</span> <span class="keyword">SET</span> nn=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">open</span> cur_2;                               <span class="comment">-- 打开游标，开始第二轮的遍历循环,循环的内容是产品表当中所有supplier_id字段不为空的记录,过滤删除掉的</span></span><br><span class="line">					<span class="keyword">WHILE</span> nn&lt;&gt;<span class="number">1</span> <span class="keyword">DO</span></span><br><span class="line">					<span class="keyword">FETCH</span> cur_2 <span class="keyword">INTO</span> product_id,supplier_ids; <span class="comment">-- 获取数据产品编号以及供应商字段取值（未进行拆分的供应商编号字符串）</span></span><br><span class="line">								</span><br><span class="line">								<span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql4java(supp_id <span class="type">varchar</span>(<span class="number">255</span>));</span><br><span class="line">								<span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql4java;<span class="comment">-- 每当循环产品表一条记录则刷新一遍tmp_sql4java表，当中存的值是每一条产品表记录当中的supplier_ids字符串进行拆分出来的数值</span></span><br><span class="line">								</span><br><span class="line">								<span class="keyword">SET</span> flag=<span class="number">0</span>;   <span class="comment">-- 首先先定义值为0</span></span><br><span class="line">								<span class="keyword">SET</span> iii=<span class="number">1</span>;    <span class="comment">-- 赋初始值，赋值为1的原因是我是从1开始的，所以约定好从第一个开始，也就是@i,其实不要也行</span></span><br><span class="line">								<span class="keyword">call</span> fieldValue_split_by_comma(supplier_ids);<span class="comment">-- 拆分之后进表</span></span><br><span class="line">								<span class="keyword">SELECT</span> count(*) <span class="keyword">into</span> nnn <span class="keyword">FROM</span> tmp_sql5java; <span class="comment">-- 为nnn进行赋值</span></span><br><span class="line">											<span class="keyword">while</span> iii &lt;= nnn <span class="keyword">DO</span> <span class="comment">-- 进行循环遍历拆分supplierIds的数组</span></span><br><span class="line">											<span class="keyword">SELECT</span> s_id <span class="keyword">into</span> supp_id_value </span><br><span class="line">											<span class="keyword">FROM</span>  </span><br><span class="line">													tmp_sql5java </span><br><span class="line">											<span class="keyword">WHERE</span> </span><br><span class="line">													num=iii;</span><br><span class="line"> 											<span class="keyword">insert</span> <span class="keyword">into</span> tmp_sql4java <span class="keyword">values</span> (supp_id_value);</span><br><span class="line">											<span class="keyword">SET</span> iii=iii+<span class="number">1</span>;</span><br><span class="line">											<span class="keyword">end</span> <span class="keyword">while</span>;</span><br><span class="line">									</span><br><span class="line">								<span class="keyword">select</span> count(*) <span class="keyword">into</span> flag <span class="keyword">from</span> tmp_sql4java  <span class="keyword">where</span> tmp_sql4java.supp_id=t_supplier_id;</span><br><span class="line">								<span class="keyword">if</span>(flag&gt;<span class="number">0</span>) <span class="keyword">THEN</span> <span class="comment">-- 如果存在有拆分出来的供应商编号与模糊查找出来的供应商编号对应的上的话则</span></span><br><span class="line">								<span class="keyword">insert</span> <span class="keyword">into</span> tmp_sql3java <span class="keyword">values</span>(product_id);<span class="comment">-- 将当前循环到的该产品编号存入临时表当中，否则不作处理</span></span><br><span class="line">								<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">							</span><br><span class="line">					<span class="keyword">end</span> <span class="keyword">while</span>; #结束循环</span><br><span class="line">					<span class="keyword">close</span> cur_2; #关闭游标<span class="number">2</span></span><br><span class="line">					<span class="keyword">END</span>;</span><br><span class="line">		 <span class="keyword">end</span> <span class="keyword">while</span>; #结束循环</span><br><span class="line">		 <span class="keyword">close</span> cur_1; #关闭游标<span class="number">1</span></span><br><span class="line">		 <span class="keyword">END</span>;</span><br><span class="line">		    <span class="comment">-- select product from tmp_sql3java;</span></span><br><span class="line">  <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过供应商编号获取产品编号"><a href="#通过供应商编号获取产品编号" class="headerlink" title="通过供应商编号获取产品编号"></a>通过供应商编号获取产品编号</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `select_productId_by_supplierId`(<span class="keyword">in</span> keyValue <span class="type">int</span>)</span><br><span class="line"><span class="keyword">BEGIN</span>   <span class="comment">-- 通过供应商编号进行查找 产品对应有供应商编号的产品编号</span></span><br><span class="line"><span class="keyword">DECLARE</span> n <span class="type">int</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> i <span class="type">int</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> t_supplier_id <span class="type">int</span>; <span class="comment">-- t_supplier表当中通过模糊查询出来的供应商编号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line"><span class="keyword">DECLARE</span> cur_1 <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">select</span> t.id <span class="keyword">from</span> t_supplier t <span class="keyword">where</span> t.id = keyValue <span class="keyword">and</span> t.`status`=<span class="string">'0'</span>;</span><br><span class="line"><span class="keyword">SET</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">select</span> count(*) <span class="keyword">into</span> n <span class="keyword">from</span>  t_supplier t <span class="keyword">where</span> t.id = keyValue <span class="keyword">and</span> t.`status`=<span class="string">'0'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql3java(product <span class="type">int</span>);<span class="comment">-- 该表的作用在于，如果存在有这样的产品则进行新增到该表当中最后进行查询该表即可</span></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql3java;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">open</span> cur_1;                               <span class="comment">-- 打开游标，开始第一轮的遍历循环，循环的内容是通过关键字模糊查询出来的所有供应商编号,过滤删除掉的</span></span><br><span class="line">		<span class="keyword">WHILE</span> i&lt;=n <span class="keyword">DO</span></span><br><span class="line">		<span class="keyword">FETCH</span> cur_1 <span class="keyword">INTO</span> t_supplier_id;  </span><br><span class="line">					<span class="keyword">BEGIN</span> </span><br><span class="line">					<span class="keyword">DECLARE</span> nn TINYINT(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="number">0</span>;                    <span class="comment">-- 变量，代表的是t_product当中supplier_id字段不为空值的总条数</span></span><br><span class="line">					<span class="keyword">DECLARE</span> supplier_ids <span class="type">varchar</span>(<span class="number">255</span>); <span class="comment">-- 进行查询出来供应商字段取值不为空的未进行拆分的supplierId字符串</span></span><br><span class="line">					<span class="keyword">DECLARE</span> supp_id_value <span class="type">varchar</span>(<span class="number">255</span>);        <span class="comment">-- 新增入tmp_sql4java表的属性字段supp_id</span></span><br><span class="line">					<span class="keyword">DECLARE</span> flag <span class="type">int</span>;	                <span class="comment">-- 是否可以将产品编号进行新增到tmp_sql4java表当中的依据，如果大于0则新增当前循环的产品编号</span></span><br><span class="line">					<span class="keyword">DECLARE</span> nnn <span class="type">int</span>;                  <span class="comment">-- supplier_ids字符串拆分成数组后的总长度</span></span><br><span class="line">					<span class="keyword">DECLARE</span> iii <span class="type">int</span>;                  <span class="comment">-- 遍历supplier_ids拆分后数组的变量iii</span></span><br><span class="line">					<span class="keyword">DECLARE</span> id_value <span class="type">int</span>;             <span class="comment">-- 新增入tmp_sql4java表的属性字段id</span></span><br><span class="line">					<span class="keyword">DECLARE</span> supplier_id <span class="type">int</span>;           <span class="comment">-- 进行了拆分之后的supplierId编号</span></span><br><span class="line">					<span class="keyword">DECLARE</span> product_id <span class="type">int</span>;            <span class="comment">-- 进行查询出来供应商字段取值不为空的产品编号</span></span><br><span class="line">					 <span class="keyword">DECLARE</span> cur_2 <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">select</span> tt.id,tt.supplier_id <span class="keyword">from</span> t_product tt <span class="keyword">where</span> tt.supplier_id <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span> <span class="keyword">and</span> tt.`status`=<span class="string">'0'</span>;</span><br><span class="line">					 <span class="keyword">DECLARE</span> <span class="keyword">CONTINUE</span> <span class="keyword">HANDLER</span> <span class="keyword">FOR</span> <span class="keyword">NOT</span> <span class="built_in">FOUND</span> <span class="keyword">SET</span> nn=<span class="number">1</span>;</span><br><span class="line">					 <span class="keyword">open</span> cur_2;                               <span class="comment">-- 打开游标，开始第二轮的遍历循环,循环的内容是产品表当中所有supplier_id字段不为空的记录,过滤删除掉的</span></span><br><span class="line">					 <span class="keyword">WHILE</span> nn&lt;&gt;<span class="number">1</span> <span class="keyword">DO</span></span><br><span class="line">					 <span class="keyword">FETCH</span> cur_2 <span class="keyword">INTO</span> product_id,supplier_ids; <span class="comment">-- 获取数据产品编号以及供应商字段取值（未进行拆分的供应商编号字符串）</span></span><br><span class="line">								</span><br><span class="line">								<span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_sql4java(supp_id <span class="type">varchar</span>(<span class="number">255</span>));</span><br><span class="line">								<span class="keyword">delete</span> <span class="keyword">from</span> tmp_sql4java;<span class="comment">-- 每当循环产品表一条记录则刷新一遍tmp_sql4java表，当中存的值是每一条产品表记录当中的supplier_ids字符串进行拆分出来的数值</span></span><br><span class="line">								</span><br><span class="line">								<span class="keyword">SET</span> flag=<span class="number">0</span>;   <span class="comment">-- 首先先定义值为0</span></span><br><span class="line">								<span class="keyword">SET</span> iii=<span class="number">1</span>;    <span class="comment">-- 赋初始值，赋值为1的原因是我是从1开始的，所以约定好从第一个开始，也就是@i,其实不要也行</span></span><br><span class="line">								<span class="keyword">call</span> fieldValue_split_by_comma(supplier_ids);<span class="comment">-- 拆分之后进表</span></span><br><span class="line">								<span class="keyword">SELECT</span> count(*) <span class="keyword">into</span> nnn <span class="keyword">FROM</span> tmp_sql5java; <span class="comment">-- 为nnn进行赋值</span></span><br><span class="line">											</span><br><span class="line">											<span class="keyword">while</span> iii &lt;= nnn <span class="keyword">DO</span> <span class="comment">-- 进行循环遍历拆分supplierIds的数组</span></span><br><span class="line">											<span class="keyword">SELECT</span> s_id <span class="keyword">into</span> supp_id_value </span><br><span class="line">											<span class="keyword">FROM</span>  </span><br><span class="line">													tmp_sql5java </span><br><span class="line">											<span class="keyword">WHERE</span> </span><br><span class="line">													num=iii;</span><br><span class="line"> 											<span class="keyword">insert</span> <span class="keyword">into</span> tmp_sql4java <span class="keyword">values</span> (supp_id_value);</span><br><span class="line">											<span class="keyword">SET</span> iii=iii+<span class="number">1</span>;</span><br><span class="line">											<span class="keyword">end</span> <span class="keyword">while</span>;</span><br><span class="line">											</span><br><span class="line"> 								<span class="keyword">select</span> count(*) <span class="keyword">into</span> flag <span class="keyword">from</span> tmp_sql4java  <span class="keyword">where</span> tmp_sql4java.supp_id=t_supplier_id;</span><br><span class="line"> 								<span class="keyword">IF</span>(flag&gt;<span class="number">0</span>) <span class="keyword">THEN</span> <span class="comment">-- 如果存在有拆分出来的供应商编号与模糊查找出来的供应商编号对应的上的话则</span></span><br><span class="line"> 								<span class="keyword">insert</span> <span class="keyword">into</span> tmp_sql3java <span class="keyword">values</span>(product_id);<span class="comment">-- 将当前循环到的该产品编号存入临时表当中，否则不作处理</span></span><br><span class="line"> 								<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">							</span><br><span class="line">					 <span class="keyword">end</span> <span class="keyword">while</span>; #结束循环</span><br><span class="line">					 <span class="keyword">close</span> cur_2; #关闭游标<span class="number">2</span></span><br><span class="line">					<span class="keyword">END</span>;</span><br><span class="line">					<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">		 <span class="keyword">end</span> <span class="keyword">while</span>; #结束循环</span><br><span class="line">		 <span class="keyword">close</span> cur_1; #关闭游标<span class="number">1</span></span><br><span class="line">		 <span class="keyword">END</span>;</span><br><span class="line">		    <span class="comment">-- select product from tmp_sql3java;</span></span><br><span class="line">  <span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="通过供应商编号获取得到产品"><a href="#通过供应商编号获取得到产品" class="headerlink" title="通过供应商编号获取得到产品"></a>通过供应商编号获取得到产品</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `select_products_by_supplierId`(<span class="keyword">in</span> supplier_id <span class="type">int</span>)</span><br><span class="line"><span class="keyword">BEGIN</span> <span class="comment">-- 原来的procedure - sql10java,现在改名称为 select_product_by_params</span></span><br><span class="line"><span class="keyword">DECLARE</span> n <span class="type">int</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> s <span class="type">int</span> <span class="keyword">default</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> i <span class="type">int</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> productNo <span class="type">int</span>;</span><br><span class="line"><span class="keyword">DECLARE</span> str <span class="type">varchar</span>(<span class="number">256</span>);</span><br><span class="line"><span class="keyword">DECLARE</span> concatSQL <span class="type">varchar</span>(<span class="number">256</span>);</span><br><span class="line"><span class="keyword">DECLARE</span> sqls text(<span class="number">10000</span>);</span><br><span class="line"><span class="keyword">DECLARE</span> prepareSQL text(<span class="number">10000</span>);</span><br><span class="line">																#将局部变量转换成会话变量</span><br><span class="line">																#动态<span class="keyword">sql</span>语言只接受会话变量</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> i=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">SET</span> str=<span class="string">''</span>;</span><br><span class="line"><span class="keyword">SET</span> concatSQL=<span class="string">''</span>;</span><br><span class="line"><span class="keyword">SET</span> sqls=<span class="string">''</span>;</span><br><span class="line"> 			<span class="keyword">call</span> select_productId_by_supplierId(supplier_id);</span><br><span class="line"> 			 <span class="keyword">select</span> count(*) <span class="keyword">into</span> n <span class="keyword">from</span> tmp_sql3java;</span><br><span class="line"> 					<span class="keyword">if</span> n&gt;<span class="number">0</span> <span class="keyword">then</span> </span><br><span class="line"> 								<span class="keyword">BEGIN</span></span><br><span class="line"> 								<span class="keyword">DECLARE</span> cur_3 <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">select</span> product <span class="keyword">from</span> tmp_sql3java;</span><br><span class="line"> 								<span class="keyword">open</span> cur_3;</span><br><span class="line">								<span class="keyword">while</span> i&lt;=n <span class="keyword">do</span></span><br><span class="line"> 								<span class="keyword">fetch</span> cur_3 <span class="keyword">into</span> productNo;</span><br><span class="line"> 											<span class="keyword">SET</span> str=concat(str,productNo,",");</span><br><span class="line">											<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line"> 								<span class="keyword">end</span> <span class="keyword">while</span>;</span><br><span class="line">								<span class="keyword">SET</span> str= substring(str, <span class="number">1</span>, length(str)<span class="number">-1</span>);</span><br><span class="line"> 								<span class="keyword">close</span> cur_3;</span><br><span class="line">								</span><br><span class="line"> 								<span class="keyword">SET</span> concatSQL=concat(" and b.id in(",str,")");</span><br><span class="line"> 								<span class="keyword">END</span>;</span><br><span class="line">					<span class="keyword">end</span> <span class="keyword">if</span>;</span><br><span class="line">			<span class="keyword">SET</span> sqls = concat(</span><br><span class="line">												<span class="string">'select      				 </span></span><br><span class="line"><span class="string">												  a.id, a.product_id, a.image, a.`name`, a.zh_name, </span></span><br><span class="line"><span class="string">												 a.customs_code, a.unit_price, a.sku, a.fn_sku_no, </span></span><br><span class="line"><span class="string">												 a.fn_sku_code, a.packing_size_long, a.packing_size_wide, </span></span><br><span class="line"><span class="string">												 a.packing_size_height, a.box_weight, a.packing_num, a.card_board_load_num, </span></span><br><span class="line"><span class="string">												 a.product_long, a.product_width, a.product_height, a.product_weight, </span></span><br><span class="line"><span class="string">												 a.cal_unit,purpose, a.brand_info, a.material, a.model, </span></span><br><span class="line"><span class="string">												 a.remark, a.attr_name, a.attr_value, a.`status` </span></span><br><span class="line"><span class="string">														from t_product_attr a,t_product b </span></span><br><span class="line"><span class="string">														where</span></span><br><span class="line"><span class="string">														a.product_id=b.id </span></span><br><span class="line"><span class="string">														and a.`status`=0 '</span>,</span><br><span class="line">														concatSQL</span><br><span class="line">			);</span><br><span class="line">			  <span class="comment">-- select sqls;</span></span><br><span class="line">		  	 <span class="keyword">SET</span> @preparesql = sqls;</span><br><span class="line">			   <span class="keyword">prepare</span> prepareSQL <span class="keyword">from</span> @preparesql; <span class="comment">-- 预处理需要执行的动态SQL，其中stmt是一个变量</span></span><br><span class="line">			   <span class="keyword">EXECUTE</span> prepareSQL;           <span class="comment">-- 执行SQL语句</span></span><br><span class="line">			   <span class="keyword">deallocate</span> <span class="keyword">prepare</span> prepareSQL;     <span class="comment">-- 释放掉预处理段</span></span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="渠道订单报表"><a href="#渠道订单报表" class="headerlink" title="渠道订单报表"></a>渠道订单报表</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DEFINER</span>=`<span class="keyword">admin</span>`@`%` <span class="keyword">PROCEDURE</span> `view_channel_order_report`(<span class="keyword">in</span> channelOrderId <span class="type">int</span>(<span class="number">11</span>))</span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">		<span class="keyword">DECLARE</span> step_id <span class="type">int</span>;</span><br><span class="line">		<span class="keyword">DECLARE</span> n <span class="type">int</span>;</span><br><span class="line">		<span class="keyword">DECLARE</span> i <span class="type">int</span>;</span><br><span class="line">		<span class="keyword">DECLARE</span> step_finished_date <span class="type">int</span>;</span><br><span class="line">		<span class="keyword">DECLARE</span> id2 <span class="type">int</span>;</span><br><span class="line">		<span class="keyword">DECLARE</span> step_name2 <span class="type">VARCHAR</span>(<span class="number">255</span>);</span><br><span class="line">		<span class="keyword">DECLARE</span> is_delay2 <span class="type">VARCHAR</span>(<span class="number">255</span>);</span><br><span class="line">		<span class="keyword">DECLARE</span> standard_time2 <span class="type">int</span>;</span><br><span class="line">		<span class="keyword">DECLARE</span> actual_delay2 <span class="type">VARCHAR</span>(<span class="number">64</span>);</span><br><span class="line">		<span class="keyword">DECLARE</span> cur_step <span class="keyword">CURSOR</span> <span class="keyword">FOR</span> <span class="keyword">select</span> id <span class="keyword">from</span> t_channel_order_step <span class="keyword">where</span> channel_order_id=channelOrderId;</span><br><span class="line">		<span class="keyword">select</span> count(*) <span class="keyword">into</span> n <span class="keyword">from</span> t_channel_order_step <span class="keyword">where</span> channel_order_id=channelOrderId;</span><br><span class="line">		<span class="keyword">SET</span> i=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">create</span> <span class="keyword">temporary</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> tmp_channel_order_report(</span><br><span class="line">		id <span class="type">int</span>(<span class="number">11</span>), step_name <span class="type">varchar</span>(<span class="number">255</span>), is_delay <span class="type">varchar</span>(<span class="number">255</span>), standard_time <span class="type">int</span>(<span class="number">11</span>), actual_delay <span class="type">varchar</span>(<span class="number">64</span>) );</span><br><span class="line">		<span class="keyword">delete</span> <span class="keyword">from</span> tmp_channel_order_report;</span><br><span class="line">									<span class="keyword">open</span> cur_step;</span><br><span class="line">											<span class="keyword">WHILE</span> i&lt;n <span class="keyword">DO</span></span><br><span class="line">											<span class="keyword">fetch</span> cur_step <span class="keyword">into</span> step_id;</span><br><span class="line">											<span class="keyword">call</span> last_step_finished_date(step_id,step_finished_date);<span class="comment">-- 当前步骤id的上一步骤完成时间</span></span><br><span class="line">											</span><br><span class="line">											<span class="keyword">select</span></span><br><span class="line">											id,`<span class="type">name</span>`,standard_time,</span><br><span class="line">											<span class="keyword">if</span>(finished_date <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span>, </span><br><span class="line">													 ROUND((finished_date-step_finished_date)/<span class="number">3600</span>,<span class="number">1</span>),</span><br><span class="line">													 <span class="keyword">if</span>(activity=<span class="number">1</span>, ROUND((unix_timestamp(now())-step_finished_date)/<span class="number">3600</span>,<span class="number">1</span>), <span class="string">'-'</span>)</span><br><span class="line">													) <span class="keyword">as</span> actual_delay,</span><br><span class="line">											<span class="keyword">if</span>(finished_date <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">null</span>, </span><br><span class="line">													 <span class="keyword">if</span>(ROUND((finished_date-step_finished_date)/<span class="number">3600</span>,<span class="number">1</span>)&gt;standard_time,<span class="string">'是'</span>,<span class="string">'否'</span>),</span><br><span class="line">													 <span class="keyword">if</span>(activity=<span class="number">1</span>,  <span class="keyword">if</span>(ROUND((unix_timestamp(now())-step_finished_date)/<span class="number">3600</span>,<span class="number">1</span>)&gt;standard_time,<span class="string">'是'</span>,<span class="string">'否'</span>), <span class="string">'否'</span>)</span><br><span class="line">												) <span class="keyword">as</span> is_delay</span><br><span class="line">		</span><br><span class="line">											<span class="keyword">into</span> id2,step_name2,standard_time2,actual_delay2,is_delay2  </span><br><span class="line">											<span class="keyword">from</span> t_channel_order_step <span class="keyword">where</span> id=step_id;</span><br><span class="line">											</span><br><span class="line">											<span class="keyword">insert</span> <span class="keyword">into</span> tmp_channel_order_report <span class="keyword">values</span>(id2,step_name2,is_delay2,standard_time2,actual_delay2);</span><br><span class="line">											<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">											<span class="keyword">END</span> <span class="keyword">WHILE</span>;</span><br><span class="line">									<span class="keyword">close</span> cur_step;</span><br><span class="line">		<span class="keyword">select</span> * <span class="keyword">from</span> tmp_channel_order_report;</span><br><span class="line">		<span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`admin`</span>@<span class="string">`%`</span> <span class="keyword">FUNCTION</span> <span class="string">`currval`</span>(seq_name <span class="built_in">VARCHAR</span>(<span class="number">50</span>)) <span class="keyword">RETURNS</span> <span class="built_in">int</span>(<span class="number">11</span>)</span><br><span class="line">    <span class="keyword">DETERMINISTIC</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">     <span class="keyword">DECLARE</span> <span class="keyword">value</span> <span class="built_in">INTEGER</span>; </span><br><span class="line">     <span class="keyword">SET</span> <span class="keyword">value</span> = <span class="number">0</span>; </span><br><span class="line">     <span class="keyword">SELECT</span> current_value <span class="keyword">INTO</span> <span class="keyword">value</span> </span><br><span class="line">          <span class="keyword">FROM</span> <span class="keyword">sequence</span></span><br><span class="line">          <span class="keyword">WHERE</span> <span class="keyword">name</span> = seq_name; </span><br><span class="line">     RETURN value; </span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`admin`</span>@<span class="string">`%`</span> <span class="keyword">FUNCTION</span> <span class="string">`nextval`</span>(seq_name <span class="built_in">VARCHAR</span>(<span class="number">50</span>)) <span class="keyword">RETURNS</span> <span class="built_in">int</span>(<span class="number">11</span>)</span><br><span class="line">    <span class="keyword">DETERMINISTIC</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">     <span class="keyword">UPDATE</span> <span class="keyword">sequence</span></span><br><span class="line">          <span class="keyword">SET</span> current_value = current_value + <span class="keyword">increment</span> </span><br><span class="line">          <span class="keyword">WHERE</span> <span class="keyword">name</span> = seq_name; </span><br><span class="line">     RETURN currval(seq_name); </span><br><span class="line"><span class="keyword">END</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> DEFINER=<span class="string">`admin`</span>@<span class="string">`%`</span> <span class="keyword">FUNCTION</span> <span class="string">`setval`</span>(seq_name <span class="built_in">VARCHAR</span>(<span class="number">50</span>), <span class="keyword">value</span> <span class="built_in">INTEGER</span>) <span class="keyword">RETURNS</span> <span class="built_in">int</span>(<span class="number">11</span>)</span><br><span class="line">    <span class="keyword">DETERMINISTIC</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">     <span class="keyword">UPDATE</span> <span class="keyword">sequence</span></span><br><span class="line">          <span class="keyword">SET</span> current_value = <span class="keyword">value</span> </span><br><span class="line">          <span class="keyword">WHERE</span> <span class="keyword">name</span> = seq_name; </span><br><span class="line">     RETURN currval(seq_name); </span><br><span class="line"><span class="keyword">END</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>MySql-存储过程</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年04月15日 - 01:48:49</p>
+  <p><span>最后更新:</span>2020年04月15日 - 21:22:55</p>
+  <p><span>原始链接:</span><a href="/2020/04/15/%E9%A2%86%E8%B5%AB/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" title="MySql-存储过程">https://fengshana.github.io/2020/04/15/%E9%A2%86%E8%B5%AB/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/04/15/%E9%A2%86%E8%B5%AB/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag"><i class="fa fa-tag">领赫</i></a>
+          
+            <a href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag"><i class="fa fa-tag">存储过程</i></a>
+          
+            <a href="/tags/Sql/" rel="tag"><i class="fa fa-tag">Sql</i></a>
+          
+            <a href="/tags/MySql/" rel="tag"><i class="fa fa-tag">MySql</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/14/%E9%A2%86%E8%B5%AB/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="next" title="基于SpringBoot-邮件服务">
+                <i class="fa fa-chevron-left"></i> 基于SpringBoot-邮件服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/15/%E9%9D%A2%E8%AF%95/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E6%94%B9%E8%BF%9B3/" rel="prev" title="前端页面双色球3">
+                前端页面双色球3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">146</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录"><span class="nav-number">1.</span> <span class="nav-text">记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#david指导"><span class="nav-number">1.1.</span> <span class="nav-text">david指导</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拼接列的名称"><span class="nav-number">1.2.</span> <span class="nav-text">拼接列的名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过逗号分隔字段取值"><span class="nav-number">1.3.</span> <span class="nav-text">通过逗号分隔字段取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成基本的-Mapper-映射"><span class="nav-number">1.4.</span> <span class="nav-text">生成基本的 Mapper 映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成类的名称，以及映射类的名称"><span class="nav-number">1.5.</span> <span class="nav-text">生成类的名称，以及映射类的名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成模型层model层的属性-区分大小写"><span class="nav-number">1.6.</span> <span class="nav-text">生成模型层model层的属性,区分大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成model层属性，不区分大小写"><span class="nav-number">1.7.</span> <span class="nav-text">生成model层属性，不区分大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成属性名称"><span class="nav-number">1.8.</span> <span class="nav-text">生成属性名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用于前端react使用"><span class="nav-number">1.9.</span> <span class="nav-text">用于前端react使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页"><span class="nav-number">1.10.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过供应商名称获取得到产品编号"><span class="nav-number">1.11.</span> <span class="nav-text">通过供应商名称获取得到产品编号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过供应商编号获取产品编号"><span class="nav-number">1.12.</span> <span class="nav-text">通过供应商编号获取产品编号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过供应商编号获取得到产品"><span class="nav-number">1.13.</span> <span class="nav-text">通过供应商编号获取得到产品</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#渠道订单报表"><span class="nav-number">1.14.</span> <span class="nav-text">渠道订单报表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#序列"><span class="nav-number">1.15.</span> <span class="nav-text">序列</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+      
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="300" height="300" id="resCanvas" style="width=100%; background-color:transparent;">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+	<span title="Site words total count">
+     485.6k字 </span>
+    <!--<span title="symbols_count_time.count_total">940k</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":250,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+
