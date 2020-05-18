@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Redis-尚硅谷redis视频教程-尚硅谷-周阳</title>
+    <url>/2020/05/19/%E9%9D%A2%E8%AF%95/Redis-%E5%B0%9A%E7%A1%85%E8%B0%B7redis%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B-%E5%B0%9A%E7%A1%85%E8%B0%B7-%E5%91%A8%E9%98%B3/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>观看视频：<a href="https://www.bilibili.com/video/BV1J4411x7U1?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1J4411x7U1?p=1</a></p>
+<h2 id="Redis-尚硅谷redis视频教程-尚硅谷-周阳"><a href="#Redis-尚硅谷redis视频教程-尚硅谷-周阳" class="headerlink" title="Redis-尚硅谷redis视频教程-尚硅谷-周阳"></a>Redis-尚硅谷redis视频教程-尚硅谷-周阳</h2><h3 id="NoSQL入门概述-上"><a href="#NoSQL入门概述-上" class="headerlink" title="NoSQL入门概述-上"></a>NoSQL入门概述-上</h3><h3 id="NoSQL入门概述-下"><a href="#NoSQL入门概述-下" class="headerlink" title="NoSQL入门概述-下"></a>NoSQL入门概述-下</h3><h3 id="当下NoSQL应用场景简介"><a href="#当下NoSQL应用场景简介" class="headerlink" title="当下NoSQL应用场景简介"></a>当下NoSQL应用场景简介</h3><h3 id="NoSQL数据模型简介"><a href="#NoSQL数据模型简介" class="headerlink" title="NoSQL数据模型简介"></a>NoSQL数据模型简介</h3><h3 id="NoSQL数据库的四大分类"><a href="#NoSQL数据库的四大分类" class="headerlink" title="NoSQL数据库的四大分类"></a>NoSQL数据库的四大分类</h3><h3 id="分布式数据库CAP原理"><a href="#分布式数据库CAP原理" class="headerlink" title="分布式数据库CAP原理"></a>分布式数据库CAP原理</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h3 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h3><h3 id="启动后杂项基础知识"><a href="#启动后杂项基础知识" class="headerlink" title="启动后杂项基础知识"></a>启动后杂项基础知识</h3><h3 id="常用五大数据类型简介"><a href="#常用五大数据类型简介" class="headerlink" title="常用五大数据类型简介"></a>常用五大数据类型简介</h3><h3 id="Key关键字"><a href="#Key关键字" class="headerlink" title="Key关键字"></a>Key关键字</h3><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><h3 id="ZSet"><a href="#ZSet" class="headerlink" title="ZSet"></a>ZSet</h3><h3 id="配置文件介绍"><a href="#配置文件介绍" class="headerlink" title="配置文件介绍"></a>配置文件介绍</h3><h3 id="持久化之RDB"><a href="#持久化之RDB" class="headerlink" title="持久化之RDB"></a>持久化之RDB</h3><h3 id="持久化之AOF"><a href="#持久化之AOF" class="headerlink" title="持久化之AOF"></a>持久化之AOF</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h3 id="消息订阅发布简介"><a href="#消息订阅发布简介" class="headerlink" title="消息订阅发布简介"></a>消息订阅发布简介</h3><h3 id="主从复制上"><a href="#主从复制上" class="headerlink" title="主从复制上"></a>主从复制上</h3><h3 id="主从复制下"><a href="#主从复制下" class="headerlink" title="主从复制下"></a>主从复制下</h3><h3 id="Jedis测试连通"><a href="#Jedis测试连通" class="headerlink" title="Jedis测试连通"></a>Jedis测试连通</h3><h3 id="Jedis事务"><a href="#Jedis事务" class="headerlink" title="Jedis事务"></a>Jedis事务</h3><h3 id="Jedis主从复制"><a href="#Jedis主从复制" class="headerlink" title="Jedis主从复制"></a>Jedis主从复制</h3><h3 id="Jedis-JedisPool"><a href="#Jedis-JedisPool" class="headerlink" title="Jedis JedisPool"></a>Jedis JedisPool</h3><h3 id="技术的分类"><a href="#技术的分类" class="headerlink" title="技术的分类"></a>技术的分类</h3><h3 id="解决session的存储问题"><a href="#解决session的存储问题" class="headerlink" title="解决session的存储问题"></a>解决session的存储问题</h3><h3 id="NoSQL简介"><a href="#NoSQL简介" class="headerlink" title="NoSQL简介"></a>NoSQL简介</h3><h3 id="常用的NoSQL数据库（1）"><a href="#常用的NoSQL数据库（1）" class="headerlink" title="常用的NoSQL数据库（1）"></a>常用的NoSQL数据库（1）</h3><h3 id="常用的NoSQL数据库（2）"><a href="#常用的NoSQL数据库（2）" class="headerlink" title="常用的NoSQL数据库（2）"></a>常用的NoSQL数据库（2）</h3><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装(2)"></a>安装(2)</h3><h3 id="启动服务端和客户端"><a href="#启动服务端和客户端" class="headerlink" title="启动服务端和客户端"></a>启动服务端和客户端</h3><h3 id="单线程-多路IO复用"><a href="#单线程-多路IO复用" class="headerlink" title="单线程+多路IO复用"></a>单线程+多路IO复用</h3><h3 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h3><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><h3 id="set-1"><a href="#set-1" class="headerlink" title="set(1)"></a>set(1)</h3><h3 id="set-2"><a href="#set-2" class="headerlink" title="set(2)"></a>set(2)</h3><h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><h3 id="zset"><a href="#zset" class="headerlink" title="zset"></a>zset</h3><h3 id="实现文章访问量的排序"><a href="#实现文章访问量的排序" class="headerlink" title="实现文章访问量的排序"></a>实现文章访问量的排序</h3><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><h3 id="Java连接redis"><a href="#Java连接redis" class="headerlink" title="Java连接redis"></a>Java连接redis</h3><h3 id="Jedis实现手机号验证码"><a href="#Jedis实现手机号验证码" class="headerlink" title="Jedis实现手机号验证码"></a>Jedis实现手机号验证码</h3><h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><h3 id="事务-2"><a href="#事务-2" class="headerlink" title="事务(2)"></a>事务(2)</h3><h3 id="秒杀案例"><a href="#秒杀案例" class="headerlink" title="秒杀案例"></a>秒杀案例</h3><h3 id="ab工具模拟并发"><a href="#ab工具模拟并发" class="headerlink" title="ab工具模拟并发"></a>ab工具模拟并发</h3><h3 id="解决超卖和库存遗留问题"><a href="#解决超卖和库存遗留问题" class="headerlink" title="解决超卖和库存遗留问题"></a>解决超卖和库存遗留问题</h3><h3 id="持久化之RDB-2"><a href="#持久化之RDB-2" class="headerlink" title="持久化之RDB(2)"></a>持久化之RDB(2)</h3><h3 id="持久化之AOF-2"><a href="#持久化之AOF-2" class="headerlink" title="持久化之AOF(2)"></a>持久化之AOF(2)</h3><h3 id="主从复制演示"><a href="#主从复制演示" class="headerlink" title="主从复制演示"></a>主从复制演示</h3><h3 id="主从复制之薪火相传"><a href="#主从复制之薪火相传" class="headerlink" title="主从复制之薪火相传"></a>主从复制之薪火相传</h3><h3 id="主从复制之哨兵模式"><a href="#主从复制之哨兵模式" class="headerlink" title="主从复制之哨兵模式"></a>主从复制之哨兵模式</h3><h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><h3 id="JedisCluster"><a href="#JedisCluster" class="headerlink" title="JedisCluster"></a>JedisCluster</h3>]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>千锋微服务最新Redis教程[千锋南京]</title>
+    <url>/2020/05/19/%E9%9D%A2%E8%AF%95/%E5%8D%83%E9%94%8B%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9C%80%E6%96%B0Redis%E6%95%99%E7%A8%8B%5B%E5%8D%83%E9%94%8B%E5%8D%97%E4%BA%AC%5D/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>观看视频：<a href="https://www.bilibili.com/video/BV1Cb411j7RA?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Cb411j7RA?p=1</a></p>
+<h2 id="千锋微服务最新Redis教程-千锋南京"><a href="#千锋微服务最新Redis教程-千锋南京" class="headerlink" title="千锋微服务最新Redis教程[千锋南京]"></a>千锋微服务最新Redis教程[千锋南京]</h2><h3 id="课程大纲介绍"><a href="#课程大纲介绍" class="headerlink" title="课程大纲介绍"></a>课程大纲介绍</h3><h3 id="BSD协议描述"><a href="#BSD协议描述" class="headerlink" title="BSD协议描述"></a>BSD协议描述</h3><h3 id="NoSQL简介"><a href="#NoSQL简介" class="headerlink" title="NoSQL简介"></a>NoSQL简介</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h3 id="启动服务端和客户端"><a href="#启动服务端和客户端" class="headerlink" title="启动服务端和客户端"></a>启动服务端和客户端</h3><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h3 id="内存淘汰策略"><a href="#内存淘汰策略" class="headerlink" title="内存淘汰策略"></a>内存淘汰策略</h3><h3 id="自定义配置Redis"><a href="#自定义配置Redis" class="headerlink" title="自定义配置Redis"></a>自定义配置Redis</h3><h3 id="Redis关闭"><a href="#Redis关闭" class="headerlink" title="Redis关闭"></a>Redis关闭</h3><h3 id="Redis远程连接"><a href="#Redis远程连接" class="headerlink" title="Redis远程连接"></a>Redis远程连接</h3><h3 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h3><h3 id="常用命令key"><a href="#常用命令key" class="headerlink" title="常用命令key"></a>常用命令key</h3><h3 id="key命名建议"><a href="#key命名建议" class="headerlink" title="key命名建议"></a>key命名建议</h3><h3 id="String类型常用命令"><a href="#String类型常用命令" class="headerlink" title="String类型常用命令"></a>String类型常用命令</h3><h3 id="String类型应用场景"><a href="#String类型应用场景" class="headerlink" title="String类型应用场景"></a>String类型应用场景</h3><h3 id="Hash类型常用命令"><a href="#Hash类型常用命令" class="headerlink" title="Hash类型常用命令"></a>Hash类型常用命令</h3><h3 id="Hash类型应用场景"><a href="#Hash类型应用场景" class="headerlink" title="Hash类型应用场景"></a>Hash类型应用场景</h3><h3 id="Redis客户端介绍"><a href="#Redis客户端介绍" class="headerlink" title="Redis客户端介绍"></a>Redis客户端介绍</h3><h3 id="SpringBoot整合Redis-Jedis客户端"><a href="#SpringBoot整合Redis-Jedis客户端" class="headerlink" title="SpringBoot整合Redis-Jedis客户端"></a>SpringBoot整合Redis-Jedis客户端</h3><h3 id="Jedis操作String类型"><a href="#Jedis操作String类型" class="headerlink" title="Jedis操作String类型"></a>Jedis操作String类型</h3><h3 id="Jedis操作String类型2"><a href="#Jedis操作String类型2" class="headerlink" title="Jedis操作String类型2"></a>Jedis操作String类型2</h3><h3 id="Jedis操作Hash类型"><a href="#Jedis操作Hash类型" class="headerlink" title="Jedis操作Hash类型"></a>Jedis操作Hash类型</h3><h3 id="Springboot整合Redis"><a href="#Springboot整合Redis" class="headerlink" title="Springboot整合Redis"></a>Springboot整合Redis</h3><h3 id="RedisTemplate操作String类型"><a href="#RedisTemplate操作String类型" class="headerlink" title="RedisTemplate操作String类型"></a>RedisTemplate操作String类型</h3><h3 id="RedisTemplate操作Hash类型"><a href="#RedisTemplate操作Hash类型" class="headerlink" title="RedisTemplate操作Hash类型"></a>RedisTemplate操作Hash类型</h3><h3 id="Springboot优化RedisTemplate"><a href="#Springboot优化RedisTemplate" class="headerlink" title="Springboot优化RedisTemplate"></a>Springboot优化RedisTemplate</h3><h3 id="Redis作业总结"><a href="#Redis作业总结" class="headerlink" title="Redis作业总结"></a>Redis作业总结</h3><h3 id="list类型常用命令"><a href="#list类型常用命令" class="headerlink" title="list类型常用命令"></a>list类型常用命令</h3><h3 id="list高级命令"><a href="#list高级命令" class="headerlink" title="list高级命令"></a>list高级命令</h3><h3 id="list-应用场景1"><a href="#list-应用场景1" class="headerlink" title="list-应用场景1"></a>list-应用场景1</h3><h3 id="list队列应用场景描述"><a href="#list队列应用场景描述" class="headerlink" title="list队列应用场景描述"></a>list队列应用场景描述</h3><h3 id="list队列代码实现"><a href="#list队列代码实现" class="headerlink" title="list队列代码实现"></a>list队列代码实现</h3><h3 id="Set类型命令"><a href="#Set类型命令" class="headerlink" title="Set类型命令"></a>Set类型命令</h3><h3 id="Set应用场景1"><a href="#Set应用场景1" class="headerlink" title="Set应用场景1"></a>Set应用场景1</h3><h3 id="ZSet类型"><a href="#ZSet类型" class="headerlink" title="ZSet类型"></a>ZSet类型</h3><h3 id="ZSet应用场景"><a href="#ZSet应用场景" class="headerlink" title="ZSet应用场景"></a>ZSet应用场景</h3><h3 id="ZSet案例"><a href="#ZSet案例" class="headerlink" title="ZSet案例"></a>ZSet案例</h3><h3 id="HyperLoglog"><a href="#HyperLoglog" class="headerlink" title="HyperLoglog"></a>HyperLoglog</h3><h3 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h3><h3 id="多数据库"><a href="#多数据库" class="headerlink" title="多数据库"></a>多数据库</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h3 id="事务Discard命令"><a href="#事务Discard命令" class="headerlink" title="事务Discard命令"></a>事务Discard命令</h3><h3 id="事务错误处理"><a href="#事务错误处理" class="headerlink" title="事务错误处理"></a>事务错误处理</h3><h3 id="事务watch"><a href="#事务watch" class="headerlink" title="事务watch"></a>事务watch</h3><h3 id="事务应用场景"><a href="#事务应用场景" class="headerlink" title="事务应用场景"></a>事务应用场景</h3><h3 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h3><h3 id="实时同步-异步同步"><a href="#实时同步-异步同步" class="headerlink" title="实时同步-异步同步"></a>实时同步-异步同步</h3><h3 id="数据一致性"><a href="#数据一致性" class="headerlink" title="数据一致性"></a>数据一致性</h3><h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h3><h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h3><h3 id="热点key"><a href="#热点key" class="headerlink" title="热点key"></a>热点key</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><h3 id="哨兵模式"><a href="#哨兵模式" class="headerlink" title="哨兵模式"></a>哨兵模式</h3><h3 id="集群描述"><a href="#集群描述" class="headerlink" title="集群描述"></a>集群描述</h3><h3 id="集群容错"><a href="#集群容错" class="headerlink" title="集群容错"></a>集群容错</h3><h3 id="集群搭建准备"><a href="#集群搭建准备" class="headerlink" title="集群搭建准备"></a>集群搭建准备</h3><h3 id="集群创建完成"><a href="#集群创建完成" class="headerlink" title="集群创建完成"></a>集群创建完成</h3><h3 id="集群测试"><a href="#集群测试" class="headerlink" title="集群测试"></a>集群测试</h3><h3 id="集群开启和关闭"><a href="#集群开启和关闭" class="headerlink" title="集群开启和关闭"></a>集群开启和关闭</h3><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装(2)"></a>安装(2)</h3><h3 id="配置文件详解redis-conf"><a href="#配置文件详解redis-conf" class="headerlink" title="配置文件详解redis.conf"></a>配置文件详解redis.conf</h3><h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><h3 id="key命名规范"><a href="#key命名规范" class="headerlink" title="key命名规范"></a>key命名规范</h3><h3 id="String类型简介"><a href="#String类型简介" class="headerlink" title="String类型简介"></a>String类型简介</h3><h3 id="String常用命令"><a href="#String常用命令" class="headerlink" title="String常用命令"></a>String常用命令</h3><h3 id="hash类型"><a href="#hash类型" class="headerlink" title="hash类型"></a>hash类型</h3><h3 id="java连接Redis"><a href="#java连接Redis" class="headerlink" title="java连接Redis"></a>java连接Redis</h3><h3 id="Jedis工具类"><a href="#Jedis工具类" class="headerlink" title="Jedis工具类"></a>Jedis工具类</h3><h3 id="jedis-hash类型读取"><a href="#jedis-hash类型读取" class="headerlink" title="jedis-hash类型读取"></a>jedis-hash类型读取</h3><h3 id="SpringData整合redis"><a href="#SpringData整合redis" class="headerlink" title="SpringData整合redis"></a>SpringData整合redis</h3><h3 id="Redis-Template-操作string使用案例"><a href="#Redis-Template-操作string使用案例" class="headerlink" title="Redis Template 操作string使用案例"></a>Redis Template 操作string使用案例</h3><h3 id="string案例限制登录功能"><a href="#string案例限制登录功能" class="headerlink" title="string案例限制登录功能"></a>string案例限制登录功能</h3><h3 id="hash基本命令"><a href="#hash基本命令" class="headerlink" title="hash基本命令"></a>hash基本命令</h3><h3 id="list高级命令-2"><a href="#list高级命令-2" class="headerlink" title="list高级命令(2)"></a>list高级命令(2)</h3><h3 id="list高级命令任务队列"><a href="#list高级命令任务队列" class="headerlink" title="list高级命令任务队列"></a>list高级命令任务队列</h3><h3 id="任务队列代码示例"><a href="#任务队列代码示例" class="headerlink" title="任务队列代码示例"></a>任务队列代码示例</h3><h3 id="set类型命令"><a href="#set类型命令" class="headerlink" title="set类型命令"></a>set类型命令</h3><h3 id="zset类型命令"><a href="#zset类型命令" class="headerlink" title="zset类型命令"></a>zset类型命令</h3><h3 id="发布订阅-2"><a href="#发布订阅-2" class="headerlink" title="发布订阅(2)"></a>发布订阅(2)</h3><h3 id="多数据库-2"><a href="#多数据库-2" class="headerlink" title="多数据库(2)"></a>多数据库(2)</h3><h3 id="事务-2"><a href="#事务-2" class="headerlink" title="事务(2)"></a>事务(2)</h3><h3 id="事务2"><a href="#事务2" class="headerlink" title="事务2"></a>事务2</h3><h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><h3 id="redis和mysql一致性"><a href="#redis和mysql一致性" class="headerlink" title="redis和mysql一致性"></a>redis和mysql一致性</h3><h3 id="高并发基本概述"><a href="#高并发基本概述" class="headerlink" title="高并发基本概述"></a>高并发基本概述</h3><h3 id="主从复制-2"><a href="#主从复制-2" class="headerlink" title="主从复制(2)"></a>主从复制(2)</h3><h3 id="RedisCluster集群概述"><a href="#RedisCluster集群概述" class="headerlink" title="RedisCluster集群概述"></a>RedisCluster集群概述</h3><h3 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h3><h3 id="RedisCluster测试集群"><a href="#RedisCluster测试集群" class="headerlink" title="RedisCluster测试集群"></a>RedisCluster测试集群</h3>]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MicroservicesGuide-走近微服务词汇</title>
     <url>/2020/05/16/%E9%9D%A2%E8%AF%95/MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/</url>
     <content><![CDATA[<h2 id="Microservices-Guide-微服务指南词汇导读"><a href="#Microservices-Guide-微服务指南词汇导读" class="headerlink" title="Microservices Guide 微服务指南词汇导读"></a>Microservices Guide 微服务指南词汇导读</h2><p>我觉得我对有道词典的翻译有点迷…..<br>感觉怪怪的；  </p>
@@ -275,21 +301,16 @@
       </tags>
   </entry>
   <entry>
-    <title>Redis教程</title>
-    <url>/2020/05/13/%E9%9D%A2%E8%AF%95/Redis%E6%95%99%E7%A8%8B/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>观看视频  </p>
-<ul>
-<li><a href="https://www.bilibili.com/video/BV1J4411x7U1?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1J4411x7U1?p=1</a></li>
-<li><a href="https://www.bilibili.com/video/BV1Cb411j7RA?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Cb411j7RA?p=1</a></li>
-<li><a href="https://www.bilibili.com/video/BV1CJ411m7Gc?from=search&amp;seid=17203994801277039493" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1CJ411m7Gc?from=search&amp;seid=17203994801277039493</a></li>
-</ul>
-<h2 id="Redis-尚硅谷redis视频教程-尚硅谷-周阳"><a href="#Redis-尚硅谷redis视频教程-尚硅谷-周阳" class="headerlink" title="Redis-尚硅谷redis视频教程-尚硅谷-周阳"></a>Redis-尚硅谷redis视频教程-尚硅谷-周阳</h2><h3 id="NoSQL入门概述-上"><a href="#NoSQL入门概述-上" class="headerlink" title="NoSQL入门概述-上"></a>NoSQL入门概述-上</h3><h3 id="NoSQL入门概述-下"><a href="#NoSQL入门概述-下" class="headerlink" title="NoSQL入门概述-下"></a>NoSQL入门概述-下</h3><h3 id="当下NoSQL应用场景简介"><a href="#当下NoSQL应用场景简介" class="headerlink" title="当下NoSQL应用场景简介"></a>当下NoSQL应用场景简介</h3><h3 id="NoSQL数据模型简介"><a href="#NoSQL数据模型简介" class="headerlink" title="NoSQL数据模型简介"></a>NoSQL数据模型简介</h3><h3 id="NoSQL数据库的四大分类"><a href="#NoSQL数据库的四大分类" class="headerlink" title="NoSQL数据库的四大分类"></a>NoSQL数据库的四大分类</h3><h3 id="分布式数据库CAP原理"><a href="#分布式数据库CAP原理" class="headerlink" title="分布式数据库CAP原理"></a>分布式数据库CAP原理</h3><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h3 id="HelloWorld"><a href="#HelloWorld" class="headerlink" title="HelloWorld"></a>HelloWorld</h3><h3 id="启动后杂项基础知识"><a href="#启动后杂项基础知识" class="headerlink" title="启动后杂项基础知识"></a>启动后杂项基础知识</h3><h3 id="常用五大数据类型简介"><a href="#常用五大数据类型简介" class="headerlink" title="常用五大数据类型简介"></a>常用五大数据类型简介</h3><h3 id="Key关键字"><a href="#Key关键字" class="headerlink" title="Key关键字"></a>Key关键字</h3><h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><h3 id="ZSet"><a href="#ZSet" class="headerlink" title="ZSet"></a>ZSet</h3><h3 id="配置文件介绍"><a href="#配置文件介绍" class="headerlink" title="配置文件介绍"></a>配置文件介绍</h3><h3 id="持久化之RDB"><a href="#持久化之RDB" class="headerlink" title="持久化之RDB"></a>持久化之RDB</h3><h3 id="持久化之AOF"><a href="#持久化之AOF" class="headerlink" title="持久化之AOF"></a>持久化之AOF</h3><h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><h3 id="消息订阅发布简介"><a href="#消息订阅发布简介" class="headerlink" title="消息订阅发布简介"></a>消息订阅发布简介</h3><h3 id="主从复制上"><a href="#主从复制上" class="headerlink" title="主从复制上"></a>主从复制上</h3><h3 id="主从复制下"><a href="#主从复制下" class="headerlink" title="主从复制下"></a>主从复制下</h3><h3 id="Jedis测试连通"><a href="#Jedis测试连通" class="headerlink" title="Jedis测试连通"></a>Jedis测试连通</h3><h3 id="Jedis事务"><a href="#Jedis事务" class="headerlink" title="Jedis事务"></a>Jedis事务</h3><h3 id="Jedis主从复制"><a href="#Jedis主从复制" class="headerlink" title="Jedis主从复制"></a>Jedis主从复制</h3><h3 id="Jedis-JedisPool"><a href="#Jedis-JedisPool" class="headerlink" title="Jedis JedisPool"></a>Jedis JedisPool</h3><h3 id="技术的分类"><a href="#技术的分类" class="headerlink" title="技术的分类"></a>技术的分类</h3><h3 id="解决session的存储问题"><a href="#解决session的存储问题" class="headerlink" title="解决session的存储问题"></a>解决session的存储问题</h3><h3 id="NoSQL简介"><a href="#NoSQL简介" class="headerlink" title="NoSQL简介"></a>NoSQL简介</h3><h3 id="常用的NoSQL数据库（1）"><a href="#常用的NoSQL数据库（1）" class="headerlink" title="常用的NoSQL数据库（1）"></a>常用的NoSQL数据库（1）</h3><h3 id="常用的NoSQL数据库（2）"><a href="#常用的NoSQL数据库（2）" class="headerlink" title="常用的NoSQL数据库（2）"></a>常用的NoSQL数据库（2）</h3><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><h3 id="启动服务端和客户端"><a href="#启动服务端和客户端" class="headerlink" title="启动服务端和客户端"></a>启动服务端和客户端</h3><h3 id="单线程-多路IO复用"><a href="#单线程-多路IO复用" class="headerlink" title="单线程+多路IO复用"></a>单线程+多路IO复用</h3><h3 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h3><h3 id="string"><a href="#string" class="headerlink" title="string"></a>string</h3><h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><h3 id="set-1"><a href="#set-1" class="headerlink" title="set(1)"></a>set(1)</h3><h3 id="set-2"><a href="#set-2" class="headerlink" title="set(2)"></a>set(2)</h3><h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><h3 id="zset"><a href="#zset" class="headerlink" title="zset"></a>zset</h3><h3 id="实现文章访问量的排序"><a href="#实现文章访问量的排序" class="headerlink" title="实现文章访问量的排序"></a>实现文章访问量的排序</h3><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><h3 id="Java连接redis"><a href="#Java连接redis" class="headerlink" title="Java连接redis"></a>Java连接redis</h3><h3 id="Jedis实现手机号验证码"><a href="#Jedis实现手机号验证码" class="headerlink" title="Jedis实现手机号验证码"></a>Jedis实现手机号验证码</h3><h3 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h3><h3 id="事务-1"><a href="#事务-1" class="headerlink" title="事务"></a>事务</h3><h3 id="秒杀案例"><a href="#秒杀案例" class="headerlink" title="秒杀案例"></a>秒杀案例</h3><h3 id="ab工具模拟并发"><a href="#ab工具模拟并发" class="headerlink" title="ab工具模拟并发"></a>ab工具模拟并发</h3><h3 id="解决超卖和库存遗留问题"><a href="#解决超卖和库存遗留问题" class="headerlink" title="解决超卖和库存遗留问题"></a>解决超卖和库存遗留问题</h3><h3 id="持久化之RDB-1"><a href="#持久化之RDB-1" class="headerlink" title="持久化之RDB"></a>持久化之RDB</h3><h3 id="持久化之AOF-1"><a href="#持久化之AOF-1" class="headerlink" title="持久化之AOF"></a>持久化之AOF</h3><h3 id="主从复制演示"><a href="#主从复制演示" class="headerlink" title="主从复制演示"></a>主从复制演示</h3><h3 id="主从复制之薪火相传"><a href="#主从复制之薪火相传" class="headerlink" title="主从复制之薪火相传"></a>主从复制之薪火相传</h3><h3 id="主从复制之哨兵模式"><a href="#主从复制之哨兵模式" class="headerlink" title="主从复制之哨兵模式"></a>主从复制之哨兵模式</h3><h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><h3 id="JedisCluster"><a href="#JedisCluster" class="headerlink" title="JedisCluster"></a>JedisCluster</h3><h2 id="千锋微服务最新Redis教程-千锋南京"><a href="#千锋微服务最新Redis教程-千锋南京" class="headerlink" title="千锋微服务最新Redis教程[千锋南京]"></a>千锋微服务最新Redis教程[千锋南京]</h2><h3 id="课程大纲介绍"><a href="#课程大纲介绍" class="headerlink" title="课程大纲介绍"></a>课程大纲介绍</h3><h3 id="BSD协议描述"><a href="#BSD协议描述" class="headerlink" title="BSD协议描述"></a>BSD协议描述</h3><h3 id="NoSQL简介-1"><a href="#NoSQL简介-1" class="headerlink" title="NoSQL简介"></a>NoSQL简介</h3><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h3 id="安装-2"><a href="#安装-2" class="headerlink" title="安装"></a>安装</h3><h3 id="启动服务端和客户端-1"><a href="#启动服务端和客户端-1" class="headerlink" title="启动服务端和客户端"></a>启动服务端和客户端</h3><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h3 id="内存淘汰策略"><a href="#内存淘汰策略" class="headerlink" title="内存淘汰策略"></a>内存淘汰策略</h3><h3 id="自定义配置Redis"><a href="#自定义配置Redis" class="headerlink" title="自定义配置Redis"></a>自定义配置Redis</h3><h3 id="Redis关闭"><a href="#Redis关闭" class="headerlink" title="Redis关闭"></a>Redis关闭</h3><h3 id="Redis远程连接"><a href="#Redis远程连接" class="headerlink" title="Redis远程连接"></a>Redis远程连接</h3><h3 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h3><h3 id="常用命令key"><a href="#常用命令key" class="headerlink" title="常用命令key"></a>常用命令key</h3><h3 id="key命名建议"><a href="#key命名建议" class="headerlink" title="key命名建议"></a>key命名建议</h3><h3 id="String类型常用命令"><a href="#String类型常用命令" class="headerlink" title="String类型常用命令"></a>String类型常用命令</h3><h3 id="String类型应用场景"><a href="#String类型应用场景" class="headerlink" title="String类型应用场景"></a>String类型应用场景</h3><h3 id="Hash类型常用命令"><a href="#Hash类型常用命令" class="headerlink" title="Hash类型常用命令"></a>Hash类型常用命令</h3><h3 id="Hash类型应用场景"><a href="#Hash类型应用场景" class="headerlink" title="Hash类型应用场景"></a>Hash类型应用场景</h3><h3 id="Redis客户端介绍"><a href="#Redis客户端介绍" class="headerlink" title="Redis客户端介绍"></a>Redis客户端介绍</h3><h3 id="SpringBoot整合Redis-Jedis客户端"><a href="#SpringBoot整合Redis-Jedis客户端" class="headerlink" title="SpringBoot整合Redis-Jedis客户端"></a>SpringBoot整合Redis-Jedis客户端</h3><h3 id="Jedis操作String类型"><a href="#Jedis操作String类型" class="headerlink" title="Jedis操作String类型"></a>Jedis操作String类型</h3><h3 id="Jedis操作String类型2"><a href="#Jedis操作String类型2" class="headerlink" title="Jedis操作String类型2"></a>Jedis操作String类型2</h3><h3 id="Jedis操作Hash类型"><a href="#Jedis操作Hash类型" class="headerlink" title="Jedis操作Hash类型"></a>Jedis操作Hash类型</h3><h3 id="Springboot整合Redis"><a href="#Springboot整合Redis" class="headerlink" title="Springboot整合Redis"></a>Springboot整合Redis</h3><h3 id="RedisTemplate操作String类型"><a href="#RedisTemplate操作String类型" class="headerlink" title="RedisTemplate操作String类型"></a>RedisTemplate操作String类型</h3><h3 id="RedisTemplate操作Hash类型"><a href="#RedisTemplate操作Hash类型" class="headerlink" title="RedisTemplate操作Hash类型"></a>RedisTemplate操作Hash类型</h3><h3 id="Springboot优化RedisTemplate"><a href="#Springboot优化RedisTemplate" class="headerlink" title="Springboot优化RedisTemplate"></a>Springboot优化RedisTemplate</h3><h3 id="Redis作业总结"><a href="#Redis作业总结" class="headerlink" title="Redis作业总结"></a>Redis作业总结</h3><h3 id="list类型常用命令"><a href="#list类型常用命令" class="headerlink" title="list类型常用命令"></a>list类型常用命令</h3><h3 id="list高级命令"><a href="#list高级命令" class="headerlink" title="list高级命令"></a>list高级命令</h3><h3 id="list-应用场景1"><a href="#list-应用场景1" class="headerlink" title="list-应用场景1"></a>list-应用场景1</h3><h3 id="list队列应用场景描述"><a href="#list队列应用场景描述" class="headerlink" title="list队列应用场景描述"></a>list队列应用场景描述</h3><h3 id="list队列代码实现"><a href="#list队列代码实现" class="headerlink" title="list队列代码实现"></a>list队列代码实现</h3><h3 id="Set类型命令"><a href="#Set类型命令" class="headerlink" title="Set类型命令"></a>Set类型命令</h3><h3 id="Set应用场景1"><a href="#Set应用场景1" class="headerlink" title="Set应用场景1"></a>Set应用场景1</h3><h3 id="ZSet类型"><a href="#ZSet类型" class="headerlink" title="ZSet类型"></a>ZSet类型</h3><h3 id="ZSet应用场景"><a href="#ZSet应用场景" class="headerlink" title="ZSet应用场景"></a>ZSet应用场景</h3><h3 id="ZSet案例"><a href="#ZSet案例" class="headerlink" title="ZSet案例"></a>ZSet案例</h3><h3 id="HyperLoglog"><a href="#HyperLoglog" class="headerlink" title="HyperLoglog"></a>HyperLoglog</h3><h3 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h3><h3 id="多数据库"><a href="#多数据库" class="headerlink" title="多数据库"></a>多数据库</h3><h3 id="事务-2"><a href="#事务-2" class="headerlink" title="事务"></a>事务</h3><h3 id="事务Discard命令"><a href="#事务Discard命令" class="headerlink" title="事务Discard命令"></a>事务Discard命令</h3><h3 id="事务错误处理"><a href="#事务错误处理" class="headerlink" title="事务错误处理"></a>事务错误处理</h3><h3 id="事务watch"><a href="#事务watch" class="headerlink" title="事务watch"></a>事务watch</h3><h3 id="事务应用场景"><a href="#事务应用场景" class="headerlink" title="事务应用场景"></a>事务应用场景</h3><h3 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h3><h3 id="实时同步-异步同步"><a href="#实时同步-异步同步" class="headerlink" title="实时同步-异步同步"></a>实时同步-异步同步</h3><h3 id="数据一致性"><a href="#数据一致性" class="headerlink" title="数据一致性"></a>数据一致性</h3><h3 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h3><h3 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h3><h3 id="热点key"><a href="#热点key" class="headerlink" title="热点key"></a>热点key</h3><h3 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h3><h3 id="哨兵模式"><a href="#哨兵模式" class="headerlink" title="哨兵模式"></a>哨兵模式</h3><h3 id="集群描述"><a href="#集群描述" class="headerlink" title="集群描述"></a>集群描述</h3><h3 id="集群容错"><a href="#集群容错" class="headerlink" title="集群容错"></a>集群容错</h3><h3 id="集群搭建准备"><a href="#集群搭建准备" class="headerlink" title="集群搭建准备"></a>集群搭建准备</h3><h3 id="集群创建完成"><a href="#集群创建完成" class="headerlink" title="集群创建完成"></a>集群创建完成</h3><h3 id="集群测试"><a href="#集群测试" class="headerlink" title="集群测试"></a>集群测试</h3><h3 id="集群开启和关闭"><a href="#集群开启和关闭" class="headerlink" title="集群开启和关闭"></a>集群开启和关闭</h3><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><h3 id="安装-3"><a href="#安装-3" class="headerlink" title="安装"></a>安装</h3><h3 id="配置文件详解redis-conf"><a href="#配置文件详解redis-conf" class="headerlink" title="配置文件详解redis.conf"></a>配置文件详解redis.conf</h3><h3 id="关闭"><a href="#关闭" class="headerlink" title="关闭"></a>关闭</h3><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><h3 id="key命名规范"><a href="#key命名规范" class="headerlink" title="key命名规范"></a>key命名规范</h3><h3 id="String类型简介"><a href="#String类型简介" class="headerlink" title="String类型简介"></a>String类型简介</h3><h3 id="String常用命令"><a href="#String常用命令" class="headerlink" title="String常用命令"></a>String常用命令</h3><h3 id="hash类型"><a href="#hash类型" class="headerlink" title="hash类型"></a>hash类型</h3><h3 id="java连接Redis"><a href="#java连接Redis" class="headerlink" title="java连接Redis"></a>java连接Redis</h3><h3 id="Jedis工具类"><a href="#Jedis工具类" class="headerlink" title="Jedis工具类"></a>Jedis工具类</h3><h3 id="jedis-hash类型读取"><a href="#jedis-hash类型读取" class="headerlink" title="jedis-hash类型读取"></a>jedis-hash类型读取</h3><h3 id="SpringData整合redis"><a href="#SpringData整合redis" class="headerlink" title="SpringData整合redis"></a>SpringData整合redis</h3><h3 id="Redis-Template-操作string使用案例"><a href="#Redis-Template-操作string使用案例" class="headerlink" title="Redis Template 操作string使用案例"></a>Redis Template 操作string使用案例</h3><h3 id="string案例限制登录功能"><a href="#string案例限制登录功能" class="headerlink" title="string案例限制登录功能"></a>string案例限制登录功能</h3><h3 id="hash基本命令"><a href="#hash基本命令" class="headerlink" title="hash基本命令"></a>hash基本命令</h3><h3 id="list高级命令-1"><a href="#list高级命令-1" class="headerlink" title="list高级命令"></a>list高级命令</h3><h3 id="list高级命令任务队列"><a href="#list高级命令任务队列" class="headerlink" title="list高级命令任务队列"></a>list高级命令任务队列</h3><h3 id="任务队列代码示例"><a href="#任务队列代码示例" class="headerlink" title="任务队列代码示例"></a>任务队列代码示例</h3><h3 id="set类型命令"><a href="#set类型命令" class="headerlink" title="set类型命令"></a>set类型命令</h3><h3 id="zset类型命令"><a href="#zset类型命令" class="headerlink" title="zset类型命令"></a>zset类型命令</h3><h3 id="发布订阅-1"><a href="#发布订阅-1" class="headerlink" title="发布订阅"></a>发布订阅</h3><h3 id="多数据库-1"><a href="#多数据库-1" class="headerlink" title="多数据库"></a>多数据库</h3><h3 id="事务-3"><a href="#事务-3" class="headerlink" title="事务"></a>事务</h3><h3 id="事务2"><a href="#事务2" class="headerlink" title="事务2"></a>事务2</h3><h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><h3 id="redis和mysql一致性"><a href="#redis和mysql一致性" class="headerlink" title="redis和mysql一致性"></a>redis和mysql一致性</h3><h3 id="高并发基本概述"><a href="#高并发基本概述" class="headerlink" title="高并发基本概述"></a>高并发基本概述</h3><h3 id="主从复制-1"><a href="#主从复制-1" class="headerlink" title="主从复制"></a>主从复制</h3><h3 id="RedisCluster集群概述"><a href="#RedisCluster集群概述" class="headerlink" title="RedisCluster集群概述"></a>RedisCluster集群概述</h3><h3 id="集群搭建"><a href="#集群搭建" class="headerlink" title="集群搭建"></a>集群搭建</h3><h3 id="RedisCluster测试集群"><a href="#RedisCluster测试集群" class="headerlink" title="RedisCluster测试集群"></a>RedisCluster测试集群</h3><h2 id="112节Redis入门到精通【黑马程序员】"><a href="#112节Redis入门到精通【黑马程序员】" class="headerlink" title="112节Redis入门到精通【黑马程序员】"></a>112节Redis入门到精通【黑马程序员】</h2>]]></content>
+    <title>112节Redis入门到精通【黑马程序员】</title>
+    <url>/2020/05/13/%E9%9D%A2%E8%AF%95/112%E8%8A%82Redis%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E3%80%90%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E3%80%91/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>观看视频: <a href="https://www.bilibili.com/video/BV1CJ411m7Gc?from=search&amp;seid=17203994801277039493" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1CJ411m7Gc?from=search&amp;seid=17203994801277039493</a></p>
+<h2 id="112节Redis入门到精通【黑马程序员】"><a href="#112节Redis入门到精通【黑马程序员】" class="headerlink" title="112节Redis入门到精通【黑马程序员】"></a>112节Redis入门到精通【黑马程序员】</h2><h3 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h3><h3 id="redis入门-NoSQL介绍"><a href="#redis入门-NoSQL介绍" class="headerlink" title="redis入门-NoSQL介绍"></a>redis入门-NoSQL介绍</h3><h3 id="redis入门-redis简介"><a href="#redis入门-redis简介" class="headerlink" title="redis入门-redis简介"></a>redis入门-redis简介</h3><h3 id="redis入门-redis下载安装与服务启动"><a href="#redis入门-redis下载安装与服务启动" class="headerlink" title="redis入门-redis下载安装与服务启动"></a>redis入门-redis下载安装与服务启动</h3><h3 id="redis入门-redis基础操作"><a href="#redis入门-redis基础操作" class="headerlink" title="redis入门-redis基础操作"></a>redis入门-redis基础操作</h3><h3 id="数据类型-数据类型简介"><a href="#数据类型-数据类型简介" class="headerlink" title="数据类型-数据类型简介"></a>数据类型-数据类型简介</h3><h3 id="数据类型-string基本操作"><a href="#数据类型-string基本操作" class="headerlink" title="数据类型-string基本操作"></a>数据类型-string基本操作</h3><h3 id="数据类型-单指令操作与多指令操作的选择之惑"><a href="#数据类型-单指令操作与多指令操作的选择之惑" class="headerlink" title="数据类型-单指令操作与多指令操作的选择之惑"></a>数据类型-单指令操作与多指令操作的选择之惑</h3><h3 id="数据类型-数值增减操作"><a href="#数据类型-数值增减操作" class="headerlink" title="数据类型-数值增减操作"></a>数据类型-数值增减操作</h3><h3 id="数据类型-数据时效性设置"><a href="#数据类型-数据时效性设置" class="headerlink" title="数据类型-数据时效性设置"></a>数据类型-数据时效性设置</h3><h3 id="key的命名规范"><a href="#key的命名规范" class="headerlink" title="key的命名规范"></a>key的命名规范</h3><h3 id="数据类型-hash类型介绍与基本操作"><a href="#数据类型-hash类型介绍与基本操作" class="headerlink" title="数据类型-hash类型介绍与基本操作"></a>数据类型-hash类型介绍与基本操作</h3><h3 id="数据类型-hash扩展操作与使用注意事项"><a href="#数据类型-hash扩展操作与使用注意事项" class="headerlink" title="数据类型-hash扩展操作与使用注意事项"></a>数据类型-hash扩展操作与使用注意事项</h3><h3 id="数据类型-hash实现购物车"><a href="#数据类型-hash实现购物车" class="headerlink" title="数据类型-hash实现购物车"></a>数据类型-hash实现购物车</h3><h3 id="hash实现抢购"><a href="#hash实现抢购" class="headerlink" title="hash实现抢购"></a>hash实现抢购</h3><h3 id="数据类型-list类型介绍与基本操作"><a href="#数据类型-list类型介绍与基本操作" class="headerlink" title="数据类型-list类型介绍与基本操作"></a>数据类型-list类型介绍与基本操作</h3><h3 id="数据类型-list阻塞数据获取"><a href="#数据类型-list阻塞数据获取" class="headerlink" title="数据类型-list阻塞数据获取"></a>数据类型-list阻塞数据获取</h3><h3 id="数据类型-list扩展操作删除数据"><a href="#数据类型-list扩展操作删除数据" class="headerlink" title="数据类型-list扩展操作删除数据"></a>数据类型-list扩展操作删除数据</h3><h3 id="数据类型-list实现日志消息队列"><a href="#数据类型-list实现日志消息队列" class="headerlink" title="数据类型-list实现日志消息队列"></a>数据类型-list实现日志消息队列</h3><h3 id="数据类型-set类型介绍与基本操作"><a href="#数据类型-set类型介绍与基本操作" class="headerlink" title="数据类型-set类型介绍与基本操作"></a>数据类型-set类型介绍与基本操作</h3><h3 id="数据类型-set操作随机数据"><a href="#数据类型-set操作随机数据" class="headerlink" title="数据类型-set操作随机数据"></a>数据类型-set操作随机数据</h3><h3 id="数据类型-set数据交并差操作"><a href="#数据类型-set数据交并差操作" class="headerlink" title="数据类型-set数据交并差操作"></a>数据类型-set数据交并差操作</h3><h3 id="数据类型-set实现权限校验"><a href="#数据类型-set实现权限校验" class="headerlink" title="数据类型-set实现权限校验"></a>数据类型-set实现权限校验</h3><h3 id="数据类型-set实现网站访问量统计"><a href="#数据类型-set实现网站访问量统计" class="headerlink" title="数据类型-set实现网站访问量统计"></a>数据类型-set实现网站访问量统计</h3><h3 id="数据类型-set实现黑白名单"><a href="#数据类型-set实现黑白名单" class="headerlink" title="数据类型-set实现黑白名单"></a>数据类型-set实现黑白名单</h3><h3 id="set类型介绍与基本操作"><a href="#set类型介绍与基本操作" class="headerlink" title="set类型介绍与基本操作"></a>set类型介绍与基本操作</h3><h3 id="数据类型-sorted-set基本操作（2）"><a href="#数据类型-sorted-set基本操作（2）" class="headerlink" title="数据类型-sorted_set基本操作（2）"></a>数据类型-sorted_set基本操作（2）</h3><h3 id="数据类型-sorted-set实现排行榜"><a href="#数据类型-sorted-set实现排行榜" class="headerlink" title="数据类型-sorted_set实现排行榜"></a>数据类型-sorted_set实现排行榜</h3><h3 id="set实现时效性任务管理"><a href="#set实现时效性任务管理" class="headerlink" title="set实现时效性任务管理"></a>set实现时效性任务管理</h3><h3 id="set带有权重的任务管理"><a href="#set带有权重的任务管理" class="headerlink" title="set带有权重的任务管理"></a>set带有权重的任务管理</h3><h3 id="数据类型-案例-按次结算的服务控制"><a href="#数据类型-案例-按次结算的服务控制" class="headerlink" title="数据类型-案例-按次结算的服务控制"></a>数据类型-案例-按次结算的服务控制</h3><h3 id="数据类型-案例-微信接收消息顺序控制"><a href="#数据类型-案例-微信接收消息顺序控制" class="headerlink" title="数据类型-案例-微信接收消息顺序控制"></a>数据类型-案例-微信接收消息顺序控制</h3><h3 id="通用指令-key基本操作"><a href="#通用指令-key基本操作" class="headerlink" title="通用指令-key基本操作"></a>通用指令-key基本操作</h3><h3 id="通用指令-key时效性控制操作"><a href="#通用指令-key时效性控制操作" class="headerlink" title="通用指令-key时效性控制操作"></a>通用指令-key时效性控制操作</h3><h3 id="通用指令-key查询操作"><a href="#通用指令-key查询操作" class="headerlink" title="通用指令-key查询操作"></a>通用指令-key查询操作</h3><h3 id="通用指令-key其他操作"><a href="#通用指令-key其他操作" class="headerlink" title="通用指令-key其他操作"></a>通用指令-key其他操作</h3><h3 id="通用指令-db基本操作"><a href="#通用指令-db基本操作" class="headerlink" title="通用指令-db基本操作"></a>通用指令-db基本操作</h3><h3 id="通用指令-db其他操作"><a href="#通用指令-db其他操作" class="headerlink" title="通用指令-db其他操作"></a>通用指令-db其他操作</h3><h3 id="jedis-jedis简介"><a href="#jedis-jedis简介" class="headerlink" title="jedis-jedis简介"></a>jedis-jedis简介</h3><h3 id="jedis-helloworld（jedis版）"><a href="#jedis-helloworld（jedis版）" class="headerlink" title="jedis-helloworld（jedis版）"></a>jedis-helloworld（jedis版）</h3><h3 id="jedis-jedis常规操作演示"><a href="#jedis-jedis常规操作演示" class="headerlink" title="jedis-jedis常规操作演示"></a>jedis-jedis常规操作演示</h3><h3 id="jedis-业务请求次数控制案例需求分析"><a href="#jedis-业务请求次数控制案例需求分析" class="headerlink" title="jedis-业务请求次数控制案例需求分析"></a>jedis-业务请求次数控制案例需求分析</h3><h3 id="jedis-程序结构搭建"><a href="#jedis-程序结构搭建" class="headerlink" title="jedis-程序结构搭建"></a>jedis-程序结构搭建</h3><h3 id="jedis-程序代码实现"><a href="#jedis-程序代码实现" class="headerlink" title="jedis-程序代码实现"></a>jedis-程序代码实现</h3><h3 id="jedis-工具类制作"><a href="#jedis-工具类制作" class="headerlink" title="jedis-工具类制作"></a>jedis-工具类制作</h3><h3 id="jedis-可视化客户端介绍"><a href="#jedis-可视化客户端介绍" class="headerlink" title="jedis-可视化客户端介绍"></a>jedis-可视化客户端介绍</h3><h3 id="linux环境安装redis-基于Linux安装redis"><a href="#linux环境安装redis-基于Linux安装redis" class="headerlink" title="linux环境安装redis-基于Linux安装redis"></a>linux环境安装redis-基于Linux安装redis</h3><h3 id="linux环境安装redis-指定端口启动服务"><a href="#linux环境安装redis-指定端口启动服务" class="headerlink" title="linux环境安装redis-指定端口启动服务"></a>linux环境安装redis-指定端口启动服务</h3><h3 id="linux环境安装redis-指定配置文件启动服务"><a href="#linux环境安装redis-指定配置文件启动服务" class="headerlink" title="linux环境安装redis-指定配置文件启动服务"></a>linux环境安装redis-指定配置文件启动服务</h3><h3 id="linux环境安装redis-配置文件启动目录管理"><a href="#linux环境安装redis-配置文件启动目录管理" class="headerlink" title="linux环境安装redis-配置文件启动目录管理"></a>linux环境安装redis-配置文件启动目录管理</h3><h3 id="持久化-持久化简介"><a href="#持久化-持久化简介" class="headerlink" title="持久化-持久化简介"></a>持久化-持久化简介</h3><h3 id="持久化-save指令"><a href="#持久化-save指令" class="headerlink" title="持久化-save指令"></a>持久化-save指令</h3><h3 id="持久化-RDB相关配置"><a href="#持久化-RDB相关配置" class="headerlink" title="持久化-RDB相关配置"></a>持久化-RDB相关配置</h3><h3 id="持久化-数据恢复过程演示"><a href="#持久化-数据恢复过程演示" class="headerlink" title="持久化-数据恢复过程演示"></a>持久化-数据恢复过程演示</h3><h3 id="持久化-save指令工作原理"><a href="#持久化-save指令工作原理" class="headerlink" title="持久化-save指令工作原理"></a>持久化-save指令工作原理</h3><h3 id="持久化-bgsave指令与工作原理"><a href="#持久化-bgsave指令与工作原理" class="headerlink" title="持久化-bgsave指令与工作原理"></a>持久化-bgsave指令与工作原理</h3><h3 id="持久化-save配置与工作原理"><a href="#持久化-save配置与工作原理" class="headerlink" title="持久化-save配置与工作原理"></a>持久化-save配置与工作原理</h3><h3 id="持久化-RDB三种启动方式对比与优缺点分析"><a href="#持久化-RDB三种启动方式对比与优缺点分析" class="headerlink" title="持久化-RDB三种启动方式对比与优缺点分析"></a>持久化-RDB三种启动方式对比与优缺点分析</h3><h3 id="持久化-AOF简介"><a href="#持久化-AOF简介" class="headerlink" title="持久化-AOF简介"></a>持久化-AOF简介</h3><h3 id="持久化-AOF持久化策略基本操作"><a href="#持久化-AOF持久化策略基本操作" class="headerlink" title="持久化-AOF持久化策略基本操作"></a>持久化-AOF持久化策略基本操作</h3><h3 id="持久化-AOF重写概念与命令执行"><a href="#持久化-AOF重写概念与命令执行" class="headerlink" title="持久化-AOF重写概念与命令执行"></a>持久化-AOF重写概念与命令执行</h3><h3 id="持久化-AOF自动重写配置"><a href="#持久化-AOF自动重写配置" class="headerlink" title="持久化-AOF自动重写配置"></a>持久化-AOF自动重写配置</h3><h3 id="持久化-AOF重写工作原理"><a href="#持久化-AOF重写工作原理" class="headerlink" title="持久化-AOF重写工作原理"></a>持久化-AOF重写工作原理</h3><h3 id="持久化-RDB与AOF方案对比"><a href="#持久化-RDB与AOF方案对比" class="headerlink" title="持久化-RDB与AOF方案对比"></a>持久化-RDB与AOF方案对比</h3><h3 id="持久化-持久化应用场景分析"><a href="#持久化-持久化应用场景分析" class="headerlink" title="持久化-持久化应用场景分析"></a>持久化-持久化应用场景分析</h3><h3 id="事务-redis事务简介"><a href="#事务-redis事务简介" class="headerlink" title="事务-redis事务简介"></a>事务-redis事务简介</h3><h3 id="事务-事务的基本操作（定义，取消，执行）"><a href="#事务-事务的基本操作（定义，取消，执行）" class="headerlink" title="事务-事务的基本操作（定义，取消，执行）"></a>事务-事务的基本操作（定义，取消，执行）</h3><h3 id="事务-事务的工作流程"><a href="#事务-事务的工作流程" class="headerlink" title="事务-事务的工作流程"></a>事务-事务的工作流程</h3><h3 id="事务-事务操作的注意事项"><a href="#事务-事务操作的注意事项" class="headerlink" title="事务-事务操作的注意事项"></a>事务-事务操作的注意事项</h3><h3 id="事务-锁"><a href="#事务-锁" class="headerlink" title="事务-锁"></a>事务-锁</h3><h3 id="事务-死锁解决方案"><a href="#事务-死锁解决方案" class="headerlink" title="事务-死锁解决方案"></a>事务-死锁解决方案</h3><h3 id="删除策略-过期数据的概念"><a href="#删除策略-过期数据的概念" class="headerlink" title="删除策略-过期数据的概念"></a>删除策略-过期数据的概念</h3><h3 id="删除策略-过期数据的底层存储结构"><a href="#删除策略-过期数据的底层存储结构" class="headerlink" title="删除策略-过期数据的底层存储结构"></a>删除策略-过期数据的底层存储结构</h3><h3 id="删除策略-定时删除与惰性删除"><a href="#删除策略-定时删除与惰性删除" class="headerlink" title="删除策略-定时删除与惰性删除"></a>删除策略-定时删除与惰性删除</h3><h3 id="删除策略-定期删除"><a href="#删除策略-定期删除" class="headerlink" title="删除策略-定期删除"></a>删除策略-定期删除</h3><h3 id="删除策略-逐出策略"><a href="#删除策略-逐出策略" class="headerlink" title="删除策略-逐出策略"></a>删除策略-逐出策略</h3><h3 id="服务器配置-redis-conf配置"><a href="#服务器配置-redis-conf配置" class="headerlink" title="服务器配置-redis.conf配置"></a>服务器配置-redis.conf配置</h3><h3 id="高级数据类型-bitmaps介绍与基本操作"><a href="#高级数据类型-bitmaps介绍与基本操作" class="headerlink" title="高级数据类型-bitmaps介绍与基本操作"></a>高级数据类型-bitmaps介绍与基本操作</h3><h3 id="高级数据类型-bitmaps扩展操作"><a href="#高级数据类型-bitmaps扩展操作" class="headerlink" title="高级数据类型-bitmaps扩展操作"></a>高级数据类型-bitmaps扩展操作</h3><h3 id="高级数据类型-HyperLogLog"><a href="#高级数据类型-HyperLogLog" class="headerlink" title="高级数据类型-HyperLogLog"></a>高级数据类型-HyperLogLog</h3><h3 id="高级数据类型-CEO"><a href="#高级数据类型-CEO" class="headerlink" title="高级数据类型-CEO"></a>高级数据类型-CEO</h3><h3 id="主从复制-主从复制简介"><a href="#主从复制-主从复制简介" class="headerlink" title="主从复制-主从复制简介"></a>主从复制-主从复制简介</h3><h3 id="主从复制-主从复制的作用"><a href="#主从复制-主从复制的作用" class="headerlink" title="主从复制-主从复制的作用"></a>主从复制-主从复制的作用</h3><h3 id="主从复制-主从复制的三个阶段"><a href="#主从复制-主从复制的三个阶段" class="headerlink" title="主从复制-主从复制的三个阶段"></a>主从复制-主从复制的三个阶段</h3><h3 id="主从复制-工作流程（1）建立连接阶段"><a href="#主从复制-工作流程（1）建立连接阶段" class="headerlink" title="主从复制-工作流程（1）建立连接阶段"></a>主从复制-工作流程（1）建立连接阶段</h3><h3 id="主从复制-搭建主从结构"><a href="#主从复制-搭建主从结构" class="headerlink" title="主从复制-搭建主从结构"></a>主从复制-搭建主从结构</h3><h3 id="主从复制-工作流程（2）数据同步阶段（简）"><a href="#主从复制-工作流程（2）数据同步阶段（简）" class="headerlink" title="主从复制-工作流程（2）数据同步阶段（简）"></a>主从复制-工作流程（2）数据同步阶段（简）</h3><h3 id="主从复制-数据同步阶段注意事项"><a href="#主从复制-数据同步阶段注意事项" class="headerlink" title="主从复制-数据同步阶段注意事项"></a>主从复制-数据同步阶段注意事项</h3><h3 id="主从复制-运行id-runid"><a href="#主从复制-运行id-runid" class="headerlink" title="主从复制-运行id(runid)"></a>主从复制-运行id(runid)</h3><h3 id="主从复制-复制缓冲区与偏移量"><a href="#主从复制-复制缓冲区与偏移量" class="headerlink" title="主从复制-复制缓冲区与偏移量"></a>主从复制-复制缓冲区与偏移量</h3><h3 id="主从复制-工作流程（2）数据同步与命令传播阶段（全）"><a href="#主从复制-工作流程（2）数据同步与命令传播阶段（全）" class="headerlink" title="主从复制-工作流程（2）数据同步与命令传播阶段（全）"></a>主从复制-工作流程（2）数据同步与命令传播阶段（全）</h3><h3 id="主从复制-心跳机制与命令传播阶段工作流程"><a href="#主从复制-心跳机制与命令传播阶段工作流程" class="headerlink" title="主从复制-心跳机制与命令传播阶段工作流程"></a>主从复制-心跳机制与命令传播阶段工作流程</h3><h3 id="主从复制-常见问题（1）"><a href="#主从复制-常见问题（1）" class="headerlink" title="主从复制-常见问题（1）"></a>主从复制-常见问题（1）</h3><h3 id="主从复制-常见问题（2）"><a href="#主从复制-常见问题（2）" class="headerlink" title="主从复制-常见问题（2）"></a>主从复制-常见问题（2）</h3><h3 id="主从复制-常见问题（3）"><a href="#主从复制-常见问题（3）" class="headerlink" title="主从复制-常见问题（3）"></a>主从复制-常见问题（3）</h3><h3 id="哨兵-哨兵简介"><a href="#哨兵-哨兵简介" class="headerlink" title="哨兵-哨兵简介"></a>哨兵-哨兵简介</h3><h3 id="哨兵-哨兵结构搭建"><a href="#哨兵-哨兵结构搭建" class="headerlink" title="哨兵-哨兵结构搭建"></a>哨兵-哨兵结构搭建</h3><h3 id="哨兵-工作原理（1）"><a href="#哨兵-工作原理（1）" class="headerlink" title="哨兵-工作原理（1）"></a>哨兵-工作原理（1）</h3><h3 id="哨兵-工作原理（2）"><a href="#哨兵-工作原理（2）" class="headerlink" title="哨兵-工作原理（2）"></a>哨兵-工作原理（2）</h3><h3 id="哨兵-工作原理（3）"><a href="#哨兵-工作原理（3）" class="headerlink" title="哨兵-工作原理（3）"></a>哨兵-工作原理（3）</h3><h3 id="集群-集群简介"><a href="#集群-集群简介" class="headerlink" title="集群-集群简介"></a>集群-集群简介</h3><h3 id="集群-集群存储结构设计"><a href="#集群-集群存储结构设计" class="headerlink" title="集群-集群存储结构设计"></a>集群-集群存储结构设计</h3><h3 id="集群-cluster集群搭建"><a href="#集群-cluster集群搭建" class="headerlink" title="集群-cluster集群搭建"></a>集群-cluster集群搭建</h3><h3 id="集群-设置与获取数据"><a href="#集群-设置与获取数据" class="headerlink" title="集群-设置与获取数据"></a>集群-设置与获取数据</h3><h3 id="集群-主从下线与主从切换"><a href="#集群-主从下线与主从切换" class="headerlink" title="集群-主从下线与主从切换"></a>集群-主从下线与主从切换</h3><h3 id="企业级解决方案-缓存预热"><a href="#企业级解决方案-缓存预热" class="headerlink" title="企业级解决方案-缓存预热"></a>企业级解决方案-缓存预热</h3><h3 id="企业级解决方案-缓存雪崩"><a href="#企业级解决方案-缓存雪崩" class="headerlink" title="企业级解决方案-缓存雪崩"></a>企业级解决方案-缓存雪崩</h3><h3 id="企业级解决方案-缓存击穿"><a href="#企业级解决方案-缓存击穿" class="headerlink" title="企业级解决方案-缓存击穿"></a>企业级解决方案-缓存击穿</h3><h3 id="企业级解决方案-缓存穿透"><a href="#企业级解决方案-缓存穿透" class="headerlink" title="企业级解决方案-缓存穿透"></a>企业级解决方案-缓存穿透</h3><h3 id="企业级解决方案-性能指标监控"><a href="#企业级解决方案-性能指标监控" class="headerlink" title="企业级解决方案-性能指标监控"></a>企业级解决方案-性能指标监控</h3><h3 id="企业级解决方案-性能指标监控命令"><a href="#企业级解决方案-性能指标监控命令" class="headerlink" title="企业级解决方案-性能指标监控命令"></a>企业级解决方案-性能指标监控命令</h3>]]></content>
       <categories>
         <category>面试</category>
       </categories>
       <tags>
-        <tag>面试</tag>
         <tag>redis</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
@@ -570,8 +591,8 @@
         <category>面试</category>
       </categories>
       <tags>
-        <tag>面试</tag>
         <tag>redis</tag>
+        <tag>面试</tag>
         <tag>缓存</tag>
       </tags>
   </entry>
@@ -609,8 +630,8 @@
         <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>RabbitMQ</tag>
+        <tag>笔记</tag>
         <tag>RabbitMQ实战指南</tag>
       </tags>
   </entry>
@@ -661,8 +682,8 @@
         <category>Redis</category>
       </categories>
       <tags>
-        <tag>Redis</tag>
         <tag>笔记</tag>
+        <tag>Redis</tag>
         <tag>Redis设计与实现</tag>
       </tags>
   </entry>
@@ -9480,16 +9501,16 @@
       </tags>
   </entry>
   <entry>
-    <title>排序</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
+    <title>查找</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
 ]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
       <tags>
         <tag>数据结构</tag>
-        <tag>排序</tag>
+        <tag>查找</tag>
       </tags>
   </entry>
   <entry>
@@ -9519,16 +9540,16 @@
       </tags>
   </entry>
   <entry>
-    <title>查找</title>
-    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
+    <title>排序</title>
+    <url>/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
 ]]></content>
       <categories>
         <category>数据结构</category>
       </categories>
       <tags>
         <tag>数据结构</tag>
-        <tag>查找</tag>
+        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
@@ -10803,177 +10824,6 @@
       </tags>
   </entry>
   <entry>
-    <title>第四节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
-<p>别人家孩子。  </p>
-<p>你看看人家谁谁谁，你再看看你自己  </p>
-<p>不能让孩子输在起跑线上  </p>
-<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
-<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
-<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
-<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
-<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
-<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
-<p>比较有时让人惶恐  </p>
-<p>不要在千千万万的比较当中迷失自我。  </p>
-<p>比较有时候就是用拉人下水的形式找认同感  </p>
-<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
-<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
-<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
-<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
-<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
-<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
-<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
-<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
-<p>知足是一种生活态度  </p>
-<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
-<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第六节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
-<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
-<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
-<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
-<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
-<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
-<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
-<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
-<ol>
-<li>第一个阶段:不要再为自己担心了,自己做决定</li>
-<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
-</ol>
-<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
-<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
-<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
-<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
-<p>越疼越要不动声色，越苦越要保持沉默  </p>
-<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
-<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
-<ul>
-<li>两利相权取其重</li>
-<li>两害相权取其轻</li>
-</ul>
-<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
-<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
-<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第五节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第五堂课主题：面对批评，你应该摆一个正确姿势  </p>
-<p>懒惰是最可怕的事情<br>不牺牲短暂的享乐和安逸，就换不来长久的保障和幸福<br>找借口也很可怕<br>找借口会让自己失去机会<br>不能扛起责任无法付以重任  </p>
-<h2 id="闻过则喜的心态"><a href="#闻过则喜的心态" class="headerlink" title="闻过则喜的心态"></a>闻过则喜的心态</h2><p>一味在意对方的态度和自己的感受就会忘了事情的根本所在<br>错了就是错了，面对批评输球不要输姿势。  </p>
-<h2 id="永远感谢愿意花时间在你身上的人"><a href="#永远感谢愿意花时间在你身上的人" class="headerlink" title="永远感谢愿意花时间在你身上的人"></a>永远感谢愿意花时间在你身上的人</h2><p>他认识你。<br>你们之间有关系别人才会花时间批评你。<br>所以一定是你们之间有联系，尤其在你年轻的时候，多半是你有改进的空间<br>他的批评可以让你变得更好<br>所以错了就认，认了就改正。</p>
-<h2 id="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"><a href="#面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”" class="headerlink" title="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"></a>面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”</h2><p>哪怕严厉苛刻，谦虚使人进步骄傲使人落后，有则改之无则加勉。<br>达尔文： 能够生存性下来的物种，并不是那些最强壮的，也不是最聪明的，而是那些对变化做出快速反应的<br>面对批评，正确地姿势应该是沉心静气的想一想我哪儿做错了。我该怎么改。<br>被批评不是坏事。  </p>
-<p>因为在意，所以争吵。  </p>
-<h2 id="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"><a href="#如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。" class="headerlink" title="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"></a>如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。</h2><p>凡事先在自身找原因。<br>不要苛求他人。千万不要遇事着急，冷静思考沉着应对才是面对批评正确的姿势。<br>如果大错酿成，最重要的不是埋怨推诿，而是面对和解决。  </p>
-<h2 id="面对批评的职业心态"><a href="#面对批评的职业心态" class="headerlink" title="面对批评的职业心态"></a>面对批评的职业心态</h2><p>不要埋怨老板苛刻。老板骂你是希望快点成长。</p>
-<h2 id="褒贬是买主，喝彩是闲人"><a href="#褒贬是买主，喝彩是闲人" class="headerlink" title="褒贬是买主，喝彩是闲人"></a>褒贬是买主，喝彩是闲人</h2><p>正是因为有所期待才会批评有所改进。</p>
-<p>普京：没有实力的愤怒毫无意义。<br>道理：好学生做坏事不是没有被老师发现，老师可能只是装作看不见。对自己而言成长才是硬道理。  </p>
-<p>苦练七十二变才能笑对八十一难。  </p>
-<p>高情商：不断改过，默默自强。<br>解释就是掩饰，掩饰就是事实。  </p>
-<p>可怕的不是犯错，而是不知道错在哪里还在盲目争辩。而是知错不改还重复犯错。  </p>
-<p>所以错了第一步是认，第二步是改。  </p>
-<p>第一次是不知道，第二次是不小心，第三次就是故意了。</p>
-<h2 id="示弱有助于解决冲突。先认错后解释"><a href="#示弱有助于解决冲突。先认错后解释" class="headerlink" title="示弱有助于解决冲突。先认错后解释"></a>示弱有助于解决冲突。先认错后解释</h2><h2 id="越是不认错被骂的越多"><a href="#越是不认错被骂的越多" class="headerlink" title="越是不认错被骂的越多"></a>越是不认错被骂的越多</h2><p>骂你是因为你是负责的人。谁负责谁担责。这个是态度问题。  </p>
-<p>狗咬人一口，人不能回咬回去。</p>
-<p>有个好心态，先和自己将锻炼自己情商的时候到了，先克制情绪在解决问题。  </p>
-<p>退一步海阔天空，退三分风平浪静。  </p>
-<p>所以和蛮不讲理的人讲理先示弱表达部分认同，再换位思考给出方案，先礼后兵。  </p>
-<p>发现问题是好事，解决问题是大事，没有问题是坏事。</p>
-<p>成功是来自精准的勤奋而不是平庸的忙碌，批评是成长的机会，闻过则喜。  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第三节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
-<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
-<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
-<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
-<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
-<p>它可以帮你建立自信  </p>
-<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
-<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
-<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
-<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
-<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
-<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
-<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
-<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
-<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
-<p>疗效持久不易复发  </p>
-<p>自卑不自信一定要试试  </p>
-<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
-<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
-<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
-<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
-<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第七节心态课</title>
-    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
-<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
-<p>自我和自私是两种最糟糕的负面心态。</p>
-<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
-<p>先做好自己不要给别人带来麻烦。</p>
-<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
-<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
-<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
-<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
-<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
-<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
-<p>总结：</p>
-<ul>
-<li>第一讲：心态认知，别人的评价…自我认知</li>
-<li>……..</li>
-</ul>
-<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一节心态课</title>
     <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>  </p>
@@ -11071,6 +10921,177 @@
 <p>这个世界上最无能的就是怨妇。<br>挫折失败经历的太少了。你才会觉得鸡毛蒜皮都是烦恼。<br>抱怨只会让别人觉得你委屈，可怜，但无助于解决任何问题<br>牢骚太盛防肠断，风物长宜放眼量<br>已经发生的事情，埋怨一点用也没有，成年人，我已经是个成年人了  </p>
 <p>其实在生活当中，让你不堪重负的不是压力，而是你承受压力的方式<br>你曾在什么样的公司工作，你就是什么样的人<br>说过去的公司不好那只是证明你的无能<br>的确，我挺无能的  </p>
 <h2 id="第三点：没有本事就不要表演真性情"><a href="#第三点：没有本事就不要表演真性情" class="headerlink" title="第三点：没有本事就不要表演真性情"></a>第三点：没有本事就不要表演真性情</h2><p>只有玻璃心的员工，所以别那么多怀才不遇的抱怨。<br>我觉得这就是在说我呗。<br>说明你的能力还撑不起你的雄心。<br>没有收拾残局的能力，就不要放纵你善变的情绪。<br>在你成为强者之前，所有的委屈都必须吞咽和妥协。<br>因为没有人会在乎弱者的眼泪。<br>成年的世界里，微笑只是一个表情，对讨厌的人或者事情露出你的微笑，使我们必须要学会的恶心<br>要想人前显贵必须背后受罪<br>能忍多大的事情就能成多大的事情<br>永远不应该挑战领导的权威<br>鸡汤：使我们痛苦者让我们强大，没本事的时候身边的坏人特别多，就会受委屈<br>等有一天强大了，所有人都是好人，和颜悦色<br>表达厌恶最好的方式不是争吵，而是要努力的奋斗。  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第七节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
+<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
+<p>自我和自私是两种最糟糕的负面心态。</p>
+<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
+<p>先做好自己不要给别人带来麻烦。</p>
+<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
+<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
+<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
+<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
+<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
+<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
+<p>总结：</p>
+<ul>
+<li>第一讲：心态认知，别人的评价…自我认知</li>
+<li>……..</li>
+</ul>
+<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第三节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
+<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
+<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
+<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
+<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
+<p>它可以帮你建立自信  </p>
+<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
+<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
+<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
+<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
+<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
+<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
+<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
+<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
+<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
+<p>疗效持久不易复发  </p>
+<p>自卑不自信一定要试试  </p>
+<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
+<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
+<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
+<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
+<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第六节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
+<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
+<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
+<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
+<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
+<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
+<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
+<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
+<ol>
+<li>第一个阶段:不要再为自己担心了,自己做决定</li>
+<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
+</ol>
+<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
+<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
+<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
+<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
+<p>越疼越要不动声色，越苦越要保持沉默  </p>
+<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
+<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
+<ul>
+<li>两利相权取其重</li>
+<li>两害相权取其轻</li>
+</ul>
+<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
+<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
+<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第五节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第五堂课主题：面对批评，你应该摆一个正确姿势  </p>
+<p>懒惰是最可怕的事情<br>不牺牲短暂的享乐和安逸，就换不来长久的保障和幸福<br>找借口也很可怕<br>找借口会让自己失去机会<br>不能扛起责任无法付以重任  </p>
+<h2 id="闻过则喜的心态"><a href="#闻过则喜的心态" class="headerlink" title="闻过则喜的心态"></a>闻过则喜的心态</h2><p>一味在意对方的态度和自己的感受就会忘了事情的根本所在<br>错了就是错了，面对批评输球不要输姿势。  </p>
+<h2 id="永远感谢愿意花时间在你身上的人"><a href="#永远感谢愿意花时间在你身上的人" class="headerlink" title="永远感谢愿意花时间在你身上的人"></a>永远感谢愿意花时间在你身上的人</h2><p>他认识你。<br>你们之间有关系别人才会花时间批评你。<br>所以一定是你们之间有联系，尤其在你年轻的时候，多半是你有改进的空间<br>他的批评可以让你变得更好<br>所以错了就认，认了就改正。</p>
+<h2 id="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"><a href="#面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”" class="headerlink" title="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"></a>面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”</h2><p>哪怕严厉苛刻，谦虚使人进步骄傲使人落后，有则改之无则加勉。<br>达尔文： 能够生存性下来的物种，并不是那些最强壮的，也不是最聪明的，而是那些对变化做出快速反应的<br>面对批评，正确地姿势应该是沉心静气的想一想我哪儿做错了。我该怎么改。<br>被批评不是坏事。  </p>
+<p>因为在意，所以争吵。  </p>
+<h2 id="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"><a href="#如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。" class="headerlink" title="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"></a>如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。</h2><p>凡事先在自身找原因。<br>不要苛求他人。千万不要遇事着急，冷静思考沉着应对才是面对批评正确的姿势。<br>如果大错酿成，最重要的不是埋怨推诿，而是面对和解决。  </p>
+<h2 id="面对批评的职业心态"><a href="#面对批评的职业心态" class="headerlink" title="面对批评的职业心态"></a>面对批评的职业心态</h2><p>不要埋怨老板苛刻。老板骂你是希望快点成长。</p>
+<h2 id="褒贬是买主，喝彩是闲人"><a href="#褒贬是买主，喝彩是闲人" class="headerlink" title="褒贬是买主，喝彩是闲人"></a>褒贬是买主，喝彩是闲人</h2><p>正是因为有所期待才会批评有所改进。</p>
+<p>普京：没有实力的愤怒毫无意义。<br>道理：好学生做坏事不是没有被老师发现，老师可能只是装作看不见。对自己而言成长才是硬道理。  </p>
+<p>苦练七十二变才能笑对八十一难。  </p>
+<p>高情商：不断改过，默默自强。<br>解释就是掩饰，掩饰就是事实。  </p>
+<p>可怕的不是犯错，而是不知道错在哪里还在盲目争辩。而是知错不改还重复犯错。  </p>
+<p>所以错了第一步是认，第二步是改。  </p>
+<p>第一次是不知道，第二次是不小心，第三次就是故意了。</p>
+<h2 id="示弱有助于解决冲突。先认错后解释"><a href="#示弱有助于解决冲突。先认错后解释" class="headerlink" title="示弱有助于解决冲突。先认错后解释"></a>示弱有助于解决冲突。先认错后解释</h2><h2 id="越是不认错被骂的越多"><a href="#越是不认错被骂的越多" class="headerlink" title="越是不认错被骂的越多"></a>越是不认错被骂的越多</h2><p>骂你是因为你是负责的人。谁负责谁担责。这个是态度问题。  </p>
+<p>狗咬人一口，人不能回咬回去。</p>
+<p>有个好心态，先和自己将锻炼自己情商的时候到了，先克制情绪在解决问题。  </p>
+<p>退一步海阔天空，退三分风平浪静。  </p>
+<p>所以和蛮不讲理的人讲理先示弱表达部分认同，再换位思考给出方案，先礼后兵。  </p>
+<p>发现问题是好事，解决问题是大事，没有问题是坏事。</p>
+<p>成功是来自精准的勤奋而不是平庸的忙碌，批评是成长的机会，闻过则喜。  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第四节心态课</title>
+    <url>/2020/03/18/%E5%BF%83%E6%80%81%E8%AF%BE/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
+<p>别人家孩子。  </p>
+<p>你看看人家谁谁谁，你再看看你自己  </p>
+<p>不能让孩子输在起跑线上  </p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
+<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
+<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
+<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
+<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
+<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
+<p>比较有时让人惶恐  </p>
+<p>不要在千千万万的比较当中迷失自我。  </p>
+<p>比较有时候就是用拉人下水的形式找认同感  </p>
+<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
+<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
+<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
+<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
+<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
+<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
+<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
+<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
+<p>知足是一种生活态度  </p>
+<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
+<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -11224,8 +11245,8 @@
         <category>RabbitMQ</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
         <tag>RabbitMQ</tag>
+        <tag>笔记</tag>
         <tag>RabbitMQ实战指南</tag>
       </tags>
   </entry>
@@ -19294,6 +19315,18 @@
 ]]></content>
   </entry>
   <entry>
+    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
+    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
+    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
+]]></content>
+      <categories>
+        <category>理财</category>
+      </categories>
+      <tags>
+        <tag>理财学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>两种思维方式决定了你只能当穷人</title>
     <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB01/</url>
     <content><![CDATA[<p>今天跟几个朋友在不同的场合下偶然谈到理财投资这方面的话题，几个朋友的反应不尽相同却又大体一致。<br>    燕子是我的闺蜜，偶尔会在微信上跟我哭穷，今天又是如此，我终于按耐不住心中的激动的问她为什么还不理财？她却依然还是那句老话：“我现在连五百块的存款都没有，还理财，至少也得等我月余三千的时候再考虑这方面的问题吧。我现在只想挣钱。”我只能无奈摊手。<br>    其实跟燕子提起理财已经不是第一次，可是她不仅听不进去，甚至还怀疑我是不是在搞传销……我记得之前她说自己是因为工资低所以存不下钱，于是她不断跳槽，即使一年跳槽三次，每次工资都有所上涨，她仍旧月月无结余。<br>    在燕子眼里，理财是一定要建立在有可观的存款基础之上的。<br>    而另一个人物，也是这么想的。<br>    沈二是个帅哥，大学那会儿过得风生水起，甚至半途退学创业，摆脱了学校的禁锢小日子过得有声有色。好景不长，创业遭遇失败后沈二本分地当起了上班族，但是近两年却开始频繁地找人借钱，以此度日。欠我五百块钱一直拖了两个月都没还上，今天实在是捱不下面子给我说月底会还。<br>    我问他为什么现在如此狼狈，他说现在月月负债，领了这个月的工资都不够还上个月的欠款，生活一度陷入恶性循环。<br>    我说那你为什么不理财？他说：“都负债了还有财可理？每个月工资都不够我花。”我说那你不能怪工资少，因为你现在肯定也不记账，也不检讨，更谈不上自我总结自我分析了。你根本不知道到底为什么自己每个月都入不敷出。<br>    在沈二眼里，因为工资低所以常年负债，因为时常负债所以无从理财。<br>但是理财门槛真的有那么高吗？<br>难道一定要先有财才能理，不可以先打理，后生财？<br>我相信像燕子一样人不在少数，和沈二同样处境的人也肯定占比不小。月光族在社会上绝对是一个相当庞大的群体，没有经济来源的学生党也是无财大军。<br>但我认为可怕的不是月光不是穷，真正可怕的是一个人月月月光常常吃土，却从来不自我剖析自我检讨，安于现状的在困窘无奈的漩涡里沉醉，不想改变现状，不愿努力向上，不敢看真正的自己。<br>    有时候我们还真的不能怪工资少，寄希望于用存款改变生活也是愚不可及的。没有哪一家企业长生不老，我们的钱也每天都在经历通货膨胀。<br>如果你现在已经可以做到月有结余，那你只是把钱放在银行和余额宝是肯定不够的，定期利率和余额宝收益率并不能帮你跑赢通货膨胀，你辛苦攒下来的钱还会在日复一日的通货膨胀中经历贬值。<br>    所以你愿意看着自己存款在上涨，购买力却在降低吗？</p>
@@ -19409,18 +19442,6 @@
 以前，我妈每年年底大扫除扔东西时，总爱念叨一句话：&quot; 穷人才留破烂，越留越穷。&quot;
 
 其实，穷人思维才是越留越穷、最应扔掉的 &quot; 破烂 &quot;。永远记住——真正的穷不是缺钱，而是呆在穷人思维的怪圈里走不出来。</code></pre>]]></content>
-      <categories>
-        <category>理财</category>
-      </categories>
-      <tags>
-        <tag>理财学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
-    <url>/2020/01/30/%E7%90%86%E8%B4%A2/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
-    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
-]]></content>
       <categories>
         <category>理财</category>
       </categories>
