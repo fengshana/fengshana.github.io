@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="面试,红黑树,MySql索引,B+树,B树,HASH表,二叉树," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Fsn" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="笔记观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV13x411Z7AQ?from&#x3D;search&amp;seid&#x3D;12763347691863057372 索引的本质索引的本质   索引是帮助MySQL高效获取数据的排好序的数据结构 索引存储在文件里 索引结构 二叉树 红黑树 HASH BTREE    问题：有没有在生产环境SQL查询的非常慢，需要优化的。答：真的有">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySql索引底层数据结构">
+<meta property="og:url" content="https://fengshana.github.io/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/index.html">
+<meta property="og:site_name" content="Fsn">
+<meta property="og:description" content="笔记观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV13x411Z7AQ?from&#x3D;search&amp;seid&#x3D;12763347691863057372 索引的本质索引的本质   索引是帮助MySQL高效获取数据的排好序的数据结构 索引存储在文件里 索引结构 二叉树 红黑树 HASH BTREE    问题：有没有在生产环境SQL查询的非常慢，需要优化的。答：真的有">
+<meta property="og:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/A4iGmUNmJRGB0WvSlhU9nZBOfN1vHYopvPMA4j5j9c4!/r/dFQBAAAAAAAA">
+<meta property="article:published_time" content="2020-04-14T19:17:44.486Z">
+<meta property="article:modified_time" content="2020-05-18T17:36:22.287Z">
+<meta property="article:author" content="Fsn">
+<meta property="article:tag" content="面试">
+<meta property="article:tag" content="红黑树">
+<meta property="article:tag" content="MySql索引">
+<meta property="article:tag" content="B+树">
+<meta property="article:tag" content="B树">
+<meta property="article:tag" content="HASH表">
+<meta property="article:tag" content="二叉树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/A4iGmUNmJRGB0WvSlhU9nZBOfN1vHYopvPMA4j5j9c4!/r/dFQBAAAAAAAA">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/04/15/面试/【MYSQL】MySql索引/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>MySql索引底层数据结构 | Fsn</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Fsn</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-camera">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[诗酒年华]</h1>
+    <p id="poem">挑选中...</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '《' + result.data.origin.title + '》'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Fsn">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MySql索引底层数据结构</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-15T03:17:44+08:00">
+                2020-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  11.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  41
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/A4iGmUNmJRGB0WvSlhU9nZBOfN1vHYopvPMA4j5j9c4!/r/dFQBAAAAAAAA" rel="gallery_ckadrm4s600d65kumbuyn080b"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ0le4HD/A4iGmUNmJRGB0WvSlhU9nZBOfN1vHYopvPMA4j5j9c4!/r/dFQBAAAAAAAA" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>观看笔记：<br><a href="https://www.bilibili.com/video/BV13x411Z7AQ?from=search&amp;seid=12763347691863057372" target="_blank" rel="noopener">https://www.bilibili.com/video/BV13x411Z7AQ?from=search&amp;seid=12763347691863057372</a></p>
+<h3 id="索引的本质"><a href="#索引的本质" class="headerlink" title="索引的本质"></a>索引的本质</h3><p>索引的本质</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXwvSlPCJJI2vYZaT3H0rZCG38flqH5eE7TMAOK*DSM1BhWXXI4cugphYQTkM94HMJ9GHGpkBn3QA6a5u74EOK8M!/r" alt="索引"></p>
+<ul>
+<li>索引是帮助MySQL高效获取数据的排好序的数据结构</li>
+<li>索引存储在文件里</li>
+<li>索引结构<ul>
+<li>二叉树</li>
+<li>红黑树</li>
+<li>HASH</li>
+<li>BTREE</li>
+</ul>
+</li>
+</ul>
+<p>问题：有没有在生产环境SQL查询的非常慢，需要优化的。<br>答：真的有过，就是上一家公司做的那个项目关系到全国，省，市，区，县这种的，每次一统计吧就是全国的那种统计，就是该省下有多少人注册了，该市下有多少人注册了…..这种，每次加载大半天都搞不赢，那个页面都出不来。<br>这个属于慢查询吗？我也不是很清楚诶。反正就是数据量贼大，然后用的Oracle数据库，因为还有就是交易量很大。  </p>
+<p>问题： 遇到这种问题第一时间想到的优化是什么？<br>答：额，我好像也没有做什么优化，通过主键来进行查询，就是交易量特别大的时候，然后去查询的时候，就是使用的交易表TRANS 当中的主键去进行查询大部分是。然后就是因为是二次开发这个系统，所以在Oracle数据库当中是存在之前的开发者所写的索引的。然后就是不去使用外键，就是外键关联的外键这种不去进行使用，而是有些表当中额怎么说呢，就是有些表当中记录的字段存在，而另外一张表当中因为不去进行关联查询trans表这种数据量大的表就自己这张表也会记录一些数据这种。尽量通过主键去查询，因为通过其他的去查询，比如字符串这种的碰到有些时候会很慢。或者是还有就是写那个查询，navicat当中写个查询然后保存。<br>我想不到其他的了，因为没有怎么用过索引。  </p>
+<p>首先检查索引；<br>查看SQL当中的where当中的查询字段是否有加索引；<br>或者说加了索引是否正确索引呢；<br>只要SQL不太烂，正常的走索引，数据量几百万上千万行的数据表，查询的速度依然会很快。  </p>
+<p>思考： 一个几百万上千万数据量的表，只要加上了索引，然后查询的条件又是走的索引，关键的字段，为什么查找的速度就能够提高很多，性能会高？<br>答：因为索引就相当于是书的页码，比如我要查询新华字典当中的某一个字，找到它的索引，也就是它的页码，一下子就能找到了。不过至于它的底层方面的原理我不是很清楚。没有过这方面的研究，我也只是听说过是通过b+ 树实现的？  </p>
+<p>索引的定义：索引是帮助MySQL高效获取数据的排好序的数据结构。<br>索引结构：  </p>
+<ul>
+<li>二叉树</li>
+<li>红黑树</li>
+<li>HASH(哈希表)</li>
+<li>BTREE（B树）</li>
+</ul>
+<p>数据表是存储在磁盘文件当中；所装MySQL当中的data目录，目录下为数据库；<br>表数据实际上就存放在磁盘上了；<br>那从数据表当中去读取数据的时候查询某一行数据的时候，意味着就需要从磁盘上去查询这个数据表当中的数据。<br>如果该数据没有加索引则从第一行开始进行查找；<br>select * from t where t.col2=89;<br>如果该表t没有加任何索引则需要从该表第一行开始遍历。逐行查找逐行比对。直到查找到n次磁盘查找到数据匹配位置。如果要查找的数据在末尾，数据量非常大的情况下，每次从表头进行查找，性能非常差。这也就是全表扫描。  </p>
+<p>问题：有什么办法优化SQL查询？  </p>
+<ul>
+<li>给字段加索引。<br>给col2字段加上索引后，即便是该表当中存在数据量十分大，查询起来的效率也会很高。<br>这个原因是什么？<br>给该字段加上索引之后，该字段作为索引字段之后，它在该表中的存储结构，该字段的存储结构就有一点区别。<br>索引本质上是一种数据结构。<br>所以当给col2字段加上索引之后，那么就会将该col2字段列的数据通过以一种数据结构进行存储起来。  </li>
+</ul>
+<h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><p>二叉树（Binary Search Trees，简写BST）：<a href="https://www.cs.usfca.edu/~galles/visualization/BST.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/BST.html</a>  </p>
+<p>比方说，常见的数据结构-二叉树，将col2字段该列的数据放到二叉树当中来，该字段col2的列的数据，每一个数据都放到二叉树当中去；<br>而二叉树的每一个结点是一个key-value的一个取值；也就是说key其实即为索引字段，而value则为箭头的指针；索引字段所对应的这一行的数据，在磁盘上的一个文件指针；<br>如果通过一个合理的方式，或者说是一个好一点的数据结构，来放索引的这个字段，以及每一个索引对应的这一行数据，磁盘文件指针；那么再去看查找这行数据。<br>数据结构-二叉树常识：  </p>
+<ul>
+<li>根节点（父节点）的右孩子取值大于根节点（父节点）取值；</li>
+<li>根节点（父节点）的左孩子取值小于根节点（父节点）取值；</li>
+<li>从左到右依次递增；</li>
+</ul>
+<p>如果要查找 select * from t where t.col2=89这一行数据；<br>用索引字段去查找的话，那么先走索引；<br>而索引是当前被放在二叉树这样一种数据结构当中去了；<br>那么再去进行查找；那么肯定是从根结点开始进行查找；那么第一次查询，从磁盘上进行查询结点后发现34和89对不上，错了；89是大于34的；按照二叉树数据结构的这样一个特点、特性；找到该根结点的右边的子结点，一找即发现当前右边的子结点即为当前查询的结点；然后通过找到的该结点找到该结点所对应的value；该value放的就是这个索引字段所对的那一行的数据磁盘文件指针；那么就可以很快查找得到；<br>通过一种合理的数据结构来放刚加的这个索引字段；那么这个查找的速度就会变得快很多。  </p>
+<p>MySQL的底层原理并不是二叉树。<br>MySQL的底层是B+树；<br>MySQL的最终底层为什么选择B+树而不选择其他的数据结构？  </p>
+<p>通过一种合理的数据结构来放索引的字段，那么查找的效率就将会快很多；就不用一行一行的去遍历表，即不用全表扫描式查询某一行数据；而是可以先快速的从索引的数据结构当中快速的定位到某一个索引，再把这个索引对应的那一行数据的磁盘文件指针给查询出来，就能够快速的从磁盘上找到该行要查询的数据；  </p>
+<p>索引具体是什么样的数据结构？  </p>
+<p>MySQL官方没有选择二叉树，说明二叉树在某些场景下是存在问题的；  </p>
+<p>for example:  </p>
+<p>假设表t，将col1作为索引字段，那么SQL语句就需要变成：<br>select * from t where t.col1=6;来进行查找；<br>现在将col1作为一个二叉树；<br>当t表在插入数据的时候，二叉树插入数据的一个变化过程；<br>二叉树这样一个索引结构的变化；<br>插入第一行数据首先会去维护这个索引，第一列col1的数据呈现的规律为顺序递增，递增；每插入一行数据会先要去维护索引的这个数据结构；<br>索引在二叉树当中存在一个递增的规律，顺序递增；<br>每插入一个数据，首先要维护二叉树（Binary Search Trees）递增顺序的一个字段；<br>二叉树如果是维护这样一个递增顺序的字段作为索引会是一个什么样的一个情况；  </p>
+<ul>
+<li>索引-BinarySearchTrees插入递增数据<br><img src="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BinarySearchTrees%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BinarySearchTrees插入递增数据"></li>
+</ul>
+<blockquote>
+<p>国外二叉树（各种数据结构）的一个教学网站（解析动画演示）：<br><a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</a></p>
+</blockquote>
+<p>插入第一行数据，再插入第二行数据，先进行维护这个索引；<br>如果二叉树维护的是这种单边增长的这种字段，而二叉树正好作为索引的底层数据结构，此时就会出现问题；<br>二叉树也会变成单边增长；<br>二叉树对于这种col1字段是单边增长的这种情况是不符合的；<br>这种用二叉树存储索引字段，就跟在数据表中去全表扫描没有任何区别，效果一样,没有什么区别；<br>二叉树这种数据结构对于索引的存储，索引字段的存储在某些方面是存在局限的；  </p>
+<ul>
+<li>索引-BinarySearchTrees查询递增数据<br><img src="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BinarySearchTrees%E6%9F%A5%E8%AF%A2%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BinarySearchTrees查询递增数据"></li>
+</ul>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>红黑树：<a href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/RedBlack.html</a>  </p>
+<p>问题：是否听说过红黑树？<br>答：听说过，且jdk1.8当中HashMap当中链表长度达到8之后就会将数据结构链表转化成红黑树这种数据结构；  </p>
+<p>二叉树不行，则看看其他的更好的数据结构是否能够更好的存储索引字段;<br>红黑树也是一种常见的数据结构；<br>jdk在1.8之后，HashMap底层的链表实际上就是用红黑树来做了一个优化；  </p>
+<p>插入递增数据会自动平衡；  </p>
+<ul>
+<li>索引-RedBlack插入递增数据<br><img src="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-RedBlack%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-RedBlack插入递增数据"></li>
+</ul>
+<p>查询时相对于二叉树来说要少一点；用红黑树来存储索引字段，相对于用普通的二叉树来存储来说，性能稍微高一点；<br>红黑树针对于这种单边增长的这种情况，只要单边出现3个连续递增的结点会做一个自动平衡的处理；那么存储同样的数据的话，整体的高度相对来说红黑树肯定要比二叉树要短；  </p>
+<ul>
+<li>索引-RedBlack查询递增数据<br><img src="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-RedBlack%E6%9F%A5%E8%AF%A2%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-RedBlack查询递增数据"></li>
+</ul>
+<p>问题：二叉树是可以自动平衡的，那么想一想如果用二叉树来做索引字段存储的数据结构有没有什么弊端？在哪些业务场景当中可能又有一些小问题？<br>答：我想不太出来诶。  </p>
+<ul>
+<li>红黑树范围查询</li>
+<li>当数据量小的时候查询起来效率还在线上；如果当数据量大的话，红黑树将不断的往下增长；树的高度有可能变成2的n次方；这个n即为树的高度；每个结点即2，这个树能够存多少索引字段，即2的n次方；</li>
+<li>如果说要查找的n，要查找的那一行的索引字段刚好是在树的叶子结点上面。一般是从根节点上进行遍历，那么查找遍历的次数至少是树的n，高度次这么多；那么从磁盘上要经过几十次，一个结点查找一次，查找一次有一个专业的术语，跟磁盘打一次交道，叫做磁盘IO，这样的话针对磁盘IO来说性能是不高的；效率不是特别高；可以说效率比较低了；如果还经历几十次这样的磁盘IO，性能是肯定没有办法接受的；</li>
+</ul>
+<p>红黑树这种数据结构，一旦表的数据量特别大的时候，查找数据的效率依然会很慢；<br>因为查找数据可能就在叶子结点上；<br>红黑树在数据量大的时候也是存在弊端的；  </p>
+<p>红黑树不行，可以对其做一点点改造；  </p>
+<p>即便是大数量情况下，几百万甚至是上千万的数据量下；通过一种数据结构能够快速的定位到所需要的那个数据的索引的字段；从而根据那个索引的字段能够得到结点当中的那个value值，也就是索引所在那一行数据的磁盘文件指针来定位到磁盘上的某一个位置查找到这一行数据；  </p>
+<p>可以对红黑树进行改造进行优化；  </p>
+<p>红黑树也是二叉树；叫做二叉平衡树；<br>因为红黑树会自动平衡；在红黑树的基础上做一下改造，从而解决在大数据量这种情况下出现的弊端（因为树的高度太高，也就是树存储大数据量的情况下，树的高度太高，磁盘IO就将随着树的高度height增长而增长）；  </p>
+<p>问题： 对红黑树进行改造，让红黑树效率更高一点？  </p>
+<ul>
+<li>n叉树</li>
+<li>原来结点存储到磁盘上面，之前结点就只存储一个索引字段，那么可以将这个结点弄大一点，也就是将它的磁盘存储空间分配大一点（也就是让这个结点上多存储几个索引字段）；且每一个索引之间都可以进行分叉，分叉下的索引结点的磁盘存储空间也分配大一点，也存储多个索引字段，每一个结点都可以有多个结点（多个索引元素）；  </li>
+</ul>
+<p>问题： 这样的存储结构，同样的大数据量的情况下，这样改造红黑树后的结构存储大数据量记录比改造前的红黑树，树的高度要小得多得多；<br>减小了红黑树的纵向，红黑树的高度，而增长了红黑树的横向；<br>横向越长，存储同样大的数据量，树的高度就越矮；树的高度越矮，查找一行数据，也就是某一结点上的数据，那么其效率也就越高；  </p>
+<p>已经慢慢接触到MySQL底层的数据结构：<br>这种改造其实就是B树  </p>
+<ul>
+<li>磁盘存取原理<ul>
+<li>寻道时间（速度慢、费时）</li>
+<li>旋转时间（速度较快）<br><img src="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%A3%81%E7%9B%98%E5%AD%98%E5%8F%96%E5%8E%9F%E7%90%86.png" alt="磁盘存取原理"></li>
+</ul>
+</li>
+</ul>
+<p>横向查找不就慢了吗？</p>
+<h4 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B-Tree"></a>B-Tree</h4><p>B-Tree</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXx5xRm2O7Hw.CPoJY21PbGHy3.R9D2C3BHGRAwPaR*QEhgcUF1UMc2yymaSzxbgBOKNjFYrOEqnDAvX4*fMGPmY!/r" alt="索引"></p>
+<ul>
+<li>度（Degree）-结点的数据存储个数</li>
+<li>叶子结点具有相同的深度</li>
+<li>叶子结点的指针为空</li>
+<li>结点中的数据key从左到右递增排列</li>
+</ul>
+<p>刚刚说到红黑树不行，可以在红黑树的横向上做文章；<br>存储同样大的数据量，树的高度将会大大的减小；<br>那就变成了引入B树；  </p>
+<ul>
+<li>索引-BTree插入递增数据<br><img src="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BTree%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BTree插入递增数据"></li>
+</ul>
+<p>结点内数据有限，不能无限放大；<br>B树比红黑树来说有更大的优点；<br>问题：在横向上做文章，那横向查找不就慢了吗？<br>注意：一个结点的大小是由限制的；结点当中的数据量是有限制的；不可能无限延长、大；比如说给这个结点设置几k大小，或者1Mb这么大；如果这个结点太大；<br>一个结点对应磁盘上的一个磁盘文件地址，对应一个大的磁盘文件地址；<br>MySQL设计的是，尽量的一次磁盘IO查找，在进行查找的时候是希望一次性把这个结点放到内存；<br>MySQL查找一次，跟磁盘做一次磁盘IO交互的时候，它会把这一个横向结点全部放到内存当中；只要这一个结点的数据都放到内存之后；那之后再到这个横向结点当中再进行查找数据；比方说要查找77，那么刚刚说经过了一次磁盘IO之后，会将这一个横向结点当中的所有索引元素都放到内存当中去，那么再去查找77，实际上就是从内存当中去进行查找这个77了；内存当中查找性能就非常快了；内存当中查找跟一次磁盘IO进行查找完全是不同级别的；<br>所以不用担心横向查找是否会慢；  </p>
+<p>问题：那是否能将表中的所有行数据都放在一个横向结点当中，将这个横向结点设置为无限大；几百MB或者是几个G的大小用以这个横向结点做存储索引元素？那么一次查找即一次磁盘IO将这些数据一次性放到内存当中；之后就是从内存当中查询索引数据；那就很快了；？  </p>
+<p>这个横向结点不能设置太大；<br>如果设置太大那么弊端将存在更多；首先；比如说几百万行上千万行的数据的索引怎么说也要几百MB，甚至1、2G来存储；也跟索引的字段类型有关，比如说String类型或者UUID类型等就肯定要几百MB；那么一次查找就全部放到内存的话；一次磁盘IO就需要花费很长时间，而且一次磁盘IO还不一定能够全部放到内存当中去；<br>一次磁盘IO也是有存在大小限制的；就算一次磁盘IO能够将该横向结点当中的所有的索引元素放到内存当中去，那也需要时间来放着几百MB的索引元素；而且可以思考一下，事先就将这几百MB设置几个G的索引元素直接放到内存当中去，而真正去查找数据的时候可能也就是查找最常用的10%都不到的行数据；<br>如果老是将整张表的数据全部都一次性放到内存当中去；那就将对这个内存的消耗太过于浪费；内存的资源是很宝贵的；<br>所以说这对该弊端；MySQL对于这一个横向结点是不会将其设置过大；尽量设置一个合适的大小；让这个结点，通过一次磁盘IO能够快速全部存入到内存当中；  </p>
+<p>B-Tree应该叫做多叉平衡树；<br>B-Tree有一个特点：在中间来看一样也满足二叉树的原则；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX5q0FjtHgrmg9JO6KfRhTseVNI0ZlC7sOBVRXN8io620BWK0osf4XOQsJRaBrrA60171VhwueoMM9fAlldBY.Fs!/r" alt="索引"></p>
+<p>56左边的所有元素都小于56相对来说右边的元素；而56右边的索引元素都是大于56左边的父元素；<br>20和49都小于56；而20和49都大于15；  </p>
+<p>然后B树还有一个特点就是在这一个结点当中，这一个横向结点当中从左到右它也是递增排序的；15小于56；56小于77；这是B树的一个特性；同时也是该数据结构的一个特性；<br>也就是说要用B树来维护这个数据结构时，它会按照这个特性进行初始化好；需要进行查询某一索引元素时也同样按照其特性去查找；<br>比方说要进行查找49这一索引元素；那么MySQL的查找方式即为：先将第一个结点横向结点根结点通过磁盘IO之后放到内存当中；然后到内存当中进行去比对；先比对15与49之间的大小；49大于15，接着进行比对49与56；则49小于56；然后再去查找比对15和56中间的索引元素；15和56中间存放的是指针，指针存放的是下一个索引元素，也就是下一个结点所对应的磁盘指针整个查询出来；即该指针所对应的结点数据全部放入到内存当中；然后放到内存当中去进行比对大小；然后接下来49与20进行比对，49大于20；那么接着49与49进行比对；就刚好相等；刚好找到该索引远元素了；找到该索引元素之后，则每一个索引当中存放的为key-value；value当中即存储着该索引这一行数据所在的磁盘文件当中的指针；那么拿到这个data之后；磁盘文件指针就能够快速的找到磁盘文件数据；即聚众索引；  </p>
+<p>MySQL真正的底层索引并不是用B树来进行实现；而是使用的一种变种的B树，称之为B+树；  </p>
+<h4 id="B-Tree-B-Tree变种"><a href="#B-Tree-B-Tree变种" class="headerlink" title="B+Tree(B-Tree变种)"></a>B+Tree(B-Tree变种)</h4><p>B+Tree(B-Tree变种)</p>
+<ul>
+<li>非叶子结点不存储data，只存储key，可以增大度；</li>
+<li>叶子结点不存储指针；</li>
+<li>顺序访问指针，提高区间访问性能；</li>
+</ul>
+<p>什么叫做B+树，B+树是B树的一个变种；  </p>
+<p>B+树与B树的区别：<br>B+树：所有的data都放到了叶子结点上；而非叶子结点没有了data；<br>B+树的叶子结点上都有一个右指针；  </p>
+<p>问题：为什么B树当中非叶子结点上的data元素都移到了叶子结点上去了；<br>B树当中每一个叶子结点并不重复；而B+树当中一些关键的索引做了冗余；不光是在叶子结点上非叶子结点上也做了冗余；  </p>
+<p>非叶子结点上为什么没有data元素了？<br>这么一存的话（非叶子结点上存data元素，非叶子结点不存data元素）；那么就意味着整个B+树的叶子结点当中；就有了数据表的完整的所有行的索引；因为把每一行的data都往叶子结点上移动；那么每一行数据都存在有一个data的磁盘文件指针；那也就意味着；所有的行数据应该在叶子结点都有一份完整；只不过某一些关键的索引的元素；在非叶子结点上做了一个冗余；15、20、49做了冗余；方便遍历数据；一次磁盘IO取更多的k；  </p>
+<p>其中常见的数据结构在不同场景下的区别  </p>
+<p>MySQL实际上希望的是这一个结点的大小是有一个适当的大小，不能设置太大；<br>也就是说这一个结点的大小是存在有限制的；<br>每一个结点当中能够存储更小的元素，是不是也就意味着；一个大结点当中里面能够存储更多的索引的key；也就是说能够存储更多的索引字段；也就意味着这一个结点在大小相同的情况下；比方说，默认MySQL把这个结点的大小设置为16k；<br>在这一个大结点，一个大小固定的情况下面；这一个大结点当中的每一个小结点如果把data元素移动到叶子结点上去；是不是也就意味着整个这一个大结点可以横向可以存储更多的索引元素；  </p>
+<p>那么如果横向可以存储更多的索引元素，那也就意味着这个横向结点向下的分叉也就越多；分叉分得更多，也就说明，存储同样大的数据量，树的高度也就更小了；那么叶子结点也就更大了；  </p>
+<p>为什么要将data移动到叶子结点上去的原因就在于：非叶子结点当中也就可以横向存放更多的索引元素；从而树的高度也就效率，查找的效率也就提高了上来；  </p>
+<p>MySQL默认把结点的大小设置为16k；<br>SHOW GLOBAL STATUS like ‘Innodb_page_size’;  </p>
+<table>
+<tr>
+<th>Variable_name</th>
+<th>Value</th>
+</tr>
+<tr>
+<td>Innodb_page_size</td>
+<td>16384</td>
+</tr>
+</table>
+
+<p>该sql语句查出来的值实际是上就是MySQL底层存储索引字段，B+树的这个大结点的大小；当然也可以去进行修改该值；但是一般并不推荐去修改该值；<br>16384个字节；实际上也就相当于是16k数据；也就是16k的大小；这个大小在磁盘上也就是分配的16k的一个磁盘大小；  </p>
+<p>思考：刚刚将data元素放到叶子结点上面去了；现在画的树的高度为3；思考现在高度为3的该树一共可以存储多少索引字段？  </p>
+<p>假设该索引字段的字段类型为bigint；表的主键/索引的类型一般为bigint；<br>bigint在MySQL的底层的存储大小大概为8个字节byte；  </p>
+<p>大结点当中除了索引字段占据n*8个字节外，还存在有指针；指针在MySQL底层源码使用的是6个字节byte来进行存储这个指针；这个指针说白了就是下个结点在磁盘文件上的一个地址；  </p>
+<p>也就是说这个大结点当中存储了这样一个小的索引，以及索引旁边的指针；差不多也就是8Byte+6Byte=14Byte（一个索引+一个指针）；这一个大结点16k大概能够存储多少个索引；<br>公式=16384Byte/(8Byte+6Byte=14Byte)=1,170.285714285714<br>一个大的结点可存储的索引数约为1170个；也就是大概1k的样子；  </p>
+<p>那么第二个结点，也可以进行存储1170个索引数；  </p>
+<p>再说到叶子结点；所有的data元素都放到叶子结点；那么叶子结点就会变大；每一个小结点就都会变大了相比之前没有放data元素之前变大了；  </p>
+<p>假设一下；假设这个叶子结点当中的一个小叶子结点，也就是对应的这一行索引以及该索引所在的行的那个磁盘文件文件指针或者说这一行的其他数据就存储到这个小结点当中；假设这个小结点就大一点，就存储1k的数据；那么这一个存储该小结点的大结点同样是存储16k的数据；那么也就是该结点所能够存储的索引元素为16个；<br>整个叶子结点当中可以容纳多少的索引元素（存储的所有的索引的数值）？<br>公式：（根结点上的1170这一层）1170<em>1170</em>16=21,902,400‬<br>算出来的该值实际上就是该叶子结点上所有可以存储的索引元素的总和；  </p>
+<p>非叶子结点的所有的索引元素*每一个叶子结点可以存储的多少个索引行数据  </p>
+<p>这个结果算出来差不多等于两千多万；两千多万所算出来的东西；也就意味着该叶子结点能够放的总索引元素个数（小索引元素+data元素）大概是两千多万；（也就相当于是两千多万条/行数据）；  </p>
+<p>使用B+树这么一改造之后；发现同样树的高度；高度为3；该树就能够存储两千多万条个索引，也就说明可以支撑两千万行的表；将这两千多万行数据的表当中的一字段作为索引存储到该数据结构当中，那么同样高度为3，height为3，查找一个元素比方说查找50；那么从根结点去进行匹配对比；经过顺序查找；50与父节点/根结点当中的15-56对比，查找中间的数值即该根结点的左节点；也就是再跟15-28-49进行比较，得到50再去与该结点的下一结点比较即49-50；最多经过三次磁盘IO；就能够找到索要查找得到的元素50；性能十分高；  </p>
+<p>这也就是为什么上千万行数据；只要索引字段建的比较的合理、合适；那么其磁盘查找次数是非常少的；  </p>
+<p>用B+树来说；常见的数据表，树的高度一般就控制在2~4之间；<br>不管如何查询；即使是查询到叶子结点的速度也是十分快的；<br>只需要经过几次磁盘IO查找；  </p>
+<h4 id="HASH表"><a href="#HASH表" class="headerlink" title="HASH表"></a>HASH表</h4><p>MySQL的索引字段当中存在有索引方法；点击下拉框进行选择索引方法（存在有两种实现：一种是BTREE；一种是HASH）<br>HASH 也是官方的一种实现；但是使用的不多；<br>90%以上的场景都是使用的B树；<br>为什么不用HASH表的原因：<br>HASH表存储索引的原理：<br>比方说将col1作为索引字段；select * from t where t.col1=4;<br>通过一个hash算法，hash（4）；对该4取了一个HASH；得到的该结果，那么该结果就跟所查询的where t.col1(4)这一行数据所在磁盘文件是有一个映射关系的；<br>这就是HASH表的一个存储结构；<br>HASH实际上就是一种算法；比说MD5;MD5就是一种HASH算法；<br>HASH就是将索引列通过一种HASH算法将索引列的值存放到HASH这一数据结构当中去；<br>那么select * from t where t.col1=6;进行查找该t.col1=6的数据行；的HASH查找即为：对该col1=6；该6的该取值做一次HASH算法运算得到它的结果hash(6)；根据这个结果；只需要做一次映射就能够快速的定位到这一行数据所在的文件磁盘指针；<br>那么即便是千万级别的数据也只需要通过hash()一次HASH结果进行计算定位得到索引所在行数据的文件磁盘指针也是能够快速的查找得到的；感觉HASH表性能更高，比B+树效率更高；B+树还要经过两三次的树的一个遍历；而HASH表的查找感觉更快；<br>只需要有这个索引字段，走索引，经过MYSQL底层定义好索引方法为HASH算法，只需要一次HASH计算结果就能够拿到该查找行数据的所在文件磁盘指针；感觉性能很快；<br>甚至在数据量更大的表当中进行查找表尾的数据，也只需要经过一次HASH计算就能找到该行数据所在的磁盘文件指针；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXzV2Z6K9IOXoYW6kFdX*NnL.fv6XCleV5BjrQCN4Bw3HvJfkZCF6LFsSX26xC5WuUZwgbGD9vBaj2.Lec10r*m8!/r" alt="索引"></p>
+<p>那么为什么MySQL一般用B树而不用HASH表呢？<br>（1）范围查找太慢；比如说select * from t where t.col1&gt;6;<br>      那么当这种情况下；如果col1大于的数值，极端来想的话，也就相当于是全表扫描了；<br>（2）HASH只用于范围查找很少的情况下才进行使用；那么这个时候索引使用HASH是<br>      没有问题的；而正常情况下一般都会要使用得到范围查找所以这个时候使用B Tree更佳；<br>（3）回到问题：为什么InnoDB的主键索引的叶子结点上存在有指针（右指针）？<br>      在维护B+树的时候，比方说叶子结点的最后一个结点满了，那么就需要开辟一个新的结点（下一个结点）来进行存储新的索引元素；那么就将前面那个结点（也就是之前叶子结点的最后一个结点满了的那个结点）中间开辟一个小小的元素空间；把下一个新开辟的这一个结点的磁盘文件地址的指针存放到该新开辟的结点的上一个结点的那个小元素空间当中去；也就说白了；该新开辟的结点的上一结点有一个指针，指向了下一结点，也就是该新开辟的结点的磁盘文件指针；<br>      通过有了这个指针；再联想HASH表的范围查找进行思考，那么是不是说明该指针就能够帮忙解决很大的问题；<br>      比方说：查找索引字段取值col1大于20取值的记录；从B+ 树的索引找到该20的这一个元素；因为整个叶子结点的索引元素都是从左到右依次递增形式的；通过这个（右）指针顺藤摸瓜的形式（其实这里形成了一个双向指针，查询即小于20的元素也是一样的；双向链表），通过指针就能够找到大于20，也就是20这个索引元素后面的所有索引元素结点；最后放到一个大的集合当中去；也就是这条sql语句所要返回的结果集合；  </p>
+<p>B+树的两个特性：<br>（1）为了让非叶子结点能够存储更多的索引；从而叶子结点上除了索引元素还存在有data元素；<br>（2）在叶子结点索引元素之间还存在有一个指针指向下一索引元素结点的地址；存在有一个双向的指针；也就是为了解决如何高效的进行范围查找的这样一个问题；所以高效的范围查找也是可以进行走索引的；在某种情况下，范围查找也是可以走索引的；（因为存在指针，存在顺序递增顺序递减的这样一个结构，那么则肯定是可以走相关的索引的）  </p>
+<h5 id="B-Tree索引的性能分析"><a href="#B-Tree索引的性能分析" class="headerlink" title="B+Tree索引的性能分析"></a>B+Tree索引的性能分析</h5><ul>
+<li>一般使用磁盘I/O次数评价索引结构的优劣</li>
+<li>预读：磁盘一般会顺序向后读取一定长度的数据（页的整数倍）放入内存</li>
+<li>局部性原理：当一个数据被用到时，其附近的数据也通常会马上被使用；</li>
+<li>B+Tree结点的大小设为等于一个页，每次新建结点直接申请一个页的空间，这样就保证一个结点物理上也存储在一个页里，就实现了一个结点的载入只需一次I/O。</li>
+<li>B+Tree的度d一般会超过100；因此h非常小（一般为1~3之间）  </li>
+<li>一般操作系统的最小存储单元为页，1页大小为4k；  </li>
+<li>查看Mysql文件页大小（16k）: SHOW GLOBAL STATUS like ‘Innodb_page_size’;  </li>
+</ul>
+<h5 id="为什么MySQL页文件默认为16k"><a href="#为什么MySQL页文件默认为16k" class="headerlink" title="为什么MySQL页文件默认为16k"></a>为什么MySQL页文件默认为16k</h5><p>假设一行数据大小为1k；那么一页就能够存16条数据；也就是一个叶子结点能够存16条数据；再看非叶子结点，假设主键ID为bigint类型，那么长度为8B，指针大小在InnoDB源码中为6B，一共就是14B，那么一页里就可以存储16k/14=1170个（主键+指针）<br>那么一棵高度为2的B+树能存储的数据为1170<em>16=18720条，一棵高度为3的B+树能存储的数据为1170</em>1170*16=21902400（千万级条）  </p>
+<h3 id="索引底层数据结构与算法"><a href="#索引底层数据结构与算法" class="headerlink" title="索引底层数据结构与算法"></a>索引底层数据结构与算法</h3><h3 id="InnoDB与MyISAM索引区别"><a href="#InnoDB与MyISAM索引区别" class="headerlink" title="InnoDB与MyISAM索引区别"></a>InnoDB与MyISAM索引区别</h3><p>InnoDB形容表还是形容数据库？<br>InnoDB以及MyISAM存储引擎是用来形容数据表的；  </p>
+<p>当在设计表时，在选项当中有引擎选项存在有：ARCHIVE、BLACKHOLE、CSV、InnoDB、MEMORY、MRG MYISAM、MyISAM、PERFORMANCE SCHEMA…等等；  </p>
+<p>存储引擎是形容表的，最常见的存储引擎即InnoDB以及MyISAM这两种存储引擎；<br>用的比较多的为InnoDB该存储引擎；  </p>
+<p>不同表不同存储引擎底层的数据结构区别：  </p>
+<p>test数据库对应都是存储在本地磁盘上的；<br>以数据库名命名的磁盘文件夹下；  </p>
+<p>表=表结构+数据+索引  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8IZB7poXY4Ed7**8BhOfVx.BLlNb39BqBwC.ebBPiVr7.bXbWAXqMbGapRUkOP8BwmJQWBxopXJj*htdZrocUE!/r" alt="索引"></p>
+<p>InnoDB:<br>test.innodb.lock.frm - 表结构等相关信息存储文件<br>test.innodb.lock.ibd - 表数据+表索引结构  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX*r9r8zOgb4r0dv8mg9Q5qMyppmh2cPcvbiy6hMFV9ap4rR0IrTk.u5U5HvIcDcxnTh0*XJn4IhWeLwxBiXTkPg!/r" alt="索引"></p>
+<p>InnoDB的表有一个主键，该主键自带索引；主键索引在InnoDB存储引擎下如何存储；<br>InnoDB的这种文件存储方式，MySQL官方在开发的时候，InnoDB当中的主键索引以及表当中的所有数据全部存储同一个文件，叫做后缀为ibd的文件当中；<br>InnoDB存储方式当中的叶子结点当中的的data元素所表示的内容与MyISAM存储方式当中叶子结点当中的data元素所表示的内容不一致；索引结构有点区别；<br>MyISAM叶子结点的data元素当中所存为索引所在行的行数据的磁盘文件指针；<br>但是发现InnoDB的主键索引，它的叶子结点当中的data元素当中所存储的为索引所在行的其他所有列的数据；这一行的所有列数据全部存储到该data元素当中去；<br>也就是说在InnoDB当中，通过一条sql语句，带有where查询通过索引进行查询的sql语句；只需要查找一个文件，从这个ibd文件当中一次性定位到索引元素，快速的就能根据data元素，这个索引所在行的其他的所有字段，将该行的所有字段进行查询出来放入内存当中去；就查找到了所需要查找的元素；相对来说性能应该要比MyISAM存储引擎的性能会高一点；  </p>
+<p>InnoDB与MyISAM的底层存储是稍微有些区别的；  </p>
+<p>MyISAM：<br>test.myisam.frm - 该文件存储对表的表结构一些定义的一些数据；<br>test.myisam.MYD - 实际上存储的为表的数据，D英文单词data的简写（该表当中所有的数据行）；<br>test.myisam.MYI - 该表所对应的索引字段存储的位置；  </p>
+<p>主键自带主键索引；索引，它是一个数据结构，数据结构实际上存储在MYI文件当中；I即为Index首字母的简写；  </p>
+<p>MyISAM底层也为B+树数据结构进行存储；<br>MyISAM索引底层存储，如何进行存储：  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8sBSc*PWI*GgGhWe3pcWW625GV21FTGHFPkQrnPSFTCe3vCEKM3QCpTupcvYLjHH7f2N4y0qI7TTFDwZaL9fXc!/r" alt="索引"></p>
+<p>col1是作为表的主键索引；<br>因为支持二叉查找，所以像15、20、49这种处于在中间的这些个数据将被作为冗余字段；<br>就更可以区分查找数据；像二叉折半查找等；一般取中间的元素作为冗余的索引；快速的过滤一些数据；减少查找次数；<br>将col1该字段列当中的所有数据放入到数据结构当中去；然后看；<br>原来在叶子结点当中存储的data元素，data元素存储的即使该索引所在行的行数据的磁盘文件指针；（地址指针，16进制的值）  </p>
+<p>select * from t where t.col1=49;<br>col1主键索引；<br>MySQL底层实际上先会去到MYI文件当中；<br>因为索引（数据结构）存储在MYI索引文件当中；<br>先拿col1=49在MYI文件当中快速地定位到结点为49的结点；<br>根据B+树的特性；<br>先从根结点去进行定位；<br>根结点当中的数据通过一次磁盘IO，根结点当中的索引元素将会被放到内存当中，49将会在内存当中与15-56-77相进行比较；得到49在15-56之间；49就将走15与56中间的向下的指针，左节点也就是存放有15-20-49这三个索引元素的该结点中，那么此时左节点当中的索引元素将会进行第二次磁盘IO的操作，将左节点当中的索引元素放到内存当中去，与查询的数据49相进行比较；得到49在区间20-49之间；最后到了叶子结点，该叶子结点当中包括两个小结点49-50以及2个data元素（指针），那么第三次磁盘IO时，将49-50该叶子结点放到内存当中去，49就将与49-50相进行比较得到49，该49即为要查找的元素；49该小结点当中所对应的data元素拿出来，该data元素对于MyISAM存储引擎来说data元素存储的是为该索引所在行的行数据的磁盘文件指针；当拿到获取得到该指针之后就将到MYD文件当中进行查询获取得到相应数据值；  </p>
+<p>面试题：聚集索引or聚众索引  </p>
+<p>什么叫做聚集索引?  </p>
+<p>聚集索引定义：叶结点包含了完整的数据记录；<br>InnoDB的主键索引，ibd这个主键索引的这个文件；主键索引其就叫做聚集索引；<br>因为InnoDB的主键索引，它是跟它的文件数据行整个是存储在一个文件当中ibd文件；<br>索引和数据是聚集存储在一起的；  </p>
+<p>有聚集索引即存在非聚集索引；<br>MyISAM的主键索引就称作是非聚集索引；<br>因为MyISAM的主键索引存储在MYI文件当中；而数据存储在MYD文件当中；<br>那如果需要查找数据，每次都需要两个文件的一同查找才能查找得到；数据文件和索引文件分开存储了；所以称MyISAM的主键索引为非聚集索引；InnoDB的主键索引称为聚集索引；  </p>
+<p>常见数据结构理论；  </p>
+<p>结合具体的MySQL表来看一下；<br>不同的表底层如何进行存储；<br>MySQL的表无非就是MyISAM存储引擎/InnoDB存储引擎；<br>不同的表可能有不同的存储引擎；  </p>
+<p>MyISAM索引实现（非聚集）<br><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX2tYjinQbFQFT5hJICKOua.p8u*tNGRGnBmzDnCDDuui9JbsxaFmbrmLTSu0V4thfYO9zIg6UNnWwUY*NxnoWlU!/r" alt="索引"></p>
+<ul>
+<li>MyISAM索引文件和数据文件是分离的；</li>
+</ul>
+<p>InnoDB索引实现（聚集）</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX*GhKIY3zUQdhemNpwYPZHMTx6WJ6HggRWyAqiDQHIGmxm2m2V7hUQmLQaYwj8CF*g.zfe8sCKjjxpzzRlDfl3I!/r" alt="索引"></p>
+<ul>
+<li>表数据本身就是按照B+Tree组织的一个索引结构文件</li>
+<li>聚集索引-叶结点包含了完整的数据记录</li>
+<li>为什么InnoDB表必须要有主键？并且推荐使用整型的自增主键?  <ul>
+<li>为什么必须要建主键，MySQL官方对于InnoDB的表，其数据就需要用一个索引B+树来组织；所以肯定是需要主键的；<br>（之间建了InnoDB的表但是没有建索引也建成功了）针对这种情况，MySQL会自动在底层建一个索引；如果表中没有建索引，MySQL会在底层找一个唯一能标识这一行数据的字段作为索引；<br>如果找不到，它会默认给表生成一个类似像row_id，一个隐藏列作为主键索引，主键；<br>根据该表主键索引来维护整张表的数据；MySQl官方设计的就是要用一个B+树的存储结构来组织；B+树其实就是该索引，索引结构；所以必须要有一个主键索引；即便表中没有建立，MySQL也会默认生成一个隐藏的列/主键索引；  </li>
+<li>主键尽量为整型自增；为什么主键尽量为整型自增？<br>假设主键不设置为整型，设置为UUID类型，UUID不为整型，而是字符串类型；<br>为什么不推荐使用UUID，而推荐使用整型并且自增的类型；<br>首先用UUID，它是字符串类型的，而且是很长一串，字母+数字+其他符号；<br>这样存在的弊端有：<br>（1）相对于整型来说，首先，这一长串字符串的存储空间比整型大得多（字符串长度越长占用空间越大；索引存放在磁盘上面，那么也将会占用磁盘存储空间；那么UUID存储磁盘空间是肯定会要比整型类型字段要大得多）；<br>（2） 而且，底层B+树索引去进行查找的时候；是需要进行结点之间比较大小的；一个一个根据B+树，二叉一个个进行比较大小找对应的元素；而结点当中存储的都为UUID，一个个去比较大小的话；字符串比较大小，字符串跟数字进行比较，一位一位进行比较性能将会非常的低；字符串去进行比较先要转成ASCII码值（国标码）按照码表当中的顺序进行比较大小；这个性能就非常低了；<br>相对于整型来比较：数值之间的比较性能肯定是高的多的；<br>（3）为什么要使用自增的？UUID肯定不是自增类型的；<br>正常情况下如果是使用顺序自增：插入的元素基本上是往后面进行插入的；后面的结点空间满了，然后继续往后面去开辟一个空间继续放；如果现在新加一个元素；叶子结点从左到右都是依次递增的；在每一个结点当中每一个元素都是依次递增，左边小于右边；B+树当中的所有叶子结点；<br>从左到右都是依次递增的；<br>现在将一个不是自增的新元素UUID进行插入；<br>而插入的位置正好是叶子结点中间的一个位置，而并不是结尾的位置；<br>比如插入到20与30的叶子结点中间；<br>那么这个时候将20和30想象成UUID类型的字符串内容；当新元素UUID进行插入的时候就将会形成分裂的这种情况；<br>有可能就是将20与新元素新分裂出一个叶子结点，30单独分裂出去一个叶子结点；<br>插入的元素需要进行分裂一次；然后还需要平衡一次；<br>相对于这种插入新元素，插入一个元素按顺序递增往后面进行一个一个递增的加元素的这种情况效率就要高多了；<br>这也就是为什么B+ 树推荐的主键索引为整型并且自增类型；<br>因为自增它会尽可能的避免：新增的该结点插入到叶子结点上去了之后，会导致叶子结点原有的已经满了的大的叶子结点做分裂以及自动平衡；<br>（4）指针（B+树的叶子结点上的右指针）的作用：叶子结点当中某一大结点如已经存满了16k的索引元素；按照B+树从左到右的依次递增的顺序；假设当前该字段不是自增的；现在来了一个新的元素需要进行插入数据，看到索引的值比方说为25；那么按顺序这个索引值就应该插入到叶子结点20-30的中间；但是当前该叶子结点的存储空间大小16k已经满了，已经存不下了；<br>那么此时在这种情况下：<br>1&gt;当前叶子结点的存储空间已经满了<br>2&gt;当前需要新插入一个新的索引元素，而该索引元素的大小取值应该放在该当前叶子结点的中间；<br>那么这个时候就需要进行叶子结点的分裂；分裂成两个结点；20与25这两个索引元素成为一个新的叶子结点；而30将被分裂到另外一个叶子结点上面去；<br>而如果插入的元素都是递增类型的元素的话则比如说插入新元素100；那么就肯定不再需要往中间去进行插入；都是直接在后面新开辟一块空间来进行存储该新元素100；  </li>
+</ul>
+</li>
+</ul>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8fDAvL3g7DJ9HhnBQeGRqDvrpkZXABEIRyvGCl2wXfLlwUZMMrCWHUUoUCg2YMQdB8MP3ElixOLflsVbBIu18U!/r" alt="索引"></p>
+<ul>
+<li>为什么非主键索引结构叶子结点存储的是主键值？（一致性和节省存储空间）  </li>
+</ul>
+<h3 id="索引最左前缀原理"><a href="#索引最左前缀原理" class="headerlink" title="索引最左前缀原理"></a>索引最左前缀原理</h3><ul>
+<li>联合索引的底层存储结构长什么样?  </li>
+</ul>
+<p>(字段1，字段2，字段3)<br>比方说字段1、字段2、字段3是联合索引；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX50m84lF6rjqlgyWXpKCriCR9zfdJdu7YbMYTBq.e8Oj47TQyP3KTeZ1anErrKoy5mNBgGaDtLH9DbfHrrCBYYg!/r" alt="索引"></p>
+
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>MySql索引底层数据结构</a></p>
+  <p><span>文章作者:</span>Fsn</a></p>
+  <p><span>发布时间:</span>2020年04月15日 - 03:17:44</p>
+  <p><span>最后更新:</span>2020年05月19日 - 01:36:22</p>
+  <p><span>原始链接:</span><a href="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/" title="MySql索引底层数据结构">https://fengshana.github.io/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag"><i class="fa fa-tag">面试</i></a>
+          
+            <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag"><i class="fa fa-tag">红黑树</i></a>
+          
+            <a href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag"><i class="fa fa-tag">MySql索引</i></a>
+          
+            <a href="/tags/B-%E6%A0%91/" rel="tag"><i class="fa fa-tag">B+树</i></a>
+          
+            <a href="/tags/B%E6%A0%91/" rel="tag"><i class="fa fa-tag">B树</i></a>
+          
+            <a href="/tags/HASH%E8%A1%A8/" rel="tag"><i class="fa fa-tag">HASH表</i></a>
+          
+            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag"><i class="fa fa-tag">二叉树</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/15/%E9%9D%A2%E8%AF%95/%E3%80%90%E5%91%A8%E5%BD%A4%E5%BD%A4%E3%80%91%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E6%94%B9%E8%BF%9B3/" rel="next" title="前端页面双色球3">
+                <i class="fa fa-chevron-left"></i> 前端页面双色球3
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/17/%E7%9B%B4%E6%92%AD/pc%E7%9B%B4%E6%92%AD%E5%B1%8F%E5%B9%95%E5%8F%98%E7%BA%A2/" rel="prev" title="PC端直播屏幕变红">
+                PC端直播屏幕变红 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn" />
+            
+              <p class="site-author-name" itemprop="name">Fsn</p>
+              <p class="site-description motion-element" itemprop="description">勿忘初心，方得始终</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">148</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#笔记"><span class="nav-number">1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#索引的本质"><span class="nav-number">1.1.</span> <span class="nav-text">索引的本质</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#二叉树"><span class="nav-number">1.1.1.</span> <span class="nav-text">二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#红黑树"><span class="nav-number">1.1.2.</span> <span class="nav-text">红黑树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Tree"><span class="nav-number">1.1.3.</span> <span class="nav-text">B-Tree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#B-Tree-B-Tree变种"><span class="nav-number">1.1.4.</span> <span class="nav-text">B+Tree(B-Tree变种)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HASH表"><span class="nav-number">1.1.5.</span> <span class="nav-text">HASH表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#B-Tree索引的性能分析"><span class="nav-number">1.1.5.1.</span> <span class="nav-text">B+Tree索引的性能分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么MySQL页文件默认为16k"><span class="nav-number">1.1.5.2.</span> <span class="nav-text">为什么MySQL页文件默认为16k</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引底层数据结构与算法"><span class="nav-number">1.2.</span> <span class="nav-text">索引底层数据结构与算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#InnoDB与MyISAM索引区别"><span class="nav-number">1.3.</span> <span class="nav-text">InnoDB与MyISAM索引区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#索引最左前缀原理"><span class="nav-number">1.4.</span> <span class="nav-text">索引最左前缀原理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+      
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="300" height="300" id="resCanvas" style="width=100%; background-color:transparent;">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MICROSERVICES/" rel="tag">MICROSERVICES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; 
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    <i class="fa fa-heart"></i>
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+	<span title="Site words total count">
+     488.6k字 </span>
+    <!--<span title="symbols_count_time.count_total">944k</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  <!-- 代码块复制功能    <script src="dist/clipboard.min.js"></script>-->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":250,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+
