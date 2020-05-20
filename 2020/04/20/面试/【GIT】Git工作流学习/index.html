@@ -127,7 +127,7 @@
 <meta property="og:description" content="Git工作流指南 分布式版本控制系统观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1dW411U7ER?p&#x3D;1老师笔记： http:&#x2F;&#x2F;www.funtl.com&#x2F;zh&#x2F;git&#x2F;   Git简介 什么是版本控制系统 什么是Git 如何安装Git  什么是版本控制系统为什么需要版本控制在软件开发过程中，每天都会产生新的代码，代码合并的过程中可能会出现如下问题：    代">
 <meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPel5t8xZU7rWNhfTxPiI2RfvYvQ6DvosmE1pGIqWlqAV7PfqYumXBoiVQ8HSQ88KfHkmwZxDHt.ymsgsHJsmdgw!/r">
 <meta property="article:published_time" content="2020-04-20T02:21:22.445Z">
-<meta property="article:modified_time" content="2020-05-18T17:32:59.020Z">
+<meta property="article:modified_time" content="2020-05-20T08:26:42.010Z">
 <meta property="article:author" content="Fsn">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Git工作流">
@@ -536,7 +536,7 @@
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPel5t8xZU7rWNhfTxPiI2RfvYvQ6DvosmE1pGIqWlqAV7PfqYumXBoiVQ8HSQ88KfHkmwZxDHt.ymsgsHJsmdgw!/r" rel="gallery_ckadscev400e7vgum8cay54ij"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPel5t8xZU7rWNhfTxPiI2RfvYvQ6DvosmE1pGIqWlqAV7PfqYumXBoiVQ8HSQ88KfHkmwZxDHt.ymsgsHJsmdgw!/r" rel="gallery_ckafqcpr800dsswum7k6a3lj2"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPel5t8xZU7rWNhfTxPiI2RfvYvQ6DvosmE1pGIqWlqAV7PfqYumXBoiVQ8HSQ88KfHkmwZxDHt.ymsgsHJsmdgw!/r" itemprop="contentUrl"/>
               </a>
@@ -551,65 +551,65 @@
       
         <h2 id="Git工作流指南-分布式版本控制系统"><a href="#Git工作流指南-分布式版本控制系统" class="headerlink" title="Git工作流指南 分布式版本控制系统"></a>Git工作流指南 分布式版本控制系统</h2><p>观看笔记：<a href="https://www.bilibili.com/video/BV1dW411U7ER?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1dW411U7ER?p=1</a><br>老师笔记： <a href="http://www.funtl.com/zh/git/" target="_blank" rel="noopener">http://www.funtl.com/zh/git/</a>  </p>
 <h2 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h2><ul>
-<li>什么是版本控制系统</li>
-<li>什么是Git</li>
-<li>如何安装Git</li>
+<li>什么是<strong>版本控制系统</strong></li>
+<li>什么是<strong>Git</strong></li>
+<li>如何<strong>安装Git</strong></li>
 </ul>
-<h3 id="什么是版本控制系统"><a href="#什么是版本控制系统" class="headerlink" title="什么是版本控制系统"></a>什么是版本控制系统</h3><h4 id="为什么需要版本控制"><a href="#为什么需要版本控制" class="headerlink" title="为什么需要版本控制"></a>为什么需要版本控制</h4><p>在软件开发过程中，每天都会产生新的代码，代码合并的过程中可能会出现如下问题：  </p>
+<h3 id="什么是版本控制系统"><a href="#什么是版本控制系统" class="headerlink" title="什么是版本控制系统"></a>什么是版本控制系统</h3><h4 id="为什么需要版本控制"><a href="#为什么需要版本控制" class="headerlink" title="为什么需要版本控制"></a>为什么需要版本控制</h4><p>在软件开发过程中，每天都会产生新的代码，<strong>代码合并</strong>的过程中可能会出现如下<strong>问题</strong>：  </p>
 <ul>
-<li>代码被覆盖或丢失；</li>
-<li>代码写的不理想，希望还原之前的版本；</li>
-<li>希望知道与之前版本的差别；</li>
-<li>是谁修改了代码以及为什么修改；</li>
-<li>发版时希望分成不同的版本（测试版本、发行版本等）；</li>
+<li><strong>代码覆盖或丢失</strong>；</li>
+<li>代码写的不理想，希望<strong>还原</strong>之前的<strong>版本</strong>；</li>
+<li>希望知道与之前<strong>版本的差别</strong>；</li>
+<li>是<strong>谁</strong>修改了代码以及<strong>为什么</strong>修改；</li>
+<li><strong>发版</strong>时希望分成<strong>不同的版本</strong>（测试版本、发行版本等）；</li>
 </ul>
-<p>因此，希望有一种机制，能够帮助我们：  </p>
+<p>因此，希望有一种<strong>机制</strong>，能够帮助我们：  </p>
 <ul>
-<li>可以随时回滚到之前的版本；</li>
-<li>协同开发时，不会覆盖别人的代码；</li>
-<li>留下修改记录，以便随时查看；</li>
-<li>发版时可以方便的管理不同的版本；</li>
+<li>可以<strong>随时回滚</strong>到之前的<strong>版本</strong>；</li>
+<li>协同开发时，<strong>不会覆盖</strong>别人的代码；</li>
+<li>留下<strong>修改记录</strong>，以便随时查看；</li>
+<li><strong>发版</strong>时可以方便的管理<strong>不同的版本</strong>；</li>
 </ul>
-<h4 id="什么是版本控制系统-1"><a href="#什么是版本控制系统-1" class="headerlink" title="什么是版本控制系统"></a>什么是版本控制系统</h4><p>一个标准的版本控制系统 Version Control System（VCS），通常需要有以下功能：  </p>
+<h4 id="什么是版本控制系统-1"><a href="#什么是版本控制系统-1" class="headerlink" title="什么是版本控制系统"></a>什么是版本控制系统</h4><p>一个标准的<strong>版本控制系统</strong> <strong>Version Control System（VCS）</strong>，通常需要有以下功能：  </p>
 <ul>
-<li>能够创建Repository（仓库），用来保存代码；</li>
-<li>协同开发时，方便将代码分发给团队成员；</li>
-<li>记录每次修改代码的内容、时间、原因等信息；</li>
-<li>能够创建Branch（分支），可以根据不同的场景进行开发；</li>
-<li>能够创建Tag（标签），建立项目里程碑；</li>
+<li>能够<strong>创建Repository</strong>（<strong>仓库</strong>），用来<strong>保存代码</strong>；</li>
+<li>协同开发时，方便将<strong>代码分发</strong>给团队成员；</li>
+<li><strong>记录</strong>每次<strong>修改</strong>代码的内容、时间、原因等<strong>信息</strong>；</li>
+<li>能够<strong>创建Branch（分支）</strong>，可以根据<strong>不同的场景</strong>进行<strong>开发</strong>；</li>
+<li>能够<strong>创建Tag（标签）</strong>，<strong>建立</strong>项目<strong>里程碑</strong>；</li>
 </ul>
-<h4 id="版本控制系统的发展史"><a href="#版本控制系统的发展史" class="headerlink" title="版本控制系统的发展史"></a>版本控制系统的发展史</h4><p>版本控制系统发展至今有几种不同的模式：  </p>
-<h5 id="Local-VCS"><a href="#Local-VCS" class="headerlink" title="Local VCS"></a>Local VCS</h5><p>本地使用 复制/粘贴 的方式进行管理，缺点是无法协同开发</p>
-<h5 id="Gentralized-VCS（Lock，悲观锁）"><a href="#Gentralized-VCS（Lock，悲观锁）" class="headerlink" title="Gentralized VCS（Lock，悲观锁）"></a>Gentralized VCS（Lock，悲观锁）</h5><p>中央集中式版本控制系统团队共用仓库，当某人需要编辑文件时，进行锁定，以免其他人同时编辑时造成冲突，但不是很方便，其他人需要排队才能编辑文件，如果有人编辑了很久或是忘记解锁会造成其他人长时间等待的情况；  </p>
+<h4 id="版本控制系统的发展史"><a href="#版本控制系统的发展史" class="headerlink" title="版本控制系统的发展史"></a>版本控制系统的发展史</h4><p><strong>版本控制系统</strong>发展至今有几种<strong>不同的模式</strong>：  </p>
+<h5 id="Local-VCS"><a href="#Local-VCS" class="headerlink" title="Local VCS"></a>Local VCS</h5><p><strong>本地</strong>使用 <strong>复制/粘贴</strong> 的方式进行管理，<strong>缺点</strong>是<strong>无法协同开发</strong></p>
+<h5 id="Gentralized-VCS（Lock，悲观锁）"><a href="#Gentralized-VCS（Lock，悲观锁）" class="headerlink" title="Gentralized VCS（Lock，悲观锁）"></a>Gentralized VCS（Lock，悲观锁）</h5><p><strong>中央集中式版本控制系统</strong>团队共用仓库，当某人需要编辑文件时，<strong>进行锁定，以免其他人同时编辑时造成冲突</strong>，但不是很方便，<strong>其他人需要排队才能编辑文件，如果有人编辑了很久或是忘记解锁会造成其他人长时间等待</strong>的情况；  </p>
 <p>如何理解悲观锁：总有刁民想害朕。<br>我要是面试这么答，会怎么样？  </p>
-<h5 id="Gentralized-VCS（Merge，乐观锁）"><a href="#Gentralized-VCS（Merge，乐观锁）" class="headerlink" title="Gentralized VCS（Merge，乐观锁）"></a>Gentralized VCS（Merge，乐观锁）</h5><p>中央集中式版本控制系统团队共用仓库，不采用悲观锁方式来避免冲突，而是时候发现如果别人也修改相同文件（冲突），再进行手动修改解决。  </p>
-<p>有很多VCS属于这种类型，如：CVS、Subversion、Perforce等；  </p>
-<p>中央集中式版本控制系统的共同问题是，做任何操作都需要和服务器同步，如果服务器宕机则会造成无法继续工作的窘迫；  </p>
+<h5 id="Gentralized-VCS（Merge，乐观锁）"><a href="#Gentralized-VCS（Merge，乐观锁）" class="headerlink" title="Gentralized VCS（Merge，乐观锁）"></a>Gentralized VCS（Merge，乐观锁）</h5><p><strong>中央集中式版本控制系统</strong>团队共用仓库，<strong>不采用悲观锁方式来避免冲突</strong>，而是时候发现如果别人也修改相同文件（冲突），再<strong>进行手动修改解决</strong>。  </p>
+<p>有很多VCS属于这种类型，如：CVS、<strong>Subversion</strong>、Perforce等；  </p>
+<p><strong>中央集中式版本控制系统</strong>的共同问题是，做<strong>任何操作都需要和服务器同步</strong>，如果<strong>服务器宕机则会造成无法继续工作的窘迫</strong>；  </p>
 <p>如何理解乐观锁：天网恢恢疏而不漏。<br>我想给自己两锤子；  </p>
-<h5 id="Distributed-VCS"><a href="#Distributed-VCS" class="headerlink" title="Distributed VCS"></a>Distributed VCS</h5><p>分布式版本控制系统，本地也拥有完整的代码仓库，就不会出现上述集中式管理的问题，即使没有网络，依然可以commit和看log，也无需担心服务器同步问题；  </p>
-<p>如：Git、Mercurial、Bazaar等就属于分布式版本控制系统。缺点是功能比较复杂，上手需要一定的学习时间；  </p>
-<p>（分布式版本控制系统都有一个本地化的这样一个概念；区块链系统也能称之为一个分布式系统）  </p>
-<h2 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h2><p>Git工作流：代码管理的工作流程、方式  </p>
+<h5 id="Distributed-VCS"><a href="#Distributed-VCS" class="headerlink" title="Distributed VCS"></a>Distributed VCS</h5><p><strong>分布式版本控制系统</strong>，<strong>本地</strong>也<strong>拥有完整的代码仓库</strong>，就不会出现上述集中式管理的问题，即使<strong>没有网络，依然可以commit和看log</strong>，也<strong>无需担心服务器同步</strong>问题；  </p>
+<p>如：<strong>Git</strong>、Mercurial、Bazaar等就属于<strong>分布式版本控制系统</strong>。<strong>缺点</strong>是<strong>功能比较复杂</strong>，上手需要一定的学习时间；  </p>
+<p>（<strong>分布式版本控制系统</strong>都有一个<strong>本地化</strong>的这样一个概念；<strong>区块链系统</strong>也能称之为一个<strong>分布式系统</strong>）  </p>
+<h2 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h2><p><strong>Git工作流</strong>：<strong>代码管理</strong>的<strong>工作流程、方式</strong>  </p>
 <ul>
-<li>Git工作流简介</li>
-<li>集中式工作流</li>
-<li>功能分支工作流</li>
-<li>GitFlow工作流</li>
-<li>Forking工作流</li>
-<li>Pull Requests</li>
+<li><strong>Git工作流</strong>简介</li>
+<li><strong>集中式工作流</strong></li>
+<li><strong>功能分支工作流</strong></li>
+<li><strong>GitFlow工作流</strong></li>
+<li><strong>Forking工作流</strong></li>
+<li><strong>Pull Requests</strong></li>
 </ul>
 <h3 id="Git工作流简介"><a href="#Git工作流简介" class="headerlink" title="Git工作流简介"></a>Git工作流简介</h3><p>工作流有各式各样的用法，但也正因此使得在实际工作中如何上手使用增加了难度。  </p>
 <p>这篇指南通过总览公司团队中最常用的集中Git工作流让大家可以上手使用；  </p>
 <p>在阅读的过程中请记住，本文中的集中工作流是作为方案指导而不是条例规定，在展示了各种工作流可能的用法后，可以从不同的工作流中挑选或揉合出一个满足自己需求的工作流；  </p>
 <h4 id="集中式工作流"><a href="#集中式工作流" class="headerlink" title="集中式工作流"></a>集中式工作流</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXyIW2ezMoDhUXO*s5pTGue2N753CPNKcE42sPIP6l3d0rpu2DZjcGmC.Kga3cDUruqQwuWnPoetw.KevCfGSm5U!/r" alt="集中式工作流"></p>
-<p>如果开发团队成员已经很熟Subversion，集中式工作流让你无需去适应一个全新流程就可以体验Git带来的收益。  </p>
+<p>如果开发团队成员已经很熟<strong>Subversion</strong>，<strong>集中式工作流</strong>让你无需去适应一个全新流程就可以体验Git带来的收益。  </p>
 <p>这个工作流也可以作为向更Git风格工作流迁移的友好过渡。  </p>
 <p>（个人、三五个人的小团队）  </p>
 <h4 id="功能分支工作流"><a href="#功能分支工作流" class="headerlink" title="功能分支工作流"></a>功能分支工作流</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX.QLkS1nyIjv6HHWnbV4dX7srariw7MEQpLi1gOAxL3ou18PqhQZr1mrBrEaIbVs5JuQWzjNbAd8lfxuJK8OGPM!/r" alt="功能分支工作流"></p>
-<p>功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。  </p>
-<p>这样可以在把新功能继承到正式项目前，用Pull  Requests的方式讨论变更；  </p>
+<p><strong>功能分支工作流</strong>以<strong>集中式工作流</strong>为<strong>基础</strong>，不同的是为<strong>各个新功能</strong>分配<strong>一个专门的分支</strong>来开发。  </p>
+<p>这样可以在把新功能继承到正式项目前，用<strong>Pull  Requests</strong>的方式<strong>讨论变更</strong>；  </p>
 <p>（达到约12个人的团队）  </p>
-<h4 id="Git-Flow工作流"><a href="#Git-Flow工作流" class="headerlink" title="Git Flow工作流"></a>Git Flow工作流</h4><p>Git Flow工作流通过为功能开发、发布准备和维护分配独立的分支，让发布迭代过程更顺畅。  </p>
+<h4 id="Git-Flow工作流"><a href="#Git-Flow工作流" class="headerlink" title="Git Flow工作流"></a>Git Flow工作流</h4><p><strong>Git Flow工作流</strong>通过为<strong>功能开发</strong>、<strong>发布准备</strong>和<strong>维护分配独立的分支</strong>，让<strong>发布迭代</strong>过程<strong>更顺畅</strong>。  </p>
 <p>严格的分支模型也为大型项目提供了一些非常必要的结构。  </p>
 <p>（整个公司，这么一个团队的规模）  </p>
 <h4 id="Forking工作流"><a href="#Forking工作流" class="headerlink" title="Forking工作流"></a>Forking工作流</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX7NQkdqkFQWuuELLHKCcql5ABKaPDZFUejww*HH9qtsi8qr7IlATkqBkQ9PV1LJ9rT6faqWzcfgS3pJZnzLSzVg!/r" alt="Forking工作流"></p>
@@ -617,17 +617,17 @@
 <p>可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。  </p>
 <p>（跨国合作。跨国团队的使用，一般用于Forking工作流）  </p>
 <h4 id="Pull-Requests"><a href="#Pull-Requests" class="headerlink" title="Pull Requests"></a>Pull Requests</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANXzYbgZ.02.6Smac50apszMyWGwg89uQEVJSVU01e69u2Dts1al5lueZ4HgBrr.WyV.0GtO*ZTdT3LpQtilbX2Vk!/r" alt="Pull Requests"></p>
-<p>功能分支工作流、GitFlow工作流、Forking工作流都会穿插一个Pull Requests的一个东西。  </p>
-<p>Pull Requests通常称为请求合并（Merge Pull Requests）；  </p>
-<p>Pull Requests让开发者更方便地进行协作的功能，提供了友好的Web界面可以在提议的修改合并到正式项目之前对修改进行讨论。  </p>
+<p><strong>功能分支工作流</strong>、<strong>GitFlow工作流</strong>、<strong>Forking工作流</strong>都会穿插一个<strong>Pull Requests</strong>的一个东西。  </p>
+<p><strong>Pull Requests</strong>通常称为<strong>请求合并</strong>（<strong>Merge Pull Requests</strong>）；  </p>
+<p><strong>Pull Requests</strong>让开发者更<strong>方便地进行协作</strong>的功能，提供了友好的Web界面可以在提议的修改合并到正式项目之前对修改进行讨论。  </p>
 <p>（相当于一个评论系统）；</p>
-<h3 id="集中式工作流-1"><a href="#集中式工作流-1" class="headerlink" title="集中式工作流"></a>集中式工作流</h3><p>转到分布式版本控制系统看起来像个令人生畏的任务，但不改变已用的工作流你也可以用上Git带来的收益。  </p>
+<h3 id="集中式工作流-1"><a href="#集中式工作流-1" class="headerlink" title="集中式工作流"></a>集中式工作流</h3><p>转到<strong>分布式版本控制系统</strong>看起来像个令人生畏的任务，但不改变已用的工作流你也可以用上Git带来的收益。  </p>
 <p>团队可以用和Subversion完全不变的方式来开发项目。  </p>
-<p>但使用Git加强开发的工作流，Git比SVN有几个优势。  </p>
-<p>（1）首先，每个开发者可以有属于自己的整个工程的本地拷贝。隔离的环境让各个开发者的工作和项目的其他部分（修改）独立开来——-即自由地提交到自己的本地仓库，先完全忽略上游的开发，直到方便的时候再把修改反馈上去。  </p>
-<p>（2）其次，Git提供了强壮的分支和合并模型。不像SVN，Git的分支设计成可以作为一种用来在仓库之间集成代码和分享修改的【失败安全】的机制。  </p>
+<p>但使用Git加强开发的工作流，<strong>Git比SVN有几个优势</strong>。  </p>
+<p><strong>（1）</strong> 首先，每个开发者可以有属于自己的整个<strong>工程的本地拷贝</strong>。隔离的环境让各个开发者的工作和项目的其他部分（修改）独立开来——-即自由地提交到自己的本地仓库，先完全忽略上游的开发，直到方便的时候再把修改反馈上去。  </p>
+<p><strong>（2）</strong> 其次，<strong>Git</strong>提供了<strong>强壮的分支和合并模型</strong>。不像SVN，Git的分支设计成可以作为一种用来在仓库之间集成代码和分享修改的 <strong>【失败安全】</strong> 的<strong>机制</strong>。  </p>
 <h4 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h4><p><img src="http://r.photo.store.qq.com/psc?/V13IdniL4CDhqM/TCfiP1YaPeRT4Jil9RANX58rubGqwbukXS4rvP.hcw8vVDFpcMEKyanOzFC60vYY7EfnKsFaNa8DYFcGkpbCkTOCu8b0QXObUxn8ABvZn4U!/r" alt="工作方式"></p>
-<p>像Subversion一样，集中式工作流以中央仓库作为项目所有修改的单点实体。  </p>
+<p>像<strong>Subversion</strong>一样，<strong>集中式工作流</strong>以<strong>中央仓库</strong>作为项目<strong>所有修改的单点实体</strong>。  </p>
 <p>相比SVN缺省的开发分支trunk，Git叫做master，所有修改提交到这个分支上。  </p>
 <p>该工作流只用到master这一个分支。  </p>
 <p>开发者开始先克隆中央仓库。  </p>
@@ -1129,7 +1129,7 @@
   <p><span>本文标题:</span>Git工作流学习笔记</a></p>
   <p><span>文章作者:</span>Fsn</a></p>
   <p><span>发布时间:</span>2020年04月20日 - 10:21:22</p>
-  <p><span>最后更新:</span>2020年05月19日 - 01:32:59</p>
+  <p><span>最后更新:</span>2020年05月20日 - 16:26:42</p>
   <p><span>原始链接:</span><a href="/2020/04/20/%E9%9D%A2%E8%AF%95/%E3%80%90GIT%E3%80%91Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0/" title="Git工作流学习笔记">https://fengshana.github.io/2020/04/20/%E9%9D%A2%E8%AF%95/%E3%80%90GIT%E3%80%91Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/04/20/%E9%9D%A2%E8%AF%95/%E3%80%90GIT%E3%80%91Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%AD%A6%E4%B9%A0/"  aria-label="复制成功！"></i></span>
   </p>
@@ -1352,7 +1352,7 @@
                 <!--<a href="/archives/%7C%7Carchive">-->
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">148</span>
+                  <span class="site-state-item-count">146</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1441,7 +1441,7 @@
 <div class="widget-wrap">
     <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="300" height="300" id="resCanvas" style="width=100%; background-color:transparent;">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MICROSERVICES/" rel="tag">MICROSERVICES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MICROSERVICES/" rel="tag">MICROSERVICES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -1484,8 +1484,8 @@
       <span class="post-meta-item-text">站点总字数：</span>
     
 	<span title="Site words total count">
-     488.6k字 </span>
-    <!--<span title="symbols_count_time.count_total">944k</span>-->
+     495.6k字 </span>
+    <!--<span title="symbols_count_time.count_total">961k</span>-->
   
 </div>
 
