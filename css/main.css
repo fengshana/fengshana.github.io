@@ -1069,6 +1069,7 @@ pre .javascript .function {
 .tag-cloud a {
   display: inline-block;
   margin: 10px;
+  color: #11cdcb;
 }
 .back-to-top {
   box-sizing: border-box;
@@ -2126,7 +2127,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d920a4;
+  background: #b0ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
