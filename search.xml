@@ -1,95 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MicroservicesGuide-走近微服务</title>
-    <url>/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>Nothing better than a buzy Saturday morning.</p>
-</blockquote>
-<p>为什么想要翻译这篇博客呢，因为也是看了b站上的一个学习springboot的一个视频，而且我今天面试的时候人家问了微服务是什么，然后由此可得我万分后悔没有当时通篇翻译这篇博客。<br>好了现在后悔也挽救不了我的愚不可及了。<br>观看笔记：<a href="https://www.bilibili.com/video/BV1Eg4y187XT" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Eg4y187XT</a><br>就是这个视频告诉了我：推荐看哦~<br>为了不后悔，以后每件事情，能做笔记就一定要压着自己做，不然会后悔的；  </p>
-<h2 id="Microservices-Guide-微服务指南（翻译）"><a href="#Microservices-Guide-微服务指南（翻译）" class="headerlink" title="Microservices Guide 微服务指南（翻译）"></a>Microservices Guide 微服务指南（翻译）</h2><p>链接：<a href="https://www.martinfowler.com/microservices/" target="_blank" rel="noopener">https://www.martinfowler.com/microservices/</a>  </p>
-<blockquote>
-<p>A guide to material on martinfowler.com about microservices.<br><strong>Matin Fowler</strong><br>21 Aug 2019  </p>
-</blockquote>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">martinfowler.com网站关于微服务的一个材料指南</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">--------------------------------------------------------</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">有道词典翻译：</span></span><br><span class="line"><span class="keyword">martinfowler.com </span>上关于微服务的材料指南。</span><br></pre></td></tr></table></figure>
-
-<h3 id="Microservices-Guide"><a href="#Microservices-Guide" class="headerlink" title="Microservices Guide"></a>Microservices Guide</h3><h4 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>In short , the microservice architectural style is an approach to developing a single application as a <strong>suite of small services</strong> , each <strong>running in its own process</strong>  and communicating with lightweight mechanisms , often an HTTP resource API .<br>These services are <strong>built around business capabilities</strong> and <strong>independently deployable</strong> by fully automated deployment machinery .<br>There is a bare minimum of centralized management of these services , which may be written in different programming languages and use different data storage technologies .<br>– <strong>James Lewis</strong> and <strong>Martin Fowler</strong>（2014）  </p>
-</blockquote>
-<figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">简而言之，</span><br><span class="line">微服务架构风格 是一种近似于 将一个单体应用程序作为一个小型服务套件来进行开发的风格，</span><br><span class="line">每一个小型服务都运行在它自身的进程当中，</span><br><span class="line">并且通过轻量级机制进行相互间的交流，</span><br><span class="line">通常是以一种超文本传输协议资源应用编程接口的方式进行交互。</span><br><span class="line">这些服务都是围绕业务逻辑来进行构建的并且通过全自动化部署机制来进行独立部署。</span><br><span class="line">最低限度的集中式管理着这些服务（这些服务的集中管理非常少），</span><br><span class="line">通过这种方式，</span><br><span class="line">或许可以使用不同的程序语言进行编写以及使用不同的数据存储技术。</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line"></span><br><span class="line">简而言之，</span><br><span class="line">微服务体系结构风格是一种将单个应用程序作为一组小服务进行开发的方法，</span><br><span class="line">每个小服务都在自己的进程中运行，并与轻量级机制<span class="params">(通常是HTTP资源API)</span>进行通信。</span><br><span class="line">这些服务是围绕业务功能构建的，</span><br><span class="line">并且可以通过完全自动化的部署机制独立部署。</span><br><span class="line">这些服务的集中管理非常少，</span><br><span class="line">它们可以用不同的编程语言编写，</span><br><span class="line">并使用不同的数据存储技术。</span><br><span class="line">——詹姆斯·刘易斯和马丁·福勒<span class="params">(<span class="number">2014</span>)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Introduce-Martin-Fowler"><a href="#Introduce-Martin-Fowler" class="headerlink" title="Introduce - Martin Fowler"></a>Introduce - Martin Fowler</h3><p>了解微服务之前首先来看看<strong>Martin Fowler</strong>老爷子的自我介绍；<br>Fowler刚被我打成了Flower；  </p>
-<p>简介链接：<a href="https://www.martinfowler.com" target="_blank" rel="noopener">https://www.martinfowler.com</a>  </p>
-<h4 id="Contents-1"><a href="#Contents-1" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>Software development is a young profession , and we are still learning the techniques and building the tools to do it effectively .<br>I’ve been involved in this activity for over three decades and in the last two I’ve been writing on this website about patterns and practives that make it easier to build userful software .<br>The site began as a place to put my own writing , but I also use it to publish articles by my colleagues .  </p>
-</blockquote>
-<blockquote>
-<p>In 2000 , I joined ThoughtWorkds , where my role is to learn about the techniques that we’ve learned to deliver software for our clients , and pass these techniques on to the wider software industry .<br>As this site has developed into a respected platform on software development , I’ve edited and published articles by me colleagues , both ThoughtWorkers and others , to help useful writing reach a wider audience .  </p>
-</blockquote>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">软件发展是一个年轻的专业技术，</span><br><span class="line">并且我们是仍然在学习这门技术 和 构建一些工具去有效的完成它。</span><br><span class="line">我已经参与到这一项活动（工作）当中已经超过三十年了，</span><br><span class="line">并且在最近两年内，</span><br><span class="line">我在这个网站站点上已经编写了关于如何更容易的去构建有用的软件的一些思想模式以及练习方法；</span><br><span class="line">这个站点开始时作为来存放我自己的一个写作的一个地方，</span><br><span class="line">但是我也使用这个地方来进行发布一些通过我同事们写的文章；</span><br><span class="line"></span><br><span class="line">在<span class="number">2000</span>年，我加入到了ThoughtWorks，</span><br><span class="line">在这个地方我扮演的角色是去学习这一项技术，</span><br><span class="line">我们已经学习到去为我们的客户实现软件，</span><br><span class="line">以及通过这些技术在更广阔的软件产业当中；</span><br><span class="line">这个站点已经逐渐发展成为一个受人尊敬的平台在软件发展史当中，</span><br><span class="line">我已经写了很多以及发布了很多我同事写的文章，同时还有ThoughtWorkers的员工以及其他人；</span><br><span class="line">来帮助有用的写作，即逐渐成为一个有深度的受众；</span><br><span class="line"></span><br><span class="line">------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">软件开发是一个年轻的职业，</span><br><span class="line">我们仍然在学习技术和构建工具来有效地完成它。</span><br><span class="line">我已经参与这项活动超过<span class="number">30</span>年了，</span><br><span class="line">在过去的两年中，</span><br><span class="line">我一直在这个网站上撰写关于使构建有用软件变得更容易的模式和实践的文章。</span><br><span class="line">这个网站一开始是一个放置我自己的文章的地方，</span><br><span class="line">但我也用它来发表我同事的文章。</span><br><span class="line"><span class="number">2000</span>年，我加入了ThoughtWorks，</span><br><span class="line">在这里，我的职责是学习我们为客户交付软件的技术，</span><br><span class="line">并将这些技术传递给更广泛的软件行业。</span><br><span class="line">随着这个网站发展成为一个受人尊敬的软件开发平台，</span><br><span class="line">我已经编辑并发表了我的同事们的文章，</span><br><span class="line">包括ThoughtWorkers和其他人，</span><br><span class="line">以帮助更广泛的读者阅读有用的文章。</span><br></pre></td></tr></table></figure>
-
-<h3 id="A-website-on-building-software-effectively"><a href="#A-website-on-building-software-effectively" class="headerlink" title="A website on building software effectively"></a>A website on building software effectively</h3><p>A website on building software effectively</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">在一个网站上有效地构建软件</span><br><span class="line"></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line"></span><br><span class="line">一个有效开发软件的网站</span><br></pre></td></tr></table></figure>
-
-<h4 id="Contents-2"><a href="#Contents-2" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>If there’s a theme that runs through my work and writing on this site , it’s the interplay between the shift towards agile thinking and the technical patterns and practices that make agile software development practical .<br>While specifics of technology change rapidly in our profession , fundamental practices and patterns are more stable .<br>So writing about these allows me to have articles on this site that are several years old but still as relevant as when they were written .  </p>
-</blockquote>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">如果 这是一个主题（定语：贯穿着我的工作经历以及在这个站点上的文字）</span><br><span class="line">那么在 转变成敏捷式思维 与 技术的模式和使得敏捷式软件开发 变成事实 这两者之间其实是相互影响的。</span><br><span class="line">当 技术的特性 在我们的职业该行当中 发展改变十分迅速 时，</span><br><span class="line">基本的实践练习 与 模式 就变得需要十分的牢固。</span><br><span class="line">所以编写这些关于 容许我在这个站点（定语：虽然才只有几岁即虽然才开始几年，但是只要当遇到与之相关的他们就都会被一致持续写入进来）上拥有了的文章。</span><br><span class="line"></span><br><span class="line"><span class="comment">---------------------------------------------</span></span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">如果说我在这个站点上的工作和写作中贯穿着一个主题，那就是敏捷思维的转变与使敏捷软件开发切实可行的技术模式和实践之间的相互作用。</span><br><span class="line">虽然技术细节在我们的职业中变化很快，但基本的实践和模式更加稳定。</span><br><span class="line">所以写这些东西让我可以在这个网站上写一些文章，这些文章已经有好几年的历史了，但是仍然和当初写的时候一样重要。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>As software becomes more critical to modern business , software needs be able to react quickly to changes ,  allowing new features to be be conceived , developed and put into production rapidly .<br>The techniques of <font style="color:red;font-weight:bolder">agile software development</font> began in the 1990s and became steadily more popular in the last decade .<br>The focus on a flexible approach to planning , which allows software products to change direction as the user’s needs change and as product managers learn more about how to make their users effective .<br>While widely accepted now , agile approaches are not easy , requiring significant skills for a team , but more importantly a culture of open collaboration both within the team and with a team’s partners .  </p>
-</blockquote>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">当软件为了现在的业务逻辑就越需要批评，</span><br><span class="line">软件需要能够快速地对改变做出反应，允许一些新特性被构思实现，发展以及迅速地落实成为一个产品。</span><br><span class="line">敏捷式开发软件的这项技术开始在<span class="number">1990</span>年的时候，直到在近十年内开始稳定地变得越发流行起来了。</span><br><span class="line">集中于在一个灵活性上，类似于规划预期中，它允许软件产品来进行定向的改变当客户需要进行改变以及当产品管理者学到更多关于如何让他们的客户变得印象深刻。</span><br><span class="line">当现在被更广泛的接受，敏捷式的处理是并不容易的，它要求重大的的技能对于一个团队来说，但是更重要的是一个开源合作的文化，这两者都需要团队以及团队成员之间的协作。</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">随着软件在现代商业中变得越来越重要，</span><br><span class="line">软件需要能够对变化做出快速反应，</span><br><span class="line">允许快速构思、开发新特性并将其投入生产。</span><br><span class="line">敏捷软件开发技术开始于<span class="number">20</span>世纪<span class="number">90</span>年代，并在过去十年中逐渐流行起来。</span><br><span class="line">他们专注于一种灵活的计划方法，</span><br><span class="line">这种方法允许软件产品随着用户需求的变化而改变方向，</span><br><span class="line">并且随着产品经理更多地了解如何让他们的用户更有效。</span><br><span class="line">虽然敏捷方法现在已被广泛接受，</span><br><span class="line">但它并不简单，</span><br><span class="line">需要团队的重要技能，</span><br><span class="line">但更重要的是团队内部和团队合作伙伴之间的开放协作文化。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>This need to respond fluently to changes has an important impact upon the <font style="color:red;font-weight:bolder">architecture</font> of a software system.<br>The software needs to be built in such a way that it is able to adapt to unexpected changes in features .<br>One of the most important ways to do this is to write clear code , making it easy to understant what the program is supposed to do .<br>This code should be devided into modules which allow developers to understand only the parts of the system they need to make a change .<br>This production code should be supported with automated tests that can detect any errors made when making a change while providing examples of how internal structures are used .<br>Large and complex software efforts may find the <font style="color:red;font-weight:bolder">microservices</font> architectural style helps teams deploy software with less entangling dependencies .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Creating software that has a good architecture isn’t something that can be done first time .<br>Like good prose , it needs regular revisions and programmers learn more about what the product needs to do and how best to design the product to achieve its goals .<br><font style="color:red;font-weight:bolder">Refactoring</font> is an essential technique to allow a program to be changed safety .<br>It consists of making small changes that don’t alter the observable behavior of the software .<br>Bt combining lots of small changes , developers can revise the software’s structure supporting significant modifications that weren’t planned when the system was first conceived .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Software that runs only on a developer’s machine isn’t providing value to the customers of the software .<br>Traditionally releasing software has been a long and complicated process , one that hinders the need to evolve software quickly .<br><font style="color:red;font-weight:bolder">Continuous Delivery</font> uses automation and collaborative workflows to remove this bottleneck , allowing teams to release software as often as the customers demand .<br>For Continuous Delivery to be possible , we need to build in a solid foundation of <font style="color:red;font-weight:bolder">Testing</font> , with a range of automated tests that can give us confidence taht our changes haven’t introduced any bugs .<br>This leads us to integrate testing into programming , which can act to improve our architectural .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Photostream"><a href="#Photostream" class="headerlink" title="Photostream"></a>Photostream</h3><h3 id="Data-Management"><a href="#Data-Management" class="headerlink" title="Data Management"></a>Data Management</h3><h4 id="Contents-3"><a href="#Contents-3" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>There are many kinds of softeare out there , the kind I’m primarily engaged is Enterprise Applications .<br>One of the enduring problems we need to tackle in this world is <font style="color:red;font-weight:bolder">data management</font> .<br>The aspectes of data management I’ve focused on here are how to migrate data stores as their applications respond to changing needs , coping with different contexts across a large enterprice , the role of NoSQL databases , and the broader issues of coping with data that is both Big and Messy .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Domain-Specific-Languages"><a href="#Domain-Specific-Languages" class="headerlink" title="Domain-Specific Languages"></a>Domain-Specific Languages</h3><h3 id="Contents-4"><a href="#Contents-4" class="headerlink" title="Contents"></a>Contents</h3><blockquote>
-<p>A common problem in complex software systems is how to capture complicated domain logic in a way that programmers can both easily manipulate and also easily communicate to domain experts .<br><font style="color:red;font-weight:bolder">Domain-Specific Languages</font>(DSLs) create a custom language for a particular problem , either with custom parsers or by conventions within a host language .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><h4 id="Contents-5"><a href="#Contents-5" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>I’ve written seven books on software development , including Refactoring , Patterns of Enterprise Application Architectural , and UML Distilled .<br>I’m also the editor of a signature series for Addison-Wesley that includes five jolt award winners .<br><font style="color:red;font-weight:bolder">My Books Page…</font>  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Conference-Talks"><a href="#Conference-Talks" class="headerlink" title="Conference Talks"></a>Conference Talks</h3><h4 id="Contents-6"><a href="#Contents-6" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>I’m often asked to give talks at conferences , from which I’ve inferred that I’m a pretty good speaker - which is ironic since I really hate giving talks .<br>You can form your own opinion of my talks by watching videos of some my conference talks .<br><font style="color:red;font-weight:bolder"> My Videos Page…</font>  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Board-Games"><a href="#Board-Games" class="headerlink" title="Board Games"></a>Board Games</h3><h4 id="Contents-7"><a href="#Contents-7" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>I’ve long been a fan of board games , I enjoy a game that fully occupies my mind , clearing out all the serious thoughts for a bit , while enjoying the company of good friends .<br>Modern board games saw dramatic improvement in the 1990’s with the rise of Eurogames , and I expect many people would be surprised if they haven’t tried any of this new generation .<br>I also appear regularly on <font style="color:red;font-weight:bolder">Heavy Cardboard</font> .<br><font style="color:red;font-weight:bolder">My Board Games page…</font>  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>MICROSERVICES</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-        <tag>MICROSERVICES</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MicroservicesGuide-走近微服务词汇</title>
     <url>/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/</url>
     <content><![CDATA[<h2 id="Microservices-Guide-微服务指南词汇导读"><a href="#Microservices-Guide-微服务指南词汇导读" class="headerlink" title="Microservices Guide 微服务指南词汇导读"></a>Microservices Guide 微服务指南词汇导读</h2><p>我觉得我对有道词典的翻译有点迷…..<br>感觉怪怪的；  </p>
@@ -329,6 +240,95 @@
       <tags>
         <tag>MICROSERVICES</tag>
         <tag>词汇</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MicroservicesGuide-走近微服务</title>
+    <url>/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>Nothing better than a buzy Saturday morning.</p>
+</blockquote>
+<p>为什么想要翻译这篇博客呢，因为也是看了b站上的一个学习springboot的一个视频，而且我今天面试的时候人家问了微服务是什么，然后由此可得我万分后悔没有当时通篇翻译这篇博客。<br>好了现在后悔也挽救不了我的愚不可及了。<br>观看笔记：<a href="https://www.bilibili.com/video/BV1Eg4y187XT" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Eg4y187XT</a><br>就是这个视频告诉了我：推荐看哦~<br>为了不后悔，以后每件事情，能做笔记就一定要压着自己做，不然会后悔的；  </p>
+<h2 id="Microservices-Guide-微服务指南（翻译）"><a href="#Microservices-Guide-微服务指南（翻译）" class="headerlink" title="Microservices Guide 微服务指南（翻译）"></a>Microservices Guide 微服务指南（翻译）</h2><p>链接：<a href="https://www.martinfowler.com/microservices/" target="_blank" rel="noopener">https://www.martinfowler.com/microservices/</a>  </p>
+<blockquote>
+<p>A guide to material on martinfowler.com about microservices.<br><strong>Matin Fowler</strong><br>21 Aug 2019  </p>
+</blockquote>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">martinfowler.com网站关于微服务的一个材料指南</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">--------------------------------------------------------</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">有道词典翻译：</span></span><br><span class="line"><span class="keyword">martinfowler.com </span>上关于微服务的材料指南。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Microservices-Guide"><a href="#Microservices-Guide" class="headerlink" title="Microservices Guide"></a>Microservices Guide</h3><h4 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>In short , the microservice architectural style is an approach to developing a single application as a <strong>suite of small services</strong> , each <strong>running in its own process</strong>  and communicating with lightweight mechanisms , often an HTTP resource API .<br>These services are <strong>built around business capabilities</strong> and <strong>independently deployable</strong> by fully automated deployment machinery .<br>There is a bare minimum of centralized management of these services , which may be written in different programming languages and use different data storage technologies .<br>– <strong>James Lewis</strong> and <strong>Martin Fowler</strong>（2014）  </p>
+</blockquote>
+<figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">简而言之，</span><br><span class="line">微服务架构风格 是一种近似于 将一个单体应用程序作为一个小型服务套件来进行开发的风格，</span><br><span class="line">每一个小型服务都运行在它自身的进程当中，</span><br><span class="line">并且通过轻量级机制进行相互间的交流，</span><br><span class="line">通常是以一种超文本传输协议资源应用编程接口的方式进行交互。</span><br><span class="line">这些服务都是围绕业务逻辑来进行构建的并且通过全自动化部署机制来进行独立部署。</span><br><span class="line">最低限度的集中式管理着这些服务（这些服务的集中管理非常少），</span><br><span class="line">通过这种方式，</span><br><span class="line">或许可以使用不同的程序语言进行编写以及使用不同的数据存储技术。</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line"></span><br><span class="line">简而言之，</span><br><span class="line">微服务体系结构风格是一种将单个应用程序作为一组小服务进行开发的方法，</span><br><span class="line">每个小服务都在自己的进程中运行，并与轻量级机制<span class="params">(通常是HTTP资源API)</span>进行通信。</span><br><span class="line">这些服务是围绕业务功能构建的，</span><br><span class="line">并且可以通过完全自动化的部署机制独立部署。</span><br><span class="line">这些服务的集中管理非常少，</span><br><span class="line">它们可以用不同的编程语言编写，</span><br><span class="line">并使用不同的数据存储技术。</span><br><span class="line">——詹姆斯·刘易斯和马丁·福勒<span class="params">(<span class="number">2014</span>)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Introduce-Martin-Fowler"><a href="#Introduce-Martin-Fowler" class="headerlink" title="Introduce - Martin Fowler"></a>Introduce - Martin Fowler</h3><p>了解微服务之前首先来看看<strong>Martin Fowler</strong>老爷子的自我介绍；<br>Fowler刚被我打成了Flower；  </p>
+<p>简介链接：<a href="https://www.martinfowler.com" target="_blank" rel="noopener">https://www.martinfowler.com</a>  </p>
+<h4 id="Contents-1"><a href="#Contents-1" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>Software development is a young profession , and we are still learning the techniques and building the tools to do it effectively .<br>I’ve been involved in this activity for over three decades and in the last two I’ve been writing on this website about patterns and practives that make it easier to build userful software .<br>The site began as a place to put my own writing , but I also use it to publish articles by my colleagues .  </p>
+</blockquote>
+<blockquote>
+<p>In 2000 , I joined ThoughtWorkds , where my role is to learn about the techniques that we’ve learned to deliver software for our clients , and pass these techniques on to the wider software industry .<br>As this site has developed into a respected platform on software development , I’ve edited and published articles by me colleagues , both ThoughtWorkers and others , to help useful writing reach a wider audience .  </p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">软件发展是一个年轻的专业技术，</span><br><span class="line">并且我们是仍然在学习这门技术 和 构建一些工具去有效的完成它。</span><br><span class="line">我已经参与到这一项活动（工作）当中已经超过三十年了，</span><br><span class="line">并且在最近两年内，</span><br><span class="line">我在这个网站站点上已经编写了关于如何更容易的去构建有用的软件的一些思想模式以及练习方法；</span><br><span class="line">这个站点开始时作为来存放我自己的一个写作的一个地方，</span><br><span class="line">但是我也使用这个地方来进行发布一些通过我同事们写的文章；</span><br><span class="line"></span><br><span class="line">在<span class="number">2000</span>年，我加入到了ThoughtWorks，</span><br><span class="line">在这个地方我扮演的角色是去学习这一项技术，</span><br><span class="line">我们已经学习到去为我们的客户实现软件，</span><br><span class="line">以及通过这些技术在更广阔的软件产业当中；</span><br><span class="line">这个站点已经逐渐发展成为一个受人尊敬的平台在软件发展史当中，</span><br><span class="line">我已经写了很多以及发布了很多我同事写的文章，同时还有ThoughtWorkers的员工以及其他人；</span><br><span class="line">来帮助有用的写作，即逐渐成为一个有深度的受众；</span><br><span class="line"></span><br><span class="line">------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">软件开发是一个年轻的职业，</span><br><span class="line">我们仍然在学习技术和构建工具来有效地完成它。</span><br><span class="line">我已经参与这项活动超过<span class="number">30</span>年了，</span><br><span class="line">在过去的两年中，</span><br><span class="line">我一直在这个网站上撰写关于使构建有用软件变得更容易的模式和实践的文章。</span><br><span class="line">这个网站一开始是一个放置我自己的文章的地方，</span><br><span class="line">但我也用它来发表我同事的文章。</span><br><span class="line"><span class="number">2000</span>年，我加入了ThoughtWorks，</span><br><span class="line">在这里，我的职责是学习我们为客户交付软件的技术，</span><br><span class="line">并将这些技术传递给更广泛的软件行业。</span><br><span class="line">随着这个网站发展成为一个受人尊敬的软件开发平台，</span><br><span class="line">我已经编辑并发表了我的同事们的文章，</span><br><span class="line">包括ThoughtWorkers和其他人，</span><br><span class="line">以帮助更广泛的读者阅读有用的文章。</span><br></pre></td></tr></table></figure>
+
+<h3 id="A-website-on-building-software-effectively"><a href="#A-website-on-building-software-effectively" class="headerlink" title="A website on building software effectively"></a>A website on building software effectively</h3><p>A website on building software effectively</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">在一个网站上有效地构建软件</span><br><span class="line"></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line"></span><br><span class="line">一个有效开发软件的网站</span><br></pre></td></tr></table></figure>
+
+<h4 id="Contents-2"><a href="#Contents-2" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>If there’s a theme that runs through my work and writing on this site , it’s the interplay between the shift towards agile thinking and the technical patterns and practices that make agile software development practical .<br>While specifics of technology change rapidly in our profession , fundamental practices and patterns are more stable .<br>So writing about these allows me to have articles on this site that are several years old but still as relevant as when they were written .  </p>
+</blockquote>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">如果 这是一个主题（定语：贯穿着我的工作经历以及在这个站点上的文字）</span><br><span class="line">那么在 转变成敏捷式思维 与 技术的模式和使得敏捷式软件开发 变成事实 这两者之间其实是相互影响的。</span><br><span class="line">当 技术的特性 在我们的职业该行当中 发展改变十分迅速 时，</span><br><span class="line">基本的实践练习 与 模式 就变得需要十分的牢固。</span><br><span class="line">所以编写这些关于 容许我在这个站点（定语：虽然才只有几岁即虽然才开始几年，但是只要当遇到与之相关的他们就都会被一致持续写入进来）上拥有了的文章。</span><br><span class="line"></span><br><span class="line"><span class="comment">---------------------------------------------</span></span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">如果说我在这个站点上的工作和写作中贯穿着一个主题，那就是敏捷思维的转变与使敏捷软件开发切实可行的技术模式和实践之间的相互作用。</span><br><span class="line">虽然技术细节在我们的职业中变化很快，但基本的实践和模式更加稳定。</span><br><span class="line">所以写这些东西让我可以在这个网站上写一些文章，这些文章已经有好几年的历史了，但是仍然和当初写的时候一样重要。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>As software becomes more critical to modern business , software needs be able to react quickly to changes ,  allowing new features to be be conceived , developed and put into production rapidly .<br>The techniques of <font style="color:red;font-weight:bolder">agile software development</font> began in the 1990s and became steadily more popular in the last decade .<br>The focus on a flexible approach to planning , which allows software products to change direction as the user’s needs change and as product managers learn more about how to make their users effective .<br>While widely accepted now , agile approaches are not easy , requiring significant skills for a team , but more importantly a culture of open collaboration both within the team and with a team’s partners .  </p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">当软件为了现在的业务逻辑就越需要批评，</span><br><span class="line">软件需要能够快速地对改变做出反应，允许一些新特性被构思实现，发展以及迅速地落实成为一个产品。</span><br><span class="line">敏捷式开发软件的这项技术开始在<span class="number">1990</span>年的时候，直到在近十年内开始稳定地变得越发流行起来了。</span><br><span class="line">集中于在一个灵活性上，类似于规划预期中，它允许软件产品来进行定向的改变当客户需要进行改变以及当产品管理者学到更多关于如何让他们的客户变得印象深刻。</span><br><span class="line">当现在被更广泛的接受，敏捷式的处理是并不容易的，它要求重大的的技能对于一个团队来说，但是更重要的是一个开源合作的文化，这两者都需要团队以及团队成员之间的协作。</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">随着软件在现代商业中变得越来越重要，</span><br><span class="line">软件需要能够对变化做出快速反应，</span><br><span class="line">允许快速构思、开发新特性并将其投入生产。</span><br><span class="line">敏捷软件开发技术开始于<span class="number">20</span>世纪<span class="number">90</span>年代，并在过去十年中逐渐流行起来。</span><br><span class="line">他们专注于一种灵活的计划方法，</span><br><span class="line">这种方法允许软件产品随着用户需求的变化而改变方向，</span><br><span class="line">并且随着产品经理更多地了解如何让他们的用户更有效。</span><br><span class="line">虽然敏捷方法现在已被广泛接受，</span><br><span class="line">但它并不简单，</span><br><span class="line">需要团队的重要技能，</span><br><span class="line">但更重要的是团队内部和团队合作伙伴之间的开放协作文化。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>This need to respond fluently to changes has an important impact upon the <font style="color:red;font-weight:bolder">architecture</font> of a software system.<br>The software needs to be built in such a way that it is able to adapt to unexpected changes in features .<br>One of the most important ways to do this is to write clear code , making it easy to understant what the program is supposed to do .<br>This code should be devided into modules which allow developers to understand only the parts of the system they need to make a change .<br>This production code should be supported with automated tests that can detect any errors made when making a change while providing examples of how internal structures are used .<br>Large and complex software efforts may find the <font style="color:red;font-weight:bolder">microservices</font> architectural style helps teams deploy software with less entangling dependencies .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Creating software that has a good architecture isn’t something that can be done first time .<br>Like good prose , it needs regular revisions and programmers learn more about what the product needs to do and how best to design the product to achieve its goals .<br><font style="color:red;font-weight:bolder">Refactoring</font> is an essential technique to allow a program to be changed safety .<br>It consists of making small changes that don’t alter the observable behavior of the software .<br>Bt combining lots of small changes , developers can revise the software’s structure supporting significant modifications that weren’t planned when the system was first conceived .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Software that runs only on a developer’s machine isn’t providing value to the customers of the software .<br>Traditionally releasing software has been a long and complicated process , one that hinders the need to evolve software quickly .<br><font style="color:red;font-weight:bolder">Continuous Delivery</font> uses automation and collaborative workflows to remove this bottleneck , allowing teams to release software as often as the customers demand .<br>For Continuous Delivery to be possible , we need to build in a solid foundation of <font style="color:red;font-weight:bolder">Testing</font> , with a range of automated tests that can give us confidence taht our changes haven’t introduced any bugs .<br>This leads us to integrate testing into programming , which can act to improve our architectural .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Photostream"><a href="#Photostream" class="headerlink" title="Photostream"></a>Photostream</h3><h3 id="Data-Management"><a href="#Data-Management" class="headerlink" title="Data Management"></a>Data Management</h3><h4 id="Contents-3"><a href="#Contents-3" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>There are many kinds of softeare out there , the kind I’m primarily engaged is Enterprise Applications .<br>One of the enduring problems we need to tackle in this world is <font style="color:red;font-weight:bolder">data management</font> .<br>The aspectes of data management I’ve focused on here are how to migrate data stores as their applications respond to changing needs , coping with different contexts across a large enterprice , the role of NoSQL databases , and the broader issues of coping with data that is both Big and Messy .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Domain-Specific-Languages"><a href="#Domain-Specific-Languages" class="headerlink" title="Domain-Specific Languages"></a>Domain-Specific Languages</h3><h3 id="Contents-4"><a href="#Contents-4" class="headerlink" title="Contents"></a>Contents</h3><blockquote>
+<p>A common problem in complex software systems is how to capture complicated domain logic in a way that programmers can both easily manipulate and also easily communicate to domain experts .<br><font style="color:red;font-weight:bolder">Domain-Specific Languages</font>(DSLs) create a custom language for a particular problem , either with custom parsers or by conventions within a host language .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><h4 id="Contents-5"><a href="#Contents-5" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>I’ve written seven books on software development , including Refactoring , Patterns of Enterprise Application Architectural , and UML Distilled .<br>I’m also the editor of a signature series for Addison-Wesley that includes five jolt award winners .<br><font style="color:red;font-weight:bolder">My Books Page…</font>  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Conference-Talks"><a href="#Conference-Talks" class="headerlink" title="Conference Talks"></a>Conference Talks</h3><h4 id="Contents-6"><a href="#Contents-6" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>I’m often asked to give talks at conferences , from which I’ve inferred that I’m a pretty good speaker - which is ironic since I really hate giving talks .<br>You can form your own opinion of my talks by watching videos of some my conference talks .<br><font style="color:red;font-weight:bolder"> My Videos Page…</font>  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Board-Games"><a href="#Board-Games" class="headerlink" title="Board Games"></a>Board Games</h3><h4 id="Contents-7"><a href="#Contents-7" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>I’ve long been a fan of board games , I enjoy a game that fully occupies my mind , clearing out all the serious thoughts for a bit , while enjoying the company of good friends .<br>Modern board games saw dramatic improvement in the 1990’s with the rise of Eurogames , and I expect many people would be surprised if they haven’t tried any of this new generation .<br>I also appear regularly on <font style="color:red;font-weight:bolder">Heavy Cardboard</font> .<br><font style="color:red;font-weight:bolder">My Board Games page…</font>  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>MICROSERVICES</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>MICROSERVICES</tag>
       </tags>
   </entry>
   <entry>
@@ -7608,8 +7608,8 @@
         <category>面试</category>
       </categories>
       <tags>
-        <tag>synchronized</tag>
         <tag>面试</tag>
+        <tag>synchronized</tag>
         <tag>锁</tag>
       </tags>
   </entry>
@@ -11317,32 +11317,6 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>排序</title>
-    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>树</title>
-    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%A0%91-06/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%A0%91-06/%E6%A0%91-06.png" alt="树-06"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>树</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图</title>
     <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E5%9B%BE-07/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E5%9B%BE-07/%E5%9B%BE-07.png" alt="图-07"></p>
@@ -11366,6 +11340,32 @@ graph LR;
       <tags>
         <tag>数据结构</tag>
         <tag>查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>树</title>
+    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%A0%91-06/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%A0%91-06/%E6%A0%91-06.png" alt="树-06"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序</title>
+    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
@@ -12070,6 +12070,94 @@ graph LR;
   </entry>
   <entry>
     <title>面试题</title>
+    <url>/2020/03/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%A4%8D%E4%B9%A0%E3%80%91%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="什么是Spring"><a href="#什么是Spring" class="headerlink" title="什么是Spring"></a>什么是Spring</h2><p>Spring是一个开源的Java EE开发框架。<br>Spring框架的核心功能可以应用在任何java应用程序中，但对Java EE平台上的Web应用程序有更好的扩展性。<br>Spring框架的目标是使得Java EE应用程序的开发更加简捷，通过使用POJO为基础的变成模型促进良好的变成风格。  </p>
+<h2 id="Spring有哪些优点"><a href="#Spring有哪些优点" class="headerlink" title="Spring有哪些优点"></a>Spring有哪些优点</h2><ul>
+<li>轻量级： Spring在大小和透明性方面觉得属于轻量级的，基础版本的Spring框架大约只有2MB。</li>
+<li>控制反转（IOC）： SPring使用控制反转技术实现了松耦合。依赖被注入到对象，而不是创建或者寻找依赖对象。</li>
+<li>面向切面编程（AOP）: Spring支持面向切面编程，同时把应用的业务逻辑与系统的服务分离开来。</li>
+<li>容器： Spring包含并管理应用程序对象的配置以及生命周期。</li>
+<li>MVC框架：Spring的web框架是一个设计优良的web MVC框架，很好的取代了一些web框架。</li>
+<li>事务管理： Spring对下至本地业务上至全局业务（JAT）提供了统一的事务管理接口。</li>
+<li>异常处理： Spring提供一个方便的API将特定技术的异常（由JDBC，Hibernate，或者JDO抛出）转化为一致的、Unchecked异常。</li>
+</ul>
+<h2 id="Spring事务实现方式"><a href="#Spring事务实现方式" class="headerlink" title="Spring事务实现方式"></a>Spring事务实现方式</h2><ul>
+<li>编程式事务管理： 这意味着你可以通过编程的方式管理事务，这种方式带来了很大的灵活性，但是很难维护。</li>
+<li>声明式事务管理： 这种方式意味着你可以将事务和业务代码分离。你只需要通过注解或者XML配置管理事务。</li>
+</ul>
+<h2 id="Spring框架的事务管理有哪些优点"><a href="#Spring框架的事务管理有哪些优点" class="headerlink" title="Spring框架的事务管理有哪些优点"></a>Spring框架的事务管理有哪些优点</h2><ul>
+<li>它为不同的事务API（如JTA,JDBC,Hibernate,JPA,和JDO）提供了统一的编程模型。</li>
+<li>它为编程式事务管理提供了一个简单的API而非一系列复杂的事务API（如JTA）</li>
+<li>它支持声明式事务管理。</li>
+<li>它可以和Spring的多种数据访问技术很好的融合。</li>
+</ul>
+<h2 id="Spring事务定义的传播规则"><a href="#Spring事务定义的传播规则" class="headerlink" title="Spring事务定义的传播规则"></a>Spring事务定义的传播规则</h2><ul>
+<li>propagation_required: 支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
+<li>propagation_supports: 支持当前事务，如果当前没有事务，就以非事务方式执行。</li>
+<li>propagation_mandatory: 支持当前事务，如果当前没有事务，就抛出异常。</li>
+<li>propagation_requires_new: 新建事务，如果当前存在事务，把当前事务挂起。</li>
+<li>propagation_not_supported: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
+<li>propagation_never: 以非事务方式执行，如果当前存在事务，则抛出异常。</li>
+<li>propagation_nested: 如果当前存在事务，则在嵌套式事务内执行。如果当前没有事务，则进行与propagation_required类似的操作，即支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
+</ul>
+<h2 id="Spring事务底层原理"><a href="#Spring事务底层原理" class="headerlink" title="Spring事务底层原理"></a>Spring事务底层原理</h2><h3 id="划分处理单元—-ioc"><a href="#划分处理单元—-ioc" class="headerlink" title="划分处理单元—-ioc"></a>划分处理单元—-ioc</h3><p>由于Spring解决的问题是对【单个数据库】进行【局部事务】处理的。<br>具体的实现首先用Spring的IOC划分了【事务处理单元】。<br>并且将对事务的各种配置放到了ioc容器中。<br>（设置事务管理器，设置事务的传播特性以及隔离机制）。  </p>
+<h3 id="AOP拦截需要进行事务处理的类"><a href="#AOP拦截需要进行事务处理的类" class="headerlink" title="AOP拦截需要进行事务处理的类"></a>AOP拦截需要进行事务处理的类</h3><p>【Spring事务处理模块】是通过【AOP】功能来实现【声明式事务】处理的，<br>具体操作（比如事务实行的配置和读取，事务对象的抽象），用TransactionProxyFactoryBean接口来使用AOP功能，生成proxy代理对象，通过TransactionInterceptor完成对代理方法的拦截，将事务处理的功能编织到拦截的方法中。读取ioc容器事务配置属性，转化为Spring事务处理需要的内部数据结构（TransactionAttributeSourceAdvisor），转化为TransactionAttribute表示的数据对象。</p>
+<h2 id="对事务处理实现（事务的生成、提交、回滚、挂起）"><a href="#对事务处理实现（事务的生成、提交、回滚、挂起）" class="headerlink" title="对事务处理实现（事务的生成、提交、回滚、挂起）"></a>对事务处理实现（事务的生成、提交、回滚、挂起）</h2><p>Spring委托给具体的事务处理器实现。<br>实现了一个抽象和适配。<br>适配的具体事务处理器：DataSource数据源支持、Hibernate数据源事务处理支持、JDO数据源事务处理支持、JPA、JTA数据源事务处理支持。<br>这些支持都是通过设计PlatformTransactionManager、AbstractPlatformTransaction一些列事务处理的支持。<br>为常用数据源支持提供了一系列TransactionManager。</p>
+<ul>
+<li>结合<br>PlatformTransactionManager实现了TransactionInterception接口，让其与TransactionProxyFactoryBean结合起来，形成一个Spring声明式事务处理的设计体系。</li>
+</ul>
+<h2 id="Spring-MVC运行流程"><a href="#Spring-MVC运行流程" class="headerlink" title="Spring MVC运行流程"></a>Spring MVC运行流程</h2><ol>
+<li>第一步：发起请求到前端控制器（DispatcherServlet）</li>
+<li>第二步：前端控制器请求HandlerMapping查找Handler（可以根据XML配置、注解进行查找）</li>
+<li>第三步：处理器映射器HandlerMapping向前端控制器返回Handler</li>
+<li>第四步：前端控制器调用处理器适配器去执行Handler</li>
+<li>第五步：处理器适配器去执行Handler</li>
+<li>第六步：Handler执行完成给适配器返回ModelAndView</li>
+<li>第七步：处理器适配器向前端控制器返回ModelAndView（ModelAndView是SpringMVC框架的一个底层对象，包括Model和View）</li>
+<li>第八步：前端控制器请求视图解析器去进行视图解析（根据逻辑视图名解析成真正的视图（jsp））</li>
+<li>第九步：视图解析器向前端控制器返回View</li>
+<li>前端控制器进行视图渲染（视图渲染将模型数据（在ModelAndView对象中）填充到Request域）</li>
+<li>前端控制器向用户响应结果</li>
+</ol>
+<h2 id="BeanFactory和ApplicationContext有什么区别"><a href="#BeanFactory和ApplicationContext有什么区别" class="headerlink" title="BeanFactory和ApplicationContext有什么区别"></a>BeanFactory和ApplicationContext有什么区别</h2><p>ApplicationContext提供了一种解决文档信息的方法，一种加载文件资源的方式（如图片），他们可以向监听他们的Beans发送消息。<br>另外，容器或者容器中的Beans的操作，这些必须以Bean工厂的编程方式处理的操作可以在应用上下文中以声明的方式处理。<br>应用上下文实现了MessageSource，该接口用于获取本地消息，实际的实现是可选的。  </p>
+<ul>
+<li>相同点：两者都是通过xml配置文件加载Bean，ApplicationContext和BeanFactory相比，提供了更多的扩展功能。</li>
+<li>不同点：BeanFactory是延迟加载，如果Bean的某一个属性没有注入，BeanFactory加载后，直至第一次使用调用getBean方法才会报异常；而ApplicationContext则在初始化自身是检验，这样有利于检查所依赖属性是否注入；通常情况狂下我们选择使用ApplicationContext。</li>
+</ul>
+<h2 id="什么是Spring-Beans"><a href="#什么是Spring-Beans" class="headerlink" title="什么是Spring Beans"></a>什么是Spring Beans</h2><p>Spring Beans是构成Spring应用核心的Java对象。<br>这些对象由Spring IOC容器实例化、组装、管理。<br>这些对象通过容器中配置的元数据创建。<br>例如，使用XML文件中的定义的创建。  </p>
+<p>在Spring中创建的beans都是单例的beans。<br>在bean标签中国有一个属性为”singleton”<br>如果设为true,则该bean是单例的；如果设置为false，则该bean是原型bean。<br>Singleton属性默认设置为true。<br>因此，Spring框架中所有的bean都默认是单例bean。  </p>
+<h2 id="说一下Spring中支持的bean作用域"><a href="#说一下Spring中支持的bean作用域" class="headerlink" title="说一下Spring中支持的bean作用域"></a>说一下Spring中支持的bean作用域</h2><p>Spring框架支持如下五种不同的作用域：</p>
+<ul>
+<li><p>singleton: 在Spring IOC容器中仅存在一个Bean实例，Bean以单实例的方式存在。</p>
+</li>
+<li><p>prototype：一个Bean可以定义多个实例。</p>
+</li>
+<li><p>request：每次Http请求都会创建一个新的Bean。该作用域仅适用于WebApplicationContext环境。</p>
+</li>
+<li><p>session：一个Http Session定义一个Bean。该作用于仅适用于WebApplicationContext环境。</p>
+</li>
+<li><p>globalSession：同一个全局Http Session定义一个Bean。该作用于同样仅适用于WebApplicationContext环境。</p>
+</li>
+<li><p>bean默认的scope属性是”singleton”</p>
+</li>
+</ul>
+<h2 id="Spring-的单例实现原理"><a href="#Spring-的单例实现原理" class="headerlink" title="Spring 的单例实现原理"></a>Spring 的单例实现原理</h2><p>Spring框架对单例的支持是采用单例注册表的方式进行实现的，而这个注册表的缓存是HashMap对象，如果配置文件中的配置信息不要求使用单例Spring会采用新建实例的方式返回对象实例。</p>
+<h2 id="解释Spring框架中Bean的生命周期"><a href="#解释Spring框架中Bean的生命周期" class="headerlink" title="解释Spring框架中Bean的生命周期"></a>解释Spring框架中Bean的生命周期</h2><ol>
+<li>容器启动</li>
+<li>实例化Bean对象</li>
+<li>设置对象属性</li>
+<li>调用BeanNameAware的setBeanName()方法</li>
+</ol>
+]]></content>
+      <categories>
+        <category>面试</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>面试题</title>
     <url>/2020/03/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%A4%8D%E4%B9%A0%E3%80%91%E9%9D%A2%E8%AF%95%E9%A2%98%E6%A8%A1%E5%9D%97/</url>
     <content><![CDATA[<blockquote>
 <p>借鉴自博客：<a href="https://blog.csdn.net/fangchao2011/article/details/89184058" target="_blank" rel="noopener">https://blog.csdn.net/fangchao2011/article/details/89184058</a></p>
@@ -12409,94 +12497,6 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>面试题</title>
-    <url>/2020/03/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%A4%8D%E4%B9%A0%E3%80%91%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="什么是Spring"><a href="#什么是Spring" class="headerlink" title="什么是Spring"></a>什么是Spring</h2><p>Spring是一个开源的Java EE开发框架。<br>Spring框架的核心功能可以应用在任何java应用程序中，但对Java EE平台上的Web应用程序有更好的扩展性。<br>Spring框架的目标是使得Java EE应用程序的开发更加简捷，通过使用POJO为基础的变成模型促进良好的变成风格。  </p>
-<h2 id="Spring有哪些优点"><a href="#Spring有哪些优点" class="headerlink" title="Spring有哪些优点"></a>Spring有哪些优点</h2><ul>
-<li>轻量级： Spring在大小和透明性方面觉得属于轻量级的，基础版本的Spring框架大约只有2MB。</li>
-<li>控制反转（IOC）： SPring使用控制反转技术实现了松耦合。依赖被注入到对象，而不是创建或者寻找依赖对象。</li>
-<li>面向切面编程（AOP）: Spring支持面向切面编程，同时把应用的业务逻辑与系统的服务分离开来。</li>
-<li>容器： Spring包含并管理应用程序对象的配置以及生命周期。</li>
-<li>MVC框架：Spring的web框架是一个设计优良的web MVC框架，很好的取代了一些web框架。</li>
-<li>事务管理： Spring对下至本地业务上至全局业务（JAT）提供了统一的事务管理接口。</li>
-<li>异常处理： Spring提供一个方便的API将特定技术的异常（由JDBC，Hibernate，或者JDO抛出）转化为一致的、Unchecked异常。</li>
-</ul>
-<h2 id="Spring事务实现方式"><a href="#Spring事务实现方式" class="headerlink" title="Spring事务实现方式"></a>Spring事务实现方式</h2><ul>
-<li>编程式事务管理： 这意味着你可以通过编程的方式管理事务，这种方式带来了很大的灵活性，但是很难维护。</li>
-<li>声明式事务管理： 这种方式意味着你可以将事务和业务代码分离。你只需要通过注解或者XML配置管理事务。</li>
-</ul>
-<h2 id="Spring框架的事务管理有哪些优点"><a href="#Spring框架的事务管理有哪些优点" class="headerlink" title="Spring框架的事务管理有哪些优点"></a>Spring框架的事务管理有哪些优点</h2><ul>
-<li>它为不同的事务API（如JTA,JDBC,Hibernate,JPA,和JDO）提供了统一的编程模型。</li>
-<li>它为编程式事务管理提供了一个简单的API而非一系列复杂的事务API（如JTA）</li>
-<li>它支持声明式事务管理。</li>
-<li>它可以和Spring的多种数据访问技术很好的融合。</li>
-</ul>
-<h2 id="Spring事务定义的传播规则"><a href="#Spring事务定义的传播规则" class="headerlink" title="Spring事务定义的传播规则"></a>Spring事务定义的传播规则</h2><ul>
-<li>propagation_required: 支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
-<li>propagation_supports: 支持当前事务，如果当前没有事务，就以非事务方式执行。</li>
-<li>propagation_mandatory: 支持当前事务，如果当前没有事务，就抛出异常。</li>
-<li>propagation_requires_new: 新建事务，如果当前存在事务，把当前事务挂起。</li>
-<li>propagation_not_supported: 以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</li>
-<li>propagation_never: 以非事务方式执行，如果当前存在事务，则抛出异常。</li>
-<li>propagation_nested: 如果当前存在事务，则在嵌套式事务内执行。如果当前没有事务，则进行与propagation_required类似的操作，即支持当前事务，如果当前没有事务，就建一个事务。这是最常见的选择。</li>
-</ul>
-<h2 id="Spring事务底层原理"><a href="#Spring事务底层原理" class="headerlink" title="Spring事务底层原理"></a>Spring事务底层原理</h2><h3 id="划分处理单元—-ioc"><a href="#划分处理单元—-ioc" class="headerlink" title="划分处理单元—-ioc"></a>划分处理单元—-ioc</h3><p>由于Spring解决的问题是对【单个数据库】进行【局部事务】处理的。<br>具体的实现首先用Spring的IOC划分了【事务处理单元】。<br>并且将对事务的各种配置放到了ioc容器中。<br>（设置事务管理器，设置事务的传播特性以及隔离机制）。  </p>
-<h3 id="AOP拦截需要进行事务处理的类"><a href="#AOP拦截需要进行事务处理的类" class="headerlink" title="AOP拦截需要进行事务处理的类"></a>AOP拦截需要进行事务处理的类</h3><p>【Spring事务处理模块】是通过【AOP】功能来实现【声明式事务】处理的，<br>具体操作（比如事务实行的配置和读取，事务对象的抽象），用TransactionProxyFactoryBean接口来使用AOP功能，生成proxy代理对象，通过TransactionInterceptor完成对代理方法的拦截，将事务处理的功能编织到拦截的方法中。读取ioc容器事务配置属性，转化为Spring事务处理需要的内部数据结构（TransactionAttributeSourceAdvisor），转化为TransactionAttribute表示的数据对象。</p>
-<h2 id="对事务处理实现（事务的生成、提交、回滚、挂起）"><a href="#对事务处理实现（事务的生成、提交、回滚、挂起）" class="headerlink" title="对事务处理实现（事务的生成、提交、回滚、挂起）"></a>对事务处理实现（事务的生成、提交、回滚、挂起）</h2><p>Spring委托给具体的事务处理器实现。<br>实现了一个抽象和适配。<br>适配的具体事务处理器：DataSource数据源支持、Hibernate数据源事务处理支持、JDO数据源事务处理支持、JPA、JTA数据源事务处理支持。<br>这些支持都是通过设计PlatformTransactionManager、AbstractPlatformTransaction一些列事务处理的支持。<br>为常用数据源支持提供了一系列TransactionManager。</p>
-<ul>
-<li>结合<br>PlatformTransactionManager实现了TransactionInterception接口，让其与TransactionProxyFactoryBean结合起来，形成一个Spring声明式事务处理的设计体系。</li>
-</ul>
-<h2 id="Spring-MVC运行流程"><a href="#Spring-MVC运行流程" class="headerlink" title="Spring MVC运行流程"></a>Spring MVC运行流程</h2><ol>
-<li>第一步：发起请求到前端控制器（DispatcherServlet）</li>
-<li>第二步：前端控制器请求HandlerMapping查找Handler（可以根据XML配置、注解进行查找）</li>
-<li>第三步：处理器映射器HandlerMapping向前端控制器返回Handler</li>
-<li>第四步：前端控制器调用处理器适配器去执行Handler</li>
-<li>第五步：处理器适配器去执行Handler</li>
-<li>第六步：Handler执行完成给适配器返回ModelAndView</li>
-<li>第七步：处理器适配器向前端控制器返回ModelAndView（ModelAndView是SpringMVC框架的一个底层对象，包括Model和View）</li>
-<li>第八步：前端控制器请求视图解析器去进行视图解析（根据逻辑视图名解析成真正的视图（jsp））</li>
-<li>第九步：视图解析器向前端控制器返回View</li>
-<li>前端控制器进行视图渲染（视图渲染将模型数据（在ModelAndView对象中）填充到Request域）</li>
-<li>前端控制器向用户响应结果</li>
-</ol>
-<h2 id="BeanFactory和ApplicationContext有什么区别"><a href="#BeanFactory和ApplicationContext有什么区别" class="headerlink" title="BeanFactory和ApplicationContext有什么区别"></a>BeanFactory和ApplicationContext有什么区别</h2><p>ApplicationContext提供了一种解决文档信息的方法，一种加载文件资源的方式（如图片），他们可以向监听他们的Beans发送消息。<br>另外，容器或者容器中的Beans的操作，这些必须以Bean工厂的编程方式处理的操作可以在应用上下文中以声明的方式处理。<br>应用上下文实现了MessageSource，该接口用于获取本地消息，实际的实现是可选的。  </p>
-<ul>
-<li>相同点：两者都是通过xml配置文件加载Bean，ApplicationContext和BeanFactory相比，提供了更多的扩展功能。</li>
-<li>不同点：BeanFactory是延迟加载，如果Bean的某一个属性没有注入，BeanFactory加载后，直至第一次使用调用getBean方法才会报异常；而ApplicationContext则在初始化自身是检验，这样有利于检查所依赖属性是否注入；通常情况狂下我们选择使用ApplicationContext。</li>
-</ul>
-<h2 id="什么是Spring-Beans"><a href="#什么是Spring-Beans" class="headerlink" title="什么是Spring Beans"></a>什么是Spring Beans</h2><p>Spring Beans是构成Spring应用核心的Java对象。<br>这些对象由Spring IOC容器实例化、组装、管理。<br>这些对象通过容器中配置的元数据创建。<br>例如，使用XML文件中的定义的创建。  </p>
-<p>在Spring中创建的beans都是单例的beans。<br>在bean标签中国有一个属性为”singleton”<br>如果设为true,则该bean是单例的；如果设置为false，则该bean是原型bean。<br>Singleton属性默认设置为true。<br>因此，Spring框架中所有的bean都默认是单例bean。  </p>
-<h2 id="说一下Spring中支持的bean作用域"><a href="#说一下Spring中支持的bean作用域" class="headerlink" title="说一下Spring中支持的bean作用域"></a>说一下Spring中支持的bean作用域</h2><p>Spring框架支持如下五种不同的作用域：</p>
-<ul>
-<li><p>singleton: 在Spring IOC容器中仅存在一个Bean实例，Bean以单实例的方式存在。</p>
-</li>
-<li><p>prototype：一个Bean可以定义多个实例。</p>
-</li>
-<li><p>request：每次Http请求都会创建一个新的Bean。该作用域仅适用于WebApplicationContext环境。</p>
-</li>
-<li><p>session：一个Http Session定义一个Bean。该作用于仅适用于WebApplicationContext环境。</p>
-</li>
-<li><p>globalSession：同一个全局Http Session定义一个Bean。该作用于同样仅适用于WebApplicationContext环境。</p>
-</li>
-<li><p>bean默认的scope属性是”singleton”</p>
-</li>
-</ul>
-<h2 id="Spring-的单例实现原理"><a href="#Spring-的单例实现原理" class="headerlink" title="Spring 的单例实现原理"></a>Spring 的单例实现原理</h2><p>Spring框架对单例的支持是采用单例注册表的方式进行实现的，而这个注册表的缓存是HashMap对象，如果配置文件中的配置信息不要求使用单例Spring会采用新建实例的方式返回对象实例。</p>
-<h2 id="解释Spring框架中Bean的生命周期"><a href="#解释Spring框架中Bean的生命周期" class="headerlink" title="解释Spring框架中Bean的生命周期"></a>解释Spring框架中Bean的生命周期</h2><ol>
-<li>容器启动</li>
-<li>实例化Bean对象</li>
-<li>设置对象属性</li>
-<li>调用BeanNameAware的setBeanName()方法</li>
-</ol>
-]]></content>
-      <categories>
-        <category>面试</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>In the Supermarket</title>
     <url>/2020/03/21/%E3%80%90%E8%8B%B1%E8%AF%AD%E3%80%91/lesson3/</url>
     <content><![CDATA[<h2 id="Learn-amp-Talk-I"><a href="#Learn-amp-Talk-I" class="headerlink" title="Learn &amp; Talk I"></a>Learn &amp; Talk I</h2><h3 id="Chapter-1-Shopping"><a href="#Chapter-1-Shopping" class="headerlink" title="Chapter 1 Shopping"></a>Chapter 1 Shopping</h3><h4 id="Lesson-3-In-the-Supermarket"><a href="#Lesson-3-In-the-Supermarket" class="headerlink" title="Lesson 3 In the Supermarket"></a>Lesson 3 In the Supermarket</h4><blockquote>
@@ -12640,31 +12640,64 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>第三节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
+    <title>第七节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
-<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
-<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
-<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
-<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
-<p>它可以帮你建立自信  </p>
-<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
-<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
-<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
-<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
-<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
-<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
-<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
-<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
-<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
-<p>疗效持久不易复发  </p>
-<p>自卑不自信一定要试试  </p>
-<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
-<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
-<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
-<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
-<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
+<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
+<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
+<p>自我和自私是两种最糟糕的负面心态。</p>
+<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
+<p>先做好自己不要给别人带来麻烦。</p>
+<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
+<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
+<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
+<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
+<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
+<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
+<p>总结：</p>
+<ul>
+<li>第一讲：心态认知，别人的评价…自我认知</li>
+<li>……..</li>
+</ul>
+<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第二节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第二堂课主题：别让你的情绪，变成你的性格缺陷  </p>
+<p>不打招呼不说话，情绪写在脸上的人不能委以重任<br>田乐好像都跟我说过<br>先处理心情，再处理事情  </p>
+<p>在职场掉眼泪能接受吗？<br>其实哪儿都不相信眼泪  </p>
+<p>老板不会惯着你<br>所有的善良都需要有人买单的<br>老板为自己的错误买单<br>任何时候别干哭鼻子的事情，有泪不轻弹，有多少委屈自己打碎了牙吞进去<br>像个爷们<br>错了就要人，挨打就要立正，有问题就要解决问题，都是成年人，职业一点，一个人要是当地隐藏自己的情绪<br>高兴的时候就笑，不高兴的时候假装什么也没有发生<br>不要在人前表演你的情绪  </p>
+<h2 id="第一点-你不应该是个煤气罐"><a href="#第一点-你不应该是个煤气罐" class="headerlink" title="第一点 你不应该是个煤气罐"></a>第一点 你不应该是个煤气罐</h2><p>嗓门大不代表你有道理，脸通红不代表可以主持正义<br>就是再好也有人挑刺<br>为什么要活在别人的评价里<br>别人只会关心你有用还是没用<br>从为人处世上来说，别做煤气罐一点就炸了  </p>
+<p>要用体面的方式表达你的情绪，否则你的情绪会被视作性格的缺陷<br>可以表达愤怒，而不是愤怒的表达，这二者区别很大。<br>吵架只会让心情更差，打架只会让事情变糟<br>已解决问题为目的，发脾气是本能，控制脾气是本领  </p>
+<p>永远不要让你的脾气比你的本事还大  </p>
+<p>冷静下来问自己三个问题：</p>
+<ol>
+<li>这是别人的错吗？</li>
+</ol>
+<p>很多时候并不是别人的问题，而是误会或者是我们对别人有误解或者偏见，所以闲谈莫论人非，静坐常思己过，先从自己身上找找问题<br>的确是的，有很多的时候都是我自己的错误  </p>
+<ol start="2">
+<li>这个事情值得生气吗</li>
+</ol>
+<p>田乐就跟我说过，你至于为了这么一件小事跟我吵？<br>其实的确不值得。<br>但是我还是吵了。<br>确实，我的确是一个小肚鸡肠的人。<br>俗话说宰相肚里能撑船，但是要明白，他不是当了宰相肚里才能撑船，一定是他平时肚里就能撑船，所以他才当了宰相  </p>
+<ol start="3">
+<li>生气能解决问题吗？</li>
+</ol>
+<p>越是有本事的人，脾气越好。<br>是的。<br>我脾气就不好。<br>因为明白发脾气无法解决任何问题。<br>解决问题唯一的方法就是面对它，然后冷静的把这个问题给解决掉。  </p>
+<p>没那么多需要生气的事情。  </p>
+<h2 id="第二点：你也不应该还是个祥林嫂"><a href="#第二点：你也不应该还是个祥林嫂" class="headerlink" title="第二点：你也不应该还是个祥林嫂"></a>第二点：你也不应该还是个祥林嫂</h2><p>碰到一点压力，就把自己变成不堪重负的样子，碰到一点不确定性，就把前途描摹成前途无光  </p>
+<p>不要做个怨妇  </p>
+<p>这个世界上最无能的就是怨妇。<br>挫折失败经历的太少了。你才会觉得鸡毛蒜皮都是烦恼。<br>抱怨只会让别人觉得你委屈，可怜，但无助于解决任何问题<br>牢骚太盛防肠断，风物长宜放眼量<br>已经发生的事情，埋怨一点用也没有，成年人，我已经是个成年人了  </p>
+<p>其实在生活当中，让你不堪重负的不是压力，而是你承受压力的方式<br>你曾在什么样的公司工作，你就是什么样的人<br>说过去的公司不好那只是证明你的无能<br>的确，我挺无能的  </p>
+<h2 id="第三点：没有本事就不要表演真性情"><a href="#第三点：没有本事就不要表演真性情" class="headerlink" title="第三点：没有本事就不要表演真性情"></a>第三点：没有本事就不要表演真性情</h2><p>只有玻璃心的员工，所以别那么多怀才不遇的抱怨。<br>我觉得这就是在说我呗。<br>说明你的能力还撑不起你的雄心。<br>没有收拾残局的能力，就不要放纵你善变的情绪。<br>在你成为强者之前，所有的委屈都必须吞咽和妥协。<br>因为没有人会在乎弱者的眼泪。<br>成年的世界里，微笑只是一个表情，对讨厌的人或者事情露出你的微笑，使我们必须要学会的恶心<br>要想人前显贵必须背后受罪<br>能忍多大的事情就能成多大的事情<br>永远不应该挑战领导的权威<br>鸡汤：使我们痛苦者让我们强大，没本事的时候身边的坏人特别多，就会受委屈<br>等有一天强大了，所有人都是好人，和颜悦色<br>表达厌恶最好的方式不是争吵，而是要努力的奋斗。  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -12708,109 +12741,31 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>第六节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
+    <title>第三节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
-<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
-<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
-<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
-<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
-<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
-<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
-<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
-<ol>
-<li>第一个阶段:不要再为自己担心了,自己做决定</li>
-<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
-</ol>
-<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
-<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
-<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
-<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
-<p>越疼越要不动声色，越苦越要保持沉默  </p>
-<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
-<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
-<ul>
-<li>两利相权取其重</li>
-<li>两害相权取其轻</li>
-</ul>
-<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
-<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
-<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第四节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
-<p>别人家孩子。  </p>
-<p>你看看人家谁谁谁，你再看看你自己  </p>
-<p>不能让孩子输在起跑线上  </p>
-<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
-<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
-<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
-<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
-<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
-<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
-<p>比较有时让人惶恐  </p>
-<p>不要在千千万万的比较当中迷失自我。  </p>
-<p>比较有时候就是用拉人下水的形式找认同感  </p>
-<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
-<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
-<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
-<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
-<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
-<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
-<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
-<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
-<p>知足是一种生活态度  </p>
-<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
-<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第二节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%BA%8C%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第二堂课主题：别让你的情绪，变成你的性格缺陷  </p>
-<p>不打招呼不说话，情绪写在脸上的人不能委以重任<br>田乐好像都跟我说过<br>先处理心情，再处理事情  </p>
-<p>在职场掉眼泪能接受吗？<br>其实哪儿都不相信眼泪  </p>
-<p>老板不会惯着你<br>所有的善良都需要有人买单的<br>老板为自己的错误买单<br>任何时候别干哭鼻子的事情，有泪不轻弹，有多少委屈自己打碎了牙吞进去<br>像个爷们<br>错了就要人，挨打就要立正，有问题就要解决问题，都是成年人，职业一点，一个人要是当地隐藏自己的情绪<br>高兴的时候就笑，不高兴的时候假装什么也没有发生<br>不要在人前表演你的情绪  </p>
-<h2 id="第一点-你不应该是个煤气罐"><a href="#第一点-你不应该是个煤气罐" class="headerlink" title="第一点 你不应该是个煤气罐"></a>第一点 你不应该是个煤气罐</h2><p>嗓门大不代表你有道理，脸通红不代表可以主持正义<br>就是再好也有人挑刺<br>为什么要活在别人的评价里<br>别人只会关心你有用还是没用<br>从为人处世上来说，别做煤气罐一点就炸了  </p>
-<p>要用体面的方式表达你的情绪，否则你的情绪会被视作性格的缺陷<br>可以表达愤怒，而不是愤怒的表达，这二者区别很大。<br>吵架只会让心情更差，打架只会让事情变糟<br>已解决问题为目的，发脾气是本能，控制脾气是本领  </p>
-<p>永远不要让你的脾气比你的本事还大  </p>
-<p>冷静下来问自己三个问题：</p>
-<ol>
-<li>这是别人的错吗？</li>
-</ol>
-<p>很多时候并不是别人的问题，而是误会或者是我们对别人有误解或者偏见，所以闲谈莫论人非，静坐常思己过，先从自己身上找找问题<br>的确是的，有很多的时候都是我自己的错误  </p>
-<ol start="2">
-<li>这个事情值得生气吗</li>
-</ol>
-<p>田乐就跟我说过，你至于为了这么一件小事跟我吵？<br>其实的确不值得。<br>但是我还是吵了。<br>确实，我的确是一个小肚鸡肠的人。<br>俗话说宰相肚里能撑船，但是要明白，他不是当了宰相肚里才能撑船，一定是他平时肚里就能撑船，所以他才当了宰相  </p>
-<ol start="3">
-<li>生气能解决问题吗？</li>
-</ol>
-<p>越是有本事的人，脾气越好。<br>是的。<br>我脾气就不好。<br>因为明白发脾气无法解决任何问题。<br>解决问题唯一的方法就是面对它，然后冷静的把这个问题给解决掉。  </p>
-<p>没那么多需要生气的事情。  </p>
-<h2 id="第二点：你也不应该还是个祥林嫂"><a href="#第二点：你也不应该还是个祥林嫂" class="headerlink" title="第二点：你也不应该还是个祥林嫂"></a>第二点：你也不应该还是个祥林嫂</h2><p>碰到一点压力，就把自己变成不堪重负的样子，碰到一点不确定性，就把前途描摹成前途无光  </p>
-<p>不要做个怨妇  </p>
-<p>这个世界上最无能的就是怨妇。<br>挫折失败经历的太少了。你才会觉得鸡毛蒜皮都是烦恼。<br>抱怨只会让别人觉得你委屈，可怜，但无助于解决任何问题<br>牢骚太盛防肠断，风物长宜放眼量<br>已经发生的事情，埋怨一点用也没有，成年人，我已经是个成年人了  </p>
-<p>其实在生活当中，让你不堪重负的不是压力，而是你承受压力的方式<br>你曾在什么样的公司工作，你就是什么样的人<br>说过去的公司不好那只是证明你的无能<br>的确，我挺无能的  </p>
-<h2 id="第三点：没有本事就不要表演真性情"><a href="#第三点：没有本事就不要表演真性情" class="headerlink" title="第三点：没有本事就不要表演真性情"></a>第三点：没有本事就不要表演真性情</h2><p>只有玻璃心的员工，所以别那么多怀才不遇的抱怨。<br>我觉得这就是在说我呗。<br>说明你的能力还撑不起你的雄心。<br>没有收拾残局的能力，就不要放纵你善变的情绪。<br>在你成为强者之前，所有的委屈都必须吞咽和妥协。<br>因为没有人会在乎弱者的眼泪。<br>成年的世界里，微笑只是一个表情，对讨厌的人或者事情露出你的微笑，使我们必须要学会的恶心<br>要想人前显贵必须背后受罪<br>能忍多大的事情就能成多大的事情<br>永远不应该挑战领导的权威<br>鸡汤：使我们痛苦者让我们强大，没本事的时候身边的坏人特别多，就会受委屈<br>等有一天强大了，所有人都是好人，和颜悦色<br>表达厌恶最好的方式不是争吵，而是要努力的奋斗。  </p>
+<p>第三堂课主题：自信都没有，你的世界怎么可能好  </p>
+<p>面试逻辑：你先要有自信，才有资格要求别人对你有信心  </p>
+<p>不自信会害死自己。<br>当前能力，学习能力，未来成长的自信  </p>
+<p>如果对自己的某一个能力没有自信，这个方法叫做，一点一点小的成功会积累你的自信  </p>
+<p>第二个不知道哪里不自信，方法：去做一件一直想做但没敢去做的事情  </p>
+<p>它可以帮你建立自信  </p>
+<h2 id="一点一点小的成功会积累你的自信"><a href="#一点一点小的成功会积累你的自信" class="headerlink" title="一点一点小的成功会积累你的自信"></a>一点一点小的成功会积累你的自信</h2><p>锻炼自己的演说你能力，不要定宏伟的大目标。<br>大目标是用来规划方向的，小目标才可以积累你的自信。<br>定那种短时间就可以实现的，跳一跳脚就可以完成的目标。  </p>
+<p>这个跟我以前看到的并且作为座右铭的一句话很相似，就是，永远只追上离你最近的那个人去追赶他。把最近的那个人当做目标，这个目标不大，但是你慢慢慢慢的就可以超越过很多的人。  </p>
+<p>良性循环。<br>一点一点小的成功积累得越来越多，从量变到质变，就成为了你的自信。  </p>
+<p>改变你可以改变的，接受你不能改变的，你得学会接受你自己。<br>希望实现某个方面的自信，切记，不能是脱离实际的盲目自信。<br>培养自信一定是一个循序渐进的过程<br>如果目标太大耗时太久，那么在执行的过程中，就容易让你懈怠甚至失败。<br>所以定短时间可以完成的小目标，不断获得的成就感可以让你坚持并且自信。<br>建议：对某一个方面不自信可试的方法  </p>
+<h2 id="做一件你一直想做但是没有敢去做的事情"><a href="#做一件你一直想做但是没有敢去做的事情" class="headerlink" title="做一件你一直想做但是没有敢去做的事情"></a>做一件你一直想做但是没有敢去做的事情</h2><p>建立自信最好的方法，做一件不敢去做的事情直到你获得成功  </p>
+<p>挑战一下自己<br>戒酒日志<br>失败经验：有第一次破例就有第二次破例，有第二次就有第三次，是的我非常认同  </p>
+<p>破例只有一次和很多次。<br>持久的坚持才能变成惯性，而超出你自己预期的这种践行，慢慢就会长成根植于你心底的自信  </p>
+<h2 id="当你有足够的自信时。你就能做成很多你原本做不到的事情"><a href="#当你有足够的自信时。你就能做成很多你原本做不到的事情" class="headerlink" title="当你有足够的自信时。你就能做成很多你原本做不到的事情"></a>当你有足够的自信时。你就能做成很多你原本做不到的事情</h2><p>培养自信的目的所在。</p>
+<p>李敖：人生第一大快乐，是做到自己认为自己做不到的事情；人生第二快乐，是做到别人认为自己做不到的事情；  </p>
+<p>疗效持久不易复发  </p>
+<p>自卑不自信一定要试试  </p>
+<h2 id="心理暗示"><a href="#心理暗示" class="headerlink" title="心理暗示"></a>心理暗示</h2><p>谁在自己心里还不觉得自己是个人物，哈哈哈  </p>
+<p>培养自己自信的心理暗示方法，要多给自己一些肯定的暗示，每个人内心深处都有一点自卑，这很正常。<br>这种否定的心态很要命，尤其当你经历挫折的时候，这种自我否定就会不断地累加。  </p>
+<p>觉得自己有天赋，自己就会刻意的去锻炼。<br>就比如说，别人夸我写字好看，我就会主动的去写字，以及拍照啊这些。因为我在这方面受到了表扬。<br>积极性就会慢慢提高了。<br>良性循环，相信什么，就拥有什么，就会越有决心可以去锻炼自己。  </p>
+<p>好孩子都是夸出来的。<br>信则有不信则无。  </p>
+<h2 id="简单的自信培养法"><a href="#简单的自信培养法" class="headerlink" title="简单的自信培养法"></a>简单的自信培养法</h2><p>走路很快，我这个人很重要，我要做的事情很重要，慢慢的对自己建立自信非常有帮助  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -12888,26 +12843,71 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>第七节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
+    <title>第四节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
-<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
-<p>自我和自私是两种最糟糕的负面心态。</p>
-<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
-<p>先做好自己不要给别人带来麻烦。</p>
-<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
-<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
-<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
-<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
-<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
-<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
-<p>总结：</p>
+<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
+<p>别人家孩子。  </p>
+<p>你看看人家谁谁谁，你再看看你自己  </p>
+<p>不能让孩子输在起跑线上  </p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
+<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
+<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
+<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
+<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
+<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
+<p>比较有时让人惶恐  </p>
+<p>不要在千千万万的比较当中迷失自我。  </p>
+<p>比较有时候就是用拉人下水的形式找认同感  </p>
+<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
+<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
+<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
+<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
+<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
+<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
+<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
+<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
+<p>知足是一种生活态度  </p>
+<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
+<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第六节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
+<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
+<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
+<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
+<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
+<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
+<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
+<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
+<ol>
+<li>第一个阶段:不要再为自己担心了,自己做决定</li>
+<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
+</ol>
+<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
+<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
+<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
+<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
+<p>越疼越要不动声色，越苦越要保持沉默  </p>
+<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
+<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
 <ul>
-<li>第一讲：心态认知，别人的评价…自我认知</li>
-<li>……..</li>
+<li>两利相权取其重</li>
+<li>两害相权取其轻</li>
 </ul>
-<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
+<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
+<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
+<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -14325,22 +14325,6 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>david-prep单新增编辑逻辑</title>
-    <url>/2020/02/09/%E3%80%90%E9%A2%86%E8%B5%AB%E3%80%91/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
-<blockquote>
-<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
-</blockquote>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
-]]></content>
-      <categories>
-        <category>领赫</category>
-      </categories>
-      <tags>
-        <tag>领赫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>原型图-发货</title>
     <url>/2020/02/09/%E3%80%90%E9%A2%86%E8%B5%AB%E3%80%91/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
     <content><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p>
@@ -14371,6 +14355,22 @@ graph LR;
 <li><p>还是我昨天说的，出库有2种方式。这个t_stock_box_number里面记录了每个提货单最终入库之后生产了哪些箱子，然后对应这发出去就可以了。</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>领赫</category>
+      </categories>
+      <tags>
+        <tag>领赫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>david-prep单新增编辑逻辑</title>
+    <url>/2020/02/09/%E3%80%90%E9%A2%86%E8%B5%AB%E3%80%91/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
+<blockquote>
+<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
+</blockquote>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
 ]]></content>
       <categories>
         <category>领赫</category>
