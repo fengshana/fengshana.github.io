@@ -1,0 +1,1800 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="支付,微信," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="✨Fsn✨" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="记录重点是复习一下微信支付流程。   昨天面试官问我，比如说支付验签、在支付过程中前端用户进行输入购买商品的支付金额这个时候被抓包了怎么办、接口加密、在已经是支付跳转这些时候，支付金额通过抓包被篡改怎么办等支付方面的问题。   微信特性 微信授权 微信支付 微信退款  难点：需要吃透微信的官方文档；一定要按照文档的要求去做；而不是自己YY；   第一个关键点获取OpenId的方式：    手工方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信支付">
+<meta property="og:url" content="https://fengshana.github.io/2020/04/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E3%80%91%E3%80%90%E5%8A%A8%E5%8A%9B%E8%8A%82%E7%82%B9%E3%80%91%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%BC%80%E5%8F%91%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="✨Fsn✨">
+<meta property="og:description" content="记录重点是复习一下微信支付流程。   昨天面试官问我，比如说支付验签、在支付过程中前端用户进行输入购买商品的支付金额这个时候被抓包了怎么办、接口加密、在已经是支付跳转这些时候，支付金额通过抓包被篡改怎么办等支付方面的问题。   微信特性 微信授权 微信支付 微信退款  难点：需要吃透微信的官方文档；一定要按照文档的要求去做；而不是自己YY；   第一个关键点获取OpenId的方式：    手工方式">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPe5S4jBNGOlwmbWbM4a2tInlWhl49kO9ToXeyabUzTdO6QDFv.0FmqM5wy7ClpmeW8UyOEwYO7QTjXtOh2aq9JQ!/r">
+<meta property="article:published_time" content="2020-04-22T22:54:44.581Z">
+<meta property="article:modified_time" content="2020-05-18T17:32:00.124Z">
+<meta property="article:author" content="Fsn✨🧙‍♀️✨">
+<meta property="article:tag" content="支付">
+<meta property="article:tag" content="微信">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPe5S4jBNGOlwmbWbM4a2tInlWhl49kO9ToXeyabUzTdO6QDFv.0FmqM5wy7ClpmeW8UyOEwYO7QTjXtOh2aq9JQ!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/04/23/【面试】/【微信支付】【动力节点】微信支付开发视频教程/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>微信支付 | ✨Fsn✨</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/0.2.4/mermaid.full.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">✨Fsn✨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-camera">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[🌿诗酒年华🌻]</h1>
+    <p id="poem">挑选中🌺...🍃🍂</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '🍃《' + result.data.origin.title + '》🍂'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/04/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E3%80%91%E3%80%90%E5%8A%A8%E5%8A%9B%E8%8A%82%E7%82%B9%E3%80%91%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%BC%80%E5%8F%91%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn✨🧙‍♀️✨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="✨Fsn✨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微信支付</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-23T06:54:44+08:00">
+                2020-04-23
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-19T01:32:00+08:00">
+                2020-05-19
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%94%AF%E4%BB%98/" itemprop="url" rel="index">
+                    <span itemprop="name">支付</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.8k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPe5S4jBNGOlwmbWbM4a2tInlWhl49kO9ToXeyabUzTdO6QDFv.0FmqM5wy7ClpmeW8UyOEwYO7QTjXtOh2aq9JQ!/r" rel="gallery_ckap85ggl009fcwumbjte76ub"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V11rBmNJ1xB9lV/hsnfJ.a5yg7.BhItQyNwPe5S4jBNGOlwmbWbM4a2tInlWhl49kO9ToXeyabUzTdO6QDFv.0FmqM5wy7ClpmeW8UyOEwYO7QTjXtOh2aq9JQ!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><p>重点是复习一下微信支付流程。  </p>
+<p>昨天面试官问我，比如说支付验签、在支付过程中前端用户进行输入购买商品的支付金额这个时候被抓包了怎么办、接口加密、在已经是支付跳转这些时候，支付金额通过抓包被篡改怎么办等支付方面的问题。  </p>
+<h2 id="微信特性"><a href="#微信特性" class="headerlink" title="微信特性"></a>微信特性</h2><ul>
+<li>微信授权</li>
+<li>微信支付</li>
+<li>微信退款</li>
+</ul>
+<p>难点：需要吃透微信的官方文档；一定要按照文档的要求去做；而不是自己YY；  </p>
+<h3 id="第一个关键点"><a href="#第一个关键点" class="headerlink" title="第一个关键点"></a>第一个关键点</h3><p><strong>获取OpenId的方式</strong>：  </p>
+<ul>
+<li><strong>手工方式</strong>（使用手工方式的原因目的在于仔细去看微信的官方文档）</li>
+<li>利用<strong>第三方SDK</strong>（相较于手工方式，高级的方式）</li>
+</ul>
+<p>在实际开发当中使用推荐第三方SDK进行开发微信支付模块。  </p>
+<p>第一步是要完成网页授权，只有通过授权才能够获取得到OpenId，而有了OpenId，才能够继续做下一系列的操作；所以获取OpenId是第一个关键点；  </p>
+<p>强调：一定要单独、仔细、完整的看一遍，甚至看几遍都是可以的；</p>
+<h3 id="微信网页授权"><a href="#微信网页授权" class="headerlink" title="微信网页授权"></a>微信网页授权</h3><p>注意一定要以微信官方文档为准，跟其思路进行。  </p>
+<ul>
+<li>官方文档<br>- <a href="http://mp.weixin.qq.com/wiki" target="_blank" rel="noopener">http://mp.weixin.qq.com/wiki</a><br>- <a href="https://pay.weixin.qq.com/wiki/doc/api/index.html" target="_blank" rel="noopener">https://pay.weixin.qq.com/wiki/doc/api/index.html</a></li>
+<li>调试<br>- <a href="https://natapp.cn/" target="_blank" rel="noopener">https://natapp.cn/</a></li>
+<li>第三方SDK<br>- <a href="https://github.com/Wechat-Group/weixin-java-tools" target="_blank" rel="noopener">https://github.com/Wechat-Group/weixin-java-tools</a></li>
+</ul>
+<p>微信官方文档当中，分有普通商户以及服务商版本；</p>
+<p>简单介绍普通商户版本以及服务商版本(<a href="https://pay.weixin.qq.com/wiki/doc/api/index.html)：" target="_blank" rel="noopener">https://pay.weixin.qq.com/wiki/doc/api/index.html)：</a>  </p>
+<p>普通商户即普通商家；个人身份是不能够申请微信支付的；必须有着企业的资质才能够进行申请；个人开发者如果想要进行开发调试的话可以向朋友借账号等方式；  </p>
+<p>服务商版可以理解为微信的代理商；接入代理商则往往可能是微信方进行提供了技术以及一些更低费率等等；其实普通商户版本以及服务商版本差别并不太大；  </p>
+<p>现在还多了一个银行服务商，我猜大概也就是银行资质的与微信进行合作；  </p>
+<p>要介绍的是普通商户版本当中的公众号开发支付，即也就是选择JSAPI支付方式（用户通过微信扫码、关注公众号等方式进入商家H5页面，并在微信内调用JSSDK完成支付）；跳转至（<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_1）；" target="_blank" rel="noopener">https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_1）；</a>  </p>
+<p>再次强调：仔细查阅官方API文档；其实不管任何支付也都是这样；比如说PayPal（想哭）；难点在于需要去完完整整的理清楚；  </p>
+<p>往往很多时候的不成功不是由于自身开发不好，而是由于官方文档上并没有去仔细阅读；  </p>
+<p>场景介绍、开发步骤、案例介绍….等等都需要仔细查阅，而不是只看一个这种；  </p>
+<p>业务流程：<br> 微信客户端发起支付（展示、生成二维码等不太重要）<br> （重要的是）第四步，请求支付订单然后生成商户订单，再调用统一下单API（第五步）；<br>调用之后返回一个预付单信息；<br>注意是预付单信息；预付单信息返回之后；<br>需要去进行生成JSAPI页面；<br>即在另外一个页面上调用预支付的一些参数；并且签名然后发起支付；<br>发起支付之后，就会有一个异步通知商户支付结果（第十步，很重要）；<br>第一步下单返回的是一个预付单信息；并不是直接下单成功；<br>一般来说不仅仅是微信支付；支付宝也好，最终支付成功之后，会有一个异步的通知；支付完成之后，需要将相关的订单修改成已支付状态（成功/失败）；<br>根据异步通知来的；<br>也可以使用订单查询的API；进行查询订单支付结果；<br>如能接收到异步通知其实就可以进行修改支付结果了；</p>
+<ul>
+<li>文档说明<ul>
+<li>阅读对象</li>
+<li>版本说明</li>
+</ul>
+</li>
+<li>术语<ul>
+<li>支付模式</li>
+<li>名词解释</li>
+</ul>
+</li>
+<li>支付账户<ul>
+<li>支付账户</li>
+</ul>
+</li>
+<li>接口规则<ul>
+<li>协议规则</li>
+<li>参数规定</li>
+<li>安全规范</li>
+<li>获取OpenId</li>
+</ul>
+</li>
+<li>JSAP支付<ul>
+<li>场景介绍</li>
+<li>案例介绍</li>
+<li>开发步骤</li>
+<li>业务流程</li>
+<li>获取微信版本号</li>
+<li>微信内H5调起支付</li>
+<li>收货地址共享</li>
+<li>支付常见问题</li>
+</ul>
+</li>
+<li>API列表<ul>
+<li>统一下单</li>
+<li>查询订单</li>
+<li>关闭订单</li>
+<li>申请退款</li>
+<li>查询退款</li>
+<li>下载交易账单</li>
+<li>下载资金账单</li>
+<li>支付结果通知</li>
+<li>退款结果通知</li>
+<li>拉取订单评价数据</li>
+</ul>
+</li>
+<li>最佳实践<ul>
+<li>支付回调和查单实现指引</li>
+<li>支付验收指引</li>
+<li>网络排查指引</li>
+<li>最佳安全实践</li>
+<li>跨域冗灾方案</li>
+<li>回调通知注意事项</li>
+</ul>
+</li>
+<li>运营规范<ul>
+<li>运营规范</li>
+</ul>
+</li>
+<li>SDK与DEMO下载</li>
+<li>联系我们</li>
+</ul>
+<h2 id="文档说明"><a href="#文档说明" class="headerlink" title="文档说明"></a>文档说明</h2><h3 id="阅读对象"><a href="#阅读对象" class="headerlink" title="阅读对象"></a>阅读对象</h3><p>链接：<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=1_1" target="_blank" rel="noopener">https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=1_1</a>  </p>
+<p>本文阅读对象：商户系统（在线购物平台、人工收银系统、自动化智能收银系统或者其他）集成微信支付涉及的技术架构师、研发工程师、测试工程师、系统运维工程师等；</p>
+<h3 id="版本说明"><a href="#版本说明" class="headerlink" title="版本说明"></a>版本说明</h3><p>链接：<a href="https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=1_2" target="_blank" rel="noopener">https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=1_2</a></p>
+<ul>
+<li>2019.05.06<ul>
+<li>企业付款到银行卡接口，北京银行 银行编码从1032修改为4836；</li>
+</ul>
+</li>
+<li>2019.03.12<ul>
+<li>财付通10位海关注册编码变更为：4403169D3W（原编码440316T004不再使用）</li>
+</ul>
+</li>
+<li>2019.03.06<ul>
+<li>支付结果通知回调频率调整为15s / 15s / 30s / 3m / 10m / 20m / 30m / 30m / 30m / 30m / 60m / 3h / 3h / 3h / 6h / 6h / - 总计24h4m</li>
+</ul>
+</li>
+<li>2019.01.10<ul>
+<li>企业付款接口增加接口频率说明</li>
+</ul>
+</li>
+<li>2019.01.03<ul>
+<li>除合单支付外，字段spbill_create_ip（终端IP）支持IPV6和IPV4两种格式</li>
+</ul>
+</li>
+<li>2019.12.24<ul>
+<li>境内申请退款接口，退款原因下发条件更新</li>
+<li>不超过1元的部分退款，将不会下发退款原因</li>
+</ul>
+</li>
+<li>2018.12.12<ul>
+<li>报关接口新增返回参数</li>
+<li>verify_department-验核机构</li>
+<li>verify_department_trade_id-验核机构交易流水号</li>
+</ul>
+</li>
+<li>2018.12.10<ul>
+<li>企业付款接口新增错误码；</li>
+<li>NO_AUTH</li>
+<li>企业付款备注（desc）参数中的敏感词会被转成字符*</li>
+</ul>
+</li>
+<li>2018.12.09<ul>
+<li>新增支付凭证处开放电子发票入口功能</li>
+<li>统一下单、付款码支付、委托代扣接口新增电子发票开票入口开放参数</li>
+</ul>
+</li>
+<li>2018.12.01<ul>
+<li>企业付款接口新增错误码：<ul>
+<li>PAY_CHANNEL_NOT_ALLOWED</li>
+<li>RECV_ACCOUNT_NOT_ALLOWED</li>
+<li>SENDNUM_LIMIT</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2018.11.30<ul>
+<li>企业付款接口规则变更：<ul>
+<li>付款到零钱-商户号单日出款总额，由100万降低至10万</li>
+<li>付款到零钱-商户号单人单日付款额度，由2万降低至5000</li>
+<li>付款到银行卡-商户号单日出款总额，由100万降低至10万</li>
+<li>付款到银行卡-商户号单人单日付款额度，由5万降低至2万</li>
+<li>付款到零钱-新增两个商户资金安全相关的错误码</li>
+<li>付款到银行卡-新增三个商户资金安全相关的错误码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2018.11.27<ul>
+<li>付款码支付规则变更<ul>
+<li>1000元以下免密支付次数从“每日5次”变更为“每日10次”</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2018.11.12<ul>
+<li>支付产品名字变更<ul>
+<li>公众号支付-变更为-JSAPI支付</li>
+<li>扫码支付-变更为-Native支付</li>
+<li>刷卡支付-变更为-付款码支付</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2018.07.06<ul>
+<li>SDK&amp;DEMO更新</li>
+</ul>
+</li>
+<li>2018.05.06<ul>
+<li>报关API新增支付人信息校验结果返回</li>
+</ul>
+</li>
+<li>2018.03.07<ul>
+<li>新增H5支付API</li>
+</ul>
+</li>
+<li>2018.02.15<ul>
+<li>新增小程序支付API</li>
+</ul>
+</li>
+<li>2017.10.15<ul>
+<li>新增资金账单下载API</li>
+</ul>
+</li>
+<li>2017.07.15<ul>
+<li>新增退款结果通知API</li>
+</ul>
+</li>
+<li>2017.07.13<ul>
+<li>添加“场景信息 scene_info”字段</li>
+<li>添加状态机图</li>
+</ul>
+</li>
+<li>2017.06.07<ul>
+<li>申请退款与查询退款接口删除参数：op_user_id</li>
+<li>代金券接口删除参数：coupon_type、locked_num、used_num</li>
+</ul>
+</li>
+<li>2017.03.20<ul>
+<li>退款接口参数refund_id字段长度变更—原“28”位变更为“32”位</li>
+<li>退款接口参数out_refund_no字段长度变更—原“28”位变更为“64”位</li>
+</ul>
+</li>
+<li>2017.03.15<ul>
+<li>更新单品优惠功能</li>
+<li>更新银行类型列表</li>
+</ul>
+</li>
+<li>2017.02.21<ul>
+<li>下载对账单接口-新增充值退款对账单下载（bill_type=RECHARGE_REFUND）</li>
+</ul>
+</li>
+<li>2016.10.11<ul>
+<li>查询退款接口-退款状态-删除“NOTSURE”状态</li>
+</ul>
+</li>
+<li>2016.09.09<ul>
+<li>退款接口增加字段（可选）—-支持可用余额退款</li>
+<li>增加退款错误码”余额不足“</li>
+</ul>
+</li>
+<li>2016.08.24<ul>
+<li>文档左侧导航栏增加“错误码”栏</li>
+</ul>
+</li>
+<li>2015.07.29<ul>
+<li>受理机构更名为：服务商</li>
+<li>受理机构子商户更名为：特约商户</li>
+</ul>
+</li>
+<li>2014.12.12<ul>
+<li>更新付款码支付java版本Demo</li>
+<li>企业红包更名为“代金券\立减优惠”</li>
+<li>邮件中不附带证书，按照指引去商户系统下载</li>
+</ul>
+</li>
+<li>2014.12.11<ul>
+<li>发布新建版本，本文档适用于V3版本商户号接入微信支付，旧版本账号没有MCHID，需要登录商户系统升级（详细请参考升级指引）。</li>
+</ul>
+</li>
+</ul>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><h3 id="支付模式"><a href="#支付模式" class="headerlink" title="支付模式"></a>支付模式</h3><blockquote>
+<p>支付产品  </p>
+</blockquote>
+<ol>
+<li>付款码支付<br>付款码支付是用户展示微信钱包内的“刷卡条码/二维码”给商户系统扫描后直接完成支付的模式。主要应用线下面对面收银的场景。</li>
+<li>Native支付<br>Native支付是商户系统按照微信支付协议生成支付二维码，用户再用微信“扫一扫”完成支付的模式。该模式适用于PC网站支付、实体店单品或者订单支付、媒体广告支付等场景。</li>
+<li>JSAP支付<br>JSAP支付是用户在微信中打开商户的H5页面，商户在H5页面通过调用微信支付提供的JSAP接口调起微信支付模块完成支付。<br>应用场景：</li>
+</ol>
+<ul>
+<li>用户在微信公众账号进入商家公众号，打开某个主页面，完成支付</li>
+<li>用户的好友在朋友圈、聊天窗口等分项商家页面链接，用户点击链接打开商家页面，完成支付</li>
+<li>将商户页面转换成二维码，用户扫描二维码后再微信浏览器中打开页面后完成支付</li>
+</ul>
+<ol start="4">
+<li>APP支付<br>APP支付又称移动端支付，是商户通过在移动端应用APP中集成开放SDK调起微信支付模块完成支付的模式。  </li>
+<li>H5支付<br>H5支付主要是在手机、ipad等移动设备中通过浏览器唤起微信支付的支付产品。</li>
+<li>小程序支付<br>小程序支付是专门被定义使用在小程序中的支付产品。目前在小程序中能且只能使用小程序支付的方式来唤起微信支付。</li>
+</ol>
+<h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><ol>
+<li>微信公众平台</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>微信支付📝</a></p>
+  <p><span>文章作者:</span>Fsn✨🧙‍♀️✨</a></p>
+  <p><span>发布时间:</span>2020年04月23日 - 06:54:44🌞</p>
+  <p><span>最后更新:</span>2020年05月19日 - 01:32:00🌜</p>
+  <p><span>原始链接:</span><a href="/2020/04/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E3%80%91%E3%80%90%E5%8A%A8%E5%8A%9B%E8%8A%82%E7%82%B9%E3%80%91%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%BC%80%E5%8F%91%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/" title="微信支付">https://fengshana.github.io/2020/04/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E3%80%91%E3%80%90%E5%8A%A8%E5%8A%9B%E8%8A%82%E7%82%B9%E3%80%91%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%BC%80%E5%8F%91%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/04/23/%E3%80%90%E9%9D%A2%E8%AF%95%E3%80%91/%E3%80%90%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E3%80%91%E3%80%90%E5%8A%A8%E5%8A%9B%E8%8A%82%E7%82%B9%E3%80%91%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E5%BC%80%E5%8F%91%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。🎄	</p>  
+</div>
+<style>
+</style>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        //swal({   
+          //title: "",   
+         // text: '<div style="width:300px;height:100px;font-size:14px;">道友，复制成功了哟(＾Ｕ＾)ノ~</div>',   
+          //html: true,
+          //timer: 500,   
+        //showConfirmButton: false
+        //});
+      });
+      new ClipboardJS('.fa-clipboard', {
+          target: function(trigger) {
+              $('<div>').appendTo('body').addClass('alert alert-success').html('🤠道友ᕦ(･ㅂ･)ᕤ，🥭复制成功了哟(^_−)☆').show().delay(1500).fadeOut();
+              return trigger.nextElementSibling;
+            }
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <br/>
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------🍓🍇本文结束🤞感谢道友的阅读🍍🍒-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>🥕🍆坚持原创技术分享🐳，🌽🥬您的支持将鼓励我继续创作！🐬</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn✨🧙‍♀️✨ 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn✨🧙‍♀️✨ 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">🌟支付</i></a>
+          
+            <a href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">🌟微信</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/20/%E3%80%90%E5%BF%83%E6%83%85%E3%80%91/%E4%BB%8A%E5%B9%B4%E8%A6%81%E4%B9%B0%E7%9A%84%E4%B8%9C%E8%A5%BF/" rel="next" title="想一想自己为什么要去面试？">
+                👈 想一想自己为什么要去面试？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/06/%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3JAVA%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91/%E3%80%90%E9%94%81%E3%80%91Synchronized%E5%92%8CReentrantLock/" rel="prev" title="Synchronized和ReentrantLock">
+                Synchronized和ReentrantLock 👉
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn✨🧙‍♀️✨" />
+            
+              <p class="site-author-name" itemprop="name">Fsn✨🧙‍♀️✨</p>
+              <p class="site-description motion-element" itemprop="description">🌈勿忘初心💫 🌞，🌜方得始终⭐</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">151</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i 
+
+                          
+                          class="fa fa-fw fa-github">
+                          
+                         
+                        
+                        </i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/475144966" target="_blank" title="Bilibili">
+                      
+                        <i 
+
+                          
+                            class="">🏃‍♂️
+                          
+                         
+                        
+                        </i>Bilibili</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录"><span class="nav-number">1.</span> <span class="nav-text">记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微信特性"><span class="nav-number">2.</span> <span class="nav-text">微信特性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一个关键点"><span class="nav-number">2.1.</span> <span class="nav-text">第一个关键点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#微信网页授权"><span class="nav-number">2.2.</span> <span class="nav-text">微信网页授权</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档说明"><span class="nav-number">3.</span> <span class="nav-text">文档说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读对象"><span class="nav-number">3.1.</span> <span class="nav-text">阅读对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#版本说明"><span class="nav-number">3.2.</span> <span class="nav-text">版本说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语"><span class="nav-number">4.</span> <span class="nav-text">术语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支付模式"><span class="nav-number">4.1.</span> <span class="nav-text">支付模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#名词解释"><span class="nav-number">4.2.</span> <span class="nav-text">名词解释</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+      
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="300" height="300" id="resCanvas" style="width=100%; background-color:transparent;">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MICROSERVICES/" rel="tag">MICROSERVICES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk1-8/" rel="tag">jdk1.8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="tag">流程图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">🌱2019 🍄 🌳
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    🍉
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn✨🧙‍♀️✨</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+     🏃‍♂️ 
+    <span class="post-meta-item-icon">
+      📈
+    </span>
+    
+      <span class="post-meta-item-text">小屋💒总字数：</span>
+    
+	<span title="Site words total count">
+     532k🌟 </span>
+    <!--<span title="symbols_count_time.count_total">1m</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  <!-- 代码块复制功能    <script src="dist/clipboard.min.js"></script>-->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":250,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+

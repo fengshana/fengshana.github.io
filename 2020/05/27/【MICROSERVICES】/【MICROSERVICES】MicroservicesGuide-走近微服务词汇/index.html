@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MICROSERVICES,词汇," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="✨Fsn✨" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Microservices Guide 微服务指南词汇导读我觉得我对有道词典的翻译有点迷…..感觉怪怪的；   software 123456789so : f : t : wa : re ( 英 &#x2F;ˈsɒftweə(r)&#x2F;  )n. 软件网络释义 软件；软件；软件；软设备Software 软件；软件；软件；软设备free software 自由软件；自由软体；免费软件；自在软件software">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MicroservicesGuide-走近微服务词汇">
+<meta property="og:url" content="https://fengshana.github.io/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/index.html">
+<meta property="og:site_name" content="✨Fsn✨">
+<meta property="og:description" content="Microservices Guide 微服务指南词汇导读我觉得我对有道词典的翻译有点迷…..感觉怪怪的；   software 123456789so : f : t : wa : re ( 英 &#x2F;ˈsɒftweə(r)&#x2F;  )n. 软件网络释义 软件；软件；软件；软设备Software 软件；软件；软件；软设备free software 自由软件；自由软体；免费软件；自在软件software">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX.8rjwta9jG1bv*cAeAAT2SsvbjDfm3XL8C6ztjt.KGPrD*JgtVmFU4iS6xBiGiiZ.H5Xq5EhBOevZh8XSX7Kxw!/r">
+<meta property="article:published_time" content="2020-05-27T10:36:35.464Z">
+<meta property="article:modified_time" content="2020-05-27T10:36:35.465Z">
+<meta property="article:author" content="Fsn✨🧙‍♀️✨">
+<meta property="article:tag" content="MICROSERVICES">
+<meta property="article:tag" content="词汇">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX.8rjwta9jG1bv*cAeAAT2SsvbjDfm3XL8C6ztjt.KGPrD*JgtVmFU4iS6xBiGiiZ.H5Xq5EhBOevZh8XSX7Kxw!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/05/27/【MICROSERVICES】/【MICROSERVICES】MicroservicesGuide-走近微服务词汇/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>MicroservicesGuide-走近微服务词汇 | ✨Fsn✨</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/0.2.4/mermaid.full.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">✨Fsn✨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-camera">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[🌿诗酒年华🌻]</h1>
+    <p id="poem">挑选中🌺...🍃🍂</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '🍃《' + result.data.origin.title + '》🍂'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn✨🧙‍♀️✨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="✨Fsn✨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">MicroservicesGuide-走近微服务词汇</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-27T18:36:35+08:00">
+                2020-05-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-05-27T18:36:35+08:00">
+                2020-05-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MICROSERVICES/" itemprop="url" rel="index">
+                    <span itemprop="name">MICROSERVICES</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  9.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  36
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX.8rjwta9jG1bv*cAeAAT2SsvbjDfm3XL8C6ztjt.KGPrD*JgtVmFU4iS6xBiGiiZ.H5Xq5EhBOevZh8XSX7Kxw!/r" rel="gallery_ckap85gmm00dccwuma9q0a49r"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX.8rjwta9jG1bv*cAeAAT2SsvbjDfm3XL8C6ztjt.KGPrD*JgtVmFU4iS6xBiGiiZ.H5Xq5EhBOevZh8XSX7Kxw!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="Microservices-Guide-微服务指南词汇导读"><a href="#Microservices-Guide-微服务指南词汇导读" class="headerlink" title="Microservices Guide 微服务指南词汇导读"></a>Microservices Guide 微服务指南词汇导读</h2><p>我觉得我对有道词典的翻译有点迷…..<br>感觉怪怪的；  </p>
+<p><strong>software</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">so : f : t : wa : re ( 英 /ˈsɒftweə(r)/  )</span><br><span class="line">n. 软件</span><br><span class="line">网络释义 软件；软件；软件；软设备</span><br><span class="line">Software 软件；软件；软件；软设备</span><br><span class="line">free software 自由软件；自由软体；免费软件；自在软件</span><br><span class="line">software framework 软件框架；软体框架；软件架构</span><br><span class="line">software development 软件开发</span><br><span class="line">software design 软件设计；软件开发</span><br><span class="line">software<span class="built_in"> system </span>软件系统</span><br></pre></td></tr></table></figure>
+
+<p><strong>development</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">de</span> : <span class="string">ve : lo : p : men : t ( 英 /dɪˈveləpmənt/  )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">发展；开发；发育；住宅小区（专指由同一开发商开发的）；[摄]显影</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">developments</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">开发；发展；发育；进化；</span></span><br><span class="line"><span class="attr">Development</span> <span class="string">开发；发展；发育；进化</span></span><br><span class="line"><span class="attr">Software</span> <span class="string">Development 软件开发；软体开发；软件发展；软件研发</span></span><br><span class="line"><span class="attr">Career</span> <span class="string">Development 生涯规划；职业规划；生涯发展；事业发展</span></span><br><span class="line"><span class="attr">sustainable</span> <span class="string">development 可持续发展</span></span><br><span class="line"><span class="attr">economic</span> <span class="string">development 经济发展；经济开发</span></span><br><span class="line"><span class="attr">with</span> <span class="string">the development of 随着 ... 发展</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>young</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">young</span> <span class="string">( 英 /jʌŋ/ )</span></span><br><span class="line"><span class="meta">adj.</span> <span class="string">年轻的；初期的；没有经验的</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">年轻人；（动物的）崽，仔</span></span><br><span class="line"><span class="meta">比较级</span> <span class="string">younger</span></span><br><span class="line"><span class="meta">最高级</span> <span class="string">youngest</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">youngs</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">年轻人；青年版；杨格</span></span><br><span class="line"><span class="attr">Young</span> <span class="string">年轻人；青年版；杨格</span></span><br><span class="line"><span class="attr">Neil</span> <span class="string">Young 尼尔 杨；尼尔杨</span></span><br><span class="line"><span class="attr">Brigham</span> <span class="string">Young 杨百翰；杨百翰大学；</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>profession</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">p</span> : <span class="string">ro : fe : ssion ( 英 /prəˈfeʃn/ )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">职业；专业；声明；宣布；表白</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">professions</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">职业；专业；专业；行业</span></span><br><span class="line"><span class="attr">profession</span> <span class="string">职业；专业；专业；行业</span></span><br><span class="line"><span class="attr">caring</span> <span class="string">profession 护理行业；照顾他人的职业</span></span><br><span class="line"><span class="attr">Profession</span> <span class="string">informationization 行业信息化</span></span><br><span class="line"><span class="attr">profession</span> <span class="string">of 宣称（感情、信念等）；表白</span></span><br><span class="line"><span class="attr">legal</span> <span class="string">profession 法律界；法律专业</span></span><br><span class="line"><span class="attr">medical</span> <span class="string">profession 医疗职业</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>still</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">s</span> : <span class="string">t : ill ( 英 /stɪl/  )</span></span><br><span class="line"><span class="meta">adv.</span> <span class="string">仍然；更；静止地</span></span><br><span class="line"><span class="meta">adj.</span> <span class="string">静止的；不动的；寂静的；平静的；不起泡的</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">寂静；剧照；蒸馏室</span></span><br><span class="line"><span class="meta">conj.</span> <span class="string">仍然；但是；尽管如此</span></span><br><span class="line"><span class="meta">vt.</span> <span class="string">蒸馏；使...静止；使....平静下来</span></span><br><span class="line"><span class="meta">vi.</span> <span class="string">静止；平静；蒸馏</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">静止；仍然；蒸馏釜；依然</span></span><br><span class="line"><span class="attr">still</span> <span class="string">静止；仍然；蒸馏釜；依然</span></span><br><span class="line"><span class="attr">still</span> <span class="string">camera 静物照相机；静物摄影集；拍照机</span></span><br><span class="line"><span class="attr">Still</span> <span class="string">wine 静止葡萄酒；静态葡萄酒；无气葡萄酒；平静葡萄酒</span></span><br><span class="line"><span class="attr">still</span> <span class="string">on 仍在进行</span></span><br><span class="line"><span class="attr">still</span> <span class="string">remains 仍然是</span></span><br><span class="line"><span class="attr">sit</span> <span class="string">still 安静地坐着</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>learning</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">lear</span> : <span class="string">ning ( 英 /ˈlɜːnɪŋ/  )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">学习；学问</span></span><br><span class="line"><span class="meta">v.</span> <span class="string">学习（learn的现在分词）</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">学习；学习；学问；知识</span></span><br><span class="line"><span class="attr">learning</span> <span class="string">学习；学习；学问；知识</span></span><br><span class="line"><span class="attr">ensemble</span> <span class="string">learning 集成学习；围绕中心点的划分；组合算法</span></span><br><span class="line"><span class="attr">Blended</span> <span class="string">Learning 混合式学习；混合学习；混合式教学</span></span><br><span class="line"><span class="attr">learning</span> <span class="string">English 学习英语</span></span><br><span class="line"><span class="attr">higher</span> <span class="string">learning n. 高等教育；高深学问；（电影名称）校园大冲突</span></span><br><span class="line"><span class="attr">language</span> <span class="string">learning 语言学习</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>techniques</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">te</span> : <span class="string">chi : ni : qu : es ( chi 读 k 的音；qu 读 k 的音； 英 /tekˈni:ks/ )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">技术（technique的复数）；方法；技巧</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">技法；技术；技巧；网站架构</span></span><br><span class="line"><span class="attr">Techniques</span> <span class="string">技法；技术；技巧；网站架构</span></span><br><span class="line"><span class="attr">Sampling</span> <span class="string">techniques 采样技术；抽样技术；取样技术；采样妙技</span></span><br><span class="line"><span class="attr">Metallographic</span> <span class="string">Techniques 金相技术</span></span><br><span class="line"><span class="attr">application</span> <span class="string">Techniques 涂装技术</span></span><br><span class="line"><span class="attr">selling</span> <span class="string">techniques 推销技术</span></span><br><span class="line"><span class="attr">motivational</span> <span class="string">techniques 激励技能；激励方法（motivational technique 的复数）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>building</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bu </span>: il : ding ( 英 /ˈ<span class="keyword">bɪldɪŋ/ </span> )</span><br><span class="line"><span class="symbol">n.</span> 建筑；建筑物</span><br><span class="line"><span class="symbol">v.</span> 建筑；建立；增加（<span class="keyword">build的ing形式）</span></span><br><span class="line"><span class="keyword">复数 </span><span class="keyword">buildings</span></span><br><span class="line"><span class="keyword">网络释义 </span>建筑物；大楼；号楼；房屋</span><br><span class="line"><span class="keyword">building </span>建筑物；大楼；号楼；房屋</span><br><span class="line"><span class="symbol">green</span> <span class="keyword">building </span>绿色建筑；绿色生态建筑；绿色修建</span><br><span class="line"><span class="symbol">Chrysler</span> <span class="keyword">Building </span>克莱斯勒大厦；克莱斯勒大楼；美国克莱斯勒大厦；克莱斯勒</span><br><span class="line"><span class="keyword">building </span>up 建造；装配；堆焊；建立增长</span><br><span class="line"><span class="symbol">office</span> <span class="keyword">building </span>办公大楼（等于office <span class="keyword">block）</span></span><br><span class="line"><span class="keyword">building </span>material 建筑材料</span><br></pre></td></tr></table></figure>
+
+<p><strong>tools</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">too : l : s ( 英 /tuːlz/  )</span><br><span class="line">n. [计]工具，工具菜单；工具箱（tool的复数形式）</span><br><span class="line">v. 用工具加工<span class="built_in">..</span>. (tool的第三人称单数形式)</span><br><span class="line">网络释义 工具；刀具；面板；工具栏</span><br><span class="line">Tools 工具；刀具；面板；工具栏</span><br><span class="line">Game Tools 游戏常用工具；游戏常用支持工具集合；游戏开发工具；游戏工具</span><br><span class="line">Debugging Tools 调试工具；翟工具；排错工具；除错工具；</span><br><span class="line">hardware tools 五金工具；日用五金</span><br><span class="line">new tools 新工具</span><br><span class="line">machines <span class="keyword">and</span> tools 机具</span><br></pre></td></tr></table></figure>
+
+<p><strong>effectively</strong></p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">e : <span class="type">ffe</span> : <span class="type">c</span> : <span class="type">ti</span> : <span class="type">ve</span> : <span class="type">ly</span> ( 英 /ɪˈfektɪvli/ )</span><br><span class="line">adv. 有效地；生效地；有力地；实际上</span><br><span class="line">网络释义 有效地；起作用地；实际上；有用地</span><br><span class="line">effectively 有效地；起作用地；实际上；有用地</span><br><span class="line">effectively grounded 直接接地；有效被接地；有效接地；有效接地的</span><br><span class="line"><span class="keyword">use</span> effectively 有效利用；有效地利用</span><br></pre></td></tr></table></figure>
+
+<p><strong>involved</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">in</span> : <span class="string">vol : ve : d (ve 读 v 的音 英 /ɪnˈvɒlvd/  )</span></span><br><span class="line"><span class="meta">adj.</span> <span class="string">有关的；卷入的；复杂的</span></span><br><span class="line"><span class="meta">v.</span> <span class="string">涉及；使参与；包含（involve的过去时和过去分词）</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">卷入；涉案；涉足；所涉及</span></span><br><span class="line"><span class="attr">Involved</span> <span class="string">卷入；涉案；涉足；所涉及</span></span><br><span class="line"><span class="attr">parties</span> <span class="string">involved 交换中的各方；当事人；当事者；互换中的各方</span></span><br><span class="line"><span class="attr">get</span> <span class="string">involved 介入；加入我们；项目介绍；参与</span></span><br><span class="line"><span class="attr">involved</span> <span class="string">in 涉及；包含；牵涉进...</span></span><br><span class="line"><span class="attr">involved</span> <span class="string">with 涉及；与...有关联</span></span><br><span class="line"><span class="attr">get</span> <span class="string">involved in 涉及；卷入</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>activity</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">a</span> : <span class="string">c : ti : vi : ty ( 英 /ækˈtɪvəti/ )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">活动；行动；活跃</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">activities</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">活动；活性；活度；活动</span></span><br><span class="line"><span class="attr">Activity</span> <span class="string">活动；活性；活度；活动</span></span><br><span class="line"><span class="attr">logistics</span> <span class="string">activity 物流活动；物流</span></span><br><span class="line"><span class="attr">physical</span> <span class="string">activity 体力活动；体育活动；体能活动</span></span><br><span class="line"><span class="attr">economic</span> <span class="string">activity 经济活动</span></span><br><span class="line"><span class="attr">catalytic</span> <span class="string">activity 催化活性</span></span><br><span class="line"><span class="attr">physical</span> <span class="string">activity 身体活动；体育活动；体力活动</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>over</strong></p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">o : v : er ( 英 /ˈəʊvə(r)/  )</span><br><span class="line">adv. 倒下；翻转；穿过；完全覆盖；以上；大于；再；结束；改变；完毕；仔细地</span><br><span class="line">prep. 在<span class="params">...</span>上面；从<span class="params">...</span>上方；穿越；在<span class="params">...</span>的另一边；在<span class="params">...</span>的远端；从<span class="params">...</span>落下；遍及；多于；在<span class="params">...</span>期间；渡过；由于；关于；利用；通过；声音大于；高于；级别在<span class="params">...</span>之上；优先于；超过</span><br><span class="line">n. （板球）一轮投球</span><br><span class="line">adj. 倒下的；折起来的；结束的；剩下的</span><br><span class="line">v. 越过</span><br><span class="line">网络释义 结束；越过；超过</span><br><span class="line">over 结束；越过；超过</span><br><span class="line">hand over 移交；交出；让与</span><br><span class="line">Over There 那时那地；在那边；在那里；那边</span><br><span class="line"><span class="literal">all</span> over 到处；遍及；浑身；全部结束</span><br><span class="line">over there adv. 在那里</span><br><span class="line">over <span class="literal">and</span> over 反复；再三</span><br></pre></td></tr></table></figure>
+
+<p><strong>decades</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">n.</span> <span class="string">数十年（decade的复数）</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">十年；几十年；几十年来；台阶</span></span><br><span class="line"><span class="attr">decades</span> <span class="string">十年；几十年；几十年来；台阶</span></span><br><span class="line"><span class="attr">Mixed</span> <span class="string">Decades 某某年代风</span></span><br><span class="line"><span class="attr">Frogger</span> <span class="string">Decades 青蛙过河纪念版</span></span><br><span class="line"><span class="attr">over</span> <span class="string">the past decade 在过去的十年里</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>writing</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">wri</span> : <span class="string">ting ( 英 /ˈraɪtɪŋ/  )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">书写；写作技能；著书立说；写作的职业；作品；著作；文字；笔迹</span></span><br><span class="line"><span class="meta">v.</span> <span class="string">书写；写作（write的现在分词）</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">writings</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">写作；书写；文字</span></span><br><span class="line"><span class="attr">Writing</span> <span class="string">写作；书写；文字</span></span><br><span class="line"><span class="attr">Nature</span> <span class="string">Writing 自然写作；自然书写；自然文学</span></span><br><span class="line"><span class="attr">English</span> <span class="string">Writing 英语写作；英文写作；英文书面表达；写作</span></span><br><span class="line"><span class="attr">in</span> <span class="string">writing 书面；书面的；用书面写</span></span><br><span class="line"><span class="attr">writing</span> <span class="string">ability 写作能力；书写能力</span></span><br><span class="line"><span class="attr">writing</span> <span class="string">skill 写作技巧；书写技能；笔头</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>in the last two</strong></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在最后两个</span><br><span class="line"><span class="keyword">in</span> <span class="keyword">the</span> <span class="keyword">last</span> <span class="literal">two</span> months 在过去的两个月；在最后两个月</span><br><span class="line">In <span class="keyword">the</span> <span class="keyword">last</span> <span class="literal">two</span> years 在最后两年中</span><br><span class="line">In <span class="keyword">the</span> <span class="keyword">last</span> <span class="literal">two</span> decades 在最近二十年</span><br></pre></td></tr></table></figure>
+
+<p><strong>website</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">we</span> : <span class="string">b : si : te ( 英 /ˈwebsaɪt/ )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">网站（全球资讯网的主机站）</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">websites</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">网站；网址；网站建设；站点</span></span><br><span class="line"><span class="attr">Website</span> <span class="string">网站；网址；网站建设；站点</span></span><br><span class="line"><span class="attr">Website</span> <span class="string">Design 网站设计；网页设计；网站建设；品牌网站形象设计</span></span><br><span class="line"><span class="attr">Website</span> <span class="string">Promotion 网站推广；网站推广常识；网站推广知识；企业网站网络推广；</span></span><br><span class="line"><span class="attr">website</span> <span class="string">design 网站设计</span></span><br><span class="line"><span class="attr">website</span> <span class="string">promotion 网站推广</span></span><br><span class="line"><span class="attr">website</span> <span class="string">development 网站开发；网页设计</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>patterns</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pa</span> : <span class="string">tter : n : s</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">模式（pattern的复数形式）</span></span><br><span class="line"><span class="meta">v.</span> <span class="string">摹制；用图案装饰；复写（pattern的第三人称单数形式）</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">花样；模型；木模；形态</span></span><br><span class="line"><span class="attr">patterns</span> <span class="string">花样；模型；木模；形态</span></span><br><span class="line"><span class="attr">fashionable</span> <span class="string">patterns 花色入时；花样进时；时尚模式；花样入时</span></span><br><span class="line"><span class="attr">Corrective</span> <span class="string">Patterns 调整浪形态；调剂浪形态</span></span><br><span class="line"><span class="attr">development</span> <span class="string">patterns 发展模式</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>practices</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">p :</span> <span class="string">ra :</span> <span class="string">c :</span> <span class="string">ti :</span> <span class="string">ce :</span> s ( 英 <span class="regexp">/ˈpræktɪsɪs/</span>  )</span><br><span class="line">n. 实践（practice 的复数）；练习</span><br><span class="line">v. 练习（practice的第三人称单数形式）</span><br><span class="line">网络释义 客户专区；业务中心</span><br><span class="line">Practices 客户专区；业务中心</span><br><span class="line">Disciplinazy Practices 惩戒性措施；性措施</span><br><span class="line">Agricultural practices 农业方式；耕作方法；农业方法</span><br><span class="line">cultural practices 文化实践；栽培技术</span><br><span class="line">foreign corrupt practices act 反国外行贿法规</span><br></pre></td></tr></table></figure>
+
+<p><strong>easier</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ea</span> : <span class="string">si : er ( 英 /'iːzɪə/  )</span></span><br><span class="line"><span class="meta">adj.</span> <span class="string">更简单；容易些（easy 的比较级形式）；较早的</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">知易行难；更简单；更容易的；更便捷</span></span><br><span class="line"><span class="attr">Easier</span> <span class="string">知易行难；更简单；更容易的；更便捷</span></span><br><span class="line"><span class="attr">EASIER</span> <span class="string">RIDER 更逍遥的骑士</span></span><br><span class="line"><span class="attr">Work</span> <span class="string">easier 工作比较轻松</span></span><br><span class="line"><span class="attr">easier</span> <span class="string">said than done 说来容易做起来难</span></span><br><span class="line"><span class="attr">make</span> <span class="string">life easier 日子会过得更潇洒；生活变得更加舒适</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>useful</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">u</span> : <span class="string">se : ful ( 英 /ˈjuːsfl/  )</span></span><br><span class="line"><span class="meta">adj.</span> <span class="string">有用的；有益的；有帮助的</span></span><br><span class="line"><span class="meta">比较级</span> <span class="string">more useful；</span></span><br><span class="line"><span class="meta">最高级</span> <span class="string">most useful</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">有用的；有益；软碟通软件；有效的</span></span><br><span class="line"><span class="attr">useful</span> <span class="string">有用的；有益；软碟通软件；有效的</span></span><br><span class="line"><span class="attr">Useful</span> <span class="string">numbers 常用电话号码；常用电话；常用德律风号码；经常使用电话号头</span></span><br><span class="line"><span class="attr">useful</span> <span class="string">resistance 有益阻力</span></span><br><span class="line"><span class="attr">be</span> <span class="string">useful to 对...有用；具有...用途</span></span><br><span class="line"><span class="attr">useful</span> <span class="string">life 使用寿命；有效期</span></span><br><span class="line"><span class="attr">useful</span> <span class="string">data 有用数据和资料</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>began</strong></p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">be </span>: gan ( 英 /<span class="keyword">bɪˈɡæn/ </span>)</span><br><span class="line"><span class="symbol">v.</span> 开始；创建；着手于（<span class="keyword">begin的过去式）</span></span><br><span class="line"><span class="keyword">网络释义 </span>开始；贝加；开始了；才开始；</span><br><span class="line"><span class="keyword">began </span>开始；贝加；开始了；才开始</span><br><span class="line"><span class="keyword">Began </span>menopause 开始更年期</span><br><span class="line"><span class="symbol">Passion</span> <span class="keyword">began </span>翻译公司开始</span><br><span class="line"><span class="keyword">begin </span>with 以...开始；开始于...</span><br><span class="line"><span class="keyword">begin </span>at 几点开始；从..开始</span><br><span class="line"><span class="keyword">begin </span>again 重新开始；重做</span><br></pre></td></tr></table></figure>
+
+<p><strong>place</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">p</span> : <span class="string">la : ce ( 英 /pleɪs/  )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">地方；住所；座位</span></span><br><span class="line"><span class="meta">vt.</span> <span class="string">放置；任命；寄予</span></span><br><span class="line"><span class="meta">vi.</span> <span class="string">名列前茅；取得名次</span></span><br><span class="line"><span class="meta">过去式</span> <span class="string">placed</span></span><br><span class="line"><span class="meta">过去分词</span> <span class="string">placed</span></span><br><span class="line"><span class="meta">现在分词</span> <span class="string">placing</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">places</span></span><br><span class="line"><span class="meta">第三人称单数</span> <span class="string">places</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">渠道；地方；放置；地点</span></span><br><span class="line"><span class="attr">Place</span> <span class="string">渠道；地方；放置；地点</span></span><br><span class="line"><span class="attr">Lanham</span> <span class="string">Place 朗豪坊；朗豪酒店；朗豪坊商场；朗豪酒店</span></span><br><span class="line"><span class="attr">Martin</span> <span class="string">Place 马丁广场；牛；火车站</span></span><br><span class="line"><span class="attr">in</span> <span class="string">place 适当；适当的；在适当的地方；在适当的位置</span></span><br><span class="line"><span class="attr">place</span> <span class="string">in 安排；放置</span></span><br><span class="line"><span class="attr">take</span> <span class="string">place 发生；举行</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>publish</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pub</span> : <span class="string">li : sh ( 英 /ˈpʌblɪʃ/  )</span></span><br><span class="line"><span class="meta">vt.</span> <span class="string">出版；发表；公布</span></span><br><span class="line"><span class="meta">vi.</span> <span class="string">出版；发行；刊印</span></span><br><span class="line"><span class="meta">过去式</span> <span class="string">published</span></span><br><span class="line"><span class="meta">过去分词</span> <span class="string">published</span></span><br><span class="line"><span class="meta">现在分词</span> <span class="string">publishing</span></span><br><span class="line"><span class="meta">第三人称单数</span> <span class="string">publishes</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">出版；公布；发布</span></span><br><span class="line"><span class="attr">publish</span> <span class="string">出版；公布；发布</span></span><br><span class="line"><span class="attr">publish</span> <span class="string">connections 发布连接</span></span><br><span class="line"><span class="attr">Publish</span> <span class="string">Entry 发布项；宣布项</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>articles</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ar</span> : <span class="string">ti : cle : s</span></span><br><span class="line"><span class="attr">n.[语]文章；物品；[法]条款（article的复数）；[语]冠词</span></span><br><span class="line"><span class="meta">v.</span> <span class="string">使受协议条款的约束；指控（article的三单形式）</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">冠词；文章；各条；本刊</span></span><br><span class="line"><span class="attr">Articles</span> <span class="string">冠词；文章；各条；本刊</span></span><br><span class="line"><span class="attr">Instant</span> <span class="string">Articles 即时文章；新闻快读；即时文汇；文章快手</span></span><br><span class="line"><span class="attr">Plastic</span> <span class="string">Articles 塑料制品；塑料件；整形篇；主要进口商品英文</span></span><br><span class="line"><span class="attr">articles</span> <span class="string">of association 公司章程；组织章程</span></span><br><span class="line"><span class="attr">articles</span> <span class="string">for daily use 生活用品</span></span><br><span class="line"><span class="attr">original</span> <span class="string">articles 原作；研究文章</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>colleagues</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">co</span> : <span class="string">lle : gu : es</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">同事；同行（colleague的复数）</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">同仁；同人；同事；同事之间</span></span><br><span class="line"><span class="attr">Colleagues</span> <span class="string">同仁；同人；同事；同事之间</span></span><br><span class="line"><span class="attr">Visiting</span> <span class="string">Colleagues 拜访同事；造访同事</span></span><br><span class="line"><span class="attr">Complimenting</span> <span class="string">Colleagues 赞美同事；赞誉同事</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>joined</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jo</span> : <span class="string">in : ed ( 英 /dʒɔind/  )</span></span><br><span class="line"><span class="meta">v.</span> <span class="string">加入；参加（join的过去式；过去分词）；[计]连接</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">加入；客户留言；连接；招生简章</span></span><br><span class="line"><span class="attr">joined</span> <span class="string">加入；客户留言；连接；招生简章</span></span><br><span class="line"><span class="attr">JOINED</span> <span class="string">Strategy 连接策略</span></span><br><span class="line"><span class="attr">joined</span> <span class="string">field 将两个表中连接字段</span></span><br><span class="line"><span class="attr">join</span> <span class="string">hands 携手；联手；齐心协力</span></span><br><span class="line"><span class="attr">join</span> <span class="string">in 加入；参加</span></span><br><span class="line"><span class="attr">join</span> <span class="string">hands with 握手；同...联合</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>ThoughtWorks</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>role</strong></p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ro : le ( 英 /rəʊl/  )</span><br><span class="line">n. 角色；任务</span><br><span class="line">网络释义 角色；作用；社会角色；任务</span><br><span class="line"><span class="keyword">Role</span> <span class="title">角色；作用；社会角色；任务</span></span><br><span class="line"><span class="title">role</span> playing 角色扮演；角色扮演法；职能演习；角色表演</span><br><span class="line"><span class="keyword">role</span> <span class="title">model</span> 行为榜样；角色模型；榜样；模范</span><br><span class="line"><span class="keyword">role</span> <span class="title">of</span> ....的角色</span><br><span class="line">play an important <span class="keyword">role</span> <span class="title">起到重要作用</span></span><br><span class="line"><span class="title">leading</span> <span class="keyword">role</span> <span class="title">主导作用；主导地位</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>learn</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">lear</span> : <span class="string">n ( 英 /lɜːn/  )</span></span><br><span class="line"><span class="meta">vt.</span> <span class="string">学习；得知；认识到</span></span><br><span class="line"><span class="meta">vi.</span> <span class="string">学习；获悉</span></span><br><span class="line"><span class="meta">过去式</span> <span class="string">learned 或 learnt</span></span><br><span class="line"><span class="meta">过去分词</span> <span class="string">learned 或 learnt</span></span><br><span class="line"><span class="meta">现在分词</span> <span class="string">learning</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">学会；得知</span></span><br><span class="line"><span class="attr">Learn</span> <span class="string">学会；得知</span></span><br><span class="line"><span class="attr">learn</span> <span class="string">about 了解；得知；获悉；听到</span></span><br><span class="line"><span class="attr">learn</span> <span class="string">of 听到；获悉；获悉的事；听说</span></span><br><span class="line"><span class="attr">learn</span> <span class="string">from 向...学习</span></span><br><span class="line"><span class="attr">learn</span> <span class="string">English 学习英语</span></span><br><span class="line"><span class="attr">learn</span> <span class="string">about 了解；学习</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>deliver</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">de</span> : <span class="string">li : ver ( 英 /dɪˈlɪvə(r)/  )</span></span><br><span class="line"><span class="meta">vt.</span> <span class="string">交付；发表；递送；释放；给予（打击）；给...接生</span></span><br><span class="line"><span class="meta">vi.</span> <span class="string">实现；传送；履行；投递</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">投球</span></span><br><span class="line"><span class="meta">过去式</span> <span class="string">delivered</span></span><br><span class="line"><span class="meta">过去分词</span> <span class="string">delivered</span></span><br><span class="line"><span class="meta">现在分词</span> <span class="string">delivering</span></span><br><span class="line"><span class="meta">第三人称单数</span> <span class="string">delivers</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">投递；交付；发出；发表</span></span><br><span class="line"><span class="attr">deliver</span> <span class="string">投递；交付；发出；发表</span></span><br><span class="line"><span class="attr">deliver</span> <span class="string">value 价值传递；传递价值</span></span><br><span class="line"><span class="attr">Deliver</span> <span class="string">Hope 传递希望；递送希望</span></span><br><span class="line"><span class="attr">deliver</span> <span class="string">the goods 交货；履行诺言</span></span><br><span class="line"><span class="attr">deliver</span> <span class="string">a speech 发表演讲；发表讲话</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>clients</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">c : lien : ts</span><br><span class="line">n. 顾客；客户端；委托方（client的复数）；救济对象；应受账款</span><br><span class="line">网络释义 客户；客户端；案例；合作客户</span><br><span class="line">Clients 客户；客户端；案例；合作客户</span><br><span class="line">major clients 大客户；主要客户；客户</span><br><span class="line">Entertaining Clients 招待客户；款待客户；宴请客户；接待客户</span><br><span class="line">client<span class="built_in"> service </span>客户服务；向委托部门提供服务</span><br><span class="line">client base 客户群；基本顾客</span><br><span class="line">client side 客户端；使用端</span><br></pre></td></tr></table></figure>
+
+<p><strong>pass</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pa</span> : <span class="string">ss ( 英 /pɑːs/  )</span></span><br><span class="line"><span class="meta">v.</span> <span class="string">通过；经过；沿某方向前进；使达到（某位置）；传递；传球；遗留给；超过；变化；推移；度过；终止；几个；经表决通过（法律等）；允许；宣布；过；排泄；流通；放弃</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">及格；经过；通行证；道路，山口；传球；飞跃；阶段；鱼道；（桥牌）不叫；（击剑中的）戳刺；变戏法；（计算机）一次浏览</span></span><br><span class="line"><span class="meta">过去式</span> <span class="string">passed</span></span><br><span class="line"><span class="meta">过去分词</span> <span class="string">passed</span></span><br><span class="line"><span class="meta">现在分词</span> <span class="string">passing</span></span><br><span class="line"><span class="meta">第三人称单数</span> <span class="string">passes</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">传球；通过；经过；传递</span></span><br><span class="line"><span class="attr">Pass</span> <span class="string">传球；通过；经过；传递</span></span><br><span class="line"><span class="attr">scissor</span> <span class="string">pass 交叉传球；交织传球；穿插传球；传球</span></span><br><span class="line"><span class="attr">Khyber</span> <span class="string">Pass 开伯尔山口；开伯尔通道；咖喱王</span></span><br><span class="line"><span class="attr">pass</span> <span class="string">through 穿过....；通过...</span></span><br><span class="line"><span class="attr">come</span> <span class="string">to pass 实现；发生</span></span><br><span class="line"><span class="attr">pass</span> <span class="string">on 传递；继续；去世</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>wider</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">wi</span> : <span class="string">d : er ( 英 /waɪdə(r)/  )</span></span><br><span class="line"><span class="meta">adj.</span> <span class="string">宽的；广阔的（wide的比较级形式）</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">快尔达；世界发展经济研究所；宽的</span></span><br><span class="line"><span class="attr">WIDER</span> <span class="string">快尔达；世界发展经济研究所；宽的</span></span><br><span class="line"><span class="attr">wider</span> <span class="string">margin 较大差幅；俏利</span></span><br><span class="line"><span class="attr">wider</span> <span class="string">spreading 更大的穿电</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>industry</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">in</span> : <span class="string">du : s : try ( 英 /ˈɪndəstri/  )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">产业；工业；勤勉</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">industries</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">产业；工业；职业；行业</span></span><br><span class="line"><span class="attr">industry</span> <span class="string">产业；工业；职业；行业</span></span><br><span class="line"><span class="attr">water</span> <span class="string">industry 水利产业；水产业；水工业</span></span><br><span class="line"><span class="attr">automobile</span> <span class="string">industry 汽车工业；汽车产业；汽车业；汽车制造业</span></span><br><span class="line"><span class="attr">industry</span> <span class="string">and commerce 工商业</span></span><br><span class="line"><span class="attr">chemical</span> <span class="string">industry 化学工业</span></span><br><span class="line"><span class="attr">manufacturing</span> <span class="string">industry 制造业；制造工业</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>site</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">si</span> : <span class="string">te ( 英 /saɪt/ )</span></span><br><span class="line"><span class="meta">n.</span> <span class="string">地点；位置；场所</span></span><br><span class="line"><span class="meta">vt.</span> <span class="string">设置；为...选址</span></span><br><span class="line"><span class="meta">过去式</span> <span class="string">sited</span></span><br><span class="line"><span class="meta">过去分词</span> <span class="string">sited</span></span><br><span class="line"><span class="meta">现在分词</span> <span class="string">siting</span></span><br><span class="line"><span class="meta">复数</span> <span class="string">sites</span></span><br><span class="line"><span class="meta">第三人称单数</span> <span class="string">sites</span></span><br><span class="line"><span class="meta">网络释义</span> <span class="string">站点；场地；现场；场所</span></span><br><span class="line"><span class="attr">Site</span> <span class="string">站点；场地；现场；场所</span></span><br><span class="line"><span class="attr">Site</span> <span class="string">planning 敷地计划；总平面设计；场地规划</span></span><br><span class="line"><span class="attr">Site</span> <span class="string">Selection 选址；基地选择；场地选择</span></span><br><span class="line"><span class="attr">web</span> <span class="string">site 网页；网址</span></span><br><span class="line"><span class="attr">on</span> <span class="string">site 现场；原地；原位</span></span><br><span class="line"><span class="attr">construction</span> <span class="string">site 建筑工地；施工场地</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>developed</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">de : ve : lo : p : ed ( 英 /dɪˈveləpt/ )</span><br><span class="line">adj. 发达的（国家或地区）；成熟的</span><br><span class="line">网络释义 发达；自主开发；研制出；成熟的</span><br><span class="line">Developed 发达；自主开发；研制出；成熟的</span><br><span class="line">developed countries 发达国家；已开发国家；已发展国家；发达国家或工业化国家</span><br><span class="line">developed dimension 展开尺寸</span><br><span class="line">developed country n.发达国家</span><br><span class="line">developed<span class="built_in"> area </span>[计]展开面积</span><br><span class="line">less developed 欠发达地区；不发达的</span><br></pre></td></tr></table></figure>
+
+<p><strong>respected</strong></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">re :</span> <span class="string">s :</span> <span class="string">pe :</span> <span class="string">c :</span> <span class="string">te :</span> d ( 英 <span class="regexp">/ri'spektid/</span>  )</span><br><span class="line">adj. 受尊敬的</span><br><span class="line">v. 尊敬；重视（respect的过去式和过去分词）</span><br><span class="line">网络释义 推崇；受尊敬的；德高望重；受人尊敬</span><br><span class="line">Respected 推崇；受尊敬的；德高望重；受人尊敬</span><br><span class="line">Are respected 很受尊敬</span><br><span class="line">Respected person 德高望重的人</span><br><span class="line">respected ideas 公认理论；权威理论</span><br><span class="line">be respected <span class="keyword">as</span> 被尊为...</span><br></pre></td></tr></table></figure>
+
+<p><strong>platform</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">p : la : t : <span class="keyword">for</span> : m ( 英 /ˈplætfɔːm/  )</span><br><span class="line">n. 平台；月台；站台；坛；讲台；厚底松糕鞋</span><br><span class="line">网络释义 平台；站台；台；平台</span><br><span class="line">platform 平台；站台；台；平台</span><br><span class="line">side platform 侧式站台；侧式月台；侧向式站台；侧向收割台</span><br><span class="line">fixed platform 固定平台；固定式平台；固定式钻井平台</span><br><span class="line">service platform 工作台；操作平台</span><br><span class="line">offshore platform 海上平台；近海平台</span><br><span class="line">open platform 开放平台</span><br></pre></td></tr></table></figure>
+
+<p><strong>edited</strong></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">e</span> : <span class="keyword">di</span> :<span class="keyword">te</span> : <span class="keyword">d</span> ( 英 /'<span class="keyword">ed</span>ɪtɪ<span class="keyword">d</span>/  )</span><br><span class="line">adj. 编辑过的</span><br><span class="line">v. 编辑；校订；剪接；主编（<span class="keyword">edit</span>的过去式和过去分词）</span><br><span class="line">网络释义 编辑过的；编辑；分钟；已编辑</span><br><span class="line">Edited 编辑过的；编辑；分钟；已编辑</span><br><span class="line">Edited Books 编辑书籍</span><br><span class="line">SpinnBox Edited 旋转方块</span><br><span class="line"><span class="keyword">edit</span> box [计]编辑框</span><br><span class="line"><span class="keyword">edit</span> mode [计]编辑方式</span><br><span class="line"><span class="keyword">edit</span> <span class="keyword">window</span> 编辑窗口</span><br></pre></td></tr></table></figure>
+
+<p><strong>published</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adj. 已发布的</span><br><span class="line">v. 出版；发行（publish的过去式）</span><br><span class="line">网络释义 刊登；刊出；刊发；刊载</span><br><span class="line">Published 刊登；刊出；刊发；刊载</span><br><span class="line">published<span class="built_in"> interface </span>已发布接口；发布接口</span><br><span class="line">published angle 预定</span><br><span class="line">published price 图书零售价；定价；公布价格</span><br></pre></td></tr></table></figure>
+
+<p><strong>ThoughtWorkers</strong></p>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">**others**</span><br></pre></td></tr></table></figure>
+<p>  o : ther : s ( 英 /ˈʌðə(r)z/   )<br>  pron. 其他人<br>  网络释义 其它；其他；全部信息；其他组件保养<br>  Others 其他；其它；全部信息；其他组件保养<br>  the others 小岛惊魂；神鬼第六感；其它<br>  Introduce Others 先容别人<br>  each other 彼此；互相<br>  on the other 另一方面<br>  on the other hand 另一方面</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*reach*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  rea : ch (  英 /riːtʃ/ )<br>  vi. 达到；延伸；伸出手；传开<br>  vt. 达到；影响；抵达；伸出<br>  n. 范围；延伸；河段；横风行驶<br>  第三人称单数 reaches<br>  过去式 reached<br>  过去分词 reached<br>  现在分词 reaching<br>  网络释义 到达；达到；到达率；化学品注册<br>  Reach 到达；达到；到达率；化学品注册<br>  Reach Me 书缘寻踪；抓住我；请与我联系；联系我<br>  reach out 伸出；提供援助；接纳我<br>  reach out vt. 伸出<br>  reach for 伸手去拿<br>  reach an agreement 达成协议；取得一致意见；达成共识</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*audience*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  au : di : en : ce ( 英 /ˈɔːdiəns/  )<br>  n. 观众；听众；读者；接见；正式会见；拜会<br>  网络释义 观众；听众；受众；阅听人<br>  Audience 观众；听众；受众；阅听人<br>  target audience 目标观众；目标消费者；目标大众；目标受众<br>  Audience area 听众区；看台区；观众区<br>  target audience 目标受众；目标观众；目标客户<br>  audience rating n. 收视率；试听率<br>  mass audience 大众受众</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*material*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  ma : te : ri : al ( 英 /məˈtɪəriəl/  )<br>  n. 材料；用具；（有指明特征的）人才；素材；曲目；布料<br>  adj. 物质的；身体需要的；和推理内容相关的；重要的；（证据或事实）决定性的；客观存在的；物欲的<br>  n. (Material)(意、美)妈特力娅丽（人名）<br>  复数 materials<br>  网络释义 材质；材料；物料；资料<br>  Material 材质；材料；物料；资料<br>  Material Girl 物质女孩；拜金女孩；物质女郎；拜金女郎<br>  insulating material 隔热材料；绝热材料；绝缘物<br>  raw material 原料<br>  teaching material 教学内容；教学资料<br>  new material 新材料</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*MicroServices*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  Mi: cro : Ser : vi : ce : s<br>  微服务；<br>  微服务架构<br>  网络释义 微服务；微服务架构<br>  Microservices 微服务；微服务架构<br>  cognitive microservices 认知微服务；认证微服务<br>  Microservices Architecture 微服务架构</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*Guide*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  gui : de  ( 英 /ɡaɪd/ )<br>  n. 指南；向导；入门书；<br>  vt. 引导；带领；操纵；<br>  vi. 担任向导；<br>  n.(Guide)人名；（法、葡）吉德<br>  过去式 guided；<br>  过去分词 guided；<br>  现在分词 guiding；<br>  复数 guides；<br>  第三人称单数 guides；<br>  网络释义 导游、指导、指南、领队<br>  Guide 导游；指导；指南；领队；<br>  guide post 路标；引导柱；导柱；导杆<br>  User Guide 说明书；用户指南；用户操作手册</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*In short*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  总之；<br>  简言之；<br>  网络释义 简言之；总之；简而言之；简单地说<br>  in short 简言之；总之；简而言之；简单地说<br>  in the short term 从短期来看<br>  in a short time 不久；在短时间内</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*architectural*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  ar : chi : te : c : tur : al（chi读ki的音，英 /ˌɑːkɪˈtektʃərəl/  ）<br>  adj. 建筑学的；建筑上的；符合建筑法的<br>  网络释义 建筑；建筑设计；建筑材质；建筑学的<br>  architectural 建筑；建筑设计；建筑材质；建筑学的<br>  architectural style 建筑风格；建筑形式；架构风格<br>  Architectural acoustics 建筑声学；建筑音响；构筑声学；建筑音响学</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*style*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  s : ty : le  （ 英 /staɪl/ ）<br>  n. 风格；时尚；类型；字体<br>  vt. 设计；称呼；使合潮流<br>  vi. 设计式样；用刻刀作装饰画<br>  n. (Style)人名；（英）斯泰尔<br>  过去式 styled；<br>  过去分词 styled；<br>  现在分词 styling；<br>  复数 styles；<br>  第三人称单数 styles；<br>  网络释义 风格；样式；款式；作风<br>  style 风格；样式；款式；作风<br>  Style 作风<br>  Text Style 字体样式；字布局；文字样式；文字布局</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="number">*a</span>pproach <span class="keyword">to</span>**</span><br></pre></td></tr></table></figure>
+<p>  a : pp : roa : ch  （ 英 /əˈprəʊtʃ/  ）<br>  接近；约等于；通往…的方法<br>  网络释义 约等于；接近；类似；办法；<br>  approach to 约等于；接近；类似；办法<br>  approach h to criticality 接近临界<br>  approach h to 做某事的方法；约等于；接近；对…的态度</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*developing*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  de : ve : lo : ping  （ 英 /dɪˈveləpɪŋ/  ）<br>  adj. 发展中的；生长的；变化的<br>  n. 发展<br>  v. 发展；成长；产生；感受；使（摄影胶片）显影（develop的现在分词）<br>  网络释义 发展；发展中的；显影；开发<br>  Developing 发展；发展中的；显影；开发<br>  developing trend 发展趋势；发展走向；趋势<br>  developing machine 洗片机；显影机；头影机（这个头？我抄的有道词典上的）；显色机</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*single*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  sin : gle （ 英 /ˈsɪŋɡl/ ）<br>  adj. 单一的；单身的；单程的<br>  n. 一个；单打；单程票<br>  vt. 选出<br>  vi. 击出一垒安打<br>  过去式 singled<br>  过去分词 singled<br>  现在分词 singling<br>  复数 singles<br>  第三人称单数 singles<br>  网络释义 未婚；一垒安打；单曲；单一的；<br>  single 未婚；一垒安打；单曲；单一的<br>  single market 统一市场；北京市场；单一市场；同一市场<br>  single parent 单亲家庭；单亲；单父协同；单亲母亲</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="built_in">application</span>**</span><br></pre></td></tr></table></figure>
+<p>  a : pp : li : ca : tion （ 英 /ˌæplɪˈkeɪʃn/  ）<br>  n. 应用；申请；应用程序；敷用；（对事物、学习等）投入<br>  网络释义 用途；应用软件；应用<br>  APPLICATION 用途；应用软件；应用<br>  application fee 申请费；报名费；申请费用；登记费<br>  patent application 专利申请；专利申请书；专利声请；专利申请说明书</p>
+<p>  patent<br>  pa : ten : t  （英 /‘pæt(ə)nt; ‘peɪt(ə)nt/）<br>  n. 专利权；专利证；专利品；<br>  adj. 专利的；特许生产或销售的；显著的；公开的；（脉管等）开放的<br>  v. 取得…的专利权；授予专利<br>  复数 patents<br>  过去式 patented<br>  过去分词 patented<br>  现在分词 patenting<br>  第三人称单数 patents<br>  网络释义 专利权；专利；专利品；科技玩具<br>  patent 专利权；专利；专利品；科技玩具<br>  patent family 专利族；同族专利<br>  patent attorney 专利律师；专利代理人；称为专利法务人员</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">**a suite of**</span></span><br></pre></td></tr></table></figure>
+<p>  s : ui : te（ui读wi的音， 英 /swiːt/ ）<br>  一系列<br>  网络释义 一套；一整组；详细翻译（详细翻译&gt;&gt;a suite of 一系列；一套…）<br>  a suite of 一套；一整组；详细翻译<br>  a suite of racks 一套机架<br>  a suite of paintings 一组从不同角度和层次反映同一中心思想和题材的绘画</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*small*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  s : ma : ll  （ 英 /smɔːl/  ）<br>  adj. 少的，小的；微弱的；几乎没有的；不重要的；幼小的<br>  adv. 小小地；卑鄙地<br>  n. 小件物品；矮小的人<br>  n. （Small）人名；（英）斯莫尔<br>  网络释义 小的；小型的；小码；卡片纸英国标准<br>  small 小的；小型的；小码；卡片纸英国标准<br>  small intestine 小肠<br>  small incision 小切口；隧道切口；微创；微小切口</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*services*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  s : er : vi : ce : s  （ 英 /‘sə:visis/ ）<br>  n. 服务；服务项目（service复数形式）<br>  v. 服务（service的第三人称单数）<br>  网络释义 服务；服务项目；服务范围；服务业<br>  Services 服务；服务项目；服务范围；服务业<br>  Services 服务<br>  Web Services 网络服务；Web服务；应用</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="keyword">each</span>**</span><br></pre></td></tr></table></figure>
+<p>  ea : ch  （ 英 /iːtʃ/  ）<br>  det. （两个或两个以上的人或物中）各自<br>  pron. （两个或两个以上的人或物中）每个<br>  adv. 每个地<br>  adj. 各自的<br>  网络释义 每个；各自；每次；每一<br>  Each 每个；各自；每次；每一<br>  each other 互相；彼此；相互；取长补短<br>  Each line 每行</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="built_in">running</span>**</span><br></pre></td></tr></table></figure>
+<p>  run : ning  （ 英 /ˈrʌnɪŋ/  ）<br>  n. 运转；赛跑；流出<br>  adj. 连续的；流动的；跑者的，运转着的<br>  v. 跑；运转（run的ing形式）；行驶<br>  n. (Running)人名；（英）朗宁<br>  网络释义 跑步；跑；磨合；运行<br>  running 跑步；跑；磨合；运行<br>  Running Man 过关斩将；奔跑吧兄弟；落跑老爸；奔跑的男人<br>  running shoes 跑步鞋；慢跑鞋；竞走鞋</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*own*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  o : wn （ 英 /əʊn/  ）<br>  vt. 拥有；承认<br>  vi. 承认<br>  adj. 自己的；特有的<br>  n. 自己的<br>  n.（Own）人名；（阿拉伯）奥恩（我就服这些人名，不会读是吧，读这个中文式译音人名就会读了）</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="built_in">process</span>**</span><br></pre></td></tr></table></figure>
+<p>  p : ro : ce : ss  (  英 /prəˈses; (for n.) ˈprəʊses/ )<br>  n. （为达到某一目标的）过程；（自然变化的）工程；工艺流程；诉讼程序；传票；突起；进展；（发型）直发式<br>  v. 加工；审核；处理（数据）；队列行进；冲印（照片）；把（头发）弄成直发<br>  adj. 经过特殊加工的；照相板的；染印法的<br>  第三人称单数 processes<br>  过去式 processed<br>  过去分词 processed<br>  现在分词 processing<br>  复数 processes<br>  网络释义 进程；流程；过程<br>  process 进程；流程；过程<br>  Process Management 进程管理；过程管理；流程管理；进程管理<br>  Background Process 后台进程；背景程序；背景处理程序</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*communicating*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  com : mu : ni : ca : ting ( 英 /kə’mjʊnə,keɪtɪŋ/ )<br>  adj. （房间）相同的，相连的<br>  v. 交流；传递；传播（communicate的现在分词）<br>  网络释义 沟通；交流；通信的互通的；交流与通讯<br>  Communicating 沟通；交流；通信的互通的；交流与通讯<br>  communicating vessels 连通器；连通管<br>  Communicating junctions 通讯连接</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*lightweight*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  li : ght : wei : ght ( 英 /ˈlaɪtweɪt/ )<br>  n. 轻量级（拳击手）；比通常重量轻的人或东西；无足轻重的人（或事）<br>  adj. 轻量的；给人印象不深的；无足轻重的；比通常重量轻的；浅薄的；<br>  网络释义 轻量级；轻身的；轻量；轻量化；<br>  lightweight 轻量级；轻身的；轻量；轻量化<br>  lightweight 轻填料；轻质搀和料<br>  lightweight cover 轻型上盖；避雷保护</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*mechanisms*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  me : cha : ni : sm : s（cha 读 ke 的音，英 /‘mekənɪzəmz/ ）<br>  n. 机制；[计]机构（mechanism的复数）；机械；[机]机构学<br>  网络释义 发病机制；发生机制；机制；机构<br>  Mechanisms 发病机制；发生机制；机制；机构<br>  interaction mechanisms 互动机制；作用机制<br>  resistant mechanisms 耐药机制；抗病机制</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*often*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  o : f : ten ( 英 /ˈɒfn; ˈɒftən/  )<br>  adv. 常常；时常；往往，大多<br>  比较级 more often 或 oftener；<br>  最高级 most often 或 oftenest<br>  网络释义 经常；常常；时常；常有<br>  Often 进场；常常；时常；常有<br>  more often 更经常；经常；更多的时候；更多<br>  OFT OFTen 常常；再三</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*HTTP*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  H : T : T : P ( 英 /ˌeɪtʃ tiː tiː ˈpiː/  )<br>  abbr. 超文本传输协议（Hyper Text Transfer Protocol）<br>  网络释义 超文本传输协议（Hyper Text Transfer Protocol）；网站；平台；超文本传送协议</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*resource*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  re : sou : r : ce ( 英 /rɪˈsɔːs; rɪˈzɔːs/  )<br>  n. 资源，财力；办法；智谋<br>  vi. 向…提供资金<br>  网络释义 资源；资源类型；财力；办法<br>  Resource 资源；资源类型；财力；办法<br>  human resource 人力资源；激励；人事部<br>  computational resource 计算资源</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*API*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  A : P : I ( /ˌeɪ piː ˈaɪ/  )<br>  abbr. 空气污染指数（Air Pollution Index）；应用程序界面（Application Program Interface）；精确位置指示器（Accurate Position Indicator）；美国石油学会（American Petroleum Institute）；自动发音教学机（Automated Pronunciation Instructor）<br>  网络释义 美国石油协会；应用程序接口；美国石油学会；应用编程接口<br>  API 美国石油协会；应用程序接口；美国石油学会；应用编程接口<br>  Windows API 使用；调用；关于进程操作的；关于线程操作的<br>  Google API 谷歌应用界面；应用程序编程接口；网址二维码生成函数；应用程序接口</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*these*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  th : e : se ( 英 /ðiːz/  )<br>  det. 这些（this的复数）<br>  pron. 这些（this的复数）<br>  adj. 这些的（this的复数）<br>  网络释义 这些，此等；复数；这些个<br>  These 这些；此等；复数；这些个<br>  Know these 知其然；到知其然<br>  These payments 营养费</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*built*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  bu : il : t ( 英 /bɪlt/ )<br>  v. 建造，建立；逐步增强；把…嵌入（墙壁、物体等）（build的过去式和过去分词）<br>  adj. 有…体格的；身段优美的；….建成的<br>  网络释义 建起；比优丽；建有；建好<br>  Built 建起；比优丽；建有；建好<br>  Built NY 比优丽<br>  BLT Built 建造；制作<br>  built in 安装在里面的；装入的；机内的<br>  built up 组合<br>  built on 以…作基础</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="keyword">around</span>**</span><br></pre></td></tr></table></figure>
+<p>  a : roun : d ( 英 /əˈraʊnd/  )<br>  adv. 在四周；朝对立面；到处；漫无目的的；在附近；大约；围绕；以圆周计算；现有；转弯<br>  prep. 围绕；在那边；绕着；同…一致；到处；以（已提及物）为中心；迂回<br>  网络释义 围绕；四处；在周围；大约<br>  Around 围绕；四处；在周围；大约；<br>  come around 苏醒；顺便来访；来访；复原<br>  stick around 在附近逗留或等待；在附近等着；在邻近勾留或等候；逗留<br>  all round 周围；到处，四处<br>  around here 附近；在这周围<br>  go around 四处走动；供应；（消息）流传</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*business*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  bu : si : ne : ss ( 英 /ˈbɪznəs/ )<br>  n. 商业，交易；生意；事务，业务；职业，行业；<br>  网络释义 商业；生意；企业；业务<br>  Business 商业；生意；企业；业务<br>  Business 业务<br>  business cycle 商业周期；经济周期；商业周期；景气循环<br>  business card 名片；商务名片<br>  in business 经商；在经营；在商界<br>  business philosophy 经营理念，经营哲学</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*capabilities*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  ca : pa : bi : li : ti : es ( 英 /ˌkeɪpəˈbɪlətɪs/  )<br>  n. 能力（capability的复数）；功能；性能<br>  网络释义 能力；功能；权限；责任<br>  capabilities 能力；功能；权限；责任<br>  economic capabilities 经济实力；经济能力<br>  defense capabilities 防卫作战能力；防务能力；防卫功能；<br>  process capability 加工能力；工序能力<br>  design capability 设计能力</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*independently*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  in : de : pen : den : t : ly ( 英 /ˌɪndɪˈpendəntli/  )<br>  adv. 独立地；自立地<br>  网络释义 各自地；独立地；独自地；自立地<br>  independently 各自地；独立地；独自地；自立地<br>  think independently 独立思考；独立的思考<br>  living independently 独立生活<br>  independently of 独立于…之外；与…无关</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*deployable*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  de : p : lo : y : a : ble<br>  adj. 可开展的<br>  网络释义 可开展的；散播性<br>  deployable 可开展性的；散播性<br>  Deployable Structures 折叠结构；可展结构<br>  deployable joint 运动关节</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*fully*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  fu : lly ( 英 /ˈfʊli/  )<br>  adv. 充分地；完全地；彻底地<br>  n. (Fully)人名；（法）菲利<br>  网络释义 完全地；彻底地；充分地；十分地<br>  fully 完全地；彻底地；充分地；十分地<br>  FULLY OPENING 全开口；全启齿；齐闭口<br>  fully  secured 足额担保；全额担保<br>  fully automatic 全自动的<br>  fully integrated 完全整合<br>  fully loaded 满载</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="built_in">auto</span>mated**</span><br></pre></td></tr></table></figure>
+<p>  au : to : ma : te : d ( 英 /ˈɔːtəˌmeɪtɪd/  )<br>  adj. 自动化的；机械化的<br>  v. 自动化（automate的过去分词）；自动操作<br>  网络释义 自动化的；自动的；机械化的；自动化<br>  automated 自动化的；自动的；机械化的；自动化<br>  automated design 自动设计；自动化设计；自动想象<br>  Automated inspection 自动化检验；自动检验<br>  automated machine 自动化机械；自动化的机器<br>  automated teller machine 自动柜员机<br>  automated welding 自动焊接</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*deployment*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  de : p : lo : y : men : t ( 英 /dɪˈplɔɪmənt/ )<br>  n. 调度，部署<br>  复数 deployments<br>  网络释义 部署；展开；发布；布防<br>  Deployment 部署，展开；发布；布防<br>  Deployment Editors 部署编辑器；安排编纂器<br>  Resources deployment 资源配置<br>  disposition n.调度，部署</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*machinery*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  ma  chi : ne : ry ( 英 /məˈʃiːnəri/  )<br>  n. 机械；机器；机构；机械装置<br>  网络释义 机械；机器；机具<br>  machinery 机械；机器；机具<br>  packaging machinery 包装机械；包装设备；包装机器；放大器<br>  Electrical Machinery 电机学；电力机械；电机；电机驱动<br>  machinery and equipment 机器及设备<br>  construction machinery 建筑机械；施工机械<br>  agricultural machinery 农业机械</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*there*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  the : re ( 英 /ðeə(r)/  )<br>  adv. 在那里；在那边；在那点上；<br>  int. 你瞧<br>  n. 那个地方<br>  网络释义 那里；在那里；那儿；那<br>  There 那里；在那里；那儿；那<br>  Always There 永驻；守候一生；到约定的那时；总在我身旁<br>  There be 句型；的句子结构；存在句；结构<br>  out there 到战场；在那里<br>  over there adv. 在那里<br>  go there 去那里</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*bare*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  b : are ( 英 /beə(r)/ )<br>  adj. 空的；赤裸的；无遮蔽的<br>  vt. 露出；使赤裸<br>  n. (Bare)人名；（英）贝尔<br>  比较级 barer<br>  最高级 barest<br>  过去式 bared<br>  过去分词 bared<br>  现在分词 baring<br>  网络释义 赤裸的；光光；赤裸；仅仅的<br>  bare 赤裸的；光光；裸露；仅仅的<br>  bare mass 裸质量<br>  bare machine 裸机；硬件计算机；裸机<br>  bare of vt. 几乎没有，缺乏<br>  lay bare 揭发，暴露；公开<br>  bare feet 赤脚；光脚；光着脚</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*minimum*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  mi : ni : mum ( 英 /ˈmɪnɪməm/ )<br>  n. 最小值；最低限度；最小化；最小量<br>  adj.最小的；最低的<br>  复数 minimums 或 minima<br>  网络释义 最小的；最低；起码；最小量<br>  minimum 最小的；最低；起码；最小量<br>  minimum charge 最低费用；最低运费；最低收费<br>  minimum balance 最小库存余量；最低余额；存款限制；把费用减到最低限度</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="keyword">bare </span>minimum of**</span><br></pre></td></tr></table></figure>
+<p>  最低限度的<br>  网络释义 Bare Minimum Of Expense 最低支出</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*centralized*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  cen : tra : li : ze : d ( 英 /‘sentrəlaɪzd/  )<br>  adj. 集中的；中央集权的<br>  v. 集中（centralize的过去分词）<br>  网络释义 集中的，中央集权的；一致<br>  Centralized 集中的；中央集权的；一致<br>  centralized control 集中控制；中央控制；集中控制方式；中心控制<br>  Centralized Monitoring 集中监控；中化监查<br>  centralized management 集中式管理；集权管理<br>  centralized control 集中控制<br>  centralized processing 集中式处理</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*management*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  ma : na : ge : men : t ( 英 /ˈmænɪdʒmənt/  )<br>  n. 管理；管理人员；管理部门；操纵；经营手段<br>  复数 managements<br>  网络释义 管理；经营；管理学；管理层；<br>  Management 管理；经营；管理学；管理层<br>  Management Accounting 管理会计；管理会计学；治理会计；会计管理<br>  performance management 绩效管理；业绩管理；性能管理<br>  management system 管理系统；经营责任制<br>  quality management 质量管理<br>  project management 项目管理；专案管理</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*written*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  wri : tten ( 英 /ˈrɪtn/  )<br>  adj. 书面的，成文的，文字的<br>  v. 写（writen的过去分词）<br>  网络释义 写成；写给；书面；成文<br>  Written 写成；写给；书面；成文<br>  written English 书面英语；书面语；书面表达；英语书面语<br>  written notice 书面通知；面通知；书面通知<br>  written by 由…所写<br>  written english 书面英语<br>  written consent 书面同意；同意书</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*different*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  di : ffe : ren : t ( 英 /ˈdɪfrənt/  )<br>  adj. 不同的；个别的；与众不同的<br>  网络释义 不同；差异；两样<br>  Different 不同；差异；两样<br>  different from 不同于；两回事；不同；区别于<br>  Different Seasons 四季奇谭；不同的季节；肖申克的救赎；不同季节<br>  different from 与…不同，不同于<br>  different kinds 不同的种类<br>  in different ways 以不同方式；用不同方法；通过不同的方式</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*programming*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  pro : g : ram : ming ( 英 /ˈprəʊɡræmɪŋ/  )<br>  n. 设计；规划；编制程序；[计]程序编制<br>  网络释义 编程；程序设计；编程；程序编制<br>  programming 编程；程序设计；编程；程序编制<br>  Linear Programming 线性规划；第二十九章；线性程序编制；线性规划法<br>  generic programming 泛型；泛型编程；程序设计；类属编程<br>  linear programming n. 线性规划<br>  programming language 编程语言；程序设计语言<br>  dynamic programming 动态规划；动态程序设计</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*languages*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  lan : g : ua : ge : s ( 美 /‘læŋgwɪdʒ/ )<br>  n. 语系，语种；语言文字（language复数）<br>  网络释义 语文；语言；语言能力；语言学<br>  Languages 语文；语言；语言能力；语言学<br>  altaic languages 阿尔泰语系；阿尔泰语言<br>  Uralic languages 乌拉尔语系<br>  modern languages 现代语言（modern language的复数）<br>  foreign languages school 外语学校<br>  romance languages 罗曼斯语（由拉丁语演变而成的语言）</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="keyword">use</span>**</span><br></pre></td></tr></table></figure>
+<p>  u : se ( 英 /juːz/  )<br>  n. 使用；用途；发挥<br>  vt. 利用；耗费<br>  vi. 使用，运用<br>  n.(Use)人名；（德）乌泽<br>  过去式 used<br>  过去分词 used<br>  现在分词 using<br>  复数 uses<br>  第三人称单数 using<br>  网络释义 使用；用途；利用；应用<br>  use 使用；用途；利用；应用<br>  use up 用完；用光；耗尽<br>  Use Case 用例；用例图<br>  make use of 使用；利用<br>  in use 在使用中<br>  of use 有用</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">**<span class="class"><span class="keyword">data</span>**</span></span><br></pre></td></tr></table></figure>
+<p>  da : ta ( 英 /ˈdeɪtə; ˈdɑːtə/  )<br>  n. 数据（datum的复数）；资料<br>  n. (Data)人名；(日)驮太 (姓)；(印、葡)达塔<br>  网络释义 数据；资料；数据区；参考数据<br>  data 数据；资料；数据区；参考数据<br>  Data Center 数据中心；资料中心；数据交互中心<br>  data collection 数据收集；数据采集；数据搜集；搜集资料<br>  data processing 数据处理<br>  experimental data 实验数据；试验数据<br>  data mining 数据挖掘技术（即指从资料中发掘咨询或知识）</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*storage*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  s : to : ra : ge ( 英 /ˈstɔːrɪdʒ/  )<br>  n. 存储；仓库；贮藏所<br>  复数 storages<br>  网络释义 存储；储存；保管；贮藏；<br>  Storage 存储；储存；保管；贮藏<br>  storage room 行李仓；储物室；储藏室；贮藏室<br>  cold storage 冷藏；冷藏库；冷库；冷藏公司<br>  data storage 数据存储<br>  storage system 存储系统；存储器存储系统<br>  energy storage 蓄能；能量储存；储能器</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">*<span class="strong">*technologies*</span><span class="strong">*</span></span><br></pre></td></tr></table></figure>
+<p>  te : ch : no : lo : gi : es (  美 /tɛk’nɑlədʒi/  )<br>  n. 技术；科技（technology的复数）<br>  网络释义 姓；科技<br>  Technologies 姓；科技<br>  Agilent Technologies 安捷伦科技公司；安捷伦科技有限公司；安捷伦<br>  United Technologies 联合技术；联合技术公司；联合科技；联合科技公司<br>  united technologies 联合科技（财富500强公司之一，总部所在地美国，主要经营航空航天）<br>  cleaner technologies 净化技术；清洁技术<br>  lucent technologies 美国朗讯科技公司（财富500强公司之一）<br>```</p>
+
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>MicroservicesGuide-走近微服务词汇📝</a></p>
+  <p><span>文章作者:</span>Fsn✨🧙‍♀️✨</a></p>
+  <p><span>发布时间:</span>2020年05月27日 - 18:36:35🌞</p>
+  <p><span>最后更新:</span>2020年05月27日 - 18:36:35🌜</p>
+  <p><span>原始链接:</span><a href="/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/" title="MicroservicesGuide-走近微服务词汇">https://fengshana.github.io/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。🎄	</p>  
+</div>
+<style>
+</style>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        //swal({   
+          //title: "",   
+         // text: '<div style="width:300px;height:100px;font-size:14px;">道友，复制成功了哟(＾Ｕ＾)ノ~</div>',   
+          //html: true,
+          //timer: 500,   
+        //showConfirmButton: false
+        //});
+      });
+      new ClipboardJS('.fa-clipboard', {
+          target: function(trigger) {
+              $('<div>').appendTo('body').addClass('alert alert-success').html('🤠道友ᕦ(･ㅂ･)ᕤ，🥭复制成功了哟(^_−)☆').show().delay(1500).fadeOut();
+              return trigger.nextElementSibling;
+            }
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <br/>
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------🍓🍇本文结束🤞感谢道友的阅读🍍🍒-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>🥕🍆坚持原创技术分享🐳，🌽🥬您的支持将鼓励我继续创作！🐬</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn✨🧙‍♀️✨ 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn✨🧙‍♀️✨ 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/MICROSERVICES/" rel="tag">🌟MICROSERVICES</i></a>
+          
+            <a href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">🌟词汇</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="next" title="MicroservicesGuide-走近微服务">
+                👈 MicroservicesGuide-走近微服务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn✨🧙‍♀️✨" />
+            
+              <p class="site-author-name" itemprop="name">Fsn✨🧙‍♀️✨</p>
+              <p class="site-description motion-element" itemprop="description">🌈勿忘初心💫 🌞，🌜方得始终⭐</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">151</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i 
+
+                          
+                          class="fa fa-fw fa-github">
+                          
+                         
+                        
+                        </i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/475144966" target="_blank" title="Bilibili">
+                      
+                        <i 
+
+                          
+                            class="">🏃‍♂️
+                          
+                         
+                        
+                        </i>Bilibili</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Microservices-Guide-微服务指南词汇导读"><span class="nav-number">1.</span> <span class="nav-text">Microservices Guide 微服务指南词汇导读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+      
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="300" height="300" id="resCanvas" style="width=100%; background-color:transparent;">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MICROSERVICES/" rel="tag">MICROSERVICES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/" rel="tag">SpringBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk1-8/" rel="tag">jdk1.8</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="tag">流程图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">🌱2019 🍄 🌳
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    🍉
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn✨🧙‍♀️✨</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+     🏃‍♂️ 
+    <span class="post-meta-item-icon">
+      📈
+    </span>
+    
+      <span class="post-meta-item-text">小屋💒总字数：</span>
+    
+	<span title="Site words total count">
+     532k🌟 </span>
+    <!--<span title="symbols_count_time.count_total">1m</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  <!-- 代码块复制功能    <script src="dist/clipboard.min.js"></script>-->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":250,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+
