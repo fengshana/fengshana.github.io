@@ -3576,6 +3576,95 @@
       </tags>
   </entry>
   <entry>
+    <title>MicroservicesGuide-走近微服务</title>
+    <url>/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>Nothing better than a buzy Saturday morning.</p>
+</blockquote>
+<p>为什么想要翻译这篇博客呢，因为也是看了b站上的一个学习springboot的一个视频，而且我今天面试的时候人家问了微服务是什么，然后由此可得我万分后悔没有当时通篇翻译这篇博客。<br>好了现在后悔也挽救不了我的愚不可及了。<br>观看笔记：<a href="https://www.bilibili.com/video/BV1Eg4y187XT" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Eg4y187XT</a><br>就是这个视频告诉了我：推荐看哦~<br>为了不后悔，以后每件事情，能做笔记就一定要压着自己做，不然会后悔的；  </p>
+<h2 id="Microservices-Guide-微服务指南（翻译）"><a href="#Microservices-Guide-微服务指南（翻译）" class="headerlink" title="Microservices Guide 微服务指南（翻译）"></a>Microservices Guide 微服务指南（翻译）</h2><p>链接：<a href="https://www.martinfowler.com/microservices/" target="_blank" rel="noopener">https://www.martinfowler.com/microservices/</a>  </p>
+<blockquote>
+<p>A guide to material on martinfowler.com about microservices.<br><strong>Matin Fowler</strong><br>21 Aug 2019  </p>
+</blockquote>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">martinfowler.com网站关于微服务的一个材料指南</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">--------------------------------------------------------</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">有道词典翻译：</span></span><br><span class="line"><span class="keyword">martinfowler.com </span>上关于微服务的材料指南。</span><br></pre></td></tr></table></figure>
+
+<h3 id="Microservices-Guide"><a href="#Microservices-Guide" class="headerlink" title="Microservices Guide"></a>Microservices Guide</h3><h4 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>In short , the microservice architectural style is an approach to developing a single application as a <strong>suite of small services</strong> , each <strong>running in its own process</strong>  and communicating with lightweight mechanisms , often an HTTP resource API .<br>These services are <strong>built around business capabilities</strong> and <strong>independently deployable</strong> by fully automated deployment machinery .<br>There is a bare minimum of centralized management of these services , which may be written in different programming languages and use different data storage technologies .<br>– <strong>James Lewis</strong> and <strong>Martin Fowler</strong>（2014）  </p>
+</blockquote>
+<figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">简而言之，</span><br><span class="line">微服务架构风格 是一种近似于 将一个单体应用程序作为一个小型服务套件来进行开发的风格，</span><br><span class="line">每一个小型服务都运行在它自身的进程当中，</span><br><span class="line">并且通过轻量级机制进行相互间的交流，</span><br><span class="line">通常是以一种超文本传输协议资源应用编程接口的方式进行交互。</span><br><span class="line">这些服务都是围绕业务逻辑来进行构建的并且通过全自动化部署机制来进行独立部署。</span><br><span class="line">最低限度的集中式管理着这些服务（这些服务的集中管理非常少），</span><br><span class="line">通过这种方式，</span><br><span class="line">或许可以使用不同的程序语言进行编写以及使用不同的数据存储技术。</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line"></span><br><span class="line">简而言之，</span><br><span class="line">微服务体系结构风格是一种将单个应用程序作为一组小服务进行开发的方法，</span><br><span class="line">每个小服务都在自己的进程中运行，并与轻量级机制<span class="params">(通常是HTTP资源API)</span>进行通信。</span><br><span class="line">这些服务是围绕业务功能构建的，</span><br><span class="line">并且可以通过完全自动化的部署机制独立部署。</span><br><span class="line">这些服务的集中管理非常少，</span><br><span class="line">它们可以用不同的编程语言编写，</span><br><span class="line">并使用不同的数据存储技术。</span><br><span class="line">——詹姆斯·刘易斯和马丁·福勒<span class="params">(<span class="number">2014</span>)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Introduce-Martin-Fowler"><a href="#Introduce-Martin-Fowler" class="headerlink" title="Introduce - Martin Fowler"></a>Introduce - Martin Fowler</h3><p>了解微服务之前首先来看看<strong>Martin Fowler</strong>老爷子的自我介绍；<br>Fowler刚被我打成了Flower；  </p>
+<p>简介链接：<a href="https://www.martinfowler.com" target="_blank" rel="noopener">https://www.martinfowler.com</a>  </p>
+<h4 id="Contents-1"><a href="#Contents-1" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>Software development is a young profession , and we are still learning the techniques and building the tools to do it effectively .<br>I’ve been involved in this activity for over three decades and in the last two I’ve been writing on this website about patterns and practives that make it easier to build userful software .<br>The site began as a place to put my own writing , but I also use it to publish articles by my colleagues .  </p>
+</blockquote>
+<blockquote>
+<p>In 2000 , I joined ThoughtWorkds , where my role is to learn about the techniques that we’ve learned to deliver software for our clients , and pass these techniques on to the wider software industry .<br>As this site has developed into a respected platform on software development , I’ve edited and published articles by me colleagues , both ThoughtWorkers and others , to help useful writing reach a wider audience .  </p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">软件发展是一个年轻的专业技术，</span><br><span class="line">并且我们是仍然在学习这门技术 和 构建一些工具去有效的完成它。</span><br><span class="line">我已经参与到这一项活动（工作）当中已经超过三十年了，</span><br><span class="line">并且在最近两年内，</span><br><span class="line">我在这个网站站点上已经编写了关于如何更容易的去构建有用的软件的一些思想模式以及练习方法；</span><br><span class="line">这个站点开始时作为来存放我自己的一个写作的一个地方，</span><br><span class="line">但是我也使用这个地方来进行发布一些通过我同事们写的文章；</span><br><span class="line"></span><br><span class="line">在<span class="number">2000</span>年，我加入到了ThoughtWorks，</span><br><span class="line">在这个地方我扮演的角色是去学习这一项技术，</span><br><span class="line">我们已经学习到去为我们的客户实现软件，</span><br><span class="line">以及通过这些技术在更广阔的软件产业当中；</span><br><span class="line">这个站点已经逐渐发展成为一个受人尊敬的平台在软件发展史当中，</span><br><span class="line">我已经写了很多以及发布了很多我同事写的文章，同时还有ThoughtWorkers的员工以及其他人；</span><br><span class="line">来帮助有用的写作，即逐渐成为一个有深度的受众；</span><br><span class="line"></span><br><span class="line">------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">软件开发是一个年轻的职业，</span><br><span class="line">我们仍然在学习技术和构建工具来有效地完成它。</span><br><span class="line">我已经参与这项活动超过<span class="number">30</span>年了，</span><br><span class="line">在过去的两年中，</span><br><span class="line">我一直在这个网站上撰写关于使构建有用软件变得更容易的模式和实践的文章。</span><br><span class="line">这个网站一开始是一个放置我自己的文章的地方，</span><br><span class="line">但我也用它来发表我同事的文章。</span><br><span class="line"><span class="number">2000</span>年，我加入了ThoughtWorks，</span><br><span class="line">在这里，我的职责是学习我们为客户交付软件的技术，</span><br><span class="line">并将这些技术传递给更广泛的软件行业。</span><br><span class="line">随着这个网站发展成为一个受人尊敬的软件开发平台，</span><br><span class="line">我已经编辑并发表了我的同事们的文章，</span><br><span class="line">包括ThoughtWorkers和其他人，</span><br><span class="line">以帮助更广泛的读者阅读有用的文章。</span><br></pre></td></tr></table></figure>
+
+<h3 id="A-website-on-building-software-effectively"><a href="#A-website-on-building-software-effectively" class="headerlink" title="A website on building software effectively"></a>A website on building software effectively</h3><p>A website on building software effectively</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">在一个网站上有效地构建软件</span><br><span class="line"></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line"></span><br><span class="line">一个有效开发软件的网站</span><br></pre></td></tr></table></figure>
+
+<h4 id="Contents-2"><a href="#Contents-2" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>If there’s a theme that runs through my work and writing on this site , it’s the interplay between the shift towards agile thinking and the technical patterns and practices that make agile software development practical .<br>While specifics of technology change rapidly in our profession , fundamental practices and patterns are more stable .<br>So writing about these allows me to have articles on this site that are several years old but still as relevant as when they were written .  </p>
+</blockquote>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">如果 这是一个主题（定语：贯穿着我的工作经历以及在这个站点上的文字）</span><br><span class="line">那么在 转变成敏捷式思维 与 技术的模式和使得敏捷式软件开发 变成事实 这两者之间其实是相互影响的。</span><br><span class="line">当 技术的特性 在我们的职业该行当中 发展改变十分迅速 时，</span><br><span class="line">基本的实践练习 与 模式 就变得需要十分的牢固。</span><br><span class="line">所以编写这些关于 容许我在这个站点（定语：虽然才只有几岁即虽然才开始几年，但是只要当遇到与之相关的他们就都会被一致持续写入进来）上拥有了的文章。</span><br><span class="line"></span><br><span class="line"><span class="comment">---------------------------------------------</span></span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">如果说我在这个站点上的工作和写作中贯穿着一个主题，那就是敏捷思维的转变与使敏捷软件开发切实可行的技术模式和实践之间的相互作用。</span><br><span class="line">虽然技术细节在我们的职业中变化很快，但基本的实践和模式更加稳定。</span><br><span class="line">所以写这些东西让我可以在这个网站上写一些文章，这些文章已经有好几年的历史了，但是仍然和当初写的时候一样重要。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>As software becomes more critical to modern business , software needs be able to react quickly to changes ,  allowing new features to be be conceived , developed and put into production rapidly .<br>The techniques of <font style="color:red;font-weight:bolder">agile software development</font> began in the 1990s and became steadily more popular in the last decade .<br>The focus on a flexible approach to planning , which allows software products to change direction as the user’s needs change and as product managers learn more about how to make their users effective .<br>While widely accepted now , agile approaches are not easy , requiring significant skills for a team , but more importantly a culture of open collaboration both within the team and with a team’s partners .  </p>
+</blockquote>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">当软件为了现在的业务逻辑就越需要批评，</span><br><span class="line">软件需要能够快速地对改变做出反应，允许一些新特性被构思实现，发展以及迅速地落实成为一个产品。</span><br><span class="line">敏捷式开发软件的这项技术开始在<span class="number">1990</span>年的时候，直到在近十年内开始稳定地变得越发流行起来了。</span><br><span class="line">集中于在一个灵活性上，类似于规划预期中，它允许软件产品来进行定向的改变当客户需要进行改变以及当产品管理者学到更多关于如何让他们的客户变得印象深刻。</span><br><span class="line">当现在被更广泛的接受，敏捷式的处理是并不容易的，它要求重大的的技能对于一个团队来说，但是更重要的是一个开源合作的文化，这两者都需要团队以及团队成员之间的协作。</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">随着软件在现代商业中变得越来越重要，</span><br><span class="line">软件需要能够对变化做出快速反应，</span><br><span class="line">允许快速构思、开发新特性并将其投入生产。</span><br><span class="line">敏捷软件开发技术开始于<span class="number">20</span>世纪<span class="number">90</span>年代，并在过去十年中逐渐流行起来。</span><br><span class="line">他们专注于一种灵活的计划方法，</span><br><span class="line">这种方法允许软件产品随着用户需求的变化而改变方向，</span><br><span class="line">并且随着产品经理更多地了解如何让他们的用户更有效。</span><br><span class="line">虽然敏捷方法现在已被广泛接受，</span><br><span class="line">但它并不简单，</span><br><span class="line">需要团队的重要技能，</span><br><span class="line">但更重要的是团队内部和团队合作伙伴之间的开放协作文化。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>This need to respond fluently to changes has an important impact upon the <font style="color:red;font-weight:bolder">architecture</font> of a software system.<br>The software needs to be built in such a way that it is able to adapt to unexpected changes in features .<br>One of the most important ways to do this is to write clear code , making it easy to understant what the program is supposed to do .<br>This code should be devided into modules which allow developers to understand only the parts of the system they need to make a change .<br>This production code should be supported with automated tests that can detect any errors made when making a change while providing examples of how internal structures are used .<br>Large and complex software efforts may find the <font style="color:red;font-weight:bolder">microservices</font> architectural style helps teams deploy software with less entangling dependencies .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Creating software that has a good architecture isn’t something that can be done first time .<br>Like good prose , it needs regular revisions and programmers learn more about what the product needs to do and how best to design the product to achieve its goals .<br><font style="color:red;font-weight:bolder">Refactoring</font> is an essential technique to allow a program to be changed safety .<br>It consists of making small changes that don’t alter the observable behavior of the software .<br>Bt combining lots of small changes , developers can revise the software’s structure supporting significant modifications that weren’t planned when the system was first conceived .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Software that runs only on a developer’s machine isn’t providing value to the customers of the software .<br>Traditionally releasing software has been a long and complicated process , one that hinders the need to evolve software quickly .<br><font style="color:red;font-weight:bolder">Continuous Delivery</font> uses automation and collaborative workflows to remove this bottleneck , allowing teams to release software as often as the customers demand .<br>For Continuous Delivery to be possible , we need to build in a solid foundation of <font style="color:red;font-weight:bolder">Testing</font> , with a range of automated tests that can give us confidence taht our changes haven’t introduced any bugs .<br>This leads us to integrate testing into programming , which can act to improve our architectural .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Photostream"><a href="#Photostream" class="headerlink" title="Photostream"></a>Photostream</h3><h3 id="Data-Management"><a href="#Data-Management" class="headerlink" title="Data Management"></a>Data Management</h3><h4 id="Contents-3"><a href="#Contents-3" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>There are many kinds of softeare out there , the kind I’m primarily engaged is Enterprise Applications .<br>One of the enduring problems we need to tackle in this world is <font style="color:red;font-weight:bolder">data management</font> .<br>The aspectes of data management I’ve focused on here are how to migrate data stores as their applications respond to changing needs , coping with different contexts across a large enterprice , the role of NoSQL databases , and the broader issues of coping with data that is both Big and Messy .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Domain-Specific-Languages"><a href="#Domain-Specific-Languages" class="headerlink" title="Domain-Specific Languages"></a>Domain-Specific Languages</h3><h3 id="Contents-4"><a href="#Contents-4" class="headerlink" title="Contents"></a>Contents</h3><blockquote>
+<p>A common problem in complex software systems is how to capture complicated domain logic in a way that programmers can both easily manipulate and also easily communicate to domain experts .<br><font style="color:red;font-weight:bolder">Domain-Specific Languages</font>(DSLs) create a custom language for a particular problem , either with custom parsers or by conventions within a host language .  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><h4 id="Contents-5"><a href="#Contents-5" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>I’ve written seven books on software development , including Refactoring , Patterns of Enterprise Application Architectural , and UML Distilled .<br>I’m also the editor of a signature series for Addison-Wesley that includes five jolt award winners .<br><font style="color:red;font-weight:bolder">My Books Page…</font>  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Conference-Talks"><a href="#Conference-Talks" class="headerlink" title="Conference Talks"></a>Conference Talks</h3><h4 id="Contents-6"><a href="#Contents-6" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>I’m often asked to give talks at conferences , from which I’ve inferred that I’m a pretty good speaker - which is ironic since I really hate giving talks .<br>You can form your own opinion of my talks by watching videos of some my conference talks .<br><font style="color:red;font-weight:bolder"> My Videos Page…</font>  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Board-Games"><a href="#Board-Games" class="headerlink" title="Board Games"></a>Board Games</h3><h4 id="Contents-7"><a href="#Contents-7" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
+<p>I’ve long been a fan of board games , I enjoy a game that fully occupies my mind , clearing out all the serious thoughts for a bit , while enjoying the company of good friends .<br>Modern board games saw dramatic improvement in the 1990’s with the rise of Eurogames , and I expect many people would be surprised if they haven’t tried any of this new generation .<br>I also appear regularly on <font style="color:red;font-weight:bolder">Heavy Cardboard</font> .<br><font style="color:red;font-weight:bolder">My Board Games page…</font>  </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>MICROSERVICES</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>MICROSERVICES</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MicroservicesGuide-走近微服务词汇</title>
     <url>/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%AF%8D%E6%B1%87/</url>
     <content><![CDATA[<h2 id="Microservices-Guide-微服务指南词汇导读"><a href="#Microservices-Guide-微服务指南词汇导读" class="headerlink" title="Microservices Guide 微服务指南词汇导读"></a>Microservices Guide 微服务指南词汇导读</h2><p>我觉得我对有道词典的翻译有点迷…..<br>感觉怪怪的；  </p>
@@ -3815,335 +3904,6 @@
       <tags>
         <tag>MICROSERVICES</tag>
         <tag>词汇</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MicroservicesGuide-走近微服务</title>
-    <url>/2020/05/27/%E3%80%90MICROSERVICES%E3%80%91/%E3%80%90MICROSERVICES%E3%80%91MicroservicesGuide-%E8%B5%B0%E8%BF%91%E5%BE%AE%E6%9C%8D%E5%8A%A1/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>Nothing better than a buzy Saturday morning.</p>
-</blockquote>
-<p>为什么想要翻译这篇博客呢，因为也是看了b站上的一个学习springboot的一个视频，而且我今天面试的时候人家问了微服务是什么，然后由此可得我万分后悔没有当时通篇翻译这篇博客。<br>好了现在后悔也挽救不了我的愚不可及了。<br>观看笔记：<a href="https://www.bilibili.com/video/BV1Eg4y187XT" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Eg4y187XT</a><br>就是这个视频告诉了我：推荐看哦~<br>为了不后悔，以后每件事情，能做笔记就一定要压着自己做，不然会后悔的；  </p>
-<h2 id="Microservices-Guide-微服务指南（翻译）"><a href="#Microservices-Guide-微服务指南（翻译）" class="headerlink" title="Microservices Guide 微服务指南（翻译）"></a>Microservices Guide 微服务指南（翻译）</h2><p>链接：<a href="https://www.martinfowler.com/microservices/" target="_blank" rel="noopener">https://www.martinfowler.com/microservices/</a>  </p>
-<blockquote>
-<p>A guide to material on martinfowler.com about microservices.<br><strong>Matin Fowler</strong><br>21 Aug 2019  </p>
-</blockquote>
-<figure class="highlight armasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">martinfowler.com网站关于微服务的一个材料指南</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">--------------------------------------------------------</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line"><span class="keyword">有道词典翻译：</span></span><br><span class="line"><span class="keyword">martinfowler.com </span>上关于微服务的材料指南。</span><br></pre></td></tr></table></figure>
-
-<h3 id="Microservices-Guide"><a href="#Microservices-Guide" class="headerlink" title="Microservices Guide"></a>Microservices Guide</h3><h4 id="Contents"><a href="#Contents" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>In short , the microservice architectural style is an approach to developing a single application as a <strong>suite of small services</strong> , each <strong>running in its own process</strong>  and communicating with lightweight mechanisms , often an HTTP resource API .<br>These services are <strong>built around business capabilities</strong> and <strong>independently deployable</strong> by fully automated deployment machinery .<br>There is a bare minimum of centralized management of these services , which may be written in different programming languages and use different data storage technologies .<br>– <strong>James Lewis</strong> and <strong>Martin Fowler</strong>（2014）  </p>
-</blockquote>
-<figure class="highlight erlang"><table><tr><td class="code"><pre><span class="line">简而言之，</span><br><span class="line">微服务架构风格 是一种近似于 将一个单体应用程序作为一个小型服务套件来进行开发的风格，</span><br><span class="line">每一个小型服务都运行在它自身的进程当中，</span><br><span class="line">并且通过轻量级机制进行相互间的交流，</span><br><span class="line">通常是以一种超文本传输协议资源应用编程接口的方式进行交互。</span><br><span class="line">这些服务都是围绕业务逻辑来进行构建的并且通过全自动化部署机制来进行独立部署。</span><br><span class="line">最低限度的集中式管理着这些服务（这些服务的集中管理非常少），</span><br><span class="line">通过这种方式，</span><br><span class="line">或许可以使用不同的程序语言进行编写以及使用不同的数据存储技术。</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line"></span><br><span class="line">简而言之，</span><br><span class="line">微服务体系结构风格是一种将单个应用程序作为一组小服务进行开发的方法，</span><br><span class="line">每个小服务都在自己的进程中运行，并与轻量级机制<span class="params">(通常是HTTP资源API)</span>进行通信。</span><br><span class="line">这些服务是围绕业务功能构建的，</span><br><span class="line">并且可以通过完全自动化的部署机制独立部署。</span><br><span class="line">这些服务的集中管理非常少，</span><br><span class="line">它们可以用不同的编程语言编写，</span><br><span class="line">并使用不同的数据存储技术。</span><br><span class="line">——詹姆斯·刘易斯和马丁·福勒<span class="params">(<span class="number">2014</span>)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="Introduce-Martin-Fowler"><a href="#Introduce-Martin-Fowler" class="headerlink" title="Introduce - Martin Fowler"></a>Introduce - Martin Fowler</h3><p>了解微服务之前首先来看看<strong>Martin Fowler</strong>老爷子的自我介绍；<br>Fowler刚被我打成了Flower；  </p>
-<p>简介链接：<a href="https://www.martinfowler.com" target="_blank" rel="noopener">https://www.martinfowler.com</a>  </p>
-<h4 id="Contents-1"><a href="#Contents-1" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>Software development is a young profession , and we are still learning the techniques and building the tools to do it effectively .<br>I’ve been involved in this activity for over three decades and in the last two I’ve been writing on this website about patterns and practives that make it easier to build userful software .<br>The site began as a place to put my own writing , but I also use it to publish articles by my colleagues .  </p>
-</blockquote>
-<blockquote>
-<p>In 2000 , I joined ThoughtWorkds , where my role is to learn about the techniques that we’ve learned to deliver software for our clients , and pass these techniques on to the wider software industry .<br>As this site has developed into a respected platform on software development , I’ve edited and published articles by me colleagues , both ThoughtWorkers and others , to help useful writing reach a wider audience .  </p>
-</blockquote>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">软件发展是一个年轻的专业技术，</span><br><span class="line">并且我们是仍然在学习这门技术 和 构建一些工具去有效的完成它。</span><br><span class="line">我已经参与到这一项活动（工作）当中已经超过三十年了，</span><br><span class="line">并且在最近两年内，</span><br><span class="line">我在这个网站站点上已经编写了关于如何更容易的去构建有用的软件的一些思想模式以及练习方法；</span><br><span class="line">这个站点开始时作为来存放我自己的一个写作的一个地方，</span><br><span class="line">但是我也使用这个地方来进行发布一些通过我同事们写的文章；</span><br><span class="line"></span><br><span class="line">在<span class="number">2000</span>年，我加入到了ThoughtWorks，</span><br><span class="line">在这个地方我扮演的角色是去学习这一项技术，</span><br><span class="line">我们已经学习到去为我们的客户实现软件，</span><br><span class="line">以及通过这些技术在更广阔的软件产业当中；</span><br><span class="line">这个站点已经逐渐发展成为一个受人尊敬的平台在软件发展史当中，</span><br><span class="line">我已经写了很多以及发布了很多我同事写的文章，同时还有ThoughtWorkers的员工以及其他人；</span><br><span class="line">来帮助有用的写作，即逐渐成为一个有深度的受众；</span><br><span class="line"></span><br><span class="line">------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">软件开发是一个年轻的职业，</span><br><span class="line">我们仍然在学习技术和构建工具来有效地完成它。</span><br><span class="line">我已经参与这项活动超过<span class="number">30</span>年了，</span><br><span class="line">在过去的两年中，</span><br><span class="line">我一直在这个网站上撰写关于使构建有用软件变得更容易的模式和实践的文章。</span><br><span class="line">这个网站一开始是一个放置我自己的文章的地方，</span><br><span class="line">但我也用它来发表我同事的文章。</span><br><span class="line"><span class="number">2000</span>年，我加入了ThoughtWorks，</span><br><span class="line">在这里，我的职责是学习我们为客户交付软件的技术，</span><br><span class="line">并将这些技术传递给更广泛的软件行业。</span><br><span class="line">随着这个网站发展成为一个受人尊敬的软件开发平台，</span><br><span class="line">我已经编辑并发表了我的同事们的文章，</span><br><span class="line">包括ThoughtWorkers和其他人，</span><br><span class="line">以帮助更广泛的读者阅读有用的文章。</span><br></pre></td></tr></table></figure>
-
-<h3 id="A-website-on-building-software-effectively"><a href="#A-website-on-building-software-effectively" class="headerlink" title="A website on building software effectively"></a>A website on building software effectively</h3><p>A website on building software effectively</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">在一个网站上有效地构建软件</span><br><span class="line"></span><br><span class="line"><span class="comment">-------------------------</span></span><br><span class="line"></span><br><span class="line">一个有效开发软件的网站</span><br></pre></td></tr></table></figure>
-
-<h4 id="Contents-2"><a href="#Contents-2" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>If there’s a theme that runs through my work and writing on this site , it’s the interplay between the shift towards agile thinking and the technical patterns and practices that make agile software development practical .<br>While specifics of technology change rapidly in our profession , fundamental practices and patterns are more stable .<br>So writing about these allows me to have articles on this site that are several years old but still as relevant as when they were written .  </p>
-</blockquote>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">如果 这是一个主题（定语：贯穿着我的工作经历以及在这个站点上的文字）</span><br><span class="line">那么在 转变成敏捷式思维 与 技术的模式和使得敏捷式软件开发 变成事实 这两者之间其实是相互影响的。</span><br><span class="line">当 技术的特性 在我们的职业该行当中 发展改变十分迅速 时，</span><br><span class="line">基本的实践练习 与 模式 就变得需要十分的牢固。</span><br><span class="line">所以编写这些关于 容许我在这个站点（定语：虽然才只有几岁即虽然才开始几年，但是只要当遇到与之相关的他们就都会被一致持续写入进来）上拥有了的文章。</span><br><span class="line"></span><br><span class="line"><span class="comment">---------------------------------------------</span></span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">如果说我在这个站点上的工作和写作中贯穿着一个主题，那就是敏捷思维的转变与使敏捷软件开发切实可行的技术模式和实践之间的相互作用。</span><br><span class="line">虽然技术细节在我们的职业中变化很快，但基本的实践和模式更加稳定。</span><br><span class="line">所以写这些东西让我可以在这个网站上写一些文章，这些文章已经有好几年的历史了，但是仍然和当初写的时候一样重要。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>As software becomes more critical to modern business , software needs be able to react quickly to changes ,  allowing new features to be be conceived , developed and put into production rapidly .<br>The techniques of <font style="color:red;font-weight:bolder">agile software development</font> began in the 1990s and became steadily more popular in the last decade .<br>The focus on a flexible approach to planning , which allows software products to change direction as the user’s needs change and as product managers learn more about how to make their users effective .<br>While widely accepted now , agile approaches are not easy , requiring significant skills for a team , but more importantly a culture of open collaboration both within the team and with a team’s partners .  </p>
-</blockquote>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">当软件为了现在的业务逻辑就越需要批评，</span><br><span class="line">软件需要能够快速地对改变做出反应，允许一些新特性被构思实现，发展以及迅速地落实成为一个产品。</span><br><span class="line">敏捷式开发软件的这项技术开始在<span class="number">1990</span>年的时候，直到在近十年内开始稳定地变得越发流行起来了。</span><br><span class="line">集中于在一个灵活性上，类似于规划预期中，它允许软件产品来进行定向的改变当客户需要进行改变以及当产品管理者学到更多关于如何让他们的客户变得印象深刻。</span><br><span class="line">当现在被更广泛的接受，敏捷式的处理是并不容易的，它要求重大的的技能对于一个团队来说，但是更重要的是一个开源合作的文化，这两者都需要团队以及团队成员之间的协作。</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line"></span><br><span class="line">有道词典翻译：</span><br><span class="line">随着软件在现代商业中变得越来越重要，</span><br><span class="line">软件需要能够对变化做出快速反应，</span><br><span class="line">允许快速构思、开发新特性并将其投入生产。</span><br><span class="line">敏捷软件开发技术开始于<span class="number">20</span>世纪<span class="number">90</span>年代，并在过去十年中逐渐流行起来。</span><br><span class="line">他们专注于一种灵活的计划方法，</span><br><span class="line">这种方法允许软件产品随着用户需求的变化而改变方向，</span><br><span class="line">并且随着产品经理更多地了解如何让他们的用户更有效。</span><br><span class="line">虽然敏捷方法现在已被广泛接受，</span><br><span class="line">但它并不简单，</span><br><span class="line">需要团队的重要技能，</span><br><span class="line">但更重要的是团队内部和团队合作伙伴之间的开放协作文化。</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>This need to respond fluently to changes has an important impact upon the <font style="color:red;font-weight:bolder">architecture</font> of a software system.<br>The software needs to be built in such a way that it is able to adapt to unexpected changes in features .<br>One of the most important ways to do this is to write clear code , making it easy to understant what the program is supposed to do .<br>This code should be devided into modules which allow developers to understand only the parts of the system they need to make a change .<br>This production code should be supported with automated tests that can detect any errors made when making a change while providing examples of how internal structures are used .<br>Large and complex software efforts may find the <font style="color:red;font-weight:bolder">microservices</font> architectural style helps teams deploy software with less entangling dependencies .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Creating software that has a good architecture isn’t something that can be done first time .<br>Like good prose , it needs regular revisions and programmers learn more about what the product needs to do and how best to design the product to achieve its goals .<br><font style="color:red;font-weight:bolder">Refactoring</font> is an essential technique to allow a program to be changed safety .<br>It consists of making small changes that don’t alter the observable behavior of the software .<br>Bt combining lots of small changes , developers can revise the software’s structure supporting significant modifications that weren’t planned when the system was first conceived .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>Software that runs only on a developer’s machine isn’t providing value to the customers of the software .<br>Traditionally releasing software has been a long and complicated process , one that hinders the need to evolve software quickly .<br><font style="color:red;font-weight:bolder">Continuous Delivery</font> uses automation and collaborative workflows to remove this bottleneck , allowing teams to release software as often as the customers demand .<br>For Continuous Delivery to be possible , we need to build in a solid foundation of <font style="color:red;font-weight:bolder">Testing</font> , with a range of automated tests that can give us confidence taht our changes haven’t introduced any bugs .<br>This leads us to integrate testing into programming , which can act to improve our architectural .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Photostream"><a href="#Photostream" class="headerlink" title="Photostream"></a>Photostream</h3><h3 id="Data-Management"><a href="#Data-Management" class="headerlink" title="Data Management"></a>Data Management</h3><h4 id="Contents-3"><a href="#Contents-3" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>There are many kinds of softeare out there , the kind I’m primarily engaged is Enterprise Applications .<br>One of the enduring problems we need to tackle in this world is <font style="color:red;font-weight:bolder">data management</font> .<br>The aspectes of data management I’ve focused on here are how to migrate data stores as their applications respond to changing needs , coping with different contexts across a large enterprice , the role of NoSQL databases , and the broader issues of coping with data that is both Big and Messy .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Domain-Specific-Languages"><a href="#Domain-Specific-Languages" class="headerlink" title="Domain-Specific Languages"></a>Domain-Specific Languages</h3><h3 id="Contents-4"><a href="#Contents-4" class="headerlink" title="Contents"></a>Contents</h3><blockquote>
-<p>A common problem in complex software systems is how to capture complicated domain logic in a way that programmers can both easily manipulate and also easily communicate to domain experts .<br><font style="color:red;font-weight:bolder">Domain-Specific Languages</font>(DSLs) create a custom language for a particular problem , either with custom parsers or by conventions within a host language .  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Books"><a href="#Books" class="headerlink" title="Books"></a>Books</h3><h4 id="Contents-5"><a href="#Contents-5" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>I’ve written seven books on software development , including Refactoring , Patterns of Enterprise Application Architectural , and UML Distilled .<br>I’m also the editor of a signature series for Addison-Wesley that includes five jolt award winners .<br><font style="color:red;font-weight:bolder">My Books Page…</font>  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Conference-Talks"><a href="#Conference-Talks" class="headerlink" title="Conference Talks"></a>Conference Talks</h3><h4 id="Contents-6"><a href="#Contents-6" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>I’m often asked to give talks at conferences , from which I’ve inferred that I’m a pretty good speaker - which is ironic since I really hate giving talks .<br>You can form your own opinion of my talks by watching videos of some my conference talks .<br><font style="color:red;font-weight:bolder"> My Videos Page…</font>  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="Board-Games"><a href="#Board-Games" class="headerlink" title="Board Games"></a>Board Games</h3><h4 id="Contents-7"><a href="#Contents-7" class="headerlink" title="Contents"></a>Contents</h4><blockquote>
-<p>I’ve long been a fan of board games , I enjoy a game that fully occupies my mind , clearing out all the serious thoughts for a bit , while enjoying the company of good friends .<br>Modern board games saw dramatic improvement in the 1990’s with the rise of Eurogames , and I expect many people would be surprised if they haven’t tried any of this new generation .<br>I also appear regularly on <font style="color:red;font-weight:bolder">Heavy Cardboard</font> .<br><font style="color:red;font-weight:bolder">My Board Games page…</font>  </p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>MICROSERVICES</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-        <tag>MICROSERVICES</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MySql索引底层数据结构</title>
-    <url>/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/</url>
-    <content><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>观看笔记：<br><a href="https://www.bilibili.com/video/BV13x411Z7AQ?from=search&amp;seid=12763347691863057372" target="_blank" rel="noopener">https://www.bilibili.com/video/BV13x411Z7AQ?from=search&amp;seid=12763347691863057372</a></p>
-<h3 id="索引的本质"><a href="#索引的本质" class="headerlink" title="索引的本质"></a>索引的本质</h3><p>索引的本质</p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXwvSlPCJJI2vYZaT3H0rZCG38flqH5eE7TMAOK*DSM1BhWXXI4cugphYQTkM94HMJ9GHGpkBn3QA6a5u74EOK8M!/r" alt="索引"></p>
-<ul>
-<li><strong>索引</strong> 是 <strong>帮助MySQL</strong> <strong>高效获取数据</strong> 的 <strong>排好序</strong> 的 <strong>数据结构</strong></li>
-<li><strong>索引存储在文件里</strong></li>
-<li><strong>索引结构</strong><ul>
-<li><strong>二叉树</strong></li>
-<li><strong>红黑树</strong></li>
-<li><strong>HASH</strong></li>
-<li><strong>BTREE</strong></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p><strong>问题</strong>：有没有在生产环境SQL查询的非常慢，需要优化的。<br><strong>答</strong>：真的有过，就是上一家公司做的那个项目关系到全国，省，市，区，县这种的，每次一统计吧就是全国的那种统计，就是该省下有多少人注册了，该市下有多少人注册了…..这种，每次加载大半天都搞不赢，那个页面都出不来。<br>这个属于慢查询吗？<br>我也不是很清楚诶。反正就是数据量贼大，然后用的Oracle数据库，因为还有就是交易量很大。  </p>
-</blockquote>
-<blockquote>
-<p><strong>问题</strong>： 遇到这种问题第一时间想到的优化是什么？<br><strong>答</strong>：额，我好像也没有做什么优化，通过主键来进行查询，就是交易量特别大的时候，然后去查询的时候，就是使用的交易表TRANS 当中的主键去进行查询大部分是。<br>然后就是因为是二次开发这个系统，所以在Oracle数据库当中是存在之前的开发者所写的索引的。<br>然后就是不去使用外键，就是外键关联的外键这种不去进行使用，而是有些表当中额怎么说呢，就是有些表当中记录的字段存在，而另外一张表当中因为不去进行关联查询trans表这种数据量大的表就自己这张表也会记录一些数据这种。<br>尽量通过主键去查询，因为通过其他的去查询，比如字符串这种的碰到有些时候会很慢。<br>或者是还有就是写那个查询，navicat当中写个查询然后保存。<br>我想不到其他的了，因为没有怎么用过索引。  </p>
-</blockquote>
-<p><strong>首先检查索引</strong>；<br>查看<strong>SQL</strong>当中的<strong>where</strong>当中的<strong>查询字段</strong> <strong>是否有加索引</strong>；<br>或者说加了索引 <strong>是否正确索引</strong> 呢；<br>只要SQL不太烂，正常的走索引，数据量几百万上千万行的数据表，查询的速度依然会很快。  </p>
-<blockquote>
-<p><strong>思考</strong>： 一个几百万上千万数据量的表，只要加上了索引，然后查询的条件又是走的索引，关键的字段，为什么查找的速度就能够提高很多，性能会高？<br><strong>答</strong>：因为索引就相当于是书的页码，比如我要查询新华字典当中的某一个字，找到它的索引，也就是它的页码，一下子就能找到了。<br>不过至于它的底层方面的原理我不是很清楚。没有过这方面的研究，我也只是听说过是通过b+ 树实现的？  </p>
-</blockquote>
-<p><strong>索引的定义</strong>：<strong>索引</strong> 是 <strong>帮助MySQL</strong> <strong>高效获取数据</strong> 的 <strong>排好序</strong> 的 <strong>数据结构</strong>。<br><strong>索引结构</strong>：  </p>
-<ul>
-<li><strong>二叉树</strong></li>
-<li><strong>红黑树</strong></li>
-<li><strong>HASH(哈希表)</strong></li>
-<li><strong>BTREE（B树）</strong></li>
-</ul>
-<p><strong>数据表</strong> 是 <strong>存储在磁盘文件</strong> 当中；<br>所装MySQL当中的data目录，目录下为数据库；<br>表数据实际上就存放在磁盘上了；<br>那从数据表当中去读取数据的时候查询某一行数据的时候，意味着就需要从<strong>磁盘</strong>上去<strong>查询</strong>这个数据表当中的数据。<br>如果该数据<strong>没有加索引</strong>则从第一行开始进行查找；<br>select * from t where t.col2=89;<br>如果该表t没有加任何索引则需要从该表<strong>第一行</strong>开始<strong>遍历</strong>。<br><strong>逐行查找逐行比对</strong>。<br>直到查找到n次磁盘查找到数据匹配位置。<br>如果要查找的<strong>数据在末尾</strong>，<strong>数据量非常大</strong>的情况下，每次从<strong>表头进行查找</strong>，<strong>性能非常差</strong>。<br>这也就是 <strong>全表扫描</strong>。  </p>
-<blockquote>
-<p><strong>问题</strong>：有什么办法<strong>优化SQL查询</strong>？  </p>
-<ul>
-<li>给<strong>字段加索引</strong>。<br>给col2字段加上索引后，即便是该表当中存在数据量十分大，查询起来的效率也会很高。<br>这个原因是什么？<br>给该字段加上索引之后，该字段作为索引字段之后，它在该表中的存储结构，该字段的存储结构就有一点区别。  </li>
-<li><em>索引本质上是一种数据结构*</em>。<br>所以当给col2字段加上索引之后，那么就会将该col2字段列的数据通过<strong>以一种数据结构进行存储起来</strong>。  </li>
-</ul>
-</blockquote>
-<h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><p><strong>二叉树（Binary Search Trees，简写BST）</strong>：<a href="https://www.cs.usfca.edu/~galles/visualization/BST.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/BST.html</a>  </p>
-<p>比方说，常见的<strong>数据结构</strong>-<strong>二叉树</strong>，<br>将col2字段该列的数据放到二叉树当中来，<br>该字段col2的列的数据，每一个数据都放到二叉树当中去；  </p>
-<p>而 <strong>二叉树的每一个结点</strong> 是一个 <strong>key-value</strong> 的一个取值；<br>也就是说 <strong>key</strong> 其实即为 <strong>索引字段</strong> ，而 <strong>value</strong> 则为 <strong>箭头的指针</strong> ；<br><strong>索引字段</strong>所对应的这<strong>一行的数据</strong>，在<strong>磁盘</strong>上的一个<strong>文件指针</strong>；<br>如果通过一个合理的方式，或者说是一个好一点的数据结构，来放索引的这个字段，以及每一个索引对应的这一行数据，<strong>磁盘文件指针</strong>；<br>那么再去看查找这行数据。  </p>
-<p><strong>数据结构-二叉树</strong>常识：  </p>
-<ul>
-<li><strong>根节点（父节点）的右孩子取值大于根节点（父节点）取值</strong>；</li>
-<li><strong>根节点（父节点）的左孩子取值小于根节点（父节点）取值</strong>；</li>
-<li><strong>从左到右依次递增</strong>；</li>
-</ul>
-<p>如果要查找 select * from t where t.col2=89这一行数据；<br>用<strong>索引字段</strong>去查找的话，那么<strong>先走索引</strong>；<br>而<strong>索引</strong>是当前被放在<strong>二叉树</strong>这样一种数据结构当中去了；<br>那么再去进行查找；<br>那么肯定是从<strong>根结点</strong>开始进行查找；<br>那么第一次查询，从磁盘上进行查询结点后发现34和89对不上，错了；<br>89是大于34的；<br>按照<strong>二叉树数据结构</strong>的这样一个特点、特性；<br>找到该根结点的右边的子结点，一找即发现当前右边的子结点即为当前查询的结点；<br>然后通过<strong>找到的该结点</strong>找到<strong>该结点所对应的value</strong>；<br>该<strong>value</strong>放的就是这个 <strong>索引字段</strong> <strong>所对的那一行</strong>的<strong>数据磁盘文件指针</strong>；<br>那么就可以很快查找得到；  </p>
-<p>通过一种合理的数据结构来放刚加的这个索引字段；那么这个查找的速度就会变得快很多。  </p>
-<p><strong>MySQL的底层原理并不是二叉树</strong>。<br><strong>MySQL的底层是B+树</strong>；<br>MySQL的最终底层为什么选择B+树而不选择其他的数据结构？  </p>
-<p>通过一种<strong>合理的数据结构</strong>来放<strong>索引的字段</strong>，那么查找的效率就将会快很多；<br>就<strong>不用一行一行</strong>的去<strong>遍历</strong>表，即<strong>不用全表扫描式</strong> <strong>查询某一行数据</strong> ；<br>而是可以先快速的<strong>从索引的数据结构当中</strong> <strong>快速的定位到某一个索引</strong>，<br>再把<strong>这个索引</strong> <strong>对应的那一行数据</strong> 的 <strong>磁盘文件指针</strong> 给查询出来，<br>就能够<strong>快速的</strong> 从<strong>磁盘上</strong> 找到 <strong>该行</strong> 要 <strong>查询的数据</strong>；  </p>
-<p>索引具体是什么样的数据结构？  </p>
-<p>MySQL官方没有选择二叉树，说明<strong>二叉树</strong>在<strong>某些场景</strong>下是<strong>存在问题</strong>的；  </p>
-<p>for example:  </p>
-<p>假设表t，将col1作为索引字段，那么SQL语句就需要变成：<br>select * from t where t.col1=6;来进行查找；<br>现在将col1作为一个二叉树；<br>当t表在插入数据的时候，二叉树插入数据的一个变化过程；<br>二叉树这样一个索引结构的变化；<br>插入第一行数据首先会去维护这个索引，第一列col1的数据呈现的规律为顺序递增，递增；每插入一行数据会先要去维护索引的这个数据结构；<br>索引在二叉树当中存在一个递增的规律，顺序递增；<br>每插入一个数据，首先要维护二叉树（Binary Search Trees）递增顺序的一个字段；<br>二叉树如果是维护这样一个递增顺序的字段作为索引会是一个什么样的一个情况；  </p>
-<ul>
-<li>索引-BinarySearchTrees插入递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BinarySearchTrees%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BinarySearchTrees插入递增数据"></li>
-</ul>
-<blockquote>
-<p>国外二叉树（各种数据结构）的一个教学网站（解析动画演示）：<br><a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</a></p>
-</blockquote>
-<p>插入第一行数据，再插入第二行数据，先进行维护这个索引；<br>如果二叉树维护的是这种单边增长的这种字段，而二叉树正好作为索引的底层数据结构，此时就会出现问题；<br>二叉树也会变成单边增长；<br>二叉树对于这种col1字段是单边增长的这种情况是不符合的；<br>这种用二叉树存储索引字段，就跟在数据表中去全表扫描没有任何区别，效果一样,没有什么区别；<br>二叉树这种数据结构对于索引的存储，索引字段的存储在某些方面是存在局限的；  </p>
-<ul>
-<li>索引-BinarySearchTrees查询递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BinarySearchTrees%E6%9F%A5%E8%AF%A2%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BinarySearchTrees查询递增数据"></li>
-</ul>
-<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>红黑树：<a href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/RedBlack.html</a>  </p>
-<p>问题：是否听说过红黑树？<br>答：听说过，且jdk1.8当中HashMap当中链表长度达到8之后就会将数据结构链表转化成红黑树这种数据结构；  </p>
-<p>二叉树不行，则看看其他的更好的数据结构是否能够更好的存储索引字段;<br>红黑树也是一种常见的数据结构；<br>jdk在1.8之后，HashMap底层的链表实际上就是用红黑树来做了一个优化；  </p>
-<p>插入递增数据会自动平衡；  </p>
-<ul>
-<li>索引-RedBlack插入递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-RedBlack%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-RedBlack插入递增数据"></li>
-</ul>
-<p>查询时相对于二叉树来说要少一点；用红黑树来存储索引字段，相对于用普通的二叉树来存储来说，性能稍微高一点；<br>红黑树针对于这种单边增长的这种情况，只要单边出现3个连续递增的结点会做一个自动平衡的处理；那么存储同样的数据的话，整体的高度相对来说红黑树肯定要比二叉树要短；  </p>
-<ul>
-<li>索引-RedBlack查询递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-RedBlack%E6%9F%A5%E8%AF%A2%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-RedBlack查询递增数据"></li>
-</ul>
-<p>问题：二叉树是可以自动平衡的，那么想一想如果用二叉树来做索引字段存储的数据结构有没有什么弊端？在哪些业务场景当中可能又有一些小问题？<br>答：我想不太出来诶。  </p>
-<ul>
-<li>红黑树范围查询</li>
-<li>当数据量小的时候查询起来效率还在线上；如果当数据量大的话，红黑树将不断的往下增长；树的高度有可能变成2的n次方；这个n即为树的高度；每个结点即2，这个树能够存多少索引字段，即2的n次方；</li>
-<li>如果说要查找的n，要查找的那一行的索引字段刚好是在树的叶子结点上面。一般是从根节点上进行遍历，那么查找遍历的次数至少是树的n，高度次这么多；那么从磁盘上要经过几十次，一个结点查找一次，查找一次有一个专业的术语，跟磁盘打一次交道，叫做磁盘IO，这样的话针对磁盘IO来说性能是不高的；效率不是特别高；可以说效率比较低了；如果还经历几十次这样的磁盘IO，性能是肯定没有办法接受的；</li>
-</ul>
-<p>红黑树这种数据结构，一旦表的数据量特别大的时候，查找数据的效率依然会很慢；<br>因为查找数据可能就在叶子结点上；<br>红黑树在数据量大的时候也是存在弊端的；  </p>
-<p>红黑树不行，可以对其做一点点改造；  </p>
-<p>即便是大数量情况下，几百万甚至是上千万的数据量下；通过一种数据结构能够快速的定位到所需要的那个数据的索引的字段；从而根据那个索引的字段能够得到结点当中的那个value值，也就是索引所在那一行数据的磁盘文件指针来定位到磁盘上的某一个位置查找到这一行数据；  </p>
-<p>可以对红黑树进行改造进行优化；  </p>
-<p>红黑树也是二叉树；叫做二叉平衡树；<br>因为红黑树会自动平衡；在红黑树的基础上做一下改造，从而解决在大数据量这种情况下出现的弊端（因为树的高度太高，也就是树存储大数据量的情况下，树的高度太高，磁盘IO就将随着树的高度height增长而增长）；  </p>
-<p>问题： 对红黑树进行改造，让红黑树效率更高一点？  </p>
-<ul>
-<li>n叉树</li>
-<li>原来结点存储到磁盘上面，之前结点就只存储一个索引字段，那么可以将这个结点弄大一点，也就是将它的磁盘存储空间分配大一点（也就是让这个结点上多存储几个索引字段）；且每一个索引之间都可以进行分叉，分叉下的索引结点的磁盘存储空间也分配大一点，也存储多个索引字段，每一个结点都可以有多个结点（多个索引元素）；  </li>
-</ul>
-<p>问题： 这样的存储结构，同样的大数据量的情况下，这样改造红黑树后的结构存储大数据量记录比改造前的红黑树，树的高度要小得多得多；<br>减小了红黑树的纵向，红黑树的高度，而增长了红黑树的横向；<br>横向越长，存储同样大的数据量，树的高度就越矮；树的高度越矮，查找一行数据，也就是某一结点上的数据，那么其效率也就越高；  </p>
-<p>已经慢慢接触到MySQL底层的数据结构：<br>这种改造其实就是B树  </p>
-<ul>
-<li>磁盘存取原理<ul>
-<li>寻道时间（速度慢、费时）</li>
-<li>旋转时间（速度较快）<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%A3%81%E7%9B%98%E5%AD%98%E5%8F%96%E5%8E%9F%E7%90%86.png" alt="磁盘存取原理"></li>
-</ul>
-</li>
-</ul>
-<p>横向查找不就慢了吗？</p>
-<h4 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B-Tree"></a>B-Tree</h4><p>B-Tree</p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXx5xRm2O7Hw.CPoJY21PbGHy3.R9D2C3BHGRAwPaR*QEhgcUF1UMc2yymaSzxbgBOKNjFYrOEqnDAvX4*fMGPmY!/r" alt="索引"></p>
-<ul>
-<li>度（Degree）-结点的数据存储个数</li>
-<li>叶子结点具有相同的深度</li>
-<li>叶子结点的指针为空</li>
-<li>结点中的数据key从左到右递增排列</li>
-</ul>
-<p>刚刚说到红黑树不行，可以在红黑树的横向上做文章；<br>存储同样大的数据量，树的高度将会大大的减小；<br>那就变成了引入B树；  </p>
-<ul>
-<li>索引-BTree插入递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BTree%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BTree插入递增数据"></li>
-</ul>
-<p>结点内数据有限，不能无限放大；<br>B树比红黑树来说有更大的优点；<br>问题：在横向上做文章，那横向查找不就慢了吗？<br>注意：一个结点的大小是由限制的；结点当中的数据量是有限制的；不可能无限延长、大；比如说给这个结点设置几k大小，或者1Mb这么大；如果这个结点太大；<br>一个结点对应磁盘上的一个磁盘文件地址，对应一个大的磁盘文件地址；<br>MySQL设计的是，尽量的一次磁盘IO查找，在进行查找的时候是希望一次性把这个结点放到内存；<br>MySQL查找一次，跟磁盘做一次磁盘IO交互的时候，它会把这一个横向结点全部放到内存当中；只要这一个结点的数据都放到内存之后；那之后再到这个横向结点当中再进行查找数据；比方说要查找77，那么刚刚说经过了一次磁盘IO之后，会将这一个横向结点当中的所有索引元素都放到内存当中去，那么再去查找77，实际上就是从内存当中去进行查找这个77了；内存当中查找性能就非常快了；内存当中查找跟一次磁盘IO进行查找完全是不同级别的；<br>所以不用担心横向查找是否会慢；  </p>
-<p>问题：那是否能将表中的所有行数据都放在一个横向结点当中，将这个横向结点设置为无限大；几百MB或者是几个G的大小用以这个横向结点做存储索引元素？那么一次查找即一次磁盘IO将这些数据一次性放到内存当中；之后就是从内存当中查询索引数据；那就很快了；？  </p>
-<p>这个横向结点不能设置太大；<br>如果设置太大那么弊端将存在更多；首先；比如说几百万行上千万行的数据的索引怎么说也要几百MB，甚至1、2G来存储；也跟索引的字段类型有关，比如说String类型或者UUID类型等就肯定要几百MB；那么一次查找就全部放到内存的话；一次磁盘IO就需要花费很长时间，而且一次磁盘IO还不一定能够全部放到内存当中去；<br>一次磁盘IO也是有存在大小限制的；就算一次磁盘IO能够将该横向结点当中的所有的索引元素放到内存当中去，那也需要时间来放着几百MB的索引元素；而且可以思考一下，事先就将这几百MB设置几个G的索引元素直接放到内存当中去，而真正去查找数据的时候可能也就是查找最常用的10%都不到的行数据；<br>如果老是将整张表的数据全部都一次性放到内存当中去；那就将对这个内存的消耗太过于浪费；内存的资源是很宝贵的；<br>所以说这对该弊端；MySQL对于这一个横向结点是不会将其设置过大；尽量设置一个合适的大小；让这个结点，通过一次磁盘IO能够快速全部存入到内存当中；  </p>
-<p>B-Tree应该叫做多叉平衡树；<br>B-Tree有一个特点：在中间来看一样也满足二叉树的原则；  </p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX5q0FjtHgrmg9JO6KfRhTseVNI0ZlC7sOBVRXN8io620BWK0osf4XOQsJRaBrrA60171VhwueoMM9fAlldBY.Fs!/r" alt="索引"></p>
-<p>56左边的所有元素都小于56相对来说右边的元素；而56右边的索引元素都是大于56左边的父元素；<br>20和49都小于56；而20和49都大于15；  </p>
-<p>然后B树还有一个特点就是在这一个结点当中，这一个横向结点当中从左到右它也是递增排序的；15小于56；56小于77；这是B树的一个特性；同时也是该数据结构的一个特性；<br>也就是说要用B树来维护这个数据结构时，它会按照这个特性进行初始化好；需要进行查询某一索引元素时也同样按照其特性去查找；<br>比方说要进行查找49这一索引元素；那么MySQL的查找方式即为：先将第一个结点横向结点根结点通过磁盘IO之后放到内存当中；然后到内存当中进行去比对；先比对15与49之间的大小；49大于15，接着进行比对49与56；则49小于56；然后再去查找比对15和56中间的索引元素；15和56中间存放的是指针，指针存放的是下一个索引元素，也就是下一个结点所对应的磁盘指针整个查询出来；即该指针所对应的结点数据全部放入到内存当中；然后放到内存当中去进行比对大小；然后接下来49与20进行比对，49大于20；那么接着49与49进行比对；就刚好相等；刚好找到该索引远元素了；找到该索引元素之后，则每一个索引当中存放的为key-value；value当中即存储着该索引这一行数据所在的磁盘文件当中的指针；那么拿到这个data之后；磁盘文件指针就能够快速的找到磁盘文件数据；即聚众索引；  </p>
-<p>MySQL真正的底层索引并不是用B树来进行实现；而是使用的一种变种的B树，称之为B+树；  </p>
-<h4 id="B-Tree-B-Tree变种"><a href="#B-Tree-B-Tree变种" class="headerlink" title="B+Tree(B-Tree变种)"></a>B+Tree(B-Tree变种)</h4><p>B+Tree(B-Tree变种)</p>
-<ul>
-<li>非叶子结点不存储data，只存储key，可以增大度；</li>
-<li>叶子结点不存储指针；</li>
-<li>顺序访问指针，提高区间访问性能；</li>
-</ul>
-<p>什么叫做B+树，B+树是B树的一个变种；  </p>
-<p>B+树与B树的区别：<br>B+树：所有的data都放到了叶子结点上；而非叶子结点没有了data；<br>B+树的叶子结点上都有一个右指针；  </p>
-<p>问题：为什么B树当中非叶子结点上的data元素都移到了叶子结点上去了；<br>B树当中每一个叶子结点并不重复；而B+树当中一些关键的索引做了冗余；不光是在叶子结点上非叶子结点上也做了冗余；  </p>
-<p>非叶子结点上为什么没有data元素了？<br>这么一存的话（非叶子结点上存data元素，非叶子结点不存data元素）；那么就意味着整个B+树的叶子结点当中；就有了数据表的完整的所有行的索引；因为把每一行的data都往叶子结点上移动；那么每一行数据都存在有一个data的磁盘文件指针；那也就意味着；所有的行数据应该在叶子结点都有一份完整；只不过某一些关键的索引的元素；在非叶子结点上做了一个冗余；15、20、49做了冗余；方便遍历数据；一次磁盘IO取更多的k；  </p>
-<p>其中常见的数据结构在不同场景下的区别  </p>
-<p>MySQL实际上希望的是这一个结点的大小是有一个适当的大小，不能设置太大；<br>也就是说这一个结点的大小是存在有限制的；<br>每一个结点当中能够存储更小的元素，是不是也就意味着；一个大结点当中里面能够存储更多的索引的key；也就是说能够存储更多的索引字段；也就意味着这一个结点在大小相同的情况下；比方说，默认MySQL把这个结点的大小设置为16k；<br>在这一个大结点，一个大小固定的情况下面；这一个大结点当中的每一个小结点如果把data元素移动到叶子结点上去；是不是也就意味着整个这一个大结点可以横向可以存储更多的索引元素；  </p>
-<p>那么如果横向可以存储更多的索引元素，那也就意味着这个横向结点向下的分叉也就越多；分叉分得更多，也就说明，存储同样大的数据量，树的高度也就更小了；那么叶子结点也就更大了；  </p>
-<p>为什么要将data移动到叶子结点上去的原因就在于：非叶子结点当中也就可以横向存放更多的索引元素；从而树的高度也就效率，查找的效率也就提高了上来；  </p>
-<p>MySQL默认把结点的大小设置为16k；<br>SHOW GLOBAL STATUS like ‘Innodb_page_size’;  </p>
-<table>
-<tr>
-<th>Variable_name</th>
-<th>Value</th>
-</tr>
-<tr>
-<td>Innodb_page_size</td>
-<td>16384</td>
-</tr>
-</table>
-
-<p>该sql语句查出来的值实际是上就是MySQL底层存储索引字段，B+树的这个大结点的大小；当然也可以去进行修改该值；但是一般并不推荐去修改该值；<br>16384个字节；实际上也就相当于是16k数据；也就是16k的大小；这个大小在磁盘上也就是分配的16k的一个磁盘大小；  </p>
-<p>思考：刚刚将data元素放到叶子结点上面去了；现在画的树的高度为3；思考现在高度为3的该树一共可以存储多少索引字段？  </p>
-<p>假设该索引字段的字段类型为bigint；表的主键/索引的类型一般为bigint；<br>bigint在MySQL的底层的存储大小大概为8个字节byte；  </p>
-<p>大结点当中除了索引字段占据n*8个字节外，还存在有指针；指针在MySQL底层源码使用的是6个字节byte来进行存储这个指针；这个指针说白了就是下个结点在磁盘文件上的一个地址；  </p>
-<p>也就是说这个大结点当中存储了这样一个小的索引，以及索引旁边的指针；差不多也就是8Byte+6Byte=14Byte（一个索引+一个指针）；这一个大结点16k大概能够存储多少个索引；<br>公式=16384Byte/(8Byte+6Byte=14Byte)=1,170.285714285714<br>一个大的结点可存储的索引数约为1170个；也就是大概1k的样子；  </p>
-<p>那么第二个结点，也可以进行存储1170个索引数；  </p>
-<p>再说到叶子结点；所有的data元素都放到叶子结点；那么叶子结点就会变大；每一个小结点就都会变大了相比之前没有放data元素之前变大了；  </p>
-<p>假设一下；假设这个叶子结点当中的一个小叶子结点，也就是对应的这一行索引以及该索引所在的行的那个磁盘文件文件指针或者说这一行的其他数据就存储到这个小结点当中；假设这个小结点就大一点，就存储1k的数据；那么这一个存储该小结点的大结点同样是存储16k的数据；那么也就是该结点所能够存储的索引元素为16个；<br>整个叶子结点当中可以容纳多少的索引元素（存储的所有的索引的数值）？<br>公式：（根结点上的1170这一层）1170<em>1170</em>16=21,902,400‬<br>算出来的该值实际上就是该叶子结点上所有可以存储的索引元素的总和；  </p>
-<p>非叶子结点的所有的索引元素*每一个叶子结点可以存储的多少个索引行数据  </p>
-<p>这个结果算出来差不多等于两千多万；两千多万所算出来的东西；也就意味着该叶子结点能够放的总索引元素个数（小索引元素+data元素）大概是两千多万；（也就相当于是两千多万条/行数据）；  </p>
-<p>使用B+树这么一改造之后；发现同样树的高度；高度为3；该树就能够存储两千多万条个索引，也就说明可以支撑两千万行的表；将这两千多万行数据的表当中的一字段作为索引存储到该数据结构当中，那么同样高度为3，height为3，查找一个元素比方说查找50；那么从根结点去进行匹配对比；经过顺序查找；50与父节点/根结点当中的15-56对比，查找中间的数值即该根结点的左节点；也就是再跟15-28-49进行比较，得到50再去与该结点的下一结点比较即49-50；最多经过三次磁盘IO；就能够找到索要查找得到的元素50；性能十分高；  </p>
-<p>这也就是为什么上千万行数据；只要索引字段建的比较的合理、合适；那么其磁盘查找次数是非常少的；  </p>
-<p>用B+树来说；常见的数据表，树的高度一般就控制在2~4之间；<br>不管如何查询；即使是查询到叶子结点的速度也是十分快的；<br>只需要经过几次磁盘IO查找；  </p>
-<h4 id="HASH表"><a href="#HASH表" class="headerlink" title="HASH表"></a>HASH表</h4><p>MySQL的索引字段当中存在有索引方法；点击下拉框进行选择索引方法（存在有两种实现：一种是BTREE；一种是HASH）<br>HASH 也是官方的一种实现；但是使用的不多；<br>90%以上的场景都是使用的B树；<br>为什么不用HASH表的原因：<br>HASH表存储索引的原理：<br>比方说将col1作为索引字段；select * from t where t.col1=4;<br>通过一个hash算法，hash（4）；对该4取了一个HASH；得到的该结果，那么该结果就跟所查询的where t.col1(4)这一行数据所在磁盘文件是有一个映射关系的；<br>这就是HASH表的一个存储结构；<br>HASH实际上就是一种算法；比说MD5;MD5就是一种HASH算法；<br>HASH就是将索引列通过一种HASH算法将索引列的值存放到HASH这一数据结构当中去；<br>那么select * from t where t.col1=6;进行查找该t.col1=6的数据行；的HASH查找即为：对该col1=6；该6的该取值做一次HASH算法运算得到它的结果hash(6)；根据这个结果；只需要做一次映射就能够快速的定位到这一行数据所在的文件磁盘指针；<br>那么即便是千万级别的数据也只需要通过hash()一次HASH结果进行计算定位得到索引所在行数据的文件磁盘指针也是能够快速的查找得到的；感觉HASH表性能更高，比B+树效率更高；B+树还要经过两三次的树的一个遍历；而HASH表的查找感觉更快；<br>只需要有这个索引字段，走索引，经过MYSQL底层定义好索引方法为HASH算法，只需要一次HASH计算结果就能够拿到该查找行数据的所在文件磁盘指针；感觉性能很快；<br>甚至在数据量更大的表当中进行查找表尾的数据，也只需要经过一次HASH计算就能找到该行数据所在的磁盘文件指针；  </p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXzV2Z6K9IOXoYW6kFdX*NnL.fv6XCleV5BjrQCN4Bw3HvJfkZCF6LFsSX26xC5WuUZwgbGD9vBaj2.Lec10r*m8!/r" alt="索引"></p>
-<p>那么为什么MySQL一般用B树而不用HASH表呢？<br>（1）范围查找太慢；比如说select * from t where t.col1&gt;6;<br>      那么当这种情况下；如果col1大于的数值，极端来想的话，也就相当于是全表扫描了；<br>（2）HASH只用于范围查找很少的情况下才进行使用；那么这个时候索引使用HASH是<br>      没有问题的；而正常情况下一般都会要使用得到范围查找所以这个时候使用B Tree更佳；<br>（3）回到问题：为什么InnoDB的主键索引的叶子结点上存在有指针（右指针）？<br>      在维护B+树的时候，比方说叶子结点的最后一个结点满了，那么就需要开辟一个新的结点（下一个结点）来进行存储新的索引元素；那么就将前面那个结点（也就是之前叶子结点的最后一个结点满了的那个结点）中间开辟一个小小的元素空间；把下一个新开辟的这一个结点的磁盘文件地址的指针存放到该新开辟的结点的上一个结点的那个小元素空间当中去；也就说白了；该新开辟的结点的上一结点有一个指针，指向了下一结点，也就是该新开辟的结点的磁盘文件指针；<br>      通过有了这个指针；再联想HASH表的范围查找进行思考，那么是不是说明该指针就能够帮忙解决很大的问题；<br>      比方说：查找索引字段取值col1大于20取值的记录；从B+ 树的索引找到该20的这一个元素；因为整个叶子结点的索引元素都是从左到右依次递增形式的；通过这个（右）指针顺藤摸瓜的形式（其实这里形成了一个双向指针，查询即小于20的元素也是一样的；双向链表），通过指针就能够找到大于20，也就是20这个索引元素后面的所有索引元素结点；最后放到一个大的集合当中去；也就是这条sql语句所要返回的结果集合；  </p>
-<p>B+树的两个特性：<br>（1）为了让非叶子结点能够存储更多的索引；从而叶子结点上除了索引元素还存在有data元素；<br>（2）在叶子结点索引元素之间还存在有一个指针指向下一索引元素结点的地址；存在有一个双向的指针；也就是为了解决如何高效的进行范围查找的这样一个问题；所以高效的范围查找也是可以进行走索引的；在某种情况下，范围查找也是可以走索引的；（因为存在指针，存在顺序递增顺序递减的这样一个结构，那么则肯定是可以走相关的索引的）  </p>
-<h5 id="B-Tree索引的性能分析"><a href="#B-Tree索引的性能分析" class="headerlink" title="B+Tree索引的性能分析"></a>B+Tree索引的性能分析</h5><ul>
-<li>一般使用磁盘I/O次数评价索引结构的优劣</li>
-<li>预读：磁盘一般会顺序向后读取一定长度的数据（页的整数倍）放入内存</li>
-<li>局部性原理：当一个数据被用到时，其附近的数据也通常会马上被使用；</li>
-<li>B+Tree结点的大小设为等于一个页，每次新建结点直接申请一个页的空间，这样就保证一个结点物理上也存储在一个页里，就实现了一个结点的载入只需一次I/O。</li>
-<li>B+Tree的度d一般会超过100；因此h非常小（一般为1~3之间）  </li>
-<li>一般操作系统的最小存储单元为页，1页大小为4k；  </li>
-<li>查看Mysql文件页大小（16k）: SHOW GLOBAL STATUS like ‘Innodb_page_size’;  </li>
-</ul>
-<h5 id="为什么MySQL页文件默认为16k"><a href="#为什么MySQL页文件默认为16k" class="headerlink" title="为什么MySQL页文件默认为16k"></a>为什么MySQL页文件默认为16k</h5><p>假设一行数据大小为1k；那么一页就能够存16条数据；也就是一个叶子结点能够存16条数据；再看非叶子结点，假设主键ID为bigint类型，那么长度为8B，指针大小在InnoDB源码中为6B，一共就是14B，那么一页里就可以存储16k/14=1170个（主键+指针）<br>那么一棵高度为2的B+树能存储的数据为1170<em>16=18720条，一棵高度为3的B+树能存储的数据为1170</em>1170*16=21902400（千万级条）  </p>
-<h3 id="索引底层数据结构与算法"><a href="#索引底层数据结构与算法" class="headerlink" title="索引底层数据结构与算法"></a>索引底层数据结构与算法</h3><h3 id="InnoDB与MyISAM索引区别"><a href="#InnoDB与MyISAM索引区别" class="headerlink" title="InnoDB与MyISAM索引区别"></a>InnoDB与MyISAM索引区别</h3><p>InnoDB形容表还是形容数据库？<br>InnoDB以及MyISAM存储引擎是用来形容数据表的；  </p>
-<p>当在设计表时，在选项当中有引擎选项存在有：ARCHIVE、BLACKHOLE、CSV、InnoDB、MEMORY、MRG MYISAM、MyISAM、PERFORMANCE SCHEMA…等等；  </p>
-<p>存储引擎是形容表的，最常见的存储引擎即InnoDB以及MyISAM这两种存储引擎；<br>用的比较多的为InnoDB该存储引擎；  </p>
-<p>不同表不同存储引擎底层的数据结构区别：  </p>
-<p>test数据库对应都是存储在本地磁盘上的；<br>以数据库名命名的磁盘文件夹下；  </p>
-<p>表=表结构+数据+索引  </p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8IZB7poXY4Ed7**8BhOfVx.BLlNb39BqBwC.ebBPiVr7.bXbWAXqMbGapRUkOP8BwmJQWBxopXJj*htdZrocUE!/r" alt="索引"></p>
-<p>InnoDB:<br>test.innodb.lock.frm - 表结构等相关信息存储文件<br>test.innodb.lock.ibd - 表数据+表索引结构  </p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX*r9r8zOgb4r0dv8mg9Q5qMyppmh2cPcvbiy6hMFV9ap4rR0IrTk.u5U5HvIcDcxnTh0*XJn4IhWeLwxBiXTkPg!/r" alt="索引"></p>
-<p>InnoDB的表有一个主键，该主键自带索引；主键索引在InnoDB存储引擎下如何存储；<br>InnoDB的这种文件存储方式，MySQL官方在开发的时候，InnoDB当中的主键索引以及表当中的所有数据全部存储同一个文件，叫做后缀为ibd的文件当中；<br>InnoDB存储方式当中的叶子结点当中的的data元素所表示的内容与MyISAM存储方式当中叶子结点当中的data元素所表示的内容不一致；索引结构有点区别；<br>MyISAM叶子结点的data元素当中所存为索引所在行的行数据的磁盘文件指针；<br>但是发现InnoDB的主键索引，它的叶子结点当中的data元素当中所存储的为索引所在行的其他所有列的数据；这一行的所有列数据全部存储到该data元素当中去；<br>也就是说在InnoDB当中，通过一条sql语句，带有where查询通过索引进行查询的sql语句；只需要查找一个文件，从这个ibd文件当中一次性定位到索引元素，快速的就能根据data元素，这个索引所在行的其他的所有字段，将该行的所有字段进行查询出来放入内存当中去；就查找到了所需要查找的元素；相对来说性能应该要比MyISAM存储引擎的性能会高一点；  </p>
-<p>InnoDB与MyISAM的底层存储是稍微有些区别的；  </p>
-<p>MyISAM：<br>test.myisam.frm - 该文件存储对表的表结构一些定义的一些数据；<br>test.myisam.MYD - 实际上存储的为表的数据，D英文单词data的简写（该表当中所有的数据行）；<br>test.myisam.MYI - 该表所对应的索引字段存储的位置；  </p>
-<p>主键自带主键索引；索引，它是一个数据结构，数据结构实际上存储在MYI文件当中；I即为Index首字母的简写；  </p>
-<p>MyISAM底层也为B+树数据结构进行存储；<br>MyISAM索引底层存储，如何进行存储：  </p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8sBSc*PWI*GgGhWe3pcWW625GV21FTGHFPkQrnPSFTCe3vCEKM3QCpTupcvYLjHH7f2N4y0qI7TTFDwZaL9fXc!/r" alt="索引"></p>
-<p>col1是作为表的主键索引；<br>因为支持二叉查找，所以像15、20、49这种处于在中间的这些个数据将被作为冗余字段；<br>就更可以区分查找数据；像二叉折半查找等；一般取中间的元素作为冗余的索引；快速的过滤一些数据；减少查找次数；<br>将col1该字段列当中的所有数据放入到数据结构当中去；然后看；<br>原来在叶子结点当中存储的data元素，data元素存储的即使该索引所在行的行数据的磁盘文件指针；（地址指针，16进制的值）  </p>
-<p>select * from t where t.col1=49;<br>col1主键索引；<br>MySQL底层实际上先会去到MYI文件当中；<br>因为索引（数据结构）存储在MYI索引文件当中；<br>先拿col1=49在MYI文件当中快速地定位到结点为49的结点；<br>根据B+树的特性；<br>先从根结点去进行定位；<br>根结点当中的数据通过一次磁盘IO，根结点当中的索引元素将会被放到内存当中，49将会在内存当中与15-56-77相进行比较；得到49在15-56之间；49就将走15与56中间的向下的指针，左节点也就是存放有15-20-49这三个索引元素的该结点中，那么此时左节点当中的索引元素将会进行第二次磁盘IO的操作，将左节点当中的索引元素放到内存当中去，与查询的数据49相进行比较；得到49在区间20-49之间；最后到了叶子结点，该叶子结点当中包括两个小结点49-50以及2个data元素（指针），那么第三次磁盘IO时，将49-50该叶子结点放到内存当中去，49就将与49-50相进行比较得到49，该49即为要查找的元素；49该小结点当中所对应的data元素拿出来，该data元素对于MyISAM存储引擎来说data元素存储的是为该索引所在行的行数据的磁盘文件指针；当拿到获取得到该指针之后就将到MYD文件当中进行查询获取得到相应数据值；  </p>
-<p>面试题：聚集索引or聚众索引  </p>
-<p>什么叫做聚集索引?  </p>
-<p>聚集索引定义：叶结点包含了完整的数据记录；<br>InnoDB的主键索引，ibd这个主键索引的这个文件；主键索引其就叫做聚集索引；<br>因为InnoDB的主键索引，它是跟它的文件数据行整个是存储在一个文件当中ibd文件；<br>索引和数据是聚集存储在一起的；  </p>
-<p>有聚集索引即存在非聚集索引；<br>MyISAM的主键索引就称作是非聚集索引；<br>因为MyISAM的主键索引存储在MYI文件当中；而数据存储在MYD文件当中；<br>那如果需要查找数据，每次都需要两个文件的一同查找才能查找得到；数据文件和索引文件分开存储了；所以称MyISAM的主键索引为非聚集索引；InnoDB的主键索引称为聚集索引；  </p>
-<p>常见数据结构理论；  </p>
-<p>结合具体的MySQL表来看一下；<br>不同的表底层如何进行存储；<br>MySQL的表无非就是MyISAM存储引擎/InnoDB存储引擎；<br>不同的表可能有不同的存储引擎；  </p>
-<p>MyISAM索引实现（非聚集）<br><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX2tYjinQbFQFT5hJICKOua.p8u*tNGRGnBmzDnCDDuui9JbsxaFmbrmLTSu0V4thfYO9zIg6UNnWwUY*NxnoWlU!/r" alt="索引"></p>
-<ul>
-<li>MyISAM索引文件和数据文件是分离的；</li>
-</ul>
-<p>InnoDB索引实现（聚集）</p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX*GhKIY3zUQdhemNpwYPZHMTx6WJ6HggRWyAqiDQHIGmxm2m2V7hUQmLQaYwj8CF*g.zfe8sCKjjxpzzRlDfl3I!/r" alt="索引"></p>
-<ul>
-<li>表数据本身就是按照B+Tree组织的一个索引结构文件</li>
-<li>聚集索引-叶结点包含了完整的数据记录</li>
-<li>为什么InnoDB表必须要有主键？并且推荐使用整型的自增主键?  <ul>
-<li>为什么必须要建主键，MySQL官方对于InnoDB的表，其数据就需要用一个索引B+树来组织；所以肯定是需要主键的；<br>（之间建了InnoDB的表但是没有建索引也建成功了）针对这种情况，MySQL会自动在底层建一个索引；如果表中没有建索引，MySQL会在底层找一个唯一能标识这一行数据的字段作为索引；<br>如果找不到，它会默认给表生成一个类似像row_id，一个隐藏列作为主键索引，主键；<br>根据该表主键索引来维护整张表的数据；MySQl官方设计的就是要用一个B+树的存储结构来组织；B+树其实就是该索引，索引结构；所以必须要有一个主键索引；即便表中没有建立，MySQL也会默认生成一个隐藏的列/主键索引；  </li>
-<li>主键尽量为整型自增；为什么主键尽量为整型自增？<br>假设主键不设置为整型，设置为UUID类型，UUID不为整型，而是字符串类型；<br>为什么不推荐使用UUID，而推荐使用整型并且自增的类型；<br>首先用UUID，它是字符串类型的，而且是很长一串，字母+数字+其他符号；<br>这样存在的弊端有：<br>（1）相对于整型来说，首先，这一长串字符串的存储空间比整型大得多（字符串长度越长占用空间越大；索引存放在磁盘上面，那么也将会占用磁盘存储空间；那么UUID存储磁盘空间是肯定会要比整型类型字段要大得多）；<br>（2） 而且，底层B+树索引去进行查找的时候；是需要进行结点之间比较大小的；一个一个根据B+树，二叉一个个进行比较大小找对应的元素；而结点当中存储的都为UUID，一个个去比较大小的话；字符串比较大小，字符串跟数字进行比较，一位一位进行比较性能将会非常的低；字符串去进行比较先要转成ASCII码值（国标码）按照码表当中的顺序进行比较大小；这个性能就非常低了；<br>相对于整型来比较：数值之间的比较性能肯定是高的多的；<br>（3）为什么要使用自增的？UUID肯定不是自增类型的；<br>正常情况下如果是使用顺序自增：插入的元素基本上是往后面进行插入的；后面的结点空间满了，然后继续往后面去开辟一个空间继续放；如果现在新加一个元素；叶子结点从左到右都是依次递增的；在每一个结点当中每一个元素都是依次递增，左边小于右边；B+树当中的所有叶子结点；<br>从左到右都是依次递增的；<br>现在将一个不是自增的新元素UUID进行插入；<br>而插入的位置正好是叶子结点中间的一个位置，而并不是结尾的位置；<br>比如插入到20与30的叶子结点中间；<br>那么这个时候将20和30想象成UUID类型的字符串内容；当新元素UUID进行插入的时候就将会形成分裂的这种情况；<br>有可能就是将20与新元素新分裂出一个叶子结点，30单独分裂出去一个叶子结点；<br>插入的元素需要进行分裂一次；然后还需要平衡一次；<br>相对于这种插入新元素，插入一个元素按顺序递增往后面进行一个一个递增的加元素的这种情况效率就要高多了；<br>这也就是为什么B+ 树推荐的主键索引为整型并且自增类型；<br>因为自增它会尽可能的避免：新增的该结点插入到叶子结点上去了之后，会导致叶子结点原有的已经满了的大的叶子结点做分裂以及自动平衡；<br>（4）指针（B+树的叶子结点上的右指针）的作用：叶子结点当中某一大结点如已经存满了16k的索引元素；按照B+树从左到右的依次递增的顺序；假设当前该字段不是自增的；现在来了一个新的元素需要进行插入数据，看到索引的值比方说为25；那么按顺序这个索引值就应该插入到叶子结点20-30的中间；但是当前该叶子结点的存储空间大小16k已经满了，已经存不下了；<br>那么此时在这种情况下：<br>1&gt;当前叶子结点的存储空间已经满了<br>2&gt;当前需要新插入一个新的索引元素，而该索引元素的大小取值应该放在该当前叶子结点的中间；<br>那么这个时候就需要进行叶子结点的分裂；分裂成两个结点；20与25这两个索引元素成为一个新的叶子结点；而30将被分裂到另外一个叶子结点上面去；<br>而如果插入的元素都是递增类型的元素的话则比如说插入新元素100；那么就肯定不再需要往中间去进行插入；都是直接在后面新开辟一块空间来进行存储该新元素100；  </li>
-</ul>
-</li>
-</ul>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8fDAvL3g7DJ9HhnBQeGRqDvrpkZXABEIRyvGCl2wXfLlwUZMMrCWHUUoUCg2YMQdB8MP3ElixOLflsVbBIu18U!/r" alt="索引"></p>
-<ul>
-<li>为什么非主键索引结构叶子结点存储的是主键值？（一致性和节省存储空间）  </li>
-</ul>
-<h3 id="索引最左前缀原理"><a href="#索引最左前缀原理" class="headerlink" title="索引最左前缀原理"></a>索引最左前缀原理</h3><ul>
-<li>联合索引的底层存储结构长什么样?  </li>
-</ul>
-<p>(字段1，字段2，字段3)<br>比方说字段1、字段2、字段3是联合索引；  </p>
-<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX50m84lF6rjqlgyWXpKCriCR9zfdJdu7YbMYTBq.e8Oj47TQyP3KTeZ1anErrKoy5mNBgGaDtLH9DbfHrrCBYYg!/r" alt="索引"></p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>面试</tag>
-        <tag>红黑树</tag>
-        <tag>MySql索引</tag>
-        <tag>B+树</tag>
-        <tag>B树</tag>
-        <tag>HASH表</tag>
-        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -6235,6 +5995,246 @@
         <tag>MySQL</tag>
         <tag>数据库优化</tag>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySql索引底层数据结构</title>
+    <url>/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<h2 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h2><p>观看笔记：<br><a href="https://www.bilibili.com/video/BV13x411Z7AQ?from=search&amp;seid=12763347691863057372" target="_blank" rel="noopener">https://www.bilibili.com/video/BV13x411Z7AQ?from=search&amp;seid=12763347691863057372</a></p>
+<h3 id="索引的本质"><a href="#索引的本质" class="headerlink" title="索引的本质"></a>索引的本质</h3><p>索引的本质</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXwvSlPCJJI2vYZaT3H0rZCG38flqH5eE7TMAOK*DSM1BhWXXI4cugphYQTkM94HMJ9GHGpkBn3QA6a5u74EOK8M!/r" alt="索引"></p>
+<ul>
+<li><strong>索引</strong> 是 <strong>帮助MySQL</strong> <strong>高效获取数据</strong> 的 <strong>排好序</strong> 的 <strong>数据结构</strong></li>
+<li><strong>索引存储在文件里</strong></li>
+<li><strong>索引结构</strong><ul>
+<li><strong>二叉树</strong></li>
+<li><strong>红黑树</strong></li>
+<li><strong>HASH</strong></li>
+<li><strong>BTREE</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>问题</strong>：有没有在生产环境SQL查询的非常慢，需要优化的。<br><strong>答</strong>：真的有过，就是上一家公司做的那个项目关系到全国，省，市，区，县这种的，每次一统计吧就是全国的那种统计，就是该省下有多少人注册了，该市下有多少人注册了…..这种，每次加载大半天都搞不赢，那个页面都出不来。<br>这个属于慢查询吗？<br>我也不是很清楚诶。反正就是数据量贼大，然后用的Oracle数据库，因为还有就是交易量很大。  </p>
+</blockquote>
+<blockquote>
+<p><strong>问题</strong>： 遇到这种问题第一时间想到的优化是什么？<br><strong>答</strong>：额，我好像也没有做什么优化，通过主键来进行查询，就是交易量特别大的时候，然后去查询的时候，就是使用的交易表TRANS 当中的主键去进行查询大部分是。<br>然后就是因为是二次开发这个系统，所以在Oracle数据库当中是存在之前的开发者所写的索引的。<br>然后就是不去使用外键，就是外键关联的外键这种不去进行使用，而是有些表当中额怎么说呢，就是有些表当中记录的字段存在，而另外一张表当中因为不去进行关联查询trans表这种数据量大的表就自己这张表也会记录一些数据这种。<br>尽量通过主键去查询，因为通过其他的去查询，比如字符串这种的碰到有些时候会很慢。<br>或者是还有就是写那个查询，navicat当中写个查询然后保存。<br>我想不到其他的了，因为没有怎么用过索引。  </p>
+</blockquote>
+<p><strong>首先检查索引</strong>；<br>查看<strong>SQL</strong>当中的<strong>where</strong>当中的<strong>查询字段</strong> <strong>是否有加索引</strong>；<br>或者说加了索引 <strong>是否正确索引</strong> 呢；<br>只要SQL不太烂，正常的走索引，数据量几百万上千万行的数据表，查询的速度依然会很快。  </p>
+<blockquote>
+<p><strong>思考</strong>： 一个几百万上千万数据量的表，只要加上了索引，然后查询的条件又是走的索引，关键的字段，为什么查找的速度就能够提高很多，性能会高？<br><strong>答</strong>：因为索引就相当于是书的页码，比如我要查询新华字典当中的某一个字，找到它的索引，也就是它的页码，一下子就能找到了。<br>不过至于它的底层方面的原理我不是很清楚。没有过这方面的研究，我也只是听说过是通过b+ 树实现的？  </p>
+</blockquote>
+<p><strong>索引的定义</strong>：<strong>索引</strong> 是 <strong>帮助MySQL</strong> <strong>高效获取数据</strong> 的 <strong>排好序</strong> 的 <strong>数据结构</strong>。<br><strong>索引结构</strong>：  </p>
+<ul>
+<li><strong>二叉树</strong></li>
+<li><strong>红黑树</strong></li>
+<li><strong>HASH(哈希表)</strong></li>
+<li><strong>BTREE（B树）</strong></li>
+</ul>
+<p><strong>数据表</strong> 是 <strong>存储在磁盘文件</strong> 当中；<br>所装MySQL当中的data目录，目录下为数据库；<br>表数据实际上就存放在磁盘上了；<br>那从数据表当中去读取数据的时候查询某一行数据的时候，意味着就需要从<strong>磁盘</strong>上去<strong>查询</strong>这个数据表当中的数据。<br>如果该数据<strong>没有加索引</strong>则从第一行开始进行查找；<br>select * from t where t.col2=89;<br>如果该表t没有加任何索引则需要从该表<strong>第一行</strong>开始<strong>遍历</strong>。<br><strong>逐行查找逐行比对</strong>。<br>直到查找到n次磁盘查找到数据匹配位置。<br>如果要查找的<strong>数据在末尾</strong>，<strong>数据量非常大</strong>的情况下，每次从<strong>表头进行查找</strong>，<strong>性能非常差</strong>。<br>这也就是 <strong>全表扫描</strong>。  </p>
+<blockquote>
+<p><strong>问题</strong>：有什么办法<strong>优化SQL查询</strong>？  </p>
+<ul>
+<li>给<strong>字段加索引</strong>。<br>给col2字段加上索引后，即便是该表当中存在数据量十分大，查询起来的效率也会很高。<br>这个原因是什么？<br>给该字段加上索引之后，该字段作为索引字段之后，它在该表中的存储结构，该字段的存储结构就有一点区别。  </li>
+<li><em>索引本质上是一种数据结构*</em>。<br>所以当给col2字段加上索引之后，那么就会将该col2字段列的数据通过<strong>以一种数据结构进行存储起来</strong>。  </li>
+</ul>
+</blockquote>
+<h4 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h4><p><strong>二叉树（Binary Search Trees，简写BST）</strong>：<a href="https://www.cs.usfca.edu/~galles/visualization/BST.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/BST.html</a>  </p>
+<p>比方说，常见的<strong>数据结构</strong>-<strong>二叉树</strong>，<br>将col2字段该列的数据放到二叉树当中来，<br>该字段col2的列的数据，每一个数据都放到二叉树当中去；  </p>
+<p>而 <strong>二叉树的每一个结点</strong> 是一个 <strong>key-value</strong> 的一个取值；<br>也就是说 <strong>key</strong> 其实即为 <strong>索引字段</strong> ，而 <strong>value</strong> 则为 <strong>箭头的指针</strong> ；<br><strong>索引字段</strong>所对应的这<strong>一行的数据</strong>，在<strong>磁盘</strong>上的一个<strong>文件指针</strong>；<br>如果通过一个合理的方式，或者说是一个好一点的数据结构，来放索引的这个字段，以及每一个索引对应的这一行数据，<strong>磁盘文件指针</strong>；<br>那么再去看查找这行数据。  </p>
+<p><strong>数据结构-二叉树</strong>常识：  </p>
+<ul>
+<li><strong>根节点（父节点）的右孩子取值大于根节点（父节点）取值</strong>；</li>
+<li><strong>根节点（父节点）的左孩子取值小于根节点（父节点）取值</strong>；</li>
+<li><strong>从左到右依次递增</strong>；</li>
+</ul>
+<p>如果要查找 select * from t where t.col2=89这一行数据；<br>用<strong>索引字段</strong>去查找的话，那么<strong>先走索引</strong>；<br>而<strong>索引</strong>是当前被放在<strong>二叉树</strong>这样一种数据结构当中去了；<br>那么再去进行查找；<br>那么肯定是从<strong>根结点</strong>开始进行查找；<br>那么第一次查询，从磁盘上进行查询结点后发现34和89对不上，错了；<br>89是大于34的；<br>按照<strong>二叉树数据结构</strong>的这样一个特点、特性；<br>找到该根结点的右边的子结点，一找即发现当前右边的子结点即为当前查询的结点；<br>然后通过<strong>找到的该结点</strong>找到<strong>该结点所对应的value</strong>；<br>该<strong>value</strong>放的就是这个 <strong>索引字段</strong> <strong>所对的那一行</strong>的<strong>数据磁盘文件指针</strong>；<br>那么就可以很快查找得到；  </p>
+<p>通过一种合理的数据结构来放刚加的这个索引字段；那么这个查找的速度就会变得快很多。  </p>
+<p><strong>MySQL的底层原理并不是二叉树</strong>。<br><strong>MySQL的底层是B+树</strong>；<br>MySQL的最终底层为什么选择B+树而不选择其他的数据结构？  </p>
+<p>通过一种<strong>合理的数据结构</strong>来放<strong>索引的字段</strong>，那么查找的效率就将会快很多；<br>就<strong>不用一行一行</strong>的去<strong>遍历</strong>表，即<strong>不用全表扫描式</strong> <strong>查询某一行数据</strong> ；<br>而是可以先快速的<strong>从索引的数据结构当中</strong> <strong>快速的定位到某一个索引</strong>，<br>再把<strong>这个索引</strong> <strong>对应的那一行数据</strong> 的 <strong>磁盘文件指针</strong> 给查询出来，<br>就能够<strong>快速的</strong> 从<strong>磁盘上</strong> 找到 <strong>该行</strong> 要 <strong>查询的数据</strong>；  </p>
+<p>索引具体是什么样的数据结构？  </p>
+<p>MySQL官方没有选择二叉树，说明<strong>二叉树</strong>在<strong>某些场景</strong>下是<strong>存在问题</strong>的；  </p>
+<p>for example:  </p>
+<p>假设表t，将col1作为索引字段，那么SQL语句就需要变成：<br>select * from t where t.col1=6;来进行查找；<br>现在将col1作为一个二叉树；<br>当t表在插入数据的时候，二叉树插入数据的一个变化过程；<br>二叉树这样一个索引结构的变化；<br>插入第一行数据首先会去维护这个索引，第一列col1的数据呈现的规律为顺序递增，递增；每插入一行数据会先要去维护索引的这个数据结构；<br>索引在二叉树当中存在一个递增的规律，顺序递增；<br>每插入一个数据，首先要维护二叉树（Binary Search Trees）递增顺序的一个字段；<br>二叉树如果是维护这样一个递增顺序的字段作为索引会是一个什么样的一个情况；  </p>
+<ul>
+<li>索引-BinarySearchTrees插入递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BinarySearchTrees%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BinarySearchTrees插入递增数据"></li>
+</ul>
+<blockquote>
+<p>国外二叉树（各种数据结构）的一个教学网站（解析动画演示）：<br><a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</a></p>
+</blockquote>
+<p>插入第一行数据，再插入第二行数据，先进行维护这个索引；<br>如果二叉树维护的是这种单边增长的这种字段，而二叉树正好作为索引的底层数据结构，此时就会出现问题；<br>二叉树也会变成单边增长；<br>二叉树对于这种col1字段是单边增长的这种情况是不符合的；<br>这种用二叉树存储索引字段，就跟在数据表中去全表扫描没有任何区别，效果一样,没有什么区别；<br>二叉树这种数据结构对于索引的存储，索引字段的存储在某些方面是存在局限的；  </p>
+<ul>
+<li>索引-BinarySearchTrees查询递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BinarySearchTrees%E6%9F%A5%E8%AF%A2%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BinarySearchTrees查询递增数据"></li>
+</ul>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>红黑树：<a href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/RedBlack.html</a>  </p>
+<p>问题：是否听说过红黑树？<br>答：听说过，且jdk1.8当中HashMap当中链表长度达到8之后就会将数据结构链表转化成红黑树这种数据结构；  </p>
+<p>二叉树不行，则看看其他的更好的数据结构是否能够更好的存储索引字段;<br>红黑树也是一种常见的数据结构；<br>jdk在1.8之后，HashMap底层的链表实际上就是用红黑树来做了一个优化；  </p>
+<p>插入递增数据会自动平衡；  </p>
+<ul>
+<li>索引-RedBlack插入递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-RedBlack%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-RedBlack插入递增数据"></li>
+</ul>
+<p>查询时相对于二叉树来说要少一点；用红黑树来存储索引字段，相对于用普通的二叉树来存储来说，性能稍微高一点；<br>红黑树针对于这种单边增长的这种情况，只要单边出现3个连续递增的结点会做一个自动平衡的处理；那么存储同样的数据的话，整体的高度相对来说红黑树肯定要比二叉树要短；  </p>
+<ul>
+<li>索引-RedBlack查询递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-RedBlack%E6%9F%A5%E8%AF%A2%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-RedBlack查询递增数据"></li>
+</ul>
+<p>问题：二叉树是可以自动平衡的，那么想一想如果用二叉树来做索引字段存储的数据结构有没有什么弊端？在哪些业务场景当中可能又有一些小问题？<br>答：我想不太出来诶。  </p>
+<ul>
+<li>红黑树范围查询</li>
+<li>当数据量小的时候查询起来效率还在线上；如果当数据量大的话，红黑树将不断的往下增长；树的高度有可能变成2的n次方；这个n即为树的高度；每个结点即2，这个树能够存多少索引字段，即2的n次方；</li>
+<li>如果说要查找的n，要查找的那一行的索引字段刚好是在树的叶子结点上面。一般是从根节点上进行遍历，那么查找遍历的次数至少是树的n，高度次这么多；那么从磁盘上要经过几十次，一个结点查找一次，查找一次有一个专业的术语，跟磁盘打一次交道，叫做磁盘IO，这样的话针对磁盘IO来说性能是不高的；效率不是特别高；可以说效率比较低了；如果还经历几十次这样的磁盘IO，性能是肯定没有办法接受的；</li>
+</ul>
+<p>红黑树这种数据结构，一旦表的数据量特别大的时候，查找数据的效率依然会很慢；<br>因为查找数据可能就在叶子结点上；<br>红黑树在数据量大的时候也是存在弊端的；  </p>
+<p>红黑树不行，可以对其做一点点改造；  </p>
+<p>即便是大数量情况下，几百万甚至是上千万的数据量下；通过一种数据结构能够快速的定位到所需要的那个数据的索引的字段；从而根据那个索引的字段能够得到结点当中的那个value值，也就是索引所在那一行数据的磁盘文件指针来定位到磁盘上的某一个位置查找到这一行数据；  </p>
+<p>可以对红黑树进行改造进行优化；  </p>
+<p>红黑树也是二叉树；叫做二叉平衡树；<br>因为红黑树会自动平衡；在红黑树的基础上做一下改造，从而解决在大数据量这种情况下出现的弊端（因为树的高度太高，也就是树存储大数据量的情况下，树的高度太高，磁盘IO就将随着树的高度height增长而增长）；  </p>
+<p>问题： 对红黑树进行改造，让红黑树效率更高一点？  </p>
+<ul>
+<li>n叉树</li>
+<li>原来结点存储到磁盘上面，之前结点就只存储一个索引字段，那么可以将这个结点弄大一点，也就是将它的磁盘存储空间分配大一点（也就是让这个结点上多存储几个索引字段）；且每一个索引之间都可以进行分叉，分叉下的索引结点的磁盘存储空间也分配大一点，也存储多个索引字段，每一个结点都可以有多个结点（多个索引元素）；  </li>
+</ul>
+<p>问题： 这样的存储结构，同样的大数据量的情况下，这样改造红黑树后的结构存储大数据量记录比改造前的红黑树，树的高度要小得多得多；<br>减小了红黑树的纵向，红黑树的高度，而增长了红黑树的横向；<br>横向越长，存储同样大的数据量，树的高度就越矮；树的高度越矮，查找一行数据，也就是某一结点上的数据，那么其效率也就越高；  </p>
+<p>已经慢慢接触到MySQL底层的数据结构：<br>这种改造其实就是B树  </p>
+<ul>
+<li>磁盘存取原理<ul>
+<li>寻道时间（速度慢、费时）</li>
+<li>旋转时间（速度较快）<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%A3%81%E7%9B%98%E5%AD%98%E5%8F%96%E5%8E%9F%E7%90%86.png" alt="磁盘存取原理"></li>
+</ul>
+</li>
+</ul>
+<p>横向查找不就慢了吗？</p>
+<h4 id="B-Tree"><a href="#B-Tree" class="headerlink" title="B-Tree"></a>B-Tree</h4><p>B-Tree</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXx5xRm2O7Hw.CPoJY21PbGHy3.R9D2C3BHGRAwPaR*QEhgcUF1UMc2yymaSzxbgBOKNjFYrOEqnDAvX4*fMGPmY!/r" alt="索引"></p>
+<ul>
+<li>度（Degree）-结点的数据存储个数</li>
+<li>叶子结点具有相同的深度</li>
+<li>叶子结点的指针为空</li>
+<li>结点中的数据key从左到右递增排列</li>
+</ul>
+<p>刚刚说到红黑树不行，可以在红黑树的横向上做文章；<br>存储同样大的数据量，树的高度将会大大的减小；<br>那就变成了引入B树；  </p>
+<ul>
+<li>索引-BTree插入递增数据<br><img src="/2020/05/27/%E3%80%90MYSQL%E3%80%91/%E3%80%90MYSQL%E3%80%91MySql%E7%B4%A2%E5%BC%95/%E7%B4%A2%E5%BC%95-BTree%E6%8F%92%E5%85%A5%E9%80%92%E5%A2%9E%E6%95%B0%E6%8D%AE.gif" alt="索引-BTree插入递增数据"></li>
+</ul>
+<p>结点内数据有限，不能无限放大；<br>B树比红黑树来说有更大的优点；<br>问题：在横向上做文章，那横向查找不就慢了吗？<br>注意：一个结点的大小是由限制的；结点当中的数据量是有限制的；不可能无限延长、大；比如说给这个结点设置几k大小，或者1Mb这么大；如果这个结点太大；<br>一个结点对应磁盘上的一个磁盘文件地址，对应一个大的磁盘文件地址；<br>MySQL设计的是，尽量的一次磁盘IO查找，在进行查找的时候是希望一次性把这个结点放到内存；<br>MySQL查找一次，跟磁盘做一次磁盘IO交互的时候，它会把这一个横向结点全部放到内存当中；只要这一个结点的数据都放到内存之后；那之后再到这个横向结点当中再进行查找数据；比方说要查找77，那么刚刚说经过了一次磁盘IO之后，会将这一个横向结点当中的所有索引元素都放到内存当中去，那么再去查找77，实际上就是从内存当中去进行查找这个77了；内存当中查找性能就非常快了；内存当中查找跟一次磁盘IO进行查找完全是不同级别的；<br>所以不用担心横向查找是否会慢；  </p>
+<p>问题：那是否能将表中的所有行数据都放在一个横向结点当中，将这个横向结点设置为无限大；几百MB或者是几个G的大小用以这个横向结点做存储索引元素？那么一次查找即一次磁盘IO将这些数据一次性放到内存当中；之后就是从内存当中查询索引数据；那就很快了；？  </p>
+<p>这个横向结点不能设置太大；<br>如果设置太大那么弊端将存在更多；首先；比如说几百万行上千万行的数据的索引怎么说也要几百MB，甚至1、2G来存储；也跟索引的字段类型有关，比如说String类型或者UUID类型等就肯定要几百MB；那么一次查找就全部放到内存的话；一次磁盘IO就需要花费很长时间，而且一次磁盘IO还不一定能够全部放到内存当中去；<br>一次磁盘IO也是有存在大小限制的；就算一次磁盘IO能够将该横向结点当中的所有的索引元素放到内存当中去，那也需要时间来放着几百MB的索引元素；而且可以思考一下，事先就将这几百MB设置几个G的索引元素直接放到内存当中去，而真正去查找数据的时候可能也就是查找最常用的10%都不到的行数据；<br>如果老是将整张表的数据全部都一次性放到内存当中去；那就将对这个内存的消耗太过于浪费；内存的资源是很宝贵的；<br>所以说这对该弊端；MySQL对于这一个横向结点是不会将其设置过大；尽量设置一个合适的大小；让这个结点，通过一次磁盘IO能够快速全部存入到内存当中；  </p>
+<p>B-Tree应该叫做多叉平衡树；<br>B-Tree有一个特点：在中间来看一样也满足二叉树的原则；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX5q0FjtHgrmg9JO6KfRhTseVNI0ZlC7sOBVRXN8io620BWK0osf4XOQsJRaBrrA60171VhwueoMM9fAlldBY.Fs!/r" alt="索引"></p>
+<p>56左边的所有元素都小于56相对来说右边的元素；而56右边的索引元素都是大于56左边的父元素；<br>20和49都小于56；而20和49都大于15；  </p>
+<p>然后B树还有一个特点就是在这一个结点当中，这一个横向结点当中从左到右它也是递增排序的；15小于56；56小于77；这是B树的一个特性；同时也是该数据结构的一个特性；<br>也就是说要用B树来维护这个数据结构时，它会按照这个特性进行初始化好；需要进行查询某一索引元素时也同样按照其特性去查找；<br>比方说要进行查找49这一索引元素；那么MySQL的查找方式即为：先将第一个结点横向结点根结点通过磁盘IO之后放到内存当中；然后到内存当中进行去比对；先比对15与49之间的大小；49大于15，接着进行比对49与56；则49小于56；然后再去查找比对15和56中间的索引元素；15和56中间存放的是指针，指针存放的是下一个索引元素，也就是下一个结点所对应的磁盘指针整个查询出来；即该指针所对应的结点数据全部放入到内存当中；然后放到内存当中去进行比对大小；然后接下来49与20进行比对，49大于20；那么接着49与49进行比对；就刚好相等；刚好找到该索引远元素了；找到该索引元素之后，则每一个索引当中存放的为key-value；value当中即存储着该索引这一行数据所在的磁盘文件当中的指针；那么拿到这个data之后；磁盘文件指针就能够快速的找到磁盘文件数据；即聚众索引；  </p>
+<p>MySQL真正的底层索引并不是用B树来进行实现；而是使用的一种变种的B树，称之为B+树；  </p>
+<h4 id="B-Tree-B-Tree变种"><a href="#B-Tree-B-Tree变种" class="headerlink" title="B+Tree(B-Tree变种)"></a>B+Tree(B-Tree变种)</h4><p>B+Tree(B-Tree变种)</p>
+<ul>
+<li>非叶子结点不存储data，只存储key，可以增大度；</li>
+<li>叶子结点不存储指针；</li>
+<li>顺序访问指针，提高区间访问性能；</li>
+</ul>
+<p>什么叫做B+树，B+树是B树的一个变种；  </p>
+<p>B+树与B树的区别：<br>B+树：所有的data都放到了叶子结点上；而非叶子结点没有了data；<br>B+树的叶子结点上都有一个右指针；  </p>
+<p>问题：为什么B树当中非叶子结点上的data元素都移到了叶子结点上去了；<br>B树当中每一个叶子结点并不重复；而B+树当中一些关键的索引做了冗余；不光是在叶子结点上非叶子结点上也做了冗余；  </p>
+<p>非叶子结点上为什么没有data元素了？<br>这么一存的话（非叶子结点上存data元素，非叶子结点不存data元素）；那么就意味着整个B+树的叶子结点当中；就有了数据表的完整的所有行的索引；因为把每一行的data都往叶子结点上移动；那么每一行数据都存在有一个data的磁盘文件指针；那也就意味着；所有的行数据应该在叶子结点都有一份完整；只不过某一些关键的索引的元素；在非叶子结点上做了一个冗余；15、20、49做了冗余；方便遍历数据；一次磁盘IO取更多的k；  </p>
+<p>其中常见的数据结构在不同场景下的区别  </p>
+<p>MySQL实际上希望的是这一个结点的大小是有一个适当的大小，不能设置太大；<br>也就是说这一个结点的大小是存在有限制的；<br>每一个结点当中能够存储更小的元素，是不是也就意味着；一个大结点当中里面能够存储更多的索引的key；也就是说能够存储更多的索引字段；也就意味着这一个结点在大小相同的情况下；比方说，默认MySQL把这个结点的大小设置为16k；<br>在这一个大结点，一个大小固定的情况下面；这一个大结点当中的每一个小结点如果把data元素移动到叶子结点上去；是不是也就意味着整个这一个大结点可以横向可以存储更多的索引元素；  </p>
+<p>那么如果横向可以存储更多的索引元素，那也就意味着这个横向结点向下的分叉也就越多；分叉分得更多，也就说明，存储同样大的数据量，树的高度也就更小了；那么叶子结点也就更大了；  </p>
+<p>为什么要将data移动到叶子结点上去的原因就在于：非叶子结点当中也就可以横向存放更多的索引元素；从而树的高度也就效率，查找的效率也就提高了上来；  </p>
+<p>MySQL默认把结点的大小设置为16k；<br>SHOW GLOBAL STATUS like ‘Innodb_page_size’;  </p>
+<table>
+<tr>
+<th>Variable_name</th>
+<th>Value</th>
+</tr>
+<tr>
+<td>Innodb_page_size</td>
+<td>16384</td>
+</tr>
+</table>
+
+<p>该sql语句查出来的值实际是上就是MySQL底层存储索引字段，B+树的这个大结点的大小；当然也可以去进行修改该值；但是一般并不推荐去修改该值；<br>16384个字节；实际上也就相当于是16k数据；也就是16k的大小；这个大小在磁盘上也就是分配的16k的一个磁盘大小；  </p>
+<p>思考：刚刚将data元素放到叶子结点上面去了；现在画的树的高度为3；思考现在高度为3的该树一共可以存储多少索引字段？  </p>
+<p>假设该索引字段的字段类型为bigint；表的主键/索引的类型一般为bigint；<br>bigint在MySQL的底层的存储大小大概为8个字节byte；  </p>
+<p>大结点当中除了索引字段占据n*8个字节外，还存在有指针；指针在MySQL底层源码使用的是6个字节byte来进行存储这个指针；这个指针说白了就是下个结点在磁盘文件上的一个地址；  </p>
+<p>也就是说这个大结点当中存储了这样一个小的索引，以及索引旁边的指针；差不多也就是8Byte+6Byte=14Byte（一个索引+一个指针）；这一个大结点16k大概能够存储多少个索引；<br>公式=16384Byte/(8Byte+6Byte=14Byte)=1,170.285714285714<br>一个大的结点可存储的索引数约为1170个；也就是大概1k的样子；  </p>
+<p>那么第二个结点，也可以进行存储1170个索引数；  </p>
+<p>再说到叶子结点；所有的data元素都放到叶子结点；那么叶子结点就会变大；每一个小结点就都会变大了相比之前没有放data元素之前变大了；  </p>
+<p>假设一下；假设这个叶子结点当中的一个小叶子结点，也就是对应的这一行索引以及该索引所在的行的那个磁盘文件文件指针或者说这一行的其他数据就存储到这个小结点当中；假设这个小结点就大一点，就存储1k的数据；那么这一个存储该小结点的大结点同样是存储16k的数据；那么也就是该结点所能够存储的索引元素为16个；<br>整个叶子结点当中可以容纳多少的索引元素（存储的所有的索引的数值）？<br>公式：（根结点上的1170这一层）1170<em>1170</em>16=21,902,400‬<br>算出来的该值实际上就是该叶子结点上所有可以存储的索引元素的总和；  </p>
+<p>非叶子结点的所有的索引元素*每一个叶子结点可以存储的多少个索引行数据  </p>
+<p>这个结果算出来差不多等于两千多万；两千多万所算出来的东西；也就意味着该叶子结点能够放的总索引元素个数（小索引元素+data元素）大概是两千多万；（也就相当于是两千多万条/行数据）；  </p>
+<p>使用B+树这么一改造之后；发现同样树的高度；高度为3；该树就能够存储两千多万条个索引，也就说明可以支撑两千万行的表；将这两千多万行数据的表当中的一字段作为索引存储到该数据结构当中，那么同样高度为3，height为3，查找一个元素比方说查找50；那么从根结点去进行匹配对比；经过顺序查找；50与父节点/根结点当中的15-56对比，查找中间的数值即该根结点的左节点；也就是再跟15-28-49进行比较，得到50再去与该结点的下一结点比较即49-50；最多经过三次磁盘IO；就能够找到索要查找得到的元素50；性能十分高；  </p>
+<p>这也就是为什么上千万行数据；只要索引字段建的比较的合理、合适；那么其磁盘查找次数是非常少的；  </p>
+<p>用B+树来说；常见的数据表，树的高度一般就控制在2~4之间；<br>不管如何查询；即使是查询到叶子结点的速度也是十分快的；<br>只需要经过几次磁盘IO查找；  </p>
+<h4 id="HASH表"><a href="#HASH表" class="headerlink" title="HASH表"></a>HASH表</h4><p>MySQL的索引字段当中存在有索引方法；点击下拉框进行选择索引方法（存在有两种实现：一种是BTREE；一种是HASH）<br>HASH 也是官方的一种实现；但是使用的不多；<br>90%以上的场景都是使用的B树；<br>为什么不用HASH表的原因：<br>HASH表存储索引的原理：<br>比方说将col1作为索引字段；select * from t where t.col1=4;<br>通过一个hash算法，hash（4）；对该4取了一个HASH；得到的该结果，那么该结果就跟所查询的where t.col1(4)这一行数据所在磁盘文件是有一个映射关系的；<br>这就是HASH表的一个存储结构；<br>HASH实际上就是一种算法；比说MD5;MD5就是一种HASH算法；<br>HASH就是将索引列通过一种HASH算法将索引列的值存放到HASH这一数据结构当中去；<br>那么select * from t where t.col1=6;进行查找该t.col1=6的数据行；的HASH查找即为：对该col1=6；该6的该取值做一次HASH算法运算得到它的结果hash(6)；根据这个结果；只需要做一次映射就能够快速的定位到这一行数据所在的文件磁盘指针；<br>那么即便是千万级别的数据也只需要通过hash()一次HASH结果进行计算定位得到索引所在行数据的文件磁盘指针也是能够快速的查找得到的；感觉HASH表性能更高，比B+树效率更高；B+树还要经过两三次的树的一个遍历；而HASH表的查找感觉更快；<br>只需要有这个索引字段，走索引，经过MYSQL底层定义好索引方法为HASH算法，只需要一次HASH计算结果就能够拿到该查找行数据的所在文件磁盘指针；感觉性能很快；<br>甚至在数据量更大的表当中进行查找表尾的数据，也只需要经过一次HASH计算就能找到该行数据所在的磁盘文件指针；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANXzV2Z6K9IOXoYW6kFdX*NnL.fv6XCleV5BjrQCN4Bw3HvJfkZCF6LFsSX26xC5WuUZwgbGD9vBaj2.Lec10r*m8!/r" alt="索引"></p>
+<p>那么为什么MySQL一般用B树而不用HASH表呢？<br>（1）范围查找太慢；比如说select * from t where t.col1&gt;6;<br>      那么当这种情况下；如果col1大于的数值，极端来想的话，也就相当于是全表扫描了；<br>（2）HASH只用于范围查找很少的情况下才进行使用；那么这个时候索引使用HASH是<br>      没有问题的；而正常情况下一般都会要使用得到范围查找所以这个时候使用B Tree更佳；<br>（3）回到问题：为什么InnoDB的主键索引的叶子结点上存在有指针（右指针）？<br>      在维护B+树的时候，比方说叶子结点的最后一个结点满了，那么就需要开辟一个新的结点（下一个结点）来进行存储新的索引元素；那么就将前面那个结点（也就是之前叶子结点的最后一个结点满了的那个结点）中间开辟一个小小的元素空间；把下一个新开辟的这一个结点的磁盘文件地址的指针存放到该新开辟的结点的上一个结点的那个小元素空间当中去；也就说白了；该新开辟的结点的上一结点有一个指针，指向了下一结点，也就是该新开辟的结点的磁盘文件指针；<br>      通过有了这个指针；再联想HASH表的范围查找进行思考，那么是不是说明该指针就能够帮忙解决很大的问题；<br>      比方说：查找索引字段取值col1大于20取值的记录；从B+ 树的索引找到该20的这一个元素；因为整个叶子结点的索引元素都是从左到右依次递增形式的；通过这个（右）指针顺藤摸瓜的形式（其实这里形成了一个双向指针，查询即小于20的元素也是一样的；双向链表），通过指针就能够找到大于20，也就是20这个索引元素后面的所有索引元素结点；最后放到一个大的集合当中去；也就是这条sql语句所要返回的结果集合；  </p>
+<p>B+树的两个特性：<br>（1）为了让非叶子结点能够存储更多的索引；从而叶子结点上除了索引元素还存在有data元素；<br>（2）在叶子结点索引元素之间还存在有一个指针指向下一索引元素结点的地址；存在有一个双向的指针；也就是为了解决如何高效的进行范围查找的这样一个问题；所以高效的范围查找也是可以进行走索引的；在某种情况下，范围查找也是可以走索引的；（因为存在指针，存在顺序递增顺序递减的这样一个结构，那么则肯定是可以走相关的索引的）  </p>
+<h5 id="B-Tree索引的性能分析"><a href="#B-Tree索引的性能分析" class="headerlink" title="B+Tree索引的性能分析"></a>B+Tree索引的性能分析</h5><ul>
+<li>一般使用磁盘I/O次数评价索引结构的优劣</li>
+<li>预读：磁盘一般会顺序向后读取一定长度的数据（页的整数倍）放入内存</li>
+<li>局部性原理：当一个数据被用到时，其附近的数据也通常会马上被使用；</li>
+<li>B+Tree结点的大小设为等于一个页，每次新建结点直接申请一个页的空间，这样就保证一个结点物理上也存储在一个页里，就实现了一个结点的载入只需一次I/O。</li>
+<li>B+Tree的度d一般会超过100；因此h非常小（一般为1~3之间）  </li>
+<li>一般操作系统的最小存储单元为页，1页大小为4k；  </li>
+<li>查看Mysql文件页大小（16k）: SHOW GLOBAL STATUS like ‘Innodb_page_size’;  </li>
+</ul>
+<h5 id="为什么MySQL页文件默认为16k"><a href="#为什么MySQL页文件默认为16k" class="headerlink" title="为什么MySQL页文件默认为16k"></a>为什么MySQL页文件默认为16k</h5><p>假设一行数据大小为1k；那么一页就能够存16条数据；也就是一个叶子结点能够存16条数据；再看非叶子结点，假设主键ID为bigint类型，那么长度为8B，指针大小在InnoDB源码中为6B，一共就是14B，那么一页里就可以存储16k/14=1170个（主键+指针）<br>那么一棵高度为2的B+树能存储的数据为1170<em>16=18720条，一棵高度为3的B+树能存储的数据为1170</em>1170*16=21902400（千万级条）  </p>
+<h3 id="索引底层数据结构与算法"><a href="#索引底层数据结构与算法" class="headerlink" title="索引底层数据结构与算法"></a>索引底层数据结构与算法</h3><h3 id="InnoDB与MyISAM索引区别"><a href="#InnoDB与MyISAM索引区别" class="headerlink" title="InnoDB与MyISAM索引区别"></a>InnoDB与MyISAM索引区别</h3><p>InnoDB形容表还是形容数据库？<br>InnoDB以及MyISAM存储引擎是用来形容数据表的；  </p>
+<p>当在设计表时，在选项当中有引擎选项存在有：ARCHIVE、BLACKHOLE、CSV、InnoDB、MEMORY、MRG MYISAM、MyISAM、PERFORMANCE SCHEMA…等等；  </p>
+<p>存储引擎是形容表的，最常见的存储引擎即InnoDB以及MyISAM这两种存储引擎；<br>用的比较多的为InnoDB该存储引擎；  </p>
+<p>不同表不同存储引擎底层的数据结构区别：  </p>
+<p>test数据库对应都是存储在本地磁盘上的；<br>以数据库名命名的磁盘文件夹下；  </p>
+<p>表=表结构+数据+索引  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8IZB7poXY4Ed7**8BhOfVx.BLlNb39BqBwC.ebBPiVr7.bXbWAXqMbGapRUkOP8BwmJQWBxopXJj*htdZrocUE!/r" alt="索引"></p>
+<p>InnoDB:<br>test.innodb.lock.frm - 表结构等相关信息存储文件<br>test.innodb.lock.ibd - 表数据+表索引结构  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX*r9r8zOgb4r0dv8mg9Q5qMyppmh2cPcvbiy6hMFV9ap4rR0IrTk.u5U5HvIcDcxnTh0*XJn4IhWeLwxBiXTkPg!/r" alt="索引"></p>
+<p>InnoDB的表有一个主键，该主键自带索引；主键索引在InnoDB存储引擎下如何存储；<br>InnoDB的这种文件存储方式，MySQL官方在开发的时候，InnoDB当中的主键索引以及表当中的所有数据全部存储同一个文件，叫做后缀为ibd的文件当中；<br>InnoDB存储方式当中的叶子结点当中的的data元素所表示的内容与MyISAM存储方式当中叶子结点当中的data元素所表示的内容不一致；索引结构有点区别；<br>MyISAM叶子结点的data元素当中所存为索引所在行的行数据的磁盘文件指针；<br>但是发现InnoDB的主键索引，它的叶子结点当中的data元素当中所存储的为索引所在行的其他所有列的数据；这一行的所有列数据全部存储到该data元素当中去；<br>也就是说在InnoDB当中，通过一条sql语句，带有where查询通过索引进行查询的sql语句；只需要查找一个文件，从这个ibd文件当中一次性定位到索引元素，快速的就能根据data元素，这个索引所在行的其他的所有字段，将该行的所有字段进行查询出来放入内存当中去；就查找到了所需要查找的元素；相对来说性能应该要比MyISAM存储引擎的性能会高一点；  </p>
+<p>InnoDB与MyISAM的底层存储是稍微有些区别的；  </p>
+<p>MyISAM：<br>test.myisam.frm - 该文件存储对表的表结构一些定义的一些数据；<br>test.myisam.MYD - 实际上存储的为表的数据，D英文单词data的简写（该表当中所有的数据行）；<br>test.myisam.MYI - 该表所对应的索引字段存储的位置；  </p>
+<p>主键自带主键索引；索引，它是一个数据结构，数据结构实际上存储在MYI文件当中；I即为Index首字母的简写；  </p>
+<p>MyISAM底层也为B+树数据结构进行存储；<br>MyISAM索引底层存储，如何进行存储：  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8sBSc*PWI*GgGhWe3pcWW625GV21FTGHFPkQrnPSFTCe3vCEKM3QCpTupcvYLjHH7f2N4y0qI7TTFDwZaL9fXc!/r" alt="索引"></p>
+<p>col1是作为表的主键索引；<br>因为支持二叉查找，所以像15、20、49这种处于在中间的这些个数据将被作为冗余字段；<br>就更可以区分查找数据；像二叉折半查找等；一般取中间的元素作为冗余的索引；快速的过滤一些数据；减少查找次数；<br>将col1该字段列当中的所有数据放入到数据结构当中去；然后看；<br>原来在叶子结点当中存储的data元素，data元素存储的即使该索引所在行的行数据的磁盘文件指针；（地址指针，16进制的值）  </p>
+<p>select * from t where t.col1=49;<br>col1主键索引；<br>MySQL底层实际上先会去到MYI文件当中；<br>因为索引（数据结构）存储在MYI索引文件当中；<br>先拿col1=49在MYI文件当中快速地定位到结点为49的结点；<br>根据B+树的特性；<br>先从根结点去进行定位；<br>根结点当中的数据通过一次磁盘IO，根结点当中的索引元素将会被放到内存当中，49将会在内存当中与15-56-77相进行比较；得到49在15-56之间；49就将走15与56中间的向下的指针，左节点也就是存放有15-20-49这三个索引元素的该结点中，那么此时左节点当中的索引元素将会进行第二次磁盘IO的操作，将左节点当中的索引元素放到内存当中去，与查询的数据49相进行比较；得到49在区间20-49之间；最后到了叶子结点，该叶子结点当中包括两个小结点49-50以及2个data元素（指针），那么第三次磁盘IO时，将49-50该叶子结点放到内存当中去，49就将与49-50相进行比较得到49，该49即为要查找的元素；49该小结点当中所对应的data元素拿出来，该data元素对于MyISAM存储引擎来说data元素存储的是为该索引所在行的行数据的磁盘文件指针；当拿到获取得到该指针之后就将到MYD文件当中进行查询获取得到相应数据值；  </p>
+<p>面试题：聚集索引or聚众索引  </p>
+<p>什么叫做聚集索引?  </p>
+<p>聚集索引定义：叶结点包含了完整的数据记录；<br>InnoDB的主键索引，ibd这个主键索引的这个文件；主键索引其就叫做聚集索引；<br>因为InnoDB的主键索引，它是跟它的文件数据行整个是存储在一个文件当中ibd文件；<br>索引和数据是聚集存储在一起的；  </p>
+<p>有聚集索引即存在非聚集索引；<br>MyISAM的主键索引就称作是非聚集索引；<br>因为MyISAM的主键索引存储在MYI文件当中；而数据存储在MYD文件当中；<br>那如果需要查找数据，每次都需要两个文件的一同查找才能查找得到；数据文件和索引文件分开存储了；所以称MyISAM的主键索引为非聚集索引；InnoDB的主键索引称为聚集索引；  </p>
+<p>常见数据结构理论；  </p>
+<p>结合具体的MySQL表来看一下；<br>不同的表底层如何进行存储；<br>MySQL的表无非就是MyISAM存储引擎/InnoDB存储引擎；<br>不同的表可能有不同的存储引擎；  </p>
+<p>MyISAM索引实现（非聚集）<br><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX2tYjinQbFQFT5hJICKOua.p8u*tNGRGnBmzDnCDDuui9JbsxaFmbrmLTSu0V4thfYO9zIg6UNnWwUY*NxnoWlU!/r" alt="索引"></p>
+<ul>
+<li>MyISAM索引文件和数据文件是分离的；</li>
+</ul>
+<p>InnoDB索引实现（聚集）</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX*GhKIY3zUQdhemNpwYPZHMTx6WJ6HggRWyAqiDQHIGmxm2m2V7hUQmLQaYwj8CF*g.zfe8sCKjjxpzzRlDfl3I!/r" alt="索引"></p>
+<ul>
+<li>表数据本身就是按照B+Tree组织的一个索引结构文件</li>
+<li>聚集索引-叶结点包含了完整的数据记录</li>
+<li>为什么InnoDB表必须要有主键？并且推荐使用整型的自增主键?  <ul>
+<li>为什么必须要建主键，MySQL官方对于InnoDB的表，其数据就需要用一个索引B+树来组织；所以肯定是需要主键的；<br>（之间建了InnoDB的表但是没有建索引也建成功了）针对这种情况，MySQL会自动在底层建一个索引；如果表中没有建索引，MySQL会在底层找一个唯一能标识这一行数据的字段作为索引；<br>如果找不到，它会默认给表生成一个类似像row_id，一个隐藏列作为主键索引，主键；<br>根据该表主键索引来维护整张表的数据；MySQl官方设计的就是要用一个B+树的存储结构来组织；B+树其实就是该索引，索引结构；所以必须要有一个主键索引；即便表中没有建立，MySQL也会默认生成一个隐藏的列/主键索引；  </li>
+<li>主键尽量为整型自增；为什么主键尽量为整型自增？<br>假设主键不设置为整型，设置为UUID类型，UUID不为整型，而是字符串类型；<br>为什么不推荐使用UUID，而推荐使用整型并且自增的类型；<br>首先用UUID，它是字符串类型的，而且是很长一串，字母+数字+其他符号；<br>这样存在的弊端有：<br>（1）相对于整型来说，首先，这一长串字符串的存储空间比整型大得多（字符串长度越长占用空间越大；索引存放在磁盘上面，那么也将会占用磁盘存储空间；那么UUID存储磁盘空间是肯定会要比整型类型字段要大得多）；<br>（2） 而且，底层B+树索引去进行查找的时候；是需要进行结点之间比较大小的；一个一个根据B+树，二叉一个个进行比较大小找对应的元素；而结点当中存储的都为UUID，一个个去比较大小的话；字符串比较大小，字符串跟数字进行比较，一位一位进行比较性能将会非常的低；字符串去进行比较先要转成ASCII码值（国标码）按照码表当中的顺序进行比较大小；这个性能就非常低了；<br>相对于整型来比较：数值之间的比较性能肯定是高的多的；<br>（3）为什么要使用自增的？UUID肯定不是自增类型的；<br>正常情况下如果是使用顺序自增：插入的元素基本上是往后面进行插入的；后面的结点空间满了，然后继续往后面去开辟一个空间继续放；如果现在新加一个元素；叶子结点从左到右都是依次递增的；在每一个结点当中每一个元素都是依次递增，左边小于右边；B+树当中的所有叶子结点；<br>从左到右都是依次递增的；<br>现在将一个不是自增的新元素UUID进行插入；<br>而插入的位置正好是叶子结点中间的一个位置，而并不是结尾的位置；<br>比如插入到20与30的叶子结点中间；<br>那么这个时候将20和30想象成UUID类型的字符串内容；当新元素UUID进行插入的时候就将会形成分裂的这种情况；<br>有可能就是将20与新元素新分裂出一个叶子结点，30单独分裂出去一个叶子结点；<br>插入的元素需要进行分裂一次；然后还需要平衡一次；<br>相对于这种插入新元素，插入一个元素按顺序递增往后面进行一个一个递增的加元素的这种情况效率就要高多了；<br>这也就是为什么B+ 树推荐的主键索引为整型并且自增类型；<br>因为自增它会尽可能的避免：新增的该结点插入到叶子结点上去了之后，会导致叶子结点原有的已经满了的大的叶子结点做分裂以及自动平衡；<br>（4）指针（B+树的叶子结点上的右指针）的作用：叶子结点当中某一大结点如已经存满了16k的索引元素；按照B+树从左到右的依次递增的顺序；假设当前该字段不是自增的；现在来了一个新的元素需要进行插入数据，看到索引的值比方说为25；那么按顺序这个索引值就应该插入到叶子结点20-30的中间；但是当前该叶子结点的存储空间大小16k已经满了，已经存不下了；<br>那么此时在这种情况下：<br>1&gt;当前叶子结点的存储空间已经满了<br>2&gt;当前需要新插入一个新的索引元素，而该索引元素的大小取值应该放在该当前叶子结点的中间；<br>那么这个时候就需要进行叶子结点的分裂；分裂成两个结点；20与25这两个索引元素成为一个新的叶子结点；而30将被分裂到另外一个叶子结点上面去；<br>而如果插入的元素都是递增类型的元素的话则比如说插入新元素100；那么就肯定不再需要往中间去进行插入；都是直接在后面新开辟一块空间来进行存储该新元素100；  </li>
+</ul>
+</li>
+</ul>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX8fDAvL3g7DJ9HhnBQeGRqDvrpkZXABEIRyvGCl2wXfLlwUZMMrCWHUUoUCg2YMQdB8MP3ElixOLflsVbBIu18U!/r" alt="索引"></p>
+<ul>
+<li>为什么非主键索引结构叶子结点存储的是主键值？（一致性和节省存储空间）  </li>
+</ul>
+<h3 id="索引最左前缀原理"><a href="#索引最左前缀原理" class="headerlink" title="索引最左前缀原理"></a>索引最左前缀原理</h3><ul>
+<li>联合索引的底层存储结构长什么样?  </li>
+</ul>
+<p>(字段1，字段2，字段3)<br>比方说字段1、字段2、字段3是联合索引；  </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V13IdniL0W0T32/TCfiP1YaPeRT4Jil9RANX50m84lF6rjqlgyWXpKCriCR9zfdJdu7YbMYTBq.e8Oj47TQyP3KTeZ1anErrKoy5mNBgGaDtLH9DbfHrrCBYYg!/r" alt="索引"></p>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>面试</tag>
+        <tag>红黑树</tag>
+        <tag>MySql索引</tag>
+        <tag>B+树</tag>
+        <tag>B树</tag>
+        <tag>HASH表</tag>
+        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -11380,32 +11380,6 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>排序</title>
-    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>排序</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>查找</title>
-    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%9F%A5%E6%89%BE-08/</url>
-    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-        <tag>查找</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>树</title>
     <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%A0%91-06/</url>
     <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%A0%91-06/%E6%A0%91-06.png" alt="树-06"></p>
@@ -11429,6 +11403,32 @@ graph LR;
       <tags>
         <tag>数据结构</tag>
         <tag>图</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>查找</title>
+    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%9F%A5%E6%89%BE-08/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%9F%A5%E6%89%BE-08/%E6%9F%A5%E6%89%BE-08.png" alt="查找-08"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+        <tag>查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序</title>
+    <url>/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/</url>
+    <content><![CDATA[<h2 id="阅读笔记"><a href="#阅读笔记" class="headerlink" title="阅读笔记"></a>阅读笔记</h2><p><img src="/2020/04/03/%E3%80%90%E5%A4%A7%E8%AF%9D%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E3%80%91/%E6%8E%92%E5%BA%8F-09/%E6%8E%92%E5%BA%8F-09.png" alt="排序-09"></p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>排序</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -12703,105 +12703,6 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>第四节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
-<p>别人家孩子。  </p>
-<p>你看看人家谁谁谁，你再看看你自己  </p>
-<p>不能让孩子输在起跑线上  </p>
-<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
-<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
-<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
-<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
-<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
-<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
-<p>比较有时让人惶恐  </p>
-<p>不要在千千万万的比较当中迷失自我。  </p>
-<p>比较有时候就是用拉人下水的形式找认同感  </p>
-<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
-<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
-<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
-<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
-<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
-<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
-<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
-<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
-<p>知足是一种生活态度  </p>
-<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
-<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第七节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
-<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
-<p>自我和自私是两种最糟糕的负面心态。</p>
-<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
-<p>先做好自己不要给别人带来麻烦。</p>
-<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
-<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
-<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
-<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
-<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
-<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
-<p>总结：</p>
-<ul>
-<li>第一讲：心态认知，别人的评价…自我认知</li>
-<li>……..</li>
-</ul>
-<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第五节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第五堂课主题：面对批评，你应该摆一个正确姿势  </p>
-<p>懒惰是最可怕的事情<br>不牺牲短暂的享乐和安逸，就换不来长久的保障和幸福<br>找借口也很可怕<br>找借口会让自己失去机会<br>不能扛起责任无法付以重任  </p>
-<h2 id="闻过则喜的心态"><a href="#闻过则喜的心态" class="headerlink" title="闻过则喜的心态"></a>闻过则喜的心态</h2><p>一味在意对方的态度和自己的感受就会忘了事情的根本所在<br>错了就是错了，面对批评输球不要输姿势。  </p>
-<h2 id="永远感谢愿意花时间在你身上的人"><a href="#永远感谢愿意花时间在你身上的人" class="headerlink" title="永远感谢愿意花时间在你身上的人"></a>永远感谢愿意花时间在你身上的人</h2><p>他认识你。<br>你们之间有关系别人才会花时间批评你。<br>所以一定是你们之间有联系，尤其在你年轻的时候，多半是你有改进的空间<br>他的批评可以让你变得更好<br>所以错了就认，认了就改正。</p>
-<h2 id="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"><a href="#面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”" class="headerlink" title="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"></a>面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”</h2><p>哪怕严厉苛刻，谦虚使人进步骄傲使人落后，有则改之无则加勉。<br>达尔文： 能够生存性下来的物种，并不是那些最强壮的，也不是最聪明的，而是那些对变化做出快速反应的<br>面对批评，正确地姿势应该是沉心静气的想一想我哪儿做错了。我该怎么改。<br>被批评不是坏事。  </p>
-<p>因为在意，所以争吵。  </p>
-<h2 id="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"><a href="#如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。" class="headerlink" title="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"></a>如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。</h2><p>凡事先在自身找原因。<br>不要苛求他人。千万不要遇事着急，冷静思考沉着应对才是面对批评正确的姿势。<br>如果大错酿成，最重要的不是埋怨推诿，而是面对和解决。  </p>
-<h2 id="面对批评的职业心态"><a href="#面对批评的职业心态" class="headerlink" title="面对批评的职业心态"></a>面对批评的职业心态</h2><p>不要埋怨老板苛刻。老板骂你是希望快点成长。</p>
-<h2 id="褒贬是买主，喝彩是闲人"><a href="#褒贬是买主，喝彩是闲人" class="headerlink" title="褒贬是买主，喝彩是闲人"></a>褒贬是买主，喝彩是闲人</h2><p>正是因为有所期待才会批评有所改进。</p>
-<p>普京：没有实力的愤怒毫无意义。<br>道理：好学生做坏事不是没有被老师发现，老师可能只是装作看不见。对自己而言成长才是硬道理。  </p>
-<p>苦练七十二变才能笑对八十一难。  </p>
-<p>高情商：不断改过，默默自强。<br>解释就是掩饰，掩饰就是事实。  </p>
-<p>可怕的不是犯错，而是不知道错在哪里还在盲目争辩。而是知错不改还重复犯错。  </p>
-<p>所以错了第一步是认，第二步是改。  </p>
-<p>第一次是不知道，第二次是不小心，第三次就是故意了。</p>
-<h2 id="示弱有助于解决冲突。先认错后解释"><a href="#示弱有助于解决冲突。先认错后解释" class="headerlink" title="示弱有助于解决冲突。先认错后解释"></a>示弱有助于解决冲突。先认错后解释</h2><h2 id="越是不认错被骂的越多"><a href="#越是不认错被骂的越多" class="headerlink" title="越是不认错被骂的越多"></a>越是不认错被骂的越多</h2><p>骂你是因为你是负责的人。谁负责谁担责。这个是态度问题。  </p>
-<p>狗咬人一口，人不能回咬回去。</p>
-<p>有个好心态，先和自己将锻炼自己情商的时候到了，先克制情绪在解决问题。  </p>
-<p>退一步海阔天空，退三分风平浪静。  </p>
-<p>所以和蛮不讲理的人讲理先示弱表达部分认同，再换位思考给出方案，先礼后兵。  </p>
-<p>发现问题是好事，解决问题是大事，没有问题是坏事。</p>
-<p>成功是来自精准的勤奋而不是平庸的忙碌，批评是成长的机会，闻过则喜。  </p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第三节心态课</title>
     <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%89%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
@@ -12874,44 +12775,6 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>第六节心态课</title>
-    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
-    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
-<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
-<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
-<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
-<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
-<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
-<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
-<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
-<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
-<ol>
-<li>第一个阶段:不要再为自己担心了,自己做决定</li>
-<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
-</ol>
-<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
-<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
-<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
-<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
-<p>越疼越要不动声色，越苦越要保持沉默  </p>
-<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
-<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
-<ul>
-<li>两利相权取其重</li>
-<li>两害相权取其轻</li>
-</ul>
-<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
-<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
-<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
-]]></content>
-      <categories>
-        <category>心态</category>
-      </categories>
-      <tags>
-        <tag>心态课程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>第一节心态课</title>
     <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%80%E8%8A%82%E8%AF%BE/</url>
     <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>  </p>
@@ -12971,6 +12834,143 @@ graph LR;
 </ol>
 <p>总分：3<em>8）+2+2</em>7）=24+2+14=40<br>60——80 心态不错<br>20——30 说明你未来可以进步的空间还是挺大的。  </p>
 <p>判断自己的心态偏积极还是消极，建议每年做一次<br>一个人心态积极还是消极，看一个生活中的常见问题，怎么回答即可<br>我有一个好消息还是坏消息，- 答： 先听坏消息，再听好消息<br>如果总是先听好消息，可能偏积极，如果总是先听坏消息，可能偏消极  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第七节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%B8%83%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第七堂课主题：职场最糟糕的两种心态：自我和自私  </p>
+<p>警惕： 我以为和我觉得<br>完全从自身出发，想当然的思考问题，不经确认就行动了。<br>以自我为中心不顾及别人的想法。<br>做自己这是一种借口。当做任性的挡箭牌。<br>太多个性十足的背后多站着自私的影子。<br>自私是人的天性，但是得有个度。</p>
+<p>自我和自私是两种最糟糕的负面心态。</p>
+<h2 id="什么是自我：别人的问题与我无关"><a href="#什么是自我：别人的问题与我无关" class="headerlink" title="什么是自我：别人的问题与我无关"></a>什么是自我：别人的问题与我无关</h2><p>所以不要妄想别人与自己感同身受。<br>人的喜怒哀乐都是执着于自己的得失<br>做人不能太过自我。<br>老话：己所不欲勿施于人</p>
+<p>先做好自己不要给别人带来麻烦。</p>
+<h2 id="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"><a href="#所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视" class="headerlink" title="所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视"></a>所谓不自我，就是换位思考；最深层的本性，就是渴望得到别人的重视</h2><h2 id="今天你不帮助别人，明天一定不会有人帮你"><a href="#今天你不帮助别人，明天一定不会有人帮你" class="headerlink" title="今天你不帮助别人，明天一定不会有人帮你"></a>今天你不帮助别人，明天一定不会有人帮你</h2><p>工作中交不到真正的朋友</p>
+<h2 id="你要先把别人当朋友，别人才可能把你当朋友"><a href="#你要先把别人当朋友，别人才可能把你当朋友" class="headerlink" title="你要先把别人当朋友，别人才可能把你当朋友"></a>你要先把别人当朋友，别人才可能把你当朋友</h2><p>为人：以诚待人<br>处事：更够帮别人一把就帮，投桃报李</p>
+<h2 id="什么是自私：我的利益比什么都重要"><a href="#什么是自私：我的利益比什么都重要" class="headerlink" title="什么是自私：我的利益比什么都重要"></a>什么是自私：我的利益比什么都重要</h2><p>有什么职业规划：能不能随着公司共同成长  </p>
+<h2 id="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"><a href="#别人帮了你，你会心存感激；你帮了别人，他会想要报答你" class="headerlink" title="别人帮了你，你会心存感激；你帮了别人，他会想要报答你"></a>别人帮了你，你会心存感激；你帮了别人，他会想要报答你</h2><p>绝大多数付出都会得到回报，回报的时间长短不同<br>但是不付出就一定没有回报。也不是付出了马上就会得到回报的。<br>春天播种还要秋天收获呢  </p>
+<h2 id="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"><a href="#你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏" class="headerlink" title="你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏"></a>你越是自私，反而得到的越少；占得全是小便宜，吃的全是大亏</h2><h2 id="不要太自私"><a href="#不要太自私" class="headerlink" title="不要太自私"></a>不要太自私</h2><p>人从来都不只是为自己而活着，是为自己以及自己所热爱的人活着</p>
+<p>记恨多于感恩，多付出<br>不自我就是换位思考多替别人着想；不自私就是乐于付出，付出才会有收获。</p>
+<p>总结：</p>
+<ul>
+<li>第一讲：心态认知，别人的评价…自我认知</li>
+<li>……..</li>
+</ul>
+<h2 id="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"><a href="#如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试" class="headerlink" title="如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试"></a>如果自己是蚂蚁心态，那么再小的石头都是障碍；如果你是雄鹰心态，再高的山峰也敢尝试</h2><p>心小了，所有的小事情就大了<br>心大了，所有的大事情就都小了  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第六节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%85%AD%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第六堂课主题：这个世界上，没人该为你的选择买单  </p>
+<h2 id="选择自己所爱的，爱自己所选择的"><a href="#选择自己所爱的，爱自己所选择的" class="headerlink" title="选择自己所爱的，爱自己所选择的"></a>选择自己所爱的，爱自己所选择的</h2><p>人生中每一个重要的决定都必须自己做，这个世界上没有任何人要为你的选择买单  </p>
+<p>如果你觉得岁月静好，一定是有人为你负重前行。  </p>
+<p>一个人的独立，是从自己选择去做某件事情开始的。不要让别人为你的行为承担风险。自己的事情自己解决否则永远是个长不大的孩子。  </p>
+<p>什么是稳定，稳定的穷着稳定的累着稳定的看着他人成功  </p>
+<p>真正的稳定不是你在一家公司又饭吃，而是无论走到哪里都有饭吃。</p>
+<p>父母不远游，游必有方。自己要想清楚了，不要过于顾虑别人的看法。<br>这是自己的人生，不应该活在别人的嘴里。  </p>
+<h2 id="人性一个最特别的弱点：在意别人如何看待自己"><a href="#人性一个最特别的弱点：在意别人如何看待自己" class="headerlink" title="人性一个最特别的弱点：在意别人如何看待自己"></a>人性一个最特别的弱点：在意别人如何看待自己</h2><p>父母不应该为自己的人生买单。<br>根据自己的想法去做决定。<br>什么是孝：</p>
+<ol>
+<li>第一个阶段:不要再为自己担心了,自己做决定</li>
+<li>第二阶段：我是你的骄傲吗，选择自己所爱的，清楚自己想要的是什么，得努力以后失败才不可耻</li>
+</ol>
+<h2 id="当自己所选了自己的选择，就要肩负起相应的责任"><a href="#当自己所选了自己的选择，就要肩负起相应的责任" class="headerlink" title="当自己所选了自己的选择，就要肩负起相应的责任"></a>当自己所选了自己的选择，就要肩负起相应的责任</h2><p>满足感会一步步吞噬自己的焦虑感。时间一长就会为这种满足感辩护  </p>
+<h2 id="走好选择的路，别选择好走的路"><a href="#走好选择的路，别选择好走的路" class="headerlink" title="走好选择的路，别选择好走的路"></a>走好选择的路，别选择好走的路</h2><h2 id="工作以后跟父母报喜不报忧"><a href="#工作以后跟父母报喜不报忧" class="headerlink" title="工作以后跟父母报喜不报忧"></a>工作以后跟父母报喜不报忧</h2><p>做一个认真起来连自己都害怕的人  </p>
+<p>只有披荆斩棘这一条路，值得赞美的是处理困难的能力以及处理之后获得的幸福  </p>
+<p>吃苦本身不值得赞美，什么年纪就应该做什么样的事情  </p>
+<p>越疼越要不动声色，越苦越要保持沉默  </p>
+<h2 id="成年人的世界里，一切都是自作自受"><a href="#成年人的世界里，一切都是自作自受" class="headerlink" title="成年人的世界里，一切都是自作自受"></a>成年人的世界里，一切都是自作自受</h2><p>选择自己所爱的，爱自己所选择的。越是重大决定越要自己选，任何人帮自己选了都会不甘心。  </p>
+<h2 id="选择的基本原则"><a href="#选择的基本原则" class="headerlink" title="选择的基本原则"></a>选择的基本原则</h2><p>学会接受不完美</p>
+<ul>
+<li>两利相权取其重</li>
+<li>两害相权取其轻</li>
+</ul>
+<p>选择就是权衡利害，取舍之道，没有完美的选择，不可鱼与熊掌兼得</p>
+<p>张爱玲：娶了红玫瑰，久而久之，红的变成了墙上的一抹蚊子血。白的还是窗前明月光。娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心头上的一个朱砂痣。<br>所以得不到的永远是最好的。<br>将硬币抛上空中的那一刻，你会突然发现希望自己的选择是哪一个</p>
+<h2 id="选择永远比努力更重要"><a href="#选择永远比努力更重要" class="headerlink" title="选择永远比努力更重要"></a>选择永远比努力更重要</h2><p>真正决定我们的人生的，第一是我们的选择，第二才是我们的能力和努力。</p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第五节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E4%BA%94%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第五堂课主题：面对批评，你应该摆一个正确姿势  </p>
+<p>懒惰是最可怕的事情<br>不牺牲短暂的享乐和安逸，就换不来长久的保障和幸福<br>找借口也很可怕<br>找借口会让自己失去机会<br>不能扛起责任无法付以重任  </p>
+<h2 id="闻过则喜的心态"><a href="#闻过则喜的心态" class="headerlink" title="闻过则喜的心态"></a>闻过则喜的心态</h2><p>一味在意对方的态度和自己的感受就会忘了事情的根本所在<br>错了就是错了，面对批评输球不要输姿势。  </p>
+<h2 id="永远感谢愿意花时间在你身上的人"><a href="#永远感谢愿意花时间在你身上的人" class="headerlink" title="永远感谢愿意花时间在你身上的人"></a>永远感谢愿意花时间在你身上的人</h2><p>他认识你。<br>你们之间有关系别人才会花时间批评你。<br>所以一定是你们之间有联系，尤其在你年轻的时候，多半是你有改进的空间<br>他的批评可以让你变得更好<br>所以错了就认，认了就改正。</p>
+<h2 id="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"><a href="#面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”" class="headerlink" title="面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”"></a>面对批评的心态应该是：把“为什么挨骂的总是我”变成“我能从这件事上学到什么”</h2><p>哪怕严厉苛刻，谦虚使人进步骄傲使人落后，有则改之无则加勉。<br>达尔文： 能够生存性下来的物种，并不是那些最强壮的，也不是最聪明的，而是那些对变化做出快速反应的<br>面对批评，正确地姿势应该是沉心静气的想一想我哪儿做错了。我该怎么改。<br>被批评不是坏事。  </p>
+<p>因为在意，所以争吵。  </p>
+<h2 id="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"><a href="#如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。" class="headerlink" title="如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。"></a>如果你觉得批评是一种刁难，一开始就输了。如果你觉得批评是一种雕刻，迟早都会赢的。</h2><p>凡事先在自身找原因。<br>不要苛求他人。千万不要遇事着急，冷静思考沉着应对才是面对批评正确的姿势。<br>如果大错酿成，最重要的不是埋怨推诿，而是面对和解决。  </p>
+<h2 id="面对批评的职业心态"><a href="#面对批评的职业心态" class="headerlink" title="面对批评的职业心态"></a>面对批评的职业心态</h2><p>不要埋怨老板苛刻。老板骂你是希望快点成长。</p>
+<h2 id="褒贬是买主，喝彩是闲人"><a href="#褒贬是买主，喝彩是闲人" class="headerlink" title="褒贬是买主，喝彩是闲人"></a>褒贬是买主，喝彩是闲人</h2><p>正是因为有所期待才会批评有所改进。</p>
+<p>普京：没有实力的愤怒毫无意义。<br>道理：好学生做坏事不是没有被老师发现，老师可能只是装作看不见。对自己而言成长才是硬道理。  </p>
+<p>苦练七十二变才能笑对八十一难。  </p>
+<p>高情商：不断改过，默默自强。<br>解释就是掩饰，掩饰就是事实。  </p>
+<p>可怕的不是犯错，而是不知道错在哪里还在盲目争辩。而是知错不改还重复犯错。  </p>
+<p>所以错了第一步是认，第二步是改。  </p>
+<p>第一次是不知道，第二次是不小心，第三次就是故意了。</p>
+<h2 id="示弱有助于解决冲突。先认错后解释"><a href="#示弱有助于解决冲突。先认错后解释" class="headerlink" title="示弱有助于解决冲突。先认错后解释"></a>示弱有助于解决冲突。先认错后解释</h2><h2 id="越是不认错被骂的越多"><a href="#越是不认错被骂的越多" class="headerlink" title="越是不认错被骂的越多"></a>越是不认错被骂的越多</h2><p>骂你是因为你是负责的人。谁负责谁担责。这个是态度问题。  </p>
+<p>狗咬人一口，人不能回咬回去。</p>
+<p>有个好心态，先和自己将锻炼自己情商的时候到了，先克制情绪在解决问题。  </p>
+<p>退一步海阔天空，退三分风平浪静。  </p>
+<p>所以和蛮不讲理的人讲理先示弱表达部分认同，再换位思考给出方案，先礼后兵。  </p>
+<p>发现问题是好事，解决问题是大事，没有问题是坏事。</p>
+<p>成功是来自精准的勤奋而不是平庸的忙碌，批评是成长的机会，闻过则喜。  </p>
+]]></content>
+      <categories>
+        <category>心态</category>
+      </categories>
+      <tags>
+        <tag>心态课程</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第四节心态课</title>
+    <url>/2020/03/18/%E3%80%90%E5%BF%83%E6%80%81%E4%BF%AE%E7%82%BC%E3%80%91/%E7%AC%AC%E5%9B%9B%E8%8A%82%E8%AF%BE/</url>
+    <content><![CDATA[<p>朋友推荐我看的心态修炼课程：<a href="http://www.gulixueyuan.com/h5/index.html#/course/354" target="_blank" rel="noopener">http://www.gulixueyuan.com/h5/index.html#/course/354</a>   </p>
+<p>第四堂课主题：很多人，一辈子就靠这两个字活着  </p>
+<p>别人家孩子。  </p>
+<p>你看看人家谁谁谁，你再看看你自己  </p>
+<p>不能让孩子输在起跑线上  </p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h2 id="比较无处不在，比较学习"><a href="#比较无处不在，比较学习" class="headerlink" title="比较无处不在，比较学习"></a>比较无处不在，比较学习</h2><p>竞争的是全中国人民。  </p>
+<h2 id="建议：把眼光放远一点，你未来的世界远比现在大"><a href="#建议：把眼光放远一点，你未来的世界远比现在大" class="headerlink" title="建议：把眼光放远一点，你未来的世界远比现在大"></a>建议：把眼光放远一点，你未来的世界远比现在大</h2><p>不要在需要埋头种地的时候，走错了别人家的花园，还以为自己收获了整个秋天，这才是最大的作死  </p>
+<p>生活啊，从来都不会心平气和的和你招招手<br>生活只会一脚把你踢翻在地，然后说傻叉以后长点记性  </p>
+<p>所以别因为比较而沾沾自喜或者郁郁寡欢  </p>
+<p>如果要比，就和上个月的自己比，和以前的自己相比较  </p>
+<h2 id="比较无处不在：比对象"><a href="#比较无处不在：比对象" class="headerlink" title="比较无处不在：比对象"></a>比较无处不在：比对象</h2><p>高不成低不就，难在了比较二字  </p>
+<p>比较有时让人惶恐  </p>
+<p>不要在千千万万的比较当中迷失自我。  </p>
+<p>比较有时候就是用拉人下水的形式找认同感  </p>
+<h2 id="比较无处不在：比较收入"><a href="#比较无处不在：比较收入" class="headerlink" title="比较无处不在：比较收入"></a>比较无处不在：比较收入</h2><p>比较是一种局限和狭隘，会让你变得不思进取  </p>
+<p>人和人的差距，根源在于有的人总是喜欢通过比较降低自己的标准，然后躲在舒适圈，享安乐  </p>
+<p>演好自己的角色，别成天盯着别人的剧本看，越是优秀的人越努力，越是富有的人越勤奋。</p>
+<p>越是智慧的人越是谦卑学习。优秀的人总能看到比自己更好的。而平庸的人总能看到比自己更差的。<br>如果总是看到比自己优秀的人，说明自己可能在走上坡路，你总是看到和自己差不多的人，甚至更甚，说明自己正在混日子。<br>如果你是这个房间最聪明的人，那么自己一定是走错了房间。  </p>
+<p>年龄越大越没有人会原谅你的穷。<br>现在的生活也许不是自己想要的，但是觉得是自己自找的。  </p>
+<p>别成天在比较中安逸，生活里，不必要去苛求别人的理解和认同，因为别人也没有这些义务。  </p>
+<h2 id="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"><a href="#记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。" class="headerlink" title="记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。"></a>记住：今天所做的努力，不是为了让别人觉得自己了不起，而是为了能够让你打心里看得起自己。</h2><h2 id="最后：比较无处不在：比个屁"><a href="#最后：比较无处不在：比个屁" class="headerlink" title="最后：比较无处不在：比个屁"></a>最后：比较无处不在：比个屁</h2><p>比较让人愤愤不平。<br>世界上最好的安慰，并不是告诉对方一切都会好起来，而是愁眉苦脸的说，你哭个屁啊，你看我比你还惨  </p>
+<h2 id="一起比惨-痛苦减半"><a href="#一起比惨-痛苦减半" class="headerlink" title="一起比惨 痛苦减半"></a>一起比惨 痛苦减半</h2><p>幸福是用来感觉不是用来比较  </p>
+<p>知足是一种生活态度  </p>
+<p>自己喜欢的东西就不要问别人好不好看，你的生活不会因为别人的话就变好了<br>自己的事情和别人没有关系  </p>
+<p>石黑一雄：如果说有一件事是我鼓励你们大家去做的，那就是永远不要随波逐流，要超越我们周围那些低级和颓废的影响  </p>
 ]]></content>
       <categories>
         <category>心态</category>
@@ -14388,22 +14388,6 @@ graph LR;
       </tags>
   </entry>
   <entry>
-    <title>david-prep单新增编辑逻辑</title>
-    <url>/2020/02/09/%E3%80%90%E9%A2%86%E8%B5%AB%E3%80%91/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
-    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
-<blockquote>
-<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
-</blockquote>
-<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
-]]></content>
-      <categories>
-        <category>领赫</category>
-      </categories>
-      <tags>
-        <tag>领赫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>原型图-发货</title>
     <url>/2020/02/09/%E3%80%90%E9%A2%86%E8%B5%AB%E3%80%91/%E5%8E%9F%E5%9E%8B%E5%9B%BE-%E5%8F%91%E8%B4%A7/</url>
     <content><![CDATA[<h2 id="捋一捋生成发货单流程业务逻辑"><a href="#捋一捋生成发货单流程业务逻辑" class="headerlink" title="捋一捋生成发货单流程业务逻辑"></a>捋一捋生成发货单流程业务逻辑</h2><p>努力看下原型图</p>
@@ -14434,6 +14418,22 @@ graph LR;
 <li><p>还是我昨天说的，出库有2种方式。这个t_stock_box_number里面记录了每个提货单最终入库之后生产了哪些箱子，然后对应这发出去就可以了。</p>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>领赫</category>
+      </categories>
+      <tags>
+        <tag>领赫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>david-prep单新增编辑逻辑</title>
+    <url>/2020/02/09/%E3%80%90%E9%A2%86%E8%B5%AB%E3%80%91/david-prep%E5%8D%95%E6%96%B0%E5%A2%9E%E7%BC%96%E8%BE%91%E9%80%BB%E8%BE%91/</url>
+    <content><![CDATA[<h2 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h2><h3 id="david"><a href="#david" class="headerlink" title="david"></a>david</h3><p>昨天说，提货 生产入库单的时候根据箱子数量要拆成一个个箱入库<br>也就是说后面出入库会一箱子为单位<br>这里主要针对直发提货和成品仓库的产品。 对于Prep仓库的产品出入库只考虑数量。<br>为了简单 入库单商品变成库存的时候可以统一处理，或者Prep单的商品入库的时候只需要改库存商品，不要管箱子数量。<br>也就是说Prep库存的出入库是数量，直发和成品是以箱子为单位出入库。<br>直发和成品仓库，才考虑 箱数<br>注意直发,Prep提货和Prep入库，的时候，先都统一拆成一箱一箱入库。只是箱子对Prep提货库存没什么用</p>
+<blockquote>
+<p>重点提醒：麻烦多看原型图以及数据库表字段设计</p>
+</blockquote>
+<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><p>通过临时表传递两个存储过程之间的数据不是很好的方式。临时表最好在一个存储过程中使用，不要跨多个存储过程。</p>
 ]]></content>
       <categories>
         <category>领赫</category>
@@ -21194,18 +21194,6 @@ graph LR;
 ]]></content>
   </entry>
   <entry>
-    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
-    <url>/2020/01/30/%E3%80%90%E7%90%86%E8%B4%A2%E3%80%91/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
-    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
-]]></content>
-      <categories>
-        <category>理财</category>
-      </categories>
-      <tags>
-        <tag>理财学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>两种思维方式决定了你只能当穷人</title>
     <url>/2020/01/30/%E3%80%90%E7%90%86%E8%B4%A2%E3%80%91/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB01/</url>
     <content><![CDATA[<p>今天跟几个朋友在不同的场合下偶然谈到理财投资这方面的话题，几个朋友的反应不尽相同却又大体一致。<br>    燕子是我的闺蜜，偶尔会在微信上跟我哭穷，今天又是如此，我终于按耐不住心中的激动的问她为什么还不理财？她却依然还是那句老话：“我现在连五百块的存款都没有，还理财，至少也得等我月余三千的时候再考虑这方面的问题吧。我现在只想挣钱。”我只能无奈摊手。<br>    其实跟燕子提起理财已经不是第一次，可是她不仅听不进去，甚至还怀疑我是不是在搞传销……我记得之前她说自己是因为工资低所以存不下钱，于是她不断跳槽，即使一年跳槽三次，每次工资都有所上涨，她仍旧月月无结余。<br>    在燕子眼里，理财是一定要建立在有可观的存款基础之上的。<br>    而另一个人物，也是这么想的。<br>    沈二是个帅哥，大学那会儿过得风生水起，甚至半途退学创业，摆脱了学校的禁锢小日子过得有声有色。好景不长，创业遭遇失败后沈二本分地当起了上班族，但是近两年却开始频繁地找人借钱，以此度日。欠我五百块钱一直拖了两个月都没还上，今天实在是捱不下面子给我说月底会还。<br>    我问他为什么现在如此狼狈，他说现在月月负债，领了这个月的工资都不够还上个月的欠款，生活一度陷入恶性循环。<br>    我说那你为什么不理财？他说：“都负债了还有财可理？每个月工资都不够我花。”我说那你不能怪工资少，因为你现在肯定也不记账，也不检讨，更谈不上自我总结自我分析了。你根本不知道到底为什么自己每个月都入不敷出。<br>    在沈二眼里，因为工资低所以常年负债，因为时常负债所以无从理财。<br>但是理财门槛真的有那么高吗？<br>难道一定要先有财才能理，不可以先打理，后生财？<br>我相信像燕子一样人不在少数，和沈二同样处境的人也肯定占比不小。月光族在社会上绝对是一个相当庞大的群体，没有经济来源的学生党也是无财大军。<br>但我认为可怕的不是月光不是穷，真正可怕的是一个人月月月光常常吃土，却从来不自我剖析自我检讨，安于现状的在困窘无奈的漩涡里沉醉，不想改变现状，不愿努力向上，不敢看真正的自己。<br>    有时候我们还真的不能怪工资少，寄希望于用存款改变生活也是愚不可及的。没有哪一家企业长生不老，我们的钱也每天都在经历通货膨胀。<br>如果你现在已经可以做到月有结余，那你只是把钱放在银行和余额宝是肯定不够的，定期利率和余额宝收益率并不能帮你跑赢通货膨胀，你辛苦攒下来的钱还会在日复一日的通货膨胀中经历贬值。<br>    所以你愿意看着自己存款在上涨，购买力却在降低吗？</p>
@@ -21321,6 +21309,18 @@ graph LR;
 以前，我妈每年年底大扫除扔东西时，总爱念叨一句话：&quot; 穷人才留破烂，越留越穷。&quot;
 
 其实，穷人思维才是越留越穷、最应扔掉的 &quot; 破烂 &quot;。永远记住——真正的穷不是缺钱，而是呆在穷人思维的怪圈里走不出来。</code></pre>]]></content>
+      <categories>
+        <category>理财</category>
+      </categories>
+      <tags>
+        <tag>理财学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>投资起步晚5年，赶上需要1.5倍的汗水+时间</title>
+    <url>/2020/01/30/%E3%80%90%E7%90%86%E8%B4%A2%E3%80%91/%E6%99%A8%E8%AF%BB/%E6%99%A8%E8%AF%BB02/</url>
+    <content><![CDATA[<p>小投一直听到有些小伙伴们在说：“现在还年轻，先不考虑储蓄/理财/投资，反正现在这点钱，实在太少了，即使拿去投资也赚不了多少呢，还不如乘着年轻使劲浪呢！”<br>很多人认为年轻人没什么可失去的，或者做了什么离谱的蠢事，也有时间挣回来。“年轻没有什么不可以”，这个建议听起来似乎太棒了。不过对于一个追求财富自由的人来说，一旦在投资的起点线上比别人晚了5年，即使5年后，你投入的资金和别人一样，也有可能一辈子都赶不上别人。<br>22岁、27岁、32岁开始投资的人……<br>相信很多院生都和小投一样，是依赖工资结余进行投资的。而我们年轻时最可能犯的大错误就是，总想着还有明天，想把一切责任都交给明天的自己。<br>也许你认为5年在漫漫人生路上，连1/10都不到，即使错过5年，只要抓紧时间，就能够迎头赶上。不过，我们量化一下就发现，事实并非如此哦！复利的可怕之处就在于，即使你一开始的投资量只是少了那么一点点，几十年的“复利效应”之后，就会导致巨大的差异。<br>举个栗子！<br>假设院生A从22岁开始，每个月投资1000元，年化收益8%，那么到他60岁的时候，他的投资收益将会高达240万元；<br>院生B使用同样的投资策略，然而在27岁才开始投资，那么他这辈子的投资收益将只有145万元；<br>而有一个悲催的人，因为他也没有学长投课，就不能列为C，到了32岁才真正领悟到了投资的重要性，他也依旧采用每个月投资1000元的策略，到了60岁，他的收益仅仅只有90万元。<br>​​<br>即使同样的投资收益，如果晚5年投资，等到60岁的时候，你的收益会比别人少65%呢！！<br>即使起步晚了，假如你多努力N%呢？<br>很多院生会发出怒吼：我起步晚怎么了？我多努力就是啦！！好嘛，小投宝宝被吓到了，不过呢，事实证明，起步一旦晚了5年，你就需要付出更多的汗水和时间，即使这样，也不一定能赶上赶早的同学。<br>假设你比别人晚5年才意识到投资的重要性，比别人晚5年开始投资那么你需要每个月多投资多少钱，才能够赶上那些比你早5年的同学呢？<br>小投今天啥也没干，就在一直按计算器算算术了，最后，终于算出来这个值，实在是把小投吓CRY了。<br>如果你27岁才开始投资，那么如果别人一个月投资1000元，那么你需要每个月投资1500元，才能够在60岁的时候赶得上别人。而且要注意哦，你需要在长达33年的时间中，每个月都比别人多投入50%，才能够在60岁的时候勉强赶上。<br>​​<br>虽然这两条线看着似乎是重叠的，然而，你晚起步了5年，就需要在未来的33年中，每个月都多投入50%，拼尽全力，才能够好不容易赶上呢！<br>复利的的魔法在漫长的时间中发挥了魔力，如果你行动时间晚了一点，那么你的投资回报就会少得多，所以执行力强的人往往会提前行动，争取时间，让复利发挥出最大的力量。要记住：你推迟投资的每一天，复利都会发挥反向的作用。<br>从储蓄开始，但并不仅仅是储蓄<br>为了达成你的财务自由目标，从踏入职场那天起，你就必须开始储蓄，同时开始学习理财的相关知识。除非你运气很好，恰好中了彩票大奖，或者刚好得到一笔横财，否则没有储蓄就无法积累相应的财富。大部分人知道他们应该储蓄，但是没有意识到应该持续储蓄，往往都是这个月剩多少就存多少。而正确的做法，应当是，先存钱再消费。<br>这非常困难，特别是在这个消费主义盛行的时代，我们给商品赋予了很多不同的意义。你要开始储蓄，就得先克服自己的虚荣心。生活中到处充斥着购物的广告，假如你把看到的东西都买下来，那么你就完蛋了，再也没办法开始储蓄的第一步了。<br>对于许多人来说，虚荣心战胜了一切，节俭生活的麻烦是没人能看到他们的财富，你手上没有名表，你会买一个iWatch，告诉别人，你并不是买不起名表而是更喜欢科技感十足的苹果手表。如果你手腕上空空如也，也没有挎着名牌包包，人们不会羡慕你的财富，当然，他们也看不到你正在为财富自由所付出的努力。看着账户金额不断增长，你能够获得相应的满足感，从而对抗内心滋长的“买买买”。<br>不过在现实中，你会看到很多人擅长过节俭的生活，并且从尽可能削减每一项开支中得到满足。然而，节俭是美德，但是也要记住，仅仅只是节俭，你是无法富裕的。小投发现很多节俭的人，却只把节约下来的钱放在银行里，获取每年不到5%的收益，这实在是太太太蠢了！！<br>从削减开支到建立真正的财富，你必须找到一种方式，让金钱变得更有效率，从而不断增加收入。<br>比如，你可以通过花钱学习一门新职业技能，获得更高的收入；或者，通过学习投资理财的知识，让你的每年的收益变得更高一些；也或者，给自己买一份必要的保险，以避免突如其来的变故让你之前的努力化为虚有。记住，你需要制定一份专属于你个人的财富自由计划，并且尽快起步。无论你计划每个月存多少钱用于投资理财，最好就从这个月开始。<br>也许你已经不是22岁了，已经比别人慢了一拍了，但是在投资路上，小投和长投院生小伙伴都和你一起加油哦！！么么哒，希望大家都能实现自己的财富梦想！！<br>希望我们14天小白训练营可以引导大家找到建立真正财富的正确方式。</p>
+]]></content>
       <categories>
         <category>理财</category>
       </categories>
