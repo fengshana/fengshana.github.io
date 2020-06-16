@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="笔记,Gradle," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="✨Fsn✨" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1iW411C7CV?from&#x3D;search&amp;seid&#x3D;6869625427262249863。相关笔记截图放在qq:198866436的空间相册当中了； gradle介绍01课程引导语java作为一门世界级主流编程语言，有一款高效易用的项目管理工具是java开发者共同追求的心愿和目标。是2000年Ant（项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gradle入门">
+<meta property="og:url" content="https://fengshana.github.io/2020/06/16/%E3%80%90Gradle%E3%80%91/Gradle%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="✨Fsn✨">
+<meta property="og:description" content="前言观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1iW411C7CV?from&#x3D;search&amp;seid&#x3D;6869625427262249863。相关笔记截图放在qq:198866436的空间相册当中了； gradle介绍01课程引导语java作为一门世界级主流编程语言，有一款高效易用的项目管理工具是java开发者共同追求的心愿和目标。是2000年Ant（项目">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX2rAx8ib6.oibRwPfXXXZBSs2quAZHIPpSf8zUTFqcFXJF3lRcTGPJojNGNmfNQqxXX545*AUyA7piYqcsFwiYc!/r">
+<meta property="article:published_time" content="2020-06-15T21:03:11.245Z">
+<meta property="article:modified_time" content="2020-06-16T00:06:22.840Z">
+<meta property="article:author" content="Fsn✨🧙‍♀️✨">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="Gradle">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX2rAx8ib6.oibRwPfXXXZBSs2quAZHIPpSf8zUTFqcFXJF3lRcTGPJojNGNmfNQqxXX545*AUyA7piYqcsFwiYc!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/06/16/【Gradle】/Gradle入门/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>Gradle入门 | ✨Fsn✨</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/0.2.4/mermaid.full.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">✨Fsn✨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-camera">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[🌿诗酒年华🌻]</h1>
+    <p id="poem">挑选中🌺...🍃🍂</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '🍃《' + result.data.origin.title + '》🍂'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/06/16/%E3%80%90Gradle%E3%80%91/Gradle%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn✨🧙‍♀️✨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="✨Fsn✨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Gradle入门</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-16T05:03:11+08:00">
+                2020-06-16
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-16T08:06:22+08:00">
+                2020-06-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX2rAx8ib6.oibRwPfXXXZBSs2quAZHIPpSf8zUTFqcFXJF3lRcTGPJojNGNmfNQqxXX545*AUyA7piYqcsFwiYc!/r" rel="gallery_ckbh65ouu00a82kum7m7n9jak"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX2rAx8ib6.oibRwPfXXXZBSs2quAZHIPpSf8zUTFqcFXJF3lRcTGPJojNGNmfNQqxXX545*AUyA7piYqcsFwiYc!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>观看笔记：<code>https://www.bilibili.com/video/BV1iW411C7CV?from=search&amp;seid=6869625427262249863</code>。<br>相关笔记截图放在qq:198866436的空间相册当中了；</p>
+<h2 id="gradle介绍01"><a href="#gradle介绍01" class="headerlink" title="gradle介绍01"></a>gradle介绍01</h2><h3 id="课程引导语"><a href="#课程引导语" class="headerlink" title="课程引导语"></a>课程引导语</h3><p>java作为一门世界级主流编程语言，有一款高效易用的项目管理工具是java开发者共同追求的心愿和目标。<br>是2000年Ant（项目管理工具，很好的解决在项目开发当中一系列繁琐问题，但是好景不长，Ant又暴露出了其自身的一些问题），后有2004年Maven（项目管理工具，使用率非常高，但是仍然存在有不足之处）两个工具的诞生，都在Java市场上取得了巨大的成功，但是二者都有一定的不足和局限性。</p>
+<p>Maven具有两大特性：</p>
+<ol>
+<li>管理jar包（最主要的功能）<ul>
+<li>如何管理jar包<ul>
+<li>maven将真正的jar包存放在仓库中，项目中存放着所依赖的jar包的坐标；这个坐标的配置使用的是XML文件来进行配置的；随着项目所依赖的jar包越来越多，XML文件当中的坐标也就越来越多从而导致XML文件越来越大，XML里面的内容也就会变得越来越繁琐，这个就是很多的java开发者所不想看到的一个现象，而gradle的出现就很好的弥补了这一缺陷；gradle不使用XML来进行配置，而是使用一种新的语言叫做Groovy；Groovy是一种新的编程语言，首先对java做了一个全面的兼容，也就是所有的java语言在Groovy环境下都是可以进行执行的；当然groovy也有很多其自己的特性；使得编程变得更加的简单；融合性也更加的高；也就是说如果想学习Gradle就需要对Groovy语言有一个大概的认识；Gradle工具现阶段主要应用于Java应用；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>构建项目</li>
+</ol>
+<p>2012年基于Ant和Maven产生的Gradle，弥补了Ant和Maven的不足，带来了一些更高效的特点。<br>它使用一种基于Groovy的特定领域语言（DSL）来声明项目配置，抛弃了基于XML的各种繁琐配置。<br>面向Java应用为主。<br>当前其支持的语言限于Java、Groovy和Scala，计划未来将支持更多的语言。</p>
+<h3 id="课程简介"><a href="#课程简介" class="headerlink" title="课程简介"></a>课程简介</h3><p>本课程主要分以下几个步骤来讲解gradle工具的使用：</p>
+<ol>
+<li>Gradle安装配置（Windows版）</li>
+<li>Gradle和idea集成</li>
+<li>Groovy语言简单介绍</li>
+<li>Gradle仓库的配置</li>
+<li>Gradle入门案例</li>
+<li>Gradle创建Java web工程并在tomcat下运行</li>
+<li>Gradle构建多模块项目</li>
+</ol>
+<h2 id="课程介绍"><a href="#课程介绍" class="headerlink" title="课程介绍"></a>课程介绍</h2><h2 id="gradle的安装"><a href="#gradle的安装" class="headerlink" title="gradle的安装"></a>gradle的安装</h2><p>下载实时最新的Gradle版本：<code>https://gradle.org/releases/</code>。</p>
+<p>点击<code>Download: binary-only or complete</code>当中的<code>binary-only</code>或者<code>complete</code>即可下载；<br>下载好的gradle是一个压缩包的形式；<br>即首先需要进行解压；</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">v6.5</span><br><span class="line">Jun 02, 2020</span><br><span class="line"></span><br><span class="line">Download: binary-only <span class="keyword">or</span> complete</span><br><span class="line">User Manual</span><br><span class="line">API Javadoc</span><br><span class="line">DSL Reference</span><br><span class="line">Release Notes</span><br><span class="line">v6.4.1</span><br><span class="line">May 15, 2020</span><br><span class="line"></span><br><span class="line">Download: binary-only <span class="keyword">or</span> complete</span><br><span class="line">User Manual</span><br><span class="line">API Javadoc</span><br><span class="line">DSL Reference</span><br><span class="line">Release Notes</span><br><span class="line">v6.4</span><br><span class="line">May 05, 2020</span><br><span class="line"></span><br><span class="line">Download: binary-only <span class="keyword">or</span> complete</span><br><span class="line">User Manual</span><br><span class="line">API Javadoc</span><br><span class="line">DSL Reference</span><br><span class="line">Release Notes</span><br><span class="line"><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br></pre></td></tr></table></figure>
+
+<p>gradle的目录结构：</p>
+<ul>
+<li>bin<ul>
+<li>gradle</li>
+<li>gradle.bat(构建项目非常重要的命令，所以说之后如果想要用gradle构建项目就需要用到这个文件；)</li>
+</ul>
+</li>
+<li>caches(caches即缓存，由于是崭新下载好的，所以暂时没有缓存)<ul>
+<li>4.7</li>
+<li>jars-3</li>
+<li>modules-2<ul>
+<li>files-2.1</li>
+<li>metadata-2.56<ul>
+<li>descriptors</li>
+<li>module-artifact.bin</li>
+<li>module-artifacts.bin</li>
+<li>module-metadata.bin</li>
+<li>resource-at-url.bin</li>
+</ul>
+</li>
+<li>modules-2.lock</li>
+</ul>
+</li>
+<li>transforms-1<ul>
+<li>transform-1.lock</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>daemon<ul>
+<li>4.7</li>
+</ul>
+</li>
+<li>init.d<ul>
+<li>readme.txt</li>
+</ul>
+</li>
+<li>lib(自身运行所需要的一些环境如jar包/plugins插件等)<ul>
+<li>plugins</li>
+<li>annotations-13.0.jar</li>
+<li>…..</li>
+</ul>
+</li>
+<li>media</li>
+<li>native</li>
+<li>wrapper</li>
+<li>getting-started.html</li>
+<li>LICENSE</li>
+<li>NOTICE</li>
+</ul>
+<p>为了更好的使用gradle需要对gradle进行环境变量的配置；</p>
+<blockquote>
+<p>Gradle 环境变量配置</p>
+</blockquote>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">================================================</span><br><span class="line">Gradle目录：F:\Gradle\gradle-4.4-all\gradle-4.4</span><br><span class="line"></span><br><span class="line">点击-我的电脑</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">右击</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">点击-属性</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">点击-高级系统设置</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">点击-环境变量</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">点击-系统变量</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">点击-新建（W）...</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">变量名（N）：GRADLE<span class="emphasis">_HOME</span></span><br><span class="line"><span class="emphasis">变量值（V）：F:\Gradle\gradle-4.4-all\gradle-4.4</span></span><br><span class="line"><span class="emphasis">↓↓↓↓↓↓</span></span><br><span class="line"><span class="emphasis">找到Path</span></span><br><span class="line"><span class="emphasis">↓↓↓↓↓↓</span></span><br><span class="line"><span class="emphasis">点击-编辑</span></span><br><span class="line"><span class="emphasis">↓↓↓↓↓↓</span></span><br><span class="line"><span class="emphasis">新建（N）</span></span><br><span class="line"><span class="emphasis">%GRADLE_</span>HOME%\bin</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">点击-确定</span><br><span class="line">↓↓↓↓↓↓</span><br><span class="line">点击-确定</span><br><span class="line">================================================</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如何验证Gradle配置成功</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">======================================</span></span><br><span class="line"><span class="string">windows+r键：键入cmd；打开命令提示符；</span></span><br><span class="line"><span class="string">命令行键入：gradle</span> <span class="string">-v</span> <span class="comment">#回车</span></span><br><span class="line"></span><br><span class="line"><span class="string">Microsoft</span> <span class="string">Windows</span> <span class="string">[Version</span> <span class="number">10.0</span><span class="number">.17763</span><span class="number">.1282</span><span class="string">]</span></span><br><span class="line"><span class="string">(c)</span> <span class="number">2018</span> <span class="string">Microsoft</span> <span class="string">Corporation。保留所有权利。</span></span><br><span class="line"></span><br><span class="line"><span class="string">C:\Users\ASUS&gt;gradle</span> <span class="string">-v</span></span><br><span class="line"><span class="attr">Picked up JAVA_TOOL_OPTIONS:</span> <span class="string">-Dfile.encoding=UTF-8</span></span><br><span class="line"></span><br><span class="line"><span class="string">------------------------------------------------------------</span></span><br><span class="line"><span class="string">Gradle</span> <span class="number">4.4</span></span><br><span class="line"><span class="string">------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Build time:</span>   <span class="number">2017</span><span class="number">-12</span><span class="number">-06</span> <span class="number">09</span><span class="string">:05:06</span> <span class="string">UTC</span></span><br><span class="line"><span class="attr">Revision:</span>     <span class="string">cf7821a6f79f8e2a598df21780e3ff7ce8db2b82</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Groovy:</span>       <span class="number">2.4</span><span class="number">.12</span></span><br><span class="line"><span class="attr">Ant:</span>          <span class="string">Apache</span> <span class="string">Ant(TM)</span> <span class="string">version</span> <span class="number">1.9</span><span class="number">.9</span> <span class="string">compiled</span> <span class="string">on</span> <span class="string">February</span> <span class="number">2</span> <span class="number">2017</span></span><br><span class="line"><span class="attr">JVM:</span>          <span class="number">1.8</span><span class="string">.0_202</span> <span class="string">(Oracle</span> <span class="string">Corporation</span> <span class="number">25.202</span><span class="string">-b08)</span></span><br><span class="line"><span class="attr">OS:</span>           <span class="string">Windows</span> <span class="number">10</span> <span class="number">10.0</span> <span class="string">amd64</span></span><br><span class="line"></span><br><span class="line"><span class="string">C:\Users\ASUS&gt;</span> <span class="string">exit</span> <span class="comment"># 退出</span></span><br><span class="line"><span class="string">=====================================</span></span><br><span class="line"><span class="string">如果出现以上信息及Gradle安装成功；</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="gradle介绍02"><a href="#gradle介绍02" class="headerlink" title="gradle介绍02"></a>gradle介绍02</h2><p>在idea当中创建gradle项目；<br>首先打开idea；</p>
+<p>GroupId: 公司/组织名称<br>ArtifactId: 项目名称<br>Version: 版本号<br>gradle的运行需要用到jdk的环境；</p>
+<ol>
+<li><p>首先指定刚刚安装的gradle在什么地方，即选择Use local gradle wrapper(recommended)（即本地安装的gradle，选择了之后会发现它会去自动找本地所安装的gradle）</p>
+</li>
+<li><p>gradle的运行需要用到jdk的环境；那么就需要在Gradle JVM当中选择好自己本地的jdk环境；确认一下Gradle JVM当中所录入的是否为本地jdk的位置；</p>
+</li>
+<li><p>Use auto-import选项进行勾选上；Use auto-import的含义为：在项目开发时突然导入了一个c的jar包；那么这个时候就需要gradle来自动将这个jar包的坐标位置给找到；并且导入进来即可；</p>
+</li>
+<li><p>其余的不需要做改变使用默认即可；</p>
+</li>
+</ol>
+<p>Use auto-import 自动导入</p>
+<p>Project name: 项目名称<br>Project location: 项目放置的目录</p>
+<p>点击Finish即可；<br>当前创建的该项目就可以使用gradle做开发了；<br>当gradle在创建的时候尽量让jdk为1.8或者是电脑是一个联网的状态；<br>因为要去网上下载一些相应的插件；</p>
+<h2 id="gradle项目目录结构介绍"><a href="#gradle项目目录结构介绍" class="headerlink" title="gradle项目目录结构介绍"></a>gradle项目目录结构介绍</h2><p>在开发的时候，都讲究配置文件与代码分离原则，讲究该原则的原因在于因为最终项目开发完成之后是需要发布到线上的，那么发布到线上的时候只需要发布正式的源码即可；在正式源码开发过程中将产生大量的测试文件即单元测试；<br>src/main/java 放置正式代码目录<br>src/main/resources 放置正式配置文件目录<br>src/test/java 放置单元测试代码目录<br>src/test/resources 放置测试配置文件目录<br>src/main/webapp 放置页面元素，比如：js，css，img，jsp，html等等</p>
+<h2 id="groovy简单语法"><a href="#groovy简单语法" class="headerlink" title="groovy简单语法"></a>groovy简单语法</h2><p>不进行创建gradle工程一样可以来进行使用该编辑器；<br>groovy更加的随意；</p>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//介绍groovy编程语言</span></span><br><span class="line"><span class="comment">// java: System.out.println("");</span></span><br><span class="line"><span class="built_in">println</span>(<span class="string">"hello, good morning, fsn"</span>);</span><br><span class="line"><span class="comment">// groovy可以省略语句最末尾的分号</span></span><br><span class="line"><span class="built_in">println</span>(<span class="string">"hello world"</span>)</span><br><span class="line"><span class="comment">//groovy中可以省略小括号</span></span><br><span class="line"><span class="built_in">println</span><span class="string">"hello world, hello, world"</span></span><br><span class="line"><span class="comment">//groovy中如何定义变量，最后的分号加不加都行</span></span><br><span class="line"><span class="comment">//def 弱类型；有点类似于在JavaScript当中的var;</span></span><br><span class="line"><span class="comment">//groovy会自动根据情况来给变量赋予对应的类型；</span></span><br><span class="line"><span class="comment">//根据变量名后面的取值来进行判断是什么样的类型；</span></span><br><span class="line"><span class="comment">//int 类型</span></span><br><span class="line">def abc = <span class="number">21</span>;</span><br><span class="line">def defg = <span class="number">22</span></span><br><span class="line"><span class="built_in">println</span> abc</span><br><span class="line"><span class="built_in">println</span> abc+defg</span><br><span class="line"><span class="comment">//string 类型</span></span><br><span class="line">def s = <span class="string">"laowang"</span></span><br><span class="line"><span class="built_in">println</span> s</span><br><span class="line"><span class="comment">//定义一个集合类型</span></span><br><span class="line">def list = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>]</span><br><span class="line"><span class="comment">//往list中添加元素</span></span><br><span class="line">list &lt;&lt; <span class="string">'h'</span></span><br><span class="line"><span class="comment">//取出list中第三个元素</span></span><br><span class="line"><span class="built_in">println</span> list.<span class="built_in">get</span>(<span class="number">2</span>)</span><br><span class="line"><span class="built_in">println</span> list.<span class="built_in">size</span>()</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; list.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">    <span class="built_in">println</span> list.<span class="built_in">get</span>(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义一个map</span></span><br><span class="line">def <span class="built_in">map</span> = [<span class="string">'key1'</span>:<span class="string">'value1'</span>,<span class="string">'key2'</span>:<span class="string">'value2'</span>]</span><br><span class="line"><span class="comment">//向map当中添加键值对</span></span><br><span class="line"><span class="built_in">map</span>.key3 = <span class="string">'value3'</span></span><br><span class="line"><span class="comment">//打印出key3的取值</span></span><br><span class="line"><span class="built_in">println</span> <span class="built_in">map</span>.<span class="built_in">get</span>(<span class="string">'key3'</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>结果</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash"> //介绍groovy编程语言</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // java: System.out.println(<span class="string">""</span>);</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println(<span class="string">"hello, good morning, fsn"</span>);</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> // groovy可以省略语句最末尾的分号</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println(<span class="string">"hello world"</span>)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //groovy中可以省略小括号</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println<span class="string">"hello world, hello, world"</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //groovy中如何定义变量，最后的分号加不加都行</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //def 弱类型；有点类似于在JavaScript当中的var;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //groovy会自动根据情况来给变量赋予对应的类型；</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //根据变量名后面的取值来进行判断是什么样的类型；</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //int 类型</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> def abc = 21;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> def defg = 22</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println abc</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println abc+defg</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //string 类型</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> def s = <span class="string">"laowang"</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println s</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //定义一个集合类型</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> def list = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>,<span class="string">'g'</span>]</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //往list中添加元素</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> list &lt;&lt; <span class="string">'h'</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //取出list中第三个元素</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println list.get(2)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println list.size()</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> <span class="keyword">for</span> (int i = 0; i &lt; list.size(); i++) &#123;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">     println list.get(i)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> &#125;</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //定义一个map</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> def map = [<span class="string">'key1'</span>:<span class="string">'value1'</span>,<span class="string">'key2'</span>:<span class="string">'value2'</span>]</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> //向map当中添加键值对</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> map.key3 = <span class="string">'value3'</span></span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> println map.get(<span class="string">'key3'</span>)</span></span><br><span class="line">hello, good morning, fsn</span><br><span class="line">hello world</span><br><span class="line">hello world, hello, world</span><br><span class="line">21</span><br><span class="line">43</span><br><span class="line">laowang</span><br><span class="line">c</span><br><span class="line">8</span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">d</span><br><span class="line">e</span><br><span class="line">f</span><br><span class="line">g</span><br><span class="line">h</span><br><span class="line">value3</span><br></pre></td></tr></table></figure>
+
+<h2 id="groovy中的闭包"><a href="#groovy中的闭包" class="headerlink" title="groovy中的闭包"></a>groovy中的闭包</h2><blockquote>
+<p>Closure不可导入其他包</p>
+</blockquote>
+<figure class="highlight flix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.sun.corba.se.spi.orbutil.closure.Closure</span><br><span class="line"><span class="comment">//groovy中的闭包</span></span><br><span class="line"><span class="comment">//介绍：什么是闭包？</span></span><br><span class="line"><span class="comment">//闭包其实就是一段代码块，在gradle中，主要是把闭包当参数来进行使用</span></span><br><span class="line"><span class="comment">//首先需要进行定义一个闭包</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span> </span>= &#123;</span><br><span class="line">    println <span class="string">"hello, fsn !"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//再定义一个方法，该方法里面需要闭包类型的参数</span></span><br><span class="line"><span class="comment">//Closure closure不要导jar包，任何一个包都不要导入</span></span><br><span class="line"><span class="comment">//在groovy当中Closure该单词就表示闭包；如果导包进来就会出错；</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method1</span></span>(Closure closure)&#123;</span><br><span class="line">    closure()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用方法method1()</span></span><br><span class="line">method1(test)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>示例报错</p>
+</blockquote>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">F:\jdk\jdk1.<span class="number">8202</span>\jdk\bin\java.exe -<span class="module-access"><span class="module"><span class="identifier">Dtools</span>.</span></span>jar=F:\jdk\jdk1.<span class="number">8202</span>\jdk\lib\tools.jar <span class="string">"-Dgroovy.home=F:\ideaUI\IntelliJ IDEA 2018.3.1"</span> <span class="string">"-Dgroovy.starter.conf=F:\ideaUI\IntelliJ IDEA 2018.3.1\plugins\Groovy\lib\groovy-starter.conf"</span> -<span class="module-access"><span class="module"><span class="identifier">Dfile</span>.</span></span>encoding=UTF-<span class="number">8</span> -classpath <span class="string">"F:\ideaUI\IntelliJ IDEA 2018.3.1\lib\idea_rt.jar"</span> com.intellij.rt.execution.CommandLineWrapper C:\Users\ASUS\AppData\Local\Temp\idea_classpath1957904038 org.codehaus.groovy.tools.GroovyStarter --conf <span class="string">"F:\ideaUI\IntelliJ IDEA 2018.3.1\plugins\Groovy\lib\groovy-starter.conf"</span> --main groovy.ui.GroovyMain -p <span class="string">"F:\ideaUI\IntelliJ IDEA 2018.3.1\plugins\Groovy\lib\console.groovy"</span></span><br><span class="line"></span><br><span class="line">&gt; import com.sun.corba.se.spi.orbutil.closure.Closure</span><br><span class="line">&gt; <span class="comment">//groovy中的闭包</span></span><br><span class="line">&gt; <span class="comment">//介绍：什么是闭包？</span></span><br><span class="line">&gt; <span class="comment">//闭包其实就是一段代码块，在gradle中，主要是把闭包当参数来进行使用</span></span><br><span class="line">&gt; <span class="comment">//首先需要进行定义一个闭包</span></span><br><span class="line">&gt; def test = &#123;</span><br><span class="line">&gt;     println <span class="string">"hello, fsn !"</span></span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="comment">//再定义一个方法，该方法里面需要闭包类型的参数</span></span><br><span class="line">&gt; <span class="comment">//Closure closure不要导jar包，任何一个包都不要导入</span></span><br><span class="line">&gt; <span class="comment">//在groovy当中Closure该单词就表示闭包；如果导包进来就会出错；</span></span><br><span class="line">&gt; def method1(Closure closure)&#123;</span><br><span class="line">&gt;     closure<span class="literal">()</span></span><br><span class="line">&gt; &#125;</span><br><span class="line">&gt; <span class="comment">//调用方法method1()</span></span><br><span class="line">&gt; method1(test)</span><br><span class="line">hello, good morning, fsn</span><br><span class="line">hello world</span><br><span class="line">hello world, hello, world</span><br><span class="line"><span class="number">21</span></span><br><span class="line"><span class="number">43</span></span><br><span class="line">laowang</span><br><span class="line">c</span><br><span class="line"><span class="number">8</span></span><br><span class="line">a</span><br><span class="line">b</span><br><span class="line">c</span><br><span class="line">d</span><br><span class="line">e</span><br><span class="line">f</span><br><span class="line">g</span><br><span class="line">h</span><br><span class="line">value3</span><br><span class="line">groovy.lang.MissingMethodException: No signature <span class="keyword">of</span> <span class="keyword">method</span>: com.sun.proxy.$<span class="module-access"><span class="module"><span class="identifier">Proxy5</span>.</span></span>call<span class="literal">()</span> is applicable for argument types: <span class="literal">()</span> values: <span class="literal">[]</span></span><br><span class="line">Possible solutions: wait<span class="literal">()</span>, any<span class="literal">()</span>, wait(long), each(groovy.lang.Closure), any(groovy.lang.Closure), wait(long, <span class="built_in">int</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.<span class="module-access"><span class="module"><span class="identifier">ScriptBytecodeAdapter</span>.</span></span>unwrap(<span class="module-access"><span class="module"><span class="identifier">ScriptBytecodeAdapter</span>.</span></span>java:<span class="number">71</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">PojoMetaClassSite</span>.</span></span>call(<span class="module-access"><span class="module"><span class="identifier">PojoMetaClassSite</span>.</span></span>java:<span class="number">48</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">CallSiteArray</span>.</span></span>default<span class="constructor">Call(CallSiteArray.<span class="params">java</span>:47)</span></span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>call(<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>java:<span class="number">116</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>call(<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>java:<span class="number">120</span>)</span><br><span class="line">	at ideaGroovyConsole.method1(ideaGroovyConsole.groovy:<span class="number">50</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke0(Native Method)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>java:<span class="number">62</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>java:<span class="number">43</span>)</span><br><span class="line">	at java.lang.reflect.<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>java:<span class="number">498</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrap</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">PogoMetaMethodSite</span>.</span></span>java:<span class="number">190</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">PogoMetaMethodSite</span>.</span></span>call<span class="constructor">Current(PogoMetaMethodSite.<span class="params">java</span>:59)</span></span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">CallSiteArray</span>.</span></span>default<span class="constructor">CallCurrent(CallSiteArray.<span class="params">java</span>:51)</span></span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>call<span class="constructor">Current(AbstractCallSite.<span class="params">java</span>:157)</span></span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>call<span class="constructor">Current(AbstractCallSite.<span class="params">java</span>:169)</span></span><br><span class="line">	at ideaGroovyConsole.run(ideaGroovyConsole.groovy:<span class="number">53</span>)</span><br><span class="line">	at groovy.lang.<span class="module-access"><span class="module"><span class="identifier">GroovyShell</span>.</span></span>run<span class="constructor">ScriptOrMainOrTestOrRunnable(GroovyShell.<span class="params">java</span>:263)</span></span><br><span class="line">	at groovy.lang.<span class="module-access"><span class="module"><span class="identifier">GroovyShell</span>.</span></span>run(<span class="module-access"><span class="module"><span class="identifier">GroovyShell</span>.</span></span>java:<span class="number">507</span>)</span><br><span class="line">	at groovy.lang.<span class="module-access"><span class="module"><span class="identifier">GroovyShell</span>.</span></span>run(<span class="module-access"><span class="module"><span class="identifier">GroovyShell</span>.</span></span>java:<span class="number">486</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke0(Native Method)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>java:<span class="number">62</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>java:<span class="number">43</span>)</span><br><span class="line">	at java.lang.reflect.<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>java:<span class="number">498</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">PogoMetaMethodSite$PogoCachedMethodSite</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">PogoMetaMethodSite</span>.</span></span>java:<span class="number">169</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">PogoMetaMethodSite</span>.</span></span>call(<span class="module-access"><span class="module"><span class="identifier">PogoMetaMethodSite</span>.</span></span>java:<span class="number">71</span>)</span><br><span class="line">	at org.codehaus.groovy.runtime.callsite.<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>call(<span class="module-access"><span class="module"><span class="identifier">AbstractCallSite</span>.</span></span>java:<span class="number">136</span>)</span><br><span class="line">	at console.run(console.groovy:<span class="number">11</span>)</span><br><span class="line">	at groovy.ui.<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>process<span class="constructor">Reader(GroovyMain.<span class="params">java</span>:576)</span></span><br><span class="line">	at groovy.ui.<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>process<span class="constructor">Files(GroovyMain.<span class="params">java</span>:485)</span></span><br><span class="line">	at groovy.ui.<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>run(<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>java:<span class="number">327</span>)</span><br><span class="line">	at groovy.ui.<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>process(<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>java:<span class="number">315</span>)</span><br><span class="line">	at groovy.ui.<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>process<span class="constructor">Args(GroovyMain.<span class="params">java</span>:134)</span></span><br><span class="line">	at groovy.ui.<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>main(<span class="module-access"><span class="module"><span class="identifier">GroovyMain</span>.</span></span>java:<span class="number">114</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke0(Native Method)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>java:<span class="number">62</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>java:<span class="number">43</span>)</span><br><span class="line">	at java.lang.reflect.<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>java:<span class="number">498</span>)</span><br><span class="line">	at org.codehaus.groovy.tools.<span class="module-access"><span class="module"><span class="identifier">GroovyStarter</span>.</span></span>root<span class="constructor">Loader(GroovyStarter.<span class="params">java</span>:116)</span></span><br><span class="line">	at org.codehaus.groovy.tools.<span class="module-access"><span class="module"><span class="identifier">GroovyStarter</span>.</span></span>main(<span class="module-access"><span class="module"><span class="identifier">GroovyStarter</span>.</span></span>java:<span class="number">138</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke0(Native Method)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">NativeMethodAccessorImpl</span>.</span></span>java:<span class="number">62</span>)</span><br><span class="line">	at sun.reflect.<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">DelegatingMethodAccessorImpl</span>.</span></span>java:<span class="number">43</span>)</span><br><span class="line">	at java.lang.reflect.<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>invoke(<span class="module-access"><span class="module"><span class="identifier">Method</span>.</span></span>java:<span class="number">498</span>)</span><br><span class="line">	at com.intellij.rt.execution.<span class="module-access"><span class="module"><span class="identifier">CommandLineWrapper</span>.</span></span>main(<span class="module-access"><span class="module"><span class="identifier">CommandLineWrapper</span>.</span></span>java:<span class="number">67</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>正确示意</p>
+</blockquote>
+<figure class="highlight flix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//groovy中的闭包</span></span><br><span class="line"><span class="comment">//介绍：什么是闭包？</span></span><br><span class="line"><span class="comment">//闭包其实就是一段代码块，在gradle中，主要是把闭包当参数来进行使用</span></span><br><span class="line"><span class="comment">//首先需要进行定义一个闭包</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span> </span>= &#123;</span><br><span class="line">    println <span class="string">"hello, fsn !"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//再定义一个方法，该方法里面需要闭包类型的参数</span></span><br><span class="line"><span class="comment">//Closure closure不要导jar包，任何一个包都不要导入</span></span><br><span class="line"><span class="comment">//在groovy当中Closure该单词就表示闭包；如果导包进来就会出错；</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method1</span></span>(Closure closure)&#123;</span><br><span class="line">    closure()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用方法method1()</span></span><br><span class="line">method1(test)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>正确结果</p>
+</blockquote>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">hello,</span> fsn !</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>大概的执行流程</p>
+</blockquote>
+<p>首先method1()方法需要一个参数Closure closure，闭包类型的参数；<br>而上面的test变量正好是一个闭包类型；<br>所以可以将test变量传递下来到method1()方法当中；<br>在method1()拿到该闭包参数之后并没有其他的动作仅仅只是执行了闭包方法，即执行了test()方法当中的代码；而闭包方法即test()方法当中的代码即为输出打印；</p>
+<blockquote>
+<p>带有参数的闭包代码</p>
+</blockquote>
+<figure class="highlight flix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个带有参数的闭包方法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test2</span> </span>= &#123;</span><br><span class="line">    v -&gt;</span><br><span class="line">        println <span class="string">"hello $&#123;v&#125;"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义一个方法，方法里面需要闭包类型的参数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method2</span></span>(Closure closure)&#123;</span><br><span class="line">    closure(<span class="string">"隔壁老王"</span>)</span><br><span class="line">&#125;</span><br><span class="line">method2(test2)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>结果打印</p>
+</blockquote>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hello</span> 隔壁老王</span><br></pre></td></tr></table></figure>
+
+<h2 id="gradle配置文件的介绍"><a href="#gradle配置文件的介绍" class="headerlink" title="gradle配置文件的介绍"></a>gradle配置文件的介绍</h2><blockquote>
+<p>build.gradle</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">====================================================================</span><br><span class="line">https://mvnrepository.com/artifact/org.springframework/spring-context/5.0.2.RELEASE</span><br><span class="line"></span><br><span class="line">如果是maven工程直接选择Maven即可；</span><br><span class="line">&lt;!<span class="comment">-- https://mvnrepository.com/artifact/org.springframework/spring-context --&gt;</span></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-<span class="keyword">context</span>&lt;/artifactId&gt;</span><br><span class="line">    &lt;<span class="keyword">version</span>&gt;<span class="number">5.0</span><span class="number">.2</span>.RELEASE&lt;/<span class="keyword">version</span>&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">如果是Gradle工程则选择Gradle即可；</span><br><span class="line">// https://mvnrepository.com/artifact/org.springframework/spring-<span class="keyword">context</span></span><br><span class="line">compile <span class="keyword">group</span>: <span class="string">'org.springframework'</span>, <span class="keyword">name</span>: <span class="string">'spring-context'</span>, <span class="keyword">version</span>: <span class="string">'5.0.2.RELEASE'</span></span><br><span class="line">====================================================================</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 运行的环境</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">plugins &#123;</span><br><span class="line">    <span class="keyword">id</span> <span class="string">'java'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * group 公司/团队名</span></span><br><span class="line"><span class="comment"> * version 版本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">group</span> <span class="string">'com.fsn'</span></span><br><span class="line"><span class="keyword">version</span> <span class="string">'1.0-SNAPSHOT'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * java jdk版本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">sourceCompatibility = <span class="number">1.8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 指定所使用仓库的路径</span></span><br><span class="line"><span class="comment"> * mavenCentral() 表示使用中央仓库，此刻项目中所需要的jar包都会默认从中央仓库下载到本地指定目录</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">repositories &#123;</span><br><span class="line">    mavenCentral()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 1. gradle工程所有的jar包的坐标都在dependencies属性内放置</span></span><br><span class="line"><span class="comment"> * 2. 每一个jar包的坐标都由三个基本元素组成 group、name、version</span></span><br><span class="line"><span class="comment"> * 3. testCompile 表示该jar包在测试的时候起作用，该属性为jar包的作用域；</span></span><br><span class="line"><span class="comment"> *    在gradle里面添加坐标的时候都要带上jar包的作用域</span></span><br><span class="line"><span class="comment"> * compile/testCompile其实是一个方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">dependencies &#123;</span><br><span class="line">    testCompile <span class="keyword">group</span>: <span class="string">'junit'</span>, <span class="keyword">name</span>: <span class="string">'junit'</span>, <span class="keyword">version</span>: <span class="string">'4.12'</span></span><br><span class="line">    compile <span class="keyword">group</span>: <span class="string">'org.springframework'</span>, <span class="keyword">name</span>: <span class="string">'spring-context'</span>, <span class="keyword">version</span>: <span class="string">'5.0.2.RELEASE'</span></span><br><span class="line">&#125;</span><br><span class="line">====================================================================</span><br></pre></td></tr></table></figure>
+
+<h2 id="让gradle使用本地maven仓库"><a href="#让gradle使用本地maven仓库" class="headerlink" title="让gradle使用本地maven仓库"></a>让gradle使用本地maven仓库</h2><h2 id="gradle介绍03"><a href="#gradle介绍03" class="headerlink" title="gradle介绍03"></a>gradle介绍03</h2><h2 id="gradle开发web工程"><a href="#gradle开发web工程" class="headerlink" title="gradle开发web工程"></a>gradle开发web工程</h2><h2 id="gradle工程拆分与聚合"><a href="#gradle工程拆分与聚合" class="headerlink" title="gradle工程拆分与聚合"></a>gradle工程拆分与聚合</h2>
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>Gradle入门📝</a></p>
+  <p><span>文章作者:</span>Fsn✨🧙‍♀️✨</a></p>
+  <p><span>发布时间:</span>2020年06月16日 - 05:03:11🌞</p>
+  <p><span>最后更新:</span>2020年06月16日 - 08:06:22🌜</p>
+  <p><span>原始链接:</span><a href="/2020/06/16/%E3%80%90Gradle%E3%80%91/Gradle%E5%85%A5%E9%97%A8/" title="Gradle入门">https://fengshana.github.io/2020/06/16/%E3%80%90Gradle%E3%80%91/Gradle%E5%85%A5%E9%97%A8/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/06/16/%E3%80%90Gradle%E3%80%91/Gradle%E5%85%A5%E9%97%A8/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。🎄	</p>  
+</div>
+<style>
+</style>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        //swal({   
+          //title: "",   
+         // text: '<div style="width:300px;height:100px;font-size:14px;">道友，复制成功了哟(＾Ｕ＾)ノ~</div>',   
+          //html: true,
+          //timer: 500,   
+        //showConfirmButton: false
+        //});
+      });
+      new ClipboardJS('.fa-clipboard', {
+          target: function(trigger) {
+              $('<div>').appendTo('body').addClass('alert alert-success').html('🤠道友ᕦ(･ㅂ･)ᕤ，🥭复制成功了哟(^_−)☆').show().delay(1500).fadeOut();
+              return trigger.nextElementSibling;
+            }
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <br/>
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------🍓🍇本文结束🤞感谢道友的阅读🍍🍒-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>🥕🍆坚持原创技术分享🐳，🌽🥬您的支持将鼓励我继续创作！🐬</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn✨🧙‍♀️✨ 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn✨🧙‍♀️✨ 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">🌟笔记</i></a>
+          
+            <a href="/tags/Gradle/" rel="tag">🌟Gradle</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/11/%E3%80%90JDK8%E3%80%91/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java8/" rel="next" title="深入理解java8">
+                👈 深入理解java8
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn✨🧙‍♀️✨" />
+            
+              <p class="site-author-name" itemprop="name">Fsn✨🧙‍♀️✨</p>
+              <p class="site-description motion-element" itemprop="description">🌈勿忘初心💫 🌞，🌜方得始终⭐</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i 
+
+                          
+                          class="fa fa-fw fa-github">
+                          
+                         
+                        
+                        </i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/475144966" target="_blank" title="Bilibili">
+                      
+                        <i 
+
+                          
+                            class="">🏃‍♂️
+                          
+                         
+                        
+                        </i>Bilibili</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle介绍01"><span class="nav-number">2.</span> <span class="nav-text">gradle介绍01</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#课程引导语"><span class="nav-number">2.1.</span> <span class="nav-text">课程引导语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#课程简介"><span class="nav-number">2.2.</span> <span class="nav-text">课程简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#课程介绍"><span class="nav-number">3.</span> <span class="nav-text">课程介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle的安装"><span class="nav-number">4.</span> <span class="nav-text">gradle的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle介绍02"><span class="nav-number">5.</span> <span class="nav-text">gradle介绍02</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle项目目录结构介绍"><span class="nav-number">6.</span> <span class="nav-text">gradle项目目录结构介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#groovy简单语法"><span class="nav-number">7.</span> <span class="nav-text">groovy简单语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#groovy中的闭包"><span class="nav-number">8.</span> <span class="nav-text">groovy中的闭包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle配置文件的介绍"><span class="nav-number">9.</span> <span class="nav-text">gradle配置文件的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让gradle使用本地maven仓库"><span class="nav-number">10.</span> <span class="nav-text">让gradle使用本地maven仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle介绍03"><span class="nav-number">11.</span> <span class="nav-text">gradle介绍03</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle开发web工程"><span class="nav-number">12.</span> <span class="nav-text">gradle开发web工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gradle工程拆分与聚合"><span class="nav-number">13.</span> <span class="nav-text">gradle工程拆分与聚合</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+      
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="300" height="300" id="resCanvas" style="width=100%; background-color:transparent;">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/" rel="tag">Gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MICROSERVICES/" rel="tag">MICROSERVICES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SprigBoot/" rel="tag">SprigBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95/" rel="tag">Spring技术内幕</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk8/" rel="tag">jdk8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="tag">流程图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">🌱2019 🍄 🌳
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    🍉
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn✨🧙‍♀️✨</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+     🏃‍♂️ 
+    <span class="post-meta-item-icon">
+      📈
+    </span>
+    
+      <span class="post-meta-item-text">小屋💒总字数：</span>
+    
+	<span title="Site words total count">
+     596.8k🌟 </span>
+    <!--<span title="symbols_count_time.count_total">1.2m</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  <!-- 代码块复制功能    <script src="dist/clipboard.min.js"></script>-->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":250,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+

@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				history.back();
+			}
+		}
+	})();
+</script>
+
+
+
+
+
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #A0A0A0; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #A0A0A0, 0 0 5px     #A0A0A0; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #A0A0A0;    /*上边框颜色*/
+        border-left-color: #A0A0A0;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/fsn-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/fsn-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/fsn-16x16.ico?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="jdk8,java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="✨Fsn✨" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="前言观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1w4411e7T8?p&#x3D;1   看完书之后一定要做总结；将书中的内容或者是视频中的内容形成自己的知识体系；这样的话这个书的目的或者是这个视频的目的才达到了；不建议将视频不要翻来覆去的看；在边看的同时将自己不了解的或者是一些重点做好记录；以及接下来一定要动手自己要去编写代码；否则看视频就跟看书一样过两天就全忘了；忘了的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深入理解java8">
+<meta property="og:url" content="https://fengshana.github.io/2020/06/11/%E3%80%90JDK8%E3%80%91/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java8/index.html">
+<meta property="og:site_name" content="✨Fsn✨">
+<meta property="og:description" content="前言观看笔记：https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1w4411e7T8?p&#x3D;1   看完书之后一定要做总结；将书中的内容或者是视频中的内容形成自己的知识体系；这样的话这个书的目的或者是这个视频的目的才达到了；不建议将视频不要翻来覆去的看；在边看的同时将自己不了解的或者是一些重点做好记录；以及接下来一定要动手自己要去编写代码；否则看视频就跟看书一样过两天就全忘了；忘了的">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX0ba2aagW60lg24L4mFXpW1ue5Px5jxzeOkMDxRrl5LXm0KWJ4GFecpa1XWRy5Qis1Q8RuE*KxlL1DXnfVoIn.4!/r">
+<meta property="article:published_time" content="2020-06-11T15:48:50.000Z">
+<meta property="article:modified_time" content="2020-06-15T04:29:07.295Z">
+<meta property="article:author" content="Fsn✨🧙‍♀️✨">
+<meta property="article:tag" content="jdk8">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX0ba2aagW60lg24L4mFXpW1ue5Px5jxzeOkMDxRrl5LXm0KWJ4GFecpa1XWRy5Qis1Q8RuE*KxlL1DXnfVoIn.4!/r">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://fengshana.github.io/2020/06/11/【JDK8】/深入理解java8/"/>
+
+
+
+
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "07d52b28"
+    });
+  daovoice('update');
+  </script>
+
+  <title>深入理解java8 | ✨Fsn✨</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2a839053bb6194637483460a0f428730";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.js"></script>
+<script src="https://unpkg.com/minigrid@3.1.1/dist/minigrid.min.js"></script>
+<link rel="stylesheet" href="/photos/photos.css">
+<script type="text/javascript" src="/photos/photo.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/mermaid/0.2.4/mermaid.full.min.js"></script>
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">✨Fsn✨</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-camera">
+          <a href="/photos/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sentence">
+          <a href="/shuoshuo" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-commenting"></i> <br />
+            
+            小心情
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="poem-wrap">
+  <div class="poem-border poem-left"></div>
+  <div class="poem-border poem-right"></div>
+    <h1>[🌿诗酒年华🌻]</h1>
+    <p id="poem">挑选中🌺...🍃🍂</p>
+    <p id="info">
+
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    jinrishici.load(function(result) {
+      poem.innerHTML = result.data.content
+      info.innerHTML = '【' + result.data.origin.dynasty + '】' + result.data.origin.author + '🍃《' + result.data.origin.title + '》🍂'
+      document.getElementById("poem").value(poem);
+      document.getElementById("info").value(info);  
+  });
+  </script>
+</div>
+
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://fengshana.github.io/2020/06/11/%E3%80%90JDK8%E3%80%91/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Fsn✨🧙‍♀️✨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/fsn.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="✨Fsn✨">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">深入理解java8</h1>
+        
+
+        <div class="post-meta">
+		
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-11T23:48:50+08:00">
+                2020-06-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-06-15T12:29:07+08:00">
+                2020-06-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/jdk8/" itemprop="url" rel="index">
+                    <span itemprop="name">jdk8</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  9.5k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  33
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+          
+          
+            <div class="post-gallery-row">
+              <a class="post-gallery-img fancybox"
+                 href="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX0ba2aagW60lg24L4mFXpW1ue5Px5jxzeOkMDxRrl5LXm0KWJ4GFecpa1XWRy5Qis1Q8RuE*KxlL1DXnfVoIn.4!/r" rel="gallery_ckbh65p0400co2kumh15lbntp"
+                 itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
+                <img src="http://r.photo.store.qq.com/psc?/V13IdniL3IuSOB/TCfiP1YaPeRT4Jil9RANX0ba2aagW60lg24L4mFXpW1ue5Px5jxzeOkMDxRrl5LXm0KWJ4GFecpa1XWRy5Qis1Q8RuE*KxlL1DXnfVoIn.4!/r" itemprop="contentUrl"/>
+              </a>
+            
+          
+
+          
+          </div>
+        </div>
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>观看笔记：<a href="https://www.bilibili.com/video/BV1w4411e7T8?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1w4411e7T8?p=1</a>  </p>
+<p>看完书之后一定要做总结；将书中的内容或者是视频中的内容形成自己的知识体系；这样的话这个书的目的或者是这个视频的目的才达到了；<br>不建议将视频不要翻来覆去的看；在边看的同时将自己不了解的或者是一些重点做好记录；以及接下来一定要动手自己要去编写代码；否则看视频就跟看书一样过两天就全忘了；忘了的结果就是看完之后又要重头去看一遍；视频也是一样；所花费的时间成本大；<br>该记录的时候记录做笔记的时候做笔记敲代码的时候敲代码该看源代码的时候看源代码；<br>看视频绝非一个目的，它只是一个手段；看书也只是一个手段；不能将看书当做是一个目的；<br>如果说是把看书或者是看视频当做是一种目的的话，那么这是一种错误的做法；<br>将效率提升上来；这样不仅仅是视频以及看书才能够去发挥它最大的效果；</p>
+<p>(系统完整深入)  </p>
+<ul>
+<li>课程说明（课程的发布顺序）<ul>
+<li>① 深入Java8<ul>
+<li>jdk8相关内容</li>
+</ul>
+</li>
+<li>④ 并发与Netty<ul>
+<li>Netty这个框架本身比较复杂；</li>
+<li>如何将Netty用好，Netty涉及到的一些模式涉及到的一些底层的内容；</li>
+<li>包括对于RPC的支持、对于WebSocket这种长连接的支持，Netty是如何实现的；Netty接口、API也是基于异步处理；</li>
+<li>一旦接触到异步，复杂度上升；</li>
+<li>Netty高性能可以处理大量的并发，其吞吐量也是不错的；</li>
+<li>因此在很多的互联网公司也是得到了很多的应用；</li>
+<li>Netty与Nodejs一样也是基于异步，异步处理；</li>
+<li>Netty当中的接口，或者是API其实都是异步的；（而一旦涉及到异步，复杂程度立刻上升；）</li>
+<li>因为异步，比如说写SpringMVC、Servlet这种是不一样的；因为相对于SpringMVC这种框架来说，发一个请求，然后服务端用一个线程去处理前端发过来的这个请求，从接受请求到一直将这个响应反馈给前端，这其中都是由一个线程来进行完成的一个完整处理；即整个流程都是清楚而又自然的；</li>
+<li>而一旦涉及到异步就不是这个样子了，异步一般都是基于事件，基于回调的；</li>
+<li>那么当这个事件一旦发生了，那么其对应的方法就会被调用，即被某个线程调用；而线程完成之后该线程不会去继续往下走，而是去处理其他地方去了；</li>
+<li>那么等这个事件for example：IO操作完成之后，该框架/线程收到事件的一个紧急的通知那么其就将会去紧接着后续的代码；</li>
+<li>关于Netty或者是Nodejs来说，感觉就是程序在整个执行过程当中就是跳来跳去的；一会跳到这里一会跳到哪里，即没有一个对异步好的一个理解的话那么是不太容易这两个框架或者是这两门技术的；而这两门技术本身又是比较重要的；</li>
+<li>基本成为国内互联网公司的标配；因为Netty是高性能的；可以处理大量的并发；吞吐量也是不错的；因此在很多的互联网公司都得到和广泛地应用；</li>
+<li>讲Netty还会涉及到Netty底层的一些源代码的梳理；</li>
+</ul>
+</li>
+<li>⑤ JVM<ul>
+<li>关于JVM的介绍</li>
+<li>虽然每天都在JVM上开发，程序跑在JVM上面；但是对于JVM的了解并不是很多人能够做到的一件事情；而且JVM当中涉及到的知识体系理论体系以及方法实践是非常多的；而且涉及到一些相关的一些工具；</li>
+<li>Java内存模型、各种锁、可见性、原子性有序性等都是非常细节化，而且又跟计算机理论硬件等级别相关的；</li>
+</ul>
+</li>
+<li>③ Node<ul>
+<li>关于Nodejs的介绍；</li>
+<li>无论是做前端还是做后台，Nodejs都是需要去掌握的一门重要的技术；</li>
+<li>因为通过Nodejs可以将前后端打通；</li>
+<li>正所谓全栈工程师；全栈工程师最早就是来自于原来做前端开发即用js去写代码的只能做界面上的一些功能，现在也可以转到后端进行开发，即通过Nodejs也可以转到后端开发；</li>
+<li>通过这样一种方式就可以将前后端打通；</li>
+<li>可以通过一种语言既可以一边写前端又可以一边写后端；</li>
+<li>甚至前后端分离模式也是可以通过Nodejs做中间的转介和桥梁；</li>
+<li>Nodejs本身基于异步，Nodejs都是异步处理的；</li>
+</ul>
+</li>
+<li>② Spring精髓<ul>
+<li>关于Spring原理知识的一个介绍和讲解</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>异步基于事件基于回调当某个事件发生了从而某些线程就会调用相应的方法；<br>线程完成之后不会继续往下走而是处理其他任务去了；</p>
+<h2 id="JAVA8新特性课程介绍"><a href="#JAVA8新特性课程介绍" class="headerlink" title="JAVA8新特性课程介绍"></a>JAVA8新特性课程介绍</h2><p>介绍：<br>Java 8 可谓Java语言历史上变化最大的一个版本。<br>其承诺要 调整Java编程向着 <code>函数式风格</code> 迈进，<br>这有助于编写出 更为<code>简洁、表达力更强</code>，<br>并且在很多情况下能够利用<code>并行硬件</code>的代码<br>(并行硬件代码：之前的<code>串行</code>执行流程代码，现在通过java8的一些新特性，比如说Stream流、Lambda表达式等之类的就可以<code>并行化</code>的执行；)。<br>本门课程将会深入介绍 Java8新特性，<br>将会通过本门课程的学习深入掌握Java8新增特性并能灵活运用在项目中。<br>学习者将学习到如何通过Lambda表达式使用一行代码编写Java函数，<br>如果通过这种功能使用新的Stream API（即流API）进行编程，<br>如何将冗[ rǒng ] 长的集合处理代码压缩为简单且可读性更好的流程序。<br>学习创建和消费流的机制，分析其性能，能够判断何时应该调用API的并行执行特性。</p>
+<p>与函数式相对的之前的那种编程方式称之为命令式编程（即给它一个指令它就执行一个指令）；<br>之前java针对的是数据，即继承封装多态；面向对象三大特性；</p>
+<ul>
+<li>Java 8新特性介绍（概览一下Java8有哪一些新特性）</li>
+<li>Lambda表达式介绍<ul>
+<li>通过Lambda表达式Java从一个纯粹的面向对象编程语言转向函数式的编程语言；</li>
+<li>函数式编程语言之前也在很多的语言当中都有过体现；</li>
+<li>比如说Python，即Python支持Lambda表达式即一种函数式编程语言；</li>
+<li>另外像JavaScript，本质上也是属于一种函数式编程语言；当然JavaScript也是面向对象的编程语言；</li>
+<li>那么另外像Scala，Scala本身就是融合了面向对象以及函数式这两种特性的静态语言，并且Scala是可以运行在JVM之上的；</li>
+<li>函数式编程最早只是一小部分人所推崇的一种方式；函数式编程已经由来已久；但是之前一直没有流行起来；自从这几年大数据的出现；函数式编程开始崭露头角渐渐被更多的人接受；</li>
+<li>与函数式编程相对的之前一直使用的编程方式即命令式的编程；命令式的编程即给它一个指令让它执行就可以了；</li>
+<li>之前比如说像java这种面向对象这样的编程语言针对的是数据，即面向对象三大特性（封装继承多态）；<ul>
+<li>比如说封装，其实使用面向对象语言实际上最终操作的就是数据（将对象封装到数据当中，这个对象可以在构造方法或者是各个层次调用之间进行彼此值的传递，传递完成之后对这个数据进行处理，处理完成之后再去对其一个提取、抽象等相关操作，处理最后可能需要将这个数据保存在数据库当中，保存完成之后再对数据做一个额外的包装或者说一些其他的处理然后返回给客户端，然后客户端看到的就是处理完成的结果）；</li>
+<li>那么面向对象语言其所针对的目标其实就是data，即数据；</li>
+</ul>
+</li>
+<li>而函数式编程语言所面向的是行为；</li>
+<li>什么叫做面向对象是面向的数据，而函数式面向行为呢？<ul>
+<li>比如说java当中在进行方法传递的时候，从这当中从来传递的都是参数，即传值；即将数值传递给一个方法，如果是原生类型的话直接将值复制过去传一份；如果是引用对象类型的话直接将引用复制过去，然后两个引用会指向同一个对象；总的来说即进行数据的传递；</li>
+<li>而Lambda表达式则可以通过方法来把一个方法参数，甚至是可以是一个行为，可以将该行为作为参数作为不同的调用之间或者是不同的层次之间进行传递；这一种编程方式与之前的编程方式是有这天壤之别的；区别非常的明显；而函数式编程方式这种编程行为在掌握之后可以给工作效率的一个极大提升，使得代码的可读性其实更好；（一开始变扭，时间久了之后就会觉得这种方式更好，在效率上也有一个很大的提升；）</li>
+<li>针对于传递行为，再举一个例子：<ul>
+<li>比如说原来进行两个整数进行求和的一个方式；<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">传递两个整型数据；返回这个两个数据求和的结果</span></span><br><span class="line"><span class="comment">当前传递的即为数据，即值本身；</span></span><br><span class="line"><span class="comment">而函数式编程传递的是行为；</span></span><br><span class="line"><span class="comment">甚至可以将add()这样一个方法作为一个行为参数给进行传递进去；</span></span><br><span class="line"><span class="comment">那么这样一种方式对于jdk8之前其他版本来说其实是一种颠覆性的创新；</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">( <span class="keyword">int</span> a , <span class="keyword">int</span> b )</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span>  a + b ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用Lambda表达式代替匿名内部类</li>
+<li>Lambda表达式的作用</li>
+<li>外部迭代与内部迭代</li>
+<li>Java Lambda表达式语法详解</li>
+<li>函数式接口详解<ul>
+<li>即FunctionalInterface；</li>
+<li>函数式接口与Lambda表达式密切相关；</li>
+<li>Lambda表达式与Stream流之间也是密切相关的；那么通过这两种新特性的融合改变了以前操作集合的那种笨拙的办法；特别是像操作匿名内部类；</li>
+<li>匿名内部类或者是方法回调在什么时候会进行使用？比如说在编写android时，就存在有大量的匿名内部类；因为android开发和像AWT或者是Swing那种界面开发是一样的是基于事件的，即给一个控件注册了一个事件；那么当那个事件发生了比如说用户点击了某个按钮的话，那么这个按钮相关的方法回调就会得到执行；而这种回调都是基于事件的；而这种方法回调都是基于匿名内部类的形式来去进行表达和实现的；虽然通过这种匿名内部类的方式已经十分熟悉但是存在啰嗦，那么这个时候可以通过Lambda表达式极大的去进行改善这样一种现状；</li>
+</ul>
+</li>
+<li>传递值与传递行为</li>
+<li>Stream深度解析</li>
+<li>Stream API详解</li>
+<li>串行流与并行流</li>
+<li>Stream构成</li>
+<li>Stream源生成方式</li>
+<li>Stream操作类型</li>
+<li>Stream转换</li>
+<li>Optional详解<ul>
+<li>Java8 引入了关于Optional的一个增强；</li>
+<li>Optional在java8 出现之前就已经出现在了Google的Guava库当中了；</li>
+<li>Google Guava是一个非常强大的库；提供了非常多的新特性包括像对集合的增强；（比如说要对两个集合进行求交集并集差集补集等等功能，如果是自己写代码的话还是比较繁琐的，通过Google的Guava框架可以非常方便的去实现这些关于集合的操作）；另外Google Guava也提供了对Optional的一个支持；</li>
+<li>Optional是什么？可以理解为防止在java代码当中出现NullPointerException这样一种情况所作出的一个处理；NullPointerException空指针异常是一种最为常见的一种异常类型；那么这种异常出现的根本原因在于在使用某一个引用的时候，断定其一定不为空然后去进行调用了该引用的一些方法，但是在某些情况下这个引用确实是为空了，那么在这种情况下就会出现空指针异常；即java 8 对于这种情况作了一个增强；其实当前现下很多语言都提供了对Optional的支持；除了Google的Guava库提供了Optional之外，如果做android开发，使用Kotlin的话，<ul>
+<li>Kotlin是由IntelliJ IDEA所在的公司JetBrains所推出的一个运行于JVM之上的语言，它面向的领域主要有两个，一个是面向浏览器端，另外一个是面向安卓开发；特别是安卓开发，其应用场景是比较广阔的；因为现在的安卓开发还无法使用Java8；之前只能够使用Java 6；而Java 6实际上是没有Lambda表达式的支持的；那么这个时候就由一些第三方的工具来进行提供，那么Kotlin就很好的弥补了这一点；由Kotlin开发安卓可以使代码非常精简，同时又能够利用非常强大的Lambda表达式的特性；Kotlin也提供了对Optional的支持；</li>
+<li>除了像Kotlin还有像Apple最新推出的Swift语言，Swift语言也提供了对Optional直接的支持，通过枚举的方式支持Optional；Java8也提供了对Optional的支持；</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>默认方法详解<ul>
+<li>默认方法颠覆了之前对java接口的一个认识；</li>
+<li>java接口，什么是接口？即所有的方法都是抽象的，没有具体实现的方法；但是从java8开始这个概念就不再成立了；</li>
+</ul>
+</li>
+<li>方法与构造方法引用</li>
+<li>Predicate接口详解<ul>
+<li>Predicate的含义即谓词；在函数式接口当中使用的最多的一个概念；</li>
+</ul>
+</li>
+<li>Function接口详解</li>
+<li>Consumer接口剖析</li>
+<li>Filter介绍<ul>
+<li>过滤</li>
+</ul>
+</li>
+<li>Map-Reduce讲解、中间操作与终止操作<ul>
+<li>Map-Reduce出现了已经有很多年了；随着Hadoop这种大数据框架，Map-Reduce现在也越来越被人所理解和所知道；Map-Reduce即先进行Map即映射，然后再进行Reduce，Reduce理解为精简收敛等含义，变成一个值来作为结果进行输出；</li>
+</ul>
+</li>
+<li>新的Date API分析<ul>
+<li>对于jdk来说原先的日期API一直为人所诟病太低级，问题太多；</li>
+<li>首先对于时区的支持差劲以及日期的一些操作也是十分低效的；</li>
+<li>比如说想要进行计算当前该天的后三天是星期几，如果使用Java当中已有的Date API来说，是难以做到的，即便做到也是非常麻烦的；而且像Java Date API当中比较老的Calendar、Date等日期相关处理类的时候，其主要就是操作这几个类；而且Date当中有很多方法过期；</li>
+<li>所有就有人开发了Joda Time，Joda Time可以非常方便的实现之前所提出的那个需求即想要进行计算当前该天的后三天是星期几、当前该天再加两个月是星期几这种，通过Joda Time非常简单的通过一个方法调用即可；而且Joda Time与Java Date原生API之间是可以相互进行转换的；所以Joda Time就得到了非常广泛的应用；后来Oracle借鉴了Joda Time当中很多新的设计思想所以在Java 8当中提供了新的日期API；其功能与Joda Time差不多在一个层次上了；</li>
+</ul>
+</li>
+</ul>
+<p>使用Lambda表达式是Java8当中的一个核心功能，从学习者的角度来看待java8带来的便捷性，新的特点以及功能上的增强；<br>java8 即java的第8个版本，那么它的出现带来了变革性的特性，那么这种变革性的特性其实对于java来说是非常非常难以实现的；并不是说难以是实现该功能，而是说它要实现如此之多重要而又颠覆性的新特性的同时，又要能兼容与老版本的特性以及功能以及语言上的这些特点，其实这一点非常难以实现；<br>产生新特性的同时又不会对老版本的使用产生干扰；即在jdk5、6、7上的开发代码平滑到jdk8上依旧可以兼容代码等特性这是极其困难的一件事情；<br>保持在增加java8的新特性的同时又不会对原有的功能造成破坏性的影响；所以提供了像函数式接口、默认方法等这种新特性；而函数式接口又或者是默认方法这种新功能在对于老版本java的视角来看是很奇怪的（接口当中怎么能有方法的实现呢）；这是由于要增加新特性的同时又要去兼容老版本所做出的一种权衡和折中；</p>
+<h2 id="JAVA8新特性课程介绍续"><a href="#JAVA8新特性课程介绍续" class="headerlink" title="JAVA8新特性课程介绍续"></a>JAVA8新特性课程介绍续</h2><p><strong>并发与Netty</strong>  </p>
+<p>介绍：Netty 可谓是国内外诸多互联网公司的标配。<br>其高性能的异步通信框架、NIO支持、WebSocket的强大实现使得其成为很多大型互联网公司在处理高并发时的首选。<br>不过，由于Netty架构复杂，模块众多，学习曲线陡峭，让很多人望而却步。<br>市面上的几本Netty相关图书也只是对其进行了粗浅的介绍（入门），并无法直接应用到实际项目中。<br>该课程就是为了帮助大家深入且透彻学习Netty的。<br>Netty深入掌握需要大量的实践思考和总结；<br>netty的官网：<code>https://netty.io</code>。<br>Netty与之前所学习的SpringMVC、Struts2等框架不一样；SpringMVC、Struts2解决的即MVC这样一个问题，即客户端与服务器端，客户端如何将数据传递给到服务器端，服务器端按照框架的设定定义好各个层次接收数据，接收数据之后则相应的Controller就会去调用service方法，而service则去调用dao层；即传统的非常经典的多层架构设计模式；<br>Netty本质上是一个网络通信应用框架；而且Netty本身是对于底层的无论是TCP还是HTTP做了一层薄薄的封装；那么Netty本身又是基于完全异步的这样一种框架，异步的通信模式，即NIO；Netty源代码复杂；</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients.</span><br><span class="line"></span><br><span class="line">Netty 是 一个 异步的 事件驱动 网络应用框架，</span><br><span class="line">针对于 可维护（maintainable）的 高性能协议 服务器与客户端的快速（rapid）开发（development）；</span><br><span class="line"></span><br><span class="line">Netty is a NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients.</span><br><span class="line"></span><br><span class="line">Netty 是一个异步的IO客户端服务框架；（Netty对于网络协议分层的这样一种支持；Netty的升级具有破坏性，比如说包的名字发生变化之类的，原来其包名是以 org.jboss开头，现在以io.netty开头；之前还出现过netty5该版本，不是最终版而是阿尔法版本；出现有相当长一段时间之后又从网站上撤掉了；可以到其github上看netty5的分支以及为什么netty5会被取消的原因。）</span><br><span class="line"></span><br><span class="line">It greatly simplifies and streamlines network programming such as TCP and UDP socket server.</span><br><span class="line">'Quick and easy' doesn't mean that a resulting application will suffer from a maintainability or a performance issue.</span><br><span class="line"></span><br><span class="line">Netty hash been designed carefully <span class="keyword">with</span> the experiences earned <span class="keyword">from</span> the implementation <span class="keyword">of</span> a lot <span class="keyword">of</span> protocols such <span class="keyword">as</span> <span class="keyword">FTP</span>, SMTP, <span class="keyword">HTTP</span>, <span class="keyword">and</span> various <span class="built_in">binary</span> <span class="keyword">and</span> <span class="built_in">text</span>-based legacy protocols,</span><br><span class="line"></span><br><span class="line"><span class="keyword">As</span> a <span class="keyword">result</span>, Netty <span class="keyword">hash</span> succeeded <span class="keyword">to</span> find a way <span class="keyword">to</span> achieve ease <span class="keyword">of</span> development , <span class="keyword">performance</span>, stability, <span class="keyword">and</span> flexibility <span class="keyword">without</span> a compromise.</span><br><span class="line"></span><br><span class="line">Features</span><br><span class="line"></span><br><span class="line">Design // 设计</span><br><span class="line">  * Unified API <span class="keyword">for</span> various transport types - blocking <span class="keyword">and</span> non-blocking socket</span><br><span class="line">  * Based <span class="keyword">on</span> a flexible <span class="keyword">and</span> extensible <span class="keyword">event</span> <span class="keyword">model</span> which allows <span class="keyword">clear</span> separation <span class="keyword">of</span> concerns</span><br><span class="line">  * Highly customizable <span class="keyword">thread</span> <span class="keyword">model</span> - single <span class="keyword">thread</span>, one <span class="keyword">or</span> more <span class="keyword">thread</span> pools such <span class="keyword">as</span> SEDA</span><br><span class="line">  * <span class="literal">True</span> connectionles datagram socket support(since <span class="number">3.1</span>)</span><br><span class="line"></span><br><span class="line">Ease <span class="keyword">of</span> <span class="keyword">use</span> //易于使用，快速开发</span><br><span class="line">  * Well-documented Javadoc, <span class="keyword">user</span> guide <span class="keyword">and</span> examples</span><br><span class="line">  * <span class="keyword">No</span> additional dependencies, JDK5(Netty <span class="number">3.</span>x) <span class="keyword">or</span> <span class="number">6</span>(Netty <span class="number">4.</span>x) <span class="keyword">is</span> enough</span><br><span class="line">    * Note: <span class="keyword">Some</span> components such <span class="keyword">as</span> <span class="keyword">HTTP</span>/<span class="number">2</span> might have more requirements. Please refer <span class="keyword">to</span> the Requirements page <span class="keyword">for</span> more information.</span><br><span class="line"></span><br><span class="line"><span class="keyword">Performance</span></span><br><span class="line">  * Better throughput, <span class="keyword">lower</span> latency</span><br><span class="line">  * <span class="keyword">Less</span> <span class="keyword">resource</span> consumption</span><br><span class="line">  * Minimized unnecessary <span class="keyword">memory</span> copy</span><br><span class="line"></span><br><span class="line"><span class="keyword">Security</span></span><br><span class="line">  * <span class="keyword">Complete</span> SSL/TLS <span class="keyword">and</span> StartTLS support</span><br><span class="line"></span><br><span class="line">Community</span><br><span class="line">  * <span class="keyword">Release</span> early, <span class="keyword">release</span> often</span><br><span class="line">  * The author has been writing similar frameworks since <span class="number">2003</span> <span class="keyword">and</span> he still finds your feed back precious !</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Netty介绍<ul>
+<li>Netty干什么，做什么事情的以及怎么做</li>
+<li>从宏观的角度介绍Netty的架构以及Netty的模块分析</li>
+<li>知其然</li>
+</ul>
+</li>
+<li>Netty架构实现</li>
+<li>Netty模块分析</li>
+<li>Netty HTTP Tunnel</li>
+<li>Netty对Socket的实现<ul>
+<li>Socket编程一直以来都是一个难点；因为Socket可以认为是一种比较底层的网络编程模式；它在基于传统HTTP应用层的编程，因为HTTP是位于OSI/ISO七层网络参考模型最上层，是一种应用层的模型；将底层的一些东西都已经封装好了；只需要针对HTTP即可；相对于HTTP来说socket更加复杂；</li>
+</ul>
+</li>
+<li>Netty压缩与解压缩</li>
+<li>Netty对于RPC的支援<ul>
+<li>RPC：Remote Procedure Call-远程过程调用(百度)；</li>
+<li>该视频上讲述的RPC是Remote Procedure communication-远程过程通信</li>
+<li>对于一些分布式应用来说，模块与模块或者系统与系统之间都是在内网当中进行通信的，顶多也是跨机房，不管是不是跨机房整个也是在公司的服务端进行通信；这种通信模式存在两种模式：第一种模式是通过传统的HTTP的方式，即REST full方式，开发起来比较容易，只要提供相应的http接口即可；第二种方式即通过RPC的方式，那么RPC这种方式更为底层的实现，类似java当中的RMI，RMI即Remote Method Invocation 远程方法调用，RMI即RPC的一种特例，因为RMI只能够被用到java当中；多年之前流行的EZB，EZB其底层就是使用RMI进行实现的；（EZB现在大多用在银行，而互联网公司使用的少；）RPC可以相比于RMI来说可以实现多语言即异构平台之间的通信，比如说java可以直接调用python的一个方法（此处python不是提供一个http接口从而java去调用接口这种模式，因为通过HTTP接口方式来调用的与完全是与语言无关的，只要定义好接口定义好实现，客户端就可以进行调用，不管是怎么去进行实现的；对于RPC来说不是这样的，RPC本身就是通过框架的资源，（框架资源这些）自己写是不太现实非常复杂，通过框架的一些资源来去进行调用，而且是可以实现异构平台之间的调用，比如说现在很多互联网公司都在使用阿里的dubbo，有一些公司对dubbo做了一些扩展，那么dubbo可以说是一站式的这种分布式框架，底层也提供了RPC的支持，提供了关于分布式的这些基础设施等等）</li>
+</ul>
+</li>
+<li>WebSocket连接建立方式与生命周期分解<ul>
+<li>WebSocket本身来源于HTML5，HTML5在提出之初就给出了WebSocket的一些资源，WebSocket也正式成为HTML5的一部分。</li>
+<li>WebSocket主要做的事情即为长连接；对应于与长连接相对的即短连接，HTTP即为一种短连接（什么叫做短连接，客户端去访问服务端，客户端发起一个请求，然后服务端接收到这个请求之后，顶多可以通过HTTP的keep-alive这样的特性让这个连接保持一段时间不被关闭掉，但是一段时间之后如果客户端不再去给服务端发送更多的请求的话，这个连接就会被关闭掉了，所以HTTP本身是一种无状态的协议，一定是由客户端主动的发起这个请求，然后服务端去接收请求，接着服务端将响应返回给客户端；接着客户端再去发起新的请求，服务端再去处理再去将响应返回给前端；这对于传统HTTP1.0以及1.1的方式；现在HTTP2在很多浏览器内也逐渐开始提供长连接了）；</li>
+<li>但是对于WebSocket来说，WebSocket是目前为主最为成熟也是标准化的一种长连接的实现，WebSocket的实现方式其实是基于HTTP的；首先；客户端向服务端发起一个连接请求，连接一旦建立好之后，将这个连接upgrade升级成WebSocket的协议；WebSocket协议表现为ws；</li>
+<li>（比如说访问一个网站时通常都是http://… 或者是https://… 开头；而WebSocket即ws://… 开头后面接地址；如果带证书的话即wss://… 与https类似；）WebSocket特别适合于客户端与服务端需要保持双向，即全双工通信的这样一种场景，换种说法即实现服务端的推送；在WebSocket出现之前实现服务端的推送也有，但是这些技术其实都是假的推送；</li>
+<li>假的推送：（即轮询，客户端不断向服务端发起请求访问，比如说5s或者是10s等时间段间隔轮询发起一个请求判断服务端有没有相应的数据，如果没有的话则此次轮询结束，隔一段时间间隔之后再去发起请求）；这种轮询方式是非常不优雅的；因为大多数的轮询都是无意义无效果的；HTTP还有一个缺陷即在于每一次的请求响应都会带有HTTP的header，称之为头，然而绝大多数数据只占据了一小部分，在每一次请求响应数据当中，header部分倒是占据很了很多的网络流量，而真正所需要包当中的数据很少，即这实际上是一种非常不好的方式；</li>
+<li>然而WebSocket就完全解决了这样一种问题；即一旦客户端与服务端建立好连接之后，不管是服务端还是客户端都可以向对方进行推请求，即所谓全双工，即客户端与服务端都可以向对方进行推送数据，而且数据本身可以不带header，仅仅是包含真正需要的数据本身，这即WebSocket实现的一个优势；对于像手机端即移动端要实现的聊天应用，就需要长连接，那么使用WebSocket就属于一种比较好的一种实现方式；WebSocket适合用于手机端以及即时通信这样一种场景的；Netty对于WebSocket本身提供了非常完备的支持；通过若干个回调方法就可以比较好的去实现WebSocket这种长连接的通信；</li>
+</ul>
+</li>
+<li>WebSocket服务端与客户端开发</li>
+<li>RPC框架分析</li>
+<li>Google Protobuf使用方式分析（RPC重要框架）<ul>
+<li>可以实现异构平台之间的通信；比如说java作为客户端调用python的服务端，或者是Ruby的客户端调用java的服务端，这都是没有问题的；RPC框架模式都是比较类似的，不外乎是要去编写一个中间的文件称之为描述文件，然后通过框架提供的工具来自动去生成服务端和客户端的代码；接着服务端和客户端代码去编写相应的逻辑去调用自动生成的代码实现双向的通信，底层的通信都是由自动生成的代码去完成的；</li>
+</ul>
+</li>
+<li>Apache Thrift使用方式与文件编写方式分析（RPC重要框架）<ul>
+<li>可以实现异构平台之间的通信；</li>
+<li>用于在公司内网实现RPC的通信，也支持异构语言之间的通信，效率高，相比于传统HTTP方式效率高很多；</li>
+</ul>
+</li>
+<li>Netty大文件传送支持</li>
+<li>可扩展的事件模型</li>
+<li>Netty统一通信API</li>
+<li>零拷贝在Netty中的实现与支持</li>
+<li>TCP粘包与拆包分析<ul>
+<li>TCP本身都是通过包的方式，有可能出现两个包黏在一起了，或者是一个包拆成两个了，那么Netty对于这种情况是如何处理的；</li>
+</ul>
+</li>
+<li>NIO模型在Netty中的实现<ul>
+<li>NIO，非阻塞模型在Netty中的实现，这一点非常重要；NIO本身就是一个难以掌握的点，jdk在实现NIO这一块其实还是有些问题的，Netty通过它的包装或者一些封装屏蔽了底层的一些问题向上层暴露出来了更加友好以及更易于使用的接口。</li>
+</ul>
+</li>
+<li>Netty编解码开发技术</li>
+<li>Netty重要类与接口源代码剖析</li>
+<li>Channel分析<ul>
+<li>Channel在Netty中是一个非常重要的概念，可以认为Channel就是一条连接，跟客户端的Connection，通过Channel来进行数据的传递；</li>
+</ul>
+</li>
+<li>序列化讲解</li>
+</ul>
+<p><strong>JVM</strong></p>
+<p>介绍：JVM是一个令人望而却步的领域，因为它博大精深，涉及到的内容与知识点非常之多。<br>虽然Java开发者每天都在使用JVM，但对其所研究并且深入研究的人却少之又少。<br>然而，JVM的重要性却又是不言而喻的。<br>基于JVM的各种动态与静态语言生态圈已经异常繁荣了，对JVM的运行机制有一定的了解不但可以提升我们的竞争力，还可以让我们在面对问题时能够沉着应对，加速问题的解决速度；同时还能够增强我们的自信心，让我们更加游刃有余。</p>
+<ul>
+<li>JVM介绍</li>
+<li>HotSpot虚拟机讲解</li>
+<li>垃圾收集方式详解</li>
+<li>垃圾收集算法详解</li>
+<li>垃圾收集器详解</li>
+<li>分代垃圾收集机制详解</li>
+<li>新生代讲解</li>
+<li>老年代讲解</li>
+<li>G1收集器分析与实例<ul>
+<li>从jdk7引入的G1收集器，分析</li>
+</ul>
+</li>
+<li>常见且重要虚拟机参数示例</li>
+<li>栈</li>
+<li>方法区</li>
+<li>线程共享内存区</li>
+<li>根搜索算法</li>
+<li>Serial收集器</li>
+<li>ParNew收集器</li>
+<li>类加载机制详解</li>
+<li>类加载的双亲委托机制</li>
+<li>字节码文件生成与分析</li>
+<li>魔数<ul>
+<li>关于jdk字节码class文件的分析</li>
+</ul>
+</li>
+<li>常量池与方法表</li>
+<li>各种指令详解</li>
+<li>锁详解</li>
+<li>线程安全</li>
+<li>偏向锁、自旋锁与轻量级锁</li>
+<li>JIT编译器</li>
+<li>GC日志生成与分析</li>
+<li>虚拟机监控工具详解<ul>
+<li>jmat、jConsole…</li>
+</ul>
+</li>
+<li>jConsole使用方式详解</li>
+<li>何为逃逸与逃逸分析</li>
+<li>方法内联</li>
+<li>虚拟机内存模型详解</li>
+</ul>
+<p><strong>Node</strong></p>
+<p>介绍：在当下的互联网时代，Node的重要性已经不言而喻，诸多国内外的互联网公司都已经有大量的高性能系统运行在Node之上，Node凭借其单线程、异步等举措实现了极高的性能基准。<br>此外，目前最为流行的Web开发模式是前后端分离的形式，即前端开发者与后端开发者在自己喜欢的IDE上独立进行开发，<br>然后通过HTTP或是RPC等方式实现数据与流程的交互。<br>这种开发模式在Node的强大功能的引领下变得越来越搞笑，也越来越受到互联网公司的青睐。<br>在GitHub上搜索，你会看到与Node相关的项目始终呈现出火爆的态势，这也进一步证明了Node的巨大商业价值与技术价值。<br>因此，无论是前端开发者，还是传统的后台开发者，掌握Node已经是刻不容缓了。<br>而且，Node的完美搭档NPM也提供了异常丰富的工具包与框架供开发者使用。<br>学习Node应该是每一个对前端开发或是后端开发有追求的人所必须要做的事情。</p>
+<p>Node本身使用javaScript来进行编写的；<br>前后端不分离的模式比如JSP开发，毫无疑问，前端代码与后端代码肯定是耦合在一起的；第一点，即便使用各种标签，标签背后也是代码；标签只是代码的一种载体；标签可以认为是后端一些源代码的载体跟前端的html、css、js肯定是耦合在一起的；<br>第二点，前端一定得迁就着后端，因为是JSP开发所以肯定得在后端的IDE（idea、eclipse….）上进行开发，而前端如果想使用别的自己顺手的ide则比较麻烦，就肯定只能在后端的ide上进行开发；<br>第三点，开发完一个功能之后需要测试，测试就需要去启动后端服务，那么此时前端还需要去进行学习后端的那一套东西就非常麻烦了；<br>NPM可以看做是java当中的gradle以及maven，当然不是特别一样；</p>
+<ul>
+<li>Node的安装与配置，使用NPM</li>
+<li>使用nvm（Node Version Manager）来管理Node与npm<ul>
+<li>Node社区分裂史：有两拨人对Node的发展前景抱有不同的看法，其中一拨人从Node领域中走出来了，给Node包做了一个分支，这个新的分支叫做io.js，原来叫做Nodejs，所以后来Node和io这两拨人独自进行开发，从此变化就非常快了。后期Nodejs与iojs又复合在一起了，<code>https://nodejs.org/en/</code>；（Chrome的版本发展速度也很快）</li>
+<li>由于Node版本升级非常快，所以不可能在一台电脑上只装一个Node版本，因为Node安装完成之后再升级是一件非常痛苦的一件事情；所以可以使用工具nvm，可以在装任意多个Node版本；这也是相当于python的开发环境一样，通过python的一些包管理器来去在一台电脑上安装多个python的版本；</li>
+</ul>
+</li>
+<li>nvm配置与重要命令解读</li>
+<li>Node事件与回调机制<ul>
+<li>Node事件与回调机制、Node异步IO模型、Node的单线程模型这三个是了解Node的基本设计架构；</li>
+</ul>
+</li>
+<li>Node异步IO模型</li>
+<li>Node的单线程模型</li>
+<li>Node模块</li>
+<li>npm使用方式<ul>
+<li>npm除了能像maven、gradle一样做包管理器还提供了NPMScript这样的功能，可以从中编写脚本；</li>
+</ul>
+</li>
+<li>package.json详解</li>
+<li>全局安装与局部安装方式</li>
+<li>npm重要功能详解</li>
+<li>Node异步编程详解</li>
+<li>Node流分析</li>
+<li>输入与输出</li>
+<li>Node网络功能</li>
+<li>Node的控制台</li>
+<li>事件循环机制</li>
+<li>Node调试</li>
+<li>使用exports对象</li>
+<li>Node操纵文件系统详解</li>
+<li>Buffer详解</li>
+<li>Node的错误处理模型</li>
+<li>使用Node访问MongoDB</li>
+<li>使用Node访问MySQL</li>
+<li>使用Node访问Redis</li>
+<li>中间件详解</li>
+<li>Node Web服务器详解</li>
+<li>WebSocket在Node中的实现方式</li>
+<li>WebSocket数据传输</li>
+<li>SocketIO详解</li>
+<li>Express或KOA全功能详解（全方位讲解Node领域最为重要的Web框架）</li>
+</ul>
+<h2 id="lambda表达式初步与函数式接口"><a href="#lambda表达式初步与函数式接口" class="headerlink" title="lambda表达式初步与函数式接口"></a>lambda表达式初步与函数式接口</h2><h2 id="深入函数式接口与方法引用"><a href="#深入函数式接口与方法引用" class="headerlink" title="深入函数式接口与方法引用"></a>深入函数式接口与方法引用</h2><h2 id="lambda表达式深入与流初步"><a href="#lambda表达式深入与流初步" class="headerlink" title="lambda表达式深入与流初步"></a>lambda表达式深入与流初步</h2><h2 id="function接口详解"><a href="#function接口详解" class="headerlink" title="function接口详解"></a>function接口详解</h2><h2 id="function与bifunction函数式接口详解"><a href="#function与bifunction函数式接口详解" class="headerlink" title="function与bifunction函数式接口详解"></a>function与bifunction函数式接口详解</h2><h2 id="predicate深入剖析与函数式编程本质"><a href="#predicate深入剖析与函数式编程本质" class="headerlink" title="predicate深入剖析与函数式编程本质"></a>predicate深入剖析与函数式编程本质</h2><h2 id="supplier与函数式接口总结"><a href="#supplier与函数式接口总结" class="headerlink" title="supplier与函数式接口总结"></a>supplier与函数式接口总结</h2><h2 id="optional深入讲解"><a href="#optional深入讲解" class="headerlink" title="optional深入讲解"></a>optional深入讲解</h2><h2 id="方法引用详解"><a href="#方法引用详解" class="headerlink" title="方法引用详解"></a>方法引用详解</h2><h2 id="方法引用场景剖析与默认方法分析"><a href="#方法引用场景剖析与默认方法分析" class="headerlink" title="方法引用场景剖析与默认方法分析"></a>方法引用场景剖析与默认方法分析</h2><h2 id="stream介绍与操作方式详解"><a href="#stream介绍与操作方式详解" class="headerlink" title="stream介绍与操作方式详解"></a>stream介绍与操作方式详解</h2><h2 id="stream深度解析与源码实践"><a href="#stream深度解析与源码实践" class="headerlink" title="stream深度解析与源码实践"></a>stream深度解析与源码实践</h2><h2 id="stream实例剖析"><a href="#stream实例剖析" class="headerlink" title="stream实例剖析"></a>stream实例剖析</h2><h2 id="stream陷阱剖析"><a href="#stream陷阱剖析" class="headerlink" title="stream陷阱剖析"></a>stream陷阱剖析</h2><h2 id="内部迭代与外部迭代本质剖析及流本源分析"><a href="#内部迭代与外部迭代本质剖析及流本源分析" class="headerlink" title="内部迭代与外部迭代本质剖析及流本源分析"></a>内部迭代与外部迭代本质剖析及流本源分析</h2><h2 id="流的短路与并发流"><a href="#流的短路与并发流" class="headerlink" title="流的短路与并发流"></a>流的短路与并发流</h2><h2 id="stream分组与分区详解"><a href="#stream分组与分区详解" class="headerlink" title="stream分组与分区详解"></a>stream分组与分区详解</h2><h2 id="collector源码分析与收集器核心"><a href="#collector源码分析与收集器核心" class="headerlink" title="collector源码分析与收集器核心"></a>collector源码分析与收集器核心</h2><h2 id="collector同一性与结合性分析"><a href="#collector同一性与结合性分析" class="headerlink" title="collector同一性与结合性分析"></a>collector同一性与结合性分析</h2><h2 id="collector复合与注意事项"><a href="#collector复合与注意事项" class="headerlink" title="collector复合与注意事项"></a>collector复合与注意事项</h2><h2 id="收集器用法详解与多级分组和分区"><a href="#收集器用法详解与多级分组和分区" class="headerlink" title="收集器用法详解与多级分组和分区"></a>收集器用法详解与多级分组和分区</h2><h2 id="比较器详解与类型推断特例"><a href="#比较器详解与类型推断特例" class="headerlink" title="比较器详解与类型推断特例"></a>比较器详解与类型推断特例</h2><h2 id="比较器深入"><a href="#比较器深入" class="headerlink" title="比较器深入"></a>比较器深入</h2><h2 id="自定义收集器实现"><a href="#自定义收集器实现" class="headerlink" title="自定义收集器实现"></a>自定义收集器实现</h2><h2 id="自定义收集器深度剖析与并行流陷阱"><a href="#自定义收集器深度剖析与并行流陷阱" class="headerlink" title="自定义收集器深度剖析与并行流陷阱"></a>自定义收集器深度剖析与并行流陷阱</h2><h2 id="收集器枚举特性深度解析与并行流原理"><a href="#收集器枚举特性深度解析与并行流原理" class="headerlink" title="收集器枚举特性深度解析与并行流原理"></a>收集器枚举特性深度解析与并行流原理</h2><h2 id="collectors工厂类源码分析与实战"><a href="#collectors工厂类源码分析与实战" class="headerlink" title="collectors工厂类源码分析与实战"></a>collectors工厂类源码分析与实战</h2><h2 id="groupinby源码分析"><a href="#groupinby源码分析" class="headerlink" title="groupinby源码分析"></a>groupinby源码分析</h2><h2 id="partioningby与groupingbyconcurrent源码分析"><a href="#partioningby与groupingbyconcurrent源码分析" class="headerlink" title="partioningby与groupingbyconcurrent源码分析"></a>partioningby与groupingbyconcurrent源码分析</h2><h2 id="stream源码分析"><a href="#stream源码分析" class="headerlink" title="stream源码分析"></a>stream源码分析</h2><h2 id="stream与basestream源码分析"><a href="#stream与basestream源码分析" class="headerlink" title="stream与basestream源码分析"></a>stream与basestream源码分析</h2><h2 id="分割迭代器源码剖析"><a href="#分割迭代器源码剖析" class="headerlink" title="分割迭代器源码剖析"></a>分割迭代器源码剖析</h2><h2 id="分割迭代器与forkjoin详解"><a href="#分割迭代器与forkjoin详解" class="headerlink" title="分割迭代器与forkjoin详解"></a>分割迭代器与forkjoin详解</h2><h2 id="分割迭代器实现分析"><a href="#分割迭代器实现分析" class="headerlink" title="分割迭代器实现分析"></a>分割迭代器实现分析</h2><h2 id="ofprimitive与ofint实现原理剖析"><a href="#ofprimitive与ofint实现原理剖析" class="headerlink" title="ofprimitive与ofint实现原理剖析"></a>ofprimitive与ofint实现原理剖析</h2><h2 id="流源构造代码分析"><a href="#流源构造代码分析" class="headerlink" title="流源构造代码分析"></a>流源构造代码分析</h2><h2 id="referencepipeline与abstractpipeline源码深度解读"><a href="#referencepipeline与abstractpipeline源码深度解读" class="headerlink" title="referencepipeline与abstractpipeline源码深度解读"></a>referencepipeline与abstractpipeline源码深度解读</h2><h2 id="iteratorspliterator与流源操作方式详解"><a href="#iteratorspliterator与流源操作方式详解" class="headerlink" title="iteratorspliterator与流源操作方式详解"></a>iteratorspliterator与流源操作方式详解</h2><h2 id="流调用机制与原理大揭秘"><a href="#流调用机制与原理大揭秘" class="headerlink" title="流调用机制与原理大揭秘"></a>流调用机制与原理大揭秘</h2><h2 id="sink与opwrapsink源码解读"><a href="#sink与opwrapsink源码解读" class="headerlink" title="sink与opwrapsink源码解读"></a>sink与opwrapsink源码解读</h2><h2 id="terminalop源码分析与终止操作层次体系"><a href="#terminalop源码分析与终止操作层次体系" class="headerlink" title="terminalop源码分析与终止操作层次体系"></a>terminalop源码分析与终止操作层次体系</h2><h2 id="流延迟求值底层分析与sink连接机制揭秘"><a href="#流延迟求值底层分析与sink连接机制揭秘" class="headerlink" title="流延迟求值底层分析与sink连接机制揭秘"></a>流延迟求值底层分析与sink连接机制揭秘</h2><h2 id="stream中间操作与终止操作层次体系分析与设计思想剖析"><a href="#stream中间操作与终止操作层次体系分析与设计思想剖析" class="headerlink" title="stream中间操作与终止操作层次体系分析与设计思想剖析"></a>stream中间操作与终止操作层次体系分析与设计思想剖析</h2><h2 id="joda项目介绍与实战"><a href="#joda项目介绍与实战" class="headerlink" title="joda项目介绍与实战"></a>joda项目介绍与实战</h2><h2 id="java8全新日期与时间api详解与utc介绍"><a href="#java8全新日期与时间api详解与utc介绍" class="headerlink" title="java8全新日期与时间api详解与utc介绍"></a>java8全新日期与时间api详解与utc介绍</h2><h2 id="java8全新日期与时间api实战"><a href="#java8全新日期与时间api实战" class="headerlink" title="java8全新日期与时间api实战"></a>java8全新日期与时间api实战</h2>
+      
+    </div>
+    
+    
+    
+
+
+
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>深入理解java8📝</a></p>
+  <p><span>文章作者:</span>Fsn✨🧙‍♀️✨</a></p>
+  <p><span>发布时间:</span>2020年06月11日 - 23:48:50🌞</p>
+  <p><span>最后更新:</span>2020年06月15日 - 12:29:07🌜</p>
+  <p><span>原始链接:</span><a href="/2020/06/11/%E3%80%90JDK8%E3%80%91/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java8/" title="深入理解java8">https://fengshana.github.io/2020/06/11/%E3%80%90JDK8%E3%80%91/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java8/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/06/11/%E3%80%90JDK8%E3%80%91/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java8/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。🎄	</p>  
+</div>
+<style>
+</style>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        //swal({   
+          //title: "",   
+         // text: '<div style="width:300px;height:100px;font-size:14px;">道友，复制成功了哟(＾Ｕ＾)ノ~</div>',   
+          //html: true,
+          //timer: 500,   
+        //showConfirmButton: false
+        //});
+      });
+      new ClipboardJS('.fa-clipboard', {
+          target: function(trigger) {
+              $('<div>').appendTo('body').addClass('alert alert-success').html('🤠道友ᕦ(･ㅂ･)ᕤ，🥭复制成功了哟(^_−)☆').show().delay(1500).fadeOut();
+              return trigger.nextElementSibling;
+            }
+      });
+    }));  
+</script>
+
+
+    
+</div>
+
+
+
+    
+
+
+
+
+
+
+
+
+<div>
+  
+    <div>
+    
+        <br/>
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------🍓🍇本文结束🤞感谢道友的阅读🍍🍒-------------</div>
+    
+</div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>🥕🍆坚持原创技术分享🐳，🌽🥬您的支持将鼓励我继续创作！🐬</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatreward.png" alt="Fsn✨🧙‍♀️✨ 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipayreward.png" alt="Fsn✨🧙‍♀️✨ 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags" style="text-align:center">
+          
+            <a href="/tags/jdk8/" rel="tag">🌟jdk8</i></a>
+          
+            <a href="/tags/java/" rel="tag">🌟java</i></a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/11/%E3%80%90MongoDB%E3%80%91/java%E5%BF%85%E5%A4%87%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B-MongoDB%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8%E5%88%B0%E9%AB%98%E7%BA%A7%E8%BF%9B%E9%98%B6/" rel="next" title="java必备基础教程-MongoDB基础入门到高级进阶">
+                👈 java必备基础教程-MongoDB基础入门到高级进阶
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/16/%E3%80%90Gradle%E3%80%91/Gradle%E5%85%A5%E9%97%A8/" rel="prev" title="Gradle入门">
+                Gradle入门 👉
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80ODk3My8yNTQ2Nw=="></div>
+    </div>
+
+  
+  
+  
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/fsn.jpg"
+                alt="Fsn✨🧙‍♀️✨" />
+            
+              <p class="site-author-name" itemprop="name">Fsn✨🧙‍♀️✨</p>
+              <p class="site-description motion-element" itemprop="description">🌈勿忘初心💫 🌞，🌜方得始终⭐</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <!--<a href="/archives/%7C%7Carchive">-->
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">153</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">83</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/fengshana" target="_blank" title="GitHub">
+                      
+                        <i 
+
+                          
+                          class="fa fa-fw fa-github">
+                          
+                         
+                        
+                        </i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/475144966" target="_blank" title="Bilibili">
+                      
+                        <i 
+
+                          
+                            class="">🏃‍♂️
+                          
+                         
+                        
+                        </i>Bilibili</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA8新特性课程介绍"><span class="nav-number">2.</span> <span class="nav-text">JAVA8新特性课程介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA8新特性课程介绍续"><span class="nav-number">3.</span> <span class="nav-text">JAVA8新特性课程介绍续</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda表达式初步与函数式接口"><span class="nav-number">4.</span> <span class="nav-text">lambda表达式初步与函数式接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入函数式接口与方法引用"><span class="nav-number">5.</span> <span class="nav-text">深入函数式接口与方法引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lambda表达式深入与流初步"><span class="nav-number">6.</span> <span class="nav-text">lambda表达式深入与流初步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function接口详解"><span class="nav-number">7.</span> <span class="nav-text">function接口详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#function与bifunction函数式接口详解"><span class="nav-number">8.</span> <span class="nav-text">function与bifunction函数式接口详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#predicate深入剖析与函数式编程本质"><span class="nav-number">9.</span> <span class="nav-text">predicate深入剖析与函数式编程本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#supplier与函数式接口总结"><span class="nav-number">10.</span> <span class="nav-text">supplier与函数式接口总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#optional深入讲解"><span class="nav-number">11.</span> <span class="nav-text">optional深入讲解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法引用详解"><span class="nav-number">12.</span> <span class="nav-text">方法引用详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法引用场景剖析与默认方法分析"><span class="nav-number">13.</span> <span class="nav-text">方法引用场景剖析与默认方法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream介绍与操作方式详解"><span class="nav-number">14.</span> <span class="nav-text">stream介绍与操作方式详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream深度解析与源码实践"><span class="nav-number">15.</span> <span class="nav-text">stream深度解析与源码实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream实例剖析"><span class="nav-number">16.</span> <span class="nav-text">stream实例剖析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream陷阱剖析"><span class="nav-number">17.</span> <span class="nav-text">stream陷阱剖析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部迭代与外部迭代本质剖析及流本源分析"><span class="nav-number">18.</span> <span class="nav-text">内部迭代与外部迭代本质剖析及流本源分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流的短路与并发流"><span class="nav-number">19.</span> <span class="nav-text">流的短路与并发流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream分组与分区详解"><span class="nav-number">20.</span> <span class="nav-text">stream分组与分区详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collector源码分析与收集器核心"><span class="nav-number">21.</span> <span class="nav-text">collector源码分析与收集器核心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collector同一性与结合性分析"><span class="nav-number">22.</span> <span class="nav-text">collector同一性与结合性分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collector复合与注意事项"><span class="nav-number">23.</span> <span class="nav-text">collector复合与注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收集器用法详解与多级分组和分区"><span class="nav-number">24.</span> <span class="nav-text">收集器用法详解与多级分组和分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较器详解与类型推断特例"><span class="nav-number">25.</span> <span class="nav-text">比较器详解与类型推断特例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比较器深入"><span class="nav-number">26.</span> <span class="nav-text">比较器深入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义收集器实现"><span class="nav-number">27.</span> <span class="nav-text">自定义收集器实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义收集器深度剖析与并行流陷阱"><span class="nav-number">28.</span> <span class="nav-text">自定义收集器深度剖析与并行流陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#收集器枚举特性深度解析与并行流原理"><span class="nav-number">29.</span> <span class="nav-text">收集器枚举特性深度解析与并行流原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#collectors工厂类源码分析与实战"><span class="nav-number">30.</span> <span class="nav-text">collectors工厂类源码分析与实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#groupinby源码分析"><span class="nav-number">31.</span> <span class="nav-text">groupinby源码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#partioningby与groupingbyconcurrent源码分析"><span class="nav-number">32.</span> <span class="nav-text">partioningby与groupingbyconcurrent源码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream源码分析"><span class="nav-number">33.</span> <span class="nav-text">stream源码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream与basestream源码分析"><span class="nav-number">34.</span> <span class="nav-text">stream与basestream源码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割迭代器源码剖析"><span class="nav-number">35.</span> <span class="nav-text">分割迭代器源码剖析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割迭代器与forkjoin详解"><span class="nav-number">36.</span> <span class="nav-text">分割迭代器与forkjoin详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分割迭代器实现分析"><span class="nav-number">37.</span> <span class="nav-text">分割迭代器实现分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ofprimitive与ofint实现原理剖析"><span class="nav-number">38.</span> <span class="nav-text">ofprimitive与ofint实现原理剖析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流源构造代码分析"><span class="nav-number">39.</span> <span class="nav-text">流源构造代码分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#referencepipeline与abstractpipeline源码深度解读"><span class="nav-number">40.</span> <span class="nav-text">referencepipeline与abstractpipeline源码深度解读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iteratorspliterator与流源操作方式详解"><span class="nav-number">41.</span> <span class="nav-text">iteratorspliterator与流源操作方式详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流调用机制与原理大揭秘"><span class="nav-number">42.</span> <span class="nav-text">流调用机制与原理大揭秘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sink与opwrapsink源码解读"><span class="nav-number">43.</span> <span class="nav-text">sink与opwrapsink源码解读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#terminalop源码分析与终止操作层次体系"><span class="nav-number">44.</span> <span class="nav-text">terminalop源码分析与终止操作层次体系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流延迟求值底层分析与sink连接机制揭秘"><span class="nav-number">45.</span> <span class="nav-text">流延迟求值底层分析与sink连接机制揭秘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stream中间操作与终止操作层次体系分析与设计思想剖析"><span class="nav-number">46.</span> <span class="nav-text">stream中间操作与终止操作层次体系分析与设计思想剖析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#joda项目介绍与实战"><span class="nav-number">47.</span> <span class="nav-text">joda项目介绍与实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java8全新日期与时间api详解与utc介绍"><span class="nav-number">48.</span> <span class="nav-text">java8全新日期与时间api详解与utc介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java8全新日期与时间api实战"><span class="nav-number">49.</span> <span class="nav-text">java8全新日期与时间api实战</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+
+      
+<script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+<div class="widget-wrap">
+    <div id="myCanvasContainer" class="widget tagcloud">
+        <canvas width="300" height="300" id="resCanvas" style="width=100%; background-color:transparent;">
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ArrayList/" rel="tag">ArrayList</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B-%E6%A0%91/" rel="tag">B+树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/B%E6%A0%91/" rel="tag">B树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CORS/" rel="tag">CORS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%B7%A5%E4%BD%9C%E6%B5%81/" rel="tag">Git工作流</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/" rel="tag">Gradle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HASH%E8%A1%A8/" rel="tag">HASH表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HashMap/" rel="tag">HashMap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">JVM虚拟机</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/" rel="tag">LeetCode</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MICROSERVICES/" rel="tag">MICROSERVICES</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/" rel="tag">MySql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql%E7%B4%A2%E5%BC%95/" rel="tag">MySql索引</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle/" rel="tag">Oracle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PayPal/" rel="tag">PayPal</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ/" rel="tag">RabbitMQ</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RabbitMQ%E5%AE%9E%E6%88%98%E6%8C%87%E5%8D%97/" rel="tag">RabbitMQ实战指南</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/" rel="tag">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/" rel="tag">Redis设计与实现</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SendGrid/" rel="tag">SendGrid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SprigBoot/" rel="tag">SprigBoot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95/" rel="tag">Spring技术内幕</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sql/" rel="tag">Sql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vuejs/" rel="tag">Vuejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/" rel="tag">docker</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/" rel="tag">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javaScript/" rel="tag">javaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk8/" rel="tag">jdk8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motto/" rel="tag">motto</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/oss/" rel="tag">oss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/" rel="tag">redis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/springboot/" rel="tag">springboot</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/synchronized/" rel="tag">synchronized</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/" rel="tag">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%B2/" rel="tag">串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8B%E5%8A%A1/" rel="tag">事务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="tag">二叉树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666/" rel="tag">信666</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1666%E5%B7%A5%E4%BD%9C%E4%BA%A4%E6%8E%A5/" rel="tag">信666工作交接</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F/" rel="tag">分布式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%86%E9%A1%B5/" rel="tag">分页</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="tag">前端面试题</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%8C%E8%89%B2%E7%90%83/" rel="tag">双色球</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8F%A3%E8%AF%AD/" rel="tag">口语</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE/" rel="tag">图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" rel="tag">存储过程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag">微信</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7/" rel="tag">微信公众号</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81/" rel="tag">心态</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%80%81%E8%AF%BE%E7%A8%8B/" rel="tag">心态课程</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BF%83%E6%83%85/" rel="tag">心情</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag">操作系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%94%AF%E4%BB%98/" rel="tag">支付</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96/" rel="tag">数据库优化</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag">数据结构</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9F%A5%E6%89%BE/" rel="tag">查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97/" rel="tag">栈与队列</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%91/" rel="tag">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B5%81%E7%A8%8B%E5%9B%BE/" rel="tag">流程图</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%A7%A3%E5%88%86%E6%9E%90/" rel="tag">理解分析</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2%E5%AD%A6%E4%B9%A0/" rel="tag">理财学习</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%B4%E6%92%AD/" rel="tag">直播</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%8E%A5%E7%8F%AD%E4%BA%BA/" rel="tag">社会主义接班人</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/" rel="tag">红黑树</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/" rel="tag">线性表</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%93%E5%AD%98/" rel="tag">缓存</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%8D%E6%B1%87/" rel="tag">词汇</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1/" rel="tag">邮件服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%94%81/" rel="tag">锁</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%86%E8%B5%AB/" rel="tag">领赫</a><span class="tag-list-count">11</span></li></ul>
+        </canvas>
+    </div>
+</div>
+
+
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">🌱2019 🍄 🌳
+
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+  <!--user-->
+    🍉
+  </span>
+ 
+ <span class="author" itemprop="copyrightHolder">Fsn✨🧙‍♀️✨</span>
+
+  
+
+
+
+
+
+  <script async src="http://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+ 
+     🏃‍♂️ 
+    <span class="post-meta-item-icon">
+      📈
+    </span>
+    
+      <span class="post-meta-item-text">小屋💒总字数：</span>
+    
+	<span title="Site words total count">
+     596.8k🌟 </span>
+    <!--<span title="symbols_count_time.count_total">1.2m</span>-->
+  
+</div>
+
+
+
+  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>-->
+
+
+
+
+
+
+<!--
+
+
+
+ -->
+ 
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-beta.2/lazyload.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/js/src/exturl.js?v=5.1.4"></script>
+
+
+  
+  
+  
+  <!-- 
+  
+  -->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  <!-- 代码块复制功能    <script src="dist/clipboard.min.js"></script>-->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+  
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300,"hOffset":250,"vOffset":-10},"mobile":{"show":false},"log":false,"tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!--崩溃欺骗 <script type="text/javascript" src="/js/src/crash_cheat.js"></script> -->
+
+
+
+
