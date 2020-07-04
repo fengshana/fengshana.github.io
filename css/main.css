@@ -1025,7 +1025,7 @@ pre .javascript .function {
 .pagination .prev:hover,
 .pagination .next:hover,
 .pagination .page-number:hover {
-  border-top-color: #222;
+  border-top-color: #6db33f;
 }
 .pagination .space {
   padding: 0;
@@ -1039,8 +1039,8 @@ pre .javascript .function {
 }
 .pagination .page-number.current {
   color: #fff;
-  background: #ccc;
-  border-top-color: #ccc;
+  background: #6db33f;
+  border-top-color: #efefef;
 }
 @media (max-width: 767px) {
   .pagination {
@@ -1068,8 +1068,21 @@ pre .javascript .function {
 }
 .tag-cloud a {
   display: inline-block;
-  margin: 10px;
-  color: #9a3baf;
+  margin-top: 10px;
+  letter-spacing: 0.4px;
+  opacity: 0.7;
+  position: relative;
+  width: 135px;
+  margin-left: 40px;
+  font-weight: 500;
+  font-family: 'Josefin Sans', 'PingFang SC';
+  border-bottom: none !important;
+}
+.tag-cloud a:before {
+  font-family: FontAwesome;
+  content: "\f02e";
+  margin-right: 0.4em;
+  color: #6db33f;
 }
 .back-to-top {
   box-sizing: border-box;
@@ -1534,7 +1547,17 @@ pre .javascript .function {
   padding: 3px;
 }
 .posts-expand .post-meta .post-category-list-link {
-  color: #999;
+  content: "\f005";
+  margin-right: 0.4em;
+  color: #6db33f;
+  font-family: FontAwesome !important;
+  width: 1.28571429em;
+  text-align: center;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 .posts-expand .post-meta .post-description {
   font-size: 14px;
@@ -2127,7 +2150,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #65d554;
+  background: #5ca34e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2620,8 +2643,8 @@ img:hover {
   padding: 5px;
   height: 36px;
   background: #f5f5f5;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .local-search-popup #local-search-result {
   overflow: auto;
