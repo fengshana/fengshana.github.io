@@ -129,7 +129,7 @@
 <meta property="og:description" content="前言查阅了很多的如何学习Redis；发现很多人推荐了这本书《Redis设计与实现》（黄健宏著）   于是，我想看了；一口气吃不成一个胖子；我觉得多看书还挺好的；对技术充满敬畏。突然有一种肃然起敬的感觉。不知道为什么。我不想再这么浅显的过着，平庸乏味，单薄，好像仔细一想就能看透我这一生的轨迹。我不想这么活着。我得有自己的信念，得有自己所坚持所热爱所为之奋斗一生的东西。我不想，到一定年龄结婚生子，到一">
 <meta property="og:image" content="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/77*vVVRezgLHv1IgDy5xmem*d9NSE8RCFnucLf0oxXU!/r/dDUBAAAAAAAA">
 <meta property="article:published_time" content="2020-05-11T12:26:03.085Z">
-<meta property="article:modified_time" content="2020-06-05T17:54:26.220Z">
+<meta property="article:modified_time" content="2020-07-09T08:59:15.799Z">
 <meta property="article:author" content="✨🧙‍♀️✨">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Redis">
@@ -426,7 +426,7 @@ WIDGET = {FID: 'o6km9Rzhmn'}
               
                 <span class="post-meta-item-text"></span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-06-06T01:54:26+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2020-07-09T16:59:15+08:00">
                 
               </time>
             
@@ -478,7 +478,7 @@ WIDGET = {FID: 'o6km9Rzhmn'}
           
             <div class="post-gallery-row">
               <a class="post-gallery-img fancybox"
-                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/77*vVVRezgLHv1IgDy5xmem*d9NSE8RCFnucLf0oxXU!/r/dDUBAAAAAAAA" rel="gallery_ckc77wjlu000l3kumglu57kf3"
+                 href="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/77*vVVRezgLHv1IgDy5xmem*d9NSE8RCFnucLf0oxXU!/r/dDUBAAAAAAAA" rel="gallery_ckcgakk1y000tewum5fpcfnkd"
                  itemscope itemtype="http://schema.org/ImageObject" itemprop="url">
                 <img src="http://r.photo.store.qq.com/psb?/V11rBmNJ3yquRc/77*vVVRezgLHv1IgDy5xmem*d9NSE8RCFnucLf0oxXU!/r/dDUBAAAAAAAA" itemprop="contentUrl"/>
               </a>
@@ -500,14 +500,6 @@ WIDGET = {FID: 'o6km9Rzhmn'}
 <li>由资深 Redis 技术专家撰写，深入了解 Redis 技术聂牧的必读之作。</li>
 <li>从源码角度解析 Redis 的架构设计、实现原理和工作机制，为高效使用 Redis 提供原理性指导。  </li>
 </ul>
-<blockquote>
-<p>design</p>
-</blockquote>
-<p>[<br>  n. 设计；构思；设计图样；装饰图案；打算<br>  v. 设计；构思；计划；制造；意欲<br>  n.(Design) (巴、印、俄)迪赛（人名）<br>  复数 designs；<br>  过去式 designed；<br>  过去分词 designed；<br>  现在分词 designing；<br>  第三人称单数 designs；<br>  网络释义 设计、外观设计、图案、工艺特色<br>  design 设计；外观设计；图案；工艺特色<br>  Fashion Design 时装设计；时尚设计；服装设计；服装设计专业<br>  urban design 城市设计；城区设计；都市设计；城市化规划<br>]</p>
-<blockquote>
-<p>implementation</p>
-</blockquote>
-<p>[<br>  n.[ 计] 实现；履行；安装启用<br>  网络释义 实现；实施；实现；执行<br>  implementation 实现；实施；实现；执行<br>  base implementation 基实现<br>  policy implementation 政策实施；政策执行；政策的实施；政策执行<br>]</p>
 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>本书全面而完整的讲解了 Redis 的 内部机制 与 实现方式。  </p>
 <p>对 Redis 的大多数单机功能以及所有多机功能的实现原理进行了介绍。  </p>
 <p>展示了这些功能的 核心数据结构 以及 关键的算法思想 ， 图示丰富，描述清晰，并给出大量参考信息。  </p>
@@ -530,6 +522,19 @@ WIDGET = {FID: 'o6km9Rzhmn'}
 </ol>
 <p>对 Redis 中各个相对独立的功能模块进行了介绍，涉及 发布与订阅、事务、Lua脚本、排序、二进制位数组、慢查询日志、监视器等。  </p>
 <p>本书作者专门维护了 <a href="http://www.redisbook.com" target="_blank" rel="noopener">www.redisbook.com</a> 网站，提供带有详细注释的 Redis源码，以及本书相关的更新内容。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>本书对  Redis 的大多数 单机功能 以及所有 多机功能 的 实现原理 进行了介绍，力图展示这些功能的 核心数据结构 以及关键的 算法思想。</p>
+<p>通过阅读本书，读者可以快速、有效地了解 Redis的内部构造 以及 运作机制，这些只是可以帮助读者更好地、也更高效地使用 Redis。</p>
+<p>为了让本书的内容保持简单并且容易读懂，本书会尽量以高层次的角度来对 Redis的实现原理 进行描述，如果读者只是对 Redis的实现原理 感兴趣，但并不想研究Redis的源代码，那么阅读本书就足够了。</p>
+<p>另一方面，如果读者打算深入了解 Redis实现原理的底层细节，本书在 RedisBook.com 提供了一份带有详细注释的 Redis源代码，读者可以先阅读本书对某一功能的介绍，然后再阅读该功能对应的实现代码，这有助于读者更快地读懂实现代码，也有助于读者更深入地了解该功能的实现原理。</p>
+<h3 id="Redis版本说明"><a href="#Redis版本说明" class="headerlink" title="Redis版本说明"></a>Redis版本说明</h3><p>本书是基于 Redis2.9——也即是 Redis3.0的开发版来编写的，因为 Redis3.0的更新主要与 Redis的多机功能 有关，而 Redis3.0的 单机功能 则与 Redis2.6、Redis2.8的单机功能基本相同，所以本书的内容对于使用 Redis2.6至 Redis3.0的读者来说应该都是有用的。</p>
+<p>另外，因为 Redis 通常都是 渐进地增加新功能，并且很少会大幅地修改已有的功能，所以本书的大部分内容对于Redis3.0之后的几个版本来说，应该也是有用的。</p>
+<h3 id="章节编排"><a href="#章节编排" class="headerlink" title="章节编排"></a>章节编排</h3><p>本书由 “数据结构与对象”、“单机数据库的实现”、“多机数据库的实现”、“独立功能的实现”四个部分组成。</p>
+<h3 id="第一部分-“数据结构与对象”"><a href="#第一部分-“数据结构与对象”" class="headerlink" title="第一部分 “数据结构与对象”"></a>第一部分 “数据结构与对象”</h3><p>Redis 数据库库里面的每个键值对（key-value pair）都是由对象（object）组成的，其中：  </p>
+<ul>
+<li>数据库键 总是一个 字符串对象（string object）；</li>
+<li>而 数据库键的值 则可以是 字符串对象、列表对象（list object）、哈希对象（hash object）、集合对象（set object）、有序集合对象（sorted set object）这五种对象中的其中一种。</li>
+</ul>
+<p>比如说，执行一下命令将在数据库中创建一个键为 字符串对象，值 也为 字符串对象的 键值对：</p>
 
       
     </div>
@@ -553,7 +558,7 @@ WIDGET = {FID: 'o6km9Rzhmn'}
   <p><span>本文标题:</span>Redis设计与实现📝</a></p>
   <p><span>文章作者:</span>✨🧙‍♀️✨</a></p>
   <p><span>发布时间:</span>2020年05月11日 - 20:26:03🌞</p>
-  <p><span>最后更新:</span>2020年06月06日 - 01:54:26🌜</p>
+  <p><span>最后更新:</span>2020年07月09日 - 16:59:15🌜</p>
   <p><span>原始链接:</span><a href="/2020/05/11/%E3%80%90Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E3%80%91/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/" title="Redis设计与实现">https://fengshana.github.io/2020/05/11/%E3%80%90Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E3%80%91/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://fengshana.github.io/2020/05/11/%E3%80%90Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%E3%80%91/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B001/"  aria-label="复制成功！"></i></span>
   </p>
@@ -897,6 +902,37 @@ WIDGET = {FID: 'o6km9Rzhmn'}
 
           
           
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title" style="color:white;">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接💦
+              </div>
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+			  
+                
+
+				  <span class="links-of-blogroll-item">
+                    <a href="http://ruiyeclub.cn" title="chenrui" target="_blank">chenrui</a>
+					 </span>
+                
+
+                
+				
+				
+			  
+			  
+			  
+			  
+			  
+			  
+            </div>
+          
 
           
 
@@ -913,7 +949,7 @@ WIDGET = {FID: 'o6km9Rzhmn'}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Design-and-Implementation-of-Redis（Redis设计与实现）"><span class="nav-number">2.</span> <span class="nav-text">The Design and Implementation of Redis（Redis设计与实现）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.</span> <span class="nav-text">介绍</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Design-and-Implementation-of-Redis（Redis设计与实现）"><span class="nav-number">2.</span> <span class="nav-text">The Design and Implementation of Redis（Redis设计与实现）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">3.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">4.</span> <span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis版本说明"><span class="nav-number">4.1.</span> <span class="nav-text">Redis版本说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#章节编排"><span class="nav-number">4.2.</span> <span class="nav-text">章节编排</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第一部分-“数据结构与对象”"><span class="nav-number">4.3.</span> <span class="nav-text">第一部分 “数据结构与对象”</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -963,7 +999,7 @@ WIDGET = {FID: 'o6km9Rzhmn'}
       <span class="post-meta-item-text">小屋💒总字数：</span>
     
 	<span title="Site words total count">
-     605.8k🌟 </span>
+     606.2k🌟 </span>
     <!--<span title="symbols_count_time.count_total">1.2m</span>-->
   
 </div>
